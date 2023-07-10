@@ -1,0 +1,88 @@
+{
+    "values": [
+        {
+            "$type": "{5B03C8E6-8CEE-4DA0-A7FA-CD88689DD45B} MeshGroup",
+            "id": "{8CB9A6FE-7245-5B2F-81F9-40BC9552E43B}",
+            "name": "ConveyorBelt_effector",
+            "NodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.ConveyorBelt_effector1",
+                    "RootNode.ConveyorBelt_effector1.transform",
+                    "RootNode.ConveyorBelt_effector1.custom_properties",
+                    "RootNode.ConveyorBelt_effector1.UVMap",
+                    "RootNode.ConveyorBelt_effector1.MFrame"
+                ]
+            },
+            "export method": 1,
+            "PhysicsMaterialSlots": {
+                "Slots": [
+                    {
+                        "Name": "MFrame",
+                        "MaterialAsset": {
+                            "assetId": {
+                                "guid": "{53B330C3-1CA5-5948-9461-ABB97663D456}",
+                                "subId": 1
+                            },
+                            "assetHint": "assets/factory/conveyorline/conveyor.physicsmaterial"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "ConveyorBelt_effector",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.ConveyorBelt_effector1",
+                    "RootNode.ConveyorBelt_effector1.transform",
+                    "RootNode.ConveyorBelt_effector1.custom_properties",
+                    "RootNode.ConveyorBelt_effector1.UVMap",
+                    "RootNode.ConveyorBelt_effector1.MFrame"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "MaterialRule"
+                    }
+                ]
+            },
+            "id": "{EF775872-953F-5658-B5CD-84FFD540A594}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_ConveyorBelt_effector_CB384CBE_EF7A_5C86_A483_CE39D126478C_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.ConveyorBelt_effector1"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{CB384CBE-EF7A-5C86-A483-CE39D126478C}"
+        },
+        {
+            "$type": "PrefabGroup",
+            "name": "Assets/Factory/ConveyorLine/ConveyorBelt_effector_fbx.procprefab",
+            "id": "{D615E2FC-D4AA-5CF2-935E-4C976F2B4E37}"
+        }
+    ]
+}

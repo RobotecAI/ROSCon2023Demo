@@ -1,0 +1,88 @@
+{
+    "values": [
+        {
+            "$type": "{5B03C8E6-8CEE-4DA0-A7FA-CD88689DD45B} MeshGroup",
+            "id": "{9D728F2B-F3DA-5E03-A9BF-CAF463A16FF1}",
+            "name": "ConveyorBelt_guards_segment",
+            "NodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.ConveyorBelt_guards_segment",
+                    "RootNode.ConveyorBelt_guards_segment.transform",
+                    "RootNode.ConveyorBelt_guards_segment.custom_properties",
+                    "RootNode.ConveyorBelt_guards_segment.UVMap",
+                    "RootNode.ConveyorBelt_guards_segment.MFrame"
+                ]
+            },
+            "export method": 1,
+            "PhysicsMaterialSlots": {
+                "Slots": [
+                    {
+                        "Name": "MFrame",
+                        "MaterialAsset": {
+                            "assetId": {
+                                "guid": "{F27B41FB-6066-56C7-8822-000E467A448A}",
+                                "subId": 1
+                            },
+                            "assetHint": "assets/factory/conveyorline/conveyor_guards.physicsmaterial"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "ConveyorBelt_guards_segment",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.ConveyorBelt_guards_segment",
+                    "RootNode.ConveyorBelt_guards_segment.transform",
+                    "RootNode.ConveyorBelt_guards_segment.custom_properties",
+                    "RootNode.ConveyorBelt_guards_segment.UVMap",
+                    "RootNode.ConveyorBelt_guards_segment.MFrame"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "MaterialRule"
+                    }
+                ]
+            },
+            "id": "{DEEEDE03-1918-5D71-8BF8-C23DE9FB8255}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_ConveyorBelt_guards_segment_BAFC5697_1D73_5E8C_BDDD_AE3EC74E4FBC_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.ConveyorBelt_guards_segment"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{BAFC5697-1D73-5E8C-BDDD-AE3EC74E4FBC}"
+        },
+        {
+            "$type": "PrefabGroup",
+            "name": "Assets/Factory/ConveyorLine/ConveyorBelt_guards_segment_fbx.procprefab",
+            "id": "{86A52A3E-4811-5AAB-B036-86B017F6E314}"
+        }
+    ]
+}

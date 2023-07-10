@@ -1,0 +1,78 @@
+{
+    "values": [
+        {
+            "$type": "{5B03C8E6-8CEE-4DA0-A7FA-CD88689DD45B} MeshGroup",
+            "id": "{68707F86-D246-5766-996B-3028ACF7DF78}",
+            "name": "EuroPallet",
+            "NodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.Pallet"
+                ]
+            },
+            "export method": 1,
+            "PhysicsMaterialSlots": {
+                "Slots": [
+                    {
+                        "Name": "Pallet"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "EuroPallet",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    {},
+                    "RootNode",
+                    "RootNode.Pallet"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "StaticMeshAdvancedRule",
+                        "vertexColorStreamName": "Col0"
+                    },
+                    {
+                        "$type": "MaterialRule"
+                    }
+                ]
+            },
+            "id": "{298E567A-30D9-55E0-A25F-A402BC3DB616}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_EuroPallet_891B819B_706F_596F_8FD1_04C894DEB906_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.Pallet"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{891B819B-706F-596F-8FD1-04C894DEB906}"
+        },
+        {
+            "$type": "PrefabGroup",
+            "name": "Assets/Factory/ConveyorLine/EuroPallet_fbx.procprefab",
+            "id": "{282BA104-DA1A-5088-85E9-D659713FD1D1}"
+        }
+    ]
+}

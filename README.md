@@ -11,10 +11,10 @@ The integration is realized through [ROS 2 Gem](https://github.com/o3de/o3de-ext
 <img src="media/view2.png" width="640">
 
 ## The project includes
-- **Scenery** imported created using a [Warehouse project template](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/#ros-2-project-templates)
-- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR10 cobot .  
-- **AMRs** instatinated prefabs of Proteus AMR robot from [ProteusRobot Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/ProteusRobot)
-- **Boxes** that are transported using conveyor belts and are to be paletized
+- **Scenery** created using a [Warehouse project template](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/#ros-2-project-templates)
+- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR10 collaborative robot .  
+- **AMRs** instantiated prefabs of Proteus AMR robot from [ProteusRobot Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/ProteusRobot)
+- **Boxes** that are transported using conveyor belts and are to be palletized
 
 ## Platforms
 

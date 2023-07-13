@@ -17,7 +17,6 @@
                 "Child Entity Order": [
                     "Entity_[381763642777368]",
                     "Entity_[381746462908184]",
-                    "Instance_[66529350337790]/ContainerEntity",
                     "Instance_[317133007780767]/ContainerEntity"
                 ]
             },
@@ -1045,14 +1044,14 @@
             "Id": "Entity_[381677743431448]",
             "Name": "ShortLine",
             "Components": {
-                "ConveyorBeltComponentKinematic": {
+                "ConveyorBeltComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 17087786379130785940,
+                    "Id": 18170834209210017766,
                     "m_template": {
-                        "$type": "ConveyorBeltComponentKinematic",
-                        "BeltEntityId": "Entity_[381716398137112]",
-                        "Speed": 0.20000000298023224,
-                        "SegmentLength": 0.05000000074505806
+                        "$type": "ConveyorBeltComponent",
+                        "Configuration": {
+                            "BeltEntityId": ""
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -1756,15 +1755,14 @@
             "Id": "Entity_[381699218267928]",
             "Name": "PalletLine",
             "Components": {
-                "ConveyorBeltComponentKinematic": {
+                "ConveyorBeltComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 1546086569948344412,
+                    "Id": 6805746321987950048,
                     "m_template": {
-                        "$type": "ConveyorBeltComponentKinematic",
-                        "BeltEntityId": "Entity_[381716398137112]",
-                        "Speed": 0.05000000074505806,
-                        "BeltWidth": 1.2000000476837158,
-                        "SegmentLength": 0.10000000149011612
+                        "$type": "ConveyorBeltComponent",
+                        "Configuration": {
+                            "BeltEntityId": ""
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -3344,14 +3342,14 @@
             "Id": "Entity_[381776527679256]",
             "Name": "L-line",
             "Components": {
-                "ConveyorBeltComponentKinematic": {
+                "ConveyorBeltComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 2200966952422157381,
+                    "Id": 4840361835114902863,
                     "m_template": {
-                        "$type": "ConveyorBeltComponentKinematic",
-                        "BeltEntityId": "Entity_[381716398137112]",
-                        "Speed": 0.20000000298023224,
-                        "SegmentLength": 0.10000000149011612
+                        "$type": "ConveyorBeltComponent",
+                        "Configuration": {
+                            "BeltEntityId": ""
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -3890,51 +3888,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 0.00000965934304986149
-                }
-            ]
-        },
-        "Instance_[66529350337790]": {
-            "Source": "Assets/Importer/ur10.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../ContainerEntity"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.0361502170562744
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.28110671043395996
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": 1.892663836479187
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 0.00037956563755869865
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.618984580039978
                 }
             ]
         },

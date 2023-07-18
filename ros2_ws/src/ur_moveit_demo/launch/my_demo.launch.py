@@ -178,10 +178,15 @@ def launch_setup(context, *args, **kwargs):
         ],
     )
 
-
+    rviz_base = LaunchConfiguration("rviz_config")
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
+        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_base]
     )
+
+
+    # rviz_config_file = PathJoinSubstitution(
+    #     [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
+    # )
 
     rviz_node = Node(
         package="rviz2",
@@ -393,6 +398,14 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument("launch_servo", default_value="true", description="Launch Servo?")
+    )
+
+    declared_arguments.append(
+    DeclareLaunchArgument(
+            "rviz_config",
+            default_value="view_robot.rviz",
+            description="RViz configuration file",
+        )
     )
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])

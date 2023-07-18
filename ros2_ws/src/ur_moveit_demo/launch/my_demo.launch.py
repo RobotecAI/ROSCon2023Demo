@@ -309,12 +309,13 @@ def generate_launch_description():
             "ur_type",
             description="Type/series of used UR robot.",
             choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e"],
+            default_value="ur10"
         )
     )
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_fake_hardware",
-            default_value="false",
+            default_value="true",
             description="Indicate whether robot is running with fake hardware mirroring command to its states.",
         )
     )
@@ -380,7 +381,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_sim_time",
-            default_value="false",
+            default_value="true",
             description="Make MoveIt to use simulation time. This is needed for the trajectory planing in simulation.",
         )
     )
@@ -403,7 +404,7 @@ def generate_launch_description():
     declared_arguments.append(
     DeclareLaunchArgument(
             "rviz_config",
-            default_value="view_robot.rviz",
+            default_value="view_robot_moveit.rviz",
             description="RViz configuration file",
         )
     )

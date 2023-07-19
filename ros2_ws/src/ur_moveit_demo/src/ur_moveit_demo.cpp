@@ -36,7 +36,7 @@ void tf_callback(tf2_msgs::msg::TFMessage mess) {
     box_tf.y = tr.y;
     box_tf.z = tr.z;
 
-    std::cerr << "got box transform: " << tr.x << ", " << tr.y << ", " << tr.z <<"\n";
+    // std::cerr << "got box transform: " << tr.x << ", " << tr.y << ", " << tr.z <<"\n";
   }
 }
 
@@ -59,6 +59,8 @@ int main(int argc, char * argv[])
   executor.add_node(node);
   auto spinner = std::thread([&executor]() { executor.spin(); });
 
+
+  auto tf_subscribtion = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, tf_callback) ;
 
 
   // Create the MoveIt MoveGroup Interface
@@ -94,7 +96,6 @@ int main(int argc, char * argv[])
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
-  auto tf_subscribtion = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, tf_callback) ;
 
   // Set a target Pose
   auto const target_pose = [] {
@@ -103,11 +104,17 @@ int main(int argc, char * argv[])
     msg.orientation.y = 0.0;
     msg.orientation.z = 0.0;
     msg.orientation.w = 0.0;
-    msg.position.x = 0.7;
-    msg.position.y = 0.4;
-    msg.position.z = 0.25;
+    // msg.position.x = 0.7;
+    // msg.position.y = 0.4;
+    // msg.position.z = 0.25;
+    msg.position.x = box_tf.x;
+    msg.position.y = box_tf.y;
+    msg.position.z = box_tf.z + 0.25;
     return msg;
   }();
+
+  std::cerr << "Goal Pose: " << target_pose.position.x << ", " << target_pose.position.y << ", " << target_pose.position.z << "\n"; 
+
   move_group_interface.setPoseTarget(target_pose);
 
 
@@ -140,38 +147,38 @@ int main(int argc, char * argv[])
     return collision_object;
   }();
 
-  auto const collision_object_2 = [frame_id =
-                                  move_group_interface.getPlanningFrame()] {
-    moveit_msgs::msg::CollisionObject collision_object;
-    collision_object.header.frame_id = frame_id;
-    collision_object.id = "box2";
-    shape_msgs::msg::SolidPrimitive primitive;
+  // auto const collision_object_2 = [frame_id =
+  //                                 move_group_interface.getPlanningFrame()] {
+  //   moveit_msgs::msg::CollisionObject collision_object;
+  //   collision_object.header.frame_id = frame_id;
+  //   collision_object.id = "box2";
+  //   shape_msgs::msg::SolidPrimitive primitive;
 
-    // Define the size of the box in meters
-    primitive.type = primitive.BOX;
-    primitive.dimensions.resize(3);
-    primitive.dimensions[primitive.BOX_X] = 0.1;
-    primitive.dimensions[primitive.BOX_Y] = 0.1;
-    primitive.dimensions[primitive.BOX_Z] = 0.3;
+  //   // Define the size of the box in meters
+  //   primitive.type = primitive.BOX;
+  //   primitive.dimensions.resize(3);
+  //   primitive.dimensions[primitive.BOX_X] = 0.1;
+  //   primitive.dimensions[primitive.BOX_Y] = 0.1;
+  //   primitive.dimensions[primitive.BOX_Z] = 0.3;
 
-    // Define the pose of the box (relative to the frame_id)
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
-    box_pose.position.x = 0.6;
-    box_pose.position.y = 0.0;
-    box_pose.position.z = 0.3;
+  //   // Define the pose of the box (relative to the frame_id)
+  //   geometry_msgs::msg::Pose box_pose;
+  //   box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
+  //   box_pose.position.x = 0.6;
+  //   box_pose.position.y = 0.0;
+  //   box_pose.position.z = 0.3;
 
-    collision_object.primitives.push_back(primitive);
-    collision_object.primitive_poses.push_back(box_pose);
-    collision_object.operation = collision_object.ADD;
+  //   collision_object.primitives.push_back(primitive);
+  //   collision_object.primitive_poses.push_back(box_pose);
+  //   collision_object.operation = collision_object.ADD;
 
-    return collision_object;
-  }();
+  //   return collision_object;
+  // }();
 
   // Add the collision object to the scene
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  planning_scene_interface.applyCollisionObjects({collision_object_2, collision_object_1});
-  // planning_scene_interface.applyCollisionObject(collision_object_1);
+  // planning_scene_interface.applyCollisionObjects({collision_object_2, collision_object_1});
+  planning_scene_interface.applyCollisionObject(collision_object_1);
 
 
   // Create a plan to that target pose

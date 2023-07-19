@@ -61,9 +61,12 @@ int main(int argc, char * argv[])
   // Set a target Pose
   auto const target_pose = [] {
     geometry_msgs::msg::Pose msg;
-    msg.orientation.w = -1.0;
+    msg.orientation.x = 1.0;
+    msg.orientation.y = 0.0;
+    msg.orientation.z = 0.0;
+    msg.orientation.w = 0.0;
     msg.position.x = 1.1;
-    msg.position.y = 0.0;
+    msg.position.y = 0.6;
     msg.position.z = 0.4;
     return msg;
   }();
@@ -110,15 +113,15 @@ int main(int argc, char * argv[])
     primitive.type = primitive.BOX;
     primitive.dimensions.resize(3);
     primitive.dimensions[primitive.BOX_X] = 0.1;
-    primitive.dimensions[primitive.BOX_Y] = 0.5;
-    primitive.dimensions[primitive.BOX_Z] = 0.3;
+    primitive.dimensions[primitive.BOX_Y] = 0.1;
+    primitive.dimensions[primitive.BOX_Z] = 0.6;
 
     // Define the pose of the box (relative to the frame_id)
     geometry_msgs::msg::Pose box_pose;
     box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
     box_pose.position.x = 0.6;
     box_pose.position.y = 0.0;
-    box_pose.position.z = 0.15;
+    box_pose.position.z = 0.3;
 
     collision_object.primitives.push_back(primitive);
     collision_object.primitive_poses.push_back(box_pose);
@@ -130,7 +133,7 @@ int main(int argc, char * argv[])
   // Add the collision object to the scene
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
   planning_scene_interface.applyCollisionObjects({collision_object_2, collision_object_1});
-  // planning_scene_interface.applyCollisionObject(collision_object);
+  // planning_scene_interface.applyCollisionObject(collision_object_1);
 
 
   // Create a plan to that target pose
@@ -156,6 +159,39 @@ int main(int argc, char * argv[])
     moveit_visual_tools.trigger();
     RCLCPP_ERROR(logger, "Planning failed!");
   }
+
+
+  auto const target_pose_2 = [] {
+    geometry_msgs::msg::Pose msg;
+    msg.orientation.w = 1.0;
+    msg.position.x = 1.1;
+    msg.position.y = -0.6;
+    msg.position.z = 0.4;
+    return msg;
+  }();
+  move_group_interface.setPoseTarget(target_pose_2);
+  prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
+  draw_title("Planning");
+  moveit_visual_tools.trigger();
+  auto const [success_2, plan_2] = [&move_group_interface] {
+    moveit::planning_interface::MoveGroupInterface::Plan msg;
+    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+    return std::make_pair(ok, msg);
+  }();
+  // Execute the plan
+  if (success_2) {
+    draw_trajectory_tool_path(plan_2.trajectory_);
+    moveit_visual_tools.trigger();
+    prompt("Press 'Next' in the RvizVisualToolsGui window to execute");
+    draw_title("Executing");
+    moveit_visual_tools.trigger();
+    move_group_interface.execute(plan_2);
+  } else {
+    draw_title("Planning Failed!");
+    moveit_visual_tools.trigger();
+    RCLCPP_ERROR(logger, "Planning failed!");
+  }
+
 
   // Shutdown ROS
   rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return

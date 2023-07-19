@@ -1,0 +1,29 @@
+controller_names:
+  - scaled_joint_trajectory_controller
+  - joint_trajectory_controller
+
+
+scaled_joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: true
+  joints:
+    - A1/shoulder_pan_joint
+    - A1/shoulder_lift_joint
+    - A1/elbow_joint
+    - A1/wrist_1_joint
+    - A1/wrist_2_joint
+    - A1/wrist_3_joint
+
+
+joint_trajectory_controller:
+  action_ns: follow_joint_trajectory
+  type: FollowJointTrajectory
+  default: false
+  joints:
+    - A1/shoulder_pan_joint
+    - A1/shoulder_lift_joint
+    - A1/elbow_joint
+    - A1/wrist_1_joint
+    - A1/wrist_2_joint
+    - A1/wrist_3_joint

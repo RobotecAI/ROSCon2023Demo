@@ -65,9 +65,9 @@ int main(int argc, char * argv[])
     msg.orientation.y = 0.0;
     msg.orientation.z = 0.0;
     msg.orientation.w = 0.0;
-    msg.position.x = 1.1;
-    msg.position.y = 0.6;
-    msg.position.z = 0.4;
+    msg.position.x = 0.7;
+    msg.position.y = 0.4;
+    msg.position.z = 0.25;
     return msg;
   }();
   move_group_interface.setPoseTarget(target_pose);
@@ -114,7 +114,7 @@ int main(int argc, char * argv[])
     primitive.dimensions.resize(3);
     primitive.dimensions[primitive.BOX_X] = 0.1;
     primitive.dimensions[primitive.BOX_Y] = 0.1;
-    primitive.dimensions[primitive.BOX_Z] = 0.6;
+    primitive.dimensions[primitive.BOX_Z] = 0.3;
 
     // Define the pose of the box (relative to the frame_id)
     geometry_msgs::msg::Pose box_pose;
@@ -163,10 +163,13 @@ int main(int argc, char * argv[])
 
   auto const target_pose_2 = [] {
     geometry_msgs::msg::Pose msg;
-    msg.orientation.w = 1.0;
-    msg.position.x = 1.1;
-    msg.position.y = -0.6;
-    msg.position.z = 0.4;
+    msg.orientation.x = 1.0;
+    msg.orientation.y = 0.0;
+    msg.orientation.z = 0.0;
+    msg.orientation.w = 0.0;
+    msg.position.x = 0.7;
+    msg.position.y = -0.4;
+    msg.position.z = 0.25;
     return msg;
   }();
   move_group_interface.setPoseTarget(target_pose_2);

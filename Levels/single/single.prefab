@@ -643,6 +643,99 @@
                 },
                 {
                     "op": "add",
+                    "path": "/Entities/Entity_[2840549161062]/Components/EditorMeshColliderComponent",
+                    "value": {
+                        "$type": "EditorMeshColliderComponent",
+                        "Id": 9115272468591319226,
+                        "ColliderConfiguration": {
+                            "CollisionLayer": {
+                                "Index": 0
+                            },
+                            "CollisionGroupId": {
+                                "GroupId": "{00000000-0000-0000-0000-000000000000}"
+                            },
+                            "Visible": false,
+                            "Trigger": false,
+                            "Simulated": true,
+                            "DummySimulated": false,
+                            "InSceneQueries": true,
+                            "Exclusive": true,
+                            "Position": [
+                                0.0,
+                                0.0,
+                                -0.09220000356435776
+                            ],
+                            "Rotation": [
+                                0.5000000596046448,
+                                -0.49999985098838806,
+                                -0.4999999105930328,
+                                0.5
+                            ],
+                            "MaterialSlots": {
+                                "Slots": [
+                                    {
+                                        "Name": "DefaultMaterial",
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{00000000-0000-0000-0000-000000000000}",
+                                                "subId": 0
+                                            },
+                                            "loadBehavior": "QueueLoad",
+                                            "assetHint": ""
+                                        }
+                                    }
+                                ]
+                            },
+                            "propertyVisibilityFlags": 255,
+                            "ColliderTag": "",
+                            "RestOffset": 0.0,
+                            "ContactOffset": 0.019999999552965164
+                        },
+                        "ShapeConfiguration": {
+                            "PhysicsAsset": {
+                                "Asset": {
+                                    "assetId": {
+                                        "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
+                                        "subId": 3632102600
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
+                                },
+                                "Configuration": {
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "PhysicsAsset": {
+                                        "assetId": {
+                                            "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
+                                            "subId": 3632102600
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
+                                    },
+                                    "AssetScale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "UseMaterialsFromAsset": true,
+                                    "SubdivisionLevel": 4
+                                }
+                            },
+                            "HasNonUniformScale": false,
+                            "SubdivisionLevel": 4
+                        },
+                        "DebugDrawSettings": {
+                            "LocallyEnabled": true
+                        },
+                        "ComponentMode": {},
+                        "HasNonUniformScale": false
+                    }
+                },
+                {
+                    "op": "add",
                     "path": "/Entities/Entity_[2840549161062]/Components/GripperActionServerComponent",
                     "value": {
                         "$type": "GenericComponentWrapper",
@@ -707,6 +800,25 @@
                         "Tags": [
                             "Grippable"
                         ]
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[191801695898434]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 13848596535950887051,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 0,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true
+                        }
                     }
                 }
             ]

@@ -2,12 +2,45 @@
 
 #include <thread> 
 #include <rclcpp/rclcpp.hpp>
-// #include <control_msgs/action/gripper_command.hpp>
 #include <control_msgs/action/gripper_command.hpp>
+#include <tf2_msgs/msg/tf_message.hpp>
 
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
+
+
+#include <iostream>
+
+
+struct Transform {
+  double x = 0;
+  double y = 0;
+  double z = 0;
+} box_tf;
+
+
+void tf_callback(tf2_msgs::msg::TFMessage mess) {
+
+  for (auto tf : mess.transforms) 
+  {
+
+    if(tf.child_frame_id != "Box1/box")
+    {
+      continue;
+    }
+
+    auto tr = tf.transform.translation;
+
+    box_tf.x = tr.x;
+    box_tf.y = tr.y;
+    box_tf.z = tr.z;
+
+    std::cerr << "got box transform: " << tr.x << ", " << tr.y << ", " << tr.z <<"\n";
+  }
+}
+
+
 
 int main(int argc, char * argv[])
 {
@@ -59,7 +92,9 @@ int main(int argc, char * argv[])
       jmg = move_group_interface.getRobotModel()->getJointModelGroup(
           "ur_manipulator")](auto const trajectory) {
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
-      };  
+      };
+
+  auto tf_subscribtion = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, tf_callback) ;
 
   // Set a target Pose
   auto const target_pose = [] {

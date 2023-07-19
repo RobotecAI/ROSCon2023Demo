@@ -11,6 +11,7 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(moveit_visual_tools REQUIRED)
 find_package(control_msgs REQUIRED)
+find_package(tf2_msgs REQUIRED)
 
 add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 target_include_directories(ur_moveit_demo PUBLIC
@@ -23,6 +24,7 @@ ament_target_dependencies(
   "moveit_visual_tools"
   "rclcpp"
   "control_msgs"
+  "tf2_msgs"
 )
 
 install(TARGETS ur_moveit_demo

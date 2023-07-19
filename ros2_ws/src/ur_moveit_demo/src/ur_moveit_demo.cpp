@@ -2,6 +2,9 @@
 
 #include <thread> 
 #include <rclcpp/rclcpp.hpp>
+// #include <control_msgs/action/gripper_command.hpp>
+#include <control_msgs/action/gripper_command.hpp>
+
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
@@ -159,6 +162,54 @@ int main(int argc, char * argv[])
     moveit_visual_tools.trigger();
     RCLCPP_ERROR(logger, "Planning failed!");
   }
+
+
+  // auto node = rclcpp::Node::make_shared("gripper_client");
+
+
+    auto client_ptr =  rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
+
+
+    if (!client_ptr->wait_for_action_server()) {
+        RCLCPP_ERROR(logger, "Action server not available after waiting");
+        // Shutdown ROS
+        rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return
+        spinner.join();  // <--- Join the thread before exiting
+        return 0;
+    }
+
+
+
+  auto goal = control_msgs::action::GripperCommand::Goal();
+
+  goal.command.position = 0.0;
+  goal.command.max_effort = 10000.0;
+
+  auto future = client_ptr->async_send_goal(goal);
+
+  future.wait();
+
+  //  while (!client->wait_for_service(1s)) {
+  //   if (!rclcpp::ok()) {
+  //     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+  //     return 0;
+  //   }
+  //   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+  // }
+
+
+  // auto result = client->async_send_request(request);
+  // // Wait for the result.
+  // if (rclcpp::spin_until_future_complete(node, result) ==
+  //   rclcpp::FutureReturnCode::SUCCESS)
+  // {
+  //   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Gripping succesfull");
+  // } else {
+  //   RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service add_two_ints");
+  // }
+
+
+
 
 
   auto const target_pose_2 = [] {

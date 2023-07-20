@@ -20,6 +20,9 @@ struct Transform {
 } box_tf;
 
 
+ geometry_msgs::msg::Pose box_pose =  geometry_msgs::msg::Pose();
+
+
 void tf_callback(tf2_msgs::msg::TFMessage mess) {
 
   for (auto tf : mess.transforms) 
@@ -30,7 +33,16 @@ void tf_callback(tf2_msgs::msg::TFMessage mess) {
       continue;
     }
 
+    box_pose.orientation = tf.transform.rotation; 
     auto tr = tf.transform.translation;
+
+
+
+    box_pose.position.x = tr.x;
+    box_pose.position.y = tr.y;
+    box_pose.position.z = tr.z;
+
+
 
     box_tf.x = tr.x;
     box_tf.y = tr.y;
@@ -97,6 +109,50 @@ int main(int argc, char * argv[])
       };
 
 
+  
+  std::cerr << "Box Pose: " << box_pose.position.x << ", " << box_pose.position.y << ", " << box_pose.position.z << "\n"; 
+
+
+  // Add box to the environment
+  auto const box_1 = [frame_id =
+                                  move_group_interface.getPlanningFrame(), &box_pose] {
+    moveit_msgs::msg::CollisionObject collision_object;
+    collision_object.header.frame_id = frame_id;
+    collision_object.id = "box1";
+    shape_msgs::msg::SolidPrimitive primitive;
+
+    // Define the size of the box in meters
+    primitive.type = primitive.BOX;
+    primitive.dimensions.resize(3);
+
+                    
+    primitive.dimensions[primitive.BOX_X] = 0.24811747670173645 * 1.0171222686767578;
+    primitive.dimensions[primitive.BOX_Y] = 0.42500990629196167 * 0.511430025100708;
+    primitive.dimensions[primitive.BOX_Z] = 0.28449010848999023 * 0.7279044985771179;
+
+    // Define the pose of the box (relative to the frame_id)
+    // geometry_msgs::msg::Pose box_pose;
+
+
+    // box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
+    // box_pose.position.x = 0.0;
+    // box_pose.position.y = 0.0;
+    // box_pose.position.z = -0.25;
+
+     std::cerr << "Box Pose: " << box_pose.position.x << ", " << box_pose.position.y << ", " << box_pose.position.z << "\n"; 
+
+    collision_object.primitives.push_back(primitive);
+    collision_object.primitive_poses.push_back(box_pose);
+    collision_object.operation = collision_object.ADD;
+
+    return collision_object;
+  }();
+
+
+  
+
+
+
   // Set a target Pose
   auto const target_pose = [] {
     geometry_msgs::msg::Pose msg;
@@ -123,7 +179,7 @@ int main(int argc, char * argv[])
                                   move_group_interface.getPlanningFrame()] {
     moveit_msgs::msg::CollisionObject collision_object;
     collision_object.header.frame_id = frame_id;
-    collision_object.id = "box1";
+    collision_object.id = "obstacle1";
     shape_msgs::msg::SolidPrimitive primitive;
 
     // Define the size of the box in meters
@@ -151,7 +207,7 @@ int main(int argc, char * argv[])
   //                                 move_group_interface.getPlanningFrame()] {
   //   moveit_msgs::msg::CollisionObject collision_object;
   //   collision_object.header.frame_id = frame_id;
-  //   collision_object.id = "box2";
+  //   collision_object.id = "obstacle2";
   //   shape_msgs::msg::SolidPrimitive primitive;
 
   //   // Define the size of the box in meters
@@ -178,7 +234,10 @@ int main(int argc, char * argv[])
   // Add the collision object to the scene
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
   // planning_scene_interface.applyCollisionObjects({collision_object_2, collision_object_1});
-  planning_scene_interface.applyCollisionObject(collision_object_1);
+
+  planning_scene_interface.applyCollisionObjects({collision_object_1, box_1});
+
+  // planning_scene_interface.applyCollisionObject(collision_object_1);
 
 
   // Create a plan to that target pose
@@ -269,3 +328,19 @@ int main(int argc, char * argv[])
   spinner.join();  // <--- Join the thread before exiting
   return 0;
 }
+
+
+// class Demo {
+//   public:
+
+
+//     Demo(int argc, char * argv[]) 
+//     {
+
+//     }
+ 
+//   private:
+
+//   std::shared_ptr<rclcpp::Node> node;
+
+// };

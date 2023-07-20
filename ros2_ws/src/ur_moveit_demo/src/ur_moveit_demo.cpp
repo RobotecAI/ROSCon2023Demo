@@ -165,18 +165,27 @@ int main(int argc, char * argv[])
   // Set a target Pose
   auto const target_pose = [] {
     geometry_msgs::msg::Pose msg;
-    msg.orientation.x = 1.0;
-    msg.orientation.y = 0.0;
+    msg.orientation.x = 0.0;
+    msg.orientation.y = -0.707107;
     msg.orientation.z = 0.0;
-    msg.orientation.w = 0.0;
+    msg.orientation.w = 0.707107;
     // msg.position.x = 0.7;
     // msg.position.y = 0.4;
     // msg.position.z = 0.25;
     msg.position.x = box_tf.x;
     msg.position.y = box_tf.y;
-    msg.position.z = box_tf.z + 0.25;
+    msg.position.z = box_tf.z + 0.50; // 0.22;
     return msg;
   }();
+
+  std::cerr << "end effector: " << move_group_interface.getEndEffector() << "\n";
+  std::cerr << "end effector link: " << move_group_interface.getEndEffectorLink() << "\n";
+
+
+  move_group_interface.setEndEffectorLink("gripper_link");
+
+  std::cerr << "end effector: " << move_group_interface.getEndEffector() << "\n";
+  std::cerr << "end effector link: " << move_group_interface.getEndEffectorLink() << "\n";
 
   std::cerr << "Goal Pose: " << target_pose.position.x << ", " << target_pose.position.y << ", " << target_pose.position.z << "\n"; 
 
@@ -194,8 +203,8 @@ int main(int argc, char * argv[])
     // Define the size of the box in meters
     primitive.type = primitive.BOX;
     primitive.dimensions.resize(3);
-    primitive.dimensions[primitive.BOX_X] = 1.5;
-    primitive.dimensions[primitive.BOX_Y] = 1.1;
+    primitive.dimensions[primitive.BOX_X] = 3.0;
+    primitive.dimensions[primitive.BOX_Y] = 3.0;
     primitive.dimensions[primitive.BOX_Z] = 0.5;
 
     // Define the pose of the box (relative to the frame_id)

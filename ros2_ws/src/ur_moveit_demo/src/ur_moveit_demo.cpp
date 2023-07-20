@@ -37,19 +37,15 @@ void tf_callback(tf2_msgs::msg::TFMessage mess) {
     box_pose.orientation = tf.transform.rotation; 
     auto tr = tf.transform.translation;
 
-
-
     box_pose.position.x = tr.x;
     box_pose.position.y = tr.y;
     box_pose.position.z = tr.z + 0.3641039 * 0.28449010848999023;
-
 
 
     box_tf.x = tr.x;
     box_tf.y = tr.y;
     box_tf.z = tr.z + 0.3641039  * 0.28449010848999023;
 
-    // std::cerr << "got box transform: " << tr.x << ", " << tr.y << ", " << tr.z <<"\n";
   }
 }
 
@@ -114,6 +110,10 @@ int main(int argc, char * argv[])
       };
 
 
+
+  // I need to make sure, that position of the box is already known.
+  // For know, I just use sleep here.
+
   using namespace std::chrono_literals;
 
   std::this_thread::sleep_for(2000ms);
@@ -139,16 +139,8 @@ int main(int argc, char * argv[])
     primitive.dimensions[primitive.BOX_Y] = 0.42500990629196167 * 0.511430025100708;
     primitive.dimensions[primitive.BOX_Z] = 0.28449010848999023 * 0.7279044985771179;
 
-    // Define the pose of the box (relative to the frame_id)
-    // geometry_msgs::msg::Pose box_pose;
-
-
-    // box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
-    // box_pose.position.x = 0.0;
-    // box_pose.position.y = 0.0;
-    // box_pose.position.z = -0.25;
-
-     std::cerr << "Box Pose: " << box_pose.position.x << ", " << box_pose.position.y << ", " << box_pose.position.z << "\n"; 
+    // box_pose is created from messages published to /tf
+    std::cerr << "Box Pose: " << box_pose.position.x << ", " << box_pose.position.y << ", " << box_pose.position.z << "\n"; 
 
     collision_object.primitives.push_back(primitive);
     collision_object.primitive_poses.push_back(box_pose);
@@ -156,8 +148,6 @@ int main(int argc, char * argv[])
 
     return collision_object;
   }();
-
-
 
 
 
@@ -169,35 +159,28 @@ int main(int argc, char * argv[])
     msg.orientation.y = -0.707107;
     msg.orientation.z = 0.0;
     msg.orientation.w = 0.707107;
-    // msg.position.x = 0.7;
-    // msg.position.y = 0.4;
-    // msg.position.z = 0.25;
+
     msg.position.x = box_tf.x;
     msg.position.y = box_tf.y;
-    msg.position.z = box_tf.z + 0.20; // 0.22;
+    msg.position.z = box_tf.z + 0.20; // some distance is added - what exactly should it be?
     return msg;
   }();
-
-  std::cerr << "end effector: " << move_group_interface.getEndEffector() << "\n";
-  std::cerr << "end effector link: " << move_group_interface.getEndEffectorLink() << "\n";
 
 
   move_group_interface.setEndEffectorLink("gripper_link");
 
-  std::cerr << "end effector: " << move_group_interface.getEndEffector() << "\n";
-  std::cerr << "end effector link: " << move_group_interface.getEndEffectorLink() << "\n";
 
   std::cerr << "Goal Pose: " << target_pose.position.x << ", " << target_pose.position.y << ", " << target_pose.position.z << "\n"; 
 
   move_group_interface.setPoseTarget(target_pose);
 
 
-  // Create collision object for the robot to avoid
+  // This is the ground
   auto const collision_object_1 = [frame_id =
                                   move_group_interface.getPlanningFrame()] {
     moveit_msgs::msg::CollisionObject collision_object;
     collision_object.header.frame_id = frame_id;
-    collision_object.id = "obstacle1";
+    collision_object.id = "ground1";
     shape_msgs::msg::SolidPrimitive primitive;
 
     // Define the size of the box in meters
@@ -209,7 +192,7 @@ int main(int argc, char * argv[])
 
     // Define the pose of the box (relative to the frame_id)
     geometry_msgs::msg::Pose box_pose;
-    box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
+    box_pose.orientation.w = 1.0;
     box_pose.position.x = 0.0;
     box_pose.position.y = 0.0;
     box_pose.position.z = -0.27;
@@ -220,6 +203,8 @@ int main(int argc, char * argv[])
 
     return collision_object;
   }();
+
+  // This is additional obstacle. For now disabled.
 
   // auto const collision_object_2 = [frame_id =
   //                                 move_group_interface.getPlanningFrame()] {
@@ -249,14 +234,11 @@ int main(int argc, char * argv[])
   //   return collision_object;
   // }();
 
-  // Add the collision object to the scene
+  
+
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-  // planning_scene_interface.applyCollisionObjects({collision_object_2, collision_object_1});
 
   planning_scene_interface.applyCollisionObjects({collision_object_1, box_1});
-
-  // planning_scene_interface.applyCollisionObject(collision_object_1);
-
 
   // Create a plan to that target pose
   prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
@@ -287,8 +269,7 @@ int main(int argc, char * argv[])
   }
 
 
-  // auto node = rclcpp::Node::make_shared("gripper_client");
-
+  // Sending command to gripper.
 
     auto client_ptr =  rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
 
@@ -296,8 +277,8 @@ int main(int argc, char * argv[])
     if (!client_ptr->wait_for_action_server()) {
         RCLCPP_ERROR(logger, "Action server not available after waiting");
         // Shutdown ROS
-        rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return
-        spinner.join();  // <--- Join the thread before exiting
+        rclcpp::shutdown();
+        spinner.join(); 
         return 0;
     }
 
@@ -312,18 +293,7 @@ int main(int argc, char * argv[])
   move_group_interface.attachObject(box_1.id, "gripper_link");
   prompt("Press 'next' in the RvizVisualToolsGui window once the new object is attached to the robot");
 
-  // auto const target_pose_2 = [] {
-  //   geometry_msgs::msg::Pose msg;
-  //   msg.orientation.x = 1.0;
-  //   msg.orientation.y = 0.0;
-  //   msg.orientation.z = 0.0;
-  //   msg.orientation.w = 0.0;
-  //   msg.position.x = 0.7;
-  //   msg.position.y = -0.4;
-  //   msg.position.z = 0.25;
-  //   return msg;
-  // }();
-
+  
   auto target_pose_2 = target_pose;
   target_pose_2.position.x *= -1;
   target_pose_2.position.y *= -1;
@@ -358,19 +328,3 @@ int main(int argc, char * argv[])
   spinner.join();  // <--- Join the thread before exiting
   return 0;
 }
-
-
-// class Demo {
-//   public:
-
-
-//     Demo(int argc, char * argv[]) 
-//     {
-
-//     }
- 
-//   private:
-
-//   std::shared_ptr<rclcpp::Node> node;
-
-// };

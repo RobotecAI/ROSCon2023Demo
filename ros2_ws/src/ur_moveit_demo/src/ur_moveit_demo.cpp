@@ -174,7 +174,7 @@ int main(int argc, char * argv[])
     // msg.position.z = 0.25;
     msg.position.x = box_tf.x;
     msg.position.y = box_tf.y;
-    msg.position.z = box_tf.z + 0.50; // 0.22;
+    msg.position.z = box_tf.z + 0.20; // 0.22;
     return msg;
   }();
 

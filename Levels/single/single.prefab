@@ -505,6 +505,21 @@
                     "value": 0.01159954071044922
                 },
                 {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 89.99922943115234
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -89.99994659423828
+                },
+                {
                     "op": "add",
                     "path": "/Entities/Entity_[2840549161062]/Components/EditorColliderComponent",
                     "value": {
@@ -635,7 +650,7 @@
                             "SubdivisionLevel": 4
                         },
                         "DebugDrawSettings": {
-                            "LocallyEnabled": true
+                            "LocallyEnabled": false
                         },
                         "ComponentMode": {},
                         "HasNonUniformScale": false
@@ -749,13 +764,33 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.000001430511474609375
+                },
+                {
+                    "op": "replace",
                     "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0
+                    "value": 0.0000012814998626708984
                 },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.0
+                    "value": 0.05449137091636658
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 89.99674224853516
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 0.00014172641385812312
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99657440185547
                 },
                 {
                     "op": "add",
@@ -776,31 +811,6 @@
         "Instance_[585033244680290]": {
             "Source": "Assets/Factory/Box1.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.9802191853523254
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.6349040269851685
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191801695898434]/Components/Component_[16246303725359178974]/Transform Data/Translate/0",
-                    "value": -0.19021320343017575
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191801695898434]/Components/Component_[16246303725359178974]/Transform Data/Translate/1",
-                    "value": -0.10782039165496826
-                },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[191801695898434]/Components/EditorColliderComponent/ColliderConfiguration/Position/2",
@@ -860,6 +870,21 @@
                             "Publish Transform": true
                         }
                     }
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 1.004085659980774
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.6349040269851685
                 }
             ]
         }

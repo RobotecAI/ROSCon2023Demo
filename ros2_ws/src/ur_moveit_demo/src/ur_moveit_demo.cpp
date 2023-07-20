@@ -1,6 +1,7 @@
 #include <memory>
 
 #include <thread> 
+#include <chrono>
 #include <rclcpp/rclcpp.hpp>
 #include <control_msgs/action/gripper_command.hpp>
 #include <tf2_msgs/msg/tf_message.hpp>
@@ -40,13 +41,13 @@ void tf_callback(tf2_msgs::msg::TFMessage mess) {
 
     box_pose.position.x = tr.x;
     box_pose.position.y = tr.y;
-    box_pose.position.z = tr.z;
+    box_pose.position.z = tr.z + 0.3641039 * 0.28449010848999023;
 
 
 
     box_tf.x = tr.x;
     box_tf.y = tr.y;
-    box_tf.z = tr.z;
+    box_tf.z = tr.z + 0.3641039  * 0.28449010848999023;
 
     // std::cerr << "got box transform: " << tr.x << ", " << tr.y << ", " << tr.z <<"\n";
   }
@@ -88,6 +89,10 @@ int main(int argc, char * argv[])
   moveit_visual_tools.loadRemoteControl();
 
 
+  move_group_interface.setNumPlanningAttempts(5);
+  move_group_interface.setMaxVelocityScalingFactor(0.5);
+
+
   // Create closures for visualization
   auto const draw_title = [&moveit_visual_tools](auto text) {
     auto const text_pose = [] {
@@ -108,6 +113,10 @@ int main(int argc, char * argv[])
         moveit_visual_tools.publishTrajectoryLine(trajectory, jmg);
       };
 
+
+  using namespace std::chrono_literals;
+
+  std::this_thread::sleep_for(2000ms);
 
   
   std::cerr << "Box Pose: " << box_pose.position.x << ", " << box_pose.position.y << ", " << box_pose.position.z << "\n"; 
@@ -149,7 +158,7 @@ int main(int argc, char * argv[])
   }();
 
 
-  
+
 
 
 
@@ -194,7 +203,7 @@ int main(int argc, char * argv[])
     box_pose.orientation.w = 1.0;  // We can leave out the x, y, and z components of the quaternion since they are initialized to 0
     box_pose.position.x = 0.0;
     box_pose.position.y = 0.0;
-    box_pose.position.z = -0.25;
+    box_pose.position.z = -0.27;
 
     collision_object.primitives.push_back(primitive);
     collision_object.primitive_poses.push_back(box_pose);
@@ -262,6 +271,10 @@ int main(int argc, char * argv[])
     draw_title("Planning Failed!");
     moveit_visual_tools.trigger();
     RCLCPP_ERROR(logger, "Planning failed!");
+    
+    rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return
+    spinner.join();  // <--- Join the thread before exiting
+    return 0;
   }
 
 
@@ -287,18 +300,26 @@ int main(int argc, char * argv[])
   auto future = client_ptr->async_send_goal(goal);
   future.wait();
 
+  move_group_interface.attachObject(box_1.id, "gripper_link");
+  prompt("Press 'next' in the RvizVisualToolsGui window once the new object is attached to the robot");
 
-  auto const target_pose_2 = [] {
-    geometry_msgs::msg::Pose msg;
-    msg.orientation.x = 1.0;
-    msg.orientation.y = 0.0;
-    msg.orientation.z = 0.0;
-    msg.orientation.w = 0.0;
-    msg.position.x = 0.7;
-    msg.position.y = -0.4;
-    msg.position.z = 0.25;
-    return msg;
-  }();
+  // auto const target_pose_2 = [] {
+  //   geometry_msgs::msg::Pose msg;
+  //   msg.orientation.x = 1.0;
+  //   msg.orientation.y = 0.0;
+  //   msg.orientation.z = 0.0;
+  //   msg.orientation.w = 0.0;
+  //   msg.position.x = 0.7;
+  //   msg.position.y = -0.4;
+  //   msg.position.z = 0.25;
+  //   return msg;
+  // }();
+
+  auto target_pose_2 = target_pose;
+  target_pose_2.position.x *= -1;
+  target_pose_2.position.y *= -1;
+
+
   move_group_interface.setPoseTarget(target_pose_2);
   prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
   draw_title("Planning");

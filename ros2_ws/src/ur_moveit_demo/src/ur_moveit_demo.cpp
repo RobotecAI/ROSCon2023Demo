@@ -51,6 +51,11 @@ void tf_callback(tf2_msgs::msg::TFMessage mess) {
 
 
 
+bool SendGripperGrip(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr);
+
+
+bool SendGripperrelease(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr);
+
 int main(int argc, char * argv[])
 {
   // Initialize ROS and create the Node
@@ -275,20 +280,15 @@ int main(int argc, char * argv[])
 
 
     if (!client_ptr->wait_for_action_server()) {
-        RCLCPP_ERROR(logger, "Action server not available after waiting");
+        RCLCPP_ERROR(logger, "Gripper action server not available after waiting");
         // Shutdown ROS
         rclcpp::shutdown();
         spinner.join(); 
         return 0;
     }
 
+  SendGripperGrip(client_ptr);
 
-
-  auto goal = control_msgs::action::GripperCommand::Goal();
-  goal.command.position = 0.0;
-  goal.command.max_effort = 10000.0;
-  auto future = client_ptr->async_send_goal(goal);
-  future.wait();
 
   move_group_interface.attachObject(box_1.id, "gripper_link");
   prompt("Press 'next' in the RvizVisualToolsGui window once the new object is attached to the robot");
@@ -324,7 +324,9 @@ int main(int argc, char * argv[])
 
   move_group_interface.detachObject(box_1.id);
   planning_scene_interface.removeCollisionObjects({box_1.id});
-  
+
+  SendGripperrelease(client_ptr);
+
   moveit_visual_tools.trigger();
 
   // Shutdown ROS
@@ -332,3 +334,45 @@ int main(int argc, char * argv[])
   spinner.join();  // <--- Join the thread before exiting
   return 0;
 }
+
+
+
+
+
+
+
+bool Grip(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr, bool grip) 
+{
+  auto goal = control_msgs::action::GripperCommand::Goal();
+  goal.command.position = grip ? 0.0 : 1.0;
+  goal.command.max_effort = 10000.0;
+  auto future = client_ptr->async_send_goal(goal);
+  
+  future.wait();
+
+  auto goal_handle = future.get();
+
+
+  auto result_future = client_ptr->async_get_result(goal_handle);
+
+  result_future.wait();
+
+  auto result = result_future.get().result;
+
+  return result->reached_goal;
+}
+
+
+bool SendGripperGrip(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr) 
+{
+  return Grip(client_ptr, true);
+}
+
+
+bool SendGripperrelease(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr) 
+{
+  return Grip(client_ptr, false);
+}
+
+
+

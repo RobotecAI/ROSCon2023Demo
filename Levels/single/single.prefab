@@ -500,9 +500,141 @@
                     "value": "../Entity_[1146574390643]"
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": 0.01159954071044922
+                    "op": "add",
+                    "path": "/Entities/Entity_[2776124651622]/Components/EditorColliderComponent",
+                    "value": {
+                        "$type": "EditorColliderComponent",
+                        "Id": 16468392875570959263,
+                        "ColliderConfiguration": {
+                            "CollisionLayer": {
+                                "Index": 0
+                            },
+                            "CollisionGroupId": {
+                                "GroupId": "{00000000-0000-0000-0000-000000000000}"
+                            },
+                            "Visible": false,
+                            "Trigger": true,
+                            "Simulated": true,
+                            "DummySimulated": false,
+                            "InSceneQueries": true,
+                            "Exclusive": true,
+                            "Position": [
+                                0.0,
+                                0.0,
+                                0.05000000074505806
+                            ],
+                            "Rotation": [
+                                0.49999991059303284,
+                                -0.49999991059303284,
+                                -0.5,
+                                0.49999991059303284
+                            ],
+                            "MaterialSlots": {
+                                "Slots": [
+                                    {
+                                        "Name": "Entire object",
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{00000000-0000-0000-0000-000000000000}",
+                                                "subId": 0
+                                            },
+                                            "loadBehavior": "QueueLoad",
+                                            "assetHint": ""
+                                        }
+                                    }
+                                ]
+                            },
+                            "propertyVisibilityFlags": 255,
+                            "ColliderTag": "",
+                            "RestOffset": 0.0,
+                            "ContactOffset": 0.019999999552965164
+                        },
+                        "ShapeConfiguration": {
+                            "ShapeType": 1,
+                            "Sphere": {
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "Radius": 0.5
+                            },
+                            "Box": {
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "Configuration": [
+                                    0.15000000596046448,
+                                    0.25,
+                                    0.20000000298023224
+                                ]
+                            },
+                            "Capsule": {
+                                "Scale": [
+                                    1.0,
+                                    1.0,
+                                    1.0
+                                ],
+                                "Height": 1.0,
+                                "Radius": 0.25
+                            },
+                            "Cylinder": {
+                                "Configuration": {
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "CookedData": "",
+                                    "Type": 0
+                                },
+                                "Subdivision": 16,
+                                "Height": 1.0,
+                                "Radius": 1.0
+                            },
+                            "PhysicsAsset": {
+                                "Asset": {
+                                    "assetId": {
+                                        "guid": "{00000000-0000-0000-0000-000000000000}",
+                                        "subId": 0
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": ""
+                                },
+                                "Configuration": {
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "PhysicsAsset": {
+                                        "assetId": {
+                                            "guid": "{00000000-0000-0000-0000-000000000000}",
+                                            "subId": 0
+                                        },
+                                        "loadBehavior": "PreLoad",
+                                        "assetHint": ""
+                                    },
+                                    "AssetScale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "UseMaterialsFromAsset": true,
+                                    "SubdivisionLevel": 4
+                                }
+                            },
+                            "HasNonUniformScale": false,
+                            "SubdivisionLevel": 4
+                        },
+                        "DebugDrawSettings": {
+                            "LocallyEnabled": false
+                        },
+                        "ComponentMode": {},
+                        "HasNonUniformScale": false
+                    }
                 },
                 {
                     "op": "replace",
@@ -518,6 +650,136 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Rotate/1",
                     "value": -89.99994659423828
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": 0.01159954071044922
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "EditorMeshColliderComponent": {
+                            "$type": "EditorMeshColliderComponent",
+                            "Id": 9115272468591319226,
+                            "ColliderConfiguration": {
+                                "CollisionLayer": {
+                                    "Index": 0
+                                },
+                                "CollisionGroupId": {
+                                    "GroupId": "{00000000-0000-0000-0000-000000000000}"
+                                },
+                                "Visible": false,
+                                "Trigger": false,
+                                "Simulated": true,
+                                "DummySimulated": false,
+                                "InSceneQueries": true,
+                                "Exclusive": true,
+                                "Position": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Rotation": [
+                                    0.5000000596046448,
+                                    -0.49999985098838806,
+                                    -0.49999991059303284,
+                                    0.5
+                                ],
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "DefaultMaterial",
+                                            "MaterialAsset": {
+                                                "assetId": {
+                                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                                    "subId": 0
+                                                },
+                                                "loadBehavior": "QueueLoad",
+                                                "assetHint": ""
+                                            }
+                                        }
+                                    ]
+                                },
+                                "propertyVisibilityFlags": 255,
+                                "ColliderTag": "",
+                                "RestOffset": 0.0,
+                                "ContactOffset": 0.019999999552965164
+                            },
+                            "ShapeConfiguration": {
+                                "PhysicsAsset": {
+                                    "Asset": {
+                                        "assetId": {
+                                            "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
+                                            "subId": 3632102600
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
+                                    },
+                                    "Configuration": {
+                                        "Scale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "PhysicsAsset": {
+                                            "assetId": {
+                                                "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
+                                                "subId": 3632102600
+                                            },
+                                            "loadBehavior": "QueueLoad",
+                                            "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
+                                        },
+                                        "AssetScale": [
+                                            1.0,
+                                            1.0,
+                                            1.0
+                                        ],
+                                        "UseMaterialsFromAsset": true,
+                                        "SubdivisionLevel": 4
+                                    }
+                                },
+                                "HasNonUniformScale": false,
+                                "SubdivisionLevel": 4
+                            },
+                            "DebugDrawSettings": {
+                                "LocallyEnabled": true
+                            },
+                            "ComponentMode": {},
+                            "HasNonUniformScale": false
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.000001430511474609375
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.0000012814998626708984
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.05449137091636658
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 89.99674224853516
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 0.00014172641385812312
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99657440185547
                 },
                 {
                     "op": "add",
@@ -657,234 +919,6 @@
                     }
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/EditorDisabledCompositionComponent/DisabledComponents",
-                    "value": {
-                        "EditorColliderComponent": {
-                            "$type": "EditorColliderComponent",
-                            "Id": 14317984663917960685,
-                            "ColliderConfiguration": {
-                                "CollisionLayer": {
-                                    "Index": 0
-                                },
-                                "CollisionGroupId": {
-                                    "GroupId": "{00000000-0000-0000-0000-000000000000}"
-                                },
-                                "Visible": false,
-                                "Trigger": true,
-                                "Simulated": true,
-                                "DummySimulated": false,
-                                "InSceneQueries": true,
-                                "Exclusive": true,
-                                "Position": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Rotation": [
-                                    0.4999999403953552,
-                                    -0.4999999403953552,
-                                    -0.4999999701976776,
-                                    0.49999991059303284
-                                ],
-                                "MaterialSlots": {
-                                    "Slots": [
-                                        {
-                                            "Name": "Entire object",
-                                            "MaterialAsset": {
-                                                "assetId": {
-                                                    "guid": "{00000000-0000-0000-0000-000000000000}",
-                                                    "subId": 0
-                                                },
-                                                "loadBehavior": "QueueLoad",
-                                                "assetHint": ""
-                                            }
-                                        }
-                                    ]
-                                },
-                                "propertyVisibilityFlags": 255,
-                                "ColliderTag": "",
-                                "RestOffset": 0.0,
-                                "ContactOffset": 0.019999999552965164
-                            },
-                            "ShapeConfiguration": {
-                                "ShapeType": 1,
-                                "Sphere": {
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "Radius": 0.5
-                                },
-                                "Box": {
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "Configuration": [
-                                        0.15000000596046448,
-                                        0.25,
-                                        0.20000000298023224
-                                    ]
-                                },
-                                "Capsule": {
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "Height": 1.0,
-                                    "Radius": 0.25
-                                },
-                                "Cylinder": {
-                                    "Configuration": {
-                                        "Scale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "CookedData": "",
-                                        "Type": 0
-                                    },
-                                    "Subdivision": 16,
-                                    "Height": 1.0,
-                                    "Radius": 1.0
-                                },
-                                "PhysicsAsset": {
-                                    "Asset": {
-                                        "assetId": {
-                                            "guid": "{00000000-0000-0000-0000-000000000000}",
-                                            "subId": 0
-                                        },
-                                        "loadBehavior": "QueueLoad",
-                                        "assetHint": ""
-                                    },
-                                    "Configuration": {
-                                        "Scale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "PhysicsAsset": {
-                                            "assetId": {
-                                                "guid": "{00000000-0000-0000-0000-000000000000}",
-                                                "subId": 0
-                                            },
-                                            "loadBehavior": "PreLoad",
-                                            "assetHint": ""
-                                        },
-                                        "AssetScale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "UseMaterialsFromAsset": true,
-                                        "SubdivisionLevel": 4
-                                    }
-                                },
-                                "HasNonUniformScale": false,
-                                "SubdivisionLevel": 4
-                            },
-                            "DebugDrawSettings": {
-                                "LocallyEnabled": false
-                            },
-                            "ComponentMode": {},
-                            "HasNonUniformScale": false
-                        },
-                        "EditorMeshColliderComponent": {
-                            "$type": "EditorMeshColliderComponent",
-                            "Id": 9115272468591319226,
-                            "ColliderConfiguration": {
-                                "CollisionLayer": {
-                                    "Index": 0
-                                },
-                                "CollisionGroupId": {
-                                    "GroupId": "{00000000-0000-0000-0000-000000000000}"
-                                },
-                                "Visible": false,
-                                "Trigger": false,
-                                "Simulated": true,
-                                "DummySimulated": false,
-                                "InSceneQueries": true,
-                                "Exclusive": true,
-                                "Position": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Rotation": [
-                                    0.5000000596046448,
-                                    -0.49999985098838806,
-                                    -0.49999991059303284,
-                                    0.5
-                                ],
-                                "MaterialSlots": {
-                                    "Slots": [
-                                        {
-                                            "Name": "DefaultMaterial",
-                                            "MaterialAsset": {
-                                                "assetId": {
-                                                    "guid": "{00000000-0000-0000-0000-000000000000}",
-                                                    "subId": 0
-                                                },
-                                                "loadBehavior": "QueueLoad",
-                                                "assetHint": ""
-                                            }
-                                        }
-                                    ]
-                                },
-                                "propertyVisibilityFlags": 255,
-                                "ColliderTag": "",
-                                "RestOffset": 0.0,
-                                "ContactOffset": 0.019999999552965164
-                            },
-                            "ShapeConfiguration": {
-                                "PhysicsAsset": {
-                                    "Asset": {
-                                        "assetId": {
-                                            "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
-                                            "subId": 3632102600
-                                        },
-                                        "loadBehavior": "QueueLoad",
-                                        "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
-                                    },
-                                    "Configuration": {
-                                        "Scale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "PhysicsAsset": {
-                                            "assetId": {
-                                                "guid": "{037A7FDF-66B1-5E88-B315-880B1C4777B1}",
-                                                "subId": 3632102600
-                                            },
-                                            "loadBehavior": "QueueLoad",
-                                            "assetHint": "assets/urdfimporter/783534404_ur.urdf/gripper_collider.pxmesh"
-                                        },
-                                        "AssetScale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "UseMaterialsFromAsset": true,
-                                        "SubdivisionLevel": 4
-                                    }
-                                },
-                                "HasNonUniformScale": false,
-                                "SubdivisionLevel": 4
-                            },
-                            "DebugDrawSettings": {
-                                "LocallyEnabled": true
-                            },
-                            "ComponentMode": {},
-                            "HasNonUniformScale": false
-                        }
-                    }
-                },
-                {
                     "op": "add",
                     "path": "/Entities/Entity_[2840549161062]/Components/GripperActionServerComponent",
                     "value": {
@@ -898,36 +932,6 @@
                     }
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.000001430511474609375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0000012814998626708984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.05449137091636658
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99674224853516
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.00014172641385812312
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99657440185547
-                },
-                {
                     "op": "add",
                     "path": "/Entities/Entity_[2840549161062]/Components/VacuumGripperComponent",
                     "value": {
@@ -936,7 +940,7 @@
                         "m_template": {
                             "$type": "VacuumGripperComponent",
                             "Id": 0,
-                            "EffectorCollider": "Entity_[2840549161062]",
+                            "EffectorCollider": "Entity_[2776124651622]",
                             "EffectorArticulation": "Entity_[2840549161062]"
                         }
                     }

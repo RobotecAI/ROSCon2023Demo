@@ -322,6 +322,10 @@ int main(int argc, char * argv[])
     RCLCPP_ERROR(logger, "Planning failed!");
   }
 
+  move_group_interface.detachObject(box_1.id);
+  planning_scene_interface.removeCollisionObjects({box_1.id});
+  
+  moveit_visual_tools.trigger();
 
   // Shutdown ROS
   rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return

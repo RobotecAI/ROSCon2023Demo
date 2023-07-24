@@ -31,6 +31,7 @@ planner_configs:
   RRTConnectkConfigDefault:
     type: geometric::RRTConnect
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
+    optimization_objective: PathLengthOptimizationObjective
   RRTstarkConfigDefault:
     type: geometric::RRTstar
     range: 0.0  # Max motion added to tree. ==> maxDistance_ default: 0.0, if 0.0, set on setup()
@@ -65,6 +66,8 @@ ur_manipulator:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
+  # enforce_constrained_state_space: true
   ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
-  #projection_evaluator: joints(shoulder_pan_joint,shoulder_lift_joint)
+  # projection_evaluator: joints(shoulder_pan_joint,shoulder_lift_joint)
   longest_valid_segment_fraction: 0.01
+  

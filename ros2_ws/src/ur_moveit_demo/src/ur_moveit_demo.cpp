@@ -3,6 +3,7 @@
 #include <thread> 
 #include <chrono>
 #include <rclcpp/rclcpp.hpp>
+// #include <rcutils/logging.h>
 #include <control_msgs/action/gripper_command.hpp>
 #include <tf2_msgs/msg/tf_message.hpp>
 
@@ -90,7 +91,8 @@ int main(int argc, char * argv[])
   moveit_visual_tools.loadRemoteControl();
 
 
-  move_group_interface.setNumPlanningAttempts(5);
+  move_group_interface.setPlanningTime(10);
+  move_group_interface.setNumPlanningAttempts(10);
   move_group_interface.setMaxVelocityScalingFactor(0.5);
 
 
@@ -245,6 +247,70 @@ int main(int argc, char * argv[])
 
   planning_scene_interface.applyCollisionObjects({collision_object_1, box_1});
 
+
+  move_group_interface.setPlannerId("geometric::RRTConnect");
+
+
+
+  std::cerr << "getDefaultPlanningPipelineId: " << move_group_interface.getDefaultPlanningPipelineId() <<"\n";
+
+  std::cerr << "getDefaultPlannerId: " << move_group_interface.getDefaultPlannerId("ur_manipulator") <<"\n";
+
+
+  auto planner_id =move_group_interface.getDefaultPlannerId();
+
+
+  std::map<std::string, std::string> params;
+
+  // // params["enforce_constrained_state_space"] = "true";
+  // // params["projection_evaluator"]= "joints(shoulder_pan_joint,shoulder_lift_joint)";
+  // params["longest_valid_segment_fraction"]= "0.01";
+  // params["range"] = "0.0";
+  // params["type"] = "geometric::RRTConnect"; 
+  // params["optimization_objective"] = "PathLengthOptimizationObjective";
+
+  // move_group_interface.setPlannerParams("geometric::RRTConnect", "ur_manipulator", params);
+
+  for(auto [k, v]: move_group_interface.getPlannerParams("geometric::RRTConnect", "ur_manipulator")) {
+
+    std::cerr << k << " -> " << v << "\n";
+  }
+
+
+  std::cerr<<"\n\n";
+
+  std::cerr << "plannner id: " << move_group_interface.getPlannerId() << "\n";
+
+
+
+  // // Constraints
+  // // auto current_pose = move_group_interface.getCurrentPose();
+
+  // auto frame_id = move_group_interface.getPlanningFrame();
+  // std::cerr << "frame_id: " << frame_id << ", pose reference frame: " << move_group_interface.getPoseReferenceFrame() << "\n";
+
+  // moveit_msgs::msg::OrientationConstraint orientation_constraint;
+  // orientation_constraint.header.frame_id = move_group_interface.getPoseReferenceFrame();
+
+  // orientation_constraint.link_name = "shoulder_link"; //move_group_interface.getEndEffectorLink();
+
+  // // orientation_constraint.orientation = current_pose.pose.orientation;
+
+  // orientation_constraint.orientation.x = 0.0;
+  // orientation_constraint.orientation.y = -0.707107;
+  // orientation_constraint.orientation.z = 0.0;
+  // orientation_constraint.orientation.w = 0.707107;
+
+  // orientation_constraint.absolute_x_axis_tolerance = 10.0;
+  // orientation_constraint.absolute_y_axis_tolerance = 10.0;
+  // orientation_constraint.absolute_z_axis_tolerance = 10.0;
+  // orientation_constraint.weight = 1.0;
+
+  // moveit_msgs::msg::Constraints orientation_constraints;
+  // orientation_constraints.orientation_constraints.emplace_back(orientation_constraint);
+  // move_group_interface.setPathConstraints(orientation_constraints);
+
+
   // Create a plan to that target pose
   prompt("Press 'Next' in the RvizVisualToolsGui window to plan");
   draw_title("Planning");
@@ -272,6 +338,9 @@ int main(int argc, char * argv[])
     spinner.join();  // <--- Join the thread before exiting
     return 0;
   }
+
+
+  std::cerr << "plannner id: " << move_group_interface.getPlannerId() << "\n";
 
 
   // Sending command to gripper.

@@ -285,7 +285,6 @@ def launch_setup(context, *args, **kwargs):
             {'publish_robot_description_semantic': True},
         ],
     )
-    print (hello_moveit)
 
     # ur_controller_spawner = Node(
     #     package="controller_manager",

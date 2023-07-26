@@ -109,7 +109,6 @@ constexpr float BoxHeight = 0.3f;
 const Eigen::Vector3d TableDimension{0.950, 0.950, 0.611};
 const Eigen::Vector3d ConveyorDimensions{2.0, 0.7, 0.15};
 const Eigen::Vector3d PickupLocation{0.890, 0, 0.049};
-const Eigen::Vector3d DropoffLocation{-1.0, 0, 0.05};
 const Eigen::Vector3d BoxDimension{0.2, 0.2, 0.2};
 
 // Robot configuration to pickup
@@ -155,6 +154,20 @@ const  std::map<std::string, double> DropConfig
     };
 
 
+const Eigen::Vector3d DropLocation {-1.0, 0.0, 0.420};
+const Eigen::Quaterniond DropOrientation {0.036, 0.699, -0.037, 0.714};
+
+constexpr double BoxSize = 0.12;
+const std::vector<Eigen::Vector3d> Pattern {
+    {-1,-1, -2.0},
+    {-1, 1, -2.0},
+    {1, -1, -2.0},
+    {1,  1, -2.0},
+
+    {0,  0, 0},
+
+};
+
 bool PlanAndGo(moveit::planning_interface::MoveGroupInterface & move_group_interface, const std::map<std::string, double>& config)
 {
     move_group_interface.setJointValueTarget(config);
@@ -192,6 +205,33 @@ bool PlanAndGo(moveit::planning_interface::MoveGroupInterface & move_group_inter
     }
     return true;
 }
+
+bool PlanAndGo(moveit::planning_interface::MoveGroupInterface & move_group_interface, Eigen::Vector3d position, Eigen::Quaterniond orientation)
+{
+    using moveit::planning_interface::MoveGroupInterface;
+
+    geometry_msgs::msg::Pose pose;
+    pose.position = toMsgPoint(position);
+    pose.orientation = toMsg(orientation);
+    move_group_interface.setApproximateJointValueTarget(pose, "gripper_link");
+//        move_group_interface.setPoseTarget(pose, "gripper_link");
+
+    moveit::planning_interface::MoveGroupInterface::Plan plan;
+    auto isOk = move_group_interface.plan(plan);
+    if (!isOk)
+    {
+        return false;
+    }
+    auto successExecution = move_group_interface.execute(plan);
+
+    if (!successExecution)
+    {
+        return false;
+    }
+    return true;
+}
+
+
 int main(int argc, char * argv[])
 {
   // Initialize ROS and create the Node
@@ -209,10 +249,20 @@ int main(int argc, char * argv[])
   executor.add_node(node);
   auto spinner = std::thread([&executor]() { executor.spin(); });
 
-  auto tf_buffer_ =
-        std::make_unique<tf2_ros::Buffer>(node->get_clock());
-  auto tf_listener_ =
-        std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
+  robot_model_loader::RobotModelLoader robot_model_loader(node);
+  const moveit::core::RobotModelPtr& kinematic_model = robot_model_loader.getModel();
+  RCLCPP_INFO(logger, "Model frame: %s", kinematic_model->getModelFrame().c_str());
+
+  moveit::core::RobotStatePtr robot_state(new moveit::core::RobotState(kinematic_model));
+  robot_state->setToDefaultValues();
+  const moveit::core::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup("ur_manipulator");
+
+  const std::vector<std::string>& joint_names = joint_model_group->getVariableNames();
+
+  for (auto joint_name : joint_names)
+  {
+      RCLCPP_INFO(logger, "Joint %s", joint_name.c_str());
+  }
 
   // Create the MoveIt MoveGroup Interface
   using moveit::planning_interface::MoveGroupInterface;
@@ -235,67 +285,71 @@ int main(int argc, char * argv[])
   move_group_interface.setMaxVelocityScalingFactor(1.0);
   move_group_interface.setMaxAccelerationScalingFactor(1.0);
 
+  move_group_interface.setGoalTolerance(0.001);
+  move_group_interface.setGoalOrientationTolerance(0.001);
+  move_group_interface.setGoalJointTolerance(0.001);
   move_group_interface.setJointValueTarget(PickupConfig);
   move_group_interface.startStateMonitor();
 
-  if (!PlanAndGo(move_group_interface,LiftConfig))
-  {
+  for (auto offset : Pattern) {
+      if (!PlanAndGo(move_group_interface, LiftConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
-  }
-  //
+      }
+      //
 
-  if (!PlanAndGo(move_group_interface,PickupConfig))
-  {
+      if (!PlanAndGo(move_group_interface, PickupConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
-  }
+      }
 
-  SendGripperGrip(client_ptr);
-  if (!PlanAndGo(move_group_interface,LiftConfig))
-  {
+      SendGripperGrip(client_ptr);
+      if (!PlanAndGo(move_group_interface, LiftConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
-  }
+      }
 
-  if (!PlanAndGo(move_group_interface,DropConfig))
-  {
+      if (!PlanAndGo(move_group_interface, DropConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
-  }
+      }
 
-
-  geometry_msgs::msg::Pose start_pose = move_group_interface.getCurrentPose().pose;
-  geometry_msgs::msg::Pose target_pose = start_pose;
-  target_pose.position.z += 0.2;
-
-  move_group_interface.setApproximateJointValueTarget(target_pose);
-  if (! PlanAndGo(move_group_interface))
-  {
+      Eigen::Vector3d modUp = (offset*BoxSize);
+      modUp.z() = 0;
+      if (!PlanAndGo(move_group_interface, DropLocation + modUp, DropOrientation)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
-  }
-  SendGripperrelease(client_ptr);
+      }
+      Eigen::Vector3d modDn = (offset*BoxSize);
 
-
-
-  if (!PlanAndGo(move_group_interface,LiftConfig))
-  {
+      if (!PlanAndGo(move_group_interface, DropLocation + modDn, DropOrientation)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
+      }
+
+      SendGripperrelease(client_ptr);
   }
+  if (!PlanAndGo(move_group_interface, LiftConfig)) {
+      RCLCPP_ERROR(logger, "Execution failed!");
+      rclcpp::shutdown();
+      spinner.join();
+      return 0;
+  }
+
+
+
 
   // Shutdown ROS
   rclcpp::shutdown();  // <--- This will cause the spin function in the thread to return

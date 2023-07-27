@@ -17,7 +17,7 @@
                 "Child Entity Order": [
                     "Entity_[381763642777368]",
                     "Entity_[381746462908184]",
-                    "Instance_[317133007780767]/ContainerEntity"
+                    "Entity_[6458393121446]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -52,6 +52,534 @@
         }
     },
     "Entities": {
+        "Entity_[1089616773913]": {
+            "Id": "Entity_[1089616773913]",
+            "Name": "EuroPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2435866739860935382
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 762497777448510909
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13666499997386529225,
+                    "Child Entity Order": [
+                        "Entity_[1093911741209]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6451596563059370960
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17268085664007841361
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6998885414742444133
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10483197736115608740
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2668744200916849190
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16561243093377249442,
+                    "Parent Entity": "Entity_[381763642777368]",
+                    "Transform Data": {
+                        "Translate": [
+                            -3.350660800933838,
+                            7.633986473083496,
+                            0.135737806558609
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            95.00000762939453
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1093911741209]": {
+            "Id": "Entity_[1093911741209]",
+            "Name": "EuroPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8672820692228532606
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7243857827028046210
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2025603198897114772,
+                    "Child Entity Order": [
+                        "Entity_[1098206708505]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3183466374783290599,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9711881680783692508
+                        },
+                        {
+                            "ComponentId": 11718856969853308283,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 12304717367441695710,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2442118649442536999
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 12304717367441695710,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Pallet"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                    "subId": 647865614
+                                },
+                                "assetHint": "assets/factory/conveyorline/europallet.pxmesh"
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                        "subId": 647865614
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/factory/conveyorline/europallet.pxmesh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 18293458877940414884
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3985585214418364138
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 11718856969853308283,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 95.22933197021484,
+                        "Centre of mass offset": [
+                            -0.00034657868673093617,
+                            -0.00029151514172554016,
+                            0.05575583875179291
+                        ],
+                        "Inertia tensor": [
+                            4.806522369384766,
+                            0.0,
+                            0.0,
+                            0.0,
+                            9.80550479888916,
+                            0.0,
+                            0.0,
+                            0.0,
+                            14.414012908935547
+                        ]
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17276548586373265414
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9711881680783692508,
+                    "Parent Entity": "Entity_[1089616773913]"
+                }
+            }
+        },
+        "Entity_[1098206708505]": {
+            "Id": "Entity_[1098206708505]",
+            "Name": "Pallet_vis",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 14340212108338807538,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                    "subId": 283569929
+                                },
+                                "assetHint": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17742777570719437479
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13014916166738377477
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4549646897343394557
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2397272503841114642
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12074886899659776296
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 4496612205083423642,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 898671911
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{F7420A61-B47F-5EE6-A8D8-3658C0908C97}"
+                                            },
+                                            "assetHint": "assets/factory/conveyorline/europallet_pallet.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12902056619020495715
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5029650696862385433
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8432374466295425591
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17289210019529947195,
+                    "Parent Entity": "Entity_[1093911741209]",
+                    "Transform Data": {
+                        "Rotate": [
+                            90.0,
+                            0.0,
+                            0.0
+                        ],
+                        "UniformScale": 100.00006866455078
+                    }
+                }
+            }
+        },
+        "Entity_[1123976512281]": {
+            "Id": "Entity_[1123976512281]",
+            "Name": "EuroPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2435866739860935382
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 762497777448510909
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13666499997386529225,
+                    "Child Entity Order": [
+                        "Entity_[1128271479577]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6451596563059370960
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17268085664007841361
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6998885414742444133
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10483197736115608740
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2668744200916849190
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16561243093377249442,
+                    "Parent Entity": "Entity_[381763642777368]",
+                    "Transform Data": {
+                        "Translate": [
+                            -3.2179579734802246,
+                            5.610844612121582,
+                            0.135737806558609
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            95.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1128271479577]": {
+            "Id": "Entity_[1128271479577]",
+            "Name": "EuroPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8672820692228532606
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7243857827028046210
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2025603198897114772,
+                    "Child Entity Order": [
+                        "Entity_[1132566446873]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3183466374783290599,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9711881680783692508
+                        },
+                        {
+                            "ComponentId": 11718856969853308283,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 12304717367441695710,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2442118649442536999
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 12304717367441695710,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Pallet"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                    "subId": 647865614
+                                },
+                                "assetHint": "assets/factory/conveyorline/europallet.pxmesh"
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                        "subId": 647865614
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/factory/conveyorline/europallet.pxmesh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 18293458877940414884
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3985585214418364138
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 11718856969853308283,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 95.22933197021484,
+                        "Centre of mass offset": [
+                            -0.00034657868673093617,
+                            -0.00029151514172554016,
+                            0.05575583875179291
+                        ],
+                        "Inertia tensor": [
+                            4.806522369384766,
+                            0.0,
+                            0.0,
+                            0.0,
+                            9.80550479888916,
+                            0.0,
+                            0.0,
+                            0.0,
+                            14.414012908935547
+                        ]
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17276548586373265414
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9711881680783692508,
+                    "Parent Entity": "Entity_[1123976512281]"
+                }
+            }
+        },
+        "Entity_[1132566446873]": {
+            "Id": "Entity_[1132566446873]",
+            "Name": "Pallet_vis",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 14340212108338807538,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{EDD73FE5-D4E2-588A-8BE7-E4C60B5C3745}",
+                                    "subId": 283569929
+                                },
+                                "assetHint": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17742777570719437479
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13014916166738377477
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4549646897343394557
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2397272503841114642
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12074886899659776296
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 4496612205083423642,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 898671911
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{F7420A61-B47F-5EE6-A8D8-3658C0908C97}"
+                                            },
+                                            "assetHint": "assets/factory/conveyorline/europallet_pallet.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12902056619020495715
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5029650696862385433
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8432374466295425591
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17289210019529947195,
+                    "Parent Entity": "Entity_[1128271479577]",
+                    "Transform Data": {
+                        "Rotate": [
+                            90.0,
+                            0.0,
+                            0.0
+                        ],
+                        "UniformScale": 100.00006866455078
+                    }
+                }
+            }
+        },
         "Entity_[381660563562264]": {
             "Id": "Entity_[381660563562264]",
             "Name": "ConveyorBelt_effector",
@@ -3131,14 +3659,15 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 2336151030548320972,
                     "Child Entity Order": [
-                        "Instance_[7675426849712529]/ContainerEntity",
-                        "Instance_[287337150292413]/ContainerEntity",
+                        "Entity_[1123976512281]",
                         "Instance_[1865420997526175]/ContainerEntity",
                         "Instance_[1865408112624287]/ContainerEntity",
                         "Instance_[12382254012170911]/ContainerEntity",
                         "Instance_[4980853547463014]/ContainerEntity",
                         "Instance_[1205512827607618]/ContainerEntity",
-                        "Instance_[1205499942705730]/ContainerEntity"
+                        "Instance_[1205499942705730]/ContainerEntity",
+                        "Instance_[51574540204469]/ContainerEntity",
+                        "Instance_[51561655302581]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -3539,6 +4068,59 @@
                     }
                 }
             }
+        },
+        "Entity_[6458393121446]": {
+            "Id": "Entity_[6458393121446]",
+            "Name": "LeftRobot",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9546441744163360151
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3355204885401141155
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3044748253271712082,
+                    "Child Entity Order": [
+                        "Instance_[317133007780767]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 212256805601727331
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2613458623878165813
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12902329008583142807
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 439957355205437376
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2297972026495073848
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 14122981364524207671,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -3.159153938293457,
+                            0.2811048924922943,
+                            0.6189841032028198
+                        ]
+                    }
+                }
+            }
         }
     },
     "Instances": {
@@ -3707,63 +4289,78 @@
                 }
             ]
         },
-        "Instance_[287337150292413]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[381763642777368]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.2179579734802246
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.610844612121582
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.135737806558609
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99999237060547
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99991607666016
-                }
-            ]
-        },
         "Instance_[317133007780767]": {
             "Source": "Assets/Importer/ur10.prefab",
             "Patches": [
                 {
                     "op": "replace",
+                    "path": "/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 236673794048.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": 273843249322393600.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": -0.618983805179596
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[101244026376870]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[2827664259174]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[81126399562406]"
+                },
+                {
+                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../ContainerEntity"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.159153938293457
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.2811049222946167
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.6189841032028198
+                    "value": "../Entity_[6458393121446]"
                 },
                 {
                     "op": "replace",
@@ -3771,14 +4368,392 @@
                     "value": -89.99994659423828
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 2.1233832836151123
+                    "op": "add",
+                    "path": "/Entities/Entity_[101244026376870]",
+                    "value": {
+                        "Id": "Entity_[101244026376870]",
+                        "Name": "CameraPickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 13532515077529642162,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6781642679181286743,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 16253491074692074894,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 8205904789522977018,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 5794523696290790714,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 1302165002717865336,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 10623915102758199104,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 16631854286725500262,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 7203595006593204846,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualise": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_pickup/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_pickup/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_pickup/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 15843059347559723168,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true
+                                },
+                                "SensorConfig": {
+                                    "Visualise": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_pickup/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_pickup/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 5364483958052265547,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 17197644915412255258,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        1.0,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.618984580039978
+                    "op": "add",
+                    "path": "/Entities/Entity_[81126399562406]",
+                    "value": {
+                        "Id": "Entity_[81126399562406]",
+                        "Name": "CameraDrop",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 7604825662087752012,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6383545578973993528,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 6193058209493791010,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 6489571018399251789,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 7253082648182213924,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 4957507555999069378,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 5043293431311490418,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11492665323669171068,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4422182098558420355,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualise": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_drop/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_drop/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_drop/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 4401655443776662586,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true
+                                },
+                                "SensorConfig": {
+                                    "Visualise": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 15092627223095051452,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 11340372032319460387,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.9999997615814208,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
                 }
             ]
         },
@@ -3959,41 +4934,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 0.00000965934304986149
-                }
-            ]
-        },
-        "Instance_[7675426849712529]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[381763642777368]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.2179601192474365
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.77055549621582
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.135737806558609
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99999237060547
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99991607666016
                 }
             ]
         }

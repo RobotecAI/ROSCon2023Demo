@@ -271,7 +271,6 @@ int main(int argc, char * argv[])
   auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
 
 
-
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
   planning_scene_interface.applyCollisionObject(CreateBoxCollision("table", TableDimension, Eigen::Vector3d{0,0, -TableDimension.z()/2.0}));
   planning_scene_interface.applyCollisionObject(CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ConveyorDimensions.x()/2+0.75,0, -0.2}));

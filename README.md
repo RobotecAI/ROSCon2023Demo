@@ -97,19 +97,5 @@ The modified URDF of the UR10 arm is provided in ros2 workspace
 
 ### Building ROS2 workspace
 
-To build this workspace the following dependencies are required:  
-```sudo apt install python3-colcon-common-extensions python3-vcstool```
-Run the rosedep update and install to download and install all dependant packages:
-```bash
-rosdep update
-rosdep install --ignore-src --from-paths src -y
-```
-Build the workspace using colcon:
-```
-colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install
-```
-Source the workspace:
-```
-source install/setup.bash
-```
+To build workspace follow [readme](ros2_ws/README.md).
  

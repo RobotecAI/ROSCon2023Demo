@@ -27,7 +27,30 @@ geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::B
   geometry_msgs::msg::TransformStamped box_transform;
   try {
     box_transform = tf_buffer_.lookupTransform(
-        "Box1/odom", "Box1/box",
+        "world", "Box1/box",
+        tf2::TimePointZero);
+  } catch (const tf2::TransformException & ex) {
+    std::cerr << "Could not transform " <<  ex.what() << std::endl;
+    std::abort();
+  }
+  geometry_msgs::msg::Pose box_pose;
+  box_pose.position.x = box_transform.transform.translation.x;
+  box_pose.position.y = box_transform.transform.translation.y;
+  box_pose.position.z = box_transform.transform.translation.z;
+  box_pose.orientation.x = box_transform.transform.rotation.x;
+  box_pose.orientation.y = box_transform.transform.rotation.y;
+  box_pose.orientation.z = box_transform.transform.rotation.z;
+  box_pose.orientation.w = box_transform.transform.rotation.w;
+  return box_pose;
+}
+
+
+geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
+{
+  geometry_msgs::msg::TransformStamped box_transform;
+  try {
+    box_transform = tf_buffer_.lookupTransform(
+        "world", "EuroPallet1/europallet",
         tf2::TimePointZero);
   } catch (const tf2::TransformException & ex) {
     std::cerr << "Could not transform " <<  ex.what() << std::endl;
@@ -110,6 +133,10 @@ const Eigen::Vector3d TableDimension{0.950, 0.950, 0.611};
 const Eigen::Vector3d ConveyorDimensions{2.0, 0.7, 0.15};
 const Eigen::Vector3d PickupLocation{0.890, 0, 0.049};
 const Eigen::Vector3d BoxDimension{0.2, 0.2, 0.2};
+const Eigen::Vector3d PalletDimensions{0.769, 1.11,  0.111};
+const Eigen::Vector3d RobotBase{-3.1591539, 0.2811049,  0.6189841};
+
+
 
 // Robot configuration to pickup
 
@@ -269,7 +296,8 @@ int main(int argc, char * argv[])
   auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
 
   auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
-
+  auto tf_buffer_ = tf2_ros::Buffer(node->get_clock());
+  auto tf_listener_ = std::make_shared<tf2_ros::TransformListener>(tf_buffer_);
 
 
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
@@ -290,6 +318,15 @@ int main(int argc, char * argv[])
   move_group_interface.setGoalJointTolerance(0.001);
   move_group_interface.setJointValueTarget(PickupConfig);
   move_group_interface.startStateMonitor();
+
+
+
+  auto palletPose = getPalletLocation(node, tf_buffer_);
+  planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
+
+
+  auto frame = tf_buffer_.allFramesAsString();
+  RCLCPP_INFO(logger, "all frames %s", frame.c_str());
 
   for (auto offset : Pattern) {
       if (!PlanAndGo(move_group_interface, LiftConfig)) {
@@ -322,9 +359,26 @@ int main(int argc, char * argv[])
         return 0;
       }
 
+      
+      
+      
+
+      auto box_pose = getBoxLocation(node, tf_buffer_);
+      auto palletPose = getPalletLocation(node, tf_buffer_);
+
+
+      auto dropPose = palletPose.position;
+      dropPose.z += 0.6;
+      const auto dropLocation = fromMsg(dropPose);
+
+
+
+    
+
+
       Eigen::Vector3d modUp = (offset*BoxSize);
       modUp.z() = 0;
-      if (!PlanAndGo(move_group_interface, DropLocation + modUp, DropOrientation)) {
+      if (!PlanAndGo(move_group_interface, dropLocation + modUp, DropOrientation)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
@@ -332,7 +386,23 @@ int main(int argc, char * argv[])
       }
       Eigen::Vector3d modDn = (offset*BoxSize);
 
-      if (!PlanAndGo(move_group_interface, DropLocation + modDn, DropOrientation)) {
+
+      RCLCPP_INFO(logger, "modDn %f %f %f, modUp %f %f %f", modDn[0], modDn[1], modDn[2], modUp[0], modUp[1], modUp[2]);
+      RCLCPP_INFO(logger, "Box pose %f %f %f", box_pose.position.x, box_pose.position.y, box_pose.position.z);
+      RCLCPP_INFO(logger, "Pallet pose %f %f %f", palletPose.position.x, palletPose.position.y, palletPose.position.z);
+      RCLCPP_INFO(logger, "Drop location hardcoded: %f %f %f", DropLocation[0], DropLocation[1], DropLocation[2]);
+      RCLCPP_INFO(logger, "Drop location calculated: %f %f %f", dropLocation[0], dropLocation[1], dropLocation[2]);
+
+
+      // if (!PlanAndGo(move_group_interface, dropLocation + modDn, DropOrientation)) {
+      //   RCLCPP_ERROR(logger, "Execution failed!");
+      //   rclcpp::shutdown();
+      //   spinner.join();
+      //   return 0;
+      // }
+
+
+      if (!PlanAndGo(move_group_interface, dropLocation + modDn, DropOrientation)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
@@ -340,7 +410,15 @@ int main(int argc, char * argv[])
       }
 
       SendGripperrelease(client_ptr);
+
+
+
+
   }
+  
+
+
+
   if (!PlanAndGo(move_group_interface, LiftConfig)) {
       RCLCPP_ERROR(logger, "Execution failed!");
       rclcpp::shutdown();

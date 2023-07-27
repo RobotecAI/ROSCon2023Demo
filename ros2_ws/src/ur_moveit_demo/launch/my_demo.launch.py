@@ -305,19 +305,19 @@ def launch_setup(context, *args, **kwargs):
     #     arguments=["panda_hand_controller", "-c", "/controller_manager"],
     # )
     nodes_to_start = [
-        # rviz_node,
-        # static_tf,
-        # robot_state_publisher,
-        # run_move_group_node,
-        # ros2_control_node,
-        # # joint_state_broadcaster_spawner,
+        rviz_node,
+        static_tf,
+        robot_state_publisher,
+        run_move_group_node,
+        ros2_control_node,
+        # joint_state_broadcaster_spawner,
 
-        # # arm_controller_spawner,
-        # # hand_controller_spawner,
+        # arm_controller_spawner,
+        # hand_controller_spawner,
         
-        # servo_node,
+        servo_node,
 
-        hello_moveit
+        # hello_moveit
     ]
 
     return nodes_to_start

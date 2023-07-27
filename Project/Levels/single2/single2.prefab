@@ -20,7 +20,7 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
-                    "Instance_[2082921034728]/ContainerEntity"
+                    "Entity_[12721703799636]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -489,32 +489,70 @@
                     "Id": 931091830724002070
                 }
             }
+        },
+        "Entity_[12721703799636]": {
+            "Id": "Entity_[12721703799636]",
+            "Name": "Entity1",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7171172694241441261
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15883609538405146867
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7205472159190778947,
+                    "Child Entity Order": [
+                        "Instance_[2082921034728]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16558071791200261402
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6342252552084555483
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15929405126681977256
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6469199465157402182
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12078516552453873429
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17721449155202723093,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Namespace Configuration": {
+                            "Namespace Strategy": 1
+                        },
+                        "Frame Name": "everything",
+                        "Publish Transform": false
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7498926203291237182,
+                    "Parent Entity": "Entity_[1146574390643]"
+                }
+            }
         }
     },
     "Instances": {
         "Instance_[2082921034728]": {
             "Source": "Prefabs/Cell.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -0.28104567527770996
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": -3.159152030944824
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6190000772476196
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
@@ -537,6 +575,11 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Name",
+                    "value": "EuroPallet1"
+                },
+                {
+                    "op": "replace",
                     "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
                     "value": -3.410111427307129
                 },
@@ -554,6 +597,172 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
                     "value": -89.99990844726563
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 1175018581361245313,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[12721703799636]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 2.1419172223241863e31
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": 1.9054813738141823e30
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": 4.196843709000072e30
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/0",
+                    "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/1",
+                    "value": -1.446991163870442e-38
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
+                    "value": 135.00001525878906
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
+                    "value": true
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Instance_[51561655302581]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Instance_[51574540204469]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[381763642777368]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 7362390765541570127,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 1,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "objects",
+                            "Joint Name": "",
+                            "Publish Transform": true
+                        }
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1865420997526175]/Entities/Entity_[191801695898434]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 4933733576212528404,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Name",
+                    "value": "EuroPallet1"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 2042292464258417630,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "europallet",
+                            "Joint Name": "",
+                            "Publish Transform": true
+                        }
+                    }
                 }
             ]
         }

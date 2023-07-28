@@ -19,7 +19,7 @@ bool SendGripperGrip(rclcpp_action::Client<control_msgs::action::GripperCommand>
 
 bool SendGripperrelease(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr);
 
-geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_, std::string box_name = "Box3/box")
+geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
 {
     geometry_msgs::msg::TransformStamped box_transform;
     try
@@ -136,9 +136,8 @@ const std::map<std::string, double> DropConfig{
     { "shoulder_pan_joint", -0.15679530799388885 }, { "shoulder_lift_joint", -2.199610710144043 }, { "wrist_3_joint", -3.1959822177886963 }
 };
 
-
-const Eigen::Vector3d DropLocation {-1.0, 0.0, 0.420};
-const Eigen::Quaterniond DropOrientation {0.0, -0.0, 0.713,  -0.701};
+const Eigen::Vector3d DropLocation{ -1.0, 0.0, 0.420 };
+const Eigen::Quaterniond DropOrientation{ 0.036, 0.699, -0.037, 0.714 };
 
 constexpr double BoxSize = 0.12;
 const std::vector<Eigen::Vector3d> Pattern{
@@ -204,10 +203,9 @@ bool PlanAndGo(
 
     geometry_msgs::msg::Pose pose;
     pose.position = toMsgPoint(position);
-    // move_group_interface.getCurrentPose().orientation;
-    pose.orientation = move_group_interface.getCurrentPose().pose.orientation;//toMsg(orientation);
+    pose.orientation = toMsg(orientation);
     // move_group_interface.setApproximateJointValueTarget(pose, "tool0");
-    move_group_interface.setPoseTarget(pose);
+    move_group_interface.setPoseTarget(pose, "gripper_link");
 
     moveit::planning_interface::MoveGroupInterface::Plan plan;
     auto isOk = move_group_interface.plan(plan);
@@ -361,7 +359,7 @@ int main(int argc, char* argv[])
 
         moveit_msgs::msg::Constraints box_constraints;
         box_constraints.position_constraints.emplace_back(box_constraint);
-        // move_group_interface.setPathConstraints(box_constraints);
+        move_group_interface.setPathConstraints(box_constraints);
         moveit_visual_tools.trigger();
         moveit_visual_tools.prompt("  ");
         moveit_visual_tools.trigger();

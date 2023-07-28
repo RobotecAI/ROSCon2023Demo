@@ -268,7 +268,7 @@ def launch_setup(context, *args, **kwargs):
     hello_moveit = Node(
         name="hello_moveit",
         package="ur_moveit_demo",
-        executable="ur_moveit_demo",
+        executable="mtc",
         output="screen",
         parameters=[
             robot_description,

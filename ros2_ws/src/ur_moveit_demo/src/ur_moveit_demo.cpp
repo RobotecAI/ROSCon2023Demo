@@ -27,7 +27,7 @@ geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::B
   geometry_msgs::msg::TransformStamped box_transform;
   try {
     box_transform = tf_buffer_.lookupTransform(
-        "world", "Box1/box",
+        "world", "Box3/box",
         tf2::TimePointZero);
   } catch (const tf2::TransformException & ex) {
     std::cerr << "Could not transform " <<  ex.what() << std::endl;
@@ -36,7 +36,7 @@ geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::B
   geometry_msgs::msg::Pose box_pose;
   box_pose.position.x = box_transform.transform.translation.x;
   box_pose.position.y = box_transform.transform.translation.y;
-  box_pose.position.z = box_transform.transform.translation.z;
+  box_pose.position.z = box_transform.transform.translation.z  +  0.3134952 * 0.3339678;
   box_pose.orientation.x = box_transform.transform.rotation.x;
   box_pose.orientation.y = box_transform.transform.rotation.y;
   box_pose.orientation.z = box_transform.transform.rotation.z;
@@ -44,6 +44,18 @@ geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::B
   return box_pose;
 }
 
+geometry_msgs::msg::Pose toPose(geometry_msgs::msg::TransformStamped transform)
+{
+  geometry_msgs::msg::Pose pose;
+  pose.position.x = transform.transform.translation.x;
+  pose.position.y = transform.transform.translation.y;
+  pose.position.z = transform.transform.translation.z;
+  pose.orientation.x = transform.transform.rotation.x;
+  pose.orientation.y = transform.transform.rotation.y;
+  pose.orientation.z = transform.transform.rotation.z;
+  pose.orientation.w = transform.transform.rotation.w;
+  return pose;
+}
 
 geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
 {
@@ -66,6 +78,7 @@ geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros
   box_pose.orientation.w = box_transform.transform.rotation.w;
   return box_pose;
 }
+
 
 
 Eigen::Quaterniond fromMsg(const geometry_msgs::msg::Quaternion& msg)
@@ -132,7 +145,8 @@ constexpr float BoxHeight = 0.3f;
 const Eigen::Vector3d TableDimension{0.950, 0.950, 0.611};
 const Eigen::Vector3d ConveyorDimensions{2.0, 0.7, 0.15};
 const Eigen::Vector3d PickupLocation{0.890, 0, 0.049};
-const Eigen::Vector3d BoxDimension{0.2, 0.2, 0.2};
+// const Eigen::Vector3d BoxDimension{0.2, 0.2, 0.2};
+const Eigen::Vector3d BoxDimension{1.8231806 * 0.3768892 * 0.3339678, 0.889312 * 0.7703997 * 0.3339678, 1.0 * 0.626915 * 0.3339678};
 const Eigen::Vector3d PalletDimensions{0.769, 1.11,  0.111};
 const Eigen::Vector3d RobotBase{-3.1591539, 0.2811049,  0.6189841};
 
@@ -258,6 +272,65 @@ bool PlanAndGo(moveit::planning_interface::MoveGroupInterface & move_group_inter
     return true;
 }
 
+void tf_callback(moveit::planning_interface::PlanningSceneInterface& scene, tf2_msgs::msg::TFMessage tf)
+{
+  for (auto tf_ : tf.transforms)
+  {
+      if(tf_.child_frame_id == "Box3/box")
+      {
+        std::cerr << "got tf of " << tf_.header.frame_id << " to " << tf_.child_frame_id << "\n";
+        auto box_pose = toPose(tf_);
+        scene.applyCollisionObject(CreateBoxCollision("box", BoxDimension, fromMsg(box_pose.position)));
+      }
+  }
+}
+
+void tf_callback_2(rclcpp::Publisher<moveit_msgs::msg::CollisionObject>::SharedPtr publisher, tf2_msgs::msg::TFMessage tf)
+{
+  for (auto tf_ : tf.transforms)
+  {
+      if(tf_.child_frame_id == "Box3/box")
+      {
+        std::cerr << "got tf of " << tf_.header.frame_id << " to " << tf_.child_frame_id << "  " << tf_.transform.translation.x <<" " << tf_.transform.translation.y << tf_.transform.translation.z << "\n";
+
+
+        auto box_pose = toPose(tf_);
+                
+        auto message = CreateBoxCollision("box", BoxDimension, fromMsg(box_pose.position));
+        publisher->publish(message);
+      }
+  }
+}
+
+        
+// geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
+void tf_callback_3(rclcpp::Publisher<moveit_msgs::msg::CollisionObject>::SharedPtr publisher, rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_, tf2_msgs::msg::TFMessage tf)
+{
+  // for (auto tf_ : tf.transforms)
+  // {
+  //     if(tf_.child_frame_id == "Box3/box")
+  //     {
+  //       std::cerr << "got tf of " << tf_.header.frame_id << " to " << tf_.child_frame_id << "  " << tf_.transform.translation.x <<" " << tf_.transform.translation.y << tf_.transform.translation.z << "\n";
+
+
+  //       auto box_pose = getBoxLocation(node, tf_buffer_);
+
+
+  //       std::cerr << "sending box pose " <<  box_pose.position.x <<" " << box_pose.position.y << box_pose.position.z << "\n";
+
+  //       auto message = CreateBoxCollision("box", BoxDimension, fromMsg(box_pose.position));
+
+
+  //       // message.operation = message.MOVE;
+  //       // if(publish)
+  //       // {
+  //         // publisher->publish(message);
+  //       // }
+  //     }
+  // }
+}
+
+
 
 int main(int argc, char * argv[])
 {
@@ -297,12 +370,52 @@ int main(int argc, char * argv[])
 
   auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
   auto tf_buffer_ = tf2_ros::Buffer(node->get_clock());
+
+//   auto timer_interface = std::make_shared<tf2_ros::CreateTimerROS>(
+//       this->get_node_base_interface(),
+//       this->get_node_timers_interface());
+//   tf2_buffer_->setCreateTimerInterface(timer_interface);
+
   auto tf_listener_ = std::make_shared<tf2_ros::TransformListener>(tf_buffer_);
 
 
+
+//   point_sub_.subscribe(this, "/tf");
+//       tf2_filter_ = std::make_shared<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>>(
+//       point_sub_, *tf2_buffer_, target_frame_, 100, this->get_node_logging_interface(),
+//       this->get_node_clock_interface(), buffer_timeout);
+//     // Register a callback with tf2_ros::MessageFilter to be called when transforms are available
+//     tf2_filter_->registerCallback(&PoseDrawer::msgCallback, this);
+
+
+//   message_filters::Subscriber<geometry_msgs::msg::PointStamped> point_sub_;
+//   std::shared_ptr<tf2_ros::MessageFilter<geometry_msgs::msg::PointStamped>> tf2_filter_;
+
+
   moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
+ 
   planning_scene_interface.applyCollisionObject(CreateBoxCollision("table", TableDimension, Eigen::Vector3d{0,0, -TableDimension.z()/2.0}));
-  planning_scene_interface.applyCollisionObject(CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ConveyorDimensions.x()/2+0.75,0, -0.2}));
+  planning_scene_interface.applyCollisionObject(CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ConveyorDimensions.x()/2+0.75,0, -0.2 -0.04}));
+
+
+  // auto callback_tf_ = [&planning_scene_interface] (tf2_msgs::msg::TFMessage tf_m) {tf_callback(planning_scene_interface, tf_m);}; 
+  // auto listener = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, callback_tf_);
+
+
+  // auto collision_publisher = node->create_publisher<moveit_msgs::msg::CollisionObject>("/collision_object", 10);
+
+
+  // auto callback_tf_2 = [collision_publisher] (tf2_msgs::msg::TFMessage tf_m) {tf_callback_2(collision_publisher, tf_m);}; 
+  // auto listener = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, callback_tf_2);
+
+
+  // auto callback_tf_3 = [collision_publisher, node, &tf_buffer_] (tf2_msgs::msg::TFMessage tf_m) {tf_callback_3(collision_publisher, node, tf_buffer_, tf_m);}; 
+  // auto listener = node->create_subscription<tf2_msgs::msg::TFMessage>("/tf", 10, callback_tf_3);
+
+      
+  // auto collision_message = CreateBoxCollision("table2", TableDimension * 3, Eigen::Vector3d{0,0, -TableDimension.z()/2.0});
+      
+  // collision_publisher->publish(collision_message);
 
 
   move_group_interface.clearPathConstraints();
@@ -320,9 +433,26 @@ int main(int argc, char * argv[])
   move_group_interface.startStateMonitor();
 
 
+  // if (!PlanAndGo(move_group_interface, LiftConfig)) {
+  //         RCLCPP_ERROR(logger, "Execution failed!");
+  //         rclcpp::shutdown();
+  //         spinner.join();
+  //         return 0;
+  //       }
+
+  {
+    using namespace std::chrono_literals;
+    rclcpp::sleep_for(1000ms);
+  }
 
   auto palletPose = getPalletLocation(node, tf_buffer_);
   planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
+
+  auto boxPose = getBoxLocation(node, tf_buffer_);
+  // collision_publisher->publish(CreateBoxCollision("box", BoxDimension, fromMsg(boxPose.position)));
+
+  planning_scene_interface.applyCollisionObject(CreateBoxCollision("box", BoxDimension, fromMsg(boxPose.position)));
+
 
 
   auto frame = tf_buffer_.allFramesAsString();
@@ -335,16 +465,59 @@ int main(int argc, char * argv[])
         spinner.join();
         return 0;
       }
-      //
+      
+      auto box_pose_a = getBoxLocation(node, tf_buffer_).position;
+      box_pose_a.z += BoxDimension[2] / 2;
+      auto box_location = fromMsg(box_pose_a);
 
-      if (!PlanAndGo(move_group_interface, PickupConfig)) {
+      if (!PlanAndGo(move_group_interface, box_location, DropOrientation)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
         spinner.join();
         return 0;
       }
 
+
+      // if (!PlanAndGo(move_group_interface, PickupConfig)) {
+      //   RCLCPP_ERROR(logger, "Execution failed!");
+      //   rclcpp::shutdown();
+      //   spinner.join();
+      //   return 0;
+      // }
+
       SendGripperGrip(client_ptr);
+
+      // if (!SendGripperGrip(client_ptr)) {
+      //   RCLCPP_ERROR(logger, "Execution failed!");
+      //   rclcpp::shutdown();
+      //   spinner.join();
+      //   return 0;
+      // }
+
+
+      
+      std::cerr << "\n\nknown objects: ";
+      for(auto s: planning_scene_interface.getKnownObjectNames())
+      {
+        std::cerr << s << ",";
+      }
+
+      std::cerr << "\n";
+
+      std::cerr << "\n\nAttaching object.\n";
+
+      move_group_interface.attachObject("box", "gripper_link");
+
+      std::cerr << "\n\nknown objects: ";
+      for(auto s: planning_scene_interface.getKnownObjectNames())
+      {
+        std::cerr << s << ",";
+      }
+
+      std::cerr << "\n\n\n";
+    
+
+
       if (!PlanAndGo(move_group_interface, LiftConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
@@ -366,6 +539,7 @@ int main(int argc, char * argv[])
       auto box_pose = getBoxLocation(node, tf_buffer_);
       auto palletPose = getPalletLocation(node, tf_buffer_);
 
+      // planning_scene_interface.applyCollisionObject(CreateBoxCollision("box", BoxDimension, fromMsg(box_pose.position)));
 
       auto dropPose = palletPose.position;
       dropPose.z += 0.6;
@@ -412,8 +586,32 @@ int main(int argc, char * argv[])
       SendGripperrelease(client_ptr);
 
 
+      std::cerr << "\n\nknown objects: ";
+      for(auto s: planning_scene_interface.getKnownObjectNames())
+      {
+        std::cerr << s << ",";
+      }
+
+      std::cerr << "\n";
+
+      std::cerr << "\n\nDetaching object.\n";
 
 
+      move_group_interface.detachObject("box");
+
+      // move_group_interface.attachObject("box", "gripper_link");
+
+      std::cerr << "\n\nknown objects: ";
+      for(auto s: planning_scene_interface.getKnownObjectNames())
+      {
+        std::cerr << s << ",";
+      }
+
+      std::cerr << "\n\n\n";
+    
+
+
+      break;
   }
   
 

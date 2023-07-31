@@ -584,25 +584,6 @@
                     "value": -89.99990844726563
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 1175018581361245313,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[12721703799636]"
@@ -707,25 +688,6 @@
                     }
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1865420997526175]/Entities/Entity_[191801695898434]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 4933733576212528404,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/ContainerEntity/Name",
                     "value": "Box3"
@@ -744,6 +706,46 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.2500579357147217
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1865420997526175]/Entities/Entity_[191801695898434]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 4933733576212528404,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 1175018581361245313,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
                 },
                 {
                     "op": "replace",
@@ -765,9 +767,140 @@
                             },
                             "Frame Name": "box",
                             "Joint Name": "",
-                            "Publish Transform": true
+                            "Publish Transform": true,
+                            "Force Dynamic": true
                         }
                     }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[4980853547463014]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box4"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[4980853547463014]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 15871953535926259200,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box5"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 3005244017422937779,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[1205499942705730]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box6"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[1205499942705730]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 10144954533336081279,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[51561655302581]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box7"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[51561655302581]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 1369205865455727063,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[51574540204469]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box8"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[51574540204469]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 10345250818404619417,
+                        "m_template": {
+                            "$type": "ROS2FrameComponent",
+                            "Id": 0,
+                            "Namespace Configuration": {
+                                "Namespace Strategy": 2,
+                                "Namespace": ""
+                            },
+                            "Frame Name": "box",
+                            "Joint Name": "",
+                            "Publish Transform": true,
+                            "Force Dynamic": true
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
+                    "value": 0.20000000298023224
                 },
                 {
                     "op": "replace",
@@ -789,7 +922,8 @@
                             },
                             "Frame Name": "europallet",
                             "Joint Name": "",
-                            "Publish Transform": true
+                            "Publish Transform": true,
+                            "Force Dynamic": false
                         }
                     }
                 }

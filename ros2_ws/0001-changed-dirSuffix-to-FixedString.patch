@@ -1,0 +1,35 @@
+From 82814057627137d2641cc98595d1d4a3a1e31973 Mon Sep 17 00:00:00 2001
+From: Kacper Lewandowski <kacper.lewandowski@robotec.ai>
+Date: Thu, 27 Jul 2023 09:43:03 +0200
+Subject: [PATCH] changed dirSuffix to FixedString
+
+Signed-off-by: Kacper Lewandowski <kacper.lewandowski@robotec.ai>
+---
+ Gems/ROS2/Code/Source/RobotImporter/RobotImporterWidget.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Gems/ROS2/Code/Source/RobotImporter/RobotImporterWidget.cpp b/Gems/ROS2/Code/Source/RobotImporter/RobotImporterWidget.cpp
+index e9248f0536..1b961a3823 100644
+--- a/Gems/ROS2/Code/Source/RobotImporter/RobotImporterWidget.cpp
++++ b/Gems/ROS2/Code/Source/RobotImporter/RobotImporterWidget.cpp
+@@ -182,7 +182,7 @@ namespace ROS2
+             auto collidersNames = Utils::GetMeshesFilenames(m_parsedUrdf->getRoot(), false, true);
+             auto visualNames = Utils::GetMeshesFilenames(m_parsedUrdf->getRoot(), true, false);
+ 
+-            AZStd::string dirSuffix = "";
++            AZ::Uuid::FixedString dirSuffix;
+             if (!m_params.empty())
+             {
+                 auto paramsUuid = AZ::Uuid::CreateNull();
+@@ -192,7 +192,7 @@ namespace ROS2
+                     paramsUuid += AZ::Uuid::CreateName(value);
+                 }
+ 
+-                dirSuffix = paramsUuid.ToString<AZStd::string_view>();
++                dirSuffix = paramsUuid.ToFixedString();
+             }
+ 
+             if (m_importAssetWithUrdf)
+-- 
+2.34.1
+

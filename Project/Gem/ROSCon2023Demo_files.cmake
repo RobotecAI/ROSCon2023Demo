@@ -7,5 +7,7 @@ set(FILES
     Source/ROSCon2023DemoSystemComponent.h
     Source/Vision/IdealVisionSystem.cpp
     Source/Vision/IdealVisionSystem.h
+    Source/PlanningScene/ShapePublisherComponent.h
+    Source/PlanningScene/ShapePublisherComponent.cpp
     enabled_gems.cmake
 )

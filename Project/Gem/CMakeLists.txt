@@ -57,11 +57,18 @@ ly_add_target(
         PUBLIC
             Include
     BUILD_DEPENDENCIES
+        PUBLIC
+            Gem::ROS2.Static
         PRIVATE
             AZ::AzGameFramework
+            AZ::AzFramework
+            AZ::AzToolsFramework
             Gem::Atom_AtomBridge.Static
             Gem::ROS2.Static
+            Gem::LmbrCentral.API
 )
+
+target_depends_on_ros2_packages(${gem_name}.Private.Object std_srvs nav_msgs vision_msgs moveit_msgs)
 
 ly_add_target(
     NAME ${gem_name} ${PAL_TRAIT_MONOLITHIC_DRIVEN_MODULE_TYPE}
@@ -77,6 +84,9 @@ ly_add_target(
             Gem::${gem_name}.Private.Object
             AZ::AzCore
             Gem::ROS2.Static
+            AZ::AzGameFramework
+            AZ::AzFramework
+            AZ::AzToolsFramework
 )
 
 target_depends_on_ros2_package(${gem_name}.Private.Object  vision_msgs REQUIRED)

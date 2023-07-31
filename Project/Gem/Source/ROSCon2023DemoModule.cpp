@@ -2,6 +2,7 @@
 #include <AzCore/Memory/SystemAllocator.h>
 #include <AzCore/Module/Module.h>
 
+#include "PlanningScene/ShapePublisherComponent.h"
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Vision/IdealVisionSystem.h"
 
@@ -21,6 +22,7 @@ namespace ROSCon2023Demo
             m_descriptors.insert(m_descriptors.end(), {
                 ROSCon2023DemoSystemComponent::CreateDescriptor(),
                 ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
+                ShapePublisherComponent::CreateDescriptor()
             });
         }
 

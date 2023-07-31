@@ -22,12 +22,12 @@ bool SendGripperGrip(rclcpp_action::Client<control_msgs::action::GripperCommand>
 
 bool SendGripperrelease(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr);
 
-geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
+geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_, std::string box_name = "Box3/box")
 {
   geometry_msgs::msg::TransformStamped box_transform;
   try {
     box_transform = tf_buffer_.lookupTransform(
-        "world", "Box3/box",
+        "world", box_name,
         tf2::TimePointZero);
   } catch (const tf2::TransformException & ex) {
     std::cerr << "Could not transform " <<  ex.what() << std::endl;
@@ -331,6 +331,28 @@ void tf_callback_3(rclcpp::Publisher<moveit_msgs::msg::CollisionObject>::SharedP
 }
 
 
+std::vector<std::string> box_names = {
+  "Box3/box",
+  "Box6/box",
+  "Box4/box",
+  "Box5/box",
+  "Box7/box",
+  "Box8/box",
+  "Box1/box",
+};
+
+
+// std::vector<std::string> box_names = {
+//   "Box1/box",
+//   "Box2/box",
+//   "Box3/box",
+//   "Box4/box",
+//   "Box5/box",
+//   "Box6/box",
+//   "Box7/box",
+//   "Box8/box"
+// };
+
 
 int main(int argc, char * argv[])
 {
@@ -448,17 +470,32 @@ int main(int argc, char * argv[])
   auto palletPose = getPalletLocation(node, tf_buffer_);
   planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
 
-  auto boxPose = getBoxLocation(node, tf_buffer_);
   // collision_publisher->publish(CreateBoxCollision("box", BoxDimension, fromMsg(boxPose.position)));
 
-  planning_scene_interface.applyCollisionObject(CreateBoxCollision("box", BoxDimension, fromMsg(boxPose.position)));
+  // for (auto box: box_names) 
+  // {
+  //     auto boxPose = getBoxLocation(node, tf_buffer_, box);
+  //     planning_scene_interface.applyCollisionObject(CreateBoxCollision(box, BoxDimension, fromMsg(boxPose.position)));
+  // }
+
+  // planning_scene_interface.applyCollisionObject(CreateBoxCollision("Box3/box", BoxDimension, fromMsg(boxPose.position)));
 
 
 
   auto frame = tf_buffer_.allFramesAsString();
   RCLCPP_INFO(logger, "all frames %s", frame.c_str());
 
-  for (auto offset : Pattern) {
+
+  // for (auto offset : Pattern) {  
+  for (size_t i = 0; i < Pattern.size(); i++) {
+      auto offset =  Pattern[i];
+      auto box_name = box_names[i];
+
+      {
+        auto boxPose = getBoxLocation(node, tf_buffer_, box_name);
+        planning_scene_interface.applyCollisionObject(CreateBoxCollision(box_name, BoxDimension, fromMsg(boxPose.position)));
+      }
+
       if (!PlanAndGo(move_group_interface, LiftConfig)) {
         RCLCPP_ERROR(logger, "Execution failed!");
         rclcpp::shutdown();
@@ -466,7 +503,7 @@ int main(int argc, char * argv[])
         return 0;
       }
       
-      auto box_pose_a = getBoxLocation(node, tf_buffer_).position;
+      auto box_pose_a = getBoxLocation(node, tf_buffer_, box_name).position;
       box_pose_a.z += BoxDimension[2] / 2;
       auto box_location = fromMsg(box_pose_a);
 
@@ -506,7 +543,7 @@ int main(int argc, char * argv[])
 
       std::cerr << "\n\nAttaching object.\n";
 
-      move_group_interface.attachObject("box", "gripper_link");
+      move_group_interface.attachObject(box_name, "gripper_link");
 
       std::cerr << "\n\nknown objects: ";
       for(auto s: planning_scene_interface.getKnownObjectNames())
@@ -597,7 +634,7 @@ int main(int argc, char * argv[])
       std::cerr << "\n\nDetaching object.\n";
 
 
-      move_group_interface.detachObject("box");
+      move_group_interface.detachObject(box_name);
 
       // move_group_interface.attachObject("box", "gripper_link");
 
@@ -608,10 +645,6 @@ int main(int argc, char * argv[])
       }
 
       std::cerr << "\n\n\n";
-    
-
-
-      break;
   }
   
 

@@ -109,7 +109,7 @@ public:
 
     mtc::Task createTaskGrab();
 
-    mtc::Task createTaskDrop();
+    mtc::Task createTaskDrop(int xOffset, int yOffset);
 
 private:
     // Compose an MTC task from a series of stages.
@@ -134,32 +134,31 @@ void MTCTaskNode::setupPlanningScene()
         CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, 0, -0.2 }));
+    // planning_scene_interface.applyCollisionObject(
+    //     CreateBoxCollision("box", BoxDimension, Eigen::Vector3d{ 0.94, 0.25, 0.25 }));
+
 }
 
 void MTCTaskNode::doTask(mtc::Task& task)
 {
+    task_ = std::move(task);
     try
     {
-        task.init();
+        task_.init();
     } catch (mtc::InitStageException& e)
     {
         RCLCPP_ERROR_STREAM(LOGGER, e);
         return;
     }
 
-    std::cerr << "Before plan" << std::endl;
-
-    if (!task.plan(5))
+    if (!task_.plan(5))
     {
         RCLCPP_ERROR_STREAM(LOGGER, "Task planning failed");
         return;
     }
-    std::cerr << "after plan " << std::endl;
-    task.introspection().publishSolution(*task.solutions().front());
+    task_.introspection().publishSolution(*task_.solutions().front());
 
-    std::cerr << "after plan publish" << std::endl;
-
-    auto result = task.execute(*task.solutions().front());
+    auto result = task_.execute(*task_.solutions().front());
     std::cerr << "after execution" << std::endl;
     if (result.val != moveit_msgs::msg::MoveItErrorCodes::SUCCESS)
     {
@@ -246,10 +245,7 @@ mtc::Task MTCTaskNode::createTaskGrab()
     return task;
 }
 
-class smhState : protected mtc::stages::CurrentState {
-};
-
-mtc::Task MTCTaskNode::createTaskDrop()
+mtc::Task MTCTaskNode::createTaskDrop(int x, int y)
 {
     mtc::Task task;
     task.stages()->setName("Drop box");
@@ -287,17 +283,46 @@ mtc::Task MTCTaskNode::createTaskDrop()
         MoveToDrop->insert(std::move(moveToDropLocation));
     }
     {
-        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("SetPosition", cartesian_planner);
+        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Forward", cartesian_planner);
         relativeMove->setGroup("ur_manipulator");
-        relativeMove->setMinMaxDistance(0.1, 0.7);
+        relativeMove->setMinMaxDistance(0.0, 0.1);
         relativeMove->setIKFrame("gripper_link");
 
         // Set hand forward direction
         geometry_msgs::msg::Vector3Stamped vec;
         vec.header.frame_id = "gripper_link";
-        vec.vector.y = 0.1;
+        vec.vector.z = -1;
         relativeMove->setDirection(vec);
         MoveToDrop->insert(std::move(relativeMove));
+    }
+    if (x != 0)
+    {
+        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative X", cartesian_planner);
+        relativeMove->setGroup("ur_manipulator");
+        relativeMove->setMinMaxDistance(0.0, x * 0.3);
+        relativeMove->setIKFrame("gripper_link");
+
+        // Set hand forward direction
+        geometry_msgs::msg::Vector3Stamped vec;
+        vec.header.frame_id = "gripper_link";
+        vec.vector.z = 1;
+        relativeMove->setDirection(vec);
+        MoveToDrop->insert(std::move(relativeMove));
+    }
+    if (y != 0 ) 
+    {
+        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Y", cartesian_planner);
+        relativeMove->setGroup("ur_manipulator");
+        relativeMove->setMinMaxDistance(0.0, y * 0.3);
+        relativeMove->setIKFrame("gripper_link");
+
+        // Set hand forward direction
+        geometry_msgs::msg::Vector3Stamped vec;
+        vec.header.frame_id = "gripper_link";
+        vec.vector.y = 1;
+        relativeMove->setDirection(vec);
+        MoveToDrop->insert(std::move(relativeMove));
+    
     }
     // {
     //     auto stage = std::make_unique<mtc::stages::GeneratePose>("create fake box");
@@ -362,25 +387,22 @@ int main(int argc, char** argv)
     auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
 
     mtc_task_node->setupPlanningScene();
-    mtc::Task taskGrab = mtc_task_node->createTaskGrab();
-    mtc::Task taskDrop = mtc_task_node->createTaskDrop();
+    // mtc::Task taskGrab = mtc_task_node->createTaskGrab();
+    // mtc::Task& lastDrop = taskGrab;
 
-    moveit_visual_tools.prompt("  ");
-    mtc_task_node->doTask(taskGrab);
-    moveit_visual_tools.prompt("  ");
-    SendGripperGrip(client_ptr);
-    moveit_visual_tools.prompt("  ");
-    mtc_task_node->doTask(taskDrop);
-    moveit_visual_tools.prompt("  ");
-    SendGripperrelease(client_ptr);
-    moveit_visual_tools.prompt("  ");
-    mtc_task_node->doTask(taskGrab);
-    moveit_visual_tools.prompt("  ");
-    SendGripperGrip(client_ptr);
-    moveit_visual_tools.prompt("  ");
-    mtc_task_node->doTask(taskDrop);
-    moveit_visual_tools.prompt("  ");
-    SendGripperrelease(client_ptr);
+        moveit_visual_tools.prompt("  ");
+    for (int i = 0; i < 6; i++) {
+        mtc::Task taskGrab = mtc_task_node->createTaskGrab();
+        auto taskDrop = mtc_task_node->createTaskDrop(i / 3, i % 3);
+        mtc_task_node->doTask(taskGrab);
+        // moveit_visual_tools.prompt("  ");
+        SendGripperGrip(client_ptr);
+        // moveit_visual_tools.prompt("  ");
+        mtc_task_node->doTask(taskDrop);
+        // moveit_visual_tools.prompt("  ");
+        SendGripperrelease(client_ptr);
+        // lastDrop = std::move(taskDrop);
+    }
 
     // auto const node =
     //     std::make_shared<rclcpp::Node>("hello_moveit", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));

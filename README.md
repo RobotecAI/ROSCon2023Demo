@@ -52,9 +52,30 @@ the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interact
 Note that the Gem instructions include the installation of ROS 2 with some additional packages. 
 
  **Use the `development` branch**.
+ **During build use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is essential for articulations. 
 
 The Gem is open to your contributions!
 
-## Universal Robots ROS2 Driver
+## Universal Robots ROS2 Driver and ROS2 workspace
 
 Follow installation [Build from source](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble#build-from-source) section of [Universal Robots ROS2 Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble)
+The modified URDF of the UR10 arm is provided in ros2 workspace ``
+
+### Building ROS2 workspace
+
+To build this workspace the following dependencies are required:  
+```sudo apt install python3-colcon-common-extensions python3-vcstool```
+Run the rosedep update and install to download and install all dependant packages:
+```bash
+rosdep update
+rosdep install --ignore-src --from-paths src -y
+```
+Build the workspace using colcon:
+```
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install
+```
+Source the workspace:
+```
+source install/setup.bash
+```
+ 

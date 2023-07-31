@@ -60,6 +60,7 @@ ly_add_target(
         PRIVATE
             AZ::AzGameFramework
             Gem::Atom_AtomBridge.Static
+            Gem::ROS2.Static
 )
 
 ly_add_target(
@@ -75,7 +76,11 @@ ly_add_target(
         PRIVATE
             Gem::${gem_name}.Private.Object
             AZ::AzCore
+            Gem::ROS2.Static
 )
+
+target_depends_on_ros2_package(${gem_name}.Private.Object  vision_msgs REQUIRED)
+target_depends_on_ros2_package(${gem_name} vision_msgs REQUIRED)
 
 # if enabled, ${gem_name} is used by all kinds of applications
 ly_create_alias(NAME ${gem_name}.Builders NAMESPACE Gem TARGETS Gem::${gem_name})

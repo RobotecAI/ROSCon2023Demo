@@ -17,16 +17,11 @@ find_package(moveit_task_constructor_core REQUIRED)
 add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 
 add_executable(mtc src/mtc.cpp)
-add_executable(mtc2 src/mtc2.cpp)
-
 
 target_include_directories(ur_moveit_demo PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>)
 target_include_directories(mtc PUBLIC
-$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-$<INSTALL_INTERFACE:include>)
-target_include_directories(mtc2 PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>)
 target_compile_features(ur_moveit_demo PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
@@ -48,14 +43,6 @@ ament_target_dependencies(
   "control_msgs"
   "tf2_msgs")
 
-ament_target_dependencies(
-    mtc2
-    moveit_task_constructor_core
-    "rclcpp"
-    "moveit_ros_planning_interface"
-    "moveit_visual_tools"
-    "control_msgs"
-    "tf2_msgs")
   
 install(TARGETS ur_moveit_demo mtc
   DESTINATION lib/${PROJECT_NAME})

@@ -1,5 +1,8 @@
 #include <chrono>
 #include <control_msgs/action/detail/gripper_command__struct.hpp>
+#include <geometry_msgs/msg/detail/point_stamped__struct.hpp>
+#include <geometry_msgs/msg/detail/pose__struct.hpp>
+#include <geometry_msgs/msg/detail/pose_stamped__struct.hpp>
 #include <memory>
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
@@ -39,13 +42,7 @@ const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
 const Eigen::Vector3d PalletDimensions{ 0.769, 2., 0.111 };
 
 std::vector<std::string> box_names = {
-  "Box3/box",
-  "Box6/box",
-  "Box4/box",
-  "Box5/box",
-  "Box7/box",
-  "Box8/box",
-  "Box1/box",
+    "Box3/box", "Box6/box", "Box4/box", "Box5/box", "Box7/box", "Box8/box", "Box1/box",
 };
 
 const std::map<std::string, double> PickupConfig{
@@ -107,24 +104,24 @@ geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros
 
 geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_, std::string box_name = "Box3/box")
 {
-  geometry_msgs::msg::TransformStamped box_transform;
-  try {
-    box_transform = tf_buffer_.lookupTransform(
-        "world", box_name,
-        tf2::TimePointZero);
-  } catch (const tf2::TransformException & ex) {
-    std::cerr << "Could not transform " <<  ex.what() << std::endl;
-    std::abort();
-  }
-  geometry_msgs::msg::Pose box_pose;
-  box_pose.position.x = box_transform.transform.translation.x;
-  box_pose.position.y = box_transform.transform.translation.y;
-  box_pose.position.z = box_transform.transform.translation.z;
-  box_pose.orientation.x = box_transform.transform.rotation.x;
-  box_pose.orientation.y = box_transform.transform.rotation.y;
-  box_pose.orientation.z = box_transform.transform.rotation.z;
-  box_pose.orientation.w = box_transform.transform.rotation.w;
-  return box_pose;
+    geometry_msgs::msg::TransformStamped box_transform;
+    try
+    {
+        box_transform = tf_buffer_.lookupTransform("world", box_name, tf2::TimePointZero);
+    } catch (const tf2::TransformException& ex)
+    {
+        std::cerr << "Could not transform " << ex.what() << std::endl;
+        std::abort();
+    }
+    geometry_msgs::msg::Pose box_pose;
+    box_pose.position.x = box_transform.transform.translation.x;
+    box_pose.position.y = box_transform.transform.translation.y;
+    box_pose.position.z = box_transform.transform.translation.z;
+    box_pose.orientation.x = box_transform.transform.rotation.x;
+    box_pose.orientation.y = box_transform.transform.rotation.y;
+    box_pose.orientation.z = box_transform.transform.rotation.z;
+    box_pose.orientation.w = box_transform.transform.rotation.w;
+    return box_pose;
 }
 
 const geometry_msgs::msg::Point toMsgPoint(Eigen::Vector3d v)
@@ -165,7 +162,7 @@ moveit_msgs::msg::CollisionObject CreateBoxCollision(
     box_pose.position = toMsgPoint(location);
     box_pose.orientation = toMsgQuaternion(rot);
     collision_object.primitive_poses.push_back(box_pose);
-    collision_object.operation = collision_object.ADD;
+    // collision_object.operation = collision_object.ADD;
     return collision_object;
 }
 
@@ -185,7 +182,10 @@ public:
 
     mtc::Task createTaskGrab(std::string boxname);
 
-    mtc::Task createTaskDrop(int xOffset, int yOffset, std::string boxname);
+    mtc::Task createTaskDrop(
+        int xOffset, int yOffset, std::string boxname, tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose);
+
+    // mtc::Task setSceneTask(tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose);
 
 private:
     // Compose an MTC task from a series of stages.
@@ -206,17 +206,6 @@ MTCTaskNode::MTCTaskNode(const rclcpp::NodeOptions& options)
 void MTCTaskNode::setupPlanningScene(rclcpp::Node::SharedPtr node)
 {
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
-       // auto tf_buffer_ = tf2_ros::Buffer(node->get_clock());
-    // auto tf_listener_ = std::make_shared<tf2_ros::TransformListener>(tf_buffer_);
-    // // auto frame = tf_buffer_.allFramesAsString();
-    // // std::cout << frame.c_str() << std::endl;
-    // std::this_thread::sleep_for(std::chrono::seconds(1));
-    
-    // auto boxPose = getBoxLocation(node, tf_buffer_);
-    // planning_scene_interface.applyCollisionObject(CreateBoxCollision("box", BoxDimension, fromMsg(boxPose.position)));
-
-    // planning_scene_interface.applyCollisionObject(
-    //     CreateBoxCollision("box", BoxDimension, Eigen::Vector3d{ 0.94, 0.25, 0.25 }));
 }
 
 void MTCTaskNode::doTask(mtc::Task& task)
@@ -249,6 +238,13 @@ void MTCTaskNode::doTask(mtc::Task& task)
     return;
 }
 
+// mtc::Task MTCTaskNode::setSceneTask(tf2_ros::Buffer &tf_buffer_, geometry_msgs::msg::Pose &palletPose) {
+//     mtc::Task task;
+//     task.stages()->setName("Set scene");
+//     task.loadRobotModel(node_);
+
+// }
+
 mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
 {
     mtc::Task task;
@@ -263,6 +259,7 @@ mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
     task.add(std::move(stage_state_current));
 
     auto sampling_planner = std::make_shared<mtc::solvers::PipelinePlanner>(node_);
+    sampling_planner->setTimeout(10.);
     auto interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
     interpolation_planner->setTimeout(10);
 
@@ -285,24 +282,7 @@ mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
             pickUp->setGroup("ur_manipulator");
             pickUp->setGoal(PickupConfig);
             Pickup->insert(std::move(pickUp));
-            // pickUp->addSolutionCallback(SolutionCallback && cb)
         }
-        // {
-        //     auto stage =
-        //         std::make_unique<mtc::stages::ModifyPlanningScene>("allow collision (hand,object)");
-        //     stage->allowCollisions("pallet",
-        //                             task.getRobotModel()
-        //                                 ->getJointModelGroup(hand_group_name)
-        //                                 ->getLinkModelNamesWithCollisionGeometry(),
-        //                             true);
-        //     Pickup->insert(std::move(stage));
-        // }
-        // {
-        //     auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Attach box");
-        //     stage->attachObject(boxname, "gripper_link");
-        //     Pickup->insert(std::move(stage));
-        // }
-
         // {
         //     auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
         //     overConveyor->setGroup("ur_manipulator");
@@ -313,34 +293,11 @@ mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
 
         task.add(std::move(Pickup));
     }
-    // {
-    //     auto MoveToDrop = std::make_unique<mtc::SerialContainer>("Move to drop");
-    //     {
-    //         auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", sampling_planner);
-    //         moveToDropLocation->setGroup("ur_manipulator");
-    //         moveToDropLocation->setGoal(DropConfig);
-
-    //         MoveToDrop->insert(std::move(moveToDropLocation));
-    //     }
-    //     task.add(std::move(MoveToDrop));
-    // }
-
-    // auto pickUp =
-    //     std::make_unique<mtc::stages::MoveTo>("ur_manipulator pickup", sampling_planner);
-    // overConveyor->setGroup("ur_manipulator");
-    // overConveyor->setGoal(PickupConfig);
-    // task.add(std::move(overConveyor));
-
-    // auto lift =
-    //     std::make_unique<mtc::stages::MoveTo>("ur_manipulator lift", sampling_planner);
-    // lift->setGroup("ur_manipulator");
-    // lift->setGoal(LiftConfig);
-    // task.add(std::move(lift));
 
     return task;
 }
 
-mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname)
+mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose)
 {
     mtc::Task task;
     task.stages()->setName("Drop box");
@@ -364,97 +321,152 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname)
 
     auto MoveToDrop = std::make_unique<mtc::SerialContainer>("Move to drop");
     {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create box");
+        for (int i = 0; i < box_names.size(); i++) {
+        auto boxPose = getBoxLocation(node_, tf_buffer_, box_names[i]);
+        stage->addObject(CreateBoxCollision(box_names[i], BoxDimension, fromMsg(boxPose.position)));
+        }
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Collision box");
+        for (int i = 0; i < box_names.size(); i++)
+        {
+            stage->allowCollisions(
+                box_names[i], task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+        }
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        // auto palletPose = getPalletLocation(node_, tf_buffer_);
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create pallet");
+        stage->addObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Collision pallet");
+        stage->allowCollisions(
+            "pallet", task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), true);
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        // auto palletPose = getPalletLocation(node_, tf_buffer_);
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create table");
+        stage->addObject(CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Collision table");
+        stage->allowCollisions(
+            "table", task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Attach box");
+        stage->attachObject(boxname, "gripper_link");
+        MoveToDrop->insert(std::move(stage));
+    }
+    {
         auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
         overConveyor->setGroup("ur_manipulator");
         overConveyor->setGoal(LiftConfig);
 
         MoveToDrop->insert(std::move(overConveyor));
     }
+    // {
+    //     auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
+    //     moveToDropLocation->setGroup("ur_manipulator");
+    //     moveToDropLocation->setGoal(DropConfig);
+
+    //     MoveToDrop->insert(std::move(moveToDropLocation));
+    // }
     {
-        auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
+        auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", sampling_planner);
         moveToDropLocation->setGroup("ur_manipulator");
-        moveToDropLocation->setGoal(DropConfig);
+        moveToDropLocation->setIKFrame("gripper_link");
+        moveit_msgs::msg::Constraints path_constraints;
+        moveit_msgs::msg::OrientationConstraint orientation_constraint;
+        moveit_msgs::msg::Constraints constraint;
+        using moveit::planning_interface::MoveGroupInterface;
+        auto move_group_interface = MoveGroupInterface(node_, "ur_manipulator");
+        orientation_constraint.header.frame_id = move_group_interface.getPoseReferenceFrame();
+        orientation_constraint.link_name = "gripper_link";
+        orientation_constraint.orientation = move_group_interface.getCurrentPose("gripper_link").pose.orientation;
+        orientation_constraint.absolute_x_axis_tolerance = 100.;
+        orientation_constraint.absolute_y_axis_tolerance = 100.;
+        orientation_constraint.absolute_z_axis_tolerance = 100.;
+        orientation_constraint.weight = 1.0;
+        constraint = constraint.set__orientation_constraints({orientation_constraint});
+        // moveToDropLocation->setPathConstraints(constraint);
+        geometry_msgs::msg::PointStamped point;
+        point.point = palletPose.position;
+        point.point.z += 0.6;
+        point.point.x += x * 0.25;
+        point.point.y += y * 0.25 - 0.25;
+
+        moveToDropLocation->setGoal(point);
+        MoveToDrop->setTimeout(10.);
+
+        //   // Compute IK
+        // auto wrapper =
+        //     std::make_unique<mtc::stages::ComputeIK>("grasp pose IK", std::move(moveToDropLocation));
+        // wrapper->setMaxIKSolutions(8);
+        // wrapper->setMinSolutionDistance(1.0);
+        // wrapper->setIKFrame("gripper_link");
+        // // wrapper->setEndEffector("gripper_link");
+        // wrapper->setGroup("ur_manipulator");
+        // grasp->insert(std::move(wrapper));
 
         MoveToDrop->insert(std::move(moveToDropLocation));
     }
+    // if (x != 0)
     // {
-    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Forward", cartesian_planner);
+    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative X", cartesian_planner);
     //     relativeMove->setGroup("ur_manipulator");
-    //     relativeMove->setMinMaxDistance(0.0, 0.1);
-    //     relativeMove->setIKFrame("gripper_link");
-
-    //     // Set hand forward direction
-    //     geometry_msgs::msg::Vector3Stamped vec;
-    //     vec.header.frame_id = "gripper_link";
-    //     vec.vector.z = -1;
-    //     relativeMove->setDirection(vec);
-    //     MoveToDrop->insert(std::move(relativeMove));
-    // }
-    if (x != 0)
-    {
-        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative X", cartesian_planner);
-        relativeMove->setGroup("ur_manipulator");
-        relativeMove->setMinMaxDistance(0.0, x * 0.3);
-        relativeMove->setIKFrame("gripper_link");
-
-        // Set hand forward direction
-        geometry_msgs::msg::Vector3Stamped vec;
-        vec.header.frame_id = "world";
-        vec.vector.x = 1;
-        relativeMove->setDirection(vec);
-        MoveToDrop->insert(std::move(relativeMove));
-    }
-    if (y != 0)
-    {
-        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Y", cartesian_planner);
-        relativeMove->setGroup("ur_manipulator");
-        relativeMove->setMinMaxDistance(0.0, y * 0.3);
-        relativeMove->setIKFrame("gripper_link");
-
-        // Set hand forward direction
-        geometry_msgs::msg::Vector3Stamped vec;
-        vec.header.frame_id = "world";
-        vec.vector.y = -1;
-        relativeMove->setDirection(vec);
-        MoveToDrop->insert(std::move(relativeMove));
-    }
-
-    // {
-    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Move to pallet", cartesian_planner);
-    //     relativeMove->setGroup("ur_manipulator");
-    //     relativeMove->setMinMaxDistance(0.1, 0.7);
+    //     relativeMove->setMinMaxDistance(0.0, x * 0.3);
     //     relativeMove->setIKFrame("gripper_link");
 
     //     // Set hand forward direction
     //     geometry_msgs::msg::Vector3Stamped vec;
     //     vec.header.frame_id = "world";
-    //     vec.vector.z = -1;
+    //     vec.vector.x = 1;
     //     relativeMove->setDirection(vec);
     //     MoveToDrop->insert(std::move(relativeMove));
     // }
+    // if (y != 0)
     // {
-    //     auto plannigScene = std::make_unique<mtc::stages::ModifyPlanningScene>("Detach box");
-    //     plannigScene->detachObject(boxname, "gripper_link");
-    //     MoveToDrop->insert(std::move(plannigScene));
+    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Y", cartesian_planner);
+    //     relativeMove->setGroup("ur_manipulator");
+    //     relativeMove->setMinMaxDistance(0.0, y * 0.3);
+    //     relativeMove->setIKFrame("gripper_link");
+
+    //     // Set hand forward direction
+    //     geometry_msgs::msg::Vector3Stamped vec;
+    //     vec.header.frame_id = "world";
+    //     vec.vector.y = -1;
+    //     relativeMove->setDirection(vec);
+    //     MoveToDrop->insert(std::move(relativeMove));
     // }
-    // {
-    //     auto stage = std::make_unique<mtc::stages::GeneratePose>("create fake box");
-    //     // stage->addObject(const moveit_msgs::msg::CollisionObject &collision_object)
-    // }
+    {
+        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative pallet", cartesian_planner);
+        relativeMove->setGroup("ur_manipulator");
+        relativeMove->setMinMaxDistance(0.0, 0.5);
+        relativeMove->setIKFrame("gripper_link");
+
+        // Set hand forward direction
+        geometry_msgs::msg::Vector3Stamped vec;
+        vec.header.frame_id = "world";
+        vec.vector.z = -1;
+        relativeMove->setDirection(vec);
+        MoveToDrop->insert(std::move(relativeMove));
+    }
+    {
+        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Attach box");
+        stage->detachObject(boxname, "gripper_link");
+        MoveToDrop->insert(std::move(stage));
+    }
 
     task.add(std::move(MoveToDrop));
-
-    // auto pickUp =
-    //     std::make_unique<mtc::stages::MoveTo>("ur_manipulator pickup", sampling_planner);
-    // overConveyor->setGroup("ur_manipulator");
-    // overConveyor->setGoal(PickupConfig);
-    // task.add(std::move(overConveyor));
-
-    // auto lift =
-    //     std::make_unique<mtc::stages::MoveTo>("ur_manipulator lift", sampling_planner);
-    // lift->setGroup("ur_manipulator");
-    // lift->setGoal(LiftConfig);
-    // task.add(std::move(lift));
 
     return task;
 }
@@ -500,25 +512,18 @@ int main(int argc, char** argv)
     auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/gripper_server");
     auto tf_buffer_ = tf2_ros::Buffer(node->get_clock());
     auto tf_listener_ = std::make_shared<tf2_ros::TransformListener>(tf_buffer_);
-    // auto frame = tf_buffer_.allFramesAsString();
-    // std::cout << frame.c_str() << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(1));
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
 
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
-    planning_scene_interface.applyCollisionObject(
-        CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
-
+    // planning_scene_interface.applyCollisionObject(
+    //     CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
 
     auto palletPose = getPalletLocation(node, tf_buffer_);
     planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
 
     mtc_task_node->setupPlanningScene(node);
-    // mtc::Task taskGrab = mtc_task_node->createTaskGrab();
-    // mtc::Task& lastDrop = taskGrab;
-
-
 
     moveit_visual_tools.prompt("  ");
     for (int i = 0; i < 6; i++)
@@ -530,56 +535,14 @@ int main(int argc, char** argv)
         mtc_task_node->doTask(taskGrab);
         // moveit_visual_tools.prompt("  ");
         SendGripperGrip(client_ptr);
-        move_group_interface.attachObject(box_names[i], "gripper_link");
+        // move_group_interface.attachObject(box_names[i], "gripper_link");
         // moveit_visual_tools.prompt("  ");
-        auto taskDrop = mtc_task_node->createTaskDrop(1 - (i / 3), 2 - (i % 3), box_names[i]);
+        auto taskDrop = mtc_task_node->createTaskDrop(i / 3, i % 3, box_names[i], tf_buffer_, palletPose);
         mtc_task_node->doTask(taskDrop);
         // moveit_visual_tools.prompt("  ");
         SendGripperrelease(client_ptr);
-        move_group_interface.detachObject(box_names[i]);
-        // lastDrop = std::move(taskDrop);
+        // move_group_interface.detachObject(box_names[i]);
     }
-
-    // auto const node =
-    //     std::make_shared<rclcpp::Node>("hello_moveit", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
-
-    // // // Create a ROS logger
-    // // auto const logger = rclcpp::get_logger("ur_moveit_demo");
-
-    // // // Spin up a SingleThreadedExecutor for MoveItVisualTools to interact with ROS
-    // rclcpp::executors::SingleThreadedExecutor executor;
-    // executor.add_node(node);
-    // auto spinner = std::thread(
-    //     [&executor]()
-    //     {
-    //         executor.spin();
-    //     });
-
-    // robot_model_loader::RobotModelLoader robot_model_loader(node);
-    // const moveit::core::RobotModelPtr& kinematic_model = robot_model_loader.getModel();
-    // RCLCPP_INFO(LOGGER, "Model frame: %s", kinematic_model->getModelFrame().c_str());
-
-    // moveit::core::RobotStatePtr robot_state(new moveit::core::RobotState(kinematic_model));
-    // robot_state->setToDefaultValues();
-    // const moveit::core::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup("ur_manipulator");
-
-    // const std::vector<std::string>& joint_names = joint_model_group->getVariableNames();
-
-    // for (auto joint_name : joint_names)
-    // {
-    //     RCLCPP_INFO(LOGGER, "Joint %s", joint_name.c_str());
-    // }
-
-    // // Create the MoveIt MoveGroup Interface
-    // using moveit::planning_interface::MoveGroupInterface;
-    // auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
-
-    // auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
-    //     node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC, move_group_interface.getRobotModel()
-    // };
-    // moveit_visual_tools.loadRemoteControl();
-    // moveit_visual_tools.trigger();
-
     rclcpp::shutdown();
     spin_thread->join();
     spinner.join();

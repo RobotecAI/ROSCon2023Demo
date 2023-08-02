@@ -57,7 +57,7 @@ const std::map<std::string, double> PickupConfig{
 
 const std::map<std::string, double> LiftConfig{
     { "wrist_1_joint", -1.6993759870529175 },     { "wrist_2_joint", 1.5634684562683105 },        { "elbow_joint", -1.0284128189086914 },
-    { "shoulder_pan_joint", -2.644500255584717 }, { "shoulder_lift_joint", -1.9712634086608887 }, { "wrist_3_joint", -5.683835983276367 }
+    { "shoulder_pan_joint", -2.644500255584717 }, { "shoulder_lift_joint", -1.9712634086608887 }, { "wrist_3_joint", -4.113039656 }
 };
 const std::map<std::string, double> DropConfig{
     { "wrist_1_joint", -1.5789473056793213 },       { "wrist_2_joint", 1.5672444105148315 },       { "elbow_joint", -0.9531064033508301 },
@@ -297,18 +297,27 @@ mtc::Task MTCTaskNode::createTaskGrab(const geometry_msgs::msg::Pose& boxPose)
             Pickup->insert(std::move(overConveyor));
         }
         {
-            auto pickUp = std::make_unique<mtc::stages::MoveTo>("pickup", sampling_planner);
+            auto pickUp = std::make_unique<mtc::stages::MoveTo>("pickup", interpolation_planner);
             pickUp->setGroup("ur_manipulator");
-            pickUp->setGoal(PickupConfig);
+            pickUp->setIKFrame("gripper_link");
+            geometry_msgs::msg::PoseStamped pose;
+            pose.pose = boxPose;
+            pose.header.frame_id = "world";
+            pose.pose.position.z += 0.2;
+
+            pose.pose.orientation.x = -0.5;
+            pose.pose.orientation.y = 0.5;
+            pose.pose.orientation.z = -0.5;
+            pose.pose.orientation.w = -0.5;
+
+            // geometry_msgs::msg::PointStamped point;
+            // point.header.frame_id = "world";
+            // point.point = boxPose.position;
+            // point.point.z += 0.2;
+
+            pickUp->setGoal(pose);
             Pickup->insert(std::move(pickUp));
         }
-        //        {
-        //             auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
-        //             overConveyor->setGroup("ur_manipulator");
-        //             overConveyor->setGoal(LiftConfig);
-        //
-        //             Pickup->insert(std::move(overConveyor));
-        //        }
 
         task.add(std::move(Pickup));
     }
@@ -316,7 +325,7 @@ mtc::Task MTCTaskNode::createTaskGrab(const geometry_msgs::msg::Pose& boxPose)
     return task;
 }
 
-geometry_msgs::msg::Pose getBoxTargetPose(const Eigen::Vector3f adress, geometry_msgs::msg::Pose& palletPose, float separation = 1.5f)
+geometry_msgs::msg::Pose getBoxTargetPose(const Eigen::Vector3f adress, geometry_msgs::msg::Pose& palletPose, float separation = 1.1f)
 {
     geometry_msgs::msg::Pose pose;
 
@@ -397,12 +406,25 @@ mtc::Task MTCTaskNode::createTaskDrop(
         stage->attachObject(boxname, "gripper_link");
         MoveToDrop->insert(std::move(stage));
     }
-    {
-        auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
-        overConveyor->setGroup("ur_manipulator");
-        overConveyor->setGoal(LiftConfig);
+    // {
+    //     auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
+    //     overConveyor->setGroup("ur_manipulator");
+    //     overConveyor->setGoal(LiftConfig);
 
-        MoveToDrop->insert(std::move(overConveyor));
+    //     MoveToDrop->insert(std::move(overConveyor));
+    // }
+    {
+        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Move up", cartesian_planner);
+        relativeMove->setGroup("ur_manipulator");
+        relativeMove->setMinMaxDistance(0.0, 1.0f);
+        relativeMove->setIKFrame("gripper_link");
+
+        // Set hand forward direction
+        geometry_msgs::msg::Vector3Stamped vec;
+        vec.header.frame_id = "world";
+        vec.vector.z = 1;
+        relativeMove->setDirection(vec);
+        MoveToDrop->insert(std::move(relativeMove));
     }
     {
         auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
@@ -435,7 +457,7 @@ mtc::Task MTCTaskNode::createTaskDrop(
         pose.header.stamp = node_->now();
 
         //! Relative position of the drop location
-        constexpr float DropRise = 1.f;
+        constexpr float DropRise = 1.8f;
         pose.pose = getBoxTargetPose(adress + DropRise * Eigen::Vector3f::UnitZ(), palletPose);
 
         moveToDropLocation->setGoal(pose);

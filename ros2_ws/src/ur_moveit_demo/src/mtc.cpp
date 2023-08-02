@@ -375,7 +375,7 @@ mtc::Task MTCTaskNode::createTaskDrop(
         stage->allowCollisions(
             boxname, task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
 
-        stage->addObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
+        // stage->addObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
         stage->allowCollisions(
             "pallet", task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), true);
         MoveToDrop->insert(std::move(stage));
@@ -643,8 +643,16 @@ int main(int argc, char** argv)
     }
     moveit_visual_tools.trigger();
 
+<<<<<<< HEAD
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
+=======
+
+     }
+     moveit_visual_tools.trigger();
+
+    //  planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
+>>>>>>> c918ab3 (pallet published from simulation)
 
     mtc_task_node->setupPlanningScene(node);
 

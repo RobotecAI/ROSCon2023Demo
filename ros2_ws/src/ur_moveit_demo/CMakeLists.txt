@@ -13,7 +13,7 @@ find_package(moveit_visual_tools REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(moveit_task_constructor_core REQUIRED)
-
+find_package(vision_msgs REQUIRED)
 add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 
 add_executable(mtc src/mtc.cpp)
@@ -41,7 +41,8 @@ ament_target_dependencies(
   "moveit_ros_planning_interface"
   "moveit_visual_tools"
   "control_msgs"
-  "tf2_msgs")
+  "tf2_msgs"
+  "vision_msgs")
 
   
 install(TARGETS ur_moveit_demo mtc

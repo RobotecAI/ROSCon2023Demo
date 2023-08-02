@@ -19,8 +19,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
-                    "Entity_[1176639161715]",
-                    "Entity_[12721703799636]"
+                    "Entity_[1176639161715]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -397,6 +396,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 5855590796136709437,
                     "Child Entity Order": [
+                        "Instance_[2082921034728]/ContainerEntity",
                         "Entity_[1155164325235]",
                         "Entity_[1180934129011]",
                         "Entity_[1168049227123]",
@@ -489,100 +489,12 @@
                     "Id": 931091830724002070
                 }
             }
-        },
-        "Entity_[12721703799636]": {
-            "Id": "Entity_[12721703799636]",
-            "Name": "Entity1",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7171172694241441261
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 15883609538405146867
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 7205472159190778947,
-                    "Child Entity Order": [
-                        "Instance_[2082921034728]/ContainerEntity"
-                    ]
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 16558071791200261402
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 6342252552084555483
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 15929405126681977256
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 6469199465157402182
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 12078516552453873429
-                },
-                "ROS2FrameComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 17721449155202723093,
-                    "m_template": {
-                        "$type": "ROS2FrameComponent",
-                        "Namespace Configuration": {
-                            "Namespace Strategy": 1
-                        },
-                        "Frame Name": "everything",
-                        "Publish Transform": false
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 7498926203291237182,
-                    "Parent Entity": "Entity_[1146574390643]"
-                }
-            }
         }
     },
     "Instances": {
         "Instance_[2082921034728]": {
             "Source": "Prefabs/Cell.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Name",
-                    "value": "EuroPallet1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.410111427307129
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.770554542541504
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99990844726563
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[12721703799636]"
-                },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
@@ -615,36 +527,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": 2.1419172223241863e31
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 1.9054813738141823e30
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": 4.196843709000072e30
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/0",
-                    "value": 180.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/1",
-                    "value": -1.446991163870442e-38
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
-                    "value": 135.00001525878906
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
                     "value": "QueueLoad"
                 },
@@ -654,98 +536,9 @@
                     "value": true
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/8",
-                    "value": "Instance_[51561655302581]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/9",
-                    "value": "Instance_[51574540204469]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 7362390765541570127,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 1,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "objects",
-                            "Joint Name": "",
-                            "Publish Transform": true
-                        }
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1865420997526175]/Entities/Entity_[191801695898434]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 4933733576212528404,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 1175018581361245313,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/Entities/Entity_[191977789557570]/Name",
                     "value": "Box3"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[12382254012170911]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 2798591313676956332,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
                 },
                 {
                     "op": "replace",
@@ -753,49 +546,9 @@
                     "value": "Box4"
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[4980853547463014]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 15871953535926259200,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Name",
                     "value": "Box5"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 3005244017422937779,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
                 },
                 {
                     "op": "replace",
@@ -803,49 +556,9 @@
                     "value": "Box6"
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[1205499942705730]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 10144954533336081279,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/Instances/Instance_[51561655302581]/Entities/Entity_[191977789557570]/Name",
                     "value": "Box7"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[51561655302581]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 1369205865455727063,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
                 },
                 {
                     "op": "replace",
@@ -853,124 +566,9 @@
                     "value": "Box8"
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[51574540204469]/Entities/Entity_[191977789557570]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 10345250818404619417,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "box",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": true
-                        }
-                    }
-                },
-                {
                     "op": "replace",
                     "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
                     "value": 0.20000000298023224
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Name",
-                    "value": "EuroPallet1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 1.0
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[7675426849712529]/Entities/Entity_[7675435439647121]/Components/ROS2FrameComponent",
-                    "value": {
-                        "$type": "GenericComponentWrapper",
-                        "Id": 2042292464258417630,
-                        "m_template": {
-                            "$type": "ROS2FrameComponent",
-                            "Id": 0,
-                            "Namespace Configuration": {
-                                "Namespace Strategy": 2,
-                                "Namespace": ""
-                            },
-                            "Frame Name": "europallet",
-                            "Joint Name": "",
-                            "Publish Transform": true,
-                            "Force Dynamic": false
-                        }
-                    }
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[287337150292413]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 1.0
                 },
                 {
                     "op": "replace",
@@ -994,6 +592,11 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1176639161715]"
+                },
+                {
+                    "op": "replace",
                     "path": "/Instances/Instance_[1865420997526175]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
                     "value": -7.954621315002441
                 },
@@ -1005,12 +608,77 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[1865420997526175]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.20681971311569214
+                    "value": 0.20681971311569217
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[1865420997526175]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 2.1419169805390224e31
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": 1.9054813738141823e30
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": 4.196843709000072e30
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/0",
+                    "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/1",
+                    "value": -1.4470072788027816e-38
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
+                    "value": 134.99996948242188
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Instance_[51574540204469]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Instance_[51561655302581]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Name",
+                    "value": "EuroPallet1"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.4101109504699707
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[7675426849712529]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.770553112030029
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[11919235297148]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.4961318969726563
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[11919235297148]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.621257781982422
                 }
             ]
         }

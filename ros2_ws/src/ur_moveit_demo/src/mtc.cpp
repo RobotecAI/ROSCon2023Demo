@@ -19,6 +19,7 @@
 #include <rclcpp/rclcpp.hpp>
 #include <thread>
 #include <utility>
+#include <vision_msgs/msg/detection3_d_array.hpp>
 #if __has_include(<tf2_geometry_msgs/tf2_geometry_msgs.hpp>)
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #else
@@ -39,11 +40,15 @@ const Eigen::Vector3d TableDimension{ 0.950, 0.950, 0.411 };
 const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
 const Eigen::Vector3d PickupLocation{ 0.890, 0, 0.049 };
 const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
-const Eigen::Vector3d PalletDimensions{ 0.769, 2., 0.111 };
+const Eigen::Vector3d PalletDimensions{1.2, 0.769, 0.111 };
 
-std::vector<std::string> box_names = {
-    "Box3/box", "Box6/box", "Box4/box", "Box5/box", "Box7/box", "Box8/box", "Box1/box",
-};
+constexpr char BoxNamePrefix[] = "Box";
+constexpr char PalletNamePrefix[] = "EuroPallet";
+constexpr char PickedBoxName[] = "PickedBox";
+
+//std::vector<std::string> box_names = {
+//    "Box3/box", "Box6/box", "Box4/box", "Box5/box", "Box7/box", "Box8/box", "Box1/box",
+//};
 
 const std::map<std::string, double> PickupConfig{
     { "wrist_1_joint", -0.8385483622550964 },      { "wrist_2_joint", 1.5643877983093262 },       { "elbow_joint", -1.550349235534668 },
@@ -80,48 +85,49 @@ Eigen::Vector3d fromMsg(const geometry_msgs::msg::Vector3 msg)
     return v;
 }
 
-geometry_msgs::msg::Pose getPalletLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_)
+geometry_msgs::msg::Pose getPalletLocation(const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses)
 {
-    geometry_msgs::msg::TransformStamped box_transform;
-    try
+
+    auto it = std::lower_bound(objectPoses.begin(), objectPoses.end(), PalletNamePrefix, [](const auto& lhs, const auto& rhs) {
+        return lhs.first < rhs;
+    });
+    if (it == objectPoses.end() || it->first.find(PalletNamePrefix) == std::string::npos)
     {
-        box_transform = tf_buffer_.lookupTransform("world", "EuroPallet1/europallet", tf2::TimePointZero);
-    } catch (const tf2::TransformException& ex)
-    {
-        std::cerr << "Could not transform " << ex.what() << std::endl;
+        std::cerr << "Pallet not found, detected objects: " << std::endl;
+        for (auto it = objectPoses.begin(); it != objectPoses.end(); ++it)
+        {
+            std::cerr << it->first << std::endl;
+        }
         std::abort();
     }
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.position.x = box_transform.transform.translation.x;
-    box_pose.position.y = box_transform.transform.translation.y;
-    box_pose.position.z = box_transform.transform.translation.z;
-    box_pose.orientation.x = box_transform.transform.rotation.x;
-    box_pose.orientation.y = box_transform.transform.rotation.y;
-    box_pose.orientation.z = box_transform.transform.rotation.z;
-    box_pose.orientation.w = box_transform.transform.rotation.w;
-    return box_pose;
+    return it->second;
 }
 
-geometry_msgs::msg::Pose getBoxLocation(rclcpp::Node::SharedPtr node, tf2_ros::Buffer& tf_buffer_, std::string box_name = "Box3/box")
+std::optional<geometry_msgs::msg::Pose> getClosestBox(const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses, Eigen::Vector3d origin = Eigen::Vector3d::Zero())
 {
-    geometry_msgs::msg::TransformStamped box_transform;
-    try
+
+    auto it = std::lower_bound(objectPoses.begin(), objectPoses.end(), BoxNamePrefix, [](const auto& lhs, const auto& rhs) {
+      return lhs.first < rhs;
+    });
+
+    std::map<float, geometry_msgs::msg::Pose> box_locations;
+
+    if (it == objectPoses.end() )
     {
-        box_transform = tf_buffer_.lookupTransform("world", box_name, tf2::TimePointZero);
-    } catch (const tf2::TransformException& ex)
-    {
-        std::cerr << "Could not transform " << ex.what() << std::endl;
-        std::abort();
+        std::cerr << "Box not found" << std::endl;
+        return std::optional<geometry_msgs::msg::Pose>() ;
     }
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.position.x = box_transform.transform.translation.x;
-    box_pose.position.y = box_transform.transform.translation.y;
-    box_pose.position.z = box_transform.transform.translation.z;
-    box_pose.orientation.x = box_transform.transform.rotation.x;
-    box_pose.orientation.y = box_transform.transform.rotation.y;
-    box_pose.orientation.z = box_transform.transform.rotation.z;
-    box_pose.orientation.w = box_transform.transform.rotation.w;
-    return box_pose;
+    for (; it != objectPoses.end(); ++it)
+    {
+        if (it->first.find(BoxNamePrefix) == std::string::npos)
+        {
+            break;
+        }
+        Eigen::Vector3d box_location{ it->second.position.x, it->second.position.y, it->second.position.z };
+        float distance = (box_location - origin).norm();
+        box_locations[distance] = it->second;
+    }
+    return std::optional<geometry_msgs::msg::Pose>(box_locations.begin()->second);
 }
 
 const geometry_msgs::msg::Point toMsgPoint(Eigen::Vector3d v)
@@ -180,10 +186,9 @@ public:
 
     void setupPlanningScene(rclcpp::Node::SharedPtr node);
 
-    mtc::Task createTaskGrab(std::string boxname);
+    mtc::Task createTaskGrab(const geometry_msgs::msg::Pose& boxPose);
 
-    mtc::Task createTaskDrop(
-        int xOffset, int yOffset, std::string boxname, tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose);
+    mtc::Task createTaskDrop(const Eigen::Vector3f address, std::string boxname, /*tf2_ros::Buffer& tf_buffer_,*/ geometry_msgs::msg::Pose& palletPose);
 
     // mtc::Task setSceneTask(tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose);
 
@@ -245,8 +250,9 @@ void MTCTaskNode::doTask(mtc::Task& task)
 
 // }
 
-mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
+mtc::Task MTCTaskNode::createTaskGrab(const geometry_msgs::msg::Pose& boxPose)
 {
+    //ToDo make use of boxPose parameter
     mtc::Task task;
     task.stages()->setName("Grab box");
     task.loadRobotModel(node_);
@@ -283,13 +289,13 @@ mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
             pickUp->setGoal(PickupConfig);
             Pickup->insert(std::move(pickUp));
         }
-        // {
-        //     auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
-        //     overConveyor->setGroup("ur_manipulator");
-        //     overConveyor->setGoal(LiftConfig);
-
-        //     Pickup->insert(std::move(overConveyor));
-        // }
+//        {
+//             auto overConveyor = std::make_unique<mtc::stages::MoveTo>("overConveyor", sampling_planner);
+//             overConveyor->setGroup("ur_manipulator");
+//             overConveyor->setGoal(LiftConfig);
+//
+//             Pickup->insert(std::move(overConveyor));
+//        }
 
         task.add(std::move(Pickup));
     }
@@ -297,7 +303,35 @@ mtc::Task MTCTaskNode::createTaskGrab(std::string boxname)
     return task;
 }
 
-mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros::Buffer& tf_buffer_, geometry_msgs::msg::Pose& palletPose)
+geometry_msgs::msg::Pose getBoxTargetPose(const Eigen::Vector3f adress , geometry_msgs::msg::Pose& palletPose, float separation = 1.5f)
+{
+    geometry_msgs::msg::Pose pose;
+
+    pose.position = palletPose.position;
+    const Eigen::Quaterniond palletOrientation = fromMsg(palletPose.orientation);
+    Eigen::Vector3d localPalletDirX = palletOrientation * Eigen::Vector3d::UnitX();
+    Eigen::Vector3d localPalletDirY = palletOrientation * Eigen::Vector3d::UnitY();
+    Eigen::Vector3d localPalletDirZ = palletOrientation * Eigen::Vector3d::UnitZ();
+
+    Eigen::Vector3d p = fromMsg(palletPose.position);
+    Eigen::Quaterniond q = fromMsg(palletPose.orientation);
+
+    // change local coordinate system for UR10 gipper targe pose in the way to have X+ pointing sky
+    // Used blender to find this matrix.
+    Eigen::Matrix3d rotation = Eigen::Matrix3d::Identity();
+    rotation  << 0.0, 0.0, -1.0,
+                 0.0, 1.0, 0.0,
+                 1.0, 0.0, 0.0;
+    p += adress.x() * localPalletDirX * separation * BoxDimension.x()
+         + adress.y() * localPalletDirY * separation * BoxDimension.y()
+         + adress.z() * localPalletDirZ * separation * BoxDimension.z();
+
+    pose.position = toMsgPoint(p);
+    pose.orientation = toMsg(Eigen::Quaterniond (q.toRotationMatrix()*rotation));
+    return pose;
+}
+
+mtc::Task MTCTaskNode::createTaskDrop(const Eigen::Vector3f adress, std::string boxname /*, tf2_ros::Buffer& tf_buffer_*/, geometry_msgs::msg::Pose& palletPose)
 {
     mtc::Task task;
     task.stages()->setName("Drop box");
@@ -320,27 +354,29 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros
     cartesian_planner->setStepSize(.01);
 
     auto MoveToDrop = std::make_unique<mtc::SerialContainer>("Move to drop");
-    {
-        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create box");
-        for (int i = 0; i < box_names.size(); i++) {
-        auto boxPose = getBoxLocation(node_, tf_buffer_, box_names[i]);
-        stage->addObject(CreateBoxCollision(box_names[i], BoxDimension, fromMsg(boxPose.position)));
-        }
-        MoveToDrop->insert(std::move(stage));
-    }
+    // Disabled collision with boxes on the pallet
+//    {
+//        auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create box");
+//        for (int i = 0; i < box_names.size(); i++) {
+//        auto boxPose = getBoxLocation(node_, tf_buffer_, box_names[i]);
+//        stage->addObject(CreateBoxCollision(box_names[i], BoxDimension, fromMsg(boxPose.position)));
+//        }
+//        MoveToDrop->insert(std::move(stage));
+//    }
     {
         auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Collision box");
-        for (int i = 0; i < box_names.size(); i++)
-        {
-            stage->allowCollisions(
-                box_names[i], task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
-        }
+
+        stage->allowCollisions(PickedBoxName, task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+//        for (int i = 0; i < box_names.size(); i++)
+//        {
+//            stage->allowCollisions(
+//                box_names[i], task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+//        }
         MoveToDrop->insert(std::move(stage));
     }
     {
-        // auto palletPose = getPalletLocation(node_, tf_buffer_);
         auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Create pallet");
-        stage->addObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
+        stage->addObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
         MoveToDrop->insert(std::move(stage));
     }
     {
@@ -373,15 +409,15 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros
 
         MoveToDrop->insert(std::move(overConveyor));
     }
-    // {
-    //     auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
-    //     moveToDropLocation->setGroup("ur_manipulator");
-    //     moveToDropLocation->setGoal(DropConfig);
+     {
+         auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
+         moveToDropLocation->setGroup("ur_manipulator");
+         moveToDropLocation->setGoal(DropConfig);
 
-    //     MoveToDrop->insert(std::move(moveToDropLocation));
-    // }
+         MoveToDrop->insert(std::move(moveToDropLocation));
+     }
     {
-        auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", sampling_planner);
+        auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
         moveToDropLocation->setGroup("ur_manipulator");
         moveToDropLocation->setIKFrame("gripper_link");
         moveit_msgs::msg::Constraints path_constraints;
@@ -398,13 +434,17 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros
         orientation_constraint.weight = 1.0;
         constraint = constraint.set__orientation_constraints({orientation_constraint});
         // moveToDropLocation->setPathConstraints(constraint);
-        geometry_msgs::msg::PointStamped point;
-        point.point = palletPose.position;
-        point.point.z += 0.6;
-        point.point.x += x * 0.25;
-        point.point.y += y * 0.25 - 0.25;
+        geometry_msgs::msg::PoseStamped pose;
 
-        moveToDropLocation->setGoal(point);
+        pose.header.frame_id = "world";
+        pose.header.stamp = node_->now();
+
+        //! Relative position of the drop location
+        constexpr float DropRise = 1.5f;
+        pose.pose = getBoxTargetPose(adress + DropRise * Eigen::Vector3f::UnitZ(), palletPose);
+
+
+        moveToDropLocation->setGoal(pose);
         MoveToDrop->setTimeout(10.);
 
         //   // Compute IK
@@ -419,46 +459,19 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros
 
         MoveToDrop->insert(std::move(moveToDropLocation));
     }
-    // if (x != 0)
-    // {
-    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative X", cartesian_planner);
-    //     relativeMove->setGroup("ur_manipulator");
-    //     relativeMove->setMinMaxDistance(0.0, x * 0.3);
-    //     relativeMove->setIKFrame("gripper_link");
-
-    //     // Set hand forward direction
-    //     geometry_msgs::msg::Vector3Stamped vec;
-    //     vec.header.frame_id = "world";
-    //     vec.vector.x = 1;
-    //     relativeMove->setDirection(vec);
-    //     MoveToDrop->insert(std::move(relativeMove));
-    // }
-    // if (y != 0)
-    // {
-    //     auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative Y", cartesian_planner);
-    //     relativeMove->setGroup("ur_manipulator");
-    //     relativeMove->setMinMaxDistance(0.0, y * 0.3);
-    //     relativeMove->setIKFrame("gripper_link");
-
-    //     // Set hand forward direction
-    //     geometry_msgs::msg::Vector3Stamped vec;
-    //     vec.header.frame_id = "world";
-    //     vec.vector.y = -1;
-    //     relativeMove->setDirection(vec);
-    //     MoveToDrop->insert(std::move(relativeMove));
-    // }
     {
-        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative pallet", cartesian_planner);
-        relativeMove->setGroup("ur_manipulator");
-        relativeMove->setMinMaxDistance(0.0, 0.5);
-        relativeMove->setIKFrame("gripper_link");
 
-        // Set hand forward direction
-        geometry_msgs::msg::Vector3Stamped vec;
-        vec.header.frame_id = "world";
-        vec.vector.z = -1;
-        relativeMove->setDirection(vec);
-        MoveToDrop->insert(std::move(relativeMove));
+//        auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Relative pallet", cartesian_planner);
+//        relativeMove->setGroup("ur_manipulator");
+//        relativeMove->setMinMaxDistance(0.0, 1.0f);
+//        relativeMove->setIKFrame("gripper_link");
+//
+//        // Set hand forward direction
+//        geometry_msgs::msg::Vector3Stamped vec;
+//        vec.header.frame_id = "world";
+//        vec.vector.z = -1;
+//        relativeMove->setDirection(vec);
+//        MoveToDrop->insert(std::move(relativeMove));
     }
     {
         auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Attach box");
@@ -471,8 +484,50 @@ mtc::Task MTCTaskNode::createTaskDrop(int x, int y, std::string boxname, tf2_ros
     return task;
 }
 
+
+
+void UpdateObjectPoses(std::map<std::string, geometry_msgs::msg::Pose>& objectPoses,tf2_ros::Buffer& tf_buffer, const std::string& targetFrame,
+                       vision_msgs::msg::Detection3DArray::SharedPtr msg, std::vector<std::string> interestingObjectsPrefixes)
+{
+    for (auto& detection : msg->detections)
+    {
+        const std::string name {detection.id};
+        bool interesting = false;
+        for (const auto& interestingObject : interestingObjectsPrefixes)
+        {
+            if (name.find(interestingObject) != std::string::npos)
+            {
+              interesting = true;
+              break;
+            }
+        }
+        if (!interesting || detection.results.empty())
+        {
+            continue;
+        }
+        geometry_msgs::msg::PoseStamped pose;
+        pose.header = detection.header;
+        pose.pose = detection.results[0].pose.pose;
+        geometry_msgs::msg::TransformStamped transform;
+        try
+        {
+            transform = tf_buffer.lookupTransform(targetFrame, pose.header.frame_id, tf2::TimePointZero, tf2::Duration(0));
+        }
+        catch (tf2::TransformException& ex)
+        {
+            std::cerr << ex.what() << std::endl;
+            return;
+        }
+        geometry_msgs::msg::PoseStamped transformedPose;
+        tf2::doTransform(pose, transformedPose, transform);
+        objectPoses[detection.id] = transformedPose.pose;
+    }
+}
+
 int main(int argc, char** argv)
 {
+    std::map<std::string, geometry_msgs::msg::Pose> objectPoses;
+
     rclcpp::init(argc, argv);
 
     rclcpp::NodeOptions options;
@@ -483,6 +538,13 @@ int main(int argc, char** argv)
 
     auto const node =
         std::make_shared<rclcpp::Node>("hello_moveit", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
+
+    const std::vector<Eigen::Vector3f> Pattern
+        {
+            {-1.f,-0.5f,1.f},{0.f,-0.5f,1.f},{1.f,-0.5f,1.f},
+            {-1.f,0.5,1.f},{0.f,0.5f,1.f},{1.f,0.5f,1.f},
+        };
+
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);
     auto spinner = std::thread(
@@ -515,33 +577,96 @@ int main(int argc, char** argv)
     std::this_thread::sleep_for(std::chrono::seconds(1));
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
 
+    auto subscriber1_ptr = node->create_subscription<vision_msgs::msg::Detection3DArray>("/camera_drop/detections3D", 10, [&](vision_msgs::msg::Detection3DArray::SharedPtr msg) {
+      UpdateObjectPoses(objectPoses, tf_buffer_ , "world", msg, {PalletNamePrefix});
+    });
+
+    auto subscriber2_ptr =node->create_subscription<vision_msgs::msg::Detection3DArray>("/camera_pickup/detections3D", 10, [&](vision_msgs::msg::Detection3DArray::SharedPtr msg) {
+      UpdateObjectPoses(objectPoses, tf_buffer_ , "world", msg, {BoxNamePrefix});
+    });
+
+//    auto timer = rclcpp::create_timer(node, node->get_clock(), std::chrono::milliseconds (200), [&]() {
+//        for (auto& pose : objectPoses)
+//        {
+//          if (pose.first.rfind(PalletNamePrefix) == 0 ) {
+//            moveit_visual_tools.publishCuboid(pose.second, PalletDimensions.x(),
+//                                              PalletDimensions.y(),
+//                                              PalletDimensions.z(),
+//                                              rviz_visual_tools::BROWN);
+//
+//          }
+//          else if (pose.first.rfind(BoxNamePrefix) == 0 ) {
+//            moveit_visual_tools.publishSphere(pose.second, rviz_visual_tools::BLUE, 0.1 );
+//          }
+//
+//        }
+//
+//        auto maybebox=  getClosestBox(objectPoses);
+//        if (maybebox) {
+//          moveit_visual_tools.publishCuboid(*maybebox, BoxDimension.x(),
+//                                            BoxDimension.y(),
+//                                            BoxDimension.z(),
+//                                            rviz_visual_tools::Colors::PURPLE);
+//        }
+//        moveit_visual_tools.trigger();
+//    });
+
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
-    // planning_scene_interface.applyCollisionObject(
-    //     CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
+     planning_scene_interface.applyCollisionObject(
+         CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
+    std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    auto palletPose = getPalletLocation(node, tf_buffer_);
-    planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position)));
+    // find pallet pose
+     auto palletPose = getPalletLocation(objectPoses);
+
+     // visualize pallet and boxes
+     moveit_visual_tools.publishCuboid(palletPose, PalletDimensions.x(),
+                                       PalletDimensions.y(),
+                                       PalletDimensions.z(),
+                                       rviz_visual_tools::BROWN);
+
+     for (auto &p : Pattern)
+     {
+        auto targetPose = getBoxTargetPose(p, palletPose);
+        moveit_visual_tools.publishCuboid(targetPose, BoxDimension.x(),
+                                          BoxDimension.y(),
+                                          BoxDimension.z(),
+                                          rviz_visual_tools::YELLOW);
+
+        moveit_visual_tools.publishArrow(targetPose, rviz_visual_tools::RED, rviz_visual_tools::XLARGE);
+
+
+     }
+     moveit_visual_tools.trigger();
+
+     planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
 
     mtc_task_node->setupPlanningScene(node);
 
     moveit_visual_tools.prompt("  ");
-    for (int i = 0; i < 6; i++)
+
+    for (auto const &address : Pattern)
     {
-        auto boxPose = getBoxLocation(node, tf_buffer_, box_names[i]);
-        planning_scene_interface.applyCollisionObject(CreateBoxCollision(box_names[i], BoxDimension, fromMsg(boxPose.position)));
+        auto boxPose = getClosestBox(objectPoses);
+        // Todo check if nearest box is in the reach.
+        if (!boxPose) {
+          RCLCPP_ERROR(node->get_logger(), "No box found");
+          return 1;
+        }
+        planning_scene_interface.applyCollisionObject(CreateBoxCollision(PickedBoxName, BoxDimension, fromMsg(boxPose->position)));
         // moveit_visual_tools.prompt("  ");
-        mtc::Task taskGrab = mtc_task_node->createTaskGrab(box_names[i]);
+        mtc::Task taskGrab = mtc_task_node->createTaskGrab(*boxPose);
         mtc_task_node->doTask(taskGrab);
         // moveit_visual_tools.prompt("  ");
         SendGripperGrip(client_ptr);
-        // move_group_interface.attachObject(box_names[i], "gripper_link");
+        move_group_interface.attachObject(PickedBoxName, "gripper_link");
         // moveit_visual_tools.prompt("  ");
-        auto taskDrop = mtc_task_node->createTaskDrop(i / 3, i % 3, box_names[i], tf_buffer_, palletPose);
+        auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, /*tf_buffer_,*/ palletPose);
         mtc_task_node->doTask(taskDrop);
         // moveit_visual_tools.prompt("  ");
         SendGripperrelease(client_ptr);
-        // move_group_interface.detachObject(box_names[i]);
+        move_group_interface.detachObject(PickedBoxName);
     }
     rclcpp::shutdown();
     spin_thread->join();

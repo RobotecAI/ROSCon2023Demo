@@ -36,8 +36,8 @@ bool SendGripperGrip(rclcpp_action::Client<control_msgs::action::GripperCommand>
 bool SendGripperrelease(rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr client_ptr);
 
 constexpr float BoxHeight = 0.3f;
-const Eigen::Vector3d TableDimension{ 0.950, 0.950, 0.411 };
-const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
+// const Eigen::Vector3d TableDimension{ 0.950, 0.950, 0.411 };
+// const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
 const Eigen::Vector3d PickupLocation{ 0.890, 0, 0.049 };
 const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
 const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 0.111 };
@@ -618,8 +618,13 @@ int main(int argc, char** argv)
 
     // planning_scene_interface.applyCollisionObject(
     //     CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
+<<<<<<< HEAD
     planning_scene_interface.applyCollisionObject(
         CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
+=======
+    //  planning_scene_interface.applyCollisionObject(
+    //      CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
+>>>>>>> 97ce8c1 (table and conveyor published from simulation)
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
     // find pallet pose

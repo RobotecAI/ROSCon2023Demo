@@ -618,13 +618,8 @@ int main(int argc, char** argv)
 
     // planning_scene_interface.applyCollisionObject(
     //     CreateBoxCollision("table", TableDimension, Eigen::Vector3d{ 0, 0, -TableDimension.z() / 2.0 }));
-<<<<<<< HEAD
-    planning_scene_interface.applyCollisionObject(
-        CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
-=======
     //  planning_scene_interface.applyCollisionObject(
     //      CreateBoxCollision("conveyor", ConveyorDimensions, Eigen::Vector3d{ ConveyorDimensions.x() / 2 + 0.75, -.5, -0.2 }));
->>>>>>> 97ce8c1 (table and conveyor published from simulation)
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
     // find pallet pose
@@ -643,16 +638,8 @@ int main(int argc, char** argv)
     }
     moveit_visual_tools.trigger();
 
-<<<<<<< HEAD
-    planning_scene_interface.applyCollisionObject(
-        CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
-=======
-
-     }
-     moveit_visual_tools.trigger();
-
-    //  planning_scene_interface.applyCollisionObject(CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
->>>>>>> c918ab3 (pallet published from simulation)
+    // planning_scene_interface.applyCollisionObject(
+    //     CreateBoxCollision("pallet", PalletDimensions, fromMsg(palletPose.position), fromMsg(palletPose.orientation)));
 
     mtc_task_node->setupPlanningScene(node);
 

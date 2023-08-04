@@ -1,0 +1,194 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "StandHigh",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 681719160187179013
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 7862496592804923990
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 2766761346254225718,
+                "Child Entity Order": [
+                    "Entity_[420182842887]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 4280187964614298931
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 10592539491270601367
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 4461920043364359350
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 4047832310130528091
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 17157462002989775912
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 4733677961522781439
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 752195520453727266,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[420182842887]": {
+            "Id": "Entity_[420182842887]",
+            "Name": "StandHigh",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 2510683326136595402,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{94CC036F-87F0-5855-9F02-E2F3FFB78497}",
+                                    "subId": 284276587
+                                },
+                                "assetHint": "prefabs/otto1500_stand/standhigh.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11069594495999001002
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11821466169784701062
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1555056922956922002
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 888397199334344820,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 6093242764808405688
+                        },
+                        {
+                            "ComponentId": 1861137597418156213,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 17785724259049822400,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 2510683326136595402,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 3492261847557456562,
+                            "SortIndex": 4
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 264061912276891663
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3492261847557456562,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 198258592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{1901815F-B015-5230-8D97-4790F106FE50}"
+                                            },
+                                            "assetHint": "prefabs/otto1500_stand/standhigh_stand.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 17785724259049822400,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Stand"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{94CC036F-87F0-5855-9F02-E2F3FFB78497}",
+                                    "subId": 2256770746
+                                },
+                                "assetHint": "prefabs/otto1500_stand/standhigh.pxmesh"
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{94CC036F-87F0-5855-9F02-E2F3FFB78497}",
+                                        "subId": 2256770746
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "prefabs/otto1500_stand/standhigh.pxmesh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13367118868750381921
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 12253179475995140008
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 1861137597418156213
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8669554686716043493
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6093242764808405688,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

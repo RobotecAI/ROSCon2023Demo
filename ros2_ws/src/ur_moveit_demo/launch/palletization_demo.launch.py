@@ -24,6 +24,7 @@ def launch_setup(context, *args, **kwargs):
     moveit_config_file = LaunchConfiguration("moveit_config_file")
     warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
     prefix = LaunchConfiguration("prefix")
+    ur_namespace = LaunchConfiguration("ur_namespace")
     use_sim_time = LaunchConfiguration("use_sim_time")
     launch_rviz = LaunchConfiguration("launch_rviz")
     launch_servo = LaunchConfiguration("launch_servo")
@@ -83,8 +84,8 @@ def launch_setup(context, *args, **kwargs):
             "output_recipe_filename:=rtde_output_recipe.txt",
             " ",
             "tf_prefix:=",
-            prefix,
-            " ",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -102,8 +103,8 @@ def launch_setup(context, *args, **kwargs):
             "ur",
             " ",
             "prefix:=",
-            prefix,
-            " ",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
@@ -117,11 +118,13 @@ def launch_setup(context, *args, **kwargs):
         package="ur_moveit_demo",
         executable="ur_moveit_demo",
         output="screen",
+        namespace=ur_namespace,
         parameters=[
             robot_description,
             robot_description_semantic,
             robot_description_kinematics,
             {"use_sim_time": True},
+            {"ns": ur_namespace.perform(context)},
         ],
     )
     nodes_to_start = [
@@ -211,6 +214,13 @@ def generate_launch_description():
             description="Prefix of the joint names, useful for \
         multi-robot setup. If changed than also joint names in the controllers' configuration \
         have to be updated.",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "ur_namespace",
+            default_value='""',
+            description="Namespace for the robot, useful for running multiple instances.",
         )
     )
 

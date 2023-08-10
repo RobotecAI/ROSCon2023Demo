@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
 
     moveit::core::RobotStatePtr robot_state(new moveit::core::RobotState(kinematic_model));
     robot_state->setToDefaultValues();
-    const moveit::core::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup("ur_manipulator");
+    const moveit::core::JointModelGroup* joint_model_group = kinematic_model->getJointModelGroup(ns + "/ur_manipulator");
 
     const std::vector<std::string>& joint_names = joint_model_group->getVariableNames();
 
@@ -272,7 +272,7 @@ int main(int argc, char* argv[])
 
     // Create the MoveIt MoveGroup Interface
     using moveit::planning_interface::MoveGroupInterface;
-    MoveGroupInterface::Options options("ur_manipulator", "robot_description", "/" + ns);
+    MoveGroupInterface::Options options(ns + "/ur_manipulator", "robot_description", "/" + ns);
     auto move_group_interface = MoveGroupInterface(node, options);
 
     auto client_ptr = rclcpp_action::create_client<control_msgs::action::GripperCommand>(node, "/" + ns + "/gripper_server");

@@ -5,15 +5,11 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /MotionPlanning1
-        - /Trajectory1
-        - /MarkerArray1
-        - /TF1
-        - /TF1/Frames1
-        - /TF1/Tree1
+        - /Motion Planning Tasks1
+        - /Motion Planning Tasks1/Status1
         - /Camera1
       Splitter Ratio: 0.4957627058029175
-    Tree Height: 556
+    Tree Height: 433
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -38,17 +34,17 @@ Panels:
     Name: Motion Planning Tasks
     Tasks View:
       property_splitter:
-        - 402
-        - 133
+        - 205
+        - 87
       solution_sorting:
         column: 0
         order: 1
       solutions_splitter:
-        - 225
-        - 113
+        - 334
+        - 167
       solutions_view_columns: ~
       tasks_view_columns:
-        - 57
+        - 147
         - 57
         - 57
         - 57
@@ -73,395 +69,14 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Acceleration_Scaling_Factor: 0.1
-      Class: moveit_rviz_plugin/MotionPlanning
-      Enabled: true
-      Move Group Namespace: "/ur1"
-      MoveIt_Allow_Approximate_IK: false
-      MoveIt_Allow_External_Program: false
-      MoveIt_Allow_Replanning: false
-      MoveIt_Allow_Sensor_Positioning: false
-      MoveIt_Planning_Attempts: 10
-      MoveIt_Planning_Time: 5
-      MoveIt_Use_Cartesian_Path: false
-      MoveIt_Use_Constraint_Aware_IK: false
-      MoveIt_Workspace:
-        Center:
-          X: 0
-          Y: 0
-          Z: 0
-        Size:
-          X: 2
-          Y: 2
-          Z: 2
-      Name: MotionPlanning
-      Planned Path:
-        Color Enabled: true
-        Interrupt Display: true
-        Links:
-          All Links Enabled: true
-          Expand Joint Details: false
-          Expand Link Details: false
-          Expand Tree: false
-          Link Tree Style: Links in Alphabetic Order
-          ur1/base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link_inertia:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/forearm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/ft_frame:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/gripper_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/shoulder_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/upper_arm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/wrist_1_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_2_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_3_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-        Loop Animation: false
-        Robot Alpha: 0.5
-        Robot Color: 150; 50; 150
-        Show Robot Collision: true
-        Show Robot Visual: true
-        Show Trail: false
-        State Display Time: 0.05 s
-        Trail Step Size: 1
-        Trajectory Topic: display_planned_path
-        Use Sim Time: false
-      Planning Metrics:
-        Payload: 1
-        Show Joint Torques: false
-        Show Manipulability: false
-        Show Manipulability Index: false
-        Show Weight Limit: false
-        TextHeight: 0.07999999821186066
-      Planning Request:
-        Colliding Link Color: 255; 0; 0
-        Goal State Alpha: 1
-        Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0
-        Joint Violation Color: 255; 0; 255
-        Planning Group: ur1/ur_manipulator
-        Query Goal State: true
-        Query Start State: false
-        Show Workspace: false
-        Start State Alpha: 1
-        Start State Color: 0; 255; 0
-      Planning Scene Topic: monitored_planning_scene
-      Robot Description: robot_description
-      Scene Geometry:
-        Scene Alpha: 0.8999999761581421
-        Scene Color: 50; 230; 50
-        Scene Display Time: 0.009999999776482582
-        Show Scene Geometry: true
-        Voxel Coloring: Z-Axis
-        Voxel Rendering: Occupied Voxels
-      Scene Robot:
-        Attached Body Color: 150; 50; 150
-        Links:
-          All Links Enabled: true
-          Expand Joint Details: false
-          Expand Link Details: false
-          Expand Tree: false
-          Link Tree Style: Links in Alphabetic Order
-          ur1/base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link_inertia:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/forearm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/ft_frame:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/gripper_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/shoulder_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/upper_arm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/wrist_1_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_2_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_3_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-        Robot Alpha: 1
-        Show Robot Collision: false
-        Show Robot Visual: true
-      Value: false
-      Velocity_Scaling_Factor: 0.1
-    - Class: moveit_rviz_plugin/Trajectory
-      Color Enabled: false
-      Enabled: true
-      Interrupt Display: false
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        base_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        base_link_inertia:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        flange:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        ft_frame:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        gripper_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        shoulder_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        tool0:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        upper_arm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        wrist_1_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wrist_2_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        wrist_3_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-      Loop Animation: false
-      Name: Trajectory
-      Robot Alpha: 0.5
-      Robot Color: 150; 50; 150
-      Robot Description: robot_description
-      Show Robot Collision: true
-      Show Robot Visual: true
-      Show Trail: true
-      State Display Time: 3x
-      Trail Step Size: 1
-      Trajectory Topic: display_planned_path
-      Use Sim Time: false
-      Value: false
-    - Class: rviz_default_plugins/MarkerArray
-      Enabled: true
-      Name: MarkerArray
-      Namespaces:
-        Cuboid: true
-        Sphere: true
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /rviz_visual_tools
-      Value: true
-    - Class: rviz_default_plugins/TF
-      Enabled: false
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        ur1/base:
-          Value: true
-        ur1/base_link:
-          Value: true
-        ur1/base_link_inertia:
-          Value: true
-        ur1/flange:
-          Value: true
-        ur1/forearm_link:
-          Value: true
-        ur1/ft_frame:
-          Value: true
-        ur1/gripper_link:
-          Value: true
-        ur1/odom:
-          Value: true
-        ur1/shoulder_link:
-          Value: true
-        ur1/tool0:
-          Value: true
-        ur1/upper_arm_link:
-          Value: true
-        ur1/world:
-          Value: true
-        ur1/wrist_1_link:
-          Value: true
-        ur1/wrist_2_link:
-          Value: true
-        ur1/wrist_3_link:
-          Value: true
-        ur2/base_link:
-          Value: true
-        ur2/ft_frame:
-          Value: true
-        ur2/odom:
-          Value: true
-        ur2/ur2/base:
-          Value: true
-        ur2/world:
-          Value: true
-        ur2/wrist_3_link:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        ur1/odom:
-          ur1/world:
-            ur1/base_link:
-              ur1/base:
-                {}
-              ur1/base_link_inertia:
-                ur1/shoulder_link:
-                  ur1/upper_arm_link:
-                    ur1/forearm_link:
-                      ur1/wrist_1_link:
-                        ur1/wrist_2_link:
-                          ur1/wrist_3_link:
-                            ur1/flange:
-                              ur1/tool0:
-                                ur1/gripper_link:
-                                  {}
-                            ur1/ft_frame:
-                              {}
-      Update Interval: 0
-      Value: false
     - Class: moveit_task_constructor/Motion Planning Tasks
       Enabled: true
       Interrupt Display: false
       Loop Animation: false
       Markers:
         All at once?: false
+        Move up: true
+        Place position: true
         Value: true
         ik frame: true
         target frame: true
@@ -474,66 +89,66 @@ Visualization Manager:
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          base:
+          ur1/base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          base_link:
+          ur1/base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          base_link_inertia:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          forearm_link:
+          ur1/base_link_inertia:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          ft_frame:
+          ur1/flange:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          gripper_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          shoulder_link:
+          ur1/forearm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          tool0:
+          ur1/ft_frame:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          upper_arm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          wrist_1_link:
+          ur1/gripper_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          wrist_2_link:
+          ur1/shoulder_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          wrist_3_link:
+          ur1/tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          ur1/upper_arm_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ur1/world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          ur1/wrist_1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ur1/wrist_2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ur1/wrist_3_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
@@ -553,10 +168,11 @@ Visualization Manager:
         Voxel Rendering: Occupied Voxels
       Show Trail: false
       State Display Time: 0.05 s
-      Task Solution Topic: /solution
+      Task Solution Topic: /ur1/solution
       Tasks:
-        Drop box: 1
-        Grab box: 0
+        Drop box: 2
+        Grab box: 1
+        Park: 0
       Trail Step Size: 1
       Value: true
     - Class: rviz_default_plugins/Camera
@@ -575,12 +191,7 @@ Visualization Manager:
       Visibility:
         Camera: true
         Grid: true
-        MarkerArray: true
         Motion Planning Tasks: true
-        MotionPlanning: true
-        PlanningScene: true
-        TF: true
-        Trajectory: true
         Value: true
       Zoom Factor: 1
     - Class: rviz_default_plugins/Camera
@@ -599,12 +210,7 @@ Visualization Manager:
       Visibility:
         Camera: true
         Grid: true
-        MarkerArray: true
         Motion Planning Tasks: true
-        MotionPlanning: true
-        PlanningScene: true
-        TF: true
-        Trajectory: true
         Value: true
       Zoom Factor: 1
   Enabled: true
@@ -695,8 +301,6 @@ Window Geometry:
   Selection:
     collapsed: false
   Tool Properties:
-    collapsed: false
-  Trajectory - Trajectory Slider:
     collapsed: false
   Views:
     collapsed: false

@@ -71,7 +71,6 @@ int main(int argc, char** argv)
         { -1.f, -0.5f, 1.f }, { 0.f, -0.5f, 1.f }, { 1.f, -0.5f, 1.f }, { -1.f, 0.5, 1.f }, { 0.f, 0.5f, 1.f }, { 1.f, 0.5f, 1.f },
         { -1.f, -0.5f, 2.f }, { 0.f, -0.5f, 2.f }, { 1.f, -0.5f, 2.f }, { -1.f, 0.5, 2.f }, { 0.f, 0.5f, 2.f }, { 1.f, 0.5f, 2.f },
     };
-    auto mtc_task_node = std::make_shared<TaskConstructor::MTCController>(node);
 
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);
@@ -81,23 +80,29 @@ int main(int argc, char** argv)
             executor.spin();
         });
 
+    auto parameter = node->get_parameter("ns");
+    auto ns = parameter.as_string();
+
+    auto mtc_task_node = std::make_shared<TaskConstructor::MTCController>(node, ns);
+
     // Create the MoveIt MoveGroup Interface
     using moveit::planning_interface::MoveGroupInterface;
-    auto move_group_interface = MoveGroupInterface(node, "ur_manipulator");
+    MoveGroupInterface::Options optionsmgi(ns + "/ur_manipulator", "robot_description", "/" + ns);
+    auto move_group_interface = MoveGroupInterface(node, optionsmgi);
 
     auto moveit_visual_tools = moveit_visual_tools::MoveItVisualTools{
-        node, "base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC, move_group_interface.getRobotModel()
+        node, ns + "/base_link", rviz_visual_tools::RVIZ_MARKER_TOPIC, move_group_interface.getRobotModel()
     };
     moveit_visual_tools.loadRemoteControl();
     moveit_visual_tools.trigger();
 
-    auto gripperController = Gripper::GripperController(node, "/gripper_server");
+    auto gripperController = Gripper::GripperController(node, "/" + ns + "/gripper_server");
     // auto tf_buffer_ = tf2_ros::Buffer(node->get_clock());
     // auto tf_listener_ = std::make_shared<tf2_ros::TransformListener>(tf_buffer_);
     std::this_thread::sleep_for(std::chrono::seconds(1));
-    moveit::planning_interface::PlanningSceneInterface planning_scene_interface;
+    moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + ns);
 
-    Camera::GroundTruthCamera visionSystem(node, "/camera_pickup/detections3D", "/camera_drop/detections3D");
+    Camera::GroundTruthCamera visionSystem(node, "/" + ns + "/camera_pickup/detections3D", "/" + ns + "/camera_drop/detections3D", ns);
     std::this_thread::sleep_for(std::chrono::seconds(1));
     // find pallet pose
     auto palletPose = visionSystem.getObjectPose("EuroPallet");
@@ -118,7 +123,6 @@ int main(int argc, char** argv)
     planning_scene_interface.applyCollisionObject(
         Utils::CreateBoxCollision("pallet", PalletDimensions, Utils::fromMsgPosition(palletPose.position), Utils::fromMsgQuaternion(palletPose.orientation)));
 
-
     moveit_visual_tools.prompt("  ");
 
     for (auto const& address : Pattern)
@@ -134,15 +138,17 @@ int main(int argc, char** argv)
             return 1;
         }
 
-        mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox, PickedBoxName);
+        auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
+
+        mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox, PickedBoxName, ns);
         mtc_task_node->doTask(taskGrab);
         gripperController.Grip();
-        auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, palletPose, *myClosestBox, allBoxesOnPallet);
+        auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, palletPose, *myClosestBox, allBoxesOnPallet, ns);
         mtc_task_node->doTask(taskDrop);
         gripperController.Release();
     }
 
-    mtc::Task taskPark = mtc_task_node->createTaskPark();
+    mtc::Task taskPark = mtc_task_node->createTaskPark(ns);
     mtc_task_node->doTask(taskPark);
     rclcpp::shutdown();
     spinner.join();

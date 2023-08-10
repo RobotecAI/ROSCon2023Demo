@@ -24,7 +24,8 @@ namespace Utils
         const std::string& name,
         const Eigen::Vector3d dimension,
         const Eigen::Vector3d location,
-        const Eigen::Quaterniond& rot = Eigen::Quaterniond::Identity());
+        const Eigen::Quaterniond& rot = Eigen::Quaterniond::Identity(),
+        std::string ns = "");
 
     geometry_msgs::msg::Pose getBoxTargetPose(
         const Eigen::Vector3f& adress,

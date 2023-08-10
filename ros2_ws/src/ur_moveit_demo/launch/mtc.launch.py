@@ -270,6 +270,7 @@ def launch_setup(context, *args, **kwargs):
         package="ur_moveit_demo",
         executable="mtc",
         output="screen",
+        namespace="/ur1",
         parameters=[
             robot_description,
             robot_description_semantic,

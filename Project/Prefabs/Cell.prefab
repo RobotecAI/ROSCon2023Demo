@@ -17,7 +17,8 @@
                 "Child Entity Order": [
                     "Entity_[381763642777368]",
                     "Entity_[381746462908184]",
-                    "Entity_[6458393121446]"
+                    "Entity_[6458393121446]",
+                    "Entity_[980095793042]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -4121,6 +4122,60 @@
                     }
                 }
             }
+        },
+        "Entity_[980095793042]": {
+            "Id": "Entity_[980095793042]",
+            "Name": "LeftRobot",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9546441744163360151
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3355204885401141155
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3044748253271712082,
+                    "Child Entity Order": [
+                        "Instance_[317133007780767]/ContainerEntity",
+                        "Instance_[984390760338]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 212256805601727331
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2613458623878165813
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12902329008583142807
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 439957355205437376
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2297972026495073848
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 14122981364524207671,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.1741256713867188,
+                            0.2811048924922943,
+                            0.6189841032028198
+                        ]
+                    }
+                }
+            }
         }
     },
     "Instances": {
@@ -4289,7 +4344,7 @@
                 }
             ]
         },
-        "Instance_[19833365327488]": {
+        "Instance_[2410319902610]": {
             "Source": "Assets/Factory/Box2.prefab",
             "Patches": [
                 {
@@ -4300,106 +4355,41 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.550566673278809
+                    "value": -7.991198539733887
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.915187358856201
+                    "value": 6.9777326583862305
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.2633395195007324
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073707694071345
-                }
-            ]
-        },
-        "Instance_[19846250229376]": {
-            "Source": "Assets/Factory/Box2.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[381763642777368]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.757120132446289
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.3023505210876465
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.2633395791053772
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073704056092538
+                    "value": 0.2500578761100769
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -4.071109497693487e-13
+                    "value": -0.0000034150857572967652
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 4.289441678504332e-20
+                    "value": -89.99988555908203
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
                 }
             ]
         },
-        "Instance_[19859135131264]": {
-            "Source": "Assets/Factory/Box2.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[381763642777368]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.059760093688965
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.6770734786987305
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.26333945989608765
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073645848431624
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -4.071109497693487e-13
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 4.289420675871591e-20
-                }
-            ]
-        },
-        "Instance_[19872020033152]": {
+        "Instance_[30005484779410]": {
             "Source": "Assets/Factory/Box2.prefab",
             "Patches": [
                 {
@@ -4415,17 +4405,127 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.977348327636719
+                    "value": 6.661787033081055
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.263339638710022
+                    "value": 0.2633395791053772
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073832294845488
+                    "value": 0.000012073834113834891
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -4.071109497693487e-13
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 4.289487884296361e-20
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                }
+            ]
+        },
+        "Instance_[30026959615890]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -7.772164344787598
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 6.370869159698486
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.2633395195007324
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 0.000012073739526385907
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -4.071109497693487e-13
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 4.289454280083976e-20
+                }
+            ]
+        },
+        "Instance_[30052729419666]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -7.568016052246094
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 6.071035385131836
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.2633395791053772
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 0.000012073654943378642
                 },
                 {
                     "op": "replace",
@@ -4435,11 +4535,151 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -4.2894872380615076e-20
+                    "value": -4.289424230163286e-20
                 }
             ]
         },
-        "Instance_[19884904935040]": {
+        "Instance_[30078499223442]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -7.281067848205566
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 5.782580852508545
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.2633395791053772
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 0.00001207357672683429
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 4.071109497693487e-13
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -4.289396442064583e-20
+                }
+            ]
+        },
+        "Instance_[30108563994514]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.82289457321167
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 5.7825798988342285
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.2633395791053772
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 0.00001207353579957271
+                }
+            ]
+        },
+        "Instance_[30130038830994]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.503871917724609
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 5.782578468322754
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.2633395791053772
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 0.000012073513971699867
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 4.071109497693487e-13
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -4.289373823844708e-20
+                }
+            ]
+        },
+        "Instance_[30151513667474]": {
             "Source": "Assets/Factory/Box2.prefab",
             "Patches": [
                 {
@@ -4450,143 +4690,53 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.977884292602539
+                    "value": -7.991201400756836
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.625256538391113
+                    "value": 8.5845365524292
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.263339638710022
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073784091626294
+                    "value": 0.2500578761100769
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -4.071109497693487e-13
+                    "value": -0.0000034150857572967652
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 4.289470112837888e-20
+                    "value": -89.99988555908203
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
                 }
             ]
         },
-        "Instance_[28613807322710]": {
-            "Source": "Assets/Importer/ur10.prefab",
+        "Instance_[30172988503954]": {
+            "Source": "Assets/Factory/Box2.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 2.1233832836151123
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[66585184912638]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.618984580039978
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
                 },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/JointStatePublisherConfiguration/Topic/Topic",
-                    "value": "ur2/joint_states"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../ContainerEntity"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -5.035732746124268
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.28110331296920776
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
-                    "value": "QueueLoad"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": 1.4391373322034744e30
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 1.6651527110878712e36
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6189804673194885
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                }
-            ]
-        },
-        "Instance_[287337150292413]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
-            "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -4595,27 +4745,162 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.2179579734802246
+                    "value": -7.991199970245361
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.610844612121582
+                    "value": 8.293795585632324
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.135737806558609
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99999237060547
+                    "value": 0.25005781650543213
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99991607666016
+                    "value": -0.0000034150857572967652
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99988555908203
+                }
+            ]
+        },
+        "Instance_[30194463340434]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -7.419155597686768
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.671085357666016
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25005781650543213
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -0.0000034150857572967652
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99988555908203
+                }
+            ]
+        },
+        "Instance_[30224528111506]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.953037261962891
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.671085357666016
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25005781650543213
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -0.0000034150857572967652
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99988555908203
+                }
+            ]
+        },
+        "Instance_[30246002947986]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.106495201587677
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.003333332948386669
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[381763642777368]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.565371990203857
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.671085357666016
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25005781650543213
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -0.0000034150857572967652
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99988555908203
                 }
             ]
         },
@@ -4698,17 +4983,392 @@
                     "value": -89.99994659423828
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2827664259174]"
+                    "op": "add",
+                    "path": "/Entities/Entity_[101244026376870]",
+                    "value": {
+                        "Id": "Entity_[101244026376870]",
+                        "Name": "CameraPickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 13532515077529642162,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6781642679181286743,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 16253491074692074894,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 8205904789522977018,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 5794523696290790714,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 1302165002717865336,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 10623915102758199104,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 16631854286725500262,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 7203595006593204846,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualise": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_pickup/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_pickup/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_pickup/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 15843059347559723168,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true
+                                },
+                                "SensorConfig": {
+                                    "Visualise": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_pickup/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_pickup/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 5364483958052265547,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 17197644915412255258,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        1.0,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
                 },
                 {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[25821551519827]"
+                    "op": "add",
+                    "path": "/Entities/Entity_[81126399562406]",
+                    "value": {
+                        "Id": "Entity_[81126399562406]",
+                        "Name": "CameraDrop",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 7604825662087752012,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6383545578973993528,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 6193058209493791010,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 6489571018399251789,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 7253082648182213924,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 4957507555999069378,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 5043293431311490418,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11492665323669171068,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4422182098558420355,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualise": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_drop/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_drop/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_drop/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 4401655443776662586,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true
+                                },
+                                "SensorConfig": {
+                                    "Visualise": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 15092627223095051452,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 11340372032319460387,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.9999997615814208,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
                 }
             ]
         },
@@ -4889,6 +5549,478 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 0.00000965934304986149
+                }
+            ]
+        },
+        "Instance_[984390760338]": {
+            "Source": "Assets/Importer/ur10.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[101244026376870]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[2827664259174]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[81126399562406]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[980095793042]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99994659423828
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[101244026376870]",
+                    "value": {
+                        "Id": "Entity_[101244026376870]",
+                        "Name": "CameraPickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 13532515077529642162,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6781642679181286743,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 16253491074692074894,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 8205904789522977018,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 5794523696290790714,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 1302165002717865336,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 10623915102758199104,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 16631854286725500262,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 7203595006593204846,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_pickup/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_pickup/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_pickup/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 15843059347559723168,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_pickup/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_pickup/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 5364483958052265547,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 17197644915412255258,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        1.0,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[81126399562406]",
+                    "value": {
+                        "Id": "Entity_[81126399562406]",
+                        "Name": "CameraDrop",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 7604825662087752012,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6383545578973993528,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 6193058209493791010,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 6489571018399251789,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 7253082648182213924,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 4957507555999069378,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 5043293431311490418,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11492665323669171068,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4422182098558420355,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_drop/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_drop/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_drop/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "ExcludeEntities": []
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 4401655443776662586,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 15092627223095051452,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 11340372032319460387,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.9999997615814209,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": -0.281105637550354
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": -1.1741173267364502
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": -0.6189677119255066
                 }
             ]
         }

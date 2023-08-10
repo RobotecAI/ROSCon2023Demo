@@ -155,6 +155,10 @@ def launch_setup(context, *args, **kwargs):
         [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
     )
 
+    robot_description_kinematics = load_yaml("ur_moveit_config", "config/kinematics.yaml")
+    kinematics_config = robot_description_kinematics["/**"]["ros__parameters"]
+    kinematics_config["robot_description_kinematics"][ur_namespace.perform(context) + "/ur_manipulator"] = kinematics_config["robot_description_kinematics"].pop("ur_manipulator")
+    robot_description_kinematics = kinematics_config
 
 
     # Planning Configuration
@@ -250,7 +254,30 @@ def launch_setup(context, *args, **kwargs):
         ]
     )
 
-    nodes_to_start = [move_group_node, rviz_node]
+    hello_moveit = Node(
+        name="hello_moveit",
+        package="ur_moveit_demo",
+        executable="mtc",
+        output="screen",
+        namespace=ur_namespace,
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            robot_description_kinematics,
+            # robot_description_planning,
+            ompl_planning_pipeline_config,
+            trajectory_execution,
+            moveit_controllers,
+            planning_scene_monitor_parameters,
+            {"use_sim_time": use_sim_time},
+            warehouse_ros_config,
+            {'publish_robot_description': True},
+            {'publish_robot_description_semantic': True},
+            {"ns": ur_namespace.perform(context)},
+        ],
+    )
+
+    nodes_to_start = [move_group_node, rviz_node, hello_moveit]
 
 
     return nodes_to_start

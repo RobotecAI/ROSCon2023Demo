@@ -5,14 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /Global Options1
-        - /MotionPlanning1
-        - /Trajectory1
-        - /MarkerArray1
-        - /TF1
-        - /TF1/Frames1
-        - /TF1/Tree1
+        - /Motion Planning Tasks1
       Splitter Ratio: 0.4957627058029175
-    Tree Height: 556
+    Tree Height: 609
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -28,6 +23,29 @@ Panels:
     Splitter Ratio: 0.5
   - Class: rviz_visual_tools/RvizVisualToolsGui
     Name: RvizVisualToolsGui
+  - Class: moveit_task_constructor/Motion Planning Tasks
+    Global Settings:
+      Task View Settings:
+        Old task handling: Keep
+        Show Computation Times: true
+        Task Expansion: All Expanded
+    Name: Motion Planning Tasks
+    Tasks View:
+      property_splitter:
+        - 190
+        - 87
+      solution_sorting:
+        column: 0
+        order: 1
+      solutions_splitter:
+        - 334
+        - 167
+      solutions_view_columns: ~
+      tasks_view_columns:
+        - 161
+        - 57
+        - 57
+        - 57
 Visualization Manager:
   Class: ""
   Displays:
@@ -49,323 +67,105 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Acceleration_Scaling_Factor: 0.1
-      Class: moveit_rviz_plugin/MotionPlanning
+    - Class: moveit_task_constructor/Motion Planning Tasks
       Enabled: true
-      Move Group Namespace: "/ur2"
-      MoveIt_Allow_Approximate_IK: false
-      MoveIt_Allow_External_Program: false
-      MoveIt_Allow_Replanning: false
-      MoveIt_Allow_Sensor_Positioning: false
-      MoveIt_Planning_Attempts: 10
-      MoveIt_Planning_Time: 5
-      MoveIt_Use_Cartesian_Path: false
-      MoveIt_Use_Constraint_Aware_IK: false
-      MoveIt_Workspace:
-        Center:
-          X: 0
-          Y: 0
-          Z: 0
-        Size:
-          X: 2
-          Y: 2
-          Z: 2
-      Name: MotionPlanning
-      Planned Path:
-        Color Enabled: true
-        Interrupt Display: true
+      Interrupt Display: false
+      Loop Animation: false
+      Markers:
+        All at once?: false
+        Value: true
+      Name: Motion Planning Tasks
+      Robot:
+        Fixed Robot Color: 150; 50; 150
         Links:
           All Links Enabled: true
           Expand Joint Details: false
           Expand Link Details: false
           Expand Tree: false
           Link Tree Style: Links in Alphabetic Order
-          ur1/base:
+          ur2/base:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ur1/base_link:
+          ur2/base_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ur1/base_link_inertia:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/forearm_link:
+          ur2/base_link_inertia:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          ur1/ft_frame:
+          ur2/flange:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ur1/gripper_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/shoulder_link:
+          ur2/forearm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          ur1/tool0:
+          ur2/ft_frame:
             Alpha: 1
             Show Axes: false
             Show Trail: false
-          ur1/upper_arm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/wrist_1_link:
+          ur2/gripper_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          ur1/wrist_2_link:
+          ur2/shoulder_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-          ur1/wrist_3_link:
+          ur2/tool0:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          ur2/upper_arm_link:
             Alpha: 1
             Show Axes: false
             Show Trail: false
             Value: true
-        Loop Animation: false
+          ur2/world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+          ur2/wrist_1_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ur2/wrist_2_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ur2/wrist_3_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
         Robot Alpha: 0.5
-        Robot Color: 150; 50; 150
         Show Robot Collision: false
         Show Robot Visual: true
-        Show Trail: false
-        State Display Time: 0.05 s
-        Trail Step Size: 1
-        Trajectory Topic: display_planned_path
-        Use Sim Time: false
-      Planning Metrics:
-        Payload: 1
-        Show Joint Torques: false
-        Show Manipulability: false
-        Show Manipulability Index: false
-        Show Weight Limit: false
-        TextHeight: 0.07999999821186066
-      Planning Request:
-        Colliding Link Color: 255; 0; 0
-        Goal State Alpha: 1
-        Goal State Color: 250; 128; 0
-        Interactive Marker Size: 0
-        Joint Violation Color: 255; 0; 255
-        Planning Group: ur1/ur_manipulator
-        Query Goal State: true
-        Query Start State: false
-        Show Workspace: false
-        Start State Alpha: 1
-        Start State Color: 0; 255; 0
-      Planning Scene Topic: monitored_planning_scene
+        Use Fixed Robot Color: false
+        Value: ""
       Robot Description: robot_description
-      Scene Geometry:
+      Scene:
+        Attached Body Color: 150; 50; 150
         Scene Alpha: 0.8999999761581421
         Scene Color: 50; 230; 50
-        Scene Display Time: 0.009999999776482582
-        Show Scene Geometry: true
+        Value: true
         Voxel Coloring: Z-Axis
         Voxel Rendering: Occupied Voxels
-      Scene Robot:
-        Attached Body Color: 150; 50; 150
-        Links:
-          All Links Enabled: true
-          Expand Joint Details: false
-          Expand Link Details: false
-          Expand Tree: false
-          Link Tree Style: Links in Alphabetic Order
-          ur1/base:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/base_link_inertia:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/flange:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/forearm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/ft_frame:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/gripper_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/shoulder_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/tool0:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/upper_arm_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/world:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-          ur1/wrist_1_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_2_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-          ur1/wrist_3_link:
-            Alpha: 1
-            Show Axes: false
-            Show Trail: false
-            Value: true
-        Robot Alpha: 1
-        Show Robot Collision: false
-        Show Robot Visual: true
-      Value: true
-      Velocity_Scaling_Factor: 0.1
-    - Class: moveit_rviz_plugin/Trajectory
-      Color Enabled: false
-      Enabled: false
-      Interrupt Display: false
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-      Loop Animation: false
-      Name: Trajectory
-      Robot Alpha: 0.5
-      Robot Color: 150; 50; 150
-      Robot Description: robot_description
-      Show Robot Collision: false
-      Show Robot Visual: true
-      Show Trail: true
-      State Display Time: 3x
-      Trail Step Size: 1
-      Trajectory Topic: display_planned_path
-      Use Sim Time: false
-      Value: false
-    - Class: rviz_default_plugins/MarkerArray
-      Enabled: true
-      Name: MarkerArray
-      Namespaces:
+      Show Trail: false
+      State Display Time: 0.05 s
+      Task Solution Topic: /ur2/solution
+      Tasks:
         {}
-      Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
-        Value: /rviz_visual_tools
-      Value: true
-    - Class: rviz_default_plugins/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: false
-        ur1/base:
-          Value: true
-        ur1/base_link:
-          Value: true
-        ur1/base_link_inertia:
-          Value: true
-        ur1/flange:
-          Value: true
-        ur1/forearm_link:
-          Value: true
-        ur1/ft_frame:
-          Value: true
-        ur1/gripper_link:
-          Value: true
-        ur1/odom:
-          Value: true
-        ur1/shoulder_link:
-          Value: true
-        ur1/tool0:
-          Value: true
-        ur1/upper_arm_link:
-          Value: true
-        ur1/world:
-          Value: true
-        ur1/wrist_1_link:
-          Value: true
-        ur1/wrist_2_link:
-          Value: true
-        ur1/wrist_3_link:
-          Value: true
-        ur2/base_link:
-          Value: true
-        ur2/ft_frame:
-          Value: true
-        ur2/odom:
-          Value: true
-        ur2/ur2/base:
-          Value: true
-        ur2/world:
-          Value: true
-        ur2/wrist_3_link:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        ur1/odom:
-          ur1/world:
-            ur1/base_link:
-              ur1/base:
-                {}
-              ur1/base_link_inertia:
-                ur1/shoulder_link:
-                  ur1/upper_arm_link:
-                    ur1/forearm_link:
-                      ur1/wrist_1_link:
-                        ur1/wrist_2_link:
-                          ur1/wrist_3_link:
-                            ur1/flange:
-                              ur1/tool0:
-                                ur1/gripper_link:
-                                  {}
-                            ur1/ft_frame:
-                              {}
-      Update Interval: 0
+      Trail Step Size: 1
       Value: true
   Enabled: true
   Global Options:
@@ -439,21 +239,19 @@ Window Geometry:
   Height: 1259
   Hide Left Dock: false
   Hide Right Dock: false
-  MotionPlanning:
+  Motion Planning Tasks:
     collapsed: false
-  MotionPlanning - Trajectory Slider:
+  Motion Planning Tasks - Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001f900000491fc020000000dfb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000007800000043800000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000002bc000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002ff000001880000018800fffffffb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000024005200760069007a00560069007300750061006c0054006f006f006c0073004700750069010000048d000000410000004100fffffffb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100ffffff000000010000011000000491fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d00000491000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000005f90000049100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd0000000400000000000001f900000491fc0200000010fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000007800000043800000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d000002f1000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e006701000002ff000001880000000000000000fb000000280020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb00000024005200760069007a00560069007300750061006c0054006f006f006c00730047007500690100000334000000460000004100fffffffb0000003c005400720061006a006500630074006f007200790020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000000000000000fb000000120020002d00200053006c00690064006500720000000000ffffffff0000000000000000fb0000002a004d006f00740069006f006e00200050006c0061006e006e0069006e00670020005400610073006b007301000003800000014e000000e700fffffffb0000003c004d006f00740069006f006e00200050006c0061006e006e0069006e00670020005400610073006b00730020002d00200053006c00690064006500720000000000ffffffff0000004100ffffff000000010000011000000491fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d00000491000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004420000003efc0100000002fb0000000800540069006d00650100000000000004420000000000000000fb0000000800540069006d00650100000000000004500000000000000000000005f90000049100000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   RvizVisualToolsGui:
     collapsed: false
   Selection:
     collapsed: false
   Tool Properties:
     collapsed: false
-  Trajectory - Trajectory Slider:
-    collapsed: false
   Views:
     collapsed: false
   Width: 2318
-  X: 218
-  Y: 52
+  X: 1219
+  Y: 831

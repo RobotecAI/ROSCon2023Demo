@@ -5,5 +5,9 @@ set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
     Source/ROSCon2023DemoSystemComponent.cpp
     Source/ROSCon2023DemoSystemComponent.h
+    Source/Vision/IdealVisionSystem.cpp
+    Source/Vision/IdealVisionSystem.h
+    Source/Vision/IdealVisionSystemConfiguration.cpp
+    Source/Vision/IdealVisionSystemConfiguration.h
     enabled_gems.cmake
 )

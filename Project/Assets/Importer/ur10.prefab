@@ -50,56 +50,6 @@
         }
     },
     "Entities": {
-        "Entity_[25821551519827]": {
-            "Id": "Entity_[25821551519827]",
-            "Name": "Entity1",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 15018745455905236667
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 4689523682687534439
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 6839076359823963970
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 858362464885553048
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 17994593264422322404
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 1486618062104161419
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 6939982174121971742
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 7997290904404095081
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 9010032659450826644,
-                    "Parent Entity": "Entity_[2844844128358]",
-                    "Transform Data": {
-                        "Translate": [
-                            1.0119404792785645,
-                            -7.152557373046875e-7,
-                            0.0
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[2767534717030]": {
             "Id": "Entity_[2767534717030]",
             "Name": "flange",
@@ -1968,7 +1918,6 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 4795963443029451557,
                     "Child Entity Order": [
-                        "Entity_[25821551519827]",
                         "Entity_[2827664259174]"
                     ]
                 },
@@ -2203,7 +2152,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "ft_frame",
-                        "Joint Name": "wrist_3_link-ft_frame"
+                        "Joint Name": "wrist_3_link-ft_frame",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {

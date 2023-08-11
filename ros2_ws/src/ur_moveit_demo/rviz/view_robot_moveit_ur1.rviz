@@ -6,10 +6,9 @@ Panels:
       Expanded:
         - /Global Options1
         - /Motion Planning Tasks1
-        - /Motion Planning Tasks1/Status1
         - /Camera1
       Splitter Ratio: 0.4957627058029175
-    Tree Height: 433
+    Tree Height: 358
   - Class: rviz_common/Selection
     Name: Selection
   - Class: rviz_common/Tool Properties
@@ -34,17 +33,17 @@ Panels:
     Name: Motion Planning Tasks
     Tasks View:
       property_splitter:
-        - 205
-        - 87
+        - 208
+        - 88
       solution_sorting:
         column: 0
         order: 1
       solutions_splitter:
-        - 334
-        - 167
+        - 48
+        - 48
       solutions_view_columns: ~
       tasks_view_columns:
-        - 147
+        - 100
         - 57
         - 57
         - 57
@@ -75,11 +74,7 @@ Visualization Manager:
       Loop Animation: false
       Markers:
         All at once?: false
-        Move up: true
-        Place position: true
         Value: true
-        ik frame: true
-        target frame: true
       Name: Motion Planning Tasks
       Robot:
         Fixed Robot Color: 150; 50; 150
@@ -170,9 +165,7 @@ Visualization Manager:
       State Display Time: 0.05 s
       Task Solution Topic: /ur1/solution
       Tasks:
-        Drop box: 2
-        Grab box: 1
-        Park: 0
+        {}
       Trail Step Size: 1
       Value: true
     - Class: rviz_default_plugins/Camera
@@ -186,7 +179,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /camera_drop/camera_image_color
+        Value: /ur1/camera_drop/camera_image_color
       Value: true
       Visibility:
         Camera: true
@@ -195,7 +188,7 @@ Visualization Manager:
         Value: true
       Zoom Factor: 1
     - Class: rviz_default_plugins/Camera
-      Enabled: true
+      Enabled: false
       Far Plane Distance: 100
       Image Rendering: background and overlay
       Name: Camera
@@ -206,7 +199,7 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /camera_pickup/camera_image_color
-      Value: true
+      Value: false
       Visibility:
         Camera: true
         Grid: true
@@ -288,7 +281,7 @@ Window Geometry:
   Hide Left Dock: false
   Hide Right Dock: false
   Motion Planning Tasks:
-    collapsed: false
+    collapsed: true
   Motion Planning Tasks - Slider:
     collapsed: false
   MotionPlanning:

@@ -3,6 +3,10 @@
 
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
+    Source/HumanNpc/AnimGraphInputProviderComponent.cpp
+    Source/HumanNpc/AnimGraphInputProviderComponent.h
+    Source/HumanNpc/PathParserComponent.cpp
+    Source/HumanNpc/PathParserComponent.h
     Source/ROSCon2023DemoSystemComponent.cpp
     Source/ROSCon2023DemoSystemComponent.h
     Source/Vision/IdealVisionSystem.cpp

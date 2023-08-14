@@ -4,11 +4,12 @@
 
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Vision/IdealVisionSystem.h"
+#include <HumanNpc/AnimGraphInputProviderComponent.h>
+#include <HumanNpc/PathParserComponent.h>
 
 namespace ROSCon2023Demo
 {
-    class ROSCon2023DemoModule
-        : public AZ::Module
+    class ROSCon2023DemoModule : public AZ::Module
     {
     public:
         AZ_RTTI(ROSCon2023DemoModule, "{C1A10E6E-069C-4D2D-97AD-73198D467101}", AZ::Module);
@@ -18,10 +19,14 @@ namespace ROSCon2023Demo
             : AZ::Module()
         {
             // Push results of [MyComponent]::CreateDescriptor() into m_descriptors here.
-            m_descriptors.insert(m_descriptors.end(), {
-                ROSCon2023DemoSystemComponent::CreateDescriptor(),
-                ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
-            });
+            m_descriptors.insert(
+                m_descriptors.end(),
+                {
+                    ROSCon2023DemoSystemComponent::CreateDescriptor(),
+                    ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
+                    ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
+                    ROS2::Demo::PathParserComponent::CreateDescriptor(),
+                });
         }
 
         /**
@@ -34,6 +39,6 @@ namespace ROSCon2023Demo
             };
         }
     };
-}// namespace ROSCon2023Demo
+} // namespace ROSCon2023Demo
 
 AZ_DECLARE_MODULE_CLASS(Gem_ROSCon2023Demo, ROSCon2023Demo::ROSCon2023DemoModule)

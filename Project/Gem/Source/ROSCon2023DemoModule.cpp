@@ -6,6 +6,10 @@
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Scripting/BoxSpawner.h"
 #include "Vision/IdealVisionSystem.h"
+#include <HumanNpc/AnimGraphInputProviderComponent.h>
+#include <HumanNpc/NavigationMeshOrchestratorComponent.h>
+#include <HumanNpc/NpcNavigatorComponent.h>
+#include <HumanNpc/WaypointComponent.h>
 
 namespace ROSCon2023Demo
 {
@@ -26,6 +30,10 @@ namespace ROSCon2023Demo
                     ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
                     ROS2::Demo::BoxSpawner::CreateDescriptor(),
                     ROS2::Demo::SplinePosesPublisher::CreateDescriptor(),
+                    ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
+                    ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
+                    ROS2::Demo::NavigationMeshOrchestratorComponent::CreateDescriptor(),
+                    ROS2::Demo::WaypointComponent::CreateDescriptor(),
                 });
         }
 

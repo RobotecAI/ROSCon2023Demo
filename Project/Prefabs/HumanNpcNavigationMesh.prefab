@@ -1,0 +1,164 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "HumanNpcNavigationMesh",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 17411417753235158472
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 10245628051131458473
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 9704515508984690890,
+                "Child Entity Order": [
+                    "Entity_[192414028180182]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 16859866081038939258
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 10080084144637300732
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 15818687555209469572
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 1980267351042154382
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 4248215626769725147
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 8645754176481897224
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 1027936852768013678,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[192414028180182]": {
+            "Id": "Entity_[192414028180182]",
+            "Name": "NavigationMesh",
+            "Components": {
+                "EditorAxisAlignedBoxShapeComponent": {
+                    "$type": "EditorAxisAlignedBoxShapeComponent",
+                    "Id": 16413165912899593450,
+                    "AxisAlignedBoxShape": {
+                        "Configuration": {
+                            "Dimensions": [
+                                65.0,
+                                30.0,
+                                15.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6048437215104999972
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7737253477353138553
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17537857466891031168
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3135448146830477878,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 8428073744447252855
+                        },
+                        {
+                            "ComponentId": 16413165912899593450,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 17053028825565807634,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 7609123926706965459,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 15112058994086731235,
+                            "SortIndex": 4
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4208399981730301787
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9734636208124319359
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2027582521785236337
+                },
+                "EditorRecastNavigationMeshComponent": {
+                    "$type": "EditorRecastNavigationMeshComponent",
+                    "Id": 7609123926706965459,
+                    "Controller": {
+                        "Configuration": {
+                            "Agent Max Climb": 0.0,
+                            "Agent Max Slope": 1.0,
+                            "Agent Radius": 0.4000000059604645,
+                            "Detail Sample Distance": 1.0,
+                            "Detail Sample Max Error": 0.10000000149011612,
+                            "Edge Max Error": 0.75,
+                            "Debug Draw": true,
+                            "Editor Preview": true
+                        }
+                    }
+                },
+                "EditorRecastNavigationPhysXProviderComponent": {
+                    "$type": "EditorRecastNavigationPhysXProviderComponent",
+                    "Id": 17053028825565807634,
+                    "Controller": {
+                        "Config": {
+                            "Use Editor Scene": true
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9584370886432238074
+                },
+                "NavigationMeshOrchestratorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 15112058994086731235,
+                    "m_template": {
+                        "$type": "NavigationMeshOrchestratorComponent",
+                        "NavMesh Update Frequency": 0.0000019999999949504854
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8428073744447252855,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

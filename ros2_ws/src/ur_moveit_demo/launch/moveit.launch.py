@@ -44,6 +44,7 @@ from launch.conditions import IfCondition
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
+from moveit_configs_utils import MoveItConfigsBuilder
 from ur_moveit_config.launch_common import load_yaml
 
 
@@ -60,6 +61,8 @@ def launch_setup(context, *args, **kwargs):
     description_file = LaunchConfiguration("description_file")
     moveit_config_package = LaunchConfiguration("moveit_config_package")
     moveit_config_file = LaunchConfiguration("moveit_config_file")
+    rviz_config_file = LaunchConfiguration("rviz_config_file")
+    ur_namespace = LaunchConfiguration("ur_namespace")
     warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
     prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
@@ -120,9 +123,9 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "output_recipe_filename:=rtde_output_recipe.txt",
             " ",
-            "prefix:=",
-            prefix,
-            " ",
+            "tf_prefix:=",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -142,8 +145,8 @@ def launch_setup(context, *args, **kwargs):
             "ur",
             " ",
             "prefix:=",
-            prefix,
-            " ",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
@@ -152,6 +155,10 @@ def launch_setup(context, *args, **kwargs):
         [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
     )
 
+    robot_description_kinematics = load_yaml("ur_moveit_config", "config/kinematics.yaml")
+    kinematics_config = robot_description_kinematics["/**"]["ros__parameters"]
+    kinematics_config["robot_description_kinematics"][ur_namespace.perform(context) + "/ur_manipulator"] = kinematics_config["robot_description_kinematics"].pop("ur_manipulator")
+    robot_description_kinematics = kinematics_config
 
 
     # Planning Configuration
@@ -167,6 +174,7 @@ def launch_setup(context, *args, **kwargs):
 
     # Trajectory Execution Configuration
     controllers_yaml = load_yaml("ur_moveit_config", "config/controllers.yaml")
+    controllers_yaml["joint_trajectory_controller"]["joints"] = [ur_namespace.perform(context) + "/" + w for w in controllers_yaml["joint_trajectory_controller"]["joints"]]
     # the scaled_joint_trajectory_controller does not work on fake hardware
     change_controllers = context.perform_substitution(use_fake_hardware)
     if change_controllers == "true":
@@ -206,6 +214,7 @@ def launch_setup(context, *args, **kwargs):
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
+        namespace=ur_namespace,
         parameters=[
             robot_description,
             robot_description_semantic,
@@ -224,15 +233,16 @@ def launch_setup(context, *args, **kwargs):
     # rviz with moveit configuration
     rviz_base = LaunchConfiguration("rviz_config")
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_base]
+        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_config_file]
     )
 
     rviz_node = Node(
         package="rviz2",
         condition=IfCondition(launch_rviz),
         executable="rviz2",
-        name="rviz2_moveit",
+        name="rviz2_moveit1",
         output="log",
+        namespace=ur_namespace,
         arguments=["-d", rviz_config_file],
         parameters=[
             robot_description,
@@ -241,25 +251,33 @@ def launch_setup(context, *args, **kwargs):
             robot_description_kinematics,
             # robot_description_planning,
             warehouse_ros_config,
-        ],
+        ]
     )
 
-    # Servo node for realtime control
-    servo_yaml = load_yaml("ur_moveit_config", "config/ur_servo.yaml")
-    servo_params = {"moveit_servo": servo_yaml}
-    servo_node = Node(
-        package="moveit_servo",
-        condition=IfCondition(launch_servo),
-        executable="servo_node_main",
+    hello_moveit = Node(
+        name="hello_moveit",
+        package="ur_moveit_demo",
+        executable="mtc",
+        output="screen",
+        namespace=ur_namespace,
         parameters=[
-            servo_params,
             robot_description,
             robot_description_semantic,
+            robot_description_kinematics,
+            # robot_description_planning,
+            ompl_planning_pipeline_config,
+            trajectory_execution,
+            moveit_controllers,
+            planning_scene_monitor_parameters,
+            {"use_sim_time": use_sim_time},
+            warehouse_ros_config,
+            {'publish_robot_description': True},
+            {'publish_robot_description_semantic': True},
+            {"ns": ur_namespace.perform(context)},
         ],
-        output="screen",
     )
 
-    nodes_to_start = [move_group_node, rviz_node, servo_node]
+    nodes_to_start = [move_group_node, rviz_node, hello_moveit]
 
 
     return nodes_to_start
@@ -338,6 +356,13 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "rviz_config_file",
+            default_value="view_robot_moveit_ur1.rviz",
+            description="Rviz config file",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "warehouse_sqlite_path",
             default_value=os.path.expanduser("~/.ros/warehouse_ros.sqlite"),
             description="Path where the warehouse database should be stored",
@@ -357,6 +382,13 @@ def generate_launch_description():
             description="Prefix of the joint names, useful for \
         multi-robot setup. If changed than also joint names in the controllers' configuration \
         have to be updated.",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "ur_namespace",
+            default_value='""',
+            description="Namespace for the robot, useful for running multiple instances.",
         )
     )
     declared_arguments.append(

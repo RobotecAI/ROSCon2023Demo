@@ -4,9 +4,31 @@
 namespace TaskConstructor
 {
 
-    MTCController::MTCController(rclcpp::Node::SharedPtr node)
+    MTCController::MTCController(rclcpp::Node::SharedPtr node, std::string ns)
         : node_(node)
     {
+        PickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
+        PickupConfig.insert({ ns + "/wrist_2_joint", 1.5643877983093262 });
+        PickupConfig.insert({ ns + "/elbow_joint", -1.550349235534668 });
+        PickupConfig.insert({ ns + "/shoulder_pan_joint", -2.7139534950256348 });
+        PickupConfig.insert({ ns + "/shoulder_lift_joint", -2.314471483230591 });
+        PickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
+
+        LiftConfig.insert({ ns + "/wrist_1_joint", -1.6993759870529175 });
+        LiftConfig.insert({ ns + "/elbow_joint", -1.0284128189086914 });
+        LiftConfig.insert({ ns + "/shoulder_lift_joint", -1.9712634086608887 });
+        LiftConfig.insert({ ns + "/wrist_2_joint", 1.5634684562683105 });
+        LiftConfig.insert({ ns + "/shoulder_pan_joint", -2.644500255584717 });
+        LiftConfig.insert({ ns + "/wrist_3_joint", -4.113039656 });
+
+        DropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 - change });
+        DropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 + change });
+        DropConfig.insert({ ns + "/shoulder_lift_joint", -2.199610710144043 });
+        DropConfig.insert({ ns + "/wrist_2_joint", 1.5672444105148315 });
+        DropConfig.insert({ ns + "/shoulder_pan_joint", -0.15679530799388885 });
+        DropConfig.insert({ ns + "/wrist_3_joint", -3.1959822177886963 });
+
+        this->ns = ns;
     }
 
     void MTCController::doTask(mtc::Task& task)
@@ -17,15 +39,21 @@ namespace TaskConstructor
             task_.init();
         } catch (mtc::InitStageException& e)
         {
-            RCLCPP_ERROR_STREAM(LOGGER, e);
-            std::abort();
+            RCLCPP_ERROR_STREAM(node_->get_logger(), e);
             return;
         }
-
-        if (!task_.plan(5))
+        std::cerr << "Exited init" << std::endl;
+        try
         {
-            RCLCPP_ERROR_STREAM(LOGGER, "Task planning failed");
-            std::abort();
+            if (!task_.plan(5))
+            {
+                RCLCPP_ERROR_STREAM(node_->get_logger(), "Task planning failed");
+                return;
+            }
+
+        } catch (mtc::InitStageException& e)
+        {
+            RCLCPP_ERROR_STREAM(node_->get_logger(), e);
             return;
         }
         task_.introspection().publishSolution(*task_.solutions().front());
@@ -33,18 +61,17 @@ namespace TaskConstructor
         auto result = task_.execute(*task_.solutions().front());
         if (result.val != moveit_msgs::msg::MoveItErrorCodes::SUCCESS)
         {
-            RCLCPP_ERROR_STREAM(LOGGER, "Task execution failed");
-            std::abort();
+            RCLCPP_ERROR_STREAM(node_->get_logger(), "Task execution failed");
             return;
         }
 
         return;
     }
 
-    mtc::Task MTCController::createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname)
+    mtc::Task MTCController::createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns)
     {
         // ToDo make use of boxPose parameter
-        mtc::Task task;
+        mtc::Task task(ns);
         task.stages()->setName("Grab box");
         task.loadRobotModel(node_);
 
@@ -65,25 +92,28 @@ namespace TaskConstructor
             auto PickupSerial = std::make_unique<mtc::SerialContainer>("Pickup");
             {
                 auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Set scene");
-                stage->addObject(Utils::CreateBoxCollision(boxname, BoxDimension, Utils::fromMsgPosition(boxPose.position)));
+                stage->addObject(Utils::CreateBoxCollision(
+                    boxname, BoxDimension, Utils::fromMsgPosition(boxPose.position), Eigen::Quaterniond::Identity(), ns));
                 stage->allowCollisions(
-                    boxname, task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+                    boxname,
+                    task.getRobotModel()->getJointModelGroup(ns + "/ur_manipulator")->getLinkModelNamesWithCollisionGeometry(),
+                    false);
                 PickupSerial->insert(std::move(stage));
             }
             {
                 auto stage = std::make_unique<mtc::stages::MoveTo>("Over conveyor", sampling_planner);
-                stage->setGroup("ur_manipulator");
+                stage->setGroup(ns + "/ur_manipulator");
                 stage->setGoal(LiftConfig);
 
                 PickupSerial->insert(std::move(stage));
             }
             {
                 auto stage = std::make_unique<mtc::stages::MoveTo>("Pickup", interpolation_planner);
-                stage->setGroup("ur_manipulator");
-                stage->setIKFrame("gripper_link");
+                stage->setGroup(ns + "/ur_manipulator");
+                stage->setIKFrame(ns + "/gripper_link");
                 geometry_msgs::msg::PoseStamped pose;
                 pose.pose = boxPose;
-                pose.header.frame_id = "world";
+                pose.header.frame_id = ns + "/world";
                 pose.pose.position.z += 0.2;
 
                 pose.pose.orientation.x = -0.5;
@@ -106,9 +136,10 @@ namespace TaskConstructor
         std::string boxname,
         geometry_msgs::msg::Pose& palletPose,
         geometry_msgs::msg::Pose& boxPose,
-        std::vector<geometry_msgs::msg::Pose> boxes)
+        std::vector<geometry_msgs::msg::Pose> boxes,
+        std::string ns)
     {
-        mtc::Task task;
+        mtc::Task task(ns);
         task.stages()->setName("Drop box");
         task.loadRobotModel(node_);
 
@@ -128,59 +159,66 @@ namespace TaskConstructor
         {
             auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Set scene");
 
-            stage->addObject(Utils::CreateBoxCollision(boxname, BoxDimension, Utils::fromMsgPosition(boxPose.position), Utils::fromMsgQuaternion(boxPose.orientation)));
+            stage->addObject(Utils::CreateBoxCollision(
+                boxname, BoxDimension, Utils::fromMsgPosition(boxPose.position), Utils::fromMsgQuaternion(boxPose.orientation), ns));
             stage->allowCollisions(
-                boxname, task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
+                boxname, task.getRobotModel()->getJointModelGroup(ns + "/ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), false);
             int counter = 0;
+            std::cerr << boxes.size() << std::endl;
             for (auto box : boxes)
             {
                 auto boxWithCounter = std::to_string(counter);
                 counter++;
                 // namesOfBoxes.push_back(boxWithCounter);
-                stage->addObject(Utils::CreateBoxCollision(boxWithCounter, BoxDimension, Utils::fromMsgPosition(box.position), Utils::fromMsgQuaternion(boxPose.orientation)));
+                stage->addObject(Utils::CreateBoxCollision(
+                    boxWithCounter, BoxDimension, Utils::fromMsgPosition(box.position), Utils::fromMsgQuaternion(boxPose.orientation), ns));
                 stage->allowCollisions(
                     boxWithCounter,
-                    task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(),
+                    task.getRobotModel()->getJointModelGroup(ns + "/ur_manipulator")->getLinkModelNamesWithCollisionGeometry(),
                     false);
             }
 
             stage->addObject(Utils::CreateBoxCollision(
-                "pallet", PalletDimensions, Utils::fromMsgPosition(palletPose.position), Utils::fromMsgQuaternion(palletPose.orientation)));
+                "pallet",
+                PalletDimensions,
+                Utils::fromMsgPosition(palletPose.position),
+                Utils::fromMsgQuaternion(palletPose.orientation),
+                ns));
             stage->allowCollisions(
-                "pallet", task.getRobotModel()->getJointModelGroup("ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), true);
+                "pallet", task.getRobotModel()->getJointModelGroup(ns + "/ur_manipulator")->getLinkModelNamesWithCollisionGeometry(), true);
             MoveToDrop->insert(std::move(stage));
         }
         {
             auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Attach box");
-            stage->attachObject(boxname, "gripper_link");
+            stage->attachObject(boxname, ns + "/gripper_link");
             MoveToDrop->insert(std::move(stage));
         }
         {
             auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Move up", cartesian_planner);
-            relativeMove->setGroup("ur_manipulator");
+            relativeMove->setGroup(ns + "/ur_manipulator");
             relativeMove->setMinMaxDistance(0.0, 1.0f);
-            relativeMove->setIKFrame("gripper_link");
+            relativeMove->setIKFrame(ns + "/gripper_link");
 
             geometry_msgs::msg::Vector3Stamped vec;
-            vec.header.frame_id = "world";
+            vec.header.frame_id = ns + "/world";
             vec.vector.z = 1;
             relativeMove->setDirection(vec);
             MoveToDrop->insert(std::move(relativeMove));
         }
         {
             auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
-            moveToDropLocation->setGroup("ur_manipulator");
+            moveToDropLocation->setGroup(ns + "/ur_manipulator");
             moveToDropLocation->setGoal(DropConfig);
 
             MoveToDrop->insert(std::move(moveToDropLocation));
         }
         {
             auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location exact", interpolation_planner);
-            moveToDropLocation->setGroup("ur_manipulator");
-            moveToDropLocation->setIKFrame("gripper_link");
+            moveToDropLocation->setGroup(ns + "/ur_manipulator");
+            moveToDropLocation->setIKFrame(ns + "/gripper_link");
 
             geometry_msgs::msg::PoseStamped pose;
-            pose.header.frame_id = "world";
+            pose.header.frame_id = ns + "/world";
             pose.header.stamp = node_->now();
 
             //! Relative position of the drop location
@@ -194,19 +232,19 @@ namespace TaskConstructor
         }
         {
             auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Place position", cartesian_planner);
-            relativeMove->setGroup("ur_manipulator");
+            relativeMove->setGroup(ns + "/ur_manipulator");
             relativeMove->setMinMaxDistance(0.0, 0.5f);
-            relativeMove->setIKFrame("gripper_link");
+            relativeMove->setIKFrame(ns + "/gripper_link");
 
             geometry_msgs::msg::Vector3Stamped vec;
-            vec.header.frame_id = "world";
+            vec.header.frame_id = ns + "/world";
             vec.vector.z = -1;
             relativeMove->setDirection(vec);
             MoveToDrop->insert(std::move(relativeMove));
         }
         {
             auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Detach box");
-            stage->detachObject(boxname, "gripper_link");
+            stage->detachObject(boxname, ns + "/gripper_link");
             MoveToDrop->insert(std::move(stage));
         }
 
@@ -215,8 +253,9 @@ namespace TaskConstructor
         return task;
     }
 
-    mtc::Task MTCController::createTaskPark() {
-        mtc::Task task;
+    mtc::Task MTCController::createTaskPark(std::string ns)
+    {
+        mtc::Task task(ns);
         task.stages()->setName("Park");
         task.loadRobotModel(node_);
 
@@ -228,8 +267,8 @@ namespace TaskConstructor
 
         {
             auto stage = std::make_unique<mtc::stages::MoveTo>("Park position", interpolation_planner);
-            stage->setGroup("ur_manipulator");
-            stage->setGoal("test_configuration");
+            stage->setGroup(ns + "/ur_manipulator");
+            stage->setGoal(ns + "/test_configuration");
             task.add(std::move(stage));
         }
 

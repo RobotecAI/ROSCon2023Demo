@@ -44,10 +44,14 @@ namespace Utils
     }
 
     moveit_msgs::msg::CollisionObject CreateBoxCollision(
-        const std::string& name, const Eigen::Vector3d dimension, const Eigen::Vector3d location, const Eigen::Quaterniond& rot)
+        const std::string& name,
+        const Eigen::Vector3d dimension,
+        const Eigen::Vector3d location,
+        const Eigen::Quaterniond& rot,
+        std::string ns)
     {
         moveit_msgs::msg::CollisionObject collision_object;
-        collision_object.header.frame_id = "world";
+        collision_object.header.frame_id = ns + "/world";
         collision_object.id = name;
         shape_msgs::msg::SolidPrimitive primitive;
         primitive.type = primitive.BOX;

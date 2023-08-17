@@ -6,29 +6,30 @@
 
 namespace Camera
 {
-    GroundTruthCamera::GroundTruthCamera(std::shared_ptr<rclcpp::Node> node, const std::string& topicPickup, const std::string& topicDrop)
+    GroundTruthCamera::GroundTruthCamera(
+        std::shared_ptr<rclcpp::Node> node, const std::string& topicPickup, const std::string& topicDrop, std::string ns)
     {
         m_tf_buffer = std::make_shared<tf2_ros::Buffer>(node->get_clock());
         m_tf_listener = std::make_shared<tf2_ros::TransformListener>(*m_tf_buffer);
         m_subscriberDrop = node->create_subscription<vision_msgs::msg::Detection3DArray>(
             topicDrop,
             10,
-            [&](vision_msgs::msg::Detection3DArray::SharedPtr msg)
+            [&, ns](vision_msgs::msg::Detection3DArray::SharedPtr msg)
             {
-                UpdateObjectPoses(m_objectPoses, "world", msg, { PalletNamePrefix });
+                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { PalletNamePrefix });
                 std::map<std::string, geometry_msgs::msg::Pose> boxesPoses;
-                UpdateObjectPoses(boxesPoses, "world", msg, { BoxNamePrefix });
+                UpdateObjectPoses(boxesPoses, ns + "/world", msg, { BoxNamePrefix });
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
                 m_allBoxesOnPallet = getAllBoxesOnPallet(boxesPoses);
             });
         m_subscriberPickup = node->create_subscription<vision_msgs::msg::Detection3DArray>(
             topicPickup,
             10,
-            [&](vision_msgs::msg::Detection3DArray::SharedPtr msg)
+            [&, ns](vision_msgs::msg::Detection3DArray::SharedPtr msg)
             {
-                UpdateObjectPoses(m_objectPoses, "world", msg, { BoxNamePrefix });
+                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { BoxNamePrefix });
                 std::map<std::string, geometry_msgs::msg::Pose> poses;
-                UpdateObjectPoses(poses, "world", msg, { BoxNamePrefix });
+                UpdateObjectPoses(poses, ns + "/world", msg, { BoxNamePrefix });
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
                 m_closestBox = getClosestBox(poses);
             });

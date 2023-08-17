@@ -1,0 +1,75 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "scene": {
+        "scale_factor": 76.72293090820312
+    },
+    "shaders": {
+        "Main shader": {
+            "displacementTessellation": {
+                "displacement": {
+                    "scale": 0,
+                    "source_channel": 0
+                },
+                "enable": true,
+                "tessellation": {
+                    "max_length": 64,
+                    "subdiv_count": 1,
+                    "subdiv_mode": 0
+                }
+            },
+            "parameters": {
+                "Base Surface": {
+                    "anisotropyEnabled": false,
+                    "specularEdgeColorEnabled": false,
+                    "specularIoR": 1.5
+                },
+                "Bent Normal": {
+                    "bent_normal_diffuse_amount": 1,
+                    "bent_normal_specular_amount": 1,
+                    "use_bent_normal": false
+                },
+                "Coat": {
+                    "coatEnabled": false,
+                    "coatIoR": 1.600000023841858
+                },
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                },
+                "Sheen": {
+                    "sheenEnabled": false
+                },
+                "Subsurface Scattering Parameters": {
+                    "sssColor": [
+                        0.7009999752044678,
+                        0.3009999990463257,
+                        0.3050000071525574
+                    ],
+                    "sssEnabled": true,
+                    "sssRayleigh": 0,
+                    "sssRedShift": 0,
+                    "sssScale": 0.5,
+                    "sssScatteringColorSource": 0,
+                    "sssType": 2
+                }
+            },
+            "shader": "asm-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "M_UR10": {
+            "shader": "Main shader"
+        }
+    }
+}

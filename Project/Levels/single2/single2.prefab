@@ -249,14 +249,14 @@
                     "Parent Entity": "Entity_[1176639161715]",
                     "Transform Data": {
                         "Translate": [
-                            -1.8945797681808472,
-                            -3.3252735137939453,
-                            3.1749954223632813
+                            -1.6641418933868408,
+                            0.2748779356479645,
+                            3.0908408164978027
                         ],
                         "Rotate": [
-                            -47.440853118896484,
-                            1.9188990592956543,
-                            -1.761033535003662
+                            -16.892663955688477,
+                            -66.00496673583984,
+                            71.61271667480469
                         ]
                     }
                 },
@@ -453,20 +453,6 @@
                                 "assetHint": "lightingpresets/highcontrast/goegap_4k_iblglobalcm_iblspecular.exr.streamingimage"
                             }
                         }
-                    },
-                    "diffuseImageAsset": {
-                        "assetId": {
-                            "guid": "{3FD09945-D0F2-55C8-B9AF-B2FD421FE3BE}",
-                            "subId": 3000
-                        },
-                        "assetHint": "lightingpresets/highcontrast/goegap_4k_iblglobalcm_ibldiffuse.exr.streamingimage"
-                    },
-                    "specularImageAsset": {
-                        "assetId": {
-                            "guid": "{3FD09945-D0F2-55C8-B9AF-B2FD421FE3BE}",
-                            "subId": 2000
-                        },
-                        "assetHint": "lightingpresets/highcontrast/goegap_4k_iblglobalcm_iblspecular.exr.streamingimage"
                     }
                 },
                 "Component_[14994774102579326069]": {
@@ -516,115 +502,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
-                    "value": 0.20000000298023224
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[1865420997526175]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.3670966625213623
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.2454414665699005
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.5815969109535217
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -90.00001525878906
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.00037907547084614635
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 147.5429229736328
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
-                    "value": true
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1123976512281]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.594006299972534
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1123976512281]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.577942848205566
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1123976512281]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.77552795410156
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.017551541328430176
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.106495201587677
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1865408112624287]/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 0.003333332948386669
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -0.281107634305954
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": -3.159153461456299
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.618984043598175
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Instance_[1865408112624287]/ContainerEntity"
                 },
@@ -664,194 +541,19 @@
                     "value": "Entity_[1089616773913]"
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/9",
-                    "value": "Instance_[30052729419666]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/10",
-                    "value": "Instance_[30194463340434]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/11",
-                    "value": "Instance_[30130038830994]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/12",
-                    "value": "Instance_[30026959615890]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/13",
-                    "value": "Instance_[30172988503954]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/14",
-                    "value": "Instance_[30108563994514]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/15",
-                    "value": "Instance_[30151513667474]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/16",
-                    "value": "Instance_[2410319902610]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/17",
-                    "value": "Instance_[30078499223442]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/18",
-                    "value": "Instance_[30005484779410]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/19",
-                    "value": "Instance_[30246002947986]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[381763642777368]/Components/EditorEntitySortComponent/Child Entity Order/20",
-                    "value": "Instance_[30224528111506]/ContainerEntity"
+                    "op": "replace",
+                    "path": "/Instances/Instance_[1205499942705730]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box6"
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.9696320295333862
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.20963335037231445
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.16544270515441897
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 177.5752716064453
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.000004162146069575101
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99988555908203
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -6.822894096374512
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.62321138381958
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.2633395195007324
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.00001207351033372106
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 4.071109497693487e-13
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -4.289372854492428e-20
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30052729419666]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.939413070678711
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30052729419666]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073635843989903
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30052729419666]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -4.2894174446973234e-20
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.772163391113281
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.164812088012695
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073707694071343
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -6.503870964050293
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.556496620178223
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.2633395195007324
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073474863427691
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -4.2893599297953574e-20
+                    "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Name",
+                    "value": "Box5"
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/ContainerEntity/Name",
-                    "value": "Box33"
+                    "value": "Box3"
                 },
                 {
                     "op": "replace",
@@ -870,602 +572,107 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[30151513667474]/ContainerEntity/Name",
-                    "value": "Box26"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30151513667474]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 8.81322956085205
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30151513667474]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25005781650543213
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1205499942705730]/ContainerEntity/Name",
-                    "value": "Box27"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1205512827607618]/ContainerEntity/Name",
-                    "value": "Box210"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[51561655302581]/ContainerEntity/Name",
-                    "value": "Box211"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[51574540204469]/ContainerEntity/Name",
-                    "value": "Box212"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30224528111506]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box21"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30246002947986]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box22"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[12382254012170911]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box33"
+                    "value": "Box3"
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[30194463340434]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box24"
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 2.1419169805390224e31
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[30172988503954]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box25"
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": 1.9054813738141823e30
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[30151513667474]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box26"
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": 4.196843709000072e30
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[1205499942705730]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box67"
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/0",
+                    "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/1",
+                    "value": -1.4470072788027816e-38
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
+                    "value": 134.99996948242188
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
+                    "value": 0.20000000298023224
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
+                    "value": true
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[4980853547463014]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box49"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1205512827607618]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box510"
+                    "value": "Box4"
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[51561655302581]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box711"
+                    "value": "Box7"
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[51574540204469]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box812"
+                    "value": "Box8"
                 },
                 {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[64250519576458]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -5.5180487632751465
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1865420997526175]"
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[64250519576458]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.707634449005127
+                    "value": -4.8280463218688965
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[64250519576458]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 1.1711903447064742e-8
+                    "value": 0.0000017811219095165145
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[64332123955082]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -5.51804780960083
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.3670966625213623
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[64332123955082]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.7817775011062622
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.2454414665699005
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[64332123955082]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0000015136247384361925
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.5815969109535217
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ColliderConfiguration/Position/0",
-                    "value": -0.0473226010799408
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": -90.00001525878906
                 },
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1elbow_joint",
-                    "value": 1.399999976158142
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1shoulder_lift_joint",
-                    "value": -1.6200000047683716
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1shoulder_pan_joint",
-                    "value": 0.0
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1wrist_1_joint",
-                    "value": -1.2000000476837158
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1wrist_2_joint",
-                    "value": -1.600000023841858
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1writs_3_joint",
-                    "value": -0.10999999940395357
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1elbow_joint"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1shoulder_lift_joint"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1shoulder_pan_joint"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_1_joint"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_2_joint"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_3_joint"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": 4.063328880720261e25
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 4.701471892573754e31
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -498505216.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[980095793042]/Name",
-                    "value": "RightRobot"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[980095793042]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.6335012316703796
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -2.6751368045806885
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.09112548828125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 1.4996823072433472
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.09143296629190444
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381724988071704]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.000007283765171450796
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.3714120388031006
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.1999917030334473
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -7.963662369547819e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.09143296629190444
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381664858529560]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.000007283765171450796
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -2.200398206710815
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -5.677919864654541
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 1.0095056295394895
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.000004829676981898956
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381703513235224]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.00000965934304986149
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[381707808202520]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -6.389888286590576
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/IdealVisionSystem/m_template/SensorConfiguration/Visualize",
-                    "value": true
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/IdealVisionSystem/m_template/SensorConfiguration/Visualise"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/ROS2CameraSensorEditorComponent/CameraSensorConfig/ClipNear",
-                    "value": 0.10000000149011612
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/ROS2CameraSensorEditorComponent/CameraSensorConfig/ClipFar",
-                    "value": 100.0
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/ROS2CameraSensorEditorComponent/SensorConfig/Visualize",
-                    "value": true
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/ROS2CameraSensorEditorComponent/SensorConfig/Visualise"
-                },
-                {
                     "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.7093480825424194
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": -0.00037907547084614635
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.1374986171722412
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 1.1259565353393557
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[81126399562406]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30194463340434]/ContainerEntity/Name",
-                    "value": "Box24"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30194463340434]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.48715877532959
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30194463340434]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.671083450317383
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30172988503954]/ContainerEntity/Name",
-                    "value": "Box25"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30172988503954]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.911441802978516
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30172988503954]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 8.17403507232666
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[4980853547463014]/ContainerEntity/Name",
-                    "value": "Box29"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[4980853547463014]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -8.027478218078613
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[4980853547463014]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 10.066250801086426
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[4980853547463014]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.16781890392303467
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30246002947986]/ContainerEntity/Name",
-                    "value": "Box22"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30246002947986]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -6.565371036529541
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30246002947986]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.54892110824585
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30224528111506]/ContainerEntity/Name",
-                    "value": "Box21"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30224528111506]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -6.080061912536621
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30224528111506]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.543912887573242
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1132566446873]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.001192331314086914
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1132566446873]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 1.788139343261719e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1132566446873]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99964904785156
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1132566446873]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 9.8102691481472e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1132566446873]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 7.54665165914048e-8
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1089616773913]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.6152048110961914
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1089616773913]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 7.610836982727051
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.8457149267196655
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.2917231321334839
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.11154991388320924
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[984390760338]/Entities/Entity_[101244026376870]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[28635407195838]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.3118648529052734
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[28635407195838]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.9109487533569336
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[28635407195838]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.5068148374557495
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30005484779410]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box201"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1128271479577]/Components/EditorDisabledCompositionComponent/DisabledComponents",
-                    "value": {
-                        "EditorRigidBodyComponent": {
-                            "$type": "EditorRigidBodyComponent",
-                            "Id": 11718856969853308283,
-                            "Configuration": {
-                                "name": "",
-                                "position": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "orientation": [
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    1.0
-                                ],
-                                "entityId": "",
-                                "startSimulationEnabled": true,
-                                "Kinematic": false,
-                                "Initial linear velocity": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Initial angular velocity": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Linear damping": 0.05000000074505806,
-                                "Angular damping": 0.15000000596046448,
-                                "Sleep threshold": 0.004999999888241291,
-                                "Start Asleep": false,
-                                "Interpolate Motion": false,
-                                "Gravity Enabled": true,
-                                "CCD Enabled": false,
-                                "Compute Mass": true,
-                                "Lock Linear X": false,
-                                "Lock Linear Y": false,
-                                "Lock Linear Z": false,
-                                "Lock Angular X": false,
-                                "Lock Angular Y": false,
-                                "Lock Angular Z": false,
-                                "Mass": 95.22933197021484,
-                                "Compute COM": true,
-                                "Centre of mass offset": [
-                                    -0.00034657868673093617,
-                                    -0.00029151514172554016,
-                                    0.05575583875179291
-                                ],
-                                "Compute inertia": true,
-                                "Inertia tensor": [
-                                    4.806522369384766,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    9.80550479888916,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    14.414012908935547
-                                ],
-                                "Maximum Angular Velocity": 100.0,
-                                "Include All Shapes In Mass": false,
-                                "CCD Min Advance": 0.15000000596046448,
-                                "CCD Friction": false,
-                                "Open PhysX Configuration": false,
-                                "Debug Draw Center of Mass": false
-                            },
-                            "PhysXSpecificConfiguration": {
-                                "SolverPositionIterations": 4,
-                                "SolverVelocityIterations": 1
-                            }
-                        }
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[1128271479577]/Components/EditorStaticRigidBodyComponent",
-                    "value": {
-                        "$type": "EditorStaticRigidBodyComponent",
-                        "Id": 7740834330742881078
-                    }
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1128271479577]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0750722885131836
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[1128271479577]/Components/EditorRigidBodyComponent"
+                    "path": "/Entities/Entity_[381673448464152]/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 147.5429229736328
                 },
                 {
                     "op": "replace",
@@ -1556,53 +763,18 @@
                     }
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1093911741209]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 4.76837158203125e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1093911741209]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.05930531024932861
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1093911741209]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -4.06438684463501
-                },
-                {
                     "op": "remove",
                     "path": "/Entities/Entity_[1093911741209]/Components/EditorRigidBodyComponent"
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[30078499223442]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box202"
+                    "path": "/Entities/Entity_[1089616773913]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.58786678314209
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[2410319902610]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box203"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30108563994514]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box204"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30026959615890]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box205"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30130038830994]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box206"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[30052729419666]/Entities/Entity_[191977789557570]/Name",
-                    "value": "Box207"
+                    "path": "/Entities/Entity_[1089616773913]/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 7.6132307052612305
                 }
             ]
         }

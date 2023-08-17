@@ -151,6 +151,13 @@
                 "Component_[9129253381063760879]": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 9129253381063760879
+                },
+                "FlyCameraInputComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 8439011561029671183,
+                    "m_template": {
+                        "$type": "FlyCameraInputComponent"
+                    }
                 }
             }
         },
@@ -202,6 +209,52 @@
                 "Component_[9277695270015777859]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 9277695270015777859
+                }
+            }
+        },
+        "Entity_[309848362646810]": {
+            "Id": "Entity_[309848362646810]",
+            "Name": "RightRobot",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7504085102197412562
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9386991053780240799
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6011169654626752858,
+                    "Child Entity Order": [
+                        "Instance_[309852657614106]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6575207132699422445
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10537882589758460638
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15623340265539913366
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3512830780826022048
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11889876548189877795
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5454983905981126342,
+                    "Parent Entity": "Entity_[86354208013955]"
                 }
             }
         },
@@ -286,7 +339,8 @@
                     "Child Entity Order": [
                         "Entity_[86371387883139]",
                         "Entity_[86405747621507]",
-                        "Entity_[86435812392579]"
+                        "Entity_[86435812392579]",
+                        "Entity_[309848362646810]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1315,7 +1369,7 @@
                                     "guid": "{F2061925-B71C-5B0E-9728-8A066B473F0A}",
                                     "subId": 273053170
                                 },
-                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_guards_segment_bafc5697_1d73_5e8c_bddd_ae3ec74e4fbc_.fbx.azmodel"
+                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_guards_segment_bafc5697_1d73_5e8c_bddd_ae3ec74e4fbc_.azmodel"
                             }
                         }
                     }
@@ -1372,7 +1426,7 @@
                                     "guid": "{F2061925-B71C-5B0E-9728-8A066B473F0A}",
                                     "subId": 3427872660
                                 },
-                                "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.fbx.pxmesh"
+                                "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.pxmesh"
                             },
                             "Configuration": {
                                 "Scale": [
@@ -1386,7 +1440,7 @@
                                         "subId": 3427872660
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.fbx.pxmesh"
+                                    "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.pxmesh"
                                 }
                             }
                         },
@@ -2088,7 +2142,7 @@
                                     "guid": "{73DDFF88-BACA-5E9A-83D6-5919287BA6E8}",
                                     "subId": 273551688
                                 },
-                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_638e635b_fb87_5f17_a85f_13bfbae6d816_.fbx.azmodel"
+                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_638e635b_fb87_5f17_a85f_13bfbae6d816_.azmodel"
                             }
                         }
                     }
@@ -2176,7 +2230,7 @@
                                     "guid": "{73DDFF88-BACA-5E9A-83D6-5919287BA6E8}",
                                     "subId": 1269658267
                                 },
-                                "assetHint": "assets/factory/conveyorline/conveyorbelt.fbx.pxmesh"
+                                "assetHint": "assets/factory/conveyorline/conveyorbelt.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -2185,7 +2239,7 @@
                                         "subId": 1269658267
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorline/conveyorbelt.fbx.pxmesh"
+                                    "assetHint": "assets/factory/conveyorline/conveyorbelt.pxmesh"
                                 }
                             }
                         }
@@ -3511,7 +3565,7 @@
                                     "guid": "{F2061925-B71C-5B0E-9728-8A066B473F0A}",
                                     "subId": 273053170
                                 },
-                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_guards_segment_bafc5697_1d73_5e8c_bddd_ae3ec74e4fbc_.fbx.azmodel"
+                                "assetHint": "assets/factory/conveyorline/default_conveyorbelt_guards_segment_bafc5697_1d73_5e8c_bddd_ae3ec74e4fbc_.azmodel"
                             }
                         }
                     }
@@ -3568,7 +3622,7 @@
                                     "guid": "{F2061925-B71C-5B0E-9728-8A066B473F0A}",
                                     "subId": 3427872660
                                 },
-                                "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.fbx.pxmesh"
+                                "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.pxmesh"
                             },
                             "Configuration": {
                                 "Scale": [
@@ -3582,7 +3636,7 @@
                                         "subId": 3427872660
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.fbx.pxmesh"
+                                    "assetHint": "assets/factory/conveyorline/conveyorbelt_guards_segment.pxmesh"
                                 }
                             }
                         },
@@ -4280,7 +4334,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.2120248079299927
+                    "value": 1.212024807929993
                 },
                 {
                     "op": "replace",
@@ -4316,21 +4370,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[8441000053586138474]/Transform Data/Translate/1",
                     "value": -0.06208622455596924
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
                 }
             ]
         },
@@ -4511,21 +4550,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
@@ -4551,21 +4575,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
@@ -4591,21 +4600,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
@@ -4631,21 +4625,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
@@ -4671,21 +4650,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
@@ -4711,57 +4675,12 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[10442679396929814510]/Transform Data/Rotate/2",
                     "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
                 }
             ]
         },
         "Instance_[173345719038840]": {
             "Source": "Assets/Factory/EuroPallet.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": -0.00029151514172554016
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.05575583875179291
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
-                },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
@@ -4786,6 +4705,26 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.8490562438964844
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
+                    "value": -0.00029151514172554016
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.05575583875179291
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 14.414012908935547
                 }
             ]
         },
@@ -4810,27 +4749,696 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -7.977883338928223
+                    "value": -7.977884292602539
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 8.38471794128418
+                    "value": 7.172471046447754
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.26333993673324585
+                    "value": 0.26333969831466675
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000012073739526385909
+                    "value": 0.000012073693142156117
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
+                    "value": 6.106664653116045e-12
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.0
+                    "value": 89.99990844726563
+                }
+            ]
+        },
+        "Instance_[309852657614106]": {
+            "Source": "Assets/Importer/ur10.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2836254193766]/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
+                    "value": 0.20000000298023224
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[858782491996]",
+                    "value": {
+                        "Id": "Entity_[858782491996]",
+                        "Name": "CameraUR",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 6526218361506969541,
+                                "DisabledComponents": {
+                                    "EditorCameraComponent": {
+                                        "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
+                                        "Id": 16374593465594068810,
+                                        "Controller": {
+                                            "Configuration": {
+                                                "Orthographic": false,
+                                                "Orthographic Half Width": 5.0,
+                                                "Field of View": 75.0,
+                                                "Near Clip Plane Distance": 0.20000000298023224,
+                                                "Far Clip Plane Distance": 1024.0,
+                                                "SpecifyDimensions": false,
+                                                "FrustumWidth": 256.0,
+                                                "FrustumHeight": 256.0,
+                                                "MakeActiveViewOnActivation": true,
+                                                "RenderToTexture": {
+                                                    "assetId": {
+                                                        "guid": "{00000000-0000-0000-0000-000000000000}",
+                                                        "subId": 0
+                                                    },
+                                                    "loadBehavior": "QueueLoad",
+                                                    "assetHint": ""
+                                                },
+                                                "PipelineTemplate": "CameraPipeline"
+                                            }
+                                        },
+                                        "FrustumLengthPercent": 1.0,
+                                        "FrustumDrawColor": [
+                                            1.0,
+                                            1.0,
+                                            0.0,
+                                            0.8999999761581421
+                                        ]
+                                    },
+                                    "EditorLookAtComponent": {
+                                        "$type": "EditorLookAtComponent",
+                                        "Id": 15688952291983085650,
+                                        "Target": "ContainerEntity",
+                                        "ForwardAxis": 2
+                                    }
+                                }
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 5585051843619403767,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 16304521492056257956,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 14302260795181173580,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 13949934641936915222,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 17701343851270677189,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 14456304576227556468,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 4078335343640422121,
+                                "VisibilityFlag": true
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 6483375474594898569,
+                                "Parent Entity": "ContainerEntity",
+                                "Transform Data": {
+                                    "Translate": [
+                                        2.2351741790771484e-8,
+                                        -2.136293649673462,
+                                        1.7621484994888306
+                                    ],
+                                    "Rotate": [
+                                        -39.734989166259766,
+                                        -0.0000027665221296047093,
+                                        0.0000026315283321309835
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[101244026376870]",
+                    "value": {
+                        "Id": "Entity_[101244026376870]",
+                        "Name": "CameraPickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 13532515077529642162,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6781642679181286743,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 16253491074692074894,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 8205904789522977018,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 5794523696290790714,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 1302165002717865336,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 10623915102758199104,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 16631854286725500262,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 7203595006593204846,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_pickup/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_pickup/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_pickup/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "configuration": {
+                                        "ExcludeEntities": [],
+                                        "MaximumDetectionRange": 2.0
+                                    }
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 15843059347559723168,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_pickup/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_pickup/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 5364483958052265547,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 17197644915412255258,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        0.8068491220474243,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -89.99994659423828
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[81126399562406]",
+                    "value": {
+                        "Id": "Entity_[81126399562406]",
+                        "Name": "CameraDrop",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 7604825662087752012,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 6383545578973993528,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 6193058209493791010,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 6489571018399251789,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 7253082648182213924,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 4957507555999069378,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 5043293431311490418,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11492665323669171068,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4422182098558420355,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": true,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_drop/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_drop/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_drop/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "configuration": {
+                                        "ExcludeEntities": [],
+                                        "MaximumDetectionRange": 2.0
+                                    }
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 4401655443776662586,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 70.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": true,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 15092627223095051452,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 11340372032319460387,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.8136382102966309,
+                                        -2.384185791015625e-7,
+                                        1.3859866857528689
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -89.99994659423828
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[858782491996]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[309848362646810]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.1844308376312256
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.049025245010852814
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.6189841032028198
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99994659423828
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": -0.04902614280581474
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": -1.1844253540039065
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": -0.6189790368080139
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[101244026376870]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[2827664259174]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[81126399562406]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur2"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
+                    "value": true
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1elbow_joint",
+                    "value": 1.399999976158142
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1shoulder_lift_joint",
+                    "value": -1.6200000047683716
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1shoulder_pan_joint",
+                    "value": 0.0
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1wrist_1_joint",
+                    "value": -1.2000000476837158
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1wrist_2_joint",
+                    "value": -1.600000023841858
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur2~1wrist_3_joint",
+                    "value": -0.10999999940395357
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/elbow_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/shoulder_lift_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/shoulder_pan_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_1_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_2_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_3_joint"
                 }
             ]
         },
@@ -5115,26 +5723,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[2840549161062]/Components/EditorColliderComponent/ShapeConfiguration/Box/Configuration/0",
                     "value": 0.20000000298023224
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[101244026376870]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2827664259174]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[81126399562406]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
-                    "value": true
                 },
                 {
                     "op": "add",
@@ -5469,73 +6057,87 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist2_collider.stl.pxmesh"
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[101244026376870]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[2827664259174]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[2844844128358]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[81126399562406]"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist2_collider.stl.pxmesh"
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/upperarm_collider.stl.pxmesh"
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur1"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/upperarm_collider.stl.pxmesh"
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
+                    "value": true
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/shoulder_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1elbow_joint",
+                    "value": 1.399999976158142
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/shoulder_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1shoulder_lift_joint",
+                    "value": -1.6200000047683716
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2819074324582]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist1_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1shoulder_pan_joint",
+                    "value": 0.0
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2819074324582]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist1_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_1_joint",
+                    "value": -1.2000000476837158
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist3_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_2_joint",
+                    "value": -1.600000023841858
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/wrist3_collider.stl.pxmesh"
+                    "op": "add",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/ur1~1wrist_3_joint",
+                    "value": -0.10999999940395357
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2810484389990]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/base_collider.stl.pxmesh"
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/elbow_joint"
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2810484389990]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/base_collider.stl.pxmesh"
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/shoulder_lift_joint"
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/forearm_collider.stl.pxmesh"
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/shoulder_pan_joint"
                 },
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/urdfimporter/783534404_ur.urdf/forearm_collider.stl.pxmesh"
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_1_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_2_joint"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_3_joint"
                 }
             ]
         },
@@ -5986,1551 +6588,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[73655074280963]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8856700038027]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[8109375728523]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[7379231288203]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429785172530691]/Instances/Instance_[5772913519499]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457923725263138]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457923725263138]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457923725263138]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457919430295842]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457919430295842]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457919430295842]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560327100006690]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560327100006690]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560327100006690]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667560184851339]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667560184851339]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667560184851339]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261852642738466]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261852642738466]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261852642738466]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457880775590178]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457880775590178]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457880775590178]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665477125712779]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665477125712779]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665477125712779]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060292888527138]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060292888527138]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060292888527138]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667804997987211]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667804997987211]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667804997987211]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457897955459362]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457897955459362]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457897955459362]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859278298644770]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859278298644770]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859278298644770]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261861232673058]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261861232673058]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261861232673058]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667792113085323]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667792113085323]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667792113085323]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457902250426658]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457902250426658]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457902250426658]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667830767790987]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667830767790987]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667830767790987]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859282593612066]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859282593612066]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859282593612066]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924323732641629]/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924323732641629]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924323732641629]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457863595720994]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457863595720994]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457863595720994]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261809693065506]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261809693065506]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261809693065506]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[376138858138692]/Entities/Entity_[376147448073284]/Components/Component_[1135257540279470878]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_floor.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[376138858138692]/Entities/Entity_[376147448073284]/Components/Component_[13299402086043239524]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_floor.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[376138858138692]/Entities/Entity_[376147448073284]/Components/Component_[13299402086043239524]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_floor.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457915135328546]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457915135328546]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457915135328546]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667822177856395]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667822177856395]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667822177856395]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667835062758283]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667835062758283]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667835062758283]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949464658291595]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949464658291595]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949464658291595]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665481420680075]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665481420680075]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665481420680075]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667839357725579]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667839357725579]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667839357725579]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667238062304139]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667238062304139]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667238062304139]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467577917614987]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467577917614987]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467577917614987]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667796408052619]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667796408052619]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667796408052619]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[79831237252611]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457910840361250]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457910840361250]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457910840361250]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[76661551388163]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060280003625250]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060280003625250]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060280003625250]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667843652692875]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667843652692875]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667843652692875]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457867890688290]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457867890688290]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457867890688290]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261826872934690]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261826872934690]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261826872934690]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667813587921803]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667813587921803]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667813587921803]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060297183494434]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060297183494434]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060297183494434]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261848347771170]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261848347771170]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261848347771170]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261822577967394]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261822577967394]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261822577967394]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[179001829469067]/Instances/Instance_[260027656436158]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178997534501771]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178022576925579]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429793762465283]/Instances/Instance_[178009692023691]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665468535778187]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665468535778187]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665468535778187]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375971354414148]/Components/Component_[10387122939797774050]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_gate_closed.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375971354414148]/Components/Component_[16809483465388003559]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_gate_closed.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375971354414148]/Components/Component_[16809483465388003559]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_gate_closed.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375975649381444]/Components/Component_[10232715223514738948]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front_gate.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375975649381444]/Components/Component_[1554132197757752789]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front_gate.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375975649381444]/Components/Component_[1554132197757752789]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front_gate.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375984239316036]/Components/Component_[3143867532230487626]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_side.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375984239316036]/Components/Component_[3143867532230487626]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_side.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375984239316036]/Components/Component_[4756392489009945751]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_side.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375979944348740]/Components/Component_[10232715223514738948]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375979944348740]/Components/Component_[3790789121538053334]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[375962764479556]/Entities/Entity_[375979944348740]/Components/Component_[3790789121538053334]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_walls_front.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949451773389707]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949451773389707]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949451773389707]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457906545393954]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457906545393954]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457906545393954]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1666765615901579]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1666765615901579]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1666765615901579]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560331394973986]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560331394973986]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560331394973986]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261728088686882]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261728088686882]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261728088686882]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614652295632733]/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614652295632733]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614652295632733]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1468093313690507]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1468093313690507]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1468093313690507]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467354579315595]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467354579315595]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467354579315595]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949460363324299]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949460363324299]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949460363324299]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[6503057959819]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57986830936971]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57982535969675]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[429789467497987]/Instances/Instance_[57978241002379]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614755374847837]/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614755374847837]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614755374847837]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467895745194891]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467895745194891]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467895745194891]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614768259749725]/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614768259749725]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1614768259749725]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457876480622882]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457876480622882]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457876480622882]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467088291343243]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467088291343243]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1467088291343243]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667817882889099]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667817882889099]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667817882889099]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667787818118027]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667787818118027]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667787818118027]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667826472823691]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667826472823691]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667826472823691]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949456068357003]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949456068357003]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949456068357003]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261856937705762]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261856937705762]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1261856937705762]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667800703019915]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667800703019915]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667800703019915]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924328027608925]/Entities/Entity_[1614665180534621]/Components/Component_[11625877342363852623]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924328027608925]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1924328027608925]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_siderackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949468953258891]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949468953258891]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1949468953258891]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457872185655586]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457872185655586]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457872185655586]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665472830745483]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665472830745483]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665472830745483]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060310068396322]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060310068396322]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060310068396322]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457889365524770]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457889365524770]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457889365524770]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667809292954507]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667809292954507]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667809292954507]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859274003677474]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859274003677474]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1859274003677474]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060305773429026]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060305773429026]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060305773429026]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457893660492066]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457893660492066]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457893660492066]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560339984908578]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560339984908578]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560339984908578]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667036198841227]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667036198841227]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1667036198841227]/Instances/Instance_[10209910566649]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560335689941282]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560335689941282]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1560335689941282]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665464240810891]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[15671223893149508584]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665464240810891]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1665464240810891]/Instances/Instance_[71491477043646]/Entities/Entity_[5559434082750]/Components/Component_[2276504649476859699]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_rack.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457885070557474]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457885070557474]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[2457885070557474]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060267118723362]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060267118723362]/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[3060267118723362]/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[372307747310660]/Entities/Entity_[71229578283278]/Components/Component_[12442620377381822784]/Controller/Configuration/EditorMode",
                     "value": 2
                 },
@@ -7838,21 +6895,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[8441000053586138474]/Transform Data/Translate/0",
                     "value": -6.817747116088867
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
                 }
             ]
         },
@@ -7878,21 +6920,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[8441000053586138474]/Transform Data/Rotate/2",
                     "value": 180.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
                 }
             ]
         },
@@ -7918,21 +6945,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[8441000053586138474]/Transform Data/Rotate/2",
                     "value": 180.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[15579174905508719867]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[1261736678621474]/Components/Component_[9752009401792923326]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/warehouse_frontrackprotector.fbx.azmodel"
                 }
             ]
         },

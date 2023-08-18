@@ -9,5 +9,7 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Source/Scripting/BoxSpawner.cpp
+    Source/Scripting/BoxSpawner.h
     enabled_gems.cmake
 )

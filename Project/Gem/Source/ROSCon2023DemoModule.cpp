@@ -4,6 +4,7 @@
 
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Vision/IdealVisionSystem.h"
+#include "Scripting/BoxSpawner.h"
 
 namespace ROSCon2023Demo
 {
@@ -21,6 +22,7 @@ namespace ROSCon2023Demo
             m_descriptors.insert(m_descriptors.end(), {
                 ROSCon2023DemoSystemComponent::CreateDescriptor(),
                 ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
+                ROS2::Demo::BoxSpawner::CreateDescriptor(),
             });
         }
 

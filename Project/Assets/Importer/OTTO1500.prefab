@@ -3,9 +3,36 @@
         "Id": "ContainerEntity",
         "Name": "OTTO1500",
         "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 4211178972640578658
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 4923870630875932172
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 8431245219762689586,
+                "Child Entity Order": [
+                    "Entity_[1200384329450]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 16925438063808176240
+            },
             "EditorLockComponent": {
                 "$type": "EditorLockComponent",
                 "Id": 13706369000351945113
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 11396278763353754723
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 12952683325938320502
             },
             "EditorPrefabComponent": {
                 "$type": "EditorPrefabComponent",
@@ -73,6 +100,8 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 9623492168048587543,
                     "Child Entity Order": [
+                        "Entity_[169369999471020]",
+                        "Entity_[169395769274796]",
                         "Entity_[1208974264042]",
                         "Entity_[1234744067818]",
                         "Entity_[1226154133226]",
@@ -1630,6 +1659,136 @@
                             89.99999237060547
                         ]
                     }
+                }
+            }
+        },
+        "Entity_[169369999471020]": {
+            "Id": "Entity_[169369999471020]",
+            "Name": "LaserScaner",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10376672159150564466
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5675570368390856171
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9221336624879796836
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11852024304783512218
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12350441229995893890
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3651311073588022070
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10833204174891521124
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7366301551741747293
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1117450624233153805,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "lidar"
+                    }
+                },
+                "ROS2Lidar2DSensorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17069934193084004378,
+                    "m_template": {
+                        "$type": "ROS2Lidar2DSensorComponent",
+                        "SensorConfiguration": {
+                            "Publishers": {
+                                "sensor_msgs::msg::LaserScan": {
+                                    "Type": "sensor_msgs::msg::LaserScan",
+                                    "Topic": "scan"
+                                }
+                            }
+                        },
+                        "lidarConfiguration": {
+                            "lidarImplementation": "Scene Queries",
+                            "LidarParameters": {
+                                "Min horizontal angle": -90.0,
+                                "Max horizontal angle": 90.0
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7788185424554432580,
+                    "Parent Entity": "Entity_[1200384329450]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.9502930641174316,
+                            0.06267690658569336,
+                            0.16469058394432068
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[169395769274796]": {
+            "Id": "Entity_[169395769274796]",
+            "Name": "camera",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12275825263808928276
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15697129762243303783
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11993423398097062965
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8459016530722720000
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11160912201965772541
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3619128875348956050
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15124845557801897948
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 5119230089818286931
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3744535927896305712,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2984348732604664684,
+                    "Parent Entity": "Entity_[1200384329450]"
                 }
             }
         },

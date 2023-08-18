@@ -100,8 +100,7 @@ namespace ROS2::Demo
     bool CheckIfEntityInsideBox(
         const AZ::Vector3& boxLocation, const LmbrCentral::BoxShapeConfig& regionBoxConfig, AZ::Transform& entityTransform)
     {
-        AZ_Assert(regionBoxConfig.m_translationOffset.IsZero(), "Box shape translation offset is not supported");
-        const AZ::Vector3 localPos = entityTransform.GetInverse().TransformPoint(boxLocation);
+        const AZ::Vector3 localPos = entityTransform.GetInverse().TransformPoint(boxLocation) + regionBoxConfig.m_translationOffset;
         const AZ::Vector3 boxMin = regionBoxConfig.GetDimensions() * -0.5f;
         const AZ::Vector3 boxMax = regionBoxConfig.GetDimensions() * 0.5f;
         if (localPos.IsGreaterThan(boxMin) && localPos.IsLessThan(boxMax))
@@ -219,8 +218,8 @@ namespace ROS2::Demo
                 checksum.Add(time.ToString());
                 const AZStd::string spawnableName = AZStd::string::format("box_%u", AZ::u32(checksum));
                 SpawnBox(spawnableName);
-                m_timeSinceLastSpawn = 0.f;
             }
+            m_timeSinceLastSpawn = 0.f;
         }
     }
 } // namespace ROS2::Demo

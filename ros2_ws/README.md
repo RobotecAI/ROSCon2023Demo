@@ -53,11 +53,11 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install
 ### Robot manipulation
 
 ```
-ros2 launch ur_moveit_demo moveit.launch.py 
+ros2 launch ur_moveit_demo mtc.launch.py 
 ```
 
 ### Paletization demo using Moveit Task Constructor
 ```
-ros2 launch ur_moveit_demo moveit.launch.py ur_namespace:=ur1
-ros2 launch ur_moveit_demo moveit.launch.py rviz_config_file:=view_robot_moveit_ur2.rviz ur_namespace:=ur2
+ros2 launch ur_moveit_demo mtc.launch.py ur_namespace:=ur1
+ros2 launch ur_moveit_demo rviz.launch.py rviz_config_file:=view_robot_moveit_ur2.rviz ur_namespace:=ur2
 ```

@@ -29,11 +29,12 @@
 #
 # Author: Denis Stogl
 
-# Modified by: Michał Pełka for easy use with simulated UR10 in o3de
+# Modified by: Robotec.ai(2023) for easy use with simulated UR10 in o3de
 # Modifications:
 # - default ur_type to `ur10`
 # - default use_fake_hardware to `true`
 # - default use_sim_time to `true`
+# - allow for namespace input to run multiple arms
 
 import os
 

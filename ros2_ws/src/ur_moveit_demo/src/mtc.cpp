@@ -101,6 +101,9 @@ private:
     {
         auto result = std::make_shared<MTCAction::Result>();
 
+        moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + ns_);
+        planning_scene_interface.removeCollisionObjects(planning_scene_interface.getKnownObjectNames());
+
         auto mtc_task_node = std::make_shared<TaskConstructor::MTCController>(node_, ns_);
         auto gripperController = std::make_shared<Gripper::GripperController>(node_, "/" + ns_ + "/gripper_server");
         auto visionSystem = std::make_shared<Camera::GroundTruthCamera>(

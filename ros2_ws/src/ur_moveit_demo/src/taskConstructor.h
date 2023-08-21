@@ -36,7 +36,7 @@ namespace TaskConstructor
     const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
     const Eigen::Vector3d PickupLocation{ 0.890, 0, 0.049 };
     const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
-    const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 0.111 };
+    const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 2.0*0.111 };
 
     static const rclcpp::Logger LOGGER = rclcpp::get_logger("mtc");
 

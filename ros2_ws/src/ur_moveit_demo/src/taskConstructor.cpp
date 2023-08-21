@@ -75,6 +75,12 @@ namespace TaskConstructor
         task.stages()->setName("Grab box");
         task.loadRobotModel(node_);
 
+        auto cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
+        cartesian_planner->setMaxVelocityScaling(1.0);
+        cartesian_planner->setMaxAccelerationScaling(1.0);
+        cartesian_planner->setStepSize(.01);
+
+
         auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
         task.add(std::move(stage_state_current));
 
@@ -123,6 +129,18 @@ namespace TaskConstructor
 
                 stage->setGoal(pose);
                 PickupSerial->insert(std::move(stage));
+            }
+            {
+                auto relativeMove = std::make_unique<mtc::stages::MoveRelative>("Move down", cartesian_planner);
+                relativeMove->setGroup(ns + "/ur_manipulator");
+                relativeMove->setMinMaxDistance(0.0, 1.0f);
+                relativeMove->setIKFrame(ns + "/gripper_link");
+
+                geometry_msgs::msg::Vector3Stamped vec;
+                vec.header.frame_id = ns + "/world";
+                vec.vector.z = -1;
+                relativeMove->setDirection(vec);
+                PickupSerial->insert(std::move(relativeMove));
             }
 
             task.add(std::move(PickupSerial));

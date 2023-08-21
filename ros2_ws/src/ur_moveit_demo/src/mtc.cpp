@@ -38,13 +38,6 @@
 #include "utils.h"
 #include "taskConstructor.h"
 
-constexpr float BoxHeight = 0.3f;
-const Eigen::Vector3d TableDimension{ 0.950, 0.950, 0.411 };
-const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
-const Eigen::Vector3d PickupLocation{ 0.890, 0, 0.049 };
-const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
-const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 0.111 };
-
 constexpr char BoxNamePrefix[] = "Box";
 constexpr char PalletNamePrefix[] = "EuroPallet";
 constexpr char PickedBoxName[] = "PickedBox";
@@ -106,22 +99,6 @@ int main(int argc, char** argv)
     std::this_thread::sleep_for(std::chrono::seconds(1));
     // find pallet pose
     auto palletPose = visionSystem.getObjectPose("EuroPallet");
-
-    // visualize pallet and boxes
-    moveit_visual_tools.publishCuboid(
-        palletPose, PalletDimensions.x(), PalletDimensions.y(), PalletDimensions.z(), rviz_visual_tools::BROWN);
-
-    for (auto& p : Pattern)
-    {
-        auto targetPose = Utils::getBoxTargetPose(p, palletPose, BoxDimension);
-        moveit_visual_tools.publishCuboid(targetPose, BoxDimension.x(), BoxDimension.y(), BoxDimension.z(), rviz_visual_tools::YELLOW);
-
-        moveit_visual_tools.publishArrow(targetPose, rviz_visual_tools::RED, rviz_visual_tools::XLARGE);
-    }
-    moveit_visual_tools.trigger();
-
-    planning_scene_interface.applyCollisionObject(
-        Utils::CreateBoxCollision("pallet", PalletDimensions, Utils::fromMsgPosition(palletPose.position), Utils::fromMsgQuaternion(palletPose.orientation)));
 
     moveit_visual_tools.prompt("  ");
 

@@ -73,11 +73,6 @@ namespace ROS2::Demo
         }
     }
 
-    void BoxSpawner::GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& provided)
-    {
-        //        provided.push_back(AZ_CRC(""));
-    }
-
     void BoxSpawner::Activate()
     {
         m_timeSinceLastSpawn = 0.f;
@@ -137,6 +132,12 @@ namespace ROS2::Demo
             }
             AZ::Entity* root = *view.begin();
             root->SetName(spawnableName.c_str());
+            auto childPtrPtr =view.begin() + 1;
+            // update the name of the first child entity
+            if (childPtrPtr != view.end())
+            {
+                (**childPtrPtr).SetName(spawnableName.c_str());
+            }
             auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
             transformInterface->SetWorldTM(thisTransform);
         };
@@ -216,7 +217,7 @@ namespace ROS2::Demo
             {
                 AZ::Crc32 checksum = AZ::Crc32(m_entity->GetId().ToString());
                 checksum.Add(time.ToString());
-                const AZStd::string spawnableName = AZStd::string::format("box_%u", AZ::u32(checksum));
+                const AZStd::string spawnableName = AZStd::string::format("Box_%u", AZ::u32(checksum));
                 SpawnBox(spawnableName);
             }
             m_timeSinceLastSpawn = 0.f;

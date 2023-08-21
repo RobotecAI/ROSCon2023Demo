@@ -1,16 +1,55 @@
+# Copyright (c) 2021 PickNik, Inc.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright
+#      notice, this list of conditions and the following disclaimer.
+#
+#    * Redistributions in binary form must reproduce the above copyright
+#      notice, this list of conditions and the following disclaimer in the
+#      documentation and/or other materials provided with the distribution.
+#
+#    * Neither the name of the {copyright_holder} nor the names of its
+#      contributors may be used to endorse or promote products derived from
+#      this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+#
+# Author: Denis Stogl
+
+# Modified by: Michał Pełka for easy use with simulated UR10 in o3de
+# Modifications:
+# - default ur_type to `ur10`
+# - default use_fake_hardware to `true`
+# - default use_sim_time to `true`
+
 import os
+
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.actions import DeclareLaunchArgument
+from launch.actions import OpaqueFunction
+from launch.conditions import IfCondition
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
-from launch.conditions import IfCondition, UnlessCondition
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
-from launch.actions import ExecuteProcess
-from ament_index_python.packages import get_package_share_directory
 from moveit_configs_utils import MoveItConfigsBuilder
 from ur_moveit_config.launch_common import load_yaml
 
+
 def launch_setup(context, *args, **kwargs):
+
     # Initialize Arguments
     ur_type = LaunchConfiguration("ur_type")
     use_fake_hardware = LaunchConfiguration("use_fake_hardware")
@@ -22,6 +61,8 @@ def launch_setup(context, *args, **kwargs):
     description_file = LaunchConfiguration("description_file")
     moveit_config_package = LaunchConfiguration("moveit_config_package")
     moveit_config_file = LaunchConfiguration("moveit_config_file")
+    rviz_config_file = LaunchConfiguration("rviz_config_file")
+    ur_namespace = LaunchConfiguration("ur_namespace")
     warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
     prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
@@ -83,8 +124,8 @@ def launch_setup(context, *args, **kwargs):
             "output_recipe_filename:=rtde_output_recipe.txt",
             " ",
             "tf_prefix:=",
-            prefix,
-            " ",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -94,7 +135,9 @@ def launch_setup(context, *args, **kwargs):
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "srdf", "ur.srdf.xacro"]),
+            PathJoinSubstitution(
+                [FindPackageShare(moveit_config_package), "srdf", moveit_config_file]
+            ),
             " ",
             "name:=",
             # Also ur_type parameter could be used but then the planning group names in yaml
@@ -102,8 +145,8 @@ def launch_setup(context, *args, **kwargs):
             "ur",
             " ",
             "prefix:=",
-            prefix,
-            " ",
+            ur_namespace,
+            "/ ",
         ]
     )
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
@@ -112,6 +155,10 @@ def launch_setup(context, *args, **kwargs):
         [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
     )
 
+    robot_description_kinematics = load_yaml("ur_moveit_config", "config/kinematics.yaml")
+    kinematics_config = robot_description_kinematics["/**"]["ros__parameters"]
+    kinematics_config["robot_description_kinematics"][ur_namespace.perform(context) + "/ur_manipulator"] = kinematics_config["robot_description_kinematics"].pop("ur_manipulator")
+    robot_description_kinematics = kinematics_config
 
 
     # Planning Configuration
@@ -127,6 +174,7 @@ def launch_setup(context, *args, **kwargs):
 
     # Trajectory Execution Configuration
     controllers_yaml = load_yaml("ur_moveit_config", "config/controllers.yaml")
+    controllers_yaml["joint_trajectory_controller"]["joints"] = [ur_namespace.perform(context) + "/" + w for w in controllers_yaml["joint_trajectory_controller"]["joints"]]
     # the scaled_joint_trajectory_controller does not work on fake hardware
     change_controllers = context.perform_substitution(use_fake_hardware)
     if change_controllers == "true":
@@ -157,15 +205,21 @@ def launch_setup(context, *args, **kwargs):
         "warehouse_host": warehouse_sqlite_path,
     }
 
+    move_group_capabilities = {
+        "capabilities": "move_group/ExecuteTaskSolutionCapability"
+    }
+
     # Start the actual move_group node/action server
-    run_move_group_node = Node(
+    move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
+        namespace=ur_namespace,
         parameters=[
             robot_description,
             robot_description_semantic,
             robot_description_kinematics,
+            move_group_capabilities,
             # robot_description_planning,
             ompl_planning_pipeline_config,
             trajectory_execution,
@@ -173,104 +227,15 @@ def launch_setup(context, *args, **kwargs):
             planning_scene_monitor_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
-            {'publish_robot_description': True},
-            {'publish_robot_description_semantic': True},
         ],
     )
 
-    rviz_base = LaunchConfiguration("rviz_config")
-    rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_base]
-    )
-
-
-    # rviz_config_file = PathJoinSubstitution(
-    #     [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
-    # )
-
-    rviz_node = Node(
-        package="rviz2",
-        condition=IfCondition(launch_rviz),
-        executable="rviz2",
-        name="rviz2_moveit",
-        output="log",
-        arguments=["-d", rviz_config_file],
-        parameters=[
-            robot_description,
-            robot_description_semantic,
-            ompl_planning_pipeline_config,
-            robot_description_kinematics,
-            # robot_description_planning,
-            warehouse_ros_config,
-            {'publish_robot_description': True},
-            {'publish_robot_description_semantic': True},
-        ],
-    )
-
-    # Servo node for realtime control
-    servo_yaml = load_yaml("ur_moveit_config", "config/ur_servo.yaml")
-    servo_params = {"moveit_servo": servo_yaml}
-    servo_node = Node(
-        package="moveit_servo",
-        condition=IfCondition(launch_servo),
-        executable="servo_node_main",
-        parameters=[
-            servo_params,
-            robot_description,
-            robot_description_semantic,
-        ],
-        output="screen",
-    )
-
-    # Static TF
-    static_tf = Node(
-        package="tf2_ros",
-        executable="static_transform_publisher",
-        name="static_transform_publisher",
-        output="log",
-        arguments=["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", "world", "base_link"],
-    )
-
-    # Publish TF
-    robot_state_publisher = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="both",
-        parameters=[robot_description],
-    )
-
-    # ros2_control using FakeSystem as hardware
-    ros2_controllers_path = os.path.join(
-        get_package_share_directory("moveit_resources_panda_moveit_config"),
-        "config",
-        "ros2_controllers.yaml",
-    )
-    ros2_control_node = Node(
-        package="controller_manager",
-        executable="ros2_control_node",
-        parameters=[robot_description, ros2_controllers_path],
-        output="both",
-    )
-
-    joint_state_broadcaster_spawner = Node(
-        package="controller_manager",
-        executable="spawner",
-        arguments=[
-            "joint_state_broadcaster",
-            "--controller-manager-timeout",
-            "300",
-            "--controller-manager",
-            "/controller_manager",
-        ],
-    )
-
-    hello_moveit = Node(
+    mtc = Node(
         name="hello_moveit",
         package="ur_moveit_demo",
         executable="mtc",
         output="screen",
-        namespace="/ur1",
+        namespace=ur_namespace,
         parameters=[
             robot_description,
             robot_description_semantic,
@@ -284,44 +249,14 @@ def launch_setup(context, *args, **kwargs):
             warehouse_ros_config,
             {'publish_robot_description': True},
             {'publish_robot_description_semantic': True},
+            {"ns": ur_namespace.perform(context)},
         ],
     )
 
-    # ur_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["ur_controller", "-c", "/controller_manager"],
-    # )
+    nodes_to_start = [mtc, move_group_node]
 
-    # arm_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["panda_arm_controller", "-c", "/controller_manager"],
-    # )
-
-    # hand_controller_spawner = Node(
-    #     package="controller_manager",
-    #     executable="spawner",
-    #     arguments=["panda_hand_controller", "-c", "/controller_manager"],
-    # )
-    nodes_to_start = [
-        # rviz_node,
-        # static_tf,
-        # robot_state_publisher,
-        # run_move_group_node,
-        # ros2_control_node,
-        # # joint_state_broadcaster_spawner,
-
-        # # arm_controller_spawner,
-        # # hand_controller_spawner,
-        
-        # servo_node,
-
-        hello_moveit
-    ]
 
     return nodes_to_start
-
 
 
 def generate_launch_description():
@@ -333,7 +268,7 @@ def generate_launch_description():
             "ur_type",
             description="Type/series of used UR robot.",
             choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e"],
-            default_value="ur10"
+            default_value="ur10",
         )
     )
     declared_arguments.append(
@@ -397,6 +332,13 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "rviz_config_file",
+            default_value="view_robot_moveit_ur1.rviz",
+            description="Rviz config file",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "warehouse_sqlite_path",
             default_value=os.path.expanduser("~/.ros/warehouse_ros.sqlite"),
             description="Path where the warehouse database should be stored",
@@ -419,14 +361,20 @@ def generate_launch_description():
         )
     )
     declared_arguments.append(
+        DeclareLaunchArgument(
+            "ur_namespace",
+            default_value='""',
+            description="Namespace for the robot, useful for running multiple instances.",
+        )
+    )
+    declared_arguments.append(
         DeclareLaunchArgument("launch_rviz", default_value="true", description="Launch RViz?")
     )
     declared_arguments.append(
         DeclareLaunchArgument("launch_servo", default_value="true", description="Launch Servo?")
     )
-
     declared_arguments.append(
-    DeclareLaunchArgument(
+        DeclareLaunchArgument(
             "rviz_config",
             default_value="view_robot_moveit.rviz",
             description="RViz configuration file",
@@ -434,21 +382,4 @@ def generate_launch_description():
     )
 
 
-
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
-
-
-
-
-# from launch import LaunchDescription
-# from launch_ros.actions import Node
-# from moveit_configs_utils import MoveItConfigsBuilder
-
-
-# def generate_launch_description():
-
-
-
-#     return LaunchDescription([move_group_demo])
-
-

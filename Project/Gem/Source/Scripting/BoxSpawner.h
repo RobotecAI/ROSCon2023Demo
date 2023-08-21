@@ -41,8 +41,6 @@ namespace ROS2::Demo
 
         ~BoxSpawner() = default;
 
-        static void GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required);
-
         // AZ::Component overrides...
         void Activate() override;
 

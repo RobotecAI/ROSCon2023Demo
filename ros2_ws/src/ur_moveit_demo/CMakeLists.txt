@@ -14,6 +14,7 @@ find_package(control_msgs REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(moveit_task_constructor_core REQUIRED)
 find_package(vision_msgs REQUIRED)
+find_package(ur_moveit_demo_msg REQUIRED)
 add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 
 add_library(gripper src/gripper.cpp src/gripper.h)
@@ -43,6 +44,7 @@ ament_target_dependencies(
 ament_target_dependencies(
   mtc
   moveit_task_constructor_core
+  "ur_moveit_demo_msg"
   "rclcpp"
   "moveit_ros_planning_interface"
   "moveit_visual_tools"

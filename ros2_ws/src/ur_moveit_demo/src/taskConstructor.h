@@ -47,7 +47,7 @@ namespace TaskConstructor
 
         rclcpp::node_interfaces::NodeBaseInterface::SharedPtr getNodeBaseInterface();
 
-        void doTask(mtc::Task& task);
+        bool doTask(mtc::Task& task);
 
         mtc::Task createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns);
 

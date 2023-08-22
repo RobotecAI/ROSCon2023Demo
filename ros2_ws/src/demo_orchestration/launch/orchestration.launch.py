@@ -18,6 +18,7 @@ def launch_setup(context, *args, **kwargs):
         output="screen",
         namespace=ur_namespace,
         parameters=[
+            {"use_sim_time": True},
         ],
     )
 

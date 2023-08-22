@@ -1,7 +1,10 @@
 
 #include <chrono>
+#include <geometry_msgs/msg/pose_stamped.hpp>
 #include <memory>
 #include <rclcpp/node.hpp>
+#include <rclcpp/publisher.hpp>
+#include <rclcpp/qos.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/create_client.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
@@ -127,10 +130,19 @@ int main(int argc, char** argv)
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
-    auto ParkPosition = tf_buffer_->lookupTransform("ur1/world", "ur1/ParkPosition", node->get_clock()->now());
+    auto ParkPosition = tf_buffer_->lookupTransform("ur1/odom", "ur1/Park", node->get_clock()->now());
+    std::this_thread::sleep_for(std::chrono::seconds(1));
     std::stringstream ss;
     ss << ParkPosition.transform.translation.x;
     RCLCPP_INFO(node->get_logger(), "%s", ss.str().c_str());
+
+    auto publisher = node->create_publisher<geometry_msgs::msg::PoseStamped>("/otto_1/goal_pose", rclcpp::SystemDefaultsQoS());
+    geometry_msgs::msg::PoseStamped targetPose;
+    targetPose.pose.position.set__x(ParkPosition.transform.translation.x).set__y(ParkPosition.transform.translation.y).set__z(ParkPosition.transform.translation.y);
+    targetPose.header.frame_id = "ur1/odom";
+    targetPose.pose.orientation.set__w(0.707).set__z(-0.707);
+
+    publisher->publish(targetPose);
 
     auto client = std::make_shared<MTCActionClient>(node);
     client->send_goal();

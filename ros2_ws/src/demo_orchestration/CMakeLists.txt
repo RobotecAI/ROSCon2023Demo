@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(ur_moveit_demo_msg REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
@@ -24,6 +25,7 @@ ament_target_dependencies(
   "rclcpp"
   "tf2_msgs"
   "tf2_ros"
+  "geometry_msgs"
   )
 
 if(BUILD_TESTING)

@@ -30,6 +30,7 @@ setup(
     entry_points={
         'console_scripts': [
             'robot_spawner = o3de_fleet_nav.robot_spawner:main',
+            'follow_waypoints = o3de_fleet_nav.follow_waypoints:main',
         ],
     },
 )

@@ -123,6 +123,15 @@ def generate_launch_description():
             parameters=[params_file]
     )
 
+    tf_pub = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        output='both',
+        # parameters=[{"frame-id": 'map'}, {"child-frame-id": "otto_1/odom"}]
+        arguments=["--frame-id", "map", "--child-frame-id", "otto_1/odom"],
+        # arguments=["0 0 0 0 0 0 map otto_1/odom"]
+    )
+
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -142,5 +151,7 @@ def generate_launch_description():
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
     ld.add_action(spawner)
+    ld.add_action(tf_pub)
+
 
     return ld

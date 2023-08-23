@@ -177,7 +177,7 @@ controller_server:
       GoalAlign.scale: 0.0
       PathDist.scale: 32.0
       GoalDist.scale: 24.0
-      ObstacleFootprint.scale: 16.0
+      ObstacleFootprint.scale: 3.0
       # RotateToGoal.scale: 32.0
       # RotateToGoal.slowing_factor: 5.0
       # RotateToGoal.lookahead_time: -1.0
@@ -271,8 +271,8 @@ planner_server:
     GridBased:
       # plugin: "nav2_smac_planner/SmacPlannerHybrid"
       # plugin: "nav2_navfn_planner/NavfnPlanner"
-      # plugin: nav2_smac_planner/SmacPlanner2D
-      plugin: nav2_smac_planner/SmacPlannerLattice
+      plugin: nav2_smac_planner/SmacPlanner2D
+      # plugin: nav2_smac_planner/SmacPlannerLattice
       tolerance: 0.5
       # use_astar: false
       allow_unknown: true

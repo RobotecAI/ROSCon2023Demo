@@ -12,6 +12,7 @@ find_package(tf2_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(ur_moveit_demo_msg REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(nav2_msgs REQUIRED)
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
@@ -26,6 +27,7 @@ ament_target_dependencies(
   "tf2_msgs"
   "tf2_ros"
   "geometry_msgs"
+  "nav2_msgs"
   )
 
 if(BUILD_TESTING)

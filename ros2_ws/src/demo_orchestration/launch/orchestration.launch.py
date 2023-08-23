@@ -10,15 +10,19 @@ from launch.substitutions import LaunchConfiguration
 def launch_setup(context, *args, **kwargs):
 
     ur_namespace = LaunchConfiguration("ur_namespace")
+    amr_namespace = LaunchConfiguration("amr_namespace")
+    num_of_boxes = LaunchConfiguration("number_of_boxes")
 
     orchestration = Node(
         name="orchestrationName",
         package="demo_orchestration",
         executable="demo_orchestration",
         output="screen",
-        namespace=ur_namespace,
         parameters=[
             {"use_sim_time": True},
+            {"ur_namespace": ur_namespace},
+            {"amr_namespace": amr_namespace},
+            {"number_of_boxes": num_of_boxes}
         ],
     )
 
@@ -36,7 +40,23 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "ur_namespace",
             default_value='""',
-            description="Namespace for the robot, useful for running multiple instances.",
+            description="Namespace for the robot arm, useful for running multiple instances.",
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "amr_namespace",
+            default_value='""',
+            description="Namespace for the amr, useful for running multiple instances.",
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "number_of_boxes",
+            default_value='""',
+            description="Number of boxes to be placed on the pallet",
         )
     )
 

@@ -128,7 +128,7 @@ def generate_launch_description():
         executable='static_transform_publisher',
         output='both',
         # parameters=[{"frame-id": 'map'}, {"child-frame-id": "otto_1/odom"}]
-        arguments=["--frame-id", "map", "--child-frame-id", "otto_1/odom"],
+        arguments=["--frame-id", "map", "--child-frame-id", f"{namespace}/odom"],
         # arguments=["0 0 0 0 0 0 map otto_1/odom"]
     )
 

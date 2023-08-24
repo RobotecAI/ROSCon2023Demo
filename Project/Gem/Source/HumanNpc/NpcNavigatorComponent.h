@@ -10,21 +10,23 @@
 #include <AzCore/std/utils.h>
 #include <AzFramework/Entity/EntityDebugDisplayBus.h>
 #include <ROS2/Communication/TopicConfiguration.h>
+#include <RecastNavigation/RecastNavigationMeshBus.h>
 #include <geometry_msgs/msg/twist.hpp>
 #include <rclcpp/publisher.hpp>
 
 namespace ROS2::Demo
 {
-    class PathParserComponent
+    class NpcNavigatorComponent
         : public AZ::Component
         , private AZ::TickBus::Handler
         , private AzFramework::EntityDebugDisplayEventBus::Handler
+        , private RecastNavigation::RecastNavigationMeshNotificationBus::Handler
     {
     public:
-        AZ_COMPONENT(PathParserComponent, "{2b71bda6-b986-4627-8e68-15821565f503}", AZ::Component);
+        AZ_COMPONENT(NpcNavigatorComponent, "{2b71bda6-b986-4627-8e68-15821565f503}", AZ::Component);
 
-        PathParserComponent() = default;
-        ~PathParserComponent() = default;
+        NpcNavigatorComponent() = default;
+        ~NpcNavigatorComponent() = default;
 
         static void Reflect(AZ::ReflectContext* context);
         // clang-format off
@@ -55,19 +57,29 @@ namespace ROS2::Demo
         // AZ::TickBus overrides
         void OnTick(float deltaTime, AZ::ScriptTimePoint time) override;
 
-        // AzFramework::EntityDebugDisplayEventBus::Handler overrides
+        // EntityDebugDisplayEventBus overrides
         void DisplayEntityViewport(const AzFramework::ViewportInfo& viewportInfo, AzFramework::DebugDisplayRequests& debugDisplay) override;
 
+        // RecastNavigationMeshNotificationBus overrides
+        void OnNavigationMeshUpdated(AZ::EntityId navigationMeshEntity) override;
+        void OnNavigationMeshBeganRecalculating(AZ::EntityId navigationMeshEntity) override {}
+
+        PublisherPtr CreatePublisher(const TopicConfiguration& topicConfiguration);
+
+        static AZ::Transform GetEntityTransform(AZ::EntityId entityId);
+
         AZ::Transform GetCurrentTransform();
+        AZ::EntityId GetNavigationMeshEntityId();
         AZStd::pair<AZ::Vector3, AZ::Vector3> GetGoal();
-        PathParserComponent::Speed CalculateSpeed(
+        NpcNavigatorComponent::Speed CalculateSpeed(
             AZ::Transform currentTransform, AZ::Vector3 previousGoalPosition, AZ::Vector3 currentGoalPosition);
         AZStd::vector<AZ::Vector3> FindPathBetweenPositions(AZ::Vector3 currentPosition, AZ::Vector3 goalPosition);
-        void EnsureRecastMeshInitialized(AZ::EntityId navigationMeshEntityId);
+
         void Publish(Speed speed);
+        void RecalculateCurrentGoalPath();
 
         // DEBUG
-        AZ::Vector3 m_goal;
+        AZ::EntityId m_goalEntityId;
         // DEBUG
         bool m_debugMode{ false };
 
@@ -76,9 +88,9 @@ namespace ROS2::Demo
         size_t m_currentPathIndex{ 0LU };
         AZ::EntityId m_navigationEntity;
 
-        float m_linearSpeed{ 1.0f };
+        float m_linearSpeed{ 1.5f };
         float m_angularSpeed{ 1.0f };
-        float m_crossTrackFactor{ 1.0f };
+        float m_crossTrackFactor{ 0.1f };
 
         TopicConfiguration m_topicConfiguration;
         PublisherPtr m_publisher;

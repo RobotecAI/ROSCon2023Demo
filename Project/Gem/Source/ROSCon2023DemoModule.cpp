@@ -5,7 +5,8 @@
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Vision/IdealVisionSystem.h"
 #include <HumanNpc/AnimGraphInputProviderComponent.h>
-#include <HumanNpc/PathParserComponent.h>
+#include <HumanNpc/NpcNavigatorComponent.h>
+#include <HumanNpc/NavigationOrchestratorComponent.h>
 
 namespace ROSCon2023Demo
 {
@@ -25,7 +26,8 @@ namespace ROSCon2023Demo
                     ROSCon2023DemoSystemComponent::CreateDescriptor(),
                     ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
                     ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
-                    ROS2::Demo::PathParserComponent::CreateDescriptor(),
+                    ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
+                    ROS2::Demo::NavigationOrchestratorComponent::CreateDescriptor(),
                 });
         }
 

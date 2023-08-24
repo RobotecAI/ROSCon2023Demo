@@ -82,6 +82,7 @@ ly_add_target(
         PRIVATE
             Gem::${gem_name}.Private.Object
             AZ::AzCore
+            Gem::RecastNavigation.API
             Gem::ROS2.Static
 )
 

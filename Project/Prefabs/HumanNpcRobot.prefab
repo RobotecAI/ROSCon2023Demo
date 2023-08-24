@@ -45,7 +45,14 @@
             "TransformComponent": {
                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                 "Id": 17725655479858449387,
-                "Parent Entity": ""
+                "Parent Entity": "",
+                "Transform Data": {
+                    "Translate": [
+                        -14.897490501403809,
+                        3.889416456222534,
+                        0.0
+                    ]
+                }
             }
         }
     },
@@ -54,10 +61,30 @@
             "Id": "Entity_[66011467218485]",
             "Name": "HumanNpcRobot",
             "Components": {
-                "EditorDetourNavigationComponent": {
-                    "$type": "EditorDetourNavigationComponent",
-                    "Id": 1902003606529540072,
-                    "Navigation Mesh": ""
+                "EditorCapsuleShapeComponent": {
+                    "$type": "EditorCapsuleShapeComponent",
+                    "Id": 919720789400500631,
+                    "ShapeColor": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "CapsuleShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                1.0,
+                                1.0
+                            ],
+                            "Height": 2.0,
+                            "TranslationOffset": [
+                                0.0,
+                                0.0,
+                                0.5
+                            ]
+                        }
+                    }
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -127,29 +154,74 @@
                         "Gravity Enabled": false,
                         "Lock Linear Z": true,
                         "Lock Angular X": true,
-                        "Lock Angular Y": true
+                        "Lock Angular Y": true,
+                        "Mass": 359.9741516113281,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.0,
+                            0.5
+                        ],
+                        "Inertia tensor": [
+                            107.48095703125,
+                            0.0,
+                            0.0,
+                            0.0,
+                            107.48091888427734,
+                            0.0,
+                            0.0,
+                            0.0,
+                            10.840132713317871
+                        ]
                     }
+                },
+                "EditorShapeColliderComponent": {
+                    "$type": "EditorShapeColliderComponent",
+                    "Id": 1657780093315026513,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{4C019D6C-22CE-53CF-9D56-EBEB76F718A2}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "assets/asianwoman/npccollidermaterial.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        },
+                        "ContactOffset": 0.009999999776482582
+                    },
+                    "ShapeConfigs": [
+                        {
+                            "$type": "CapsuleShapeConfiguration",
+                            "Height": 2.0
+                        }
+                    ]
                 },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 8963879223403550331
                 },
-                "PathParserComponent": {
+                "NpcNavigatorComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 1634712991874037508,
+                    "Id": 8214888317295398113,
                     "m_template": {
-                        "$type": "PathParserComponent",
-                        "Goal": [
-                            3.136715210023938e37,
-                            3.076831038118001e-41,
-                            0.0
-                        ],
-                        "Navigation Entity": "Entity_[66011467218485]",
+                        "$type": "NpcNavigatorComponent",
+                        "Goal Entity": "",
+                        "Detour Navigation Entity": "",
                         "Topic Configuration": {
                             "Topic": "cmd_vel"
                         },
-                        "Linear Speed": 1.5,
-                        "Cross Track Factor": 0.10000000149011612
+                        "Angular Speed": 2.0,
+                        "Cross Track Factor": 0.009999999776482582
                     }
                 },
                 "ROS2FrameComponent": {

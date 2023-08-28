@@ -32,18 +32,19 @@ The project runs on Ubuntu 22.04 with ROS 2 Humble or ROS 2 Iron.
 
 The following commands should prepare O3DE:
 
-```
-~$ git clone --branch development --single-branch https://github.com/o3de/o3de.git
-~$ cd o3de
-~/o3de$ git lfs install
-~/o3de$ git lfs pull
-~/o3de$ python/get_python.sh
-~/o3de$ scripts/o3de.sh register --this-engine
+```bash
+cd {$WORKDIR}
+git clone --branch development --single-branch https://github.com/o3de/o3de.git
+cd o3de
+git lfs install
+git lfs pull
+python/get_python.sh
+scripts/o3de.sh register --this-engine
 ```
 
-## ROS 2 Gem
+## ROS 2 Gem and other gems
 
-This project uses the [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2).
+This project uses the [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2), [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) and [Proteus robot Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/ProteusRobot).
 Please make sure to follow the installation guide
 in [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file.
 To learn more about how the Gem works check out
@@ -52,9 +53,49 @@ the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interact
 Note that the Gem instructions include the installation of ROS 2 with some additional packages. 
 
  **Use the `development` branch**.
+ **During build use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is essential for articulation. 
 
-The Gem is open to your contributions!
+Clone o3de-extras repo
+```bash 
+cd {$WORKDIR}
+git clone https://github.com/o3de/o3de-extras
+cd o3de-extras
+git lfs install
+git lfs pull
+```
+And register used Gems:
+```bash 
+cd {$WORKDIR}
+./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/ProteusRobot
+./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAssets
+```
 
-## Universal Robots ROS2 Driver
+The Gems are open to your contributions!
+
+## Project 
+
+Install necessary packages from ROS 2:
+```bash 
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav-msgs
+```
+Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `cd {$WORKDIR}`:
+```bash
+cd {$WORKDIR}/ROSCon2023Demo
+cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
+cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets 
+```
+To launch built project:
+```bash
+cd {$WORKDIR}/ROSCon2023Demo
+./build/linux/bin/profile/Editor
+```
+
+## Universal Robots ROS2 Driver and ROS2 workspace
 
 Follow installation [Build from source](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble#build-from-source) section of [Universal Robots ROS2 Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble)
+The modified URDF of the UR10 arm is provided in ros2 workspace 
+
+### Building ROS2 workspace
+
+To build workspace follow [readme](ros2_ws/README.md).
+ 

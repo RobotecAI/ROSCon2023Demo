@@ -1,0 +1,186 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "StandLow",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 12635983568202107747
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 1978912235198611032
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 4689006800337607572,
+                "Child Entity Order": [
+                    "Entity_[768075193863]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 9238266841677638055
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 14440403096524095540
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 10816672697833770946
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 12180280279570182043
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 11726663224003435057
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 17382550195126806529
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 6159958865581971559,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[768075193863]": {
+            "Id": "Entity_[768075193863]",
+            "Name": "StandLow",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 5365669629293523577,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{93A4F7D0-1F50-5F52-8401-7B306BA1397E}",
+                                    "subId": 285042966
+                                },
+                                "assetHint": "prefabs/otto1500_stand/standlow.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 406484986527599026
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4360210246238500763
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14673325535932527940
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3301433361651603040,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 4101482754775995898
+                        },
+                        {
+                            "ComponentId": 5365669629293523577,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 2737280424826820059,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10745985384618216163
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 2737280424826820059,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 198258592
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{1901815F-B015-5230-8D97-4790F106FE50}"
+                                            },
+                                            "assetHint": "prefabs/otto1500_stand/standhigh_stand.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 8432264901573671169,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Stand"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{93A4F7D0-1F50-5F52-8401-7B306BA1397E}",
+                                    "subId": 3875662879
+                                },
+                                "assetHint": "prefabs/otto1500_stand/standlow.pxmesh"
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{93A4F7D0-1F50-5F52-8401-7B306BA1397E}",
+                                        "subId": 3875662879
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "prefabs/otto1500_stand/standlow.pxmesh"
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17526742119974526806
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 233269429706944207
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 5114554719682307780
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3866834748385511871
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4101482754775995898,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Vision/IdealVisionSystem.h"
 #include "Scripting/BoxSpawner.h"
+#include "Navigation/SplinePosesPublisher.h"
 
 namespace ROSCon2023Demo
 {
@@ -23,6 +24,7 @@ namespace ROSCon2023Demo
                 ROSCon2023DemoSystemComponent::CreateDescriptor(),
                 ROS2::Demo::IdealVisionSystem::CreateDescriptor(),
                 ROS2::Demo::BoxSpawner::CreateDescriptor(),
+                ROS2::Demo::SplinePosesPublisher::CreateDescriptor(),
             });
         }
 

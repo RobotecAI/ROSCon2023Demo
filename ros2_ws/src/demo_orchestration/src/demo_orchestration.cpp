@@ -389,9 +389,6 @@ int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
 
-    std::mutex lock;
-    lock.lock();
-
     rclcpp::NodeOptions options;
     options.automatically_declare_parameters_from_overrides(true);
 
@@ -407,11 +404,10 @@ int main(int argc, char** argv)
         });
 
     auto ur_ns = node->get_parameter("ur_namespace").as_string();
-    auto amr_ns = node->get_parameter("amr_namespace").as_string();
+    auto amr_namespaces = node->get_parameter("amr_namespaces").as_string_array();
     num_of_boxes = node->get_parameter("number_of_boxes").as_int();
 
-
-    StationOrchestrator stationOrchestrator(node, ur_ns, { amr_ns });
+    StationOrchestrator stationOrchestrator(node, ur_ns, amr_namespaces);
     stationOrchestrator.start();
     spinner.join();
     rclcpp::shutdown();

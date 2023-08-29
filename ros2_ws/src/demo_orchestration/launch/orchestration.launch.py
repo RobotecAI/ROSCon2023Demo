@@ -10,7 +10,7 @@ from launch.substitutions import LaunchConfiguration
 def launch_setup(context, *args, **kwargs):
 
     ur_namespace = LaunchConfiguration("ur_namespace")
-    amr_namespace = LaunchConfiguration("amr_namespace")
+    amr_namespaces = LaunchConfiguration("amr_namespaces")
     num_of_boxes = LaunchConfiguration("number_of_boxes")
 
     orchestration = Node(
@@ -21,7 +21,7 @@ def launch_setup(context, *args, **kwargs):
         parameters=[
             {"use_sim_time": True},
             {"ur_namespace": ur_namespace},
-            {"amr_namespace": amr_namespace},
+            {"amr_namespaces": amr_namespaces},
             {"number_of_boxes": num_of_boxes}
         ],
     )
@@ -46,7 +46,7 @@ def generate_launch_description():
 
     declared_arguments.append(
         DeclareLaunchArgument(
-            "amr_namespace",
+            "amr_namespaces",
             default_value='""',
             description="Namespace for the amr, useful for running multiple instances.",
         )

@@ -26,7 +26,8 @@
                     "Entity_[709179998313864]",
                     "Entity_[99493907746871]",
                     "Instance_[1173334277545520]/ContainerEntity",
-                    "Entity_[683139768148766]"
+                    "Entity_[683139768148766]",
+                    "Instance_[447451573512789]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -276,7 +277,7 @@
                     "Parent Entity": "Entity_[683139768148766]",
                     "Transform Data": {
                         "Translate": [
-                            -7.544977188110352,
+                            -7.513374328613281,
                             -3.1710641384124756,
                             0.6404878497123718
                         ]
@@ -4130,9 +4131,9 @@
                     "Parent Entity": "Entity_[683139768148766]",
                     "Transform Data": {
                         "Translate": [
-                            -7.544977188110352,
+                            -7.496420860290527,
                             -3.1710641384124756,
-                            0.6404878497123718
+                            0.7446268200874329
                         ]
                     }
                 }
@@ -4510,7 +4511,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -5056,7 +5057,7 @@
                                 "Parent Entity": "Entity_[2844844128358]",
                                 "Transform Data": {
                                     "Translate": [
-                                        -1.4180594682693481,
+                                        -1.418059468269348,
                                         3.743927240371704,
                                         0.0
                                     ],
@@ -5257,7 +5258,7 @@
                                     "Translate": [
                                         -0.8136382102966309,
                                         -2.384185791015625e-7,
-                                        1.3859866857528687
+                                        1.3859866857528689
                                     ],
                                     "Rotate": [
                                         180.0,
@@ -5405,103 +5406,6 @@
                 },
                 {
                     "op": "add",
-                    "path": "/Entities/Entity_[1731594126679600]",
-                    "value": {
-                        "Id": "Entity_[1731594126679600]",
-                        "Name": "Pickup",
-                        "Components": {
-                            "EditorDisabledCompositionComponent": {
-                                "$type": "EditorDisabledCompositionComponent",
-                                "Id": 12821620567299787985,
-                                "DisabledComponents": []
-                            },
-                            "EditorEntityIconComponent": {
-                                "$type": "EditorEntityIconComponent",
-                                "Id": 3900712223491604193,
-                                "EntityIconAssetId": {
-                                    "guid": "{00000000-0000-0000-0000-000000000000}",
-                                    "subId": 0
-                                }
-                            },
-                            "EditorEntitySortComponent": {
-                                "$type": "EditorEntitySortComponent",
-                                "Id": 5427340147149716898,
-                                "Child Entity Order": []
-                            },
-                            "EditorInspectorComponent": {
-                                "$type": "EditorInspectorComponent",
-                                "Id": 17864300931483179878,
-                                "ComponentOrderEntryArray": []
-                            },
-                            "EditorLockComponent": {
-                                "$type": "EditorLockComponent",
-                                "Id": 627942565855502608,
-                                "Locked": false
-                            },
-                            "EditorOnlyEntityComponent": {
-                                "$type": "EditorOnlyEntityComponent",
-                                "Id": 4910137371508082533,
-                                "IsEditorOnly": false
-                            },
-                            "EditorPendingCompositionComponent": {
-                                "$type": "EditorPendingCompositionComponent",
-                                "Id": 9364302832530284266,
-                                "PendingComponents": []
-                            },
-                            "EditorVisibilityComponent": {
-                                "$type": "EditorVisibilityComponent",
-                                "Id": 11893509090435207875,
-                                "VisibilityFlag": true
-                            },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 673973100445986234,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "Pickup",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
-                            "TransformComponent": {
-                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                                "Id": 7155344431639955871,
-                                "Parent Entity": "Entity_[2844844128358]",
-                                "Transform Data": {
-                                    "Translate": [
-                                        0.0,
-                                        0.0,
-                                        0.0
-                                    ],
-                                    "Rotate": [
-                                        0.0,
-                                        0.0,
-                                        0.0
-                                    ],
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "Locked": false,
-                                    "UniformScale": 1.0
-                                },
-                                "Parent Activation Transform Mode": 0,
-                                "IsStatic": false,
-                                "InterpolatePosition": 0,
-                                "InterpolateRotation": 0
-                            }
-                        },
-                        "IsRuntimeActive": true
-                    }
-                },
-                {
-                    "op": "add",
                     "path": "/Entities/Entity_[237996476637599]",
                     "value": {
                         "Id": "Entity_[237996476637599]",
@@ -5596,6 +5500,103 @@
                         },
                         "IsRuntimeActive": true
                     }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[1731594126679600]",
+                    "value": {
+                        "Id": "Entity_[1731594126679600]",
+                        "Name": "Pickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 12821620567299787985,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 3900712223491604193,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 5427340147149716898,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 17864300931483179878,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 627942565855502608,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 4910137371508082533,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 9364302832530284266,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11893509090435207875,
+                                "VisibilityFlag": true
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 673973100445986234,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "Pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 7155344431639955871,
+                                "Parent Entity": "Entity_[2844844128358]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -1.365005373954773,
+                                        4.76837158203125e-7,
+                                        0.0
+                                    ],
+                                    "Rotate": [
+                                        0.0,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
                 }
             ]
         },
@@ -5636,6 +5637,41 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[12545710239443216069]/Transform Data/Translate/1",
                     "value": -2.5003957748413086
+                }
+            ]
+        },
+        "Instance_[447451573512789]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 0.0033333336468786
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.0033333336468786
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/warehouse/models/box2.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.310167074203491
                 }
             ]
         },

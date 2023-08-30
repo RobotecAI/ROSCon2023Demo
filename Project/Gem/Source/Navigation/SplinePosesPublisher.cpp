@@ -10,6 +10,7 @@
 #include "AzCore/Math/Vector3.h"
 #include "AzCore/std/containers/vector.h"
 #include "AzCore/std/string/string.h"
+#include "ROS2/ROS2Bus.h"
 #include <AzCore/Asset/AssetSerializer.h>
 #include <AzCore/Math/Matrix3x3.h>
 #include <AzCore/Math/Transform.h>
@@ -86,6 +87,8 @@ namespace ROS2::Demo
 
         const size_t steps = m_poseCount - 1;
 
+        m_path.header.frame_id = "map";
+        m_path.header.stamp = ROS2Interface::Get()->GetROSTimestamp();
         m_path.poses.reserve(m_poseCount);
 
         for (size_t i = 0; i <= steps; i++)
@@ -135,6 +138,7 @@ namespace ROS2::Demo
                 pose.pose.orientation.w);
 
             m_path.poses.push_back(pose);
+            // m_path.poses[m_path.poses.size() - 1].header.stamp = ROS2Interface::Get()->GetROSTimestamp();
         }
     }
 

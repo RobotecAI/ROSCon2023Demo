@@ -5,7 +5,10 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <memory>
 #include <mutex>
+#include <nav2_msgs/action/detail/navigate_through_poses__struct.hpp>
+#include <nav2_msgs/action/navigate_through_poses.hpp>
 #include <nav2_msgs/action/navigate_to_pose.hpp>
+#include <nav_msgs/msg/path.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/publisher.hpp>
 #include <rclcpp/qos.hpp>
@@ -133,16 +136,16 @@ private:
 class Nav2ActionClient
 {
 public:
-    using Nav2Action = nav2_msgs::action::NavigateToPose;
+    using Nav2Action = nav2_msgs::action::NavigateThroughPoses;
     using GoalHandleNav2 = rclcpp_action::ClientGoalHandle<Nav2Action>;
 
     Nav2ActionClient(rclcpp::Node::SharedPtr node, std::string amr_ns)
         : node_(node)
     {
-        this->client_ptr_ = rclcpp_action::create_client<Nav2Action>(node_, "/" + amr_ns + "/navigate_to_pose");
+        this->client_ptr_ = rclcpp_action::create_client<Nav2Action>(node_, "/" + amr_ns + "/navigate_through_poses");
     }
 
-    void send_goal(geometry_msgs::msg::PoseStamped targetPose, std::function<void()> callback)
+    void send_goal(nav_msgs::msg::Path targetPath, std::function<void()> callback)
     {
         m_resultCallback = callback;
 
@@ -159,7 +162,7 @@ public:
         std::shared_ptr<tf2_ros::TransformListener> tf_listener_{ nullptr };
         std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
 
-        goal_msg.pose = targetPose;
+        goal_msg.poses = targetPath.poses;
 
         RCLCPP_INFO(node_->get_logger(), "Sending goal");
 
@@ -177,7 +180,7 @@ private:
 
     std::function<void()> m_resultCallback;
 
-    void goal_response_callback(std::shared_ptr<rclcpp_action::ClientGoalHandle<nav2_msgs::action::NavigateToPose>> future)
+    void goal_response_callback(std::shared_ptr<rclcpp_action::ClientGoalHandle<nav2_msgs::action::NavigateThroughPoses>> future)
     {
         auto goal_handle = future.get();
         if (!goal_handle)
@@ -273,6 +276,35 @@ public:
             TransformToPose(tf_buffer_->lookupTransform(moveItNamespace + "/odom", moveItNamespace + "/Drop", node->get_clock()->now()));
         m_posePark =
             TransformToPose(tf_buffer_->lookupTransform(moveItNamespace + "/odom", moveItNamespace + "/Park", node->get_clock()->now()));
+
+        rclcpp::QoS qos(5);
+        qos.transient_local();
+
+        auto pickupPathSubscriber = node->create_subscription<nav_msgs::msg::Path>(
+            "/pickupPath",
+            qos,
+            [&](nav_msgs::msg::Path path)
+            {
+                m_pickupPath = path;
+            });
+
+        auto parkSubscriber = node->create_subscription<nav_msgs::msg::Path>(
+            "/parkPath",
+            qos,
+            [&](nav_msgs::msg::Path path)
+            {
+                m_parkPath = path;
+            });
+
+        auto dropSubscriber = node->create_subscription<nav_msgs::msg::Path>(
+            "/dropPath",
+            qos,
+            [&](nav_msgs::msg::Path path)
+            {
+                m_dropPath = path;
+            });
+
+        std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
     void start()
@@ -293,7 +325,7 @@ public:
                                 auto boundFn =
                                     std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Park, m_amrController.amrNamespace);
                                 m_amrController.client->send_goal(
-                                    m_posePark,
+                                    m_parkPath,
                                     std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Park, m_amrController.amrNamespace));
                             }
                         }
@@ -323,7 +355,7 @@ public:
                                     m_amrController.state = AMRState::MovingToDrop;
                                     m_moveItController.state = MoveItState::Ready;
                                     m_amrController.client->send_goal(
-                                        m_poseDrop,
+                                        m_dropPath,
                                         std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Drop, m_amrController.amrNamespace));
                                     break;
                                 }
@@ -339,7 +371,7 @@ public:
                                     m_amrController.state = AMRState::MovingToPickup;
                                     m_moveItController.state = MoveItState::BeforeLoad;
                                     m_amrController.client->send_goal(
-                                        m_posePickup,
+                                        m_pickupPath,
                                         std::bind(&StationOrchestrator::notifyAMR, this, AMRState::Pickup, m_amrController.amrNamespace));
                                     break;
                                 }
@@ -380,6 +412,10 @@ private:
     geometry_msgs::msg::PoseStamped m_posePickup;
     geometry_msgs::msg::PoseStamped m_poseDrop;
     geometry_msgs::msg::PoseStamped m_posePark;
+
+    nav_msgs::msg::Path m_pickupPath;
+    nav_msgs::msg::Path m_dropPath;
+    nav_msgs::msg::Path m_parkPath;
 
     std::mutex m_lock;
     std::mutex m_notifyLock;

@@ -6,15 +6,18 @@
  *
  */
 #include "SplinePosesPublisher.h"
-#include "AzCore/Math/MathUtils.h"
-#include "AzCore/Math/Vector3.h"
-#include "AzCore/std/containers/vector.h"
-#include "AzCore/std/string/string.h"
 #include <AzCore/Asset/AssetSerializer.h>
+#include <AzCore/Component/Entity.h>
+#include <AzCore/Component/TransformBus.h>
+#include <AzCore/Math/MathUtils.h>
 #include <AzCore/Math/Matrix3x3.h>
 #include <AzCore/Math/Transform.h>
+#include <AzCore/Math/Vector3.h>
 #include <AzCore/Serialization/EditContext.h>
+#include <AzCore/std/containers/vector.h>
+#include <AzCore/std/string/string.h>
 #include <LmbrCentral/Shape/SplineComponentBus.h>
+#include <ROS2/ROS2Bus.h>
 #include <rclcpp/qos.hpp>
 
 namespace ROS2::Demo
@@ -26,10 +29,10 @@ namespace ROS2::Demo
         {
             serialize->Class<SplinePosesPublisher>()
                 ->Version(1)
-
                 ->Field("ReverseDirection", &SplinePosesPublisher::m_reverseDirection)
                 ->Field("PathTopicConfig", &SplinePosesPublisher::m_topicName)
-                ->Field("PoseCount", &SplinePosesPublisher::m_poseCount);
+                ->Field("PoseCount", &SplinePosesPublisher::m_poseCount)
+                ->Field("GlobalFrame", &SplinePosesPublisher::m_globalFrame);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {
@@ -48,7 +51,8 @@ namespace ROS2::Demo
                         AZ::Edit::UIHandlers::Default,
                         &SplinePosesPublisher::m_poseCount,
                         "Pose Count",
-                        "Number of poses to create and publish");
+                        "Number of poses to create and publish")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &SplinePosesPublisher::m_globalFrame, "Global Frame", "Global Frame");
             }
         }
     }
@@ -62,7 +66,7 @@ namespace ROS2::Demo
     {
         auto ros2Node = ROS2Interface::Get()->GetNode();
 
-        CalculatePoses();
+        m_path = CalculatePoses();
 
         rclcpp::QoS qos(5);
         qos.reliability(rclcpp::ReliabilityPolicy::Reliable).durability(rclcpp::DurabilityPolicy::TransientLocal);
@@ -73,9 +77,10 @@ namespace ROS2::Demo
 
     void SplinePosesPublisher::Deactivate()
     {
+        m_pathPublisher.reset();
     }
 
-    void SplinePosesPublisher::CalculatePoses()
+    nav_msgs::msg::Path SplinePosesPublisher::CalculatePoses()
     {
         AZ::ConstSplinePtr splinePtr{ nullptr };
         LmbrCentral::SplineComponentRequestBus::EventResult(splinePtr, m_entity->GetId(), &LmbrCentral::SplineComponentRequests::GetSpline);
@@ -86,7 +91,9 @@ namespace ROS2::Demo
 
         const size_t steps = m_poseCount - 1;
 
-        m_path.poses.reserve(m_poseCount);
+        nav_msgs::msg::Path path;
+        path.header.frame_id = m_globalFrame.data();
+        path.poses.reserve(m_poseCount);
 
         for (size_t i = 0; i <= steps; i++)
         {
@@ -107,7 +114,7 @@ namespace ROS2::Demo
 
             auto pose = geometry_msgs::msg::PoseStamped();
 
-            pose.header.frame_id = "map";
+            pose.header.frame_id = m_globalFrame.data();
 
             auto translation = m_idealGoal_.GetTranslation();
 
@@ -122,9 +129,9 @@ namespace ROS2::Demo
             pose.pose.orientation.z = rotation.GetZ();
             pose.pose.orientation.w = rotation.GetW();
 
-            AZ_Printf(
-                "Spline Waypoint follower",
-                " fraction: %f  position: %f %f %f rotation: % f %f %f %f",
+            AZ_Info(
+                "SplinePosesPublisher",
+                "Calculated point at fraction %f:  position: %f %f %f rotation: %f %f %f %f",
                 float(i) / steps,
                 pose.pose.position.x,
                 pose.pose.position.y,
@@ -134,8 +141,10 @@ namespace ROS2::Demo
                 pose.pose.orientation.z,
                 pose.pose.orientation.w);
 
-            m_path.poses.push_back(pose);
+            path.poses.push_back(pose);
         }
+
+        return path;
     }
 
 } // namespace ROS2::Demo

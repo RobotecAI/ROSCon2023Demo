@@ -14,13 +14,13 @@
 #include <AzCore/Serialization/SerializeContext.h>
 #include <AzCore/std/containers/deque.h>
 
-#include "AzCore/std/string/string.h"
-#include "rclcpp_action/rclcpp_action.hpp"
+#include <AzCore/std/string/string.h>
 #include <nav_msgs/msg/path.hpp>
+#include <rclcpp_action/rclcpp_action.hpp>
 
 namespace ROS2::Demo
 {
-    //! Component that send velocity commands to ROS2 system according to entity position and spline trajectory.
+    //! Component that publishes poses along spline.
     class SplinePosesPublisher : public AZ::Component
     {
     public:
@@ -36,10 +36,11 @@ namespace ROS2::Demo
         void Deactivate() override;
 
     private:
-        void CalculatePoses();
+        nav_msgs::msg::Path CalculatePoses();
 
         bool m_reverseDirection = false;
         AZStd::string m_topicName = "poses";
+        AZStd::string m_globalFrame = "map";
         size_t m_poseCount = 10;
 
         std::shared_ptr<rclcpp::Publisher<nav_msgs::msg::Path>> m_pathPublisher;

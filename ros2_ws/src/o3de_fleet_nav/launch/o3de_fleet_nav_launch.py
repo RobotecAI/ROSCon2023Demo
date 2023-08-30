@@ -88,6 +88,13 @@ def generate_launch_description():
     for robot in robots:
         params_file = LaunchConfiguration("robot_params_file")
         
+        configured_tree = ReplaceString(
+            source_file="/home/kacper/ROSCon2023Demo/ros2_ws/src/o3de_fleet_nav/params/bt.xml",
+            replacements={
+                'robot_namespace' : robot['namespace']
+            }
+        )
+
         configured_params = ReplaceString(
             source_file=params_file,
             replacements={
@@ -95,7 +102,8 @@ def generate_launch_description():
                 '<robot_namespace>': robot['namespace'],
                 '<robot_initial_pose_x>': str(robot['x_pose']),
                 '<robot_initial_pose_y>': str(robot['y_pose']),
-                '<robot_initial_pose_z>': str(robot['z_pose'])
+                '<robot_initial_pose_z>': str(robot['z_pose']),
+                '<nav_through_poses_xml>': configured_tree
             })
         
 

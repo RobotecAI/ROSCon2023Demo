@@ -56,7 +56,7 @@ bt_navigator:
     use_sim_time: True
     global_frame: map
     robot_base_frame: "<robot_namespace>/base_link"
-    robot_base_frame_blackboard_id: otto_1/base_link
+    robot_base_frame_blackboard_id: "<robot_namespace>/base_link"
     odom_topic: odom
     bt_loop_duration: 10
     default_server_timeout: 20
@@ -412,7 +412,7 @@ behavior_server:
     wait:
       plugin: "nav2_behaviors/Wait"
     global_frame: <robot_namespace>/odom
-    robot_base_frame: <robot_namespace>/base_link
+    robot_base_frame: "<robot_namespace>/base_link"
     transform_tolerance: 0.1
     use_sim_time: true
     simulate_ahead_time: 2.0

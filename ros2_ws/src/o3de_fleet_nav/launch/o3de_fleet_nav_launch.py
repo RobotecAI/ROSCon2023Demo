@@ -89,7 +89,8 @@ def generate_launch_description():
         params_file = LaunchConfiguration("robot_params_file")
         
         configured_tree = ReplaceString(
-            source_file="/home/kacper/ROSCon2023Demo/ros2_ws/src/o3de_fleet_nav/params/bt.xml",
+            source_file=os.path.join(o3de_fleet_nav_dir, 'behaviour_trees', 'navigate_through_poses_w_replanning_and_recovery.xml'),
+            # source_file="/home/kacper/ROSCon2023Demo/ros2_ws/src/o3de_fleet_nav/params/navigate_through_poses_w_replanning_and_recovery.xml",
             replacements={
                 'robot_namespace' : robot['namespace']
             }

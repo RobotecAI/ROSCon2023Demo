@@ -31,7 +31,8 @@
                     "Entity_[311408425055585]",
                     "Instance_[241183380845795]/ContainerEntity",
                     "Entity_[170221255448151]",
-                    "Instance_[1010613041403407]/ContainerEntity"
+                    "Instance_[1010613041403407]/ContainerEntity",
+                    "Entity_[804507453323344]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -336,7 +337,16 @@
             "Components": {
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8498527614038040759
+                    "Id": 8498527614038040759,
+                    "DisabledComponents": {
+                        "SplineFollowWaypoints": {
+                            "$type": "GenericComponentWrapper",
+                            "Id": 13726405892669401413,
+                            "m_template": {
+                                "$type": "SplineFollowWaypoints"
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -412,13 +422,6 @@
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 16798361486265182133
-                },
-                "SplineFollowWaypoints": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 13726405892669401413,
-                    "m_template": {
-                        "$type": "SplineFollowWaypoints"
-                    }
                 },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -583,6 +586,116 @@
                             0.9965341687202454,
                             0.0
                         ]
+                    }
+                }
+            }
+        },
+        "Entity_[804507453323344]": {
+            "Id": "Entity_[804507453323344]",
+            "Name": "second_spline",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10012291386851579470
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3937499343992605692
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13804251691260424333
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9227308104021297659
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6236817830417777305
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14433849789454870018
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1015288196586784841
+                },
+                "EditorSplineComponent": {
+                    "$type": "EditorSplineComponent",
+                    "Id": 16390843338289855568,
+                    "Configuration": {
+                        "Spline": {
+                            "Vertices": {
+                                "Vertices": [
+                                    [
+                                        0.07977008819580078,
+                                        1.7681734561920166,
+                                        0.0
+                                    ],
+                                    [
+                                        2.3015503883361816,
+                                        2.722994089126587,
+                                        0.0
+                                    ],
+                                    [
+                                        4.723912715911865,
+                                        0.0,
+                                        0.0
+                                    ],
+                                    [
+                                        6.723912715911865,
+                                        0.0,
+                                        0.0
+                                    ]
+                                ]
+                            }
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9778010268898932180
+                },
+                "SplineFollowWaypoints": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3143253280714138699,
+                    "m_template": {
+                        "$type": "SplineFollowWaypoints",
+                        "ActionName": "/otto_2/follow_waypoints",
+                        "ActionNamePoses": "/otto_2/navigate_through_poses",
+                        "PathTopicConfig": {
+                            "Topic": "default_topic_111"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9742789425216418566,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            -13.0,
+                            0.5,
+                            0.18491888046264648
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99994659423828
+                        ]
+                    }
+                },
+                "VelocitySplinePublisher": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7006084697953223822,
+                    "m_template": {
+                        "$type": "VelocitySplinePublisher",
+                        "cmdTopic": {
+                            "Topic": "default_topic_vel_unused"
+                        },
+                        "RobotBaselink": ""
                     }
                 }
             }
@@ -4019,7 +4132,7 @@
         },
         "Entity_[99399908276228]": {
             "Id": "Entity_[99399908276228]",
-            "Name": "Entity1",
+            "Name": "first_spline",
             "Components": {
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -4489,38 +4602,23 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": 0.0
+                    "value": -0.00029151514172554016
                 },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.0
+                    "value": 0.05575583875179291
                 },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 1.0
+                    "value": 9.80550479888916
                 },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 1.0
+                    "value": 14.414012908935547
                 }
             ]
         },

@@ -18,7 +18,8 @@ setup(
         (os.path.join('share', package_name, 'params', 'iron'), glob(os.path.join('params', 'iron', '*.yaml'))),
         (os.path.join('share', package_name, 'params', 'humble'), glob(os.path.join('params', 'humble', '*.yaml'))),
         (os.path.join('share', package_name, 'rviz'), glob(os.path.join('rviz', '*.rviz'))),
-        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.yaml')))
+        (os.path.join('share', package_name, 'config'), glob(os.path.join('config', '*.yaml'))),
+        (os.path.join('share', package_name, 'behaviour_trees'), glob(os.path.join('behaviour_trees', '*.xml')))
     ],
     install_requires=['setuptools'],
     zip_safe=True,

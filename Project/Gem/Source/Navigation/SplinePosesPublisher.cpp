@@ -17,7 +17,8 @@
 #include <AzCore/Serialization/EditContext.h>
 #include <LmbrCentral/Shape/SplineComponentBus.h>
 #include <rclcpp/qos.hpp>
-
+#include <AzCore/Component/TransformBus.h>
+#include <AzCore/Component/Entity.h>
 namespace ROS2::Demo
 {
 

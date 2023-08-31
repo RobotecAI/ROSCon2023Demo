@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="OTTO600">
+
+ <xacro:property name="base_link_length" value="1.05" />
+  <xacro:property name="base_link_width" value="0.697" />
+  <xacro:property name="base_link_height" value="0.289" />
+
+  <xacro:property name="ground_clearence" value="0.03" />
+  
+  <xacro:property name="wheel_axis_front" value="0.406" />
+  <xacro:property name="wheel_axis_rear" value="-0.406" />
+  <xacro:property name="wheel_track" value="0.242" />
+
+  <xacro:property name="wheel_radius" value="0.0875" />
+  <xacro:property name="wheel_length" value="0.11" />
+  <xacro:property name="wheel_z_position" value="0.0877" />
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="500" /> 
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_bodylink.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. ${base_link_height/2 + ground_clearence}"/>
+      <geometry>
+        <box size="${base_link_width} ${base_link_length} ${base_link_height*(1 - ground_clearence)}" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="wheel_FL">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_FL_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_FL" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="${wheel_axis_front} ${wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="wheel_FR">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_FR_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_FR" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="${wheel_axis_front} ${-wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="wheel_CL">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_CL_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_CL" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="0. ${wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="wheel_CR">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_CR_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_CR" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="0. ${-wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="wheel_RL">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_RL_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_RL" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="${wheel_axis_rear} ${wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="wheel_RR">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="2" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_wheel.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="${pi/2} ${pi/2} 0." xyz="0. 0. 0."/>
+      <geometry>
+        <cylinder radius="${wheel_radius}" length="${wheel_length}"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_RR_joint" type="continuous">
+    <parent link="base_link" />
+    <child link="wheel_RR" />
+    <axis xyz="0. 1. 0." />
+    <origin rpy="0. 0. 0." xyz="${wheel_axis_rear} ${-wheel_track} ${wheel_z_position}" />
+  </joint>
+
+  <link name="platform_base">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="50" />
+      <inertia ixx="1" ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0.343608"/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_platform_base.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0.343608"/>
+      <geometry>
+        <box size="0.918534 0.541957 0.08112" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="platform_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="platform_base" />
+    <origin rpy="0. 0. 0." xyz="0. 0. 0." />
+  </joint>
+
+  <link name="platform_upper">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="50" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0.37"/>
+      <geometry>
+        <mesh filename="../Meshes/OTTO600_platform_upper.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0. 0. 0." xyz="0. 0. 0.37"/>
+      <geometry>
+        <box size="0.9430 0.563781 0.081115" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="platform_upper_joint" type="prismatic">
+    <parent link="platform_base" />
+    <child link="platform_upper" />
+    <axis xyz="0. 0. 1." />
+    <origin rpy="0. 0. 0." xyz="0. 0. 0." />
+    <limit lower="0.0" upper="0.05" effort="0.0" velocity="0.0"/>
+  </joint>
+
+</robot>

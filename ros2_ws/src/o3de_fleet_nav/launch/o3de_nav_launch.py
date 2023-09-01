@@ -18,11 +18,23 @@ import os
 from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, OpaqueFunction
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+
+def launch_setup(context, *args, **kwargs):
+    namespace = LaunchConfiguration('namespace')
+
+    tf_pub = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        output='both',
+        arguments=["--frame-id", "map", "--child-frame-id", f"{namespace.perform(context)}/odom"],
+    )
+
+    return [tf_pub]
 
 
 def generate_launch_description():
@@ -123,15 +135,6 @@ def generate_launch_description():
             parameters=[params_file]
     )
 
-    tf_pub = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        output='both',
-        # parameters=[{"frame-id": 'map'}, {"child-frame-id": "otto_1/odom"}]
-        arguments=["--frame-id", "map", "--child-frame-id", f"{namespace}/odom"],
-        # arguments=["0 0 0 0 0 0 map otto_1/odom"]
-    )
-
     # Create the launch description and populate
     ld = LaunchDescription()
 
@@ -151,7 +154,6 @@ def generate_launch_description():
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
     ld.add_action(spawner)
-    ld.add_action(tf_pub)
-
+    ld.add_action(OpaqueFunction(function=launch_setup))
 
     return ld

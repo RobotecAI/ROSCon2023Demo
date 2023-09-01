@@ -15,6 +15,11 @@
   <xacro:property name="wheel_length" value="0.11" />
   <xacro:property name="wheel_z_position" value="0.0877" />
 
+  <xacro:property name="camera_height" value="0.115" />
+  <xacro:property name="camera_center_offset" value="0.05" />
+
+  <xacro:property name="lidar_height" value="0.2" />
+
   <link name="base_link">
     <inertial>
       <origin xyz="0. 0. 0." />
@@ -22,15 +27,15 @@
       <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
     </inertial>
     <visual>
-      <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+      <origin rpy="0. 0. ${pi}" xyz="0. 0. 0."/>
       <geometry>
         <mesh filename="../Meshes/OTTO600_bodylink.stl" scale="1.0 1.0 1.0" />
       </geometry>
     </visual>
     <collision>
-      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. ${base_link_height/2 + ground_clearence}"/>
+      <origin rpy="0. 0. ${pi / 2}" xyz="0. 0. ${base_link_height / 2 + ground_clearence}"/>
       <geometry>
-        <box size="${base_link_width} ${base_link_length} ${base_link_height*(1 - ground_clearence)}" />
+        <box size="${base_link_width} ${base_link_length} ${base_link_height * (1 - ground_clearence)}" />
       </geometry>
     </collision>
   </link>
@@ -241,6 +246,34 @@
     <axis xyz="0. 0. 1." />
     <origin rpy="0. 0. 0." xyz="0. 0. 0." />
     <limit lower="0.0" upper="0.05" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <link name="lidar_F" />
+  <joint name="lidar_F_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_F" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length / 2} ${base_link_width / 2} ${lidar_height}" />
+  </joint>
+
+  <link name="lidar_R" />
+  <joint name="lidar_R_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_R" />
+    <origin rpy="0. 0. 0." xyz="${-base_link_length / 2} ${-base_link_width / 2} ${lidar_height}" />
+  </joint>
+
+  <link name="camera_FL" />
+  <joint name="camera_FL_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_FL" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length / 2} ${camera_center_offset} ${camera_height}" />
+  </joint>
+
+  <link name="camera_FR" />
+  <joint name="camera_FR_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_FR" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length / 2} ${-camera_center_offset} ${camera_height}" />
   </joint>
 
 </robot>

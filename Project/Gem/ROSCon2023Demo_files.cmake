@@ -3,13 +3,15 @@
 
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
+    Source/Navigation/SplinePosesPublisher.cpp
+    Source/Navigation/SplinePosesPublisher.h
     Source/ROSCon2023DemoSystemComponent.cpp
     Source/ROSCon2023DemoSystemComponent.h
+    Source/Scripting/BoxSpawner.cpp
+    Source/Scripting/BoxSpawner.h
     Source/Vision/IdealVisionSystem.cpp
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
-    Source/Scripting/BoxSpawner.cpp
-    Source/Scripting/BoxSpawner.h
     enabled_gems.cmake
 )

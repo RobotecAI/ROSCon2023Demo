@@ -1,0 +1,177 @@
+{
+    "values": [
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "ConveyorSegments_Turn_90",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode",
+                    "RootNode.Segment_90_Turn",
+                    "RootNode.Segment_90_Turn_Barrier_L",
+                    "RootNode.Segment_90_Turn_Barrier_R",
+                    "RootNode.Segment_90_Turn.transform",
+                    "RootNode.Segment_90_Turn.custom_properties",
+                    "RootNode.Segment_90_Turn.UV0",
+                    "RootNode.Segment_90_Turn.MFrame",
+                    "RootNode.Segment_90_Turn.MBelt",
+                    "RootNode.Segment_90_Turn_Barrier_L.transform",
+                    "RootNode.Segment_90_Turn_Barrier_L.custom_properties",
+                    "RootNode.Segment_90_Turn_Barrier_L.UVMap",
+                    "RootNode.Segment_90_Turn_Barrier_L.MFrame",
+                    "RootNode.Segment_90_Turn_Barrier_R.transform",
+                    "RootNode.Segment_90_Turn_Barrier_R.custom_properties",
+                    "RootNode.Segment_90_Turn_Barrier_R.UVMap",
+                    "RootNode.Segment_90_Turn_Barrier_R.MFrame"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "MaterialRule"
+                    }
+                ]
+            },
+            "id": "{1B081713-C4C9-5D0B-89F2-30A61C974BF9}"
+        },
+        {
+            "$type": "{5B03C8E6-8CEE-4DA0-A7FA-CD88689DD45B} MeshGroup",
+            "id": "{9ED268F5-8126-449F-9700-E16CDA12677C}",
+            "name": "ConveyorSegments_Turn_90_Barriers",
+            "NodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.Segment_90_Turn_Barrier_L",
+                    "RootNode.Segment_90_Turn_Barrier_R",
+                    "RootNode.Segment_90_Turn_Barrier_L.transform",
+                    "RootNode.Segment_90_Turn_Barrier_L.custom_properties",
+                    "RootNode.Segment_90_Turn_Barrier_L.UVMap",
+                    "RootNode.Segment_90_Turn_Barrier_L.MFrame",
+                    "RootNode.Segment_90_Turn_Barrier_R.transform",
+                    "RootNode.Segment_90_Turn_Barrier_R.custom_properties",
+                    "RootNode.Segment_90_Turn_Barrier_R.UVMap",
+                    "RootNode.Segment_90_Turn_Barrier_R.MFrame"
+                ],
+                "unselectedNodes": [
+                    "RootNode",
+                    "RootNode.Segment_90_Turn",
+                    "RootNode.Segment_90_Turn.transform",
+                    "RootNode.Segment_90_Turn.custom_properties",
+                    "RootNode.Segment_90_Turn.UV0",
+                    "RootNode.Segment_90_Turn.MFrame",
+                    "RootNode.Segment_90_Turn.MBelt"
+                ]
+            },
+            "PhysicsMaterialSlots": {
+                "Slots": [
+                    {
+                        "Name": "MFrame",
+                        "MaterialAsset": {
+                            "assetId": {
+                                "guid": "{640FDE0B-24D5-5E41-9D03-6E1591C46268}",
+                                "subId": 1
+                            },
+                            "assetHint": "assets/factory/conveyorelements/physics/conveyor_barriers.physicsmaterial"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_ConveyorSegments_Turn_90_C55EE04A_87EB_54F2_A7CC_6D1282187B72_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.Segment_90_Turn"
+                ],
+                "unselectedNodes": [
+                    "RootNode.Segment_90_Turn_Barrier_L",
+                    "RootNode.Segment_90_Turn_Barrier_R"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{C55EE04A-87EB-54F2-A7CC-6D1282187B72}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_ConveyorSegments_Turn_90_221188BC_F49E_5B9E_983B_059DFB2E6336_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.Segment_90_Turn_Barrier_L"
+                ],
+                "unselectedNodes": [
+                    "RootNode.Segment_90_Turn",
+                    "RootNode.Segment_90_Turn_Barrier_R"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{221188BC-F49E-5B9E-983B-059DFB2E6336}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_ConveyorSegments_Turn_90_856583BA_EAEF_5D8D_8F15_65EF3C8E6B47_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.Segment_90_Turn_Barrier_R"
+                ],
+                "unselectedNodes": [
+                    "RootNode.Segment_90_Turn",
+                    "RootNode.Segment_90_Turn_Barrier_L"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{856583BA-EAEF-5D8D-8F15-65EF3C8E6B47}"
+        },
+        {
+            "$type": "PrefabGroup",
+            "name": "Assets/Factory/ConveyorElements/Models/ConveyorSegments_Turn_90_fbx.procprefab",
+            "id": "{C0123414-1117-5036-A998-8C05A6DB1CD1}"
+        }
+    ]
+}

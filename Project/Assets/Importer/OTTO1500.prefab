@@ -34,7 +34,7 @@
                         "Position": [
                             0.0,
                             0.0,
-                            0.2232999950647354
+                            0.20000000298023224
                         ],
                         "Rotation": [
                             0.0,
@@ -56,7 +56,7 @@
                             "Configuration": [
                                 1.2899999618530273,
                                 1.8300000429153442,
-                                0.3653999865055084
+                                0.3199999928474426
                             ]
                         }
                     }
@@ -79,7 +79,8 @@
                         "Entity_[1204679296746]",
                         "Entity_[1243334002410]",
                         "Entity_[1251923937002]",
-                        "Entity_[1217564198634]"
+                        "Entity_[1217564198634]",
+                        "Entity_[2088564684607]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1721,6 +1722,65 @@
                 }
             }
         },
+        "Entity_[2088564684607]": {
+            "Id": "Entity_[2088564684607]",
+            "Name": "Platforms",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9352974652600639491
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7989728560325151859
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2211257228235154730,
+                    "Child Entity Order": [
+                        "Entity_[5318220970936]",
+                        "Entity_[411838640121]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9113514059663392135
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18361358502976150531
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1050055102375764114
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17282038349983335639
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14327977111581227154
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17512759482268785531,
+                    "Parent Entity": "Entity_[1200384329450]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.00021886825561523438,
+                            -0.008059978485107422
+                        ],
+                        "Rotate": [
+                            89.99994659423828,
+                            89.99994659423828,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[3443408498490]": {
             "Id": "Entity_[3443408498490]",
             "Name": "right",
@@ -1865,6 +1925,100 @@
                             -179.66526794433594
                         ]
                     }
+                }
+            }
+        },
+        "Entity_[411838640121]": {
+            "Id": "Entity_[411838640121]",
+            "Name": "Platform",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 8409028927378980827,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{2F2C8C76-231A-59B5-876A-4B37A8707BFA}",
+                                    "subId": 278260993
+                                },
+                                "assetHint": "prefabs/otto1500_platform/otto1500_platform_a/default_otto1500_platform_a_286d2891_1234_5aa8_8c1e_dd92d2a3b744_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11945336361156239599
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16870437084507696215
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16223438903680142095
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 14977877677684455572
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13632786820536446337
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 5770843233484581644,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 0
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{B8C16643-C1F2-5A5B-843C-EC0C79AC856B}"
+                                            },
+                                            "assetHint": "prefabs/otto1500_platform/otto1500_platform_a/otto1500_platform_a_otto1500_platform_a.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3010219550
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{B8C16643-C1F2-5A5B-843C-EC0C79AC856B}"
+                                            },
+                                            "assetHint": "prefabs/otto1500_platform/otto1500_platform_a/otto1500_platform_a_otto1500_platform_a.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17995963332582122362
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10600085795583852311
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11286327356715868927
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 14193666221662790291,
+                    "Parent Entity": "Entity_[2088564684607]"
                 }
             }
         },
@@ -2568,6 +2722,528 @@
                             69.3180160522461,
                             11.593368530273438,
                             83.55404663085938
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5318220970936]": {
+            "Id": "Entity_[5318220970936]",
+            "Name": "LiftingPlatform",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 3916915382190045092
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12828426043283109945
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14580374556531114891,
+                    "Child Entity Order": [
+                        "Entity_[5326810905528]",
+                        "Entity_[5322515938232]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13416910782136040565,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 8253085313791023306
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 3935206804652784781
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11026731891217860660
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1851918098033669885
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8050621958770908964
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8253085313791023306,
+                    "Parent Entity": "Entity_[2088564684607]",
+                    "Transform Data": {
+                        "Rotate": [
+                            -89.9999771118164,
+                            -0.000046967943490017205,
+                            -0.0000013287727824717877
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5322515938232]": {
+            "Id": "Entity_[5322515938232]",
+            "Name": "Platform_B",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 8945662750516669610,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{7D3B18C1-3C0D-5A3B-AD2B-1E18588A572A}",
+                                    "subId": 279277493
+                                },
+                                "assetHint": "prefabs/otto1500_platform/otto1500_platfrom_b/default_platformb_a41277ae_61fd_5b47_9b15_8b4f264e04f2_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 3771930966435803399,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.4300000071525574
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.0,
+                                1.350000023841858,
+                                0.14000000059604645
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2454156680003816966
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5372170783774394417
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 18221022104481952531,
+                    "Child Entity Order": [
+                        "Entity_[5331105872824]"
+                    ]
+                },
+                "EditorFixedJointComponent": {
+                    "$type": "EditorFixedJointComponent",
+                    "Id": 3534158300373679598,
+                    "Configuration": {
+                        "Parent Entity": "Entity_[1200384329450]",
+                        "Child Entity": "Entity_[5322515938232]"
+                    }
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17479652152818324642
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5013542656407664195
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 6613519462548150765,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2534313805
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{5C0474CE-8FE0-5457-806D-0FBCD15DC5FB}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16477074825029037616
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 18434634302773883820
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 14574555122191200178,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 189.00001525878906,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.0,
+                            0.43000003695487976
+                        ],
+                        "Inertia tensor": [
+                            29.01308250427246,
+                            0.0,
+                            0.0,
+                            0.0,
+                            16.05870819091797,
+                            0.0,
+                            0.0,
+                            0.0,
+                            44.454383850097656
+                        ]
+                    }
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 5259523360106839912,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{C4A10A1E-40FB-512E-994C-126ECA12FE9B}",
+                            "path": "Prefabs/OTTO1500_Platform/LiftAnimation.scriptcanvas"
+                        },
+                        "sourceName": "LiftAnimation.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{C4A10A1E-40FB-512E-994C-126ECA12FE9B}",
+                                "path": "Prefabs/OTTO1500_Platform/LiftAnimation.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{198EA003-71F6-4DD1-907E-1B3686677B84}"
+                                    },
+                                    "VariableName": "LiftMesh",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{D70B845B-F701-4CE8-A126-CED6D2D72369}"
+                                    },
+                                    "VariableName": "MotorEntity",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[5331105872824]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{198EA003-71F6-4DD1-907E-1B3686677B84}"
+                                    },
+                                    "VariableName": "LiftMesh",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[5326810905528]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{D70B845B-F701-4CE8-A126-CED6D2D72369}"
+                                    },
+                                    "VariableName": "MotorEntity",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12778157278806914133
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6072140812946314969,
+                    "Parent Entity": "Entity_[5318220970936]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.006182669661939144
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5326810905528]": {
+            "Id": "Entity_[5326810905528]",
+            "Name": "Lift_Upper",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 16211962589041352444,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{7D3B18C1-3C0D-5A3B-AD2B-1E18588A572A}",
+                                    "subId": 281546809
+                                },
+                                "assetHint": "prefabs/otto1500_platform/otto1500_platfrom_b/default_platformb_9459dae0_4534_511d_82fd_b3d3d75d79c3_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorColliderComponent_2": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 4331271209307608886,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.5350000262260437
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                0.5,
+                                1.2000000476837158,
+                                0.019999999552965164
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 305338505091359978
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 610720909668667595
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1837153303505558738
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10019257660719575368
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10439613556505743884
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11544557053925833018
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13378739913437804863
+                },
+                "EditorPrismaticJointComponent": {
+                    "$type": "EditorPrismaticJointComponent",
+                    "Id": 6107163176861079036,
+                    "Configuration": {
+                        "Local Position": [
+                            0.0,
+                            0.0,
+                            0.699999988079071
+                        ],
+                        "Local Rotation": [
+                            0.0,
+                            -90.0,
+                            0.0
+                        ],
+                        "Parent Entity": "Entity_[5322515938232]",
+                        "Child Entity": "Entity_[5326810905528]"
+                    },
+                    "Linear Limit": {
+                        "Lower Limit": 0.0,
+                        "Upper Limit": 0.30000001192092896
+                    },
+                    "Motor": {
+                        "UseMotor": true,
+                        "ForceLimit": 1000.0
+                    }
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 2030676428261966937,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 12.0,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.0,
+                            0.5350000262260437
+                        ],
+                        "Inertia tensor": [
+                            1.4403998851776123,
+                            0.0,
+                            0.0,
+                            0.0,
+                            0.2504000663757324,
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.6900001764297485
+                        ]
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14028588297084596529
+                },
+                "PidMotorControllerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 4535984359458348284,
+                    "m_template": {
+                        "$type": "PidMotorControllerComponent",
+                        "JointMotorControllerConfiguration": {
+                            "DebugMode": true
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17230907906486358227,
+                    "Parent Entity": "Entity_[5318220970936]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.006182669661939144
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5331105872824]": {
+            "Id": "Entity_[5331105872824]",
+            "Name": "Lift",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 17601524280842153098,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{7D3B18C1-3C0D-5A3B-AD2B-1E18588A572A}",
+                                    "subId": 277442517
+                                },
+                                "assetHint": "prefabs/otto1500_platform/otto1500_platfrom_b/default_platformb_bf9727f7_316a_5ef8_aac4_e2811b23509d_.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5006167298553528273
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 18389270437991440695
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17277507920593590871
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8355855012002031629
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11582812973496583430
+                },
+                "EditorNonUniformScaleComponent": {
+                    "$type": "EditorNonUniformScaleComponent",
+                    "Id": 6311825373893076991
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11706876095244150313
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 12612848636054738452
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3722660753852855010
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8759301826374730468,
+                    "Parent Entity": "Entity_[5322515938232]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.38499587774276733
                         ]
                     }
                 }

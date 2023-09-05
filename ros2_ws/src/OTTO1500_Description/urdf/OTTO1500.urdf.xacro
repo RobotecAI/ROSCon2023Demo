@@ -3,7 +3,8 @@
 
   <xacro:property name="base_link_length" value="1.83" />
   <xacro:property name="base_link_width" value="1.29" />
-  <xacro:property name="base_link_height" value="0.406" />
+  <xacro:property name="base_link_height" value="0.32" />
+  <xacro:property name="base_link_box_height" value=".391179" />
 
   <xacro:property name="ground_clearence" value="0.1" />
   
@@ -15,6 +16,14 @@
   <xacro:property name="wheel_front_rear_length" value="0.061434" />
   <xacro:property name="wheel_center_radius" value="0.147" />  
   <xacro:property name="wheel_center_length" value="0.1" />
+
+  <xacro:property name="upper_lift_limit" value="0.3" />
+  <xacro:property name="lift_module_height" value="0.15" />
+
+  <xacro:property name="camera_height" value="0.22" />
+  <xacro:property name="camera_center_offset" value="0.51" />
+
+  <xacro:property name="lidar_height" value="0.1" />
 
 
   <link name="base_link">
@@ -192,6 +201,119 @@
     <child link="wheel_RR" />
     <axis xyz="0. 1. 0." />
     <origin rpy="0. 0. 0." xyz="${wheel_axis_rear} ${-wheel_track} ${wheel_front_rear_radius}" />
+  </joint>
+
+  <link name="lifting_platform_base">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="15" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../meshes/Platform_B.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>=
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. ${base_link_height + ground_clearence}"/>
+      <geometry>
+        <box size="1. 1.35 0.14" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="platform_base_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lifting_platform_base" />
+    <origin rpy="0. 0. 0." xyz="0. 0. 0." />
+  </joint>
+
+  <link name="lift_module">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="15" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../meshes/lift.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+  </link>
+  <joint name="lift_module_joint" type="prismatic">
+    <parent link="lifting_platform_base" />
+    <child link="lift_module" />
+    <axis xyz="0. 0. 1." />
+    <origin rpy="0. 0. 0." xyz="0. 0. 0." />
+    <limit lower="0.0" upper="${upper_lift_limit}" effort="0.0" velocity="0.0"/>
+  </joint>
+
+  <link name="lift_upper">
+    <inertial>
+      <origin xyz="0. 0. 0." />
+      <mass value="15" />
+      <inertia ixx="1." ixy="0." ixz="0." iyy="1." iyz="0." izz="1."/>
+    </inertial>
+    <visual>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0."/>
+      <geometry>
+        <mesh filename="../meshes/lift_upper.stl" scale="1.0 1.0 1.0" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. ${base_link_box_height + lift_module_height}"/>
+      <geometry>
+        <box size="0.5 1.2 0.02" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lift_upper_joint" type="fixed">
+    <parent link="lift_module" />
+    <child link="lift_upper" />
+    <origin rpy="0. 0. 0." xyz="0. 0. 0." />
+  </joint>
+
+  <link name="lidar_F" />
+  <joint name="lidar_F_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_F" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length * 0.47} ${base_link_width * 0.47} ${lidar_height}" />
+  </joint>
+
+  <link name="lidar_R" />
+  <joint name="lidar_R_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="lidar_R" />
+    <origin rpy="0. 0. 0." xyz="${-base_link_length * 0.47} ${-base_link_width * 0.47} ${lidar_height}" />
+  </joint>
+
+  <link name="camera_FL" />
+  <joint name="camera_FL_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_FL" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length / 2} ${camera_center_offset} ${camera_height}" />
+  </joint>
+
+  <link name="camera_FR" />
+  <joint name="camera_FR_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_FR" />
+    <origin rpy="0. 0. 0." xyz="${base_link_length / 2} ${-camera_center_offset} ${camera_height}" />
+  </joint>
+
+  <link name="camera_RL" />
+  <joint name="camera_RL_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_RL" />
+    <origin rpy="0. 0. 0." xyz="${-base_link_length / 2} ${camera_center_offset} ${camera_height}" />
+  </joint>
+
+  <link name="camera_RR" />
+  <joint name="camera_RR_joint" type="fixed">
+    <parent link="base_link" />
+    <child link="camera_RR" />
+    <origin rpy="0. 0. 0." xyz="${-base_link_length / 2} ${-camera_center_offset} ${camera_height}" />
   </joint>
 
 </robot>

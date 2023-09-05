@@ -367,7 +367,7 @@
                                     "guid": "{8457BE50-86B6-5EF2-B57B-A353A36723C6}",
                                     "subId": 3553430957
                                 },
-                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.pxmesh"
+                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.fbx.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -376,7 +376,7 @@
                                         "subId": 3553430957
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.pxmesh"
+                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.fbx.pxmesh"
                                 }
                             }
                         }
@@ -409,16 +409,23 @@
             "Id": "Entity_[589061312548892]",
             "Name": "Belt_physics",
             "Components": {
-                "ConveyorBeltComponentKinematic": {
+                "ConveyorBeltComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 4818559824366408066,
+                    "Id": 16561607779694966452,
                     "m_template": {
-                        "$type": "ConveyorBeltComponentKinematic",
-                        "BeltEntityId": "Entity_[589065607516188]",
-                        "Speed": 0.20000000298023224,
-                        "BeltWidth": 0.6000000238418579,
-                        "SegmentLength": 0.09000000357627869,
-                        "TextureScale": -0.8519999980926514
+                        "$type": "ConveyorBeltComponent",
+                        "Configuration": {
+                            "BeltEntityId": "Entity_[589065607516188]",
+                            "Speed": 0.20000000298023224,
+                            "TextureScale": -0.8519999980926514,
+                            "MaterialAsset": {
+                                "assetId": {
+                                    "guid": "{1AB3B3B4-BEA6-52AD-A7E5-18B4BE35416C}",
+                                    "subId": 1
+                                },
+                                "assetHint": "assets/factory/conveyorelements/physics/conveyor_belt.physicsmaterial"
+                            }
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -1027,7 +1034,7 @@
                                     "guid": "{8457BE50-86B6-5EF2-B57B-A353A36723C6}",
                                     "subId": 2971165656
                                 },
-                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.pxmesh"
+                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.fbx.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1036,7 +1043,7 @@
                                         "subId": 2971165656
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.pxmesh"
+                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.fbx.pxmesh"
                                 }
                             }
                         }

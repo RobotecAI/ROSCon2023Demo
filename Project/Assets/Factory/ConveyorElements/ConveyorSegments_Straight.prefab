@@ -277,7 +277,7 @@
                                     "guid": "{6AA422BA-09DB-558F-A738-688B171B9F19}",
                                     "subId": 3542805391
                                 },
-                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.pxmesh"
+                                "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -286,7 +286,7 @@
                                         "subId": 3542805391
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.pxmesh"
+                                    "assetHint": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
                                 }
                             }
                         }
@@ -622,22 +622,22 @@
             "Id": "Entity_[5738446820942139]",
             "Name": "Belt_physics",
             "Components": {
-                "ConveyorBeltComponentKinematic": {
+                "ConveyorBeltComponent": {
                     "$type": "GenericComponentWrapper",
-                    "Id": 8595345904824535270,
+                    "Id": 7447725723486769554,
                     "m_template": {
-                        "$type": "ConveyorBeltComponentKinematic",
-                        "BeltEntityId": "Entity_[5738433936040251]",
-                        "Speed": 0.20000000298023224,
-                        "BeltWidth": 0.6000000238418579,
-                        "SegmentLength": 0.09000000357627869,
-                        "TextureScale": -0.8519999980926514,
-                        "MaterialAsset": {
-                            "assetId": {
-                                "guid": "{1AB3B3B4-BEA6-52AD-A7E5-18B4BE35416C}",
-                                "subId": 1
-                            },
-                            "assetHint": "assets/factory/conveyorelements/physics/conveyor_belt.physicsmaterial"
+                        "$type": "ConveyorBeltComponent",
+                        "Configuration": {
+                            "BeltEntityId": "Entity_[5738433936040251]",
+                            "Speed": 0.20000000298023224,
+                            "TextureScale": -0.8519999980926514,
+                            "MaterialAsset": {
+                                "assetId": {
+                                    "guid": "{1AB3B3B4-BEA6-52AD-A7E5-18B4BE35416C}",
+                                    "subId": 1
+                                },
+                                "assetHint": "assets/factory/conveyorelements/physics/conveyor_belt.physicsmaterial"
+                            }
                         }
                     }
                 },

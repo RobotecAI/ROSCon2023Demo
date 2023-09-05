@@ -29,7 +29,7 @@ namespace Camera
         GroundTruthCamera(std::shared_ptr<rclcpp::Node> node, const std::string& topicPickup, const std::string& topicDrop, std::string ns);
         ~GroundTruthCamera() = default;
 
-        geometry_msgs::msg::Pose getObjectPose(std::string objectName);
+        std::optional<geometry_msgs::msg::Pose> getObjectPose(std::string objectName);
 
         std::optional<geometry_msgs::msg::Pose> getClosestBox();
         std::vector<geometry_msgs::msg::Pose> getAllBoxesOnPallet();

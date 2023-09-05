@@ -118,7 +118,7 @@ namespace Camera
         return boxes;
     }
 
-    geometry_msgs::msg::Pose GroundTruthCamera::getObjectPose(std::string objectName)
+    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::getObjectPose(std::string objectName)
     {
         auto it = std::lower_bound(
             m_objectPoses.begin(),
@@ -135,9 +135,9 @@ namespace Camera
             {
                 std::cerr << it->first << std::endl;
             }
-            std::abort();
+            return std::optional<geometry_msgs::msg::Pose>();
         }
-        return it->second;
+        return std::optional<geometry_msgs::msg::Pose>(it->second);
     }
 
     std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::getClosestBox()

@@ -50,14 +50,12 @@ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release --symlink-install
 
 ## Running 
 
-### Robot manipulation
+### RViz2 
+Run the command ```ros2 launch ur_moveit_demo rviz.launch.py ur_namespace:=ur1```. This will create an RViz2 instance visualizing one arms movements. Change the ```ur_namespace``` to ```ur2``` and add ```rviz_config_file:=view_robot_moveit_ur2.rviz``` to visualize the second arm.
 
-```
-ros2 launch ur_moveit_demo moveit.launch.py 
-```
+### MoveIt
+To launch MoveIt for a single arm run the command ```ros2 launch ur_moveit_demo mtc.launch.py ur_namespace:=ur1```. This will launch MoveIt for only one arm. To change the arm simply change ```ur_namespace``` from ```ur1``` to ```ur2```.  
 
-### Paletization demo using Moveit Task Constructor
-```
-ros2 launch ur_moveit_demo moveit.launch.py ur_namespace:=ur1
-ros2 launch ur_moveit_demo moveit.launch.py rviz_config_file:=view_robot_moveit_ur2.rviz ur_namespace:=ur2
-```
+Now the program controlling the arm waits for an ROS2 Action. To start the palleaziation launch ```ros2 action send_goal /ur1/MTC ur_moveit_demo_msg/action/Mtc "{num_of_boxes: 3}"```. This requires that a pallet is in front of the robotic arm.  
+Change ```ur1``` to ```ur2``` to control the second arm. ```num_of_boxes``` is a parameter which specifies the amount of boxes to be placed on the pallet. The maximum number of boxes supported is 12.  
+

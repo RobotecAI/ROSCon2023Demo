@@ -31,7 +31,7 @@ namespace TaskConstructor
         this->ns = ns;
     }
 
-    void MTCController::doTask(mtc::Task& task)
+    bool MTCController::doTask(mtc::Task& task)
     {
         task_ = std::move(task);
         try
@@ -40,7 +40,7 @@ namespace TaskConstructor
         } catch (mtc::InitStageException& e)
         {
             RCLCPP_ERROR_STREAM(node_->get_logger(), e);
-            return;
+            return false;
         }
         std::cerr << "Exited init" << std::endl;
         try
@@ -48,13 +48,13 @@ namespace TaskConstructor
             if (!task_.plan(5))
             {
                 RCLCPP_ERROR_STREAM(node_->get_logger(), "Task planning failed");
-                return;
+                return false;
             }
 
         } catch (mtc::InitStageException& e)
         {
             RCLCPP_ERROR_STREAM(node_->get_logger(), e);
-            return;
+            return false;
         }
         task_.introspection().publishSolution(*task_.solutions().front());
 
@@ -62,10 +62,10 @@ namespace TaskConstructor
         if (result.val != moveit_msgs::msg::MoveItErrorCodes::SUCCESS)
         {
             RCLCPP_ERROR_STREAM(node_->get_logger(), "Task execution failed");
-            return;
+            return false;
         }
 
-        return;
+        return true;
     }
 
     mtc::Task MTCController::createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns)

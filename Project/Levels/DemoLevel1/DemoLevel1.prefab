@@ -151,76 +151,49 @@
                 }
             }
         },
-        "Entity_[1155164325235]": {
-            "Id": "Entity_[1155164325235]",
-            "Name": "Sun",
-            "Components": {
-                "Component_[13620450453324765907]": {
-                    "$type": "EditorLockComponent",
-                    "Id": 13620450453324765907
-                },
-                "Component_[2134313378593666258]": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 2134313378593666258
-                },
-                "Component_[234010807770404186]": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 234010807770404186
-                },
-                "Component_[2970359110423865725]": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 2970359110423865725
-                },
-                "Component_[3722854130373041803]": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 3722854130373041803
-                },
-                "Component_[5992533738676323195]": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 5992533738676323195
-                },
-                "Component_[7378860763541895402]": {
-                    "$type": "AZ::Render::EditorDirectionalLightComponent",
-                    "Id": 7378860763541895402,
-                    "Controller": {
-                        "Configuration": {
-                            "Intensity": 1.0,
-                            "CameraEntityId": "",
-                            "ShadowFilterMethod": 1
-                        }
-                    }
-                },
-                "Component_[7892834440890947578]": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 7892834440890947578,
-                    "Parent Entity": "Entity_[1176639161715]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            0.0,
-                            13.487043380737305
-                        ],
-                        "Rotate": [
-                            -76.13099670410156,
-                            -0.847000002861023,
-                            -15.8100004196167
-                        ]
-                    }
-                },
-                "Component_[8599729549570828259]": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 8599729549570828259
-                },
-                "Component_[952797371922080273]": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 952797371922080273
-                }
-            }
-        },
         "Entity_[1163754259827]": {
             "Id": "Entity_[1163754259827]",
             "Name": "Camera",
             "Components": {
+                "AZ::Render::EditorBloomComponent": {
+                    "$type": "AZ::Render::EditorBloomComponent",
+                    "Id": 9072099036731173943,
+                    "Controller": {
+                        "Configuration": {
+                            "Enabled": true,
+                            "Intensity": 0.20000000298023224
+                        }
+                    }
+                },
+                "AZ::Render::EditorDeferredFogComponent": {
+                    "$type": "AZ::Render::EditorDeferredFogComponent",
+                    "Id": 4108467057968610525,
+                    "Controller": {
+                        "Configuration": {
+                            "FogColor": [
+                                0.45000380277633667,
+                                0.5125047564506531,
+                                0.6000000238418579
+                            ],
+                            "FogStartDistance": 30.0,
+                            "FogEndDistance": 1000.0
+                        }
+                    }
+                },
+                "AZ::Render::EditorPostFxLayerComponent": {
+                    "$type": "AZ::Render::EditorPostFxLayerComponent",
+                    "Id": 14480801625505005526
+                },
+                "AZ::Render::EditorSsaoComponent": {
+                    "$type": "AZ::Render::EditorSsaoComponent",
+                    "Id": 7386665190117786251,
+                    "Controller": {
+                        "Configuration": {
+                            "Strength": 1.5,
+                            "SamplingRadius": 0.029999999329447746
+                        }
+                    }
+                },
                 "Component_[11895140916889160460]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 11895140916889160460
@@ -230,7 +203,8 @@
                     "Id": 16880285896855930892,
                     "Controller": {
                         "Configuration": {
-                            "Field of View": 60.0
+                            "Field of View": 60.0,
+                            "MakeActiveViewOnActivation": false
                         }
                     }
                 },
@@ -331,98 +305,13 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 5855590796136709437,
                     "Child Entity Order": [
-                        "Entity_[1155164325235]",
                         "Entity_[1163754259827]",
-                        "Entity_[146221656694598]",
-                        "Entity_[65476020935450]",
                         "Entity_[193920347134167]"
                     ]
                 },
                 "Component_[9277695270015777859]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 9277695270015777859
-                }
-            }
-        },
-        "Entity_[146221656694598]": {
-            "Id": "Entity_[146221656694598]",
-            "Name": "EnvLight",
-            "Components": {
-                "AZ::Render::EditorAreaLightComponent": {
-                    "$type": "AZ::Render::EditorAreaLightComponent",
-                    "Id": 14802288704622357667,
-                    "Controller": {
-                        "Configuration": {
-                            "LightType": 4,
-                            "Intensity": 7000.0,
-                            "AttenuationRadius": 264.5751037597656
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 10680712046623564421
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 896161771142755915
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11491786320677600839
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 1732420583386819036
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14816147111379173873
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 1151111192316534478
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 6593280170225172866
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 3565919654092398583
-                },
-                "LmbrCentral::EditorQuadShapeComponent": {
-                    "$type": "LmbrCentral::EditorQuadShapeComponent",
-                    "Id": 6569735482472926020,
-                    "ShapeColor": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ],
-                    "QuadShape": {
-                        "Configuration": {
-                            "Width": 100.0,
-                            "Height": 30.0
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 9896175589230346749,
-                    "Parent Entity": "Entity_[1176639161715]",
-                    "Transform Data": {
-                        "Translate": [
-                            -50.0,
-                            36.41034698486328,
-                            13.745115280151367
-                        ],
-                        "Rotate": [
-                            132.8391876220703,
-                            0.0,
-                            0.0
-                        ]
-                    }
                 }
             }
         },
@@ -1451,88 +1340,6 @@
                 }
             }
         },
-        "Entity_[65476020935450]": {
-            "Id": "Entity_[65476020935450]",
-            "Name": "EnvLight",
-            "Components": {
-                "AZ::Render::EditorAreaLightComponent": {
-                    "$type": "AZ::Render::EditorAreaLightComponent",
-                    "Id": 14802288704622357667,
-                    "Controller": {
-                        "Configuration": {
-                            "LightType": 4,
-                            "Intensity": 7000.0,
-                            "AttenuationRadius": 264.5751037597656
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 10680712046623564421
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 896161771142755915
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11491786320677600839
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 1732420583386819036
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14816147111379173873
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 1151111192316534478
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 6593280170225172866
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 3565919654092398583
-                },
-                "LmbrCentral::EditorQuadShapeComponent": {
-                    "$type": "LmbrCentral::EditorQuadShapeComponent",
-                    "Id": 6569735482472926020,
-                    "ShapeColor": [
-                        1.0,
-                        1.0,
-                        1.0,
-                        1.0
-                    ],
-                    "QuadShape": {
-                        "Configuration": {
-                            "Width": 100.0,
-                            "Height": 30.0
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 9896175589230346749,
-                    "Parent Entity": "Entity_[1176639161715]",
-                    "Transform Data": {
-                        "Translate": [
-                            -50.0,
-                            41.347137451171875,
-                            4.400014877319336
-                        ],
-                        "Rotate": [
-                            46.08114242553711,
-                            -4.059959411621094,
-                            -3.900254249572754
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[6888547663069]": {
             "Id": "Entity_[6888547663069]",
             "Name": "Line2",
@@ -2408,6 +2215,26 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[469859373056537]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
+                },
+                {
+                    "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
                     "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
                 },
@@ -2434,27 +2261,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[469859373056537]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.5
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.5
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.0
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -2500,6 +2307,11 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[233632831102790]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
                     "value": 1.9999771118164065
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[31470436566510]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 6.7343597412109375
                 }
             ]
         },
@@ -2889,7 +2701,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",

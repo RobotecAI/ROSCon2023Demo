@@ -1065,8 +1065,9 @@
                         },
                         "DriveModel": {
                             "Limits": {
-                                "AngularLimit": 2.0,
-                                "LinearAcceleration": 2.5,
+                                "LinearLimit": 1.0,
+                                "AngularLimit": 1.0,
+                                "LinearAcceleration": 1.0,
                                 "AngularAcceleration": 1.0
                             }
                         }
@@ -1872,7 +1873,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{8505748C-1422-57A0-BA40-5E817F0EBBCA}"
-                                            }
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission01.azmaterial"
                                         }
                                     }
                                 },

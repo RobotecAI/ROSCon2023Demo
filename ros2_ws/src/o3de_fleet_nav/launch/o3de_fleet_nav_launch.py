@@ -61,7 +61,7 @@ def generate_launch_description():
     # Declare the launch arguments
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'maps', 'video_level.yaml'),
+        default_value=os.path.join(o3de_fleet_nav_dir, 'maps', 'map_demolevel1.yaml'),
         description='Full path to map file to load')
 
     declare_robot_params_file_cmd = DeclareLaunchArgument(

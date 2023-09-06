@@ -116,6 +116,7 @@ def generate_launch_description():
                           'use_composition': use_composition,
                           'use_respawn': use_respawn}.items())
     
+    # spawning is disabled currently
     spawner = Node(
             package='o3de_fleet_nav',
             executable='robot_spawner',
@@ -123,13 +124,18 @@ def generate_launch_description():
             parameters=[params_file]
     )
 
+    blind_follower = Node(
+        package="blind_path_follower",
+        executable="blind_path_follower",
+        output="screen",
+        parameters=[{'robot_namespace': namespace}]
+    )
+    # Ground truth map
     tf_pub = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         output='both',
-        # parameters=[{"frame-id": 'map'}, {"child-frame-id": "otto_1/odom"}]
         arguments=["--frame-id", "map", "--child-frame-id", (namespace,"/odom")],
-        # arguments=["0 0 0 0 0 0 map otto_1/odom"]
     )
 
     # Create the launch description and populate
@@ -151,6 +157,7 @@ def generate_launch_description():
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
     # ld.add_action(spawner)
+    ld.add_action(blind_follower)
     ld.add_action(tf_pub)
 
 

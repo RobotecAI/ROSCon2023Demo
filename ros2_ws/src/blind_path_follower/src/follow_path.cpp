@@ -8,7 +8,7 @@
 #include <rclcpp_action/create_server.hpp>
 #include <tf2_eigen/tf2_eigen.hpp>
 #include <tf2_ros/transform_listener.h>
-#include <ur_moveit_demo_msg/action/follow_path.hpp>
+#include <blind_path_follower_msgs/action/follow_path.hpp>
 
 //! Interpolate between multiple poses
 //! @param p 0-1 value of interpolation
@@ -61,7 +61,7 @@ double getPathLength(const std::vector<Eigen::Affine3d>& poses)
 class FollowPathActionServer
 {
 public:
-    using FlwPthAction = ur_moveit_demo_msg::action::FollowPath;
+    using FlwPthAction = blind_path_follower_msgs::action::FollowPath;
     using FlwPthGoal = rclcpp_action::ServerGoalHandle<FlwPthAction>;
 
     FollowPathActionServer(rclcpp::Node::SharedPtr node, std::string ns)
@@ -72,7 +72,7 @@ public:
     {
         using namespace std::placeholders;
 
-        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/follow_path_goal_pose", 1);
+        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/blind_goal", 1);
         timer_ = node_->create_wall_timer(
             std::chrono::milliseconds(int(1000 * LoopTimeSec)), std::bind(&FollowPathActionServer::timer_callback, this));
         timer_->cancel();
@@ -83,7 +83,7 @@ public:
             node->get_node_clock_interface(),
             node->get_node_logging_interface(),
             node->get_node_waitables_interface(),
-            ns + "/follow_path",
+            ns + "/blind_follow_path",
             std::bind(&FollowPathActionServer::handle_goal, this, _1, _2),
             std::bind(&FollowPathActionServer::handle_cancel, this, _1),
             std::bind(&FollowPathActionServer::handle_accepted, this, _1));
@@ -142,7 +142,7 @@ private:
             node_->get_logger(),
             "Received tack to follow, number of goals %d, length %f",
             goal_handle->get_goal()->poses.size(),
-            path_elapsed_);
+            path_length_);
     }
 
     void timer_callback()
@@ -151,7 +151,7 @@ private:
         const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
         const double CrossTrackGain = 2.5; //!< How much to correct angular velocity for cross track error (distance to track)
         const double AlongTrackGain = 0.35; //!< How much to correct linear velocity for along track error (distance along track)
-        const double BearingGain = 1.5; //!< How much to correct angular velocity for bearing error (angle to track)
+        const double BearingGain = 1.0; //!< How much to correct angular velocity for bearing error (angle to track)
         if (poses_.empty())
         {
             geometry_msgs::msg::Twist cmd;
@@ -214,6 +214,7 @@ private:
             timer_->cancel();
             auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
+            std::cout << "Path Succeed" << std::endl;
             goal_handle_->succeed(result);
         }
         cmd_publisher_->publish(cmd);
@@ -231,7 +232,7 @@ int main(int argc, char** argv)
 
     auto node = std::make_shared<rclcpp::Node>("follow_path", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
-    auto parameter = node->get_parameter("ns");
+    auto parameter = node->get_parameter("robot_namespace");
     auto ns = parameter.as_string();
 
     RCLCPP_INFO(node->get_logger(), "Starting path follower");

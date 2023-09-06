@@ -119,7 +119,7 @@ private:
                 goal_handle->canceled(result);
                 return;
             }
-            auto const& address = Pattern[i];
+            auto const& address = Pattern[i]*1.2f;
             std::optional<geometry_msgs::msg::Pose> myClosestBox;
             std::vector<geometry_msgs::msg::Pose> allBoxesOnPallet;
 

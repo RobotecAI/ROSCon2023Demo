@@ -50,6 +50,59 @@
         }
     },
     "Entities": {
+        "Entity_[31466141599214]": {
+            "Id": "Entity_[31466141599214]",
+            "Name": "PalletStacks",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11550143153934360525
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11273028415309778626
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 18023629685500482728,
+                    "Child Entity Order": [
+                        "Instance_[31470436566510]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3256317849778530865
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12580426788620689005
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 411178599075069322
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15565401916303629818
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 432662527419250684
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3056809994927613662,
+                    "Parent Entity": "Entity_[44620649615523]",
+                    "Transform Data": {
+                        "Translate": [
+                            -25.936952590942383,
+                            16.404237747192383,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[44508980465827]": {
             "Id": "Entity_[44508980465827]",
             "Name": "RackHigh",
@@ -1625,7 +1678,8 @@
                         "Entity_[44659304321187]",
                         "Entity_[44882642620579]",
                         "Entity_[44702253994147]",
-                        "Entity_[44680779157667]"
+                        "Entity_[44680779157667]",
+                        "Entity_[31466141599214]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -3926,6 +3980,29 @@
                     "$type": "EditorLockComponent",
                     "Id": 12839155336734633602
                 },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 12360852837780779437,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4052324398
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{D43093A3-90BF-523E-86D1-BCE49E007472}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/wrapper_wrapper.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 11459619337620886239
@@ -3944,7 +4021,7 @@
                     "Parent Entity": "Entity_[44620649615523]",
                     "Transform Data": {
                         "Translate": [
-                            -26.6296443939209,
+                            -26.0,
                             15.0,
                             0.0
                         ]
@@ -10143,6 +10220,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": -179.9999542236328
+                }
+            ]
+        },
+        "Instance_[31470436566510]": {
+            "Source": "Assets/Factory/Objects/PalletStack1.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[31466141599214]"
                 }
             ]
         },

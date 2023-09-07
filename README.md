@@ -66,8 +66,8 @@ git lfs pull
 And register used Gems:
 ```bash 
 cd {$WORKDIR}
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/ProteusRobot
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAssets
+./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
 ```
 
 The Gems are open to your contributions!

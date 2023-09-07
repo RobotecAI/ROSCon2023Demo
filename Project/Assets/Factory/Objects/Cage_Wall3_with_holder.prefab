@@ -1,0 +1,148 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Cage_Wall3_with_holder",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 8920113157528524345
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 12043408616481408485
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 15661798314767409799,
+                "Child Entity Order": [
+                    "Entity_[460680699296009]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 11867244953859024397
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 12929257102213196313
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 16955137681621349457
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 2508448853935045847
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 18209168875301887344
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 11620862412463028158
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 10815898576587302406,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[460680699296009]": {
+            "Id": "Entity_[460680699296009]",
+            "Name": "Cage_Wall3_with_holder",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 16802577168058729819
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17509143723743329980
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2309008922929307039,
+                    "Child Entity Order": [
+                        "Instance_[454573255801097]/ContainerEntity",
+                        "Instance_[454607615539465]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11486588850496548993,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 12268354797912437370
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10422819149352525405
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14181205081829161988
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4394662107841689541
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 904036627135260337
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12268354797912437370,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[454573255801097]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[460680699296009]"
+                }
+            ]
+        },
+        "Instance_[454607615539465]": {
+            "Source": "Assets/Factory/Objects/Cage_Holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[460680699296009]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.826693058013916
+                }
+            ]
+        },
+        "Instance_[461277699750153]": {
+            "Source": "Assets/Factory/Objects/Cage_Holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[460680699296009]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.8248434066772461
+                }
+            ]
+        }
+    }
+}

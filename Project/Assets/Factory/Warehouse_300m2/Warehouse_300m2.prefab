@@ -756,82 +756,8 @@
                 }
             }
         },
-        "Entity_[6550059503779]": {
-            "Id": "Entity_[6550059503779]",
-            "Name": "barrier",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 14414699280479318536,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{C15CD465-9589-56ED-945F-8416FA4798A3}",
-                                    "subId": 284301017
-                                },
-                                "assetHint": "objects/_primitives/_box_1x1.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 18218907903639940570
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 9670358526003195274
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11393913933640898978
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 12999905791522356606
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 8323818979317623056
-                },
-                "EditorNonUniformScaleComponent": {
-                    "$type": "EditorNonUniformScaleComponent",
-                    "Id": 6238054235418738382,
-                    "NonUniformScale": [
-                        0.10000000149011612,
-                        8.0,
-                        4.0
-                    ]
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 18229965987903450867
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 15653558653106384235
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 10747552072455245524
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 3256297685793171848,
-                    "Parent Entity": "Entity_[6554354471075]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            11.0,
-                            0.0
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[6554354471075]": {
-            "Id": "Entity_[6554354471075]",
+        "Entity_[467428092918025]": {
+            "Id": "Entity_[467428092918025]",
             "Name": "InspectionGates",
             "Components": {
                 "EditorDisabledCompositionComponent": {
@@ -846,9 +772,9 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 8429371815947903062,
                     "Child Entity Order": [
-                        "Entity_[6562944405667]",
-                        "Entity_[6550059503779]",
-                        "Entity_[6580124274851]"
+                        "Entity_[467501107362057]",
+                        "Entity_[468574849186057]",
+                        "Entity_[468394460559625]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -877,9 +803,237 @@
                     "Parent Entity": "Entity_[6571534340259]",
                     "Transform Data": {
                         "Translate": [
-                            -90.0,
+                            -90.00000762939453,
+                            7.1595258712768555,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99994659423828
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[467501107362057]": {
+            "Id": "Entity_[467501107362057]",
+            "Name": "Wall1",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12278028616288959790
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14823209009373017707
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12664495716641339713,
+                    "Child Entity Order": [
+                        "Instance_[467793165138185]/ContainerEntity",
+                        "Instance_[467466747623689]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4524593739898450289
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18291168079083376175
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1780815960750792436
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13596475014004899121
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17822006159021654859
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12621551310795703428,
+                    "Parent Entity": "Entity_[467428092918025]"
+                }
+            }
+        },
+        "Entity_[468394460559625]": {
+            "Id": "Entity_[468394460559625]",
+            "Name": "Wall3",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12278028616288959790
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14823209009373017707
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12664495716641339713,
+                    "Child Entity Order": [
+                        "Instance_[467793165138185]/ContainerEntity",
+                        "Instance_[467466747623689]/ContainerEntity",
+                        "Instance_[468407345461513]/ContainerEntity",
+                        "Instance_[468398755526921]/ContainerEntity",
+                        "Instance_[468415935396105]/ContainerEntity",
+                        "Instance_[468403050494217]/ContainerEntity",
+                        "Instance_[468411640428809]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4524593739898450289
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18291168079083376175
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1780815960750792436
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13596475014004899121
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17822006159021654859
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12621551310795703428,
+                    "Parent Entity": "Entity_[467428092918025]",
+                    "Transform Data": {
+                        "Translate": [
+                            15.680427551269531,
+                            -0.00002288818359375,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -179.9999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[468574849186057]": {
+            "Id": "Entity_[468574849186057]",
+            "Name": "Wall2",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12278028616288959790
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14823209009373017707
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12664495716641339713,
+                    "Child Entity Order": [
+                        "Instance_[467793165138185]/ContainerEntity",
+                        "Instance_[467466747623689]/ContainerEntity",
+                        "Instance_[468596324022537]/ContainerEntity",
+                        "Instance_[468583439120649]/ContainerEntity",
+                        "Instance_[9659892290243]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4524593739898450289
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18291168079083376175
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1780815960750792436
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13596475014004899121
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17822006159021654859
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12621551310795703428,
+                    "Parent Entity": "Entity_[467428092918025]",
+                    "Transform Data": {
+                        "Translate": [
+                            9.451040267944336,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[480394599184649]": {
+            "Id": "Entity_[480394599184649]",
+            "Name": "Misc_walls",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 3669974283464134692
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15974036457278357755
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11032739388156631583
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 14846674078476633132
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9910338812065031252
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4136037495497440887
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2899655557742043305
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2384486873243544775
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3409844816473136477,
+                    "Parent Entity": "Entity_[6571534340259]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
                             15.0,
-                            2.0
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99994659423828
                         ]
                     }
                 }
@@ -1076,80 +1230,6 @@
                 }
             }
         },
-        "Entity_[6562944405667]": {
-            "Id": "Entity_[6562944405667]",
-            "Name": "barrier",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 14414699280479318536,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{C15CD465-9589-56ED-945F-8416FA4798A3}",
-                                    "subId": 284301017
-                                },
-                                "assetHint": "objects/_primitives/_box_1x1.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 18218907903639940570
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 9670358526003195274
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11393913933640898978
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 12999905791522356606
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 8323818979317623056
-                },
-                "EditorNonUniformScaleComponent": {
-                    "$type": "EditorNonUniformScaleComponent",
-                    "Id": 6238054235418738382,
-                    "NonUniformScale": [
-                        0.10000000149011612,
-                        8.0,
-                        4.0
-                    ]
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 18229965987903450867
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 15653558653106384235
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 10747552072455245524
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 3256297685793171848,
-                    "Parent Entity": "Entity_[6554354471075]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            -11.0,
-                            0.0
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[6571534340259]": {
             "Id": "Entity_[6571534340259]",
             "Name": "Warehouse_300m2",
@@ -1167,9 +1247,10 @@
                     "Id": 1657954301136325416,
                     "Child Entity Order": [
                         "Entity_[6558649438371]",
-                        "Entity_[6554354471075]",
+                        "Entity_[467428092918025]",
                         "Instance_[2335530734628]/ContainerEntity",
-                        "Entity_[247359120004132]"
+                        "Entity_[247359120004132]",
+                        "Entity_[480394599184649]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1203,73 +1284,6 @@
                     "Parent Entity": "ContainerEntity"
                 }
             }
-        },
-        "Entity_[6580124274851]": {
-            "Id": "Entity_[6580124274851]",
-            "Name": "barrier",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 14414699280479318536,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{C15CD465-9589-56ED-945F-8416FA4798A3}",
-                                    "subId": 284301017
-                                },
-                                "assetHint": "objects/_primitives/_box_1x1.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 18218907903639940570
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 9670358526003195274
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11393913933640898978
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 12999905791522356606
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 8323818979317623056
-                },
-                "EditorNonUniformScaleComponent": {
-                    "$type": "EditorNonUniformScaleComponent",
-                    "Id": 6238054235418738382,
-                    "NonUniformScale": [
-                        0.10000000149011612,
-                        5.0,
-                        4.0
-                    ]
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 18229965987903450867
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 15653558653106384235
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 10747552072455245524
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 3256297685793171848,
-                    "Parent Entity": "Entity_[6554354471075]"
-                }
-            }
         }
     },
     "Instances": {
@@ -1285,6 +1299,156 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[11168616662289]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "AZ::Render::EditorMeshComponent": {
+                            "$type": "AZ::Render::EditorMeshComponent",
+                            "Id": 7337729475364476756,
+                            "Controller": {
+                                "Configuration": {
+                                    "ModelAsset": {
+                                        "assetId": {
+                                            "guid": "{1EDF586C-DF70-538E-AABC-FC614FCA7577}",
+                                            "subId": 279085894
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "assets/factory/warehouse_300m2/models/default_warehouse_300m2_8de3f949_da5c_5a27_8ce0_68609a8ec8c3_.fbx.azmodel"
+                                    },
+                                    "SortKey": 0,
+                                    "ExcludeFromReflectionCubeMaps": false,
+                                    "UseForwardPassIBLSpecular": false,
+                                    "IsRayTracingEnabled": true,
+                                    "IsAlwaysDynamic": false,
+                                    "LodType": 0,
+                                    "LodOverride": 0,
+                                    "MinimumScreenCoverage": 0.0009259259095415473,
+                                    "QualityDecayRate": 0.5
+                                }
+                            },
+                            "meshStats": {}
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[11168616662289]/Components/EditorPendingCompositionComponent/PendingComponents",
+                    "value": {
+                        "EditorMaterialComponent": {
+                            "$type": "EditorMaterialComponent",
+                            "Id": 15534308458126419270,
+                            "Controller": {
+                                "Configuration": {
+                                    "materials": [
+                                        {
+                                            "Key": {
+                                                "lodIndex": 18446744073709551615,
+                                                "materialSlotStableId": 2719868536
+                                            },
+                                            "Value": {
+                                                "MaterialAsset": {
+                                                    "assetId": {
+                                                        "guid": "{400AB2E2-31B9-52A8-94FA-667EB76D4699}",
+                                                        "subId": 0
+                                                    },
+                                                    "loadBehavior": "QueueLoad",
+                                                    "assetHint": "assets/factory/warehouse_300m2/materials/warehousegates.azmaterial"
+                                                },
+                                                "PropertyOverrides": [],
+                                                "ModelUvOverrides": []
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "materialSlotsByLodEnabled": false
+                        }
+                    }
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[11168616662289]/Components/AZ::Render::EditorMeshComponent"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[11168616662289]/Components/EditorMaterialComponent"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[11177206596881]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "AZ::Render::EditorMeshComponent": {
+                            "$type": "AZ::Render::EditorMeshComponent",
+                            "Id": 17115120891894191962,
+                            "Controller": {
+                                "Configuration": {
+                                    "ModelAsset": {
+                                        "assetId": {
+                                            "guid": "{1EDF586C-DF70-538E-AABC-FC614FCA7577}",
+                                            "subId": 275556186
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "assets/factory/warehouse_300m2/models/default_warehouse_300m2_c439f505_56de_5c6b_b80e_378043128d39_.fbx.azmodel"
+                                    },
+                                    "SortKey": 0,
+                                    "ExcludeFromReflectionCubeMaps": false,
+                                    "UseForwardPassIBLSpecular": false,
+                                    "IsRayTracingEnabled": true,
+                                    "IsAlwaysDynamic": false,
+                                    "LodType": 0,
+                                    "LodOverride": 0,
+                                    "MinimumScreenCoverage": 0.0009259259095415473,
+                                    "QualityDecayRate": 0.5
+                                }
+                            },
+                            "meshStats": {}
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[11177206596881]/Components/EditorPendingCompositionComponent/PendingComponents",
+                    "value": {
+                        "EditorMaterialComponent": {
+                            "$type": "EditorMaterialComponent",
+                            "Id": 6441822321521971291,
+                            "Controller": {
+                                "Configuration": {
+                                    "materials": [
+                                        {
+                                            "Key": {
+                                                "lodIndex": 18446744073709551615,
+                                                "materialSlotStableId": 2719868536
+                                            },
+                                            "Value": {
+                                                "MaterialAsset": {
+                                                    "assetId": {
+                                                        "guid": "{400AB2E2-31B9-52A8-94FA-667EB76D4699}",
+                                                        "subId": 0
+                                                    },
+                                                    "loadBehavior": "QueueLoad",
+                                                    "assetHint": "assets/factory/warehouse_300m2/materials/warehousegates.azmaterial"
+                                                },
+                                                "PropertyOverrides": [],
+                                                "ModelUvOverrides": []
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            "materialSlotsByLodEnabled": false
+                        }
+                    }
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[11177206596881]/Components/AZ::Render::EditorMeshComponent"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[11177206596881]/Components/EditorMaterialComponent"
                 }
             ]
         },
@@ -1645,6 +1809,329 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
                     "value": -10.531305313110352
+                }
+            ]
+        },
+        "Instance_[467466747623689]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467501107362057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.0003390312194824219
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[460680699296009]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[461277699750153]/ContainerEntity"
+                }
+            ]
+        },
+        "Instance_[467505402329353]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467501107362057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.660029411315918
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                }
+            ]
+        },
+        "Instance_[467544057035017]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467501107362057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.3123586177825928
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.0000152587890625
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                }
+            ]
+        },
+        "Instance_[467582711740681]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467501107362057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -4.969468116760254
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.000030517578125
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                }
+            ]
+        },
+        "Instance_[467793165138185]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall2_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[467801755072777]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[467780280236297]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467501107362057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.149477005004883
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.0000152587890625
+                }
+            ]
+        },
+        "Instance_[468398755526921]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468394460559625]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -4.969470977783203
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.00003814697265625
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -0.000006830188340245513
+                }
+            ]
+        },
+        "Instance_[468403050494217]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[460680699296009]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[461277699750153]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468394460559625]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.00033473968505859375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.00002288818359375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -0.000006830188340245513
+                }
+            ]
+        },
+        "Instance_[468407345461513]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468394460559625]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.3123626708984375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.00003814697265625
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -0.000006830188340245513
+                }
+            ]
+        },
+        "Instance_[468411640428809]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall2_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[467801755072777]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[467780280236297]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468394460559625]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -6.149478912353516
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.000030517578125
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -0.000006830188340245513
+                }
+            ]
+        },
+        "Instance_[468415935396105]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468394460559625]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.6600313186645508
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.00002288818359375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -0.000006830188340245513
+                }
+            ]
+        },
+        "Instance_[468583439120649]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468574849186057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.0003390312194824219
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[460680699296009]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[461277699750153]/ContainerEntity"
+                }
+            ]
+        },
+        "Instance_[468596324022537]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468574849186057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.660029411315918
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[461277699750153]"
+                }
+            ]
+        },
+        "Instance_[9659892290243]": {
+            "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[460680699296009]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[461277699750153]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[468574849186057]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -3.312358856201172
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.0000152587890625
                 }
             ]
         }

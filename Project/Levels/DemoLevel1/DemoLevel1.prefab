@@ -25,7 +25,8 @@
                     "Entity_[378904850629145]",
                     "Entity_[469859373056537]",
                     "Entity_[21524318507725]",
-                    "Entity_[1035527589276214]"
+                    "Entity_[1035527589276214]",
+                    "Instance_[9613713711690]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -2680,7 +2681,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -2699,28 +2700,8 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[102601718242074]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.9999771118164065
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[233886234173254]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.9999771118164065
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[233632831102790]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.9999771118164065
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[31470436566510]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.7343597412109375
                 }
             ]
         },
@@ -2775,7 +2756,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -3130,7 +3111,17 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
+                }
+            ]
+        },
+        "Instance_[9613713711690]": {
+            "Source": "Assets/Factory/Exterior/Exterior.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
                 }
             ]
         },

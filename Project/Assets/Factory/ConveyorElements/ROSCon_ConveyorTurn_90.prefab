@@ -1,0 +1,147 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "ROSCon_ConveyorTurn_90",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 3790923173042900625
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 13690554164608078942
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 11738382789091101472,
+                "Child Entity Order": [
+                    "Entity_[30383856570837]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 10213455447680010178
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 17536407163998699762
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 4684090268832990603
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 30407107043812742
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 2245649023852632242
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 4332434713033195549
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 13981720996337988748,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[30383856570837]": {
+            "Id": "Entity_[30383856570837]",
+            "Name": "ROSCon_ConveyorTurn_90",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4513322752010030359
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6565146435599201505
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2302973275049898932,
+                    "Child Entity Order": [
+                        "Instance_[29284344943061]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15616103121379288138,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 4140563473020594354
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11810785136427876956
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10327994622712968114
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13841371645555651990
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7708371001640089646
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4140563473020594354,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[29284344943061]": {
+            "Source": "Factory/ConveyorElements/ConveyorSegments_Turn_90.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[30383856570837]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739331584205115]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorelements/models/default_conveyorsegments_turn_90_e9c7f11b_be59_5a64_af3f_081782eb78dc_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739335879172411]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "factory/conveyorelements/models/conveyorsegments_turn_90_barriers.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739335879172411]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "factory/conveyorelements/models/conveyorsegments_turn_90_barriers.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739340174139707]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorelements/models/default_conveyorsegments_turn_90_d8a3277b_e432_5bb2_b73e_3e398e5e2a01_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739357354008891]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorelements/models/default_conveyorsegments_turn_90_40fe231e_db2d_58fb_af03_95d430fd505b_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[5739344469107003]/Components/ConveyorBeltComponent/m_template/Configuration/Speed",
+                    "value": 1.0
+                }
+            ]
+        }
+    }
+}

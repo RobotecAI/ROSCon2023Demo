@@ -1,0 +1,416 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "CameraDropPickupDropPark",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 9100748694940876208
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 17758249439245544158
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 14384911745329624671,
+                "Child Entity Order": [
+                    "Entity_[1387418239739165]",
+                    "Entity_[1387422534706461]",
+                    "Entity_[1387426829673757]",
+                    "Entity_[1387431124641053]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 12760722900786871134
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 15231641074506102274
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 13630294781901305355
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 1620243442940244556
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 5195092746546286302
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 5968160211438951433
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 9917014334437223079,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[1387418239739165]": {
+            "Id": "Entity_[1387418239739165]",
+            "Name": "CameraDrop",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7604825662087752012
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6383545578973993528
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6193058209493791010
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6489571018399251789,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 11340372032319460387
+                        },
+                        {
+                            "ComponentId": 15092627223095051452,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 4401655443776662586,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 4422182098558420355,
+                            "SortIndex": 3
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7253082648182213924
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4957507555999069378
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5043293431311490418
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11492665323669171068
+                },
+                "IdealVisionSystem": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 4422182098558420355,
+                    "m_template": {
+                        "$type": "IdealVisionSystem",
+                        "SensorConfiguration": {
+                            "Visualize": false,
+                            "Publishers": {
+                                "geometry_msgs::msg::PoseArray": {
+                                    "Type": "geometry_msgs::msg::PoseArray",
+                                    "Topic": "camera_drop/detectionsPoseArray",
+                                    "QoS": {
+                                        "Reliability": 1
+                                    }
+                                },
+                                "vision_msgs::msg::Detection2D": {
+                                    "Type": "vision_msgs::msg::Detection2D",
+                                    "Topic": "camera_drop/detections2D",
+                                    "QoS": {
+                                        "Reliability": 1
+                                    }
+                                },
+                                "vision_msgs::msg::Detection3D": {
+                                    "Type": "vision_msgs::msg::Detection3D",
+                                    "Topic": "camera_drop/detections3D",
+                                    "QoS": {
+                                        "Reliability": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ROS2CameraSensorEditorComponent": {
+                    "$type": "ROS2CameraSensorEditorComponent",
+                    "Id": 4401655443776662586,
+                    "CameraSensorConfig": {
+                        "VerticalFieldOfViewDeg": 70.0,
+                        "Depth": false
+                    },
+                    "SensorConfig": {
+                        "Publishers": {
+                            "Color Camera Info": {
+                                "Type": "sensor_msgs::msg::CameraInfo",
+                                "Topic": "camera_drop/camera_info",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
+                            },
+                            "Color Image": {
+                                "Type": "sensor_msgs::msg::Image",
+                                "Topic": "camera_drop/camera_image_color",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
+                            },
+                            "Depth Camera Info": {
+                                "Type": "sensor_msgs::msg::CameraInfo",
+                                "Topic": "camera_drop/depth_camera_info",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
+                            },
+                            "Depth Image": {
+                                "Type": "sensor_msgs::msg::Image",
+                                "Topic": "camera_drop/camera_image_depth",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
+                            }
+                        }
+                    }
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 15092627223095051452,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "camera_drop"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11340372032319460387,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            0.41831719875335693,
+                            3.0908288955688477,
+                            1.3859866857528687
+                        ],
+                        "Rotate": [
+                            180.0,
+                            0.0,
+                            -89.99994659423828
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1387422534706461]": {
+            "Id": "Entity_[1387422534706461]",
+            "Name": "Pickup",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12821620567299787985
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3900712223491604193
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5427340147149716898
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17864300931483179878,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 7155344431639955871
+                        },
+                        {
+                            "ComponentId": 673973100445986234,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 627942565855502608
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4910137371508082533
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 9364302832530284266
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11893509090435207875
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 673973100445986234,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "Pickup"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7155344431639955871,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.09544706344604492,
+                            3.090829610824585,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1387426829673757]": {
+            "Id": "Entity_[1387426829673757]",
+            "Name": "Drop",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10976278447257846716
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 547509305122893613
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 18209023711995205414
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9767620310840205854,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9599094991467190531
+                        },
+                        {
+                            "ComponentId": 14459931361656117788,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13625603563361371608
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9554000752959633940
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11975076414673165215
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7534089191044523442
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14459931361656117788,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "Drop"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9599094991467190531,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.18609297275543213,
+                            -2.4483842849731445,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99991607666016
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[1387431124641053]": {
+            "Id": "Entity_[1387431124641053]",
+            "Name": "Park",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 793981504379274
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17043237169769860397
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4216935244766079517
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3215277153695187920,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 3973755322994343354
+                        },
+                        {
+                            "ComponentId": 1586225048509550916,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2299218963264830024
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17874710491969869838
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10050224011780927276
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4720855398655358834
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1586225048509550916,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "Park"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3973755322994343354,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.13677740097045898,
+                            -3.733273506164551,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

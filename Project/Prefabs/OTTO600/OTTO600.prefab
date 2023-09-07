@@ -618,8 +618,7 @@
                         }
                     },
                     "Motor": {
-                        "UseMotor": true,
-                        "ForceLimit": 1000.0
+                        "UseMotor": true
                     }
                 },
                 "EditorInspectorComponent": {
@@ -643,23 +642,28 @@
                     "Id": 17716638409549268998,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -764,7 +768,7 @@
                         }
                     },
                     "Motor": {
-                        "ForceLimit": 1000.0
+                        "ForceLimit": 0.0
                     }
                 },
                 "EditorInspectorComponent": {
@@ -788,23 +792,28 @@
                     "Id": 11343073116806970178,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -952,23 +961,31 @@
                     "Id": 4368027968558946506,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 205.1595001220703,
+                        "Linear damping": 0.10000000149011612,
+                        "Angular damping": 0.20000000298023224,
+                        "Sleep threshold": 0.05000000074505806,
+                        "Compute Mass": false,
+                        "Mass": 10.0,
                         "Centre of mass offset": [
                             0.0,
                             0.0,
                             0.1745000034570694
                         ],
                         "Inertia tensor": [
-                            9.64923095703125,
+                            0.47032836079597473,
                             0.0,
                             0.0,
                             0.0,
-                            20.19256591796875,
+                            0.9842374920845032,
                             0.0,
                             0.0,
                             0.0,
-                            27.154722213745117
+                            1.3235907554626465
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -1065,8 +1082,9 @@
                         },
                         "DriveModel": {
                             "Limits": {
-                                "AngularLimit": 2.0,
-                                "LinearAcceleration": 2.5,
+                                "LinearLimit": 1.0,
+                                "AngularLimit": 1.0,
+                                "LinearAcceleration": 1.0,
                                 "AngularAcceleration": 1.0
                             }
                         }
@@ -1299,7 +1317,7 @@
                         }
                     },
                     "Motor": {
-                        "ForceLimit": 1000.0
+                        "ForceLimit": 0.0
                     }
                 },
                 "EditorInspectorComponent": {
@@ -1323,23 +1341,28 @@
                     "Id": 18126117155079029490,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -1589,23 +1612,28 @@
                     "Id": 7179983680065285972,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 40.38201904296875,
+                        "Compute Mass": false,
+                        "Mass": 10.0,
                         "Centre of mass offset": [
                             0.0,
                             0.0,
                             0.34360799193382263
                         ],
                         "Inertia tensor": [
-                            1.0105533599853516,
+                            0.2502483129501343,
                             0.0,
                             0.0,
                             0.0,
-                            2.8613529205322266,
+                            0.7085709571838379,
                             0.0,
                             0.0,
                             0.0,
-                            3.8276169300079346
+                            0.947851836681366
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -1872,7 +1900,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{8505748C-1422-57A0-BA40-5E817F0EBBCA}"
-                                            }
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission01.azmaterial"
                                         }
                                     }
                                 },
@@ -2578,8 +2607,7 @@
                         }
                     },
                     "Motor": {
-                        "UseMotor": true,
-                        "ForceLimit": 1000.0
+                        "UseMotor": true
                     }
                 },
                 "EditorInspectorComponent": {
@@ -2603,23 +2631,28 @@
                     "Id": 12688039773760801343,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -2869,7 +2902,7 @@
                         }
                     },
                     "Motor": {
-                        "ForceLimit": 1000.0
+                        "ForceLimit": 0.0
                     }
                 },
                 "EditorInspectorComponent": {
@@ -2893,23 +2926,28 @@
                     "Id": 8201365287509377441,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {
@@ -3163,7 +3201,7 @@
                         }
                     },
                     "Motor": {
-                        "ForceLimit": 1000.0
+                        "ForceLimit": 100.0
                     }
                 },
                 "EditorInspectorComponent": {
@@ -3187,23 +3225,28 @@
                     "Id": 17716496003497227274,
                     "Configuration": {
                         "entityId": "",
-                        "Mass": 2.628678321838379,
+                        "Compute Mass": false,
+                        "Mass": 5.0,
                         "Centre of mass offset": [
                             7.326016771003196e-7,
                             -1.233591007121504e-9,
                             0.00001385418090649182
                         ],
                         "Inertia tensor": [
-                            0.007650404702872038,
+                            0.01455181185156107,
                             0.0,
                             0.0,
                             0.0,
-                            0.009997849352657795,
+                            0.019016876816749573,
                             0.0,
                             0.0,
                             0.0,
-                            0.007648222614079714
+                            0.014547660015523434
                         ]
+                    },
+                    "PhysXSpecificConfiguration": {
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
                     }
                 },
                 "EditorVisibilityComponent": {

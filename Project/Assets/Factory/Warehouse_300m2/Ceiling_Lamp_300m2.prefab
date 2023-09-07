@@ -1,0 +1,420 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Ceiling_Lamp_300m2",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 586586481549466411
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 7868230739286464698
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 7776848368058581961,
+                "Child Entity Order": [
+                    "Entity_[247191616279588]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 6432755243455481758
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 12841594992965997129
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 17233686721925417865
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 8862041625435842359
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 15877570394989290934
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 15727138587031631147
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 571661226812907242,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[247174436410404]": {
+            "Id": "Entity_[247174436410404]",
+            "Name": "ceiling_light",
+            "Components": {
+                "Component_[10859140407872365140]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10859140407872365140
+                },
+                "Component_[13731661953046902460]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13731661953046902460
+                },
+                "Component_[15575290374250860903]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15575290374250860903
+                },
+                "Component_[17872668602620376766]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17872668602620376766
+                },
+                "Component_[2552862801861524968]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2552862801861524968,
+                    "Parent Entity": "Entity_[247187321312292]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.09106731414794922
+                        ],
+                        "Rotate": [
+                            180.0,
+                            0.0,
+                            180.0
+                        ]
+                    }
+                },
+                "Component_[3121686923304820688]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3121686923304820688
+                },
+                "Component_[4642371311765310759]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4642371311765310759
+                },
+                "Component_[7712919482358354702]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7712919482358354702
+                },
+                "Component_[8006897901341233975]": {
+                    "$type": "AZ::Render::EditorAreaLightComponent",
+                    "Id": 8006897901341233975,
+                    "Controller": {
+                        "Configuration": {
+                            "LightType": 2,
+                            "Intensity": 2200.0,
+                            "AttenuationRadiusMode": 0,
+                            "AttenuationRadius": 40.0,
+                            "EnableShutters": true,
+                            "InnerShutterAngleDegrees": 72.0999984741211,
+                            "OuterShutterAngleDegrees": 90.0,
+                            "Enable Shadow": true,
+                            "Shadow Bias": 0.30000001192092896,
+                            "Normal Shadow Bias": 6.400000095367432,
+                            "Shadowmap Max Size": "Size2048",
+                            "Shadow Filter Method": 1,
+                            "Filtering Sample Count": 64,
+                            "Esm Exponent": 5000.0,
+                            "Shadow Caching Mode": 1,
+                            "Shadow Caching Enabled": true,
+                            "Affects GI Factor": 0.5
+                        }
+                    }
+                },
+                "Component_[9787204896455568909]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9787204896455568909
+                },
+                "EditorDiskShapeComponent": {
+                    "$type": "EditorDiskShapeComponent",
+                    "Id": 3784029808572595469,
+                    "ShapeColor": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "DiskShape": {
+                        "Configuration": {
+                            "Radius": 0.05000000074505806
+                        }
+                    }
+                }
+            }
+        },
+        "Entity_[247178731377700]": {
+            "Id": "Entity_[247178731377700]",
+            "Name": "env_light",
+            "Components": {
+                "Component_[1095037194436951656]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1095037194436951656
+                },
+                "Component_[12212508019327560574]": {
+                    "$type": "AZ::Render::EditorAreaLightComponent",
+                    "Id": 12212508019327560574,
+                    "Controller": {
+                        "Configuration": {
+                            "LightType": 6,
+                            "Intensity": 150.0,
+                            "AttenuationRadiusMode": 0,
+                            "AttenuationRadius": 3.0,
+                            "InnerShutterAngleDegrees": 0.5,
+                            "OuterShutterAngleDegrees": 90.0
+                        }
+                    }
+                },
+                "Component_[13594745669572308455]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13594745669572308455
+                },
+                "Component_[14818294980584958136]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14818294980584958136
+                },
+                "Component_[18241054055546400954]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18241054055546400954,
+                    "Parent Entity": "Entity_[247187321312292]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.05210304260253906
+                        ]
+                    }
+                },
+                "Component_[18361209374708119339]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 18361209374708119339
+                },
+                "Component_[4809116713956597316]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4809116713956597316
+                },
+                "Component_[5955608983902780874]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5955608983902780874
+                },
+                "Component_[7245391332595000583]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7245391332595000583
+                },
+                "Component_[8728350275649358967]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8728350275649358967
+                }
+            }
+        },
+        "Entity_[247183026344996]": {
+            "Id": "Entity_[247183026344996]",
+            "Name": "visualization",
+            "Components": {
+                "Component_[10245917570445536681]": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 10245917570445536681,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 103484566
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{EF5EE945-8A4F-578E-8AF5-2D545FA4CDEE}"
+                                            },
+                                            "assetHint": "assets/warehouse/materials/mwarehousemodules_lamps.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "Component_[13711156314834457753]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13711156314834457753
+                },
+                "Component_[13844692110194742612]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13844692110194742612
+                },
+                "Component_[15144070127243894639]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15144070127243894639
+                },
+                "Component_[1837809902842540881]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1837809902842540881
+                },
+                "Component_[4260683163372610636]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4260683163372610636,
+                    "Parent Entity": "Entity_[247191616279588]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.000194549560546875,
+                            0.0,
+                            2.920137405395508
+                        ]
+                    }
+                },
+                "Component_[5358824814273034731]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5358824814273034731
+                },
+                "Component_[6064469414509333698]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6064469414509333698
+                },
+                "Component_[6256847300790247066]": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 6256847300790247066,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{3FE74ABC-001D-5AA5-ADBE-20F0964178DD}",
+                                    "subId": 277792031
+                                },
+                                "assetHint": "assets/warehouse/models/warehouse_ceiling_lamp.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "Component_[6504290940901161997]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6504290940901161997
+                },
+                "Component_[9998410925299025289]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9998410925299025289
+                }
+            }
+        },
+        "Entity_[247187321312292]": {
+            "Id": "Entity_[247187321312292]",
+            "Name": "Lamp",
+            "Components": {
+                "Component_[10433351174427488304]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10433351174427488304
+                },
+                "Component_[15546801961949950021]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15546801961949950021
+                },
+                "Component_[2149643350865716350]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2149643350865716350,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9212702534469447939
+                        },
+                        {
+                            "ComponentId": 9192240289926040100,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 4707032566733302797,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "Component_[4174353651964271324]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4174353651964271324
+                },
+                "Component_[7344109585285783823]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 7344109585285783823
+                },
+                "Component_[7800871885805792057]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7800871885805792057
+                },
+                "Component_[87392024380415706]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 87392024380415706
+                },
+                "Component_[8840187727537637682]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8840187727537637682,
+                    "Child Entity Order": [
+                        "Entity_[247174436410404]",
+                        "Entity_[247178731377700]"
+                    ]
+                },
+                "Component_[9212702534469447939]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9212702534469447939,
+                    "Parent Entity": "Entity_[247191616279588]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.000194549560546875,
+                            0.0,
+                            -0.15626239776611328
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[247191616279588]": {
+            "Id": "Entity_[247191616279588]",
+            "Name": "Ceiling_Lamp_300m2",
+            "Components": {
+                "Component_[11529753164236804200]": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11529753164236804200,
+                    "Child Entity Order": [
+                        "Entity_[247183026344996]",
+                        "Entity_[247187321312292]"
+                    ]
+                },
+                "Component_[15391605485530677401]": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 15391605485530677401
+                },
+                "Component_[1711088378015738756]": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1711088378015738756,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 6945026850029702537
+                        }
+                    ]
+                },
+                "Component_[18373186476746720362]": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18373186476746720362
+                },
+                "Component_[3978556724791414518]": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3978556724791414518
+                },
+                "Component_[6924852452078552332]": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6924852452078552332
+                },
+                "Component_[6945026850029702537]": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6945026850029702537,
+                    "Parent Entity": "ContainerEntity"
+                },
+                "Component_[7080586641102672820]": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7080586641102672820
+                },
+                "Component_[9012587646807329589]": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9012587646807329589
+                }
+            }
+        }
+    }
+}

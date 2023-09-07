@@ -50,6 +50,54 @@
         }
     },
     "Entities": {
+        "Entity_[30718864019925]": {
+            "Id": "Entity_[30718864019925]",
+            "Name": "Conveyor",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1524081425650098167
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6836950735258549084
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16390751123168910267,
+                    "Child Entity Order": [
+                        "Instance_[29988719579605]/ContainerEntity",
+                        "Instance_[30375266636245]/ContainerEntity",
+                        "Instance_[30903547613653]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5237713326117122431
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10306001853877604784
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9459009822540058818
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4179826549646370699
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8004058226173760183
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18296890315898373450,
+                    "Parent Entity": "Entity_[4009979659856]"
+                }
+            }
+        },
         "Entity_[4009979659856]": {
             "Id": "Entity_[4009979659856]",
             "Name": "CellConveyor",
@@ -66,20 +114,8 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 2875848995539276932,
                     "Child Entity Order": [
-                        "Instance_[10079708363997]/ContainerEntity",
-                        "Instance_[10811086334499]/ContainerEntity",
-                        "Instance_[10806791367203]/ContainerEntity",
-                        "Instance_[226903471615926]/ContainerEntity",
-                        "Instance_[232667317727158]/ContainerEntity",
-                        "Instance_[6819828186333]/ContainerEntity",
-                        "Instance_[909953187037]/ContainerEntity",
-                        "Instance_[6862777859293]/ContainerEntity",
-                        "Instance_[935722990813]/ContainerEntity",
                         "Instance_[64332123955082]/ContainerEntity",
-                        "Instance_[1339533669508]/ContainerEntity",
-                        "Instance_[1275109160068]/ContainerEntity",
-                        "Instance_[1270814192772]/ContainerEntity",
-                        "Instance_[1266519225476]/ContainerEntity"
+                        "Entity_[30718864019925]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -123,38 +159,13 @@
         }
     },
     "Instances": {
-        "Instance_[10079708363997]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[29988719579605]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -164,7 +175,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.9451541900634768
+                    "value": 1.9451541900634766
                 },
                 {
                     "op": "replace",
@@ -178,48 +189,23 @@
                 }
             ]
         },
-        "Instance_[10806791367203]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[30375266636245]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorTurn_90.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 8.529393196105957
+                    "value": 14.975584030151367
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572959899902344
+                    "value": 0.08865928649902344
                 },
                 {
                     "op": "replace",
@@ -229,52 +215,27 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.00006866455078
+                    "value": -89.99993133544922
                 }
             ]
         },
-        "Instance_[10811086334499]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[30903547613653]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorEnd.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 7.3823161125183105
+                    "value": 1.5797119140625
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572959899902344
+                    "value": 0.08384513854980469
                 },
                 {
                     "op": "replace",
@@ -284,42 +245,17 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.00006866455078
+                    "value": 89.99993896484375
                 }
             ]
         },
-        "Instance_[1266519225476]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[31328749375957]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -343,38 +279,73 @@
                 }
             ]
         },
-        "Instance_[1270814192772]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[31350224212437]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 8.529393196105957
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.08572959899902344
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.6189841032028198
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.00006866455078
+                }
+            ]
+        },
+        "Instance_[31371699048917]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
+            "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 7.3823161125183105
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.08572959899902344
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.6189841032028198
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.00006866455078
+                }
+            ]
+        },
+        "Instance_[31393173885397]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -398,38 +369,13 @@
                 }
             ]
         },
-        "Instance_[1275109160068]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[31414648721877]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -453,38 +399,13 @@
                 }
             ]
         },
-        "Instance_[1339533669508]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[31436123558357]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -494,7 +415,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08573150634765625
+                    "value": 0.08573149889707565
                 },
                 {
                     "op": "replace",
@@ -508,38 +429,43 @@
                 }
             ]
         },
-        "Instance_[226903471615926]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
+        "Instance_[31457598394837]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 6.2303242683410645
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.08572959899902344
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.6189841032028198
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.00006866455078
+                }
+            ]
+        },
+        "Instance_[31479073231317]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
+            "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
@@ -549,7 +475,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572578430175781
+                    "value": 0.085725799202919
                 },
                 {
                     "op": "replace",
@@ -563,73 +489,23 @@
                 }
             ]
         },
-        "Instance_[232667317727158]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_End.prefab",
+        "Instance_[31500548067797]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[589048427647004]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_end_54dc45ea_362b_51c6_abeb_ac1a2ec305f9_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589052722614300]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_end_bc077475_4523_55bb_9392_01e165716b42_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589057017581596]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589057017581596]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_end_barrier_end.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589074197450780]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589074197450780]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_end_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589082787385372]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_end_8eb57527_2ca1_55d0_868f_e0110152037c_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589095672287260]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "materialeditor/viewportmodels/cylinder.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589069902483484]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_conveyorbelt_effector_75e73d92_2074_54c6_afa7_b51165a40c77_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[589065607516188]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_end_d7036fe9_22d1_5cde_b2da_d4fa56b0fe0a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
+                    "value": "../Entity_[30718864019925]"
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.5797119140625
+                    "value": 5.083247184753418
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08384513854980469
+                    "value": 0.08572959899902344
                 },
                 {
                     "op": "replace",
@@ -639,7 +515,37 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99993896484375
+                    "value": 90.00006866455078
+                }
+            ]
+        },
+        "Instance_[31522022904277]": {
+            "Source": "Assets/Factory/ConveyorElements/ROSCon_ConveyorStraight.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[30718864019925]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 3.914523124694824
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.085725799202919
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.6189841032028198
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.00006866455078
                 }
             ]
         },
@@ -685,226 +591,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 0.00004829669705941342
-                }
-            ]
-        },
-        "Instance_[6819828186333]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 6.2303242683410645
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572959899902344
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.00006866455078
-                }
-            ]
-        },
-        "Instance_[6862777859293]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Turn_90.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5739331584205115]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_turn_90_221188bc_f49e_5b9e_983b_059dfb2e6336_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5739335879172411]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_turn_90_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5739335879172411]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_turn_90_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5739357354008891]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_turn_90_856583ba_eaef_5d8d_8f15_65ef3c8e6b47_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5739340174139707]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_turn_90_c55ee04a_87eb_54f2_a7cc_6d1282187b72_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 14.975584030151367
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08865928649902344
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99993133544922
-                }
-            ]
-        },
-        "Instance_[909953187037]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 3.914523124694824
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572578430175781
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.00006866455078
-                }
-            ]
-        },
-        "Instance_[935722990813]": {
-            "Source": "Assets/Factory/ConveyorElements/ConveyorSegments_Straight.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738421051138363]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_55d844e7_87d2_5a96_ac0a_4de78b2469ef_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738425346105659]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/conveyorsegments_straight_barriers.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738433936040251]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_e846c83d_3169_52c2_8165_946c8620a81d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[5738438231007547]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorelements/models/default_conveyorsegments_straight_12a1cf48_eb3f_5f3c_9ba6_415bf9b92f5a_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[4009979659856]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 5.083247184753418
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.08572959899902344
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 90.00006866455078
                 }
             ]
         }

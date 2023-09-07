@@ -1,0 +1,2313 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "warthog_2",
+        "Components": {
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 4562265088924106357
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 15341427894837173547
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 8080436912089429407
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 9712277774446931367,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[5512673907588]": {
+            "Id": "Entity_[5512673907588]",
+            "Name": "rear_right_wheel_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 11950837644522075605,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 15.0,
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 13109994256691897772,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAAIAAAADFAAAARwAAAIoBAAA+vW6+////PcdTQb4+vW6+////vcdTQb6vh3i+////vVORNL7e0YC+////PSpQJ77HU0G+////PT69bj5RkTS+////va+HeD4qUCe+////Pd7RgD4ywpg+////PdBxAD1UPpY+////PV57fz1UPpY+////vV57fz0ywpg+////vdBxAD2amZk+////vQAAAACamZk+////PQAAAAARFZI+////PSzcvT0RUow+////PSTm+T0RUow+////vSTm+T0RFZI+////vSzcvT3DU0G+////PUG9br4mUCe+////Pd7RgL4mUCe+////vd7RgL7DU0G+////vUG9br4jOVm+////vSQ5Wb4jOVm+////PSQ5Wb4w3L09////PRAVkr4q5vk9////PRFSjL4q5vk9////vRFSjL4w3L09////vRAVkr5ne389////vVQ+lr5ne389////PVQ+lr7EU0E+////PUC9bj4oUCc+////Pd7RgD4oUCc+////vd7RgD7EU0E+////vUC9bj4kOVk+////vSQ5WT4kOVk+////PSQ5WT5Fdwu+////Pc3biD4m5vm9////vRFSjD5qLty9////PeBljz6bmRm+////vYEFhT4t3L29////vRAVkj6BBYW+////vZuZGb4ywpi+////PcpxAD2amZm+////PWtJ4bKamZm+////vWtJ4bIywpi+////vcpxAD1UPpa+////vVd7fz1UPpa+////PVd7fz1Cdwu+////Pc7biL5jLty9////PeFlj75jLty9////veFlj75Cdwu+////vc7biL4QFZK+////PTDcvb0RUoy+////PSnm+b0RUoy+////vSnm+b0QFZK+////vTDcvb1UPpa+////vWV7f71UPpa+////PWV7f73O24i+////PUN3Cz7hZY++////PWYu3D3hZY++////vWYu3D3O24i+////vUN3Cz7e0YC+////vShQJz7e0YC+////PShQJz5Edws+////Pc7biD5nLtw9////PeFljz5nLtw9////veFljz5Edws+////vc7biD4ywpg+////PcJxAL0ywpg+////vcJxAL1UPpY+////vU97f71UPpY+////PU97f73UcQC9////vTLCmD5rSWGy////vZqZmT5rSWGy////PZqZmT7UcQC9////PTLCmD5ie3+9////PVQ+lj5ie3+9////vVQ+lj7HU0E+////PT29br4nOVk+////PSE5Wb4nOVk+////vSE5Wb7HU0E+////vT29br4rUCc+////vd7RgL4rUCc+////Pd7RgL7FcQC9////PTLCmL4R9ygz////PZqZmb4R9ygz////vZqZmb7FcQC9////vTLCmL5Se3+9////vVQ+lr5Se3+9////PVQ+lr7NcQA9////PTLCmD7NcQA9////vTLCmD5be389////vVQ+lj5be389////PVQ+lj5BvW4+////PcNTQb7g0YA+////PSRQJ77g0YA+////vSRQJ75BvW4+////vcNTQb5AvW6+////PcNTQT5AvW6+////vcNTQT4kOVm+////vSM5WT4kOVm+////PSM5WT4RFZI+////PSXcvb0RFZI+////vSXcvb0TUow+////vR/m+b0TUow+////PR/m+b0+vW4+////PcRTQT4+vW4+////vcRTQT7e0YA+////vSlQJz7e0YA+////PSlQJz4wwpi+////PdZxAL0wwpi+////vdZxAL3bcQA9////PTDCmL7bcQA9////vTDCmL6Vjk2+////vUlLZD66BJ+9////PcBdlD4RFZK+////PSncvT3BXZS+////vbQEnz2zBJ+9////PcFdlL6zBJ+9////vcFdlL7O24g+////PUV3Cz7O24g+////vUV3Cz61BJ89////PcBdlD61BJ89////vcBdlD6DBYU+////PZeZGb7O24g+////vUJ3C76cmRk+////PYEFhb6cmRk+////vYEFhb7N24i+////PUV3C74AAAAAAACAvwAAAAD///+9AABAAFvJTb+usw87UUYYvxV0mb5AAARqC3kWv0eN1zqrG08/m36ZvkQAA1Ej2Xw/AAAAAJYwID62Y5m+RwAENzCmfz8AAAAA011WPbdjmb5LAAQqGv9uPwAAAAAofLc+t2OZvk8ABDTuRnc/AAAAANeDhD62Y5m+UwAENwl5Fr8AAAAAyhtPv7djmb5XAAQeKUwrvwAAAAC5Pj6/tmOZvlsABB0HfLc+AAAAACD/br+2Y5m+XwAEJfaDhD4AAAAA6kZ3v7djmb5jAARy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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.25,
+                            "Radius": 0.30000001192092896
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11846476910707214828
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7903821851644116941
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16097703834715039531
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7732502746031378146
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 8434561354079437533
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 7690198020771111792
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14117737970741919922
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12902538084570221032
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 4579984466294901282,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "rear_right_wheel_link",
+                        "Joint Name": "rear_right_wheel_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6560959545479526714,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.4573670029640198,
+                            0.0,
+                            -0.012977000325918198
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5516968874884]": {
+            "Id": "Entity_[5516968874884]",
+            "Name": "rear_right_wheel_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 12859619202073948393,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{AB650D47-1C7D-5F4A-A219-88C2183EDF76}",
+                                    "subId": 282111860
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 285869066901689104
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11251343286382373490
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14314852754349251931
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9859918695288381821
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6461481534273769698
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3056271670930895177,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.25,
+                                                0.25,
+                                                0.25,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2210061206424879413
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4439656840310590993
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3348020515161439244
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11533206021245020821,
+                    "Parent Entity": "Entity_[5512673907588]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5521263842180]": {
+            "Id": "Entity_[5521263842180]",
+            "Name": "right_diff_unit_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 12918598544878995394,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 50.0,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.05000000074505806,
+                            0.19699999690055847
+                        ],
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Angular Limit Negative": -22.918312072753906,
+                        "Angular Limit Positive": 22.918312072753906
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17577971844726096069
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6718259153969626282
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15988462893082367052
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11950686773976806137
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7743595861702911764
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 13735313019470557147,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            -0.7071067690849304,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                    "subId": 4123367623
+                                }
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                        "subId": 4123367623
+                                    },
+                                    "loadBehavior": "QueueLoad"
+                                },
+                                "UseMaterialsFromAsset": false
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5658556772089636550
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3979524493622727410
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11189020898976862679
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 81946693339189222,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "right_diff_unit_link",
+                        "Joint Name": "right_diff_unit_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7460232628546106206,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            -0.5682100057601929,
+                            0.02500000037252903
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5525558809476]": {
+            "Id": "Entity_[5525558809476]",
+            "Name": "right_diff_unit_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 12960664586046390620,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{DD261DCA-9485-5716-8141-F1B586D18BA2}",
+                                    "subId": 282730027
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17674394022922263238
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11300877534390235325
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 10134690282024177342
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7221760835396804066
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2300829066963070807
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 6043175613669970557,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.949999988079071,
+                                                0.8159999847412109,
+                                                0.0820000022649765,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1964485181408942389
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2250952136310607156
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 744082615499460421
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16692749513379650215,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5529853776772]": {
+            "Id": "Entity_[5529853776772]",
+            "Name": "right_diff_unit_link_visual_1",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 12936136507977567608,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                    "subId": 275555081
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 18396386856533187618
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3632296218319467580
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1271252572078197517
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13781253351745403387
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1102239449482074920
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 14288244349694435273,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.949999988079071,
+                                                0.8159999847412109,
+                                                0.0820000022649765,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11125557273357694379
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4397920392568671692
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 15419531566670964125
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2936870531494500855,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5534148744068]": {
+            "Id": "Entity_[5534148744068]",
+            "Name": "right_diff_unit_link_fixed_joint_lump__right_diff_unit_headlight_link_visual_2",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 15372415735552350547,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{D2347C79-A8C0-5E0C-AC08-BF95454142A2}",
+                                    "subId": 270163191
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15413625980711879345
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14885427712905034973
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14280634522306182004
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15185553640152470395
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15011413736826578322
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 11630076592225181752,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.8999999761581421,
+                                                0.8999999761581421,
+                                                0.8999999761581421,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10453456771400980402
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3229922024810925680
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1201810555127771845
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9535967368435638134,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.024399999529123306,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5538443711364]": {
+            "Id": "Entity_[5538443711364]",
+            "Name": "right_diff_unit_link_fixed_joint_lump__right_diff_unit_taillight_link_visual_3",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 16275765313737444329,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{D2347C79-A8C0-5E0C-AC08-BF95454142A2}",
+                                    "subId": 270163191
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9937848015092110018
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14786093676532643049
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16525952760447095521
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5453108375749628173
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4444388545246289999
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 12959755688161402151,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.8999999761581421,
+                                                0.0,
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9753871727440793355
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2050135605596594527
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12492465234594140359
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6100871866061564944,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.024399999529123306,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -180.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5542738678660]": {
+            "Id": "Entity_[5542738678660]",
+            "Name": "front_left_wheel_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 13496401035544464453,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 15.0,
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 14977323410975347635,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAAIAAAADFAAAARwAAAIoBAAA+vW6+////PcdTQb4+vW6+////vcdTQb6vh3i+////vVORNL7e0YC+////PSpQJ77HU0G+////PT69bj5RkTS+////va+HeD4qUCe+////Pd7RgD4ywpg+////PdBxAD1UPpY+////PV57fz1UPpY+////vV57fz0ywpg+////vdBxAD2amZk+////vQAAAACamZk+////PQAAAAARFZI+////PSzcvT0RUow+////PSTm+T0RUow+////vSTm+T0RFZI+////vSzcvT3DU0G+////PUG9br4mUCe+////Pd7RgL4mUCe+////vd7RgL7DU0G+////vUG9br4jOVm+////vSQ5Wb4jOVm+////PSQ5Wb4w3L09////PRAVkr4q5vk9////PRFSjL4q5vk9////vRFSjL4w3L09////vRAVkr5ne389////vVQ+lr5ne389////PVQ+lr7EU0E+////PUC9bj4oUCc+////Pd7RgD4oUCc+////vd7RgD7EU0E+////vUC9bj4kOVk+////vSQ5WT4kOVk+////PSQ5WT5Fdwu+////Pc3biD4m5vm9////vRFSjD5qLty9////PeBljz6bmRm+////vYEFhT4t3L29////vRAVkj6BBYW+////vZuZGb4ywpi+////PcpxAD2amZm+////PWtJ4bKamZm+////vWtJ4bIywpi+////vcpxAD1UPpa+////vVd7fz1UPpa+////PVd7fz1Cdwu+////Pc7biL5jLty9////PeFlj75jLty9////veFlj75Cdwu+////vc7biL4QFZK+////PTDcvb0RUoy+////PSnm+b0RUoy+////vSnm+b0QFZK+////vTDcvb1UPpa+////vWV7f71UPpa+////PWV7f73O24i+////PUN3Cz7hZY++////PWYu3D3hZY++////vWYu3D3O24i+////vUN3Cz7e0YC+////vShQJz7e0YC+////PShQJz5Edws+////Pc7biD5nLtw9////PeFljz5nLtw9////veFljz5Edws+////vc7biD4ywpg+////PcJxAL0ywpg+////vcJxAL1UPpY+////vU97f71UPpY+////PU97f73UcQC9////vTLCmD5rSWGy////vZqZmT5rSWGy////PZqZmT7UcQC9////PTLCmD5ie3+9////PVQ+lj5ie3+9////vVQ+lj7HU0E+////PT29br4nOVk+////PSE5Wb4nOVk+////vSE5Wb7HU0E+////vT29br4rUCc+////vd7RgL4rUCc+////Pd7RgL7FcQC9////PTLCmL4R9ygz////PZqZmb4R9ygz////vZqZmb7FcQC9////vTLCmL5Se3+9////vVQ+lr5Se3+9////PVQ+lr7NcQA9////PTLCmD7NcQA9////vTLCmD5be389////vVQ+lj5be389////PVQ+lj5BvW4+////PcNTQb7g0YA+////PSRQJ77g0YA+////vSRQJ75BvW4+////vcNTQb5AvW6+////PcNTQT5AvW6+////vcNTQT4kOVm+////vSM5WT4kOVm+////PSM5WT4RFZI+////PSXcvb0RFZI+////vSXcvb0TUow+////vR/m+b0TUow+////PR/m+b0+vW4+////PcRTQT4+vW4+////vcRTQT7e0YA+////vSlQJz7e0YA+////PSlQJz4wwpi+////PdZxAL0wwpi+////vdZxAL3bcQA9////PTDCmL7bcQA9////vTDCmL6Vjk2+////vUlLZD66BJ+9////PcBdlD4RFZK+////PSncvT3BXZS+////vbQEnz2zBJ+9////PcFdlL6zBJ+9////vcFdlL7O24g+////PUV3Cz7O24g+////vUV3Cz61BJ89////PcBdlD61BJ89////vcBdlD6DBYU+////PZeZGb7O24g+////vUJ3C76cmRk+////PYEFhb6cmRk+////vYEFhb7N24i+////PUV3C74AAAAAAACAvwAAAAD///+9AABAAFvJTb+usw87UUYYvxV0mb5AAARqC3kWv0eN1zqrG08/m36ZvkQAA1Ej2Xw/AAAAAJYwID62Y5m+RwAENzCmfz8AAAAA011WPbdjmb5LAAQqGv9uPwAAAAAofLc+t2OZvk8ABDTuRnc/AAAAANeDhD62Y5m+UwAENwl5Fr8AAAAAyhtPv7djmb5XAAQeKUwrvwAAAAC5Pj6/tmOZvlsABB0HfLc+AAAAACD/br+2Y5m+XwAEJfaDhD4AAAAA6kZ3v7djmb5jAARy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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.25,
+                            "Radius": 0.30000001192092896
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 883797708517513986
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12667533385005377604
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15357984534138562298
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12138989594135341883
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1199815653736556879
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11864367773291375191
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16085391962023504861
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 656951461777041522
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 13567421144410124846,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "front_left_wheel_link",
+                        "Joint Name": "front_left_wheel_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11655724301975106076,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.4573670029640198,
+                            0.0,
+                            -0.012977000325918198
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5547033645956]": {
+            "Id": "Entity_[5547033645956]",
+            "Name": "front_left_wheel_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 13567975396363273859,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{AB650D47-1C7D-5F4A-A219-88C2183EDF76}",
+                                    "subId": 282111860
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9708640341569234562
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5263687325224293572
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7500581620558229919
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7090217824060225818
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9957915397617999468
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9139186688783987983,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.25,
+                                                0.25,
+                                                0.25,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6614271300621701542
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10834113305572563559
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9077349306871493012
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8812471145037435236,
+                    "Parent Entity": "Entity_[5542738678660]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5551328613252]": {
+            "Id": "Entity_[5551328613252]",
+            "Name": "rear_left_wheel_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 1892209803998396608,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 15.0,
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 10959948763987109026,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAAIAAAADFAAAARwAAAIoBAAA+vW6+////PcdTQb4+vW6+////vcdTQb6vh3i+////vVORNL7e0YC+////PSpQJ77HU0G+////PT69bj5RkTS+////va+HeD4qUCe+////Pd7RgD4ywpg+////PdBxAD1UPpY+////PV57fz1UPpY+////vV57fz0ywpg+////vdBxAD2amZk+////vQAAAACamZk+////PQAAAAARFZI+////PSzcvT0RUow+////PSTm+T0RUow+////vSTm+T0RFZI+////vSzcvT3DU0G+////PUG9br4mUCe+////Pd7RgL4mUCe+////vd7RgL7DU0G+////vUG9br4jOVm+////vSQ5Wb4jOVm+////PSQ5Wb4w3L09////PRAVkr4q5vk9////PRFSjL4q5vk9////vRFSjL4w3L09////vRAVkr5ne389////vVQ+lr5ne389////PVQ+lr7EU0E+////PUC9bj4oUCc+////Pd7RgD4oUCc+////vd7RgD7EU0E+////vUC9bj4kOVk+////vSQ5WT4kOVk+////PSQ5WT5Fdwu+////Pc3biD4m5vm9////vRFSjD5qLty9////PeBljz6bmRm+////vYEFhT4t3L29////vRAVkj6BBYW+////vZuZGb4ywpi+////PcpxAD2amZm+////PWtJ4bKamZm+////vWtJ4bIywpi+////vcpxAD1UPpa+////vVd7fz1UPpa+////PVd7fz1Cdwu+////Pc7biL5jLty9////PeFlj75jLty9////veFlj75Cdwu+////vc7biL4QFZK+////PTDcvb0RUoy+////PSnm+b0RUoy+////vSnm+b0QFZK+////vTDcvb1UPpa+////vWV7f71UPpa+////PWV7f73O24i+////PUN3Cz7hZY++////PWYu3D3hZY++////vWYu3D3O24i+////vUN3Cz7e0YC+////vShQJz7e0YC+////PShQJz5Edws+////Pc7biD5nLtw9////PeFljz5nLtw9////veFljz5Edws+////vc7biD4ywpg+////PcJxAL0ywpg+////vcJxAL1UPpY+////vU97f71UPpY+////PU97f73UcQC9////vTLCmD5rSWGy////vZqZmT5rSWGy////PZqZmT7UcQC9////PTLCmD5ie3+9////PVQ+lj5ie3+9////vVQ+lj7HU0E+////PT29br4nOVk+////PSE5Wb4nOVk+////vSE5Wb7HU0E+////vT29br4rUCc+////vd7RgL4rUCc+////Pd7RgL7FcQC9////PTLCmL4R9ygz////PZqZmb4R9ygz////vZqZmb7FcQC9////vTLCmL5Se3+9////vVQ+lr5Se3+9////PVQ+lr7NcQA9////PTLCmD7NcQA9////vTLCmD5be389////vVQ+lj5be389////PVQ+lj5BvW4+////PcNTQb7g0YA+////PSRQJ77g0YA+////vSRQJ75BvW4+////vcNTQb5AvW6+////PcNTQT5AvW6+////vcNTQT4kOVm+////vSM5WT4kOVm+////PSM5WT4RFZI+////PSXcvb0RFZI+////vSXcvb0TUow+////vR/m+b0TUow+////PR/m+b0+vW4+////PcRTQT4+vW4+////vcRTQT7e0YA+////vSlQJz7e0YA+////PSlQJz4wwpi+////PdZxAL0wwpi+////vdZxAL3bcQA9////PTDCmL7bcQA9////vTDCmL6Vjk2+////vUlLZD66BJ+9////PcBdlD4RFZK+////PSncvT3BXZS+////vbQEnz2zBJ+9////PcFdlL6zBJ+9////vcFdlL7O24g+////PUV3Cz7O24g+////vUV3Cz61BJ89////PcBdlD61BJ89////vcBdlD6DBYU+////PZeZGb7O24g+////vUJ3C76cmRk+////PYEFhb6cmRk+////vYEFhb7N24i+////PUV3C74AAAAAAACAvwAAAAD///+9AABAAFvJTb+usw87UUYYvxV0mb5AAARqC3kWv0eN1zqrG08/m36ZvkQAA1Ej2Xw/AAAAAJYwID62Y5m+RwAENzCmfz8AAAAA011WPbdjmb5LAAQqGv9uPwAAAAAofLc+t2OZvk8ABDTuRnc/AAAAANeDhD62Y5m+UwAENwl5Fr8AAAAAyhtPv7djmb5XAAQeKUwrvwAAAAC5Pj6/tmOZvlsABB0HfLc+AAAAACD/br+2Y5m+XwAEJfaDhD4AAAAA6kZ3v7djmb5jAARy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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.25,
+                            "Radius": 0.30000001192092896
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1029039926576246275
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1723961761395580063
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7981798753957087900
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 363523006346248552
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7349848700270601512
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12533515930727000498
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7064236847381797873
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7779434409686696245
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17577229989105541343,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "rear_left_wheel_link",
+                        "Joint Name": "rear_left_wheel_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7743441833756090445,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.4573670029640198,
+                            0.0,
+                            -0.012977000325918198
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5555623580548]": {
+            "Id": "Entity_[5555623580548]",
+            "Name": "rear_left_wheel_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 2383460253082683398,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{AB650D47-1C7D-5F4A-A219-88C2183EDF76}",
+                                    "subId": 282111860
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11398291111015345574
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9383770654673494972
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 7380414866652817301
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12970627941545896271
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6294541018594323136
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 897909067466317613,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.25,
+                                                0.25,
+                                                0.25,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 6719836061907131524
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2524604313236418052
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1460345311440108695
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3927953817543513800,
+                    "Parent Entity": "Entity_[5551328613252]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5559918547844]": {
+            "Id": "Entity_[5559918547844]",
+            "Name": "left_diff_unit_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 15682374907884107727,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 50.0,
+                        "Centre of mass offset": [
+                            0.0,
+                            -0.05000000074505806,
+                            0.19699999690055847
+                        ],
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ],
+                        "Angular Limit Negative": -22.918312072753906,
+                        "Angular Limit Positive": 22.918312072753906
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6093354643918944047
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8186303718926853847
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6652760958464449152
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7528520616744980673
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6418184285382151813
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 8399528392653293127,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.7071067690849304,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                    "subId": 4123367623
+                                }
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                        "subId": 4123367623
+                                    },
+                                    "loadBehavior": "QueueLoad"
+                                },
+                                "UseMaterialsFromAsset": false
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4370456611816547704
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14267294499842209911
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11620849797281449442
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 4078370827583327725,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "left_diff_unit_link",
+                        "Joint Name": "left_diff_unit_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6657457721646592052,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.5682100057601929,
+                            0.02500000037252903
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5564213515140]": {
+            "Id": "Entity_[5564213515140]",
+            "Name": "left_diff_unit_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 9394417351880570593,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{DD261DCA-9485-5716-8141-F1B586D18BA2}",
+                                    "subId": 282730027
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7570138809698326059
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11232088922951687496
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8437447285141792998
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 956152485195752478
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15167956286443675637
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9244121384232230469,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.949999988079071,
+                                                0.8159999847412109,
+                                                0.0820000022649765,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3598593301218388800
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15679498636167642606
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 5562847759659945706
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6004441171235836403,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5568508482436]": {
+            "Id": "Entity_[5568508482436]",
+            "Name": "left_diff_unit_link_visual_1",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 6900916558322675122,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{02991879-3168-523F-B221-A562B1A20923}",
+                                    "subId": 275555081
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2586300246497868740
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11643728899406612817
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2503822258839939327
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 759991875067927990
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17034832745077373539
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3634306934887159284,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.949999988079071,
+                                                0.8159999847412109,
+                                                0.0820000022649765,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10067952579311450640
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 12262171480702194649
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8781957085798117753
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8367658878275616102,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5572803449732]": {
+            "Id": "Entity_[5572803449732]",
+            "Name": "left_diff_unit_link_fixed_joint_lump__left_diff_unit_headlight_link_visual_2",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18072791469302163073,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{D2347C79-A8C0-5E0C-AC08-BF95454142A2}",
+                                    "subId": 270163191
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9548902348453885413
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4568007693316400695
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4254005000808157040
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8054375861797142075
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 737939168643481788
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 5888670355480699695,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.8999999761581421,
+                                                0.8999999761581421,
+                                                0.8999999761581421,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10418623947588471491
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6217143200175591685
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17000794130721178120
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6234463499238207926,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            -0.024399999529123306,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5577098417028]": {
+            "Id": "Entity_[5577098417028]",
+            "Name": "left_diff_unit_link_fixed_joint_lump__left_diff_unit_taillight_link_visual_3",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 13754592640408314542,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{D2347C79-A8C0-5E0C-AC08-BF95454142A2}",
+                                    "subId": 270163191
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4015989200559695164
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11596017150946800667
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 910717278836999820
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5987174130016589449
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 394999995867795730
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 8804295454181499313,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.8999999761581421,
+                                                0.0,
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17703372411977792364
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15672052907764033743
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14339841476492087116
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15593949458003804511,
+                    "Parent Entity": "Entity_[5559918547844]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            -0.024399999529123306,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            180.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5581393384324]": {
+            "Id": "Entity_[5581393384324]",
+            "Name": "front_right_wheel_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 8938930862928088795,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 15.0,
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10,
+                        "Articulation Joint Type": 1,
+                        "Local Rotation": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 10213368709684616227,
+                    "ColliderConfiguration": {
+                        "Rotation": [
+                            0.7071067690849304,
+                            0.0,
+                            0.0,
+                            0.7071067690849304
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAAIAAAADFAAAARwAAAIoBAAA+vW6+////PcdTQb4+vW6+////vcdTQb6vh3i+////vVORNL7e0YC+////PSpQJ77HU0G+////PT69bj5RkTS+////va+HeD4qUCe+////Pd7RgD4ywpg+////PdBxAD1UPpY+////PV57fz1UPpY+////vV57fz0ywpg+////vdBxAD2amZk+////vQAAAACamZk+////PQAAAAARFZI+////PSzcvT0RUow+////PSTm+T0RUow+////vSTm+T0RFZI+////vSzcvT3DU0G+////PUG9br4mUCe+////Pd7RgL4mUCe+////vd7RgL7DU0G+////vUG9br4jOVm+////vSQ5Wb4jOVm+////PSQ5Wb4w3L09////PRAVkr4q5vk9////PRFSjL4q5vk9////vRFSjL4w3L09////vRAVkr5ne389////vVQ+lr5ne389////PVQ+lr7EU0E+////PUC9bj4oUCc+////Pd7RgD4oUCc+////vd7RgD7EU0E+////vUC9bj4kOVk+////vSQ5WT4kOVk+////PSQ5WT5Fdwu+////Pc3biD4m5vm9////vRFSjD5qLty9////PeBljz6bmRm+////vYEFhT4t3L29////vRAVkj6BBYW+////vZuZGb4ywpi+////PcpxAD2amZm+////PWtJ4bKamZm+////vWtJ4bIywpi+////vcpxAD1UPpa+////vVd7fz1UPpa+////PVd7fz1Cdwu+////Pc7biL5jLty9////PeFlj75jLty9////veFlj75Cdwu+////vc7biL4QFZK+////PTDcvb0RUoy+////PSnm+b0RUoy+////vSnm+b0QFZK+////vTDcvb1UPpa+////vWV7f71UPpa+////PWV7f73O24i+////PUN3Cz7hZY++////PWYu3D3hZY++////vWYu3D3O24i+////vUN3Cz7e0YC+////vShQJz7e0YC+////PShQJz5Edws+////Pc7biD5nLtw9////PeFljz5nLtw9////veFljz5Edws+////vc7biD4ywpg+////PcJxAL0ywpg+////vcJxAL1UPpY+////vU97f71UPpY+////PU97f73UcQC9////vTLCmD5rSWGy////vZqZmT5rSWGy////PZqZmT7UcQC9////PTLCmD5ie3+9////PVQ+lj5ie3+9////vVQ+lj7HU0E+////PT29br4nOVk+////PSE5Wb4nOVk+////vSE5Wb7HU0E+////vT29br4rUCc+////vd7RgL4rUCc+////Pd7RgL7FcQC9////PTLCmL4R9ygz////PZqZmb4R9ygz////vZqZmb7FcQC9////vTLCmL5Se3+9////vVQ+lr5Se3+9////PVQ+lr7NcQA9////PTLCmD7NcQA9////vTLCmD5be389////vVQ+lj5be389////PVQ+lj5BvW4+////PcNTQb7g0YA+////PSRQJ77g0YA+////vSRQJ75BvW4+////vcNTQb5AvW6+////PcNTQT5AvW6+////vcNTQT4kOVm+////vSM5WT4kOVm+////PSM5WT4RFZI+////PSXcvb0RFZI+////vSXcvb0TUow+////vR/m+b0TUow+////PR/m+b0+vW4+////PcRTQT4+vW4+////vcRTQT7e0YA+////vSlQJz7e0YA+////PSlQJz4wwpi+////PdZxAL0wwpi+////vdZxAL3bcQA9////PTDCmL7bcQA9////vTDCmL6Vjk2+////vUlLZD66BJ+9////PcBdlD4RFZK+////PSncvT3BXZS+////vbQEnz2zBJ+9////PcFdlL6zBJ+9////vcFdlL7O24g+////PUV3Cz7O24g+////vUV3Cz61BJ89////PcBdlD61BJ89////vcBdlD6DBYU+////PZeZGb7O24g+////vUJ3C76cmRk+////PYEFhb6cmRk+////vYEFhb7N24i+////PUV3C74AAAAAAACAvwAAAAD///+9AABAAFvJTb+usw87UUYYvxV0mb5AAARqC3kWv0eN1zqrG08/m36ZvkQAA1Ej2Xw/AAAAAJYwID62Y5m+RwAENzCmfz8AAAAA011WPbdjmb5LAAQqGv9uPwAAAAAofLc+t2OZvk8ABDTuRnc/AAAAANeDhD62Y5m+UwAENwl5Fr8AAAAAyhtPv7djmb5XAAQeKUwrvwAAAAC5Pj6/tmOZvlsABB0HfLc+AAAAACD/br+2Y5m+XwAEJfaDhD4AAAAA6kZ3v7djmb5jAARy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",
+                                "Type": 1
+                            },
+                            "Subdivision": 120,
+                            "Height": 0.25,
+                            "Radius": 0.30000001192092896
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17135360424673816434
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12009461987724208219
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14959293431315269513
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7328551615835921494
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15371940915416505587
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4596468754340175743
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2624800271522351389
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 5529873284049943251
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 6360313267624800107,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "front_right_wheel_link",
+                        "Joint Name": "front_right_wheel_joint"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3324708488176336927,
+                    "Parent Entity": "Entity_[5521263842180]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.4573670029640198,
+                            0.0,
+                            -0.012977000325918198
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5585688351620]": {
+            "Id": "Entity_[5585688351620]",
+            "Name": "front_right_wheel_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 1209391530377058685,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{AB650D47-1C7D-5F4A-A219-88C2183EDF76}",
+                                    "subId": 282111860
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7979544329132625067
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 18372215216934184481
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6859304281595232548
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3045161604700201263
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 13172223665576896949
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13039706928683292705,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.25,
+                                                0.25,
+                                                0.25,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10443627741777383242
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 12785645548837244496
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13551136125308429044
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15537848611102550778,
+                    "Parent Entity": "Entity_[5581393384324]",
+                    "Transform Data": {
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            89.99999237060547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5589983318916]": {
+            "Id": "Entity_[5589983318916]",
+            "Name": "base_link",
+            "Components": {
+                "EditorArticulationLinkComponent": {
+                    "$type": "EditorArticulationLinkComponent",
+                    "Id": 10041268570584857919,
+                    "ArticulationConfiguration": {
+                        "entityId": "",
+                        "Mass": 100.0,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.0,
+                            0.02500000037252903
+                        ],
+                        "SolverPositionIterations": 40,
+                        "SolverVelocityIterations": 10
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7339097589636025392
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17391002821681106243
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1013320020864979393
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11671188178368192047
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17408806957031430167
+                },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 12732538784412067377,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.02500000037252903
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{9B921705-F936-5A59-A948-EF08E2A5822F}",
+                                    "subId": 3345769861
+                                }
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{9B921705-F936-5A59-A948-EF08E2A5822F}",
+                                        "subId": 3345769861
+                                    },
+                                    "loadBehavior": "QueueLoad"
+                                },
+                                "UseMaterialsFromAsset": false
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8880096258984107604
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15457569252875696897
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13473940675551283329
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 5753165366167053978,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "base_link"
+                    }
+                },
+                "ROS2RobotControlComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17920720307980360673,
+                    "m_template": {
+                        "$type": "ROS2RobotControlComponent",
+                        "SubscriberConfiguration": {
+                            "Topic": "cmd_vel"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9428878322684886477,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[5594278286212]": {
+            "Id": "Entity_[5594278286212]",
+            "Name": "base_link_fixed_joint_lump__chassis_link_visual",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 10474070784513903364,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{A9ECEAAC-29DA-5FB0-A4B6-60D5D27B933E}",
+                                    "subId": 281637855
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6044176356150171943
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15216439906085631249
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11857166679286639169
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9807843180832749493
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9350951370724272017
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 4363719196134099920,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.1875000149011612,
+                                                0.1875000149011612,
+                                                0.1875000149011612,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14768226989618957322
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11416547944564617972
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11026113985652481713
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 14189781927603294923,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.02500000037252903
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5598573253508]": {
+            "Id": "Entity_[5598573253508]",
+            "Name": "base_link_fixed_joint_lump__chassis_link_visual_1",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 9997365850456637736,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{EA68E4F9-10B7-59FB-BF19-2A727028EEBF}",
+                                    "subId": 280501589
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13575069245728776696
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10114601881593489374
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16742782699702447204
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4390635114906871243
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11242064307870225772
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3760321587703749942,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                1.0,
+                                                0.0,
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4633836291585243863
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 18170063395269037884
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17349505216094244900
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15798891174945117691,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.02500000037252903
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5602868220804]": {
+            "Id": "Entity_[5602868220804]",
+            "Name": "base_link_fixed_joint_lump__diff_link_visual_2",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 1432904604948672537,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{9580CA99-E8B2-57E9-9B30-223DAD92BC2E}",
+                                    "subId": 273696598
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15685433600717866940
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 2166849098698100468
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 18269837394536303300
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10887571593445295710
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 3470750061274433031
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 9988895484101829836,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.5,
+                                                0.5,
+                                                0.5,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13039958231585527851
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5457989417969635533
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6220766335247815298
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7888913943541888692,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.5825999975204468,
+                            0.0,
+                            0.2747899889945984
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5607163188100]": {
+            "Id": "Entity_[5607163188100]",
+            "Name": "base_link_fixed_joint_lump__diff_link_visual_3",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 700167744451493429,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{ACC2FEB4-16C1-57A7-9C56-6465945AA4A4}",
+                                    "subId": 277618277
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4624439569880737964
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8186220904428132118
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9005939156547995342
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11959437605025316038
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9085265354527913271
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 4475731805228074380,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.0,
+                                                0.0,
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16485456842877307772
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 500475872249692587
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 124385843170576847
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6638124222451925288,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.5825999975204468,
+                            0.0,
+                            0.2747899889945984
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[5611458155396]": {
+            "Id": "Entity_[5611458155396]",
+            "Name": "base_link_fixed_joint_lump__diff_link_visual_4",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 14994001514349710898,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{ACC2FEB4-16C1-57A7-9C56-6465945AA4A4}",
+                                    "subId": 277618277
+                                },
+                                "loadBehavior": "PreLoad"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12860833883042436268
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10866290264158266575
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5561761904880490038
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7303288267244447391
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17661553747973170941
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13800385366986807560,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": {
+                                "{}": {
+                                    "PropertyOverrides": {
+                                        "settings.color": {
+                                            "$type": "Color",
+                                            "Value": [
+                                                0.0,
+                                                0.0,
+                                                0.0,
+                                                1.0
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3243270447286183853
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 8873445256617159322
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1201591244031189584
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11013338410560793905,
+                    "Parent Entity": "Entity_[5589983318916]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.5825999975204468,
+                            0.0,
+                            0.2747899889945984
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

@@ -106,8 +106,10 @@
                                 }
                             }
                         },
-                        "lidarConfiguration": {
-                            "lidarImplementation": "Scene Queries"
+                        "lidarCore": {
+                            "lidarConfiguration": {
+                                "lidarImplementation": "Scene Queries"
+                            }
                         }
                     }
                 },
@@ -119,7 +121,7 @@
                         "Translate": [
                             0.4699999988079071,
                             0.2999999523162842,
-                            0.19999998807907104
+                            0.18000000715255737
                         ]
                     }
                 }
@@ -181,8 +183,10 @@
                                 }
                             }
                         },
-                        "lidarConfiguration": {
-                            "lidarImplementation": "Scene Queries"
+                        "lidarCore": {
+                            "lidarConfiguration": {
+                                "lidarImplementation": "Scene Queries"
+                            }
                         }
                     }
                 },
@@ -194,7 +198,7 @@
                         "Translate": [
                             -0.4699999988079071,
                             -0.30000001192092896,
-                            0.19999998807907104
+                            0.18000000715255737
                         ]
                     }
                 }
@@ -1576,94 +1580,6 @@
                 }
             }
         },
-        "Entity_[393616982539]": {
-            "Id": "Entity_[393616982539]",
-            "Name": "platform_upper_visual",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 4392747402873524597,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{FB407687-D49F-5B4E-B475-41A245A9ED13}",
-                                    "subId": 280005104
-                                },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_platform_upper.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 16648509262754404526
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 12584591267076683401
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 12069081991764360942
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 6367887534777932305
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 8060207052912309212
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 16543513318289656469,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2084814471
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            },
-                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 16878513164917812325
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 8613453328951576310
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 17959065934485426251
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 18063860636205218875,
-                    "Parent Entity": "Entity_[406501884427]",
-                    "Transform Data": {
-                        "Translate": [
-                            0.0,
-                            0.0,
-                            0.3700000047683716
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[397911949835]": {
             "Id": "Entity_[397911949835]",
             "Name": "Light_rear_left_corner",
@@ -1851,7 +1767,7 @@
                         "Position": [
                             0.0,
                             0.0,
-                            0.3700000047683716
+                            0.4000000059604645
                         ],
                         "MaterialSlots": {
                             "Slots": [
@@ -1884,7 +1800,6 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 4658708807787709411,
                     "Child Entity Order": [
-                        "Entity_[393616982539]",
                         "Entity_[440861622795]"
                     ]
                 },
@@ -1923,7 +1838,11 @@
                     },
                     "Linear Limit": {
                         "Lower Limit": 0.0,
-                        "Upper Limit": 0.05000000074505806
+                        "Upper Limit": 0.04500000178813934
+                    },
+                    "Motor": {
+                        "UseMotor": true,
+                        "ForceLimit": 1000.0
                     }
                 },
                 "EditorRigidBodyComponent": {
@@ -1935,14 +1854,14 @@
                         "Centre of mass offset": [
                             0.0,
                             0.0,
-                            0.37000003457069397
+                            0.39500001072883606
                         ],
                         "Inertia tensor": [
                             1.1658997535705566,
                             0.0,
                             0.0,
                             0.0,
-                            3.2193408012390137,
+                            3.21934175491333,
                             0.0,
                             0.0,
                             0.0,
@@ -1953,6 +1872,16 @@
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 15542203297073051226
+                },
+                "PidMotorControllerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1626661491633580212,
+                    "m_template": {
+                        "$type": "PidMotorControllerComponent",
+                        "JointMotorControllerConfiguration": {
+                            "DebugMode": true
+                        }
+                    }
                 },
                 "ROS2FrameComponent": {
                     "$type": "GenericComponentWrapper",
@@ -2554,10 +2483,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{FB407687-D49F-5B4E-B475-41A245A9ED13}",
-                                    "subId": 280005104
+                                    "guid": "{68D29BB5-976C-5549-87DB-B4C30628E7E3}",
+                                    "subId": 282067103
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_platform_upper.azmodel"
+                                "assetHint": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.azmodel"
                             }
                         }
                     }
@@ -2626,6 +2555,11 @@
                             0.0,
                             0.0,
                             0.3700000047683716
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            90.0
                         ]
                     }
                 }
@@ -3175,9 +3109,9 @@
                             "ModelAsset": {
                                 "assetId": {
                                     "guid": "{68D29BB5-976C-5549-87DB-B4C30628E7E3}",
-                                    "subId": 272666811
+                                    "subId": 273667124
                                 },
-                                "assetHint": "prefabs/otto600-platform/otto600platform.azmodel"
+                                "assetHint": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.azmodel"
                             }
                         }
                     }
@@ -3253,7 +3187,19 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 14624211650360570343,
-                    "Parent Entity": "Entity_[402206917131]"
+                    "Parent Entity": "Entity_[402206917131]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.34360799193382263
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            90.0
+                        ]
+                    }
                 }
             }
         },

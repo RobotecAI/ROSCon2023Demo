@@ -26,7 +26,8 @@
                     "Entity_[469859373056537]",
                     "Entity_[21524318507725]",
                     "Entity_[1035527589276214]",
-                    "Instance_[9613713711690]/ContainerEntity"
+                    "Instance_[9613713711690]/ContainerEntity",
+                    "Entity_[85414779651986]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -1631,6 +1632,49 @@
                 }
             }
         },
+        "Entity_[85414779651986]": {
+            "Id": "Entity_[85414779651986]",
+            "Name": "Entity1",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1467954534097783004
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12152642203469009079
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12513606246561000650
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9043138597791157193
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5462488837725286866
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3327928479156547163
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1882808424770256816
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7450818303772694173
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9070875092859952428,
+                    "Parent Entity": "Entity_[1146574390643]"
+                }
+            }
+        },
         "Entity_[9443289330936]": {
             "Id": "Entity_[9443289330936]",
             "Name": "pickupPath",
@@ -2280,29 +2324,31 @@
                                             }
                                         }
                                     },
-                                    "lidarConfiguration": {
-                                        "lidarModel": 6,
-                                        "lidarImplementation": "Scene Queries",
-                                        "LidarParameters": {
-                                            "Name": "CustomLidar2D",
-                                            "Layers": 1,
-                                            "Points per layer": 924,
-                                            "Min horizontal angle": -180.0,
-                                            "Max horizontal angle": 180.0,
-                                            "Min vertical angle": 0.0,
-                                            "Max vertical angle": 0.0,
-                                            "Min range": 0.30000001192092896,
-                                            "Max range": 100.0,
-                                            "Enable Noise": true,
-                                            "Noise Parameters": {
-                                                "Angular noise standard deviation": 0.0,
-                                                "Distance noise standard deviation base": 0.019999999552965164,
-                                                "Distance noise standard deviation slope": 0.0010000000474974513
-                                            }
-                                        },
-                                        "IgnoredLayerIndices": [],
-                                        "ExcludedEntities": [],
-                                        "PointsAtMax": false
+                                    "lidarCore": {
+                                        "lidarConfiguration": {
+                                            "lidarModelName": "CustomLidar2D",
+                                            "lidarImplementation": "Scene Queries",
+                                            "LidarParameters": {
+                                                "Name": "CustomLidar2D",
+                                                "Layers": 1,
+                                                "Points per layer": 924,
+                                                "Min horizontal angle": -180.0,
+                                                "Max horizontal angle": 180.0,
+                                                "Min vertical angle": 0.0,
+                                                "Max vertical angle": 0.0,
+                                                "Min range": 0.0,
+                                                "Max range": 100.0,
+                                                "Enable Noise": true,
+                                                "Noise Parameters": {
+                                                    "Angular noise standard deviation": 0.0,
+                                                    "Distance noise standard deviation base": 0.019999999552965164,
+                                                    "Distance noise standard deviation slope": 0.0010000000474974513
+                                                }
+                                            },
+                                            "IgnoredLayerIndices": [],
+                                            "ExcludedEntities": [],
+                                            "PointsAtMax": false
+                                        }
                                     }
                                 }
                             },
@@ -2312,7 +2358,7 @@
                                 "Parent Entity": "Entity_[376437113355]",
                                 "Transform Data": {
                                     "Translate": [
-                                        0.5,
+                                        0.550000011920929,
                                         0.0,
                                         0.25
                                     ],
@@ -2565,29 +2611,31 @@
                                             }
                                         }
                                     },
-                                    "lidarConfiguration": {
-                                        "lidarModel": 6,
-                                        "lidarImplementation": "Scene Queries",
-                                        "LidarParameters": {
-                                            "Name": "CustomLidar2D",
-                                            "Layers": 1,
-                                            "Points per layer": 924,
-                                            "Min horizontal angle": -180.0,
-                                            "Max horizontal angle": 180.0,
-                                            "Min vertical angle": 0.0,
-                                            "Max vertical angle": 0.0,
-                                            "Min range": 0.30000001192092896,
-                                            "Max range": 100.0,
-                                            "Enable Noise": true,
-                                            "Noise Parameters": {
-                                                "Angular noise standard deviation": 0.0,
-                                                "Distance noise standard deviation base": 0.019999999552965164,
-                                                "Distance noise standard deviation slope": 0.0010000000474974513
-                                            }
-                                        },
-                                        "IgnoredLayerIndices": [],
-                                        "ExcludedEntities": [],
-                                        "PointsAtMax": false
+                                    "lidarCore": {
+                                        "lidarConfiguration": {
+                                            "lidarModelName": "CustomLidar2D",
+                                            "lidarImplementation": "Scene Queries",
+                                            "LidarParameters": {
+                                                "Name": "CustomLidar2D",
+                                                "Layers": 1,
+                                                "Points per layer": 924,
+                                                "Min horizontal angle": -180.0,
+                                                "Max horizontal angle": 180.0,
+                                                "Min vertical angle": 0.0,
+                                                "Max vertical angle": 0.0,
+                                                "Min range": 0.0,
+                                                "Max range": 100.0,
+                                                "Enable Noise": true,
+                                                "Noise Parameters": {
+                                                    "Angular noise standard deviation": 0.0,
+                                                    "Distance noise standard deviation base": 0.019999999552965164,
+                                                    "Distance noise standard deviation slope": 0.0010000000474974513
+                                                }
+                                            },
+                                            "IgnoredLayerIndices": [],
+                                            "ExcludedEntities": [],
+                                            "PointsAtMax": false
+                                        }
                                     }
                                 }
                             },
@@ -2597,7 +2645,7 @@
                                 "Parent Entity": "Entity_[376437113355]",
                                 "Transform Data": {
                                     "Translate": [
-                                        0.5764970779418945,
+                                        0.550000011920929,
                                         0.0,
                                         0.25
                                     ],
@@ -2995,29 +3043,31 @@
                                             }
                                         }
                                     },
-                                    "lidarConfiguration": {
-                                        "lidarModel": 6,
-                                        "lidarImplementation": "Scene Queries",
-                                        "LidarParameters": {
-                                            "Name": "CustomLidar2D",
-                                            "Layers": 1,
-                                            "Points per layer": 924,
-                                            "Min horizontal angle": -180.0,
-                                            "Max horizontal angle": 180.0,
-                                            "Min vertical angle": 0.0,
-                                            "Max vertical angle": 0.0,
-                                            "Min range": 0.30000001192092896,
-                                            "Max range": 100.0,
-                                            "Enable Noise": true,
-                                            "Noise Parameters": {
-                                                "Angular noise standard deviation": 0.0,
-                                                "Distance noise standard deviation base": 0.019999999552965164,
-                                                "Distance noise standard deviation slope": 0.0010000000474974513
-                                            }
-                                        },
-                                        "IgnoredLayerIndices": [],
-                                        "ExcludedEntities": [],
-                                        "PointsAtMax": false
+                                    "lidarCore": {
+                                        "lidarConfiguration": {
+                                            "lidarModelName": "CustomLidar2D",
+                                            "lidarImplementation": "Scene Queries",
+                                            "LidarParameters": {
+                                                "Name": "CustomLidar2D",
+                                                "Layers": 1,
+                                                "Points per layer": 924,
+                                                "Min horizontal angle": -180.0,
+                                                "Max horizontal angle": 180.0,
+                                                "Min vertical angle": 0.0,
+                                                "Max vertical angle": 0.0,
+                                                "Min range": 0.0,
+                                                "Max range": 100.0,
+                                                "Enable Noise": true,
+                                                "Noise Parameters": {
+                                                    "Angular noise standard deviation": 0.0,
+                                                    "Distance noise standard deviation base": 0.019999999552965164,
+                                                    "Distance noise standard deviation slope": 0.0010000000474974513
+                                                }
+                                            },
+                                            "IgnoredLayerIndices": [],
+                                            "ExcludedEntities": [],
+                                            "PointsAtMax": false
+                                        }
                                     }
                                 }
                             },
@@ -3027,7 +3077,7 @@
                                 "Parent Entity": "Entity_[376437113355]",
                                 "Transform Data": {
                                     "Translate": [
-                                        0.5764970779418945,
+                                        0.550000011920929,
                                         0.0,
                                         0.25
                                     ],

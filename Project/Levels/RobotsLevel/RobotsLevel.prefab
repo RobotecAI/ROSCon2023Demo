@@ -29,12 +29,13 @@
                     "Instance_[630719376626463]/ContainerEntity",
                     "Instance_[407908449120945]/ContainerEntity",
                     "Instance_[630667837018911]/ContainerEntity",
-                    "Instance_[630805275972383]/ContainerEntity",
                     "Instance_[630831045776159]/ContainerEntity",
                     "Instance_[225208592954771]/ContainerEntity",
                     "Instance_[100993378960063]/ContainerEntity",
                     "Instance_[100717847075255]/ContainerEntity",
-                    "Instance_[96968764203251]/ContainerEntity"
+                    "Instance_[96968764203251]/ContainerEntity",
+                    "",
+                    "Instance_[101049069367312]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -93,14 +94,14 @@
                     "Parent Entity": "Entity_[1176639161715]",
                     "Transform Data": {
                         "Translate": [
-                            -0.5628801584243774,
-                            0.13243809342384338,
-                            5.719717979431152
+                            5.879117965698242,
+                            -1.0617321729660034,
+                            1.9751999378204346
                         ],
                         "Rotate": [
-                            -16.892681121826172,
-                            -66.00497436523438,
-                            71.6126937866211
+                            -0.004703293554484844,
+                            -20.379926681518555,
+                            89.98650360107422
                         ]
                     }
                 },
@@ -939,7 +940,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 121.84032440185547
+                    "value": 121.84032440185548
                 }
             ]
         },
@@ -1897,6 +1898,830 @@
                 }
             ]
         },
+        "Instance_[101049069367312]": {
+            "Source": "Assets/Importer/robotis_op3.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100074111791120]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100074111791120]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl4.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100224435646480]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100228730613776]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100224435646480]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100224435646480]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl6.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100224435646480]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl6.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100108471529488]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100108471529488]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll2.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100215845711888]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100086996693008]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100215845711888]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100220140679184]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100215845711888]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100215845711888]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100215845711888]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl2.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100207255777296]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100121356431376]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100207255777296]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100211550744592]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100207255777296]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100207255777296]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100207255777296]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100228730613776]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100228730613776]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl6.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100138536300560]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100104176562192]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100138536300560]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100142831267856]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100138536300560]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100138536300560]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100138536300560]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll1.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100121356431376]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100129946365968]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100121356431376]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100125651398672]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100121356431376]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100121356431376]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100121356431376]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la2.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100129946365968]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100134241333264]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100129946365968]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100129946365968]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100129946365968]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100198665842704]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100198665842704]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/body.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100177191006224]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100224435646480]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100177191006224]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100181485973520]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100177191006224]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100177191006224]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl5.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100177191006224]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl5.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100168601071632]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100168601071632]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h2.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100061226889232]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100215845711888]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100061226889232]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100065521856528]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100061226889232]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100061226889232]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100061226889232]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100134241333264]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100134241333264]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la3.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100241615515664]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100245910482960]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100241615515664]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100241615515664]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100241615515664]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100117061464080]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100117061464080]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll6.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100202960810000]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100168601071632]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[100172896038928]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100164306104336]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100190075908112]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100190075908112]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h1.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100069816823824]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100177191006224]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100069816823824]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100074111791120]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100069816823824]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100069816823824]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl4.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100069816823824]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl4.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100086996693008]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100069816823824]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100086996693008]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100091291660304]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100086996693008]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100086996693008]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100086996693008]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100099881594896]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100099881594896]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra2.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100078406758416]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100082701725712]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100078406758416]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100112766496784]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100078406758416]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100078406758416]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll5.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100078406758416]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll5.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100147126235152]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100151421202448]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100147126235152]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100155716169744]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100147126235152]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100147126235152]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100147126235152]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll3.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100181485973520]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100181485973520]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl5.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100104176562192]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100108471529488]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100104176562192]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100147126235152]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100104176562192]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100104176562192]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100104176562192]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100245910482960]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100245910482960]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra3.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100112766496784]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100117061464080]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100112766496784]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100112766496784]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll6.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100112766496784]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll6.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100095586627600]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100099881594896]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100095586627600]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100241615515664]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100095586627600]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100095586627600]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra2.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100095586627600]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra2.stl.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100185780940816]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100198665842704]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[100138536300560]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Entity_[100207255777296]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Entity_[100061226889232]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorEntitySortComponent/Child Entity Order/5",
+                    "value": "Entity_[100233025581072]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/body.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100194370875408]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/body.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100125651398672]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100125651398672]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la2.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100237320548368]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100237320548368]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra1.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100185780940816]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100164306104336]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100185780940816]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100190075908112]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100185780940816]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100185780940816]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100185780940816]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/h1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100142831267856]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100142831267856]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll1.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100220140679184]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100220140679184]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl2.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100155716169744]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100078406758416]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100155716169744]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100160011137040]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100155716169744]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100155716169744]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll4.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100155716169744]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll4.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100082701725712]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100082701725712]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll5.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100233025581072]/Components/EditorEntitySortComponent/Child Entity Order/0",
+                    "value": "Entity_[100237320548368]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[100233025581072]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[100095586627600]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100233025581072]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
+                    "value": "DefaultMaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100233025581072]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100233025581072]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ra1.stl.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100151421202448]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100151421202448]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll3.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100065521856528]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100065521856528]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl1.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100211550744592]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100211550744592]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/la1.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100160011137040]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100160011137040]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/ll4.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100091291660304]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/loadBehavior",
+                    "value": "QueueLoad"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[100091291660304]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/1159308684_out.robotis_op3/rl3.stl.azmodel"
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorDisabledCompositionComponent",
+                    "value": {
+                        "$type": "EditorDisabledCompositionComponent",
+                        "Id": 12541858651098163588,
+                        "DisabledComponents": []
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorEntityIconComponent",
+                    "value": {
+                        "$type": "EditorEntityIconComponent",
+                        "Id": 223709860668040959,
+                        "EntityIconAssetId": {
+                            "guid": "{00000000-0000-0000-0000-000000000000}",
+                            "subId": 0
+                        }
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorEntitySortComponent",
+                    "value": {
+                        "$type": "EditorEntitySortComponent",
+                        "Id": 2810767309707708714,
+                        "Child Entity Order": [
+                            "Entity_[100194370875408]"
+                        ]
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorInspectorComponent",
+                    "value": {
+                        "$type": "EditorInspectorComponent",
+                        "Id": 16088590867644326451,
+                        "ComponentOrderEntryArray": []
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorOnlyEntityComponent",
+                    "value": {
+                        "$type": "EditorOnlyEntityComponent",
+                        "Id": 13268174107387609175,
+                        "IsEditorOnly": false
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorPendingCompositionComponent",
+                    "value": {
+                        "$type": "EditorPendingCompositionComponent",
+                        "Id": 14415084283596270846,
+                        "PendingComponents": []
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 2.329139232635498
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.9127506017684937
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.31678998470306396
+                }
+            ]
+        },
         "Instance_[225208592954771]": {
             "Source": "Assets/Importer/tm12.prefab",
             "Patches": [
@@ -2247,7 +3072,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -1.9076919555664063
+                    "value": -1.9076919555664065
                 },
                 {
                     "op": "replace",
@@ -13118,7 +13943,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.11864733695983887
+                    "value": 0.11864733695983888
                 }
             ]
         },
@@ -13476,7 +14301,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.3874179124832153
+                    "value": 1.387417912483215
                 },
                 {
                     "op": "replace",
@@ -13487,400 +14312,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.13854432106018066
-                }
-            ]
-        },
-        "Instance_[630805275972383]": {
-            "Source": "Assets/Importer/robotis_op3.prefab",
-            "Patches": [
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2360315486600]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2240056402312]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2360315486600]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2364610453896]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2360315486600]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2351725552008]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2356020519304]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2351725552008]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2274416140680]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2351725552008]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2300185944456]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2304480911752]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2300185944456]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2308775879048]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2300185944456]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2222876533128]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2227171500424]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2222876533128]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2325955748232]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2222876533128]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2240056402312]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2222876533128]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2240056402312]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2244351369608]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2240056402312]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2274416140680]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2278711107976]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2274416140680]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2283006075272]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2274416140680]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2283006075272]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2287301042568]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2283006075272]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2386085290376]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2390380257672]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2386085290376]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2317365813640]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2321660780936]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2317365813640]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2257236271496]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2300185944456]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2257236271496]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2261531238792]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2257236271496]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2377495355784]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2381790323080]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2377495355784]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2248646336904]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2377495355784]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2308775879048]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2231466467720]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2308775879048]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2313070846344]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2308775879048]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2325955748232]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2368905421192]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2325955748232]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2330250715528]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2325955748232]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2214286598536]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2218581565832]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2214286598536]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2360315486600]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2214286598536]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2231466467720]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2265826206088]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2231466467720]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2235761435016]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2231466467720]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2368905421192]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2373200388488]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2368905421192]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2334545682824]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2317365813640]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2334545682824]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2338840650120]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2334545682824]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2265826206088]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2270121173384]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2265826206088]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2214286598536]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2351725552008]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[2291596009864]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/3",
-                    "value": "Entity_[2377495355784]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/4",
-                    "value": "Entity_[2347430584712]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorEntitySortComponent/Child Entity Order/5",
-                    "value": "Entity_[2334545682824]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2343135617416]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2248646336904]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2386085290376]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2248646336904]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2252941304200]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2248646336904]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2291596009864]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2257236271496]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[2291596009864]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2295890977160]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2291596009864]/Components/EditorMeshColliderComponent/ColliderConfiguration/MaterialSlots/Slots/0/Name",
-                    "value": "DefaultMaterial"
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorDisabledCompositionComponent",
-                    "value": {
-                        "$type": "EditorDisabledCompositionComponent",
-                        "Id": 6313376027762481271,
-                        "DisabledComponents": []
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorEntityIconComponent",
-                    "value": {
-                        "$type": "EditorEntityIconComponent",
-                        "Id": 18176451648742198209,
-                        "EntityIconAssetId": {
-                            "guid": "{00000000-0000-0000-0000-000000000000}",
-                            "subId": 0
-                        }
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorEntitySortComponent",
-                    "value": {
-                        "$type": "EditorEntitySortComponent",
-                        "Id": 344183691345421176,
-                        "Child Entity Order": [
-                            "Entity_[2343135617416]"
-                        ]
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorInspectorComponent",
-                    "value": {
-                        "$type": "EditorInspectorComponent",
-                        "Id": 2495814775248455377,
-                        "ComponentOrderEntryArray": []
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorOnlyEntityComponent",
-                    "value": {
-                        "$type": "EditorOnlyEntityComponent",
-                        "Id": 493578196673263620,
-                        "IsEditorOnly": false
-                    }
-                },
-                {
-                    "op": "add",
-                    "path": "/ContainerEntity/Components/EditorPendingCompositionComponent",
-                    "value": {
-                        "$type": "EditorPendingCompositionComponent",
-                        "Id": 1629960736933755932,
-                        "PendingComponents": []
-                    }
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 2.1521449089050293
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.8998255133628845
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.28423309326171875
                 }
             ]
         },
@@ -14557,7 +14988,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -1.0435116291046143
+                    "value": -1.0435116291046145
                 },
                 {
                     "op": "replace",

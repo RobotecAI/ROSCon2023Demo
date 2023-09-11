@@ -42,7 +42,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -360.0,
-                        "Angular Limit Positive": 360.0
+                        "Angular Limit Positive": 360.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 500.0,
+                            "Stiffness": 500.0,
+                            "Damping": 499.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -55,7 +61,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 5304119540980871330
+                    "Id": 5304119540980871330,
+                    "Child Entity Order": [
+                        "Entity_[11106642435044]",
+                        "Entity_[11119527336932]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -77,7 +87,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -88,7 +98,8 @@
                                 "assetId": {
                                     "guid": "{12A7D556-98ED-5CD5-B76A-BC0C78AC165B}",
                                     "subId": 1593114053
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -96,7 +107,8 @@
                                         "guid": "{12A7D556-98ED-5CD5-B76A-BC0C78AC165B}",
                                         "subId": 1593114053
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -121,7 +133,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "wrist_2_link",
-                        "Joint Name": "wrist_2_joint"
+                        "Joint Name": "wrist_2_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -157,7 +170,7 @@
                                     "guid": "{508F65B7-559D-55ED-A44D-0FA5EE405775}",
                                     "subId": 283815047
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.dae.azmodel"
                             }
                         }
                     }
@@ -227,7 +240,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -360.0,
-                        "Angular Limit Positive": 360.0
+                        "Angular Limit Positive": 360.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 10000.0,
+                            "Stiffness": 10000.0,
+                            "Damping": 5000.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -240,7 +259,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 2465320657287587308
+                    "Id": 2465320657287587308,
+                    "Child Entity Order": [
+                        "Entity_[11115232369636]",
+                        "Entity_[11102347467748]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -268,7 +291,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -279,7 +302,8 @@
                                 "assetId": {
                                     "guid": "{2651EEDB-0D61-582A-8179-551BE43C9DBB}",
                                     "subId": 3110102142
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -287,7 +311,8 @@
                                         "guid": "{2651EEDB-0D61-582A-8179-551BE43C9DBB}",
                                         "subId": 3110102142
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -312,7 +337,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "wrist_1_link",
-                        "Joint Name": "wrist_1_joint"
+                        "Joint Name": "wrist_1_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -343,7 +369,7 @@
                                     "guid": "{7108EBD7-C624-5725-A532-CE4911948A42}",
                                     "subId": 283376957
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.dae.azmodel"
                             }
                         }
                     }
@@ -423,7 +449,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -360.0,
-                        "Angular Limit Positive": 360.0
+                        "Angular Limit Positive": 360.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 100.0,
+                            "Stiffness": 100.0,
+                            "Damping": 100.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -436,7 +468,10 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 15757222117122366886
+                    "Id": 15757222117122366886,
+                    "Child Entity Order": [
+                        "Entity_[11123822304228]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -464,7 +499,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -475,7 +510,8 @@
                                 "assetId": {
                                     "guid": "{F1BA1349-F6EE-50B2-B02C-7E7FA2C40863}",
                                     "subId": 1922203068
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -483,7 +519,8 @@
                                         "guid": "{F1BA1349-F6EE-50B2-B02C-7E7FA2C40863}",
                                         "subId": 1922203068
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -508,7 +545,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "wrist_3_link",
-                        "Joint Name": "wrist_3_joint"
+                        "Joint Name": "wrist_3_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -544,7 +582,7 @@
                                     "guid": "{4F55177B-D4B7-5BA9-BF4F-A29B9329CF89}",
                                     "subId": 284007441
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.dae.azmodel"
                             }
                         }
                     }
@@ -624,7 +662,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -360.0,
-                        "Angular Limit Positive": 360.0
+                        "Angular Limit Positive": 360.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 10000.0,
+                            "Stiffness": 10000.0,
+                            "Damping": 5000.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -637,7 +681,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 14711184594907127199
+                    "Id": 14711184594907127199,
+                    "Child Entity Order": [
+                        "Entity_[11132412238820]",
+                        "Entity_[11153887075300]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -665,7 +713,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -676,7 +724,8 @@
                                 "assetId": {
                                     "guid": "{C76C245A-54B5-5E33-87D5-38B4EE1FD5E0}",
                                     "subId": 1865782021
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -684,7 +733,8 @@
                                         "guid": "{C76C245A-54B5-5E33-87D5-38B4EE1FD5E0}",
                                         "subId": 1865782021
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -709,7 +759,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "upper_arm_link",
-                        "Joint Name": "shoulder_lift_joint"
+                        "Joint Name": "shoulder_lift_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -740,7 +791,7 @@
                                     "guid": "{4C895B5F-9BC2-5196-8524-CBFF285CFC60}",
                                     "subId": 270772955
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.dae.azmodel"
                             }
                         }
                     }
@@ -815,7 +866,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -360.0,
-                        "Angular Limit Positive": 360.0
+                        "Angular Limit Positive": 360.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 50000.0,
+                            "Stiffness": 50000.0,
+                            "Damping": 25000.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -828,7 +885,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 1056171533515031021
+                    "Id": 1056171533515031021,
+                    "Child Entity Order": [
+                        "Entity_[11128117271524]",
+                        "Entity_[11141002173412]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -851,7 +912,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -862,7 +923,8 @@
                                 "assetId": {
                                     "guid": "{2F29BD65-7B25-55F9-A96F-BF8DF10DB6F7}",
                                     "subId": 1794914141
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -870,7 +932,8 @@
                                         "guid": "{2F29BD65-7B25-55F9-A96F-BF8DF10DB6F7}",
                                         "subId": 1794914141
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -895,7 +958,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "shoulder_link",
-                        "Joint Name": "shoulder_pan_joint"
+                        "Joint Name": "shoulder_pan_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -931,7 +995,7 @@
                                     "guid": "{0875071D-3D4C-5AA9-9C7E-0C6D77AB3551}",
                                     "subId": 278609181
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.dae.azmodel"
                             }
                         }
                     }
@@ -991,6 +1055,7 @@
                     "Id": 9065447339008748592,
                     "ArticulationConfiguration": {
                         "entityId": "",
+                        "Fixed Base": true,
                         "Mass": 4.0,
                         "SolverPositionIterations": 40,
                         "SolverVelocityIterations": 10
@@ -1006,7 +1071,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 11468771951999606789
+                    "Id": 11468771951999606789,
+                    "Child Entity Order": [
+                        "Entity_[11149592108004]",
+                        "Entity_[11136707206116]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -1029,7 +1098,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -1040,7 +1109,8 @@
                                 "assetId": {
                                     "guid": "{1F84DC66-7DAC-5AF1-AB2D-F1E36667BA5F}",
                                     "subId": 1505212455
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1048,7 +1118,8 @@
                                         "guid": "{1F84DC66-7DAC-5AF1-AB2D-F1E36667BA5F}",
                                         "subId": 1505212455
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -1067,6 +1138,41 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 15027910093888192214
                 },
+                "JointsArticulationControllerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14309480970485884925,
+                    "m_template": {
+                        "$type": "JointsArticulationControllerComponent"
+                    }
+                },
+                "JointsManipulationEditorComponent": {
+                    "$type": "JointsManipulationEditorComponent",
+                    "Id": 16346866809691770191,
+                    "JointStatePublisherConfiguration": {
+                        "Publish": false,
+                        "Topic": {
+                            "QoS": {
+                                "Reliability": 1
+                            }
+                        }
+                    },
+                    "Initial positions": {
+                        "elbow_joint": 1.399999976158142,
+                        "shoulder_lift_joint": -1.6200000047683716,
+                        "shoulder_pan_joint": {},
+                        "wrist_1_joint": -1.2000000476837158,
+                        "wrist_2_joint": -1.600000023841858,
+                        "wrist_3_joint": -0.10999999940395355
+                    }
+                },
+                "JointsTrajectoryComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14281335376947411836,
+                    "m_template": {
+                        "$type": "JointsTrajectoryComponent",
+                        "Action name": "ur_group_controller/follow_joint_trajectory"
+                    }
+                },
                 "ROS2FrameComponent": {
                     "$type": "GenericComponentWrapper",
                     "Id": 10808114954278001120,
@@ -1075,20 +1181,10 @@
                         "Frame Name": "base_link"
                     }
                 },
-                "ROS2RobotControlComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 11203990564588468812,
-                    "m_template": {
-                        "$type": "ROS2RobotControlComponent",
-                        "SubscriberConfiguration": {
-                            "Topic": "cmd_vel"
-                        }
-                    }
-                },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 18356661809412537335,
-                    "Parent Entity": "ContainerEntity"
+                    "Parent Entity": "Entity_[4540211579728]"
                 }
             }
         },
@@ -1106,7 +1202,7 @@
                                     "guid": "{0AC00851-120F-556E-8715-40CAE4AA8F59}",
                                     "subId": 280297057
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.dae.azmodel"
                             }
                         }
                     }
@@ -1181,7 +1277,13 @@
                             0.0
                         ],
                         "Angular Limit Negative": -180.0,
-                        "Angular Limit Positive": 180.0
+                        "Angular Limit Positive": 180.0,
+                        "Motor configuration": {
+                            "UseMotor": true,
+                            "ForceLimit": 50000.0,
+                            "Stiffness": 50000.0,
+                            "Damping": 25000.0
+                        }
                     }
                 },
                 "EditorDisabledCompositionComponent": {
@@ -1194,7 +1296,11 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 10506131700921494890
+                    "Id": 10506131700921494890,
+                    "Child Entity Order": [
+                        "Entity_[11158182042596]",
+                        "Entity_[11110937402340]"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -1222,7 +1328,7 @@
                         "MaterialSlots": {
                             "Slots": [
                                 {
-                                    "Name": "Entire object"
+                                    "Name": "DefaultMaterial"
                                 }
                             ]
                         }
@@ -1233,7 +1339,8 @@
                                 "assetId": {
                                     "guid": "{9D219E13-405E-5AEB-950C-E16E9D5B366E}",
                                     "subId": 1303227381
-                                }
+                                },
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1241,7 +1348,8 @@
                                         "guid": "{9D219E13-405E-5AEB-950C-E16E9D5B366E}",
                                         "subId": 1303227381
                                     },
-                                    "loadBehavior": "QueueLoad"
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -1266,7 +1374,8 @@
                     "m_template": {
                         "$type": "ROS2FrameComponent",
                         "Frame Name": "forearm_link",
-                        "Joint Name": "elbow_joint"
+                        "Joint Name": "elbow_joint",
+                        "Publish Transform": false
                     }
                 },
                 "TransformComponent": {
@@ -1302,7 +1411,7 @@
                                     "guid": "{C4A14DD5-D8EB-5BF2-81AB-B3A89E7453E9}",
                                     "subId": 274532406
                                 },
-                                "loadBehavior": "PreLoad"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.dae.azmodel"
                             }
                         }
                     }
@@ -1355,6 +1464,63 @@
                             0.0
                         ]
                     }
+                }
+            }
+        },
+        "Entity_[4540211579728]": {
+            "Id": "Entity_[4540211579728]",
+            "Name": "world",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4226921202328886170
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6904593021635626730
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11469995960823293461,
+                    "Child Entity Order": [
+                        "Entity_[11145297140708]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9346742094380408051
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12190033477810646900
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1195817288978070183
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5024621471849906267
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10116632112167922513
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 5693296222497352089,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Namespace Configuration": {
+                            "Namespace Strategy": 1
+                        },
+                        "Frame Name": "world"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1184589075662381323,
+                    "Parent Entity": "ContainerEntity"
                 }
             }
         }

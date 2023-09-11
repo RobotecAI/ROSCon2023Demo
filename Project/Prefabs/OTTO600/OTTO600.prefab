@@ -50,6 +50,156 @@
         }
     },
     "Entities": {
+        "Entity_[187685058540532]": {
+            "Id": "Entity_[187685058540532]",
+            "Name": "lidar_front",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9763031168636496777
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1400453610056631111
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2590338910285949261
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8996274998007543517
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18150504802026500554
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5478687098787191893
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2098985422499302931
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13229562046516333863
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1021054117381513344,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent"
+                    }
+                },
+                "ROS2Lidar2DSensorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7190873393897941808,
+                    "m_template": {
+                        "$type": "ROS2Lidar2DSensorComponent",
+                        "SensorConfiguration": {
+                            "Publishers": {
+                                "sensor_msgs::msg::LaserScan": {
+                                    "Type": "sensor_msgs::msg::LaserScan",
+                                    "Topic": "ls"
+                                }
+                            }
+                        },
+                        "lidarConfiguration": {
+                            "lidarImplementation": "Scene Queries"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15602598512040496450,
+                    "Parent Entity": "Entity_[415091819019]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.4699999988079071,
+                            0.2999999523162842,
+                            0.19999998807907104
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[207905764570100]": {
+            "Id": "Entity_[207905764570100]",
+            "Name": "lidar_rear",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9763031168636496777
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 1400453610056631111
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2590338910285949261
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8996274998007543517
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18150504802026500554
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5478687098787191893
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2098985422499302931
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13229562046516333863
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1021054117381513344,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent"
+                    }
+                },
+                "ROS2Lidar2DSensorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7190873393897941808,
+                    "m_template": {
+                        "$type": "ROS2Lidar2DSensorComponent",
+                        "SensorConfiguration": {
+                            "Publishers": {
+                                "sensor_msgs::msg::LaserScan": {
+                                    "Type": "sensor_msgs::msg::LaserScan",
+                                    "Topic": "ls"
+                                }
+                            }
+                        },
+                        "lidarConfiguration": {
+                            "lidarImplementation": "Scene Queries"
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15602598512040496450,
+                    "Parent Entity": "Entity_[415091819019]",
+                    "Transform Data": {
+                        "Translate": [
+                            -0.4699999988079071,
+                            -0.30000001192092896,
+                            0.19999998807907104
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[2974892327435]": {
             "Id": "Entity_[2974892327435]",
             "Name": "front",
@@ -854,7 +1004,7 @@
                         "Position": [
                             0.0,
                             0.0,
-                            0.1745000034570694
+                            0.10300000011920929
                         ],
                         "Rotation": [
                             0.0,
@@ -876,7 +1026,41 @@
                             "Configuration": [
                                 0.6970000267028809,
                                 1.0499999523162842,
-                                0.28033000230789185
+                                0.14499999582767487
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_3": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 13118958392263928497,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.2639999985694885
+                        ],
+                        "Rotation": [
+                            0.0,
+                            0.0,
+                            0.7071068286895752,
+                            0.7071068286895752
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                0.6970000267028809,
+                                1.0499999523162842,
+                                0.11400000005960464
                             ]
                         }
                     }
@@ -969,18 +1153,18 @@
                         "Centre of mass offset": [
                             0.0,
                             0.0,
-                            0.1745000034570694
+                            0.1743050217628479
                         ],
                         "Inertia tensor": [
-                            0.47032836079597473,
+                            0.48408693075180054,
                             0.0,
                             0.0,
                             0.0,
-                            0.9842374920845032,
+                            0.9979959726333618,
                             0.0,
                             0.0,
                             0.0,
-                            1.3235907554626465
+                            1.323590874671936
                         ]
                     },
                     "PhysXSpecificConfiguration": {
@@ -1875,7 +2059,9 @@
                         "Entity_[410796851723]",
                         "Entity_[492401230347]",
                         "Entity_[470926393867]",
-                        "Entity_[397911949835]"
+                        "Entity_[397911949835]",
+                        "Entity_[187685058540532]",
+                        "Entity_[207905764570100]"
                     ]
                 },
                 "EditorInspectorComponent": {

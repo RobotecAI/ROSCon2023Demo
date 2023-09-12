@@ -1,0 +1,285 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "HumanNpcRobot",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 18247840654184597743
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 12290010836565382510
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 8716867151313126571,
+                "Child Entity Order": [
+                    "Entity_[66011467218485]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 10270031463716697257
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 16985113826080539309
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 14095921294153158663
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 10653071914266687148
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 12109138030261740318
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 4672638171173249997
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 17725655479858449387,
+                "Parent Entity": "",
+                "Transform Data": {
+                    "Translate": [
+                        -14.897490501403809,
+                        3.889416456222534,
+                        0.0
+                    ]
+                }
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[66011467218485]": {
+            "Id": "Entity_[66011467218485]",
+            "Name": "HumanNpcRobot",
+            "Components": {
+                "EditorCapsuleShapeComponent": {
+                    "$type": "EditorCapsuleShapeComponent",
+                    "Id": 919720789400500631,
+                    "ShapeColor": [
+                        1.0,
+                        1.0,
+                        1.0,
+                        1.0
+                    ],
+                    "CapsuleShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                1.0,
+                                1.0
+                            ],
+                            "Height": 2.0,
+                            "TranslationOffset": [
+                                0.0,
+                                0.0,
+                                0.5
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6347290502915150964
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 245404777610253641
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 10987990975619969755,
+                    "Child Entity Order": [
+                        "Instance_[65886913166901]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3083228765953903553,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 2507038620276963239
+                        },
+                        {
+                            "ComponentId": 1902003606529540072,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18218766782150271155,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 16948776265117773660,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 18206091562556464943,
+                            "SortIndex": 4
+                        },
+                        {
+                            "ComponentId": 1634712991874037508,
+                            "SortIndex": 5
+                        },
+                        {
+                            "ComponentId": 3585149160592881723,
+                            "SortIndex": 6
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 8506370084454494312
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4345845303735463683
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4438672077228966402
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 18206091562556464943,
+                    "Configuration": {
+                        "entityId": "",
+                        "Gravity Enabled": false,
+                        "Lock Linear Z": true,
+                        "Lock Angular X": true,
+                        "Lock Angular Y": true,
+                        "Mass": 359.9741516113281,
+                        "Centre of mass offset": [
+                            0.0,
+                            0.0,
+                            0.5
+                        ],
+                        "Inertia tensor": [
+                            107.48095703125,
+                            0.0,
+                            0.0,
+                            0.0,
+                            107.48091888427734,
+                            0.0,
+                            0.0,
+                            0.0,
+                            10.840132713317871
+                        ]
+                    }
+                },
+                "EditorShapeColliderComponent": {
+                    "$type": "EditorShapeColliderComponent",
+                    "Id": 1657780093315026513,
+                    "ColliderConfiguration": {
+                        "CollisionGroupId": {
+                            "GroupId": "{E68FAA37-AE19-4093-939A-A4B92759B4F6}"
+                        },
+                        "Position": [
+                            0.0,
+                            0.0,
+                            0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{4C019D6C-22CE-53CF-9D56-EBEB76F718A2}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "assets/asianwoman/npccollidermaterial.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        },
+                        "ContactOffset": 0.009999999776482582
+                    },
+                    "ShapeConfigs": [
+                        {
+                            "$type": "CapsuleShapeConfiguration",
+                            "Height": 2.0
+                        }
+                    ]
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8963879223403550331
+                },
+                "NpcNavigatorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 8214888317295398113,
+                    "m_template": {
+                        "$type": "NpcNavigatorComponent",
+                        "Detour Navigation Entity": "",
+                        "Topic Configuration": {
+                            "Topic": "cmd_vel"
+                        },
+                        "Angular Speed": 2.0
+                    }
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 18218766782150271155,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Namespace Configuration": {
+                            "Namespace Strategy": 2
+                        }
+                    }
+                },
+                "ROS2RobotControlComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 16948776265117773660,
+                    "m_template": {
+                        "$type": "ROS2RobotControlComponent",
+                        "SubscriberConfiguration": {
+                            "Topic": "cmd_vel"
+                        }
+                    }
+                },
+                "RigidBodyTwistControlComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3585149160592881723,
+                    "m_template": {
+                        "$type": "RigidBodyTwistControlComponent"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2507038620276963239,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[65886913166901]": {
+            "Source": "Prefabs/AsianWomanActor.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[65895503101493]/Components/AnimGraphInputProviderComponent/m_template/Rigid Body",
+                    "value": "../Entity_[66011467218485]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[66011467218485]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -90.0
+                }
+            ]
+        }
+    }
+}

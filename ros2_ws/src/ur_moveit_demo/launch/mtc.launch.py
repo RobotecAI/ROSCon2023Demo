@@ -29,9 +29,9 @@
 #
 # Author: Denis Stogl
 
-# Modified by: Robotec.ai(2023) for easy use with simulated UR10 in o3de
+# Modified by: Robotec.ai(2023) for easy use with simulated UR20 in o3de
 # Modifications:
-# - default ur_type to `ur10`
+# - default ur_type to `ur20`
 # - default use_fake_hardware to `true`
 # - default use_sim_time to `true`
 # - allow for namespace input to run multiple arms
@@ -268,8 +268,8 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "ur_type",
             description="Type/series of used UR robot.",
-            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e"],
-            default_value="ur10",
+            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20"],
+            default_value="ur20",
         )
     )
     declared_arguments.append(

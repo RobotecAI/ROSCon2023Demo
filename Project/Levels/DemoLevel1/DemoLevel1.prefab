@@ -409,10 +409,9 @@
                     "Id": 1571886564599480545,
                     "Child Entity Order": [
                         "Instance_[4001389725264]/ContainerEntity",
-                        "",
                         "Instance_[9778120738384]/ContainerEntity",
                         "Instance_[15297918016282]/ContainerEntity",
-                        "Instance_[21631692690125]/ContainerEntity"
+                        "Instance_[146117451086181]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -467,7 +466,7 @@
                     "Child Entity Order": [
                         "Instance_[4001389725264]/ContainerEntity",
                         "Instance_[15306507950874]/ContainerEntity",
-                        "Instance_[21614512820941]/ContainerEntity"
+                        "Instance_[58586017593701]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1539,7 +1538,8 @@
                         "Instance_[521974506226201]/ContainerEntity",
                         "Instance_[38154822803893]/ContainerEntity",
                         "Instance_[38167707705781]/ContainerEntity",
-                        "Instance_[93083159552437]/ContainerEntity"
+                        "Instance_[93083159552437]/ContainerEntity",
+                        "Instance_[93096044454325]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1568,8 +1568,8 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            -22.0,
-                            2.1935176849365234,
+                            -22.708070755004883,
+                            1.9801483154296875,
                             0.0
                         ]
                     }
@@ -1594,8 +1594,8 @@
                     "Child Entity Order": [
                         "Instance_[4001389725264]/ContainerEntity",
                         "Entity_[193886249452057]",
-                        "Instance_[21597332951757]/ContainerEntity",
-                        "Entity_[344420350747061]"
+                        "Entity_[344420350747061]",
+                        "Instance_[58530183018853]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1737,7 +1737,7 @@
                         "Entity_[344424645714357]",
                         "Entity_[288027430150581]",
                         "Instance_[9778120738384]/ContainerEntity",
-                        "Instance_[21580153082573]/ContainerEntity"
+                        "Instance_[56976823276367]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1776,6 +1776,36 @@
         }
     },
     "Instances": {
+        "Instance_[146117451086181]": {
+            "Source": "Prefabs/ur20_cameras.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15289328081690]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur4"
+                }
+            ]
+        },
         "Instance_[15297918016282]": {
             "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
             "Patches": [
@@ -1793,276 +1823,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[15293623048986]"
-                }
-            ]
-        },
-        "Instance_[21580153082573]": {
-            "Source": "Prefabs/ur10_cameras.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_fe499ed7_fd74_586c_94f6_babc13492d5d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_427041ae_2fb1_5949_9e67_b17ec0bbcf22_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_a0698388_efea_5436_ab4c_d60c155684c1_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_893b5eee_8597_55f2_aa22_5937373fddd3_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_685b50fa_749c_5af0_b2c9_94c40f036e50_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_55945219_b09e_502e_afec_59bf5e4705f7_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_7d1d54bb_8d7e_5451_9f5b_1ba6fcddbe7d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[9769530803792]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -20.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 6.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6189841032028198
-                }
-            ]
-        },
-        "Instance_[21597332951757]": {
-            "Source": "Prefabs/ur10_cameras.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_fe499ed7_fd74_586c_94f6_babc13492d5d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_7d1d54bb_8d7e_5451_9f5b_1ba6fcddbe7d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -20.149999618530273
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 12.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_55945219_b09e_502e_afec_59bf5e4705f7_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_a0698388_efea_5436_ab4c_d60c155684c1_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_685b50fa_749c_5af0_b2c9_94c40f036e50_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_427041ae_2fb1_5949_9e67_b17ec0bbcf22_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_893b5eee_8597_55f2_aa22_5937373fddd3_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[6888547663069]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.15000000596046448
-                }
-            ]
-        },
-        "Instance_[21614512820941]": {
-            "Source": "Prefabs/ur10_cameras.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur3"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_fe499ed7_fd74_586c_94f6_babc13492d5d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15293623048986]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.15000000596046448
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_893b5eee_8597_55f2_aa22_5937373fddd3_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -20.149999618530273
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 18.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_427041ae_2fb1_5949_9e67_b17ec0bbcf22_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_7d1d54bb_8d7e_5451_9f5b_1ba6fcddbe7d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_a0698388_efea_5436_ab4c_d60c155684c1_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_55945219_b09e_502e_afec_59bf5e4705f7_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_685b50fa_749c_5af0_b2c9_94c40f036e50_.fbx.azmodel"
-                }
-            ]
-        },
-        "Instance_[21631692690125]": {
-            "Source": "Prefabs/ur10_cameras.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_7d1d54bb_8d7e_5451_9f5b_1ba6fcddbe7d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15289328081690]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.15000000596046448
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_685b50fa_749c_5af0_b2c9_94c40f036e50_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_a0698388_efea_5436_ab4c_d60c155684c1_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -20.149999618530273
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 24.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": -0.6189841032028198
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_893b5eee_8597_55f2_aa22_5937373fddd3_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_55945219_b09e_502e_afec_59bf5e4705f7_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_fe499ed7_fd74_586c_94f6_babc13492d5d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[317133007780767]/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_427041ae_2fb1_5949_9e67_b17ec0bbcf22_.fbx.azmodel"
                 }
             ]
         },
@@ -2762,6 +2522,96 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 14.414012908935549
+                }
+            ]
+        },
+        "Instance_[56976823276367]": {
+            "Source": "Prefabs/ur20_cameras.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[9769530803792]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur1"
+                }
+            ]
+        },
+        "Instance_[58530183018853]": {
+            "Source": "Prefabs/ur20_cameras.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[6888547663069]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur2"
+                }
+            ]
+        },
+        "Instance_[58586017593701]": {
+            "Source": "Prefabs/ur20_cameras.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15293623048986]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur3"
                 }
             ]
         },

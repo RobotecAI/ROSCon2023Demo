@@ -530,4 +530,23 @@
     <parent link="flange"/>
     <child link="tool0"/>
   </joint>
+  <link name="gripper_link">
+    <visual>
+      <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ur_description/meshes/ur20/visual/Gripper.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://ur_description/meshes/ur20/collision/Gripper.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="tool0-gripper" type="fixed">
+    <parent link="tool0"/>
+    <child link="gripper_link"/>
+    <origin rpy="1.5707963267948966 1.5707963267948966 0" xyz="0 0 0.03"/>
+  </joint>
 </robot>

@@ -1,0 +1,462 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "ur20_cameras",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 7437229414472991477
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 16955300854669510595
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 8897753423417101405,
+                "Child Entity Order": [
+                    "Instance_[8954793939791]/ContainerEntity"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 5599792409681118472
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 4239891741729540182
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 11098191779960399677
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 2803657560685980033
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 9055388987871628574
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 1777147036030694993
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 11847284390063208326,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[8954793939791]": {
+            "Source": "Assets/Importer/ur20.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[11561839088463]",
+                    "value": {
+                        "Id": "Entity_[11561839088463]",
+                        "Name": "CameraDrop",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 11847929756538761711,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 7092491095652496609,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 13299876588311238899,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 14185703417489105881,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 8314663280249573095,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 12967192961092169684,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 6333244528666018420,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 11884954201958164111,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4339018078577341739,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": false,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_drop/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_drop/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_drop/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "configuration": {
+                                        "ExcludeEntities": [],
+                                        "MaximumDetectionRange": 2.0
+                                    }
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 490131379643138285,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 70.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": false,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 920434809922726795,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 2552988515570240159,
+                                "Parent Entity": "Entity_[1060644049743]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        -0.8140000104904175,
+                                        0.0,
+                                        1.3859866857528687
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[10251874063183]",
+                    "value": {
+                        "Id": "Entity_[10251874063183]",
+                        "Name": "CameraPickup",
+                        "Components": {
+                            "EditorDisabledCompositionComponent": {
+                                "$type": "EditorDisabledCompositionComponent",
+                                "Id": 5277750969274808339,
+                                "DisabledComponents": []
+                            },
+                            "EditorEntityIconComponent": {
+                                "$type": "EditorEntityIconComponent",
+                                "Id": 16137669907743538410,
+                                "EntityIconAssetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                }
+                            },
+                            "EditorEntitySortComponent": {
+                                "$type": "EditorEntitySortComponent",
+                                "Id": 7880943003614301335,
+                                "Child Entity Order": []
+                            },
+                            "EditorInspectorComponent": {
+                                "$type": "EditorInspectorComponent",
+                                "Id": 17682701743746295997,
+                                "ComponentOrderEntryArray": []
+                            },
+                            "EditorLockComponent": {
+                                "$type": "EditorLockComponent",
+                                "Id": 7619135697252466432,
+                                "Locked": false
+                            },
+                            "EditorOnlyEntityComponent": {
+                                "$type": "EditorOnlyEntityComponent",
+                                "Id": 5934516505145252475,
+                                "IsEditorOnly": false
+                            },
+                            "EditorPendingCompositionComponent": {
+                                "$type": "EditorPendingCompositionComponent",
+                                "Id": 7981880498712063701,
+                                "PendingComponents": []
+                            },
+                            "EditorVisibilityComponent": {
+                                "$type": "EditorVisibilityComponent",
+                                "Id": 14002807981216460546,
+                                "VisibilityFlag": true
+                            },
+                            "IdealVisionSystem": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 11198997988666687480,
+                                "m_template": {
+                                    "$type": "IdealVisionSystem",
+                                    "Id": 0,
+                                    "SensorConfiguration": {
+                                        "Visualize": false,
+                                        "Publishing Enabled": true,
+                                        "Frequency (HZ)": 10.0,
+                                        "Publishers": {
+                                            "geometry_msgs::msg::PoseArray": {
+                                                "Type": "geometry_msgs::msg::PoseArray",
+                                                "Topic": "camera_pickup/detectionsPoseArray",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection2D": {
+                                                "Type": "vision_msgs::msg::Detection2D",
+                                                "Topic": "camera_pickup/detections2D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            },
+                                            "vision_msgs::msg::Detection3D": {
+                                                "Type": "vision_msgs::msg::Detection3D",
+                                                "Topic": "camera_pickup/detections3D",
+                                                "QoS": {
+                                                    "Reliability": 1,
+                                                    "Durability": 2,
+                                                    "Depth": 5
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "configuration": {
+                                        "ExcludeEntities": [],
+                                        "MaximumDetectionRange": 2.0
+                                    }
+                                }
+                            },
+                            "ROS2CameraSensorEditorComponent": {
+                                "$type": "ROS2CameraSensorEditorComponent",
+                                "Id": 11910276080388637759,
+                                "CameraSensorConfig": {
+                                    "VerticalFieldOfViewDeg": 45.0,
+                                    "Width": 640,
+                                    "Height": 480,
+                                    "Depth": false,
+                                    "Color": false,
+                                    "ClipNear": 0.10000000149011612,
+                                    "ClipFar": 100.0
+                                },
+                                "SensorConfig": {
+                                    "Visualize": true,
+                                    "Publishing Enabled": true,
+                                    "Frequency (HZ)": 10.0,
+                                    "Publishers": {
+                                        "Color Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_pickup/camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Color Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_pickup/camera_image_color",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Camera Info": {
+                                            "Type": "sensor_msgs::msg::CameraInfo",
+                                            "Topic": "camera_drop/depth_camera_info",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        },
+                                        "Depth Image": {
+                                            "Type": "sensor_msgs::msg::Image",
+                                            "Topic": "camera_drop/camera_image_depth",
+                                            "QoS": {
+                                                "Reliability": 1,
+                                                "Durability": 2,
+                                                "Depth": 5
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "ROS2FrameComponent": {
+                                "$type": "GenericComponentWrapper",
+                                "Id": 4145488354555654048,
+                                "m_template": {
+                                    "$type": "ROS2FrameComponent",
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
+                            "TransformComponent": {
+                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                                "Id": 2741027279447392744,
+                                "Parent Entity": "Entity_[1060644049743]",
+                                "Transform Data": {
+                                    "Translate": [
+                                        0.8069999814033508,
+                                        0.0,
+                                        1.0
+                                    ],
+                                    "Rotate": [
+                                        180.0,
+                                        0.0,
+                                        -90.0
+                                    ],
+                                    "Scale": [
+                                        1.0,
+                                        1.0,
+                                        1.0
+                                    ],
+                                    "Locked": false,
+                                    "UniformScale": 1.0
+                                },
+                                "Parent Activation Transform Mode": 0,
+                                "IsStatic": false,
+                                "InterpolatePosition": 0,
+                                "InterpolateRotation": 0
+                            }
+                        },
+                        "IsRuntimeActive": true
+                    }
+                }
+            ]
+        }
+    }
+}

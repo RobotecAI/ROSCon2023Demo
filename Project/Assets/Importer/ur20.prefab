@@ -15,7 +15,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 10300171972598754691,
                 "Child Entity Order": [
-                    "Entity_[7324828617186]"
+                    "Entity_[1060644049743]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -50,6 +50,64 @@
         }
     },
     "Entities": {
+        "Entity_[1060644049743]": {
+            "Id": "Entity_[1060644049743]",
+            "Name": "world",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9725324621424978335
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16293045218477093194
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15889027490535152665,
+                    "Child Entity Order": [
+                        "Entity_[7342008486370]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11623387267541319155
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1507846079998371646
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8933661713162494251
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16464540950557725973
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 690398386269314164
+                },
+                "ROS2FrameComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 5240521757725247983,
+                    "m_template": {
+                        "$type": "ROS2FrameComponent",
+                        "Namespace Configuration": {
+                            "Namespace Strategy": 1
+                        },
+                        "Frame Name": "world",
+                        "Publish Transform": false
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 7361833121527235019,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
         "Entity_[7264699075042]": {
             "Id": "Entity_[7264699075042]",
             "Name": "wrist_1_link_visual",
@@ -64,7 +122,7 @@
                                     "guid": "{7108EBD7-C624-5725-A532-CE4911948A42}",
                                     "subId": 283376957
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.dae.azmodel"
                             }
                         }
                     }
@@ -134,7 +192,7 @@
                                     "guid": "{4F55177B-D4B7-5BA9-BF4F-A29B9329CF89}",
                                     "subId": 284007441
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.dae.azmodel"
                             }
                         }
                     }
@@ -440,8 +498,8 @@
                         "Angular Limit Positive": 180.0,
                         "Motor configuration": {
                             "UseMotor": true,
-                            "ForceLimit": 50000.0,
-                            "Stiffness": 50000.0,
+                            "ForceLimit": 100000.0,
+                            "Stiffness": 100000.0,
                             "Damping": 25000.0
                         }
                     }
@@ -500,7 +558,7 @@
                                     "guid": "{9D219E13-405E-5AEB-950C-E16E9D5B366E}",
                                     "subId": 1303227381
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -509,7 +567,7 @@
                                         "subId": 1303227381
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -571,7 +629,7 @@
                                     "guid": "{C4A14DD5-D8EB-5BF2-81AB-B3A89E7453E9}",
                                     "subId": 274532406
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/forearm.dae.azmodel"
                             }
                         }
                     }
@@ -641,7 +699,7 @@
                                     "guid": "{4C895B5F-9BC2-5196-8524-CBFF285CFC60}",
                                     "subId": 270772955
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.dae.azmodel"
                             }
                         }
                     }
@@ -719,8 +777,8 @@
                         "Angular Limit Positive": 360.0,
                         "Motor configuration": {
                             "UseMotor": true,
-                            "ForceLimit": 10000.0,
-                            "Stiffness": 10000.0,
+                            "ForceLimit": 50000.0,
+                            "Stiffness": 50000.0,
                             "Damping": 5000.0
                         }
                     }
@@ -779,7 +837,7 @@
                                     "guid": "{2651EEDB-0D61-582A-8179-551BE43C9DBB}",
                                     "subId": 3110102142
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -788,7 +846,7 @@
                                         "subId": 3110102142
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist1.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -907,7 +965,7 @@
                                     "guid": "{12A7D556-98ED-5CD5-B76A-BC0C78AC165B}",
                                     "subId": 1593114053
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -916,7 +974,7 @@
                                         "subId": 1593114053
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -991,8 +1049,8 @@
                         "Angular Limit Positive": 360.0,
                         "Motor configuration": {
                             "UseMotor": true,
-                            "ForceLimit": 10000.0,
-                            "Stiffness": 10000.0,
+                            "ForceLimit": 50000.0,
+                            "Stiffness": 50000.0,
                             "Damping": 5000.0
                         }
                     }
@@ -1051,7 +1109,7 @@
                                     "guid": "{C76C245A-54B5-5E33-87D5-38B4EE1FD5E0}",
                                     "subId": 1865782021
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1060,7 +1118,7 @@
                                         "subId": 1865782021
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/upperarm.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -1117,7 +1175,7 @@
                                     "guid": "{F1B496AA-BF92-5182-B91C-1AC2295ADB3C}",
                                     "subId": 284840925
                                 },
-                                "assetHint": "assets/gripper/gripper.azmodel"
+                                "assetHint": "assets/gripper/gripper.fbx.azmodel"
                             }
                         }
                     }
@@ -1196,8 +1254,8 @@
                         "Angular Limit Positive": 360.0,
                         "Motor configuration": {
                             "UseMotor": true,
-                            "ForceLimit": 50000.0,
-                            "Stiffness": 50000.0,
+                            "ForceLimit": 100000.0,
+                            "Stiffness": 100000.0,
                             "Damping": 25000.0
                         }
                     }
@@ -1251,7 +1309,7 @@
                                     "guid": "{2F29BD65-7B25-55F9-A96F-BF8DF10DB6F7}",
                                     "subId": 1794914141
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1260,7 +1318,7 @@
                                         "subId": 1794914141
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -1322,7 +1380,7 @@
                                     "guid": "{0AC00851-120F-556E-8715-40CAE4AA8F59}",
                                     "subId": 280297057
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.dae.azmodel"
                             }
                         }
                     }
@@ -1445,63 +1503,6 @@
                 }
             }
         },
-        "Entity_[7324828617186]": {
-            "Id": "Entity_[7324828617186]",
-            "Name": "world",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 4226921202328886170
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 6904593021635626730
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11469995960823293461,
-                    "Child Entity Order": [
-                        "Entity_[7342008486370]"
-                    ]
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 9346742094380408051
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 12190033477810646900
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 1195817288978070183
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 5024621471849906267
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 10116632112167922513
-                },
-                "ROS2FrameComponent": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 5693296222497352089,
-                    "m_template": {
-                        "$type": "ROS2FrameComponent",
-                        "Namespace Configuration": {
-                            "Namespace Strategy": 1
-                        },
-                        "Frame Name": "world"
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 1184589075662381323,
-                    "Parent Entity": "ContainerEntity"
-                }
-            }
-        },
         "Entity_[7329123584482]": {
             "Id": "Entity_[7329123584482]",
             "Name": "shoulder_link_visual",
@@ -1516,7 +1517,7 @@
                                     "guid": "{0875071D-3D4C-5AA9-9C7E-0C6D77AB3551}",
                                     "subId": 278609181
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/shoulder.dae.azmodel"
                             }
                         }
                     }
@@ -1581,7 +1582,7 @@
                                     "guid": "{508F65B7-559D-55ED-A44D-0FA5EE405775}",
                                     "subId": 283815047
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.azmodel"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist2.dae.azmodel"
                             }
                         }
                     }
@@ -1696,7 +1697,7 @@
                                     "guid": "{1F84DC66-7DAC-5AF1-AB2D-F1E36667BA5F}",
                                     "subId": 1505212455
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1705,7 +1706,7 @@
                                         "subId": 1505212455
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/base.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }
@@ -1735,7 +1736,6 @@
                     "$type": "JointsManipulationEditorComponent",
                     "Id": 16346866809691770191,
                     "JointStatePublisherConfiguration": {
-                        "Publish": false,
                         "Topic": {
                             "QoS": {
                                 "Reliability": 1
@@ -1756,7 +1756,7 @@
                     "Id": 14281335376947411836,
                     "m_template": {
                         "$type": "JointsTrajectoryComponent",
-                        "Action name": "ur_group_controller/follow_joint_trajectory"
+                        "Action name": "joint_trajectory_controller/follow_joint_trajectory"
                     }
                 },
                 "ROS2FrameComponent": {
@@ -1770,7 +1770,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 18356661809412537335,
-                    "Parent Entity": "Entity_[7324828617186]"
+                    "Parent Entity": "Entity_[1060644049743]"
                 }
             }
         },
@@ -1862,7 +1862,7 @@
                                     "guid": "{F1BA1349-F6EE-50B2-B02C-7E7FA2C40863}",
                                     "subId": 1922203068
                                 },
-                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.pxmesh"
+                                "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.stl.pxmesh"
                             },
                             "Configuration": {
                                 "PhysicsAsset": {
@@ -1871,7 +1871,7 @@
                                         "subId": 1922203068
                                     },
                                     "loadBehavior": "QueueLoad",
-                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.pxmesh"
+                                    "assetHint": "assets/urdfimporter/3276991007_ur.urdf{a0b9f135-2ad6-52cb-bd7d-4813faf808af}/wrist3.stl.pxmesh"
                                 },
                                 "UseMaterialsFromAsset": false
                             }

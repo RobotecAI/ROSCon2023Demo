@@ -56,11 +56,15 @@ ly_add_target(
     INCLUDE_DIRECTORIES
         PUBLIC
             Include
+        PRIVATE
+            Source
     BUILD_DEPENDENCIES
         PRIVATE
             AZ::AzGameFramework
             Gem::Atom_AtomBridge.Static
             Gem::ROS2.Static
+            Gem::RecastNavigation.API
+            Gem::EMotionFX.Static
 )
 
 ly_add_target(
@@ -72,10 +76,13 @@ ly_add_target(
     INCLUDE_DIRECTORIES
         PUBLIC
             Include
+        PRIVATE
+            Source
     BUILD_DEPENDENCIES
         PRIVATE
             Gem::${gem_name}.Private.Object
             AZ::AzCore
+            Gem::RecastNavigation.API
             Gem::ROS2.Static
 )
 

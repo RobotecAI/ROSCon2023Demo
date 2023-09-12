@@ -1,0 +1,280 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "AsianWomanActor",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 1355158111058718904
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 1257244213223277681
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 12887538452773119694,
+                "Child Entity Order": [
+                    "Entity_[65895503101493]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 15009234085497111320
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 13001636195724030222
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 11319168933526297591
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 1914512149826913781
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 17599152719881169426
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 9444917658756623096
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 6146457652692108522,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[65895503101493]": {
+            "Id": "Entity_[65895503101493]",
+            "Name": "AsianWomanActor",
+            "Components": {
+                "AnimGraphInputProviderComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 7616125041233682656,
+                    "m_template": {
+                        "$type": "AnimGraphInputProviderComponent",
+                        "Rigid Body": "",
+                        "Linear Speed Multiplier": 1.0
+                    }
+                },
+                "EditorActorComponent": {
+                    "$type": "EditorActorComponent",
+                    "Id": 8069508764851273439,
+                    "ActorAsset": {
+                        "assetId": {
+                            "guid": "{BA2716E0-95D3-5FDF-8192-E586007C32ED}",
+                            "subId": 1503246761
+                        },
+                        "loadBehavior": "QueueLoad",
+                        "assetHint": "assets/asianwoman/actor/asianwomanactor.actor"
+                    },
+                    "AttachmentTarget": ""
+                },
+                "EditorAnimGraphComponent": {
+                    "$type": "EditorAnimGraphComponent",
+                    "Id": 8284198742296559786,
+                    "AnimGraphAsset": {
+                        "assetId": {
+                            "guid": "{096D6D57-B3BF-59E3-97DA-0AD31CA7B59A}"
+                        },
+                        "assetHint": "assets/asianwoman/asianwoman_animgraph.animgraph"
+                    },
+                    "MotionSetAsset": {
+                        "assetId": {
+                            "guid": "{678D4564-A8E4-5059-AA5D-04E31D22BB66}"
+                        },
+                        "assetHint": "assets/asianwoman/asianwoman_motionset.motionset"
+                    },
+                    "ActiveMotionSetName": "Default",
+                    "ParameterDefaults": {
+                        "Parameters": [
+                            {
+                                "$type": "AzFramework::ScriptPropertyNumber",
+                                "id": 254213878,
+                                "name": "Speed"
+                            }
+                        ]
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1759738557508183837
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3339056541090683331
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14382814823498610098
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8939831855381734880,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 314276133413116369
+                        },
+                        {
+                            "ComponentId": 8069508764851273439,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18296120839159196620,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 8284198742296559786,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 7616125041233682656,
+                            "SortIndex": 4
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5519633313106938690
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 18296120839159196620,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 305730390
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AF9168F0-F545-54DC-9E6E-2AFA185B9053}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_cloth.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 335670209
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{F145EB8B-0F25-5585-A607-8A95B622A25B}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_shoes.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1077803363
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{2BAA3195-957E-50BB-808D-46D66669346C}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_tablet.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1372285319
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{574C720B-89E4-5C16-BE37-D1FEDE39AC00}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_vest.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2609202983
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{0104BD42-81CF-55E8-AB26-398369E60EF1}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_body.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2650981758
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{CA7AEDD1-5614-51EB-8643-484445930B3B}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_mask.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2748874416
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{614F086A-1353-54D4-BF77-9CC849353055}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_hair.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3944979779
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BDA5C024-4EAB-5729-B441-5E67CAF59901}"
+                                            },
+                                            "assetHint": "assets/asianwoman/material/asianwoman_eyes.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4169775114832059713
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10109057209642447477
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1224424632761161126
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 314276133413116369,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

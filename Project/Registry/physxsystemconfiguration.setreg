@@ -8,7 +8,7 @@
                         "Layers": {
                             "LayerNames": [
                                 "Default",
-                                {},
+                                "Navigation",
                                 {},
                                 {},
                                 {},
@@ -88,6 +88,24 @@
                                         "Mask": 0
                                     },
                                     "ReadOnly": true
+                                },
+                                {
+                                    "Id": {
+                                        "GroupId": "{EB55E2F1-479F-4D54-9593-38A9DEB9A3DA}"
+                                    },
+                                    "Name": "NavigationOnly",
+                                    "Group": {
+                                        "Mask": 18446744073709551614
+                                    }
+                                },
+                                {
+                                    "Id": {
+                                        "GroupId": "{ECFAD03A-4884-4EE1-A915-8844B7E354B3}"
+                                    },
+                                    "Name": "NavigationExcept",
+                                    "Group": {
+                                        "Mask": 18446744073709551613
+                                    }
                                 }
                             ]
                         }

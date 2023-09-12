@@ -27,7 +27,7 @@
                     "Entity_[21524318507725]",
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
-                    "Entity_[85414779651986]"
+                    "Instance_[9849799017068]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -1632,49 +1632,6 @@
                 }
             }
         },
-        "Entity_[85414779651986]": {
-            "Id": "Entity_[85414779651986]",
-            "Name": "Entity1",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 1467954534097783004
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 12152642203469009079
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 12513606246561000650
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 9043138597791157193
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 5462488837725286866
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 3327928479156547163
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 1882808424770256816
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 7450818303772694173
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 9070875092859952428,
-                    "Parent Entity": "Entity_[1146574390643]"
-                }
-            }
-        },
         "Entity_[9443289330936]": {
             "Id": "Entity_[9443289330936]",
             "Name": "pickupPath",
@@ -3182,6 +3139,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[9769530803792]"
+                }
+            ]
+        },
+        "Instance_[9849799017068]": {
+            "Source": "Prefabs/Features/HumanNavigation.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
                 }
             ]
         }

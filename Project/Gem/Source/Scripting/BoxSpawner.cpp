@@ -95,7 +95,7 @@ namespace ROS2::Demo
     bool CheckIfEntityInsideBox(
         const AZ::Vector3& boxLocation, const LmbrCentral::BoxShapeConfig& regionBoxConfig, AZ::Transform& entityTransform)
     {
-        const AZ::Vector3 localPos = entityTransform.GetInverse().TransformPoint(boxLocation) + regionBoxConfig.m_translationOffset;
+        const AZ::Vector3 localPos = entityTransform.GetInverse().TransformPoint(boxLocation) - regionBoxConfig.m_translationOffset;
         const AZ::Vector3 boxMin = regionBoxConfig.GetDimensions() * -0.5f;
         const AZ::Vector3 boxMax = regionBoxConfig.GetDimensions() * 0.5f;
         if (localPos.IsGreaterThan(boxMin) && localPos.IsLessThan(boxMax))
@@ -167,7 +167,7 @@ namespace ROS2::Demo
 
     void BoxSpawner::DespawnBoxes()
     {
-        AZ::Transform despawnRegionTransform;
+        AZ::Transform despawnRegionTransform{ AZ::Transform::CreateIdentity() };
         AZ::TransformBus::EventResult(
             despawnRegionTransform, m_configuration.m_despawnRegionEntityId, &AZ::TransformBus::Events::GetWorldTM);
         LmbrCentral::BoxShapeConfig despawnRegionBoxConfig;
@@ -179,9 +179,9 @@ namespace ROS2::Demo
             [&despawnRegionTransform, &despawnRegionBoxConfig](const auto& pair)
             {
                 AZ::EntityId boxEntityId = pair.first;
-                AZ::Transform entityTransform{ AZ::Transform::CreateIdentity() };
-                AZ::TransformBus::EventResult(entityTransform, boxEntityId, &AZ::TransformBus::Events::GetWorldTM);
-                return CheckIfEntityInsideBox(despawnRegionTransform.GetTranslation(), despawnRegionBoxConfig, entityTransform);
+                AZ::Vector3 boxLocation{ AZ::Vector3::CreateZero() };
+                AZ::TransformBus::EventResult(boxLocation, boxEntityId, &AZ::TransformBus::Events::GetWorldTranslation);
+                return CheckIfEntityInsideBox(boxLocation, despawnRegionBoxConfig, despawnRegionTransform);
             });
     }
 
@@ -193,17 +193,18 @@ namespace ROS2::Demo
         LmbrCentral::BoxShapeConfig barrierRegionBoxConfig;
         LmbrCentral::BoxShapeComponentRequestsBus::EventResult(
             barrierRegionBoxConfig, m_configuration.m_barrierRegionEntityId, &LmbrCentral::BoxShapeComponentRequests::GetBoxConfiguration);
-
-        return AZStd::count_if(
+        int count = AZStd::count_if(
             m_spawnedEntities.begin(),
             m_spawnedEntities.end(),
             [&barrierRegionTransform, &barrierRegionBoxConfig](const auto& pair)
             {
                 AZ::EntityId boxEntityId = pair.first;
-                AZ::Transform entityTransform{ AZ::Transform::CreateIdentity() };
-                AZ::TransformBus::EventResult(entityTransform, boxEntityId, &AZ::TransformBus::Events::GetWorldTM);
-                return CheckIfEntityInsideBox(barrierRegionTransform.GetTranslation(), barrierRegionBoxConfig, entityTransform);
+                AZ::Vector3 boxLocation{ AZ::Vector3::CreateZero() };
+                AZ::TransformBus::EventResult(boxLocation, boxEntityId, &AZ::TransformBus::Events::GetWorldTranslation);
+                return CheckIfEntityInsideBox(boxLocation, barrierRegionBoxConfig, barrierRegionTransform);
             });
+        AZ_Printf("BoxSpawner", "CountBoxesInBarrierRegion: %d\n", count);
+        return count;
     }
 
     void BoxSpawner::OnTick([[maybe_unused]] float deltaTime, [[maybe_unused]] AZ::ScriptTimePoint time)

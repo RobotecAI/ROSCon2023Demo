@@ -621,6 +621,102 @@
                 }
             }
         },
+        "Entity_[143731044951749]": {
+            "Id": "Entity_[143731044951749]",
+            "Name": "DiffuseProbeGrid_mid",
+            "Components": {
+                "AZ::Render::EditorDiffuseProbeGridComponent": {
+                    "$type": "AZ::Render::EditorDiffuseProbeGridComponent",
+                    "Id": 11840825562533115909,
+                    "Controller": {
+                        "Configuration": {
+                            "ProbeSpacing": [
+                                2.0,
+                                2.0,
+                                1.0
+                            ],
+                            "Extents": [
+                                10.174083709716797,
+                                35.0,
+                                7.933486461639404
+                            ],
+                            "ViewBias": 0.20999999344348907,
+                            "FrameUpdateCount": 10,
+                            "TransparencyMode": 0,
+                            "VisualizationShowInactiveProbes": true
+                        }
+                    },
+                    "probeSpacingZ": 1.0,
+                    "viewBias": 0.20999999344348907,
+                    "frameUpdateCount": 10,
+                    "transparencyMode": 0,
+                    "showInactiveProbes": true
+                },
+                "EditorAxisAlignedBoxShapeComponent": {
+                    "$type": "EditorAxisAlignedBoxShapeComponent",
+                    "Id": 7745687597028828474,
+                    "Visible": false,
+                    "AxisAlignedBoxShape": {
+                        "Configuration": {
+                            "Dimensions": [
+                                10.174083709716797,
+                                35.0,
+                                7.933486461639404
+                            ],
+                            "TranslationOffset": [
+                                46.44112014770508,
+                                0.0,
+                                3.102689027786255
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 846976982452280937
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16301156775782835065
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2136028543174084319
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5194714516922703878
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 24915834803536204
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2322259085166846098
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 9708013657425209070
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11014716642068078573
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18405617829055951147,
+                    "Parent Entity": "Entity_[252929692587044]",
+                    "Transform Data": {
+                        "Translate": [
+                            -50.0,
+                            15.0,
+                            6.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[147961791093930]": {
             "Id": "Entity_[147961791093930]",
             "Name": "Lamps",
@@ -896,15 +992,10 @@
                     "Id": 11840825562533115909,
                     "Controller": {
                         "Configuration": {
-                            "ProbeSpacing": [
-                                4.0,
-                                4.0,
-                                2.0
-                            ],
                             "Extents": [
-                                9.420387268066406,
+                                10.174083709716797,
                                 35.0,
-                                11.731639862060547
+                                8.016559600830078
                             ],
                             "ViewBias": 0.20999999344348907,
                             "FrameUpdateCount": 10,
@@ -912,8 +1003,6 @@
                             "VisualizationShowInactiveProbes": true
                         }
                     },
-                    "probeSpacingX": 4.0,
-                    "probeSpacingY": 4.0,
                     "viewBias": 0.20999999344348907,
                     "frameUpdateCount": 10,
                     "transparencyMode": 0,
@@ -926,14 +1015,14 @@
                     "AxisAlignedBoxShape": {
                         "Configuration": {
                             "Dimensions": [
-                                9.420387268066406,
+                                10.174083709716797,
                                 35.0,
-                                11.731639862060547
+                                8.016559600830078
                             ],
                             "TranslationOffset": [
-                                46.818058013916016,
+                                46.44112014770508,
                                 0.0,
-                                -0.13417983055114746
+                                -1.9914437532424927
                             ]
                         }
                     }
@@ -1207,7 +1296,9 @@
                         "Entity_[15647777048046]",
                         "Entity_[15652072015342]",
                         "Entity_[655840574624804]",
-                        "Entity_[22422545898570]"
+                        "Entity_[68672196486853]",
+                        "Entity_[22422545898570]",
+                        "Entity_[143731044951749]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -2448,7 +2539,7 @@
                             "Extents": [
                                 95.89024353027344,
                                 35.0,
-                                12.0
+                                8.22348403930664
                             ],
                             "ViewBias": 0.20999999344348907,
                             "FrameUpdateCount": 10,
@@ -2473,12 +2564,12 @@
                             "Dimensions": [
                                 95.89024353027344,
                                 35.0,
-                                12.0
+                                8.22348403930664
                             ],
                             "TranslationOffset": [
                                 -4.554666519165039,
                                 0.0,
-                                0.0
+                                -1.888132095336914
                             ]
                         }
                     }
@@ -2581,6 +2672,104 @@
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 17452131506742909370,
                     "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[68672196486853]": {
+            "Id": "Entity_[68672196486853]",
+            "Name": "DiffuseProbeGrid_mid",
+            "Components": {
+                "AZ::Render::EditorDiffuseProbeGridComponent": {
+                    "$type": "AZ::Render::EditorDiffuseProbeGridComponent",
+                    "Id": 11840825562533115909,
+                    "Controller": {
+                        "Configuration": {
+                            "ProbeSpacing": [
+                                4.0,
+                                4.0,
+                                3.0
+                            ],
+                            "Extents": [
+                                95.89024353027344,
+                                35.0,
+                                7.0813374519348145
+                            ],
+                            "ViewBias": 0.20999999344348907,
+                            "FrameUpdateCount": 10,
+                            "TransparencyMode": 0,
+                            "VisualizationShowInactiveProbes": true
+                        }
+                    },
+                    "probeSpacingX": 4.0,
+                    "probeSpacingY": 4.0,
+                    "probeSpacingZ": 3.0,
+                    "viewBias": 0.20999999344348907,
+                    "frameUpdateCount": 10,
+                    "transparencyMode": 0,
+                    "showInactiveProbes": true
+                },
+                "EditorAxisAlignedBoxShapeComponent": {
+                    "$type": "EditorAxisAlignedBoxShapeComponent",
+                    "Id": 7745687597028828474,
+                    "Visible": false,
+                    "AxisAlignedBoxShape": {
+                        "Configuration": {
+                            "Dimensions": [
+                                95.89024353027344,
+                                35.0,
+                                7.0813374519348145
+                            ],
+                            "TranslationOffset": [
+                                -4.554666519165039,
+                                0.0,
+                                4.181022644042969
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 846976982452280937
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16301156775782835065
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2136028543174084319
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 5194714516922703878
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 24915834803536204
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2322259085166846098
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 9708013657425209070
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11014716642068078573
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 18405617829055951147,
+                    "Parent Entity": "Entity_[252929692587044]",
+                    "Transform Data": {
+                        "Translate": [
+                            -50.0,
+                            15.0,
+                            6.0
+                        ]
+                    }
                 }
             }
         }

@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(blind_path_follower_msgs REQUIRED)
+find_package(lane_provider_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 
 add_executable(deliberation_otto_node src/deliberation_otto_node.cpp src/otto_autonomy.cpp src/nav2_action_client.cpp)
@@ -22,6 +23,7 @@ ament_target_dependencies(
         "rclcpp"
         "rclcpp_action"
         "blind_path_follower_msgs"
+        "lane_provider_msgs"
         "nav2_msgs"
 )
 

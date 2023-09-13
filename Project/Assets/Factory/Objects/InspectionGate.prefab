@@ -1,0 +1,513 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "InspectionGate",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 16908910687915430073
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 1304958604366073324
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 13638075596659642217,
+                "Child Entity Order": [
+                    "Entity_[47506756634021]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 10203791009654249565
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 17458205348653976197
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 15689437664068424684
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 1748253497083196866
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 997759109886541109
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 14040041389465943585
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 9232268875748159519,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[10923285167681]": {
+            "Id": "Entity_[10923285167681]",
+            "Name": "physics",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 8629463683517058756,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            2.1335384845733643,
+                            -1.912744164466858,
+                            1.3244633674621582
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                0.6001864671707153,
+                                2.7261874675750732,
+                                2.661403179168701
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_2": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 11903027513370148789,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            1.9437284469604492,
+                            -3.276623010635376,
+                            0.5742504596710205
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAABMof8/t3RJwLjkkz9Mof8/t3RJwACk4rsYzPg/v8ZIwACk4rsYzPg/v8ZIwLjkkz9Nof8/q/NZwACk4rsatgJAPwRYwACk4rsatgJAPwRYwLjkkz9Nof8/q/NZwLjkkz8YzPg/o6FawLjkkz8YzPg/o6FawACk4rvk9vE/t3RJwLjkkz/k9vE/t3RJwACk4rv8K+w/I2RLwACk4rv8K+w/I2RLwLjkkz8kTeg/l0lOwLjkkz8kTeg/l0lOwACk4rs08eY/MbRRwACk4rs08eY/MbRRwLjkkz/k9vE/q/NZwLjkkz/8K+w/PwRYwLjkkz/8K+w/PwRYwACk4rvk9vE/q/NZwACk4rsatgJAI2RLwACk4rsatgJAI2RLwLjkkz+GpQRAl0lOwLjkkz9+UwVAMbRRwLjkkz9+UwVAMbRRwACk4ruGpQRAl0lOwACk4rskTeg/yx5VwLjkkz8kTeg/yx5VwACk4ruGpQRAyx5VwLjkkz+GpQRAyx5VwACk4rsAAAAAAAAAAP//fz+35JO/AAAQAavFRz7AFHs/AAAAAEymLEAQAAQI2jkOPzLbVL8AAAAABjt8wBQABAqQxUc+whR7vwAAAAAKs27AGAAEAqvFR77AFHs/AAAAAPwvXUAcAAQEyTkOvzzbVD8AAAAA9rdqQCAABAQ821S/yTkOPwAAAADMLlNAJAAEBcAUe7+rxUc+AAAAANopGkAoAAQeyTkOvzzbVL8AAAAATwPkvywABBarxUe+wBR7vwAAAABbKT7AMAAEAsk5Dj8821Q/AAAAAC/9wD80AAQSwBR7P6vFRz4AAAAA2LSzvzgABBA821Q/yTkOPwAAAADQFoo9PAAEHDzbVL/JOQ6/AAAAADSerr5AAAQWwBR7v6vFR74AAAAAt66QP0QABBjAFHs/q8VHvgAAAADqrCvASAAEEDzbVD/JOQ6/AAAAANyxZMBMAAQOAAAAAAAAAAAAAIC/AKTiu1AAEAAcExIIBwYeGRgXAAMKDQ4RAAECAwQFBgcEBwgJCgMCCwoLDA0ODQwPDg8QERITFBUSFQkIFgEAFxgZGhsYGxYXHB0UExwREB0fGhkeHx4GBR8FBAkVFB0QDwwLAgEWGxoADQAIAAkAAwACABAADwALAAwACgABAAQABQAGAAcADgEKAREBBAIRAhACAwMJAxEEEQQFBREFBgYRBgcHEQcOCA0IEQgJCREKEQoMCw8LEQsMDBENDg0RDhEPEQ8QEBEAAQoBChEBBBEAAQQCAxECEBEAAhAAAgMAAwkDCREABAUEBREFBhEABQYABgcGBxEHDhEABw4ACAkACA0IDREICREKDBEACgwACwwACw8LDxELDBEADQ4NDhEADxAPEBEAAAAANPHmP6OhWsAApOK7flMFQL/GSMC45JM/KM6NPXU7Rj/kyOE+/0eeveTI4T6zyZU+HWkFPv9Hnr0daQU+4biAPxjM+D8xtFHAFAITPwAAgL8AAIC/cBgMPrMByj2zAco9XMcUPw==",
+                                "Type": 1
+                            },
+                            "Height": 1.1623339653015137,
+                            "Radius": 0.13949257135391235
+                        }
+                    }
+                },
+                "EditorColliderComponent_3": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 17824126285349986570,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            1.9437284469604492,
+                            -0.5861330032348633,
+                            0.5742505192756653
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAADj9vE/zh3qvrjkkz8YzPg/Da7kvrjkkz8YzPg/Da7kvoCj4rvj9vE/zh3qvoCj4rtNof8/uQo3v7jkkz8YzPg/msI5v7jkkz8YzPg/msI5v4Cj4rtNof8/uQo3v4Cj4rskTeg/Z2IIv7jkkz8kTeg/Z2IIv4Cj4rsz8eY/0AwWv4Cj4rsz8eY/0AwWv7jkkz8kTeg/Obcjv7jkkz8kTeg/Obcjv4Cj4rv8K+w/CE0vv4Cj4rv8K+w/CE0vv7jkkz9Mof8/zh3qvoCj4rtMof8/zh3qvrjkkz8atgJAMJn5vrjkkz8atgJAMJn5voCj4rv8K+w/MJn5voCj4rv8K+w/MJn5vrjkkz/k9vE/uQo3v7jkkz/k9vE/uQo3v4Cj4rsatgJACE0vv4Cj4rsatgJACE0vv7jkkz+GpQRAZ2IIv4Cj4ruGpQRAZ2IIv7jkkz9+UwVA0AwWv7jkkz9+UwVA0AwWv4Cj4ruGpQRAObcjv4Cj4ruGpQRAObcjv7jkkz8AAAAAAAAAAAAAgL+Ao+K7AAAQALPFR77AFHs/AAAAAP43UT8QAAQE1sVHPr4Ue78AAAAAKKKLvxQABAC6FHu/KsZHPgAAAAA0JPE/GAAEHLoUe78qxke+AAAAACze0z8cAAQaNttUv9E5Dr8AAAAAf6yTPyAABBLOxUc+vhR7PwAAAABYEnE9JAAEBdY5Dj8021Q/AAAAAOC1Or8oAAQO5zkOvynbVD8AAAAA9Be3PywABBg221S/0TkOPwAAAAB+Cec/MAAEGNY5Dr8021S/AAAAADxT6T40AAQQ8cVHvrwUe78AAAAArDqqvjgABBDnOQ4/KdtUvwAAAAAUHtq/PAAEADbbVD/ROQ4/AAAAAJ+ytr9AAAQOwRR7P53FRz4AAAAAXeT2v0QABAo221Q/0TkOvwAAAADPBwXASAAECMEUez+dxUe+AAAAACgVCsBMAAQKAAAAAAAAAAAAAIA/uOSTv1AAEAIaHR4YBwYXDg0KCRQDAhATAAECAwQFBgcICQoLDAsKDQwNDg8QAgEREBESExQVAAMUCQgVFg8OFxYXBgUYGQQHGhMSGxobHB0fGRgeHx4dHB8cGxIRAQAVCAsMDxYFBBkADgAQAA8ADAACAAsACgAFAAQAAwAJAAgAAQAGAAcADQERAQYBCAIRAgsCDAMJAwQDEQQRBAUFCgURBhEGBwcRBw0ICQgRCREKEQoLCxEMDwwRDRENDg4RDhAPEQ8QEBEBCBEBBhEAAQYAAQgCDBECCxEAAgsAAgwDCREAAwkAAwQDBBEEBREABAUABQoFChEABgcGBxEHDREABw0ACAkICREKCxEACgsADA8MDxEADQ4NDhEOEBEADhAADxAPEBEAAAAANPHmP5rCOb8ApOK7flMFQAyu5L645JM/Ls6NPQg8YD15jqE9BUievXmOoT25yZU+ZOu+PAVInr1k6748HXSSPhjM+D/QDBa/FAITPwAAgL8AAIC/eBgMPrAByj2wAco9W8cUPw==",
+                                "Type": 1
+                            },
+                            "Height": 1.1623339653015137,
+                            "Radius": 0.13949260115623474
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6148545673543388870
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7018955581492823055
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4491850162078415780
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17774697563393197395
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1472830639583445857
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11471489062959229845
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5741814401328173627
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 13993748004676888475
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4738284087387495544
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2086175831570596536,
+                    "Parent Entity": "Entity_[47506756634021]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.000003814697265625,
+                            -3.8601303100585938,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            180.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[47506756634021]": {
+            "Id": "Entity_[47506756634021]",
+            "Name": "InspectionGate",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 488665599732415191
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15554484529060453426
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16970562049827529976,
+                    "Child Entity Order": [
+                        "Entity_[47511051601317]",
+                        "Entity_[47652785522085]",
+                        "Entity_[10923285167681]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 47581641951089242,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 8151969513496835344
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 7555329197904383776
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8453576145164440981
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10884149442428747922
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13374707135302539116
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8151969513496835344,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[47511051601317]": {
+            "Id": "Entity_[47511051601317]",
+            "Name": "vis",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 2436664099015711394,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{A4C53598-6E27-5A67-AF6E-A1BAB1CCBC4E}",
+                                    "subId": 281864925
+                                },
+                                "assetHint": "assets/factory/objects/models/default_inspectiongate_f06269a3_33dc_5d8f_9f43_504d71581479_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 16422908956934134020
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10228261108520623760
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15379613090135624084
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7191760917986644052
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 14484382388161025814
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 5779317733065903482,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 15704514
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{E8CF6FF1-72AD-505F-9FAD-EA87AD184C7F}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/inspectiongate_minspectiongate.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 372250559
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{31E7EE89-65FA-53A4-909D-1EDD273919D6}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/inspectiongate_greenlight.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1415634247
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{6BB56B5F-9BDC-59F2-A523-788FE0D317B4}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/inspectiongate_redlight.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3655215697
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{68587BA7-7D8A-5E82-935C-9A76E294E295}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/inspectiongate_yellowlight.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14035467991217969133
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11821555947844920918
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8163981035574007142
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1392506124150153114,
+                    "Parent Entity": "Entity_[47506756634021]",
+                    "Transform Data": {
+                        "Translate": [
+                            9.5367431640625e-7,
+                            -1.9280929565429688,
+                            0.0
+                        ],
+                        "UniformScale": 100.0
+                    }
+                }
+            }
+        },
+        "Entity_[47652785522085]": {
+            "Id": "Entity_[47652785522085]",
+            "Name": "physics",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 8629463683517058756,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            2.1335384845733643,
+                            -1.912744164466858,
+                            1.3244633674621582
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                0.6001864671707153,
+                                2.7261874675750732,
+                                2.661403179168701
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_2": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 11903027513370148789,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            1.9437284469604492,
+                            -3.276623010635376,
+                            0.5742504596710205
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAABMof8/t3RJwLjkkz9Mof8/t3RJwACk4rsYzPg/v8ZIwACk4rsYzPg/v8ZIwLjkkz9Nof8/q/NZwACk4rsatgJAPwRYwACk4rsatgJAPwRYwLjkkz9Nof8/q/NZwLjkkz8YzPg/o6FawLjkkz8YzPg/o6FawACk4rvk9vE/t3RJwLjkkz/k9vE/t3RJwACk4rv8K+w/I2RLwACk4rv8K+w/I2RLwLjkkz8kTeg/l0lOwLjkkz8kTeg/l0lOwACk4rs08eY/MbRRwACk4rs08eY/MbRRwLjkkz/k9vE/q/NZwLjkkz/8K+w/PwRYwLjkkz/8K+w/PwRYwACk4rvk9vE/q/NZwACk4rsatgJAI2RLwACk4rsatgJAI2RLwLjkkz+GpQRAl0lOwLjkkz9+UwVAMbRRwLjkkz9+UwVAMbRRwACk4ruGpQRAl0lOwACk4rskTeg/yx5VwLjkkz8kTeg/yx5VwACk4ruGpQRAyx5VwLjkkz+GpQRAyx5VwACk4rsAAAAAAAAAAP//fz+35JO/AAAQAavFRz7AFHs/AAAAAEymLEAQAAQI2jkOPzLbVL8AAAAABjt8wBQABAqQxUc+whR7vwAAAAAKs27AGAAEAqvFR77AFHs/AAAAAPwvXUAcAAQEyTkOvzzbVD8AAAAA9rdqQCAABAQ821S/yTkOPwAAAADMLlNAJAAEBcAUe7+rxUc+AAAAANopGkAoAAQeyTkOvzzbVL8AAAAATwPkvywABBarxUe+wBR7vwAAAABbKT7AMAAEAsk5Dj8821Q/AAAAAC/9wD80AAQSwBR7P6vFRz4AAAAA2LSzvzgABBA821Q/yTkOPwAAAADQFoo9PAAEHDzbVL/JOQ6/AAAAADSerr5AAAQWwBR7v6vFR74AAAAAt66QP0QABBjAFHs/q8VHvgAAAADqrCvASAAEEDzbVD/JOQ6/AAAAANyxZMBMAAQOAAAAAAAAAAAAAIC/AKTiu1AAEAAcExIIBwYeGRgXAAMKDQ4RAAECAwQFBgcEBwgJCgMCCwoLDA0ODQwPDg8QERITFBUSFQkIFgEAFxgZGhsYGxYXHB0UExwREB0fGhkeHx4GBR8FBAkVFB0QDwwLAgEWGxoADQAIAAkAAwACABAADwALAAwACgABAAQABQAGAAcADgEKAREBBAIRAhACAwMJAxEEEQQFBREFBgYRBgcHEQcOCA0IEQgJCREKEQoMCw8LEQsMDBENDg0RDhEPEQ8QEBEAAQoBChEBBBEAAQQCAxECEBEAAhAAAgMAAwkDCREABAUEBREFBhEABQYABgcGBxEHDhEABw4ACAkACA0IDREICREKDBEACgwACwwACw8LDxELDBEADQ4NDhEADxAPEBEAAAAANPHmP6OhWsAApOK7flMFQL/GSMC45JM/KM6NPXU7Rj/kyOE+/0eeveTI4T6zyZU+HWkFPv9Hnr0daQU+4biAPxjM+D8xtFHAFAITPwAAgL8AAIC/cBgMPrMByj2zAco9XMcUPw==",
+                                "Type": 1
+                            },
+                            "Height": 1.1623339653015137,
+                            "Radius": 0.13949257135391235
+                        }
+                    }
+                },
+                "EditorColliderComponent_3": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 17824126285349986570,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            1.9437284469604492,
+                            -0.5861330032348633,
+                            0.5742505192756653
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 3,
+                        "Cylinder": {
+                            "Configuration": {
+                                "CookedData": "TlhTAUNWWE0OAAAAAAAAAElDRQFDTEhMCQAAACAAAAAwAAAAEgAAAGAAAADj9vE/zh3qvrjkkz8YzPg/Da7kvrjkkz8YzPg/Da7kvoCj4rvj9vE/zh3qvoCj4rtNof8/uQo3v7jkkz8YzPg/msI5v7jkkz8YzPg/msI5v4Cj4rtNof8/uQo3v4Cj4rskTeg/Z2IIv7jkkz8kTeg/Z2IIv4Cj4rsz8eY/0AwWv4Cj4rsz8eY/0AwWv7jkkz8kTeg/Obcjv7jkkz8kTeg/Obcjv4Cj4rv8K+w/CE0vv4Cj4rv8K+w/CE0vv7jkkz9Mof8/zh3qvoCj4rtMof8/zh3qvrjkkz8atgJAMJn5vrjkkz8atgJAMJn5voCj4rv8K+w/MJn5voCj4rv8K+w/MJn5vrjkkz/k9vE/uQo3v7jkkz/k9vE/uQo3v4Cj4rsatgJACE0vv4Cj4rsatgJACE0vv7jkkz+GpQRAZ2IIv4Cj4ruGpQRAZ2IIv7jkkz9+UwVA0AwWv7jkkz9+UwVA0AwWv4Cj4ruGpQRAObcjv4Cj4ruGpQRAObcjv7jkkz8AAAAAAAAAAAAAgL+Ao+K7AAAQALPFR77AFHs/AAAAAP43UT8QAAQE1sVHPr4Ue78AAAAAKKKLvxQABAC6FHu/KsZHPgAAAAA0JPE/GAAEHLoUe78qxke+AAAAACze0z8cAAQaNttUv9E5Dr8AAAAAf6yTPyAABBLOxUc+vhR7PwAAAABYEnE9JAAEBdY5Dj8021Q/AAAAAOC1Or8oAAQO5zkOvynbVD8AAAAA9Be3PywABBg221S/0TkOPwAAAAB+Cec/MAAEGNY5Dr8021S/AAAAADxT6T40AAQQ8cVHvrwUe78AAAAArDqqvjgABBDnOQ4/KdtUvwAAAAAUHtq/PAAEADbbVD/ROQ4/AAAAAJ+ytr9AAAQOwRR7P53FRz4AAAAAXeT2v0QABAo221Q/0TkOvwAAAADPBwXASAAECMEUez+dxUe+AAAAACgVCsBMAAQKAAAAAAAAAAAAAIA/uOSTv1AAEAIaHR4YBwYXDg0KCRQDAhATAAECAwQFBgcICQoLDAsKDQwNDg8QAgEREBESExQVAAMUCQgVFg8OFxYXBgUYGQQHGhMSGxobHB0fGRgeHx4dHB8cGxIRAQAVCAsMDxYFBBkADgAQAA8ADAACAAsACgAFAAQAAwAJAAgAAQAGAAcADQERAQYBCAIRAgsCDAMJAwQDEQQRBAUFCgURBhEGBwcRBw0ICQgRCREKEQoLCxEMDwwRDRENDg4RDhAPEQ8QEBEBCBEBBhEAAQYAAQgCDBECCxEAAgsAAgwDCREAAwkAAwQDBBEEBREABAUABQoFChEABgcGBxEHDREABw0ACAkICREKCxEACgsADA8MDxEADQ4NDhEOEBEADhAADxAPEBEAAAAANPHmP5rCOb8ApOK7flMFQAyu5L645JM/Ls6NPQg8YD15jqE9BUievXmOoT25yZU+ZOu+PAVInr1k6748HXSSPhjM+D/QDBa/FAITPwAAgL8AAIC/eBgMPrAByj2wAco9W8cUPw==",
+                                "Type": 1
+                            },
+                            "Height": 1.1623339653015137,
+                            "Radius": 0.13949260115623474
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6148545673543388870
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7018955581492823055
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4491850162078415780
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17774697563393197395
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1472830639583445857
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11471489062959229845
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5741814401328173627
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 13993748004676888475
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4738284087387495544
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2086175831570596536,
+                    "Parent Entity": "Entity_[47506756634021]"
+                }
+            }
+        }
+    }
+}

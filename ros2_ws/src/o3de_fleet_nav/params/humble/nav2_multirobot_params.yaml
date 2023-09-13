@@ -204,9 +204,19 @@ local_costmap:
         z_voxels: 16
         max_obstacle_height: 2.0
         mark_threshold: 0
-        observation_sources: scan
-        scan:
-          topic: /<robot_namespace>/scan
+        observation_sources: scan_front scan_rear
+        scan_front:
+          topic: /<robot_namespace>/scan_front
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 3.0
+          raytrace_min_range: 0.0
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.0
+        scan_rear:
+          topic: /<robot_namespace>/scan_rear
           max_obstacle_height: 2.0
           clearing: True
           marking: True
@@ -231,9 +241,19 @@ global_costmap:
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
-        observation_sources: scan
-        scan:
-          topic: /<robot_namespace>/scan
+        observation_sources: scan_front scan_rear
+        scan_front:
+          topic: /<robot_namespace>/scan_front
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_max_range: 3.0
+          raytrace_min_range: 0.0
+          obstacle_max_range: 2.5
+          obstacle_min_range: 0.0
+        scan_rear:
+          topic: /<robot_namespace>/scan_rear
           max_obstacle_height: 2.0
           clearing: True
           marking: True

@@ -84,10 +84,6 @@ private:
 		return t;
 	}
 
-	// TODO:
-	// Listen to routine (task list), set it for otto autonomy
-	// Listen to events of loading / unloading for your lane, ignore if not in correct status (e.g. WAIT_LOAD).
-
 	rclcpp::Node::SharedPtr m_node;
 	std::atomic_bool m_cargoLoaded{ false };
 	rclcpp::TimerBase::SharedPtr m_timer;

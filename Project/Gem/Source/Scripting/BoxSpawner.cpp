@@ -203,7 +203,6 @@ namespace ROS2::Demo
                 AZ::TransformBus::EventResult(boxLocation, boxEntityId, &AZ::TransformBus::Events::GetWorldTranslation);
                 return CheckIfEntityInsideBox(boxLocation, barrierRegionBoxConfig, barrierRegionTransform);
             });
-        AZ_Printf("BoxSpawner", "CountBoxesInBarrierRegion: %d\n", count);
         return count;
     }
 

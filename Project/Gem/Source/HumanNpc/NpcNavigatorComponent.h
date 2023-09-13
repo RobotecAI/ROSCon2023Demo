@@ -98,7 +98,7 @@ namespace ROS2::Demo
         void Publish(Speed speed);
         void RecalculateCurrentGoalPath();
 
-        bool m_debugMode{ false };
+        bool m_debugMode{ false }, m_restartOnTraversed{ true };
 
         NavigationState m_state{ NavigationState::NAVIGATE };
         AZ::EntityId m_navigationEntity;

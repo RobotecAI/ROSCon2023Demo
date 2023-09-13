@@ -20,6 +20,7 @@ namespace ROS2::Demo
             serialize->Class<NpcNavigatorComponent, AZ::Component>()
                 ->Version(1)
                 ->Field("Debug Mode", &NpcNavigatorComponent::m_debugMode)
+                ->Field("Restart on traversed", &NpcNavigatorComponent::m_restartOnTraversed)
                 ->Field("Waypoints", &NpcNavigatorComponent::m_waypointEntities)
                 ->Field("Detour Navigation Entity", &NpcNavigatorComponent::m_navigationEntity)
                 ->Field("Topic Configuration", &NpcNavigatorComponent::m_topicConfiguration)
@@ -35,6 +36,7 @@ namespace ROS2::Demo
                         ->Attribute(AZ::Edit::Attributes::Category, "Demo")
                         ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
                     ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_debugMode, "Debug Mode", "")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_restartOnTraversed, "Restart on traversed", "")
                     ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_waypointEntities, "Waypoints", "")
                     ->DataElement(
                         AZ::Edit::UIHandlers::Default,
@@ -247,8 +249,7 @@ namespace ROS2::Demo
             if ((m_waypointConfiguration.m_idleTime -= deltaTime) <= 0.0f)
             {
                 m_goalIndex = 0;
-                ++m_waypointIndex;
-                if (m_waypointIndex >= m_waypointEntities.size())
+                if (++m_waypointIndex >= m_waypointEntities.size() && m_restartOnTraversed)
                 {
                     m_waypointIndex = 0;
                 }

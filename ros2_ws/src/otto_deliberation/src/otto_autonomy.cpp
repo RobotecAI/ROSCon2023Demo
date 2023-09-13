@@ -36,11 +36,11 @@ void OttoAutonomy::Update() {
 
 		auto nextTask = m_tasks.front();
 		m_robotStatus.m_currentTaskKey = nextTask.m_taskKey;
-		if (nextTask.m_path.poses.empty()) {
+		if (nextTask.m_path.empty()) {
 			// Trivially achieved navigation goal, but might need cargo status change to achieve task completion.
 			NavigationGoalCompleted(true);
 		} else {
-			m_nav2ActionClient.SendGoal(nextTask.m_path.poses,
+			m_nav2ActionClient.SendGoal(nextTask.m_path,
 			                            std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
 			                            TaskUtils::IsTaskBlind(nextTask.m_taskKey), nextTask.m_reverse);
 		}

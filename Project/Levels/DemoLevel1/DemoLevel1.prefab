@@ -28,7 +28,6 @@
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
                     "Instance_[9849799017068]/ContainerEntity",
-                    "Instance_[42451071970643]/ContainerEntity",
                     "Instance_[121200306243929]/ContainerEntity"
                 ]
             },
@@ -603,7 +602,7 @@
                     "Transform Data": {
                         "Translate": [
                             5.0,
-                            0.1907329559326172,
+                            -0.005530357360839844,
                             0.4857635498046875
                         ]
                     }
@@ -897,8 +896,8 @@
                     "Parent Entity": "Entity_[344424645714357]",
                     "Transform Data": {
                         "Translate": [
-                            -0.5197219848632813,
-                            0.0,
+                            -0.4481983184814453,
+                            0.3041648864746094,
                             -0.4946479797363281
                         ]
                     }
@@ -1002,7 +1001,7 @@
                     "Transform Data": {
                         "Translate": [
                             5.0,
-                            0.2508692741394043,
+                            0.12914562225341797,
                             0.4857635498046875
                         ]
                     }
@@ -1350,8 +1349,8 @@
                     "Parent Entity": "Entity_[344424645714357]",
                     "Transform Data": {
                         "Translate": [
-                            -0.5584125518798828,
-                            -0.1746373176574707,
+                            -0.49109458923339844,
+                            -0.017319679260253906,
                             -0.4946479797363281
                         ]
                     }
@@ -2489,219 +2488,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -90.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": -0.00029151514172554016
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.05575583875179291
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
-                }
-            ]
-        },
-        "Instance_[4001389725264]": {
-            "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[6888547663069]"
-                }
-            ]
-        },
-        "Instance_[42451071970643]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorDisabledCompositionComponent/DisabledComponents",
-                    "value": {
-                        "EditorRigidBodyComponent": {
-                            "$type": "EditorRigidBodyComponent",
-                            "Id": 11718856969853308283,
-                            "Configuration": {
-                                "name": "",
-                                "position": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "orientation": [
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    1.0
-                                ],
-                                "entityId": "",
-                                "startSimulationEnabled": true,
-                                "Kinematic": false,
-                                "Initial linear velocity": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Initial angular velocity": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Linear damping": 0.05000000074505806,
-                                "Angular damping": 0.15000000596046448,
-                                "Sleep threshold": 0.004999999888241291,
-                                "Start Asleep": false,
-                                "Interpolate Motion": false,
-                                "Gravity Enabled": true,
-                                "CCD Enabled": false,
-                                "Compute Mass": true,
-                                "Lock Linear X": false,
-                                "Lock Linear Y": false,
-                                "Lock Linear Z": false,
-                                "Lock Angular X": false,
-                                "Lock Angular Y": false,
-                                "Lock Angular Z": false,
-                                "Mass": 95.22933197021484,
-                                "Compute COM": true,
-                                "Centre of mass offset": [
-                                    -0.00034657868673093617,
-                                    -0.00029151514172554016,
-                                    0.05575583875179291
-                                ],
-                                "Compute inertia": true,
-                                "Inertia tensor": [
-                                    4.806522369384766,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    9.80550479888916,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    14.414012908935549
-                                ],
-                                "Maximum Angular Velocity": 100.0,
-                                "Include All Shapes In Mass": false,
-                                "CCD Min Advance": 0.15000000596046448,
-                                "CCD Friction": false,
-                                "Open PhysX Configuration": false,
-                                "Debug Draw Center of Mass": false
-                            },
-                            "PhysXSpecificConfiguration": {
-                                "SolverPositionIterations": 4,
-                                "SolverVelocityIterations": 1
-                            }
-                        }
-                    }
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorStaticRigidBodyComponent",
-                    "value": {
-                        "$type": "EditorStaticRigidBodyComponent",
-                        "Id": 17414491958622415327
-                    }
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -21.16736602783203
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.998213768005371
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.4683547019958496
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
-                }
-            ]
-        },
-        "Instance_[44500390531235]": {
-            "Source": "Assets/Factory/Objects/WarehouseObjects.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                }
-            ]
-        },
-        "Instance_[521974506226201]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[469859373056537]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.5
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -90.0
+                    "value": 90.0
                 },
                 {
                     "op": "replace",
@@ -2732,6 +2519,81 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 14.414012908935549
+                }
+            ]
+        },
+        "Instance_[4001389725264]": {
+            "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[6888547663069]"
+                }
+            ]
+        },
+        "Instance_[44500390531235]": {
+            "Source": "Assets/Factory/Objects/WarehouseObjects.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                }
+            ]
+        },
+        "Instance_[521974506226201]": {
+            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
+                    "value": -0.00029151514172554016
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.05575583875179291
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 14.414012908935549
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[469859373056537]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
@@ -3148,7 +3010,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -90.0
+                    "value": 90.0
                 },
                 {
                     "op": "replace",
@@ -3199,6 +3061,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[9769530803792]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[30903547613653]/Instances/Instance_[30860597940693]/Entities/Entity_[589069902483484]/Components/EditorHingeJointComponent/Angular Limit/Standard Limit Configuration/Stiffness",
+                    "value": 50.0
                 }
             ]
         },

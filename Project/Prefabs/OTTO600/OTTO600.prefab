@@ -90,7 +90,8 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 1021054117381513344,
                     "m_template": {
-                        "$type": "ROS2FrameComponent"
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "sensor_frame_front"
                     }
                 },
                 "ROS2Lidar2DSensorComponent": {
@@ -102,7 +103,7 @@
                             "Publishers": {
                                 "sensor_msgs::msg::LaserScan": {
                                     "Type": "sensor_msgs::msg::LaserScan",
-                                    "Topic": "ls"
+                                    "Topic": "scan_front"
                                 }
                             }
                         },
@@ -167,7 +168,8 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 1021054117381513344,
                     "m_template": {
-                        "$type": "ROS2FrameComponent"
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "sensor_frame_rear"
                     }
                 },
                 "ROS2Lidar2DSensorComponent": {
@@ -179,7 +181,7 @@
                             "Publishers": {
                                 "sensor_msgs::msg::LaserScan": {
                                     "Type": "sensor_msgs::msg::LaserScan",
-                                    "Topic": "ls"
+                                    "Topic": "scan_rear"
                                 }
                             }
                         },

@@ -35,7 +35,7 @@ namespace TaskConstructor
     const Eigen::Vector3d TableDimension{ 0.950, 0.950, 0.411 };
     const Eigen::Vector3d ConveyorDimensions{ 2.0, 1., 0.15 };
     const Eigen::Vector3d PickupLocation{ 0.890, 0, 0.049 };
-    const Eigen::Vector3d BoxDimension{ 0.2, 0.2, 0.2 };
+    const Eigen::Vector3d BoxDimension{ 0.3, 0.3, 0.3 };
     const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 2.0*0.111 };
 
     static const rclcpp::Logger LOGGER = rclcpp::get_logger("mtc");
@@ -66,7 +66,7 @@ namespace TaskConstructor
 
         std::map<std::string, double> LiftConfig;
 
-        constexpr static float change = 0.5f;
+        constexpr static float change = 0.4f;
         std::map<std::string, double> DropConfig;
 
         // Compose an MTC task from a series of stages.

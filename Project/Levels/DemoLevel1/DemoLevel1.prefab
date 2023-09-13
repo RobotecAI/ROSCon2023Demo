@@ -27,7 +27,9 @@
                     "Entity_[21524318507725]",
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
-                    "Instance_[9849799017068]/ContainerEntity"
+                    "Instance_[9849799017068]/ContainerEntity",
+                    "Instance_[42451071970643]/ContainerEntity",
+                    "Instance_[121200306243929]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -304,9 +306,9 @@
                             3.2203657627105713
                         ],
                         "Rotate": [
-                            -4.263771057128906,
-                            -29.26554298400879,
-                            81.32878875732422
+                            -2.6054179668426514,
+                            -23.9261531829834,
+                            83.59809875488281
                         ]
                     }
                 },
@@ -327,7 +329,8 @@
                     "Id": 7255796294953281766,
                     "m_template": {
                         "$type": "FlyCameraInputComponent",
-                        "Mouse Sensitivity": 0.0
+                        "Move Speed": 4.0,
+                        "Mouse Sensitivity": 0.009999999776482582
                     }
                 },
                 "Component_[8866210352157164042]": {
@@ -1776,6 +1779,76 @@
         }
     },
     "Instances": {
+        "Instance_[121200306243929]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -21.452125549316406
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 19.438983917236328
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -9.487222671508787
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/0",
+                    "value": 0.30000001192092896
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/1",
+                    "value": 0.30000001192092896
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/2",
+                    "value": 0.30000001192092896
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.005416667088866234
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 0.0075000012293457985
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 2.4000000953674316
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
+                    "value": 1.2000000476837158
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/2",
+                    "value": 1.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.15000000596046448
+                }
+            ]
+        },
         "Instance_[146117451086181]": {
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
@@ -2446,7 +2519,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935549
+                    "value": 14.414012908935547
                 }
             ]
         },
@@ -2457,6 +2530,143 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[6888547663069]"
+                }
+            ]
+        },
+        "Instance_[42451071970643]": {
+            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "EditorRigidBodyComponent": {
+                            "$type": "EditorRigidBodyComponent",
+                            "Id": 11718856969853308283,
+                            "Configuration": {
+                                "name": "",
+                                "position": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "orientation": [
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    1.0
+                                ],
+                                "entityId": "",
+                                "startSimulationEnabled": true,
+                                "Kinematic": false,
+                                "Initial linear velocity": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Initial angular velocity": [
+                                    0.0,
+                                    0.0,
+                                    0.0
+                                ],
+                                "Linear damping": 0.05000000074505806,
+                                "Angular damping": 0.15000000596046448,
+                                "Sleep threshold": 0.004999999888241291,
+                                "Start Asleep": false,
+                                "Interpolate Motion": false,
+                                "Gravity Enabled": true,
+                                "CCD Enabled": false,
+                                "Compute Mass": true,
+                                "Lock Linear X": false,
+                                "Lock Linear Y": false,
+                                "Lock Linear Z": false,
+                                "Lock Angular X": false,
+                                "Lock Angular Y": false,
+                                "Lock Angular Z": false,
+                                "Mass": 95.22933197021484,
+                                "Compute COM": true,
+                                "Centre of mass offset": [
+                                    -0.00034657868673093617,
+                                    -0.00029151514172554016,
+                                    0.05575583875179291
+                                ],
+                                "Compute inertia": true,
+                                "Inertia tensor": [
+                                    4.806522369384766,
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    9.80550479888916,
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    14.414012908935549
+                                ],
+                                "Maximum Angular Velocity": 100.0,
+                                "Include All Shapes In Mass": false,
+                                "CCD Min Advance": 0.15000000596046448,
+                                "CCD Friction": false,
+                                "Open PhysX Configuration": false,
+                                "Debug Draw Center of Mass": false
+                            },
+                            "PhysXSpecificConfiguration": {
+                                "SolverPositionIterations": 4,
+                                "SolverVelocityIterations": 1
+                            }
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorStaticRigidBodyComponent",
+                    "value": {
+                        "$type": "EditorStaticRigidBodyComponent",
+                        "Id": 17414491958622415327
+                    }
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -21.16736602783203
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 5.998213768005371
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.4683547019958496
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
                 }
             ]
         },

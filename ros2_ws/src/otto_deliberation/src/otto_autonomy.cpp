@@ -41,8 +41,8 @@ void OttoAutonomy::Update() {
 			NavigationGoalCompleted(true);
 		} else {
 			m_nav2ActionClient.SendGoal(nextTask.m_path,
-			                             std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
-			                             TaskUtils::IsTaskBlind(nextTask.m_taskKey));
+			                            std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
+			                            TaskUtils::IsTaskBlind(nextTask.m_taskKey), nextTask.m_reverse);
 		}
 	}
 }

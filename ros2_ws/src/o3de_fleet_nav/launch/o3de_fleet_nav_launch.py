@@ -126,8 +126,7 @@ def generate_launch_description():
                                   'map': map_yaml_file,
                                   'use_sim_time': 'True',
                                   'params_file': configured_params,
-                                  'autostart': autostart,
-                                  'use_rviz': 'False', }.items()),
+                                  'autostart': autostart}.items()),
 
             LogInfo(
                 condition=IfCondition(log_settings),

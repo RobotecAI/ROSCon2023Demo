@@ -20,7 +20,8 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
-                    "Instance_[430059619084153]/ContainerEntity"
+                    "Instance_[430059619084153]/ContainerEntity",
+                    "Instance_[2400981395483]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -196,7 +197,7 @@
                                     "guid": "{0CD745C0-6AA8-569A-A68A-73A3270986C4}",
                                     "subId": 277889906
                                 },
-                                "assetHint": "objects/groudplane/groundplane_512x512m.azmodel"
+                                "assetHint": "objects/groudplane/groundplane_512x512m.fbx.azmodel"
                             }
                         }
                     }
@@ -277,7 +278,8 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 7255796294953281766,
                     "m_template": {
-                        "$type": "FlyCameraInputComponent"
+                        "$type": "FlyCameraInputComponent",
+                        "Mouse Sensitivity": 0.0
                     }
                 },
                 "Component_[8866210352157164042]": {
@@ -490,6 +492,31 @@
         }
     },
     "Instances": {
+        "Instance_[2400981395483]": {
+            "Source": "Prefabs/HumanNpcRobot.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/EditorAnimGraphComponent/ParameterDefaults/Parameters/0/value",
+                    "value": 0.01
+                }
+            ]
+        },
         "Instance_[430059619084153]": {
             "Source": "Assets/Factory/Box2.prefab",
             "Patches": [

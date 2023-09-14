@@ -31,6 +31,6 @@ namespace Utils
         const Eigen::Vector3f& adress,
         const geometry_msgs::msg::Pose& palletPose,
         const Eigen::Vector3d& boxDimension,
-        float separation = 1.1f);
+        float separation = 1.05f);
 
 } // namespace Utils

@@ -248,6 +248,10 @@ namespace ROS2::Demo
             {
                 m_goalIndex = 0;
                 ++m_waypointIndex;
+                if (m_waypointIndex >= m_waypointEntities.size())
+                {
+                    m_waypointIndex = 0;
+                }
                 m_goalPath.clear();
                 m_waypointConfiguration = FetchWaypointConfiguration(m_waypointEntities[m_waypointIndex]);
                 m_state = NavigationState::NAVIGATE;

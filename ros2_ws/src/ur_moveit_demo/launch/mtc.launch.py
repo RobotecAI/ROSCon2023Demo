@@ -254,7 +254,29 @@ def launch_setup(context, *args, **kwargs):
         ],
     )
 
-    nodes_to_start = [mtc, move_group_node]
+    rviz_config_file = PathJoinSubstitution(
+        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_config_file]
+    )
+
+    rviz_node = Node(
+        package="rviz2",
+        condition=IfCondition(launch_rviz),
+        executable="rviz2",
+        name="rviz2_moveit1",
+        output="log",
+        namespace=ur_namespace,
+        arguments=["-d", rviz_config_file],
+        parameters=[
+            robot_description,
+            robot_description_semantic,
+            ompl_planning_pipeline_config,
+            robot_description_kinematics,
+            # robot_description_planning,
+            warehouse_ros_config,
+        ]
+    )
+
+    nodes_to_start = [mtc, move_group_node, rviz_node]
 
 
     return nodes_to_start

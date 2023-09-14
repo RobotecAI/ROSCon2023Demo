@@ -240,7 +240,7 @@ namespace TaskConstructor
             pose.header.stamp = node_->now();
 
             //! Relative position of the drop location
-            constexpr float DropRise = 1.8f;
+            constexpr float DropRise = 1.2f;
             pose.pose = Utils::getBoxTargetPose(adress + DropRise * Eigen::Vector3f::UnitZ(), palletPose, BoxDimension);
 
             moveToDropLocation->setGoal(pose);

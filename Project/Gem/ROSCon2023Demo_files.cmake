@@ -3,6 +3,10 @@
 
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
+    Source/Navigation/LaneComponent.cpp
+    Source/Navigation/LaneComponent.h
+    Source/Navigation/LanesService.cpp
+    Source/Navigation/LanesService.h
     Source/Navigation/SplinePosesPublisher.cpp
     Source/Navigation/SplinePosesPublisher.h
     Source/HumanNpc/AnimGraphInputProviderComponent.cpp

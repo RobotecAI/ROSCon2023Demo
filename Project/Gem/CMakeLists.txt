@@ -89,6 +89,9 @@ ly_add_target(
 target_depends_on_ros2_package(${gem_name}.Private.Object  vision_msgs REQUIRED)
 target_depends_on_ros2_package(${gem_name} vision_msgs REQUIRED)
 
+target_depends_on_ros2_package(${gem_name}.Private.Object lane_provider_msgs REQUIRED)
+target_depends_on_ros2_package(${gem_name} lane_provider_msgs REQUIRED)
+
 # if enabled, ${gem_name} is used by all kinds of applications
 ly_create_alias(NAME ${gem_name}.Builders NAMESPACE Gem TARGETS Gem::${gem_name})
 ly_create_alias(NAME ${gem_name}.Tools    NAMESPACE Gem TARGETS Gem::${gem_name})

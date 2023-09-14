@@ -20,7 +20,7 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
-                    "Instance_[67091462620513]/ContainerEntity"
+                    "Instance_[430059619084153]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -490,8 +490,8 @@
         }
     },
     "Instances": {
-        "Instance_[67091462620513]": {
-            "Source": "Prefabs/OTTO600/OTTO600.prefab",
+        "Instance_[430059619084153]": {
+            "Source": "Assets/Factory/Box2.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -500,63 +500,43 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 10.10000228881836
+                },
+                {
+                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 3.9998083114624023
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[427976720907]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/2",
+                    "value": 0.20000000298023224
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[415091819019]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600/otto600.fbx.azmodel"
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
+                    "value": 0.00020119998953305185
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[440861622795]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_platform_upper.stl.azmodel"
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 0.0075000012293457985
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[458041491979]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
+                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.0075000012293457985
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[466631426571]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/otto600platform.fbx.azmodel"
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/2",
+                    "value": 1.0
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[483811295755]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[363552211467]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[385027047947]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[436566655499]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[393616982539]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_platform_upper.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Linear damping",
-                    "value": 0.0
+                    "path": "/Entities/Entity_[1375845813509]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.10597848892211914
                 }
             ]
         }

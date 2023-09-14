@@ -46,8 +46,11 @@ constexpr char PalletNamePrefix[] = "EuroPallet";
 constexpr char PickedBoxName[] = "PickedBox";
 
 const std::vector<Eigen::Vector3f> Pattern{
-    { -1.f, -0.5f, 1.f }, { 0.f, -0.5f, 1.f }, { 1.f, -0.5f, 1.f }, { -1.f, 0.5, 1.f }, { 0.f, 0.5f, 1.f }, { 1.f, 0.5f, 1.f },
-    { -1.f, -0.5f, 2.f }, { 0.f, -0.5f, 2.f }, { 1.f, -0.5f, 2.f }, { -1.f, 0.5, 2.f }, { 0.f, 0.5f, 2.f }, { 1.f, 0.5f, 2.f },
+//    { -1.f, 0.5, 1.f }, { 0.f, 0.5f, 1.f }, { 1.f, 0.5f, 1.f },{ -1.f, -0.5f, 1.f }, { 0.f, -0.5f, 1.f }, { 1.f, -0.5f, 1.f },
+//    { -1.f, 0.5, 2.f }, { 0.f, 0.5f, 2.f }, { 1.f, 0.5f, 2.f }, { -1.f, -0.5f, 2.f }, { 0.f, -0.5f, 2.f }, { 1.f, -0.5f, 2.f },
+        { -0.5f, 0.5f, 1.f },  { 0.5f, 0.5f, 1.f },{ -0.5f, -0.5f, 1.f }, { 0.5f, -0.5f, 1.f },
+        { -0.5f, 0.5f, 2.f },  { 0.5f, 0.5f, 2.f },{ -0.5f, -0.5f, 2.f }, { 0.5f, -0.5f, 2.f },
+
 };
 
 class MTCActionServer

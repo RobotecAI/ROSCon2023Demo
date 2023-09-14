@@ -90,7 +90,8 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 1021054117381513344,
                     "m_template": {
-                        "$type": "ROS2FrameComponent"
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "sensor_frame_front"
                     }
                 },
                 "ROS2Lidar2DSensorComponent": {
@@ -102,13 +103,16 @@
                             "Publishers": {
                                 "sensor_msgs::msg::LaserScan": {
                                     "Type": "sensor_msgs::msg::LaserScan",
-                                    "Topic": "ls"
+                                    "Topic": "scan_front"
                                 }
                             }
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "Scene Queries"
+                                "lidarImplementation": "Scene Queries",
+                                "LidarParameters": {
+                                    "Max range": 20.0
+                                }
                             }
                         }
                     }
@@ -167,7 +171,8 @@
                     "$type": "GenericComponentWrapper",
                     "Id": 1021054117381513344,
                     "m_template": {
-                        "$type": "ROS2FrameComponent"
+                        "$type": "ROS2FrameComponent",
+                        "Frame Name": "sensor_frame_rear"
                     }
                 },
                 "ROS2Lidar2DSensorComponent": {
@@ -179,13 +184,16 @@
                             "Publishers": {
                                 "sensor_msgs::msg::LaserScan": {
                                     "Type": "sensor_msgs::msg::LaserScan",
-                                    "Topic": "ls"
+                                    "Topic": "scan_rear"
                                 }
                             }
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "Scene Queries"
+                                "lidarImplementation": "Scene Queries",
+                                "LidarParameters": {
+                                    "Max range": 20.0
+                                }
                             }
                         }
                     }

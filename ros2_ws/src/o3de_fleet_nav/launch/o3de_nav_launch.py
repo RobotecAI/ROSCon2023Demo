@@ -156,7 +156,7 @@ def generate_launch_description():
 
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
-    # ld.add_action(spawner)
+    ld.add_action(spawner)
     ld.add_action(blind_follower)
     ld.add_action(tf_pub)
 

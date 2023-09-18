@@ -4,6 +4,7 @@
 #include <rclcpp/node.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp/subscription.hpp>
+#include <string>
 #include <tf2_ros/buffer.h>
 #include <tf2_ros/transform_listener.h>
 #include <vision_msgs/msg/detection3_d_array.hpp>
@@ -34,12 +35,20 @@ namespace Camera
         std::optional<geometry_msgs::msg::Pose> getClosestBox();
         std::vector<geometry_msgs::msg::Pose> getAllBoxesOnPallet();
 
+        bool IsRobotPresent();
+        std::string GetRobotName();
+
     private:
         void UpdateObjectPoses(
             std::map<std::string, geometry_msgs::msg::Pose>& objectPoses,
             const std::string& targetFrame,
             vision_msgs::msg::Detection3DArray::SharedPtr msg,
             std::vector<std::string> interestingObjectsPrefixes);
+        void UpdateObjectPresence(
+            vision_msgs::msg::Detection3DArray::SharedPtr msg,
+            std::vector<std::string> interestingObjectsPrefixes,
+            bool& objectPresence,
+            std::string& objectName);
 
         std::optional<geometry_msgs::msg::Pose> getClosestBox(
             const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses, Eigen::Vector3d origin = Eigen::Vector3d::Zero());
@@ -54,11 +63,15 @@ namespace Camera
         std::map<std::string, geometry_msgs::msg::Pose> m_objectPoses;
         std::vector<geometry_msgs::msg::Pose> m_allBoxesOnPallet;
 
+        bool m_isRobotPresent = false;
+        std::string m_robotName = "";
+
         std::shared_ptr<tf2_ros::Buffer> m_tf_buffer;
         std::shared_ptr<tf2_ros::TransformListener> m_tf_listener;
 
         static constexpr char BoxNamePrefix[] = "Box";
         static constexpr char PalletNamePrefix[] = "EuroPallet";
         static constexpr char PickedBoxName[] = "PickedBox";
+        static constexpr char RobotPrefix[] = "otto";
     };
 } // namespace Camera

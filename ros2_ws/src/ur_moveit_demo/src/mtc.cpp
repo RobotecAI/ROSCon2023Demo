@@ -205,6 +205,40 @@ int main(int argc, char** argv)
 
     auto mtc_action_server = std::make_shared<MTCActionServer>(node, ns);
 
+    Eigen::Vector3d lastRobotPose{ 0, 0, 0 };
+    std::string robotName;
+
+    double tolerance = 0.01;
+    constexpr std::chrono::seconds waitTime(1);
+    std::chrono::time_point lastUpdate = std::chrono::system_clock::now();
+
+    auto visionSystem = std::make_shared<Camera::GroundTruthCamera>(
+        node, "/" + ns + "/camera_pickup/detections3D", "/" + ns + "/camera_drop/detections3D", ns);
+
+    while (true)
+    {
+        std::this_thread::sleep_for(std::chrono::milliseconds(50));
+        if (visionSystem->IsRobotPresent())
+        {
+            if (robotName != "")
+            {
+                robotName = visionSystem->GetRobotName();
+            }
+            geometry_msgs::msg::Pose robotPose = *visionSystem->getObjectPose(robotName);
+            Eigen::Vector3d currentRobotPose{ robotPose.position.x, robotPose.position.y, robotPose.position.z };
+            Eigen::Vector3d difference = currentRobotPose - lastRobotPose;
+            if (difference.norm() > tolerance)
+            {
+                lastUpdate = std::chrono::system_clock::now();
+            }
+            lastRobotPose = currentRobotPose;
+            if (std::chrono::system_clock::now() - lastUpdate > waitTime)
+            {
+                std::cerr << "STARTING" << std::endl << std::endl << std::endl << std::endl;
+            }
+        }
+    }
+
     spinner.join();
     rclcpp::shutdown();
     return 0;

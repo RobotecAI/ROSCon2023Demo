@@ -131,7 +131,7 @@
                         "Instance_[461277699750153]/ContainerEntity",
                         "Instance_[1493434305476870]/ContainerEntity",
                         "Instance_[1493430010509574]/ContainerEntity",
-                        "Instance_[1493438600444166]/ContainerEntity",
+                        "",
                         "Instance_[1493614694103302]/ContainerEntity",
                         "Instance_[1493618989070598]/ContainerEntity",
                         "Instance_[1493627579005190]/ContainerEntity"
@@ -364,12 +364,9 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 2309008922929307039,
                     "Child Entity Order": [
-                        "Instance_[454573255801097]/ContainerEntity",
-                        "Instance_[454607615539465]/ContainerEntity",
-                        "Instance_[461277699750153]/ContainerEntity",
+                        "Instance_[23737427732279]/ContainerEntity",
                         "Instance_[1493434305476870]/ContainerEntity",
-                        "Instance_[1493430010509574]/ContainerEntity",
-                        "Instance_[1493438600444166]/ContainerEntity"
+                        "Instance_[1493430010509574]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1056,21 +1053,6 @@
                 }
             ]
         },
-        "Instance_[1493438600444166]": {
-            "Source": "Assets/Factory/Objects/Cage_Holder.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[3487591915976966]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.826693058013916
-                }
-            ]
-        },
         "Instance_[1493606104168710]": {
             "Source": "Assets/Factory/Objects/Cage_Holder.prefab",
             "Patches": [
@@ -1303,6 +1285,36 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": -89.99993133544922
+                }
+            ]
+        },
+        "Instance_[23737427732279]": {
+            "Source": "Assets/Factory/Objects/Emetgency_signal_pole.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[3487591915976966]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.8275737762451172
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.0007944107055664063
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.007284879684448242
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
                 }
             ]
         },

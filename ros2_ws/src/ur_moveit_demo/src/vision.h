@@ -70,7 +70,7 @@ namespace Camera
         std::shared_ptr<tf2_ros::TransformListener> m_tf_listener;
 
         static constexpr char BoxNamePrefix[] = "Box";
-        static constexpr char PalletNamePrefix[] = "EuroPallet";
+        static constexpr char PalletNamePrefix[] = "/EuroPallet";
         static constexpr char PickedBoxName[] = "PickedBox";
         static constexpr char RobotPrefix[] = "otto";
     };

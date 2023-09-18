@@ -17,9 +17,12 @@
 #include <moveit/task_constructor/stages/move_relative.h>
 #include <moveit/task_constructor/task.h>
 #include <moveit_visual_tools/moveit_visual_tools.h>
+#include <rclcpp/logging.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/create_server.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/detail/bool__struct.hpp>
 #include <string>
 #include <thread>
 #include <utility>
@@ -53,126 +56,139 @@ const std::vector<Eigen::Vector3f> Pattern{
 
 };
 
-class MTCActionServer
+class RobotDetection
 {
 public:
-    using MTCAction = ur_moveit_demo_msg::action::Mtc;
-    using GoalHandleMTC = rclcpp_action::ServerGoalHandle<MTCAction>;
-
-    MTCActionServer(rclcpp::Node::SharedPtr node, std::string ns)
-        : node_(node)
-        , ns_(ns)
+    RobotDetection(rclcpp::Node::SharedPtr node, std::string ns)
+        : m_node(node)
+        , m_ns(ns)
     {
-        using namespace std::placeholders;
+        m_visionSystem = std::make_shared<Camera::GroundTruthCamera>(
+            node, "/" + ns + "/camera_pickup/detections3D", "/" + ns + "/camera_drop/detections3D", ns);
 
-        this->action_server_ = rclcpp_action::create_server<MTCAction>(
-            node->get_node_base_interface(),
-            node->get_node_clock_interface(),
-            node->get_node_logging_interface(),
-            node->get_node_waitables_interface(),
-            "MTC",
-            std::bind(&MTCActionServer::handle_goal, this, _1, _2),
-            std::bind(&MTCActionServer::handle_cancel, this, _1),
-            std::bind(&MTCActionServer::handle_accepted, this, _1));
+        m_timer = m_node->create_wall_timer(std::chrono::milliseconds(50), std::bind(&RobotDetection::TimerCallback, this));
+
+        m_waitTime = std::chrono::seconds(m_node->get_parameter("wait_time").as_int());
+        m_numOfBoxes = m_node->get_parameter("num_of_boxes").as_int();
+        m_tolerance = m_node->get_parameter("pose_tolerance").as_double();
     }
 
 private:
-    rclcpp_action::Server<MTCAction>::SharedPtr action_server_;
-    rclcpp::Node::SharedPtr node_;
-    std::string ns_;
-
-    rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const MTCAction::Goal> goal)
+    void TimerCallback()
     {
-        (void)uuid;
-        return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+        if (m_visionSystem->IsRobotPresent())
+        {
+            if (!m_isExecuting && m_robotLeft)
+            {
+                if (m_robotName == "")
+                {
+                    RCLCPP_INFO(m_node->get_logger(), "Robot detected");
+                    m_robotName = m_visionSystem->GetRobotName();
+                }
+                geometry_msgs::msg::Pose robotPose = *m_visionSystem->getObjectPose(m_robotName);
+                Eigen::Vector3d currentRobotPose{ robotPose.position.x, robotPose.position.y, robotPose.position.z };
+                Eigen::Vector3d difference = currentRobotPose - m_lastRobotPose;
+                if (difference.norm() > m_tolerance)
+                {
+                    lastUpdate = std::chrono::system_clock::now();
+                }
+                m_lastRobotPose = currentRobotPose;
+                if (std::chrono::system_clock::now() - lastUpdate > m_waitTime)
+                {
+                    RCLCPP_INFO(m_node->get_logger(), "Starting palletization");
+                    m_robotLeft = false;
+                    m_isExecuting = true;
+                    std::thread runner(
+                        [&]()
+                        {
+                            execute();
+                        });
+                    runner.detach();
+                }
+            }
+        }
+        else
+        {
+            m_robotName = "";
+            m_robotLeft = true;
+        }
     }
 
-    rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<GoalHandleMTC> goal_handle)
+    void execute()
     {
-        (void)goal_handle;
-        return rclcpp_action::CancelResponse::ACCEPT;
-    }
-
-    void handle_accepted(const std::shared_ptr<GoalHandleMTC> goal_handle)
-    {
-        using namespace std::placeholders;
-        // this needs to return quickly to avoid blocking the executor, so spin up a new thread
-        std::thread{ std::bind(&MTCActionServer::execute, this, _1), goal_handle }.detach();
-    }
-
-    void execute(const std::shared_ptr<GoalHandleMTC> goal_handle)
-    {
-        auto result = std::make_shared<MTCAction::Result>();
-
-        moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + ns_);
+        moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + m_ns);
         planning_scene_interface.removeCollisionObjects(planning_scene_interface.getKnownObjectNames());
 
-        auto mtc_task_node = std::make_shared<TaskConstructor::MTCController>(node_, ns_);
-        auto gripperController = std::make_shared<Gripper::GripperController>(node_, "/" + ns_ + "/gripper_server");
-        auto visionSystem = std::make_shared<Camera::GroundTruthCamera>(
-            node_, "/" + ns_ + "/camera_pickup/detections3D", "/" + ns_ + "/camera_drop/detections3D", ns_);
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        auto mtc_task_node = std::make_shared<TaskConstructor::MTCController>(m_node, m_ns);
+        auto gripperController = std::make_shared<Gripper::GripperController>(m_node, "/" + m_ns + "/gripper_server");
 
-        const auto goal = goal_handle->get_goal();
-        auto feedback = std::make_shared<MTCAction::Feedback>();
-        for (int i = 0; i < goal->num_of_boxes; i++)
+        auto slashLocation = m_robotName.find("/");
+        auto cargoPublisher =
+            m_node->create_publisher<std_msgs::msg::Bool>("/" + m_robotName.substr(0, slashLocation + 1) + "cargo_status", 1);
+
+        for (int i = 0; i < m_numOfBoxes; i++)
         {
-            if (goal_handle->is_canceling())
-            {
-                goal_handle->canceled(result);
-                return;
-            }
-            auto const& address = Pattern[i]*1.2f;
+            auto const& address = Pattern[i] * 1.2f;
             std::optional<geometry_msgs::msg::Pose> myClosestBox;
             std::vector<geometry_msgs::msg::Pose> allBoxesOnPallet;
 
-            myClosestBox = visionSystem->getClosestBox();
-            allBoxesOnPallet = visionSystem->getAllBoxesOnPallet();
+            myClosestBox = m_visionSystem->getClosestBox();
+            allBoxesOnPallet = m_visionSystem->getAllBoxesOnPallet();
 
-            auto palletPose = visionSystem->getObjectPose("EuroPallet");
-            if (!palletPose) {
-                goal_handle->abort(result);
-                return;
+            auto palletPose = m_visionSystem->getObjectPose("/EuroPallet");
+            if (!palletPose)
+            {
+                break;
             }
 
             if (!myClosestBox)
             {
-                RCLCPP_ERROR(node_->get_logger(), "No box found");
-                goal_handle->abort(result);
-                return;
+                RCLCPP_ERROR(m_node->get_logger(), "No box found");
+                break;
             }
 
             auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
 
-            mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox, PickedBoxName, ns_);
+            mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox, PickedBoxName, m_ns);
             if (!mtc_task_node->doTask(taskGrab))
             {
-                goal_handle->abort(result);
-                return;
+                break;
             }
             gripperController->Grip();
-            auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, *palletPose, *myClosestBox, allBoxesOnPallet, ns_);
+            auto taskDrop = mtc_task_node->createTaskDrop(address, PickedBoxName, *palletPose, *myClosestBox, allBoxesOnPallet, m_ns);
             if (!mtc_task_node->doTask(taskDrop))
             {
                 gripperController->Release();
-                goal_handle->abort(result);
-                return;
+                break;
             }
             gripperController->Release();
-            feedback->current_box = i;
-            goal_handle->publish_feedback(feedback);
         }
 
-        mtc::Task taskPark = mtc_task_node->createTaskPark(ns_);
+        mtc::Task taskPark = mtc_task_node->createTaskPark(m_ns);
         mtc_task_node->doTask(taskPark);
 
-        // Check if goal is done
-        if (rclcpp::ok())
-        {
-            result->success = true;
-            goal_handle->succeed(result);
-        }
+        std_msgs::msg::Bool cargoFullMessage;
+        cargoFullMessage.data = true;
+        cargoPublisher->publish(cargoFullMessage);
+
+        m_isExecuting = false;
     }
+
+    rclcpp::Node::SharedPtr m_node;
+    std::shared_ptr<Camera::GroundTruthCamera> m_visionSystem;
+    rclcpp::TimerBase::SharedPtr m_timer;
+    std::string m_ns;
+
+    Eigen::Vector3d m_lastRobotPose{ 0, 0, 0 };
+    std::string m_robotName;
+    bool m_isExecuting = false;
+    bool m_robotLeft = true;
+
+    std::chrono::time_point<std::chrono::system_clock> lastUpdate{ std::chrono::system_clock::now() };
+
+    double m_tolerance = 0.01;
+    std::chrono::seconds m_waitTime{ 3 };
+    int m_numOfBoxes = 1;
 };
 
 int main(int argc, char** argv)
@@ -203,41 +219,7 @@ int main(int argc, char** argv)
     auto parameter = node->get_parameter("ns");
     auto ns = parameter.as_string();
 
-    auto mtc_action_server = std::make_shared<MTCActionServer>(node, ns);
-
-    Eigen::Vector3d lastRobotPose{ 0, 0, 0 };
-    std::string robotName;
-
-    double tolerance = 0.01;
-    constexpr std::chrono::seconds waitTime(1);
-    std::chrono::time_point lastUpdate = std::chrono::system_clock::now();
-
-    auto visionSystem = std::make_shared<Camera::GroundTruthCamera>(
-        node, "/" + ns + "/camera_pickup/detections3D", "/" + ns + "/camera_drop/detections3D", ns);
-
-    while (true)
-    {
-        std::this_thread::sleep_for(std::chrono::milliseconds(50));
-        if (visionSystem->IsRobotPresent())
-        {
-            if (robotName != "")
-            {
-                robotName = visionSystem->GetRobotName();
-            }
-            geometry_msgs::msg::Pose robotPose = *visionSystem->getObjectPose(robotName);
-            Eigen::Vector3d currentRobotPose{ robotPose.position.x, robotPose.position.y, robotPose.position.z };
-            Eigen::Vector3d difference = currentRobotPose - lastRobotPose;
-            if (difference.norm() > tolerance)
-            {
-                lastUpdate = std::chrono::system_clock::now();
-            }
-            lastRobotPose = currentRobotPose;
-            if (std::chrono::system_clock::now() - lastUpdate > waitTime)
-            {
-                std::cerr << "STARTING" << std::endl << std::endl << std::endl << std::endl;
-            }
-        }
-    }
+    RobotDetection robotDetection(node, ns);
 
     spinner.join();
     rclcpp::shutdown();

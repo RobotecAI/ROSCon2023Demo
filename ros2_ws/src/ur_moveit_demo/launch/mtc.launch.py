@@ -70,6 +70,10 @@ def launch_setup(context, *args, **kwargs):
     launch_rviz = LaunchConfiguration("launch_rviz")
     launch_servo = LaunchConfiguration("launch_servo")
 
+    num_of_boxes = LaunchConfiguration("num_of_boxes")
+    pose_tolerance = LaunchConfiguration("pose_tolerance")
+    wait_time = LaunchConfiguration("wait_time")
+
     joint_limit_params = PathJoinSubstitution(
         [FindPackageShare(description_package), "config", ur_type, "joint_limits.yaml"]
     )
@@ -251,6 +255,9 @@ def launch_setup(context, *args, **kwargs):
             {'publish_robot_description': True},
             {'publish_robot_description_semantic': True},
             {"ns": ur_namespace.perform(context)},
+            {"num_of_boxes": num_of_boxes},
+            {"pose_tolerance": pose_tolerance},
+            {"wait_time": wait_time},
         ],
     )
 
@@ -403,6 +410,26 @@ def generate_launch_description():
             description="RViz configuration file",
         )
     )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "num_of_boxes",
+            default_value="4",
+            description="Number of boxes to be placed on the pallet",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "pose_tolerance",
+            default_value="0.01",
+            description="Minimum change between last and current pose of the AMR to be detected as not moving"
+    ))
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "wait_time",
+            default_value="3",
+            description="Time to wait after AMR is no longer detected as moving to start palletization",
+    ))
 
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])

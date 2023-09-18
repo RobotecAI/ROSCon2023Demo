@@ -17,7 +17,7 @@ namespace Camera
             10,
             [&, ns](vision_msgs::msg::Detection3DArray::SharedPtr msg)
             {
-                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { PalletNamePrefix });
+                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { PalletNamePrefix, RobotPrefix });
                 UpdateObjectPresence(msg, { RobotPrefix }, m_isRobotPresent, m_robotName);
                 std::map<std::string, geometry_msgs::msg::Pose> boxesPoses;
                 UpdateObjectPoses(boxesPoses, ns + "/world", msg, { BoxNamePrefix });
@@ -166,7 +166,7 @@ namespace Camera
         auto it = std::lower_bound(
             m_objectPoses.begin(),
             m_objectPoses.end(),
-            PalletNamePrefix,
+            objectName,
             [](const auto& lhs, const auto& rhs)
             {
                 return lhs.first < rhs;

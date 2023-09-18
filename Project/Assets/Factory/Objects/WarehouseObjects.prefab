@@ -306,6 +306,59 @@
                 }
             }
         },
+        "Entity_[22259587519448]": {
+            "Id": "Entity_[22259587519448]",
+            "Name": "Entity1",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7638935219294633348
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9854342389001280234
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16987507703054499623,
+                    "Child Entity Order": [
+                        "Instance_[22762098693080]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12368992026635017435
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10274614620396884747
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12906206534720779090
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10543909701741364395
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2058610657338135704
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11875345530809619831,
+                    "Parent Entity": "Entity_[44620649615523]",
+                    "Transform Data": {
+                        "Translate": [
+                            -26.0,
+                            15.0,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[31466141599214]": {
             "Id": "Entity_[31466141599214]",
             "Name": "PalletStacks",
@@ -669,13 +722,13 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 13612612450009289800,
                     "Child Entity Order": [
-                        "Entity_[44788153340067]",
                         "Entity_[44702253994147]",
                         "Entity_[44680779157667]",
                         "Entity_[31466141599214]",
                         "Entity_[77486966819653]",
                         "Entity_[77564276230981]",
-                        "Entity_[35970861945539]"
+                        "Entity_[35970861945539]",
+                        "Entity_[22259587519448]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -926,94 +979,6 @@
                             0.0,
                             0.0,
                             179.9999542236328
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[44788153340067]": {
-            "Id": "Entity_[44788153340067]",
-            "Name": "WrappingStation",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 7055198153557878172,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{6862533C-6F42-5EDC-B8A7-AFE11A3BEC1D}",
-                                    "subId": 273974482
-                                },
-                                "assetHint": "assets/factory/objects/models/wrapper.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 11753585666662158534
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 5401795109128041633
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2888018349424559267
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 7145616258991726599
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 12839155336734633602
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 12360852837780779437,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 4052324398
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{D43093A3-90BF-523E-86D1-BCE49E007472}"
-                                            },
-                                            "assetHint": "assets/factory/objects/models/wrapper_wrapper.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 11459619337620886239
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 12883026229862666037
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 4579845178018110388
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 11121936990085129575,
-                    "Parent Entity": "Entity_[44620649615523]",
-                    "Transform Data": {
-                        "Translate": [
-                            -26.0,
-                            15.0,
-                            0.0
                         ]
                     }
                 }
@@ -1530,37 +1495,37 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136957915091309]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136983684895085]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136996569796973]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137009454698861]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137022339600749]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137035224502637]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "remove",
@@ -1574,47 +1539,47 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136957915091309]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136983684895085]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136996569796973]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137009454698861]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137022339600749]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137035224502637]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137048109404525]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.11367475986480713
+                    "value": 0.11367475986480712
                 },
                 {
                     "op": "add",
@@ -1894,7 +1859,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.19649887084960938
+                    "value": -0.19649887084960935
                 },
                 {
                     "op": "replace",
@@ -1919,7 +1884,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.030200481414794922
+                    "value": -0.03020048141479492
                 },
                 {
                     "op": "replace",
@@ -1964,47 +1929,47 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136957915091309]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136983684895085]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136996569796973]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137009454698861]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137022339600749]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137035224502637]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137048109404525]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.11367475986480713
+                    "value": 0.11367475986480712
                 },
                 {
                     "op": "add",
@@ -2094,37 +2059,37 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136957915091309]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.11367475986480713
+                    "value": 0.11367475986480712
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136970799993197]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136983684895085]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[136996569796973]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137009454698861]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[137022339600749]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "remove",
@@ -2142,7 +2107,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.20151042938232422
+                    "value": 0.20151042938232425
                 },
                 {
                     "op": "replace",
@@ -2152,7 +2117,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 94.99999237060547
+                    "value": 94.99999237060548
                 }
             ]
         },
@@ -2222,7 +2187,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
@@ -2247,7 +2212,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.47285589575767517
+                    "value": 0.4728558957576752
                 },
                 {
                     "op": "replace",
@@ -2287,7 +2252,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
@@ -2342,7 +2307,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -2387,7 +2352,7 @@
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -2457,7 +2422,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[11645621937081874484]/Transform Data/Translate/2",
-                    "value": 0.11202269047498703
+                    "value": 0.11202269047498704
                 },
                 {
                     "op": "replace",
@@ -2468,6 +2433,21 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[11645621937081874484]/Transform Data/UniformScale",
                     "value": 0.5932575464248657
+                }
+            ]
+        },
+        "Instance_[22762098693080]": {
+            "Source": "Assets/Wrapper/Wrapper_with_cage.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[22259587519448]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 1.343654990196228
                 }
             ]
         },
@@ -2967,7 +2947,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6674651583343491819]/Transform Data/Translate/2",
-                    "value": 0.12169492244720459
+                    "value": 0.1216949224472046
                 },
                 {
                     "op": "replace",
@@ -3007,7 +2987,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6674651583343491819]/Transform Data/Translate/2",
-                    "value": 0.12169492244720459
+                    "value": 0.1216949224472046
                 },
                 {
                     "op": "replace",
@@ -3462,7 +3442,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[4983371344376764259]/Transform Data/Translate/2",
-                    "value": 0.11778867989778519
+                    "value": 0.1177886798977852
                 },
                 {
                     "op": "replace",
@@ -3502,7 +3482,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[6674651583343491819]/Transform Data/Translate/2",
-                    "value": 0.12169492244720459
+                    "value": 0.1216949224472046
                 },
                 {
                     "op": "replace",
@@ -3542,7 +3522,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[11645621937081874484]/Transform Data/Translate/2",
-                    "value": 0.11202269047498703
+                    "value": 0.11202269047498704
                 },
                 {
                     "op": "replace",
@@ -3582,7 +3562,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[11645621937081874484]/Transform Data/Translate/2",
-                    "value": 0.11202269047498703
+                    "value": 0.11202269047498704
                 },
                 {
                     "op": "replace",
@@ -3617,7 +3597,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[11645621937081874484]/Transform Data/Translate/1",
-                    "value": -0.036536216735839844
+                    "value": -0.03653621673583984
                 },
                 {
                     "op": "replace",

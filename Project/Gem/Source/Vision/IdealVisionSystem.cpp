@@ -265,6 +265,21 @@ namespace ROS2::Demo
                     AZ::ComponentApplicationBus::BroadcastResult(
                         targetName, &AZ::ComponentApplicationBus::Events::GetEntityName, result.m_entityId);
 
+                    AZ::Entity* targetEntity = nullptr;
+                    AZ::ComponentApplicationBus::BroadcastResult(
+                        targetEntity, &AZ::ComponentApplicationBus::Events::FindEntity, result.m_entityId);
+
+                    AZ_Assert(targetEntity, "IdealVisionSystem result entity not found");
+
+                    auto targetROS2FrameComponent = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(targetEntity);
+                    AZStd::string frameNamespace = "";
+                    if (targetROS2FrameComponent)
+                    {
+                        frameNamespace = targetROS2FrameComponent->GetNamespace();
+                    }
+
+                    AZStd::string targetId = frameNamespace + "/" + targetName;
+
                     geometry_msgs::msg::Pose pose;
                     pose.orientation = ROS2::ROS2Conversions::ToROS2Quaternion(resultTransformLocal.GetRotation());
                     pose.position = ROS2::ROS2Conversions::ToROS2Point(resultTransformLocal.GetTranslation());
@@ -273,7 +288,7 @@ namespace ROS2::Demo
                     // construct 3D detection
                     vision_msgs::msg::Detection3D detection3D;
                     detection3D.header = header;
-                    detection3D.id = targetName.c_str();
+                    detection3D.id = targetId.c_str();
 
                     detection3D.bbox.center.position = pose.position;
                     detection3D.bbox.size.x = aabb.GetXExtent() * 2.0f;
@@ -290,7 +305,7 @@ namespace ROS2::Demo
                     // construct 2D detection
                     vision_msgs::msg::Detection2D detection2D;
                     detection2D.header = header;
-                    detection2D.id = targetName.c_str();
+                    detection2D.id = targetId.c_str();
 
                     AZ::Vector2 center2D = Internal::GetPointIn2D(resultTransformLocal.GetTranslation(), m_cameraMatrix);
 

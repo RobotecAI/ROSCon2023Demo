@@ -44,6 +44,7 @@ namespace ROS2::Demo
 
         AZStd::set<PathInfo, PathInfoComparator> m_paths;
         AZStd::map<size_t, nav_msgs::msg::Path> m_pathsMsgs;
+        lane_provider_msgs::msg::LanePaths m_lanePathMsgs;
         AZStd::string m_globalFrame = "map";
 
         nav_msgs::msg::Path CalculatePoses(const PathInfo& pathEntityId);

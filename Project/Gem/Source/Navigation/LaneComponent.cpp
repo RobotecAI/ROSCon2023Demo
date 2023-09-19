@@ -53,9 +53,16 @@ namespace ROS2::Demo
 
     void LaneComponent::OnTick(float deltaTime, AZ::ScriptTimePoint time)
     {
-        for (auto const path : m_paths)
+        m_lanePathMsgs.lane_name = GetLaneName().c_str();
+
+        for (auto const& path : m_paths)
         {
             m_pathsMsgs[path.m_orderNumber] = CalculatePoses(path);
+            AZ::Entity* pathEntity = nullptr;
+            AZ::ComponentApplicationBus::BroadcastResult(pathEntity, &AZ::ComponentApplicationRequests::FindEntity, path.m_entityId);
+            AZ_Assert(pathEntity, "Path pointer is null")
+            m_lanePathMsgs.path_names.push_back(pathEntity->GetName().c_str());
+            m_lanePathMsgs.lane_paths.push_back(m_pathsMsgs[path.m_orderNumber]);
         }
 
         AZ::TickBus::Handler::BusDisconnect();
@@ -86,25 +93,25 @@ namespace ROS2::Demo
             }
 
             auto address = splinePtr->GetAddressByFraction(fraction);
-            const AZ::Vector3 position_ = splinePtr->GetPosition(address);
-            const AZ::Vector3 tangent_ = splinePtr->GetTangent(address);
-            const AZ::Vector3 normal_ = splinePtr->GetNormal(address);
+            const AZ::Vector3 position = splinePtr->GetPosition(address);
+            const AZ::Vector3 tangent = splinePtr->GetTangent(address);
+            const AZ::Vector3 normal = splinePtr->GetNormal(address);
 
-            const AZ::Matrix3x3 rot_ = AZ::Matrix3x3::CreateFromColumns(tangent_, normal_, tangent_.Cross(normal_));
-            const AZ::Transform goalTransform_ = AZ::Transform::CreateFromMatrix3x3AndTranslation(rot_, position_);
-            auto m_idealGoal_ = splineTransform * goalTransform_;
+            const AZ::Matrix3x3 rot = AZ::Matrix3x3::CreateFromColumns(tangent, normal, tangent.Cross(normal));
+            const AZ::Transform goalTransform = AZ::Transform::CreateFromMatrix3x3AndTranslation(rot, position);
+            auto idealGoal = splineTransform * goalTransform;
 
             auto pose = geometry_msgs::msg::PoseStamped();
 
             pose.header.frame_id = m_globalFrame.data();
 
-            auto translation = m_idealGoal_.GetTranslation();
+            auto translation = idealGoal.GetTranslation();
 
             pose.pose.position.x = translation.GetX();
             pose.pose.position.y = translation.GetY();
             pose.pose.position.z = translation.GetZ();
 
-            auto rotation = m_idealGoal_.GetRotation();
+            auto rotation = idealGoal.GetRotation();
 
             pose.pose.orientation.x = rotation.GetX();
             pose.pose.orientation.y = rotation.GetY();
@@ -119,6 +126,7 @@ namespace ROS2::Demo
 
     void LaneComponent::Deactivate()
     {
+        AZ::TickBus::Handler::BusDisconnect();
     }
 
     AZStd::string LaneComponent::GetLaneName()
@@ -128,18 +136,7 @@ namespace ROS2::Demo
 
     lane_provider_msgs::msg::LanePaths LaneComponent::GetLanePathMsgs()
     {
-        lane_provider_msgs::msg::LanePaths lanePaths;
-        lanePaths.lane_name = GetLaneName().c_str();
-
-        for (auto path : m_paths)
-        {
-            AZ::Entity* pathEntity = nullptr;
-            AZ::ComponentApplicationBus::BroadcastResult(pathEntity, &AZ::ComponentApplicationRequests::FindEntity, path.m_entityId);
-            lanePaths.path_names.push_back(pathEntity->GetName().c_str());
-            lanePaths.lane_paths.push_back(m_pathsMsgs[path.m_orderNumber]);
-        }
-
-        return lanePaths;
+        return m_lanePathMsgs;
     }
 
 } // namespace ROS2::Demo

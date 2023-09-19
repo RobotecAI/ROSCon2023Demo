@@ -20,11 +20,11 @@ namespace ROS2::Demo
     using ListTracksRequest = std::shared_ptr<lane_provider_msgs::srv::ListTracks::Request>;
     using ListTracksResponse = std::shared_ptr<lane_provider_msgs::srv::ListTracks::Response>;
 
-    class LanesService : public AZ::Component
+    class LanesServiceComponent : public AZ::Component
     {
         //! Component that stores lanes.
     public:
-        AZ_COMPONENT(LanesService, "{3c3a5a90-2395-4278-8251-54d819b0f6ac}");
+        AZ_COMPONENT(LanesServiceComponent, "{3c3a5a90-2395-4278-8251-54d819b0f6ac}");
 
         static void Reflect(AZ::ReflectContext* context);
 
@@ -33,7 +33,7 @@ namespace ROS2::Demo
         void Deactivate() override;
 
     private:
-        AZStd::vector<AZ::EntityId> m_lanesEntities;
+        AZStd::vector<AZ::EntityId> m_tracks;
 
         AZStd::string m_globalFrame = "map";
         rclcpp::Service<lane_provider_msgs::srv::ListTracks>::SharedPtr m_listTracksService;

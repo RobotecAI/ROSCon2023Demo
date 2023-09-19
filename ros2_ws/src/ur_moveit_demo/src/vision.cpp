@@ -3,6 +3,7 @@
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
+#include <string>
 
 namespace Camera
 {
@@ -16,7 +17,8 @@ namespace Camera
             10,
             [&, ns](vision_msgs::msg::Detection3DArray::SharedPtr msg)
             {
-                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { PalletNamePrefix });
+                UpdateObjectPoses(m_objectPoses, ns + "/world", msg, { PalletNamePrefix, RobotPrefix });
+                UpdateObjectPresence(msg, { RobotPrefix }, m_isRobotPresent, m_robotName);
                 std::map<std::string, geometry_msgs::msg::Pose> boxesPoses;
                 UpdateObjectPoses(boxesPoses, ns + "/world", msg, { BoxNamePrefix });
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
@@ -33,6 +35,46 @@ namespace Camera
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
                 m_closestBox = getClosestBox(poses);
             });
+    }
+
+    bool GroundTruthCamera::IsRobotPresent()
+    {
+        return m_isRobotPresent;
+    }
+
+    std::string GroundTruthCamera::GetRobotName()
+    {
+        return m_robotName;
+    }
+
+    void GroundTruthCamera::UpdateObjectPresence(
+        vision_msgs::msg::Detection3DArray::SharedPtr msg,
+        std::vector<std::string> interestingObjectsPrefixes,
+        bool& objectPresence,
+        std::string& objectName)
+    {
+        bool interesting = false;
+        for (auto& detection : msg->detections)
+        {
+            const std::string name{ detection.id };
+            for (const auto& interestingObject : interestingObjectsPrefixes)
+            {
+                if (name.find(interestingObject) != std::string::npos)
+                {
+                    interesting = true;
+                    objectName = name;
+                    objectPresence = true;
+                    return;
+                }
+            }
+            if (!interesting || detection.results.empty())
+            {
+                continue;
+            }
+        }
+
+        objectPresence = false;
+        objectName = "";
     }
 
     void GroundTruthCamera::UpdateObjectPoses(
@@ -98,7 +140,8 @@ namespace Camera
         return std::optional<geometry_msgs::msg::Pose>(box_locations.begin()->second);
     }
 
-    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::getAllBoxesOnPallet(const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses)
+    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::getAllBoxesOnPallet(
+        const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses)
     {
         std::vector<geometry_msgs::msg::Pose> boxes;
         auto it = objectPoses.begin();
@@ -123,7 +166,7 @@ namespace Camera
         auto it = std::lower_bound(
             m_objectPoses.begin(),
             m_objectPoses.end(),
-            PalletNamePrefix,
+            objectName,
             [](const auto& lhs, const auto& rhs)
             {
                 return lhs.first < rhs;

@@ -1,0 +1,77 @@
+{
+    "values": [
+        {
+            "$type": "{5B03C8E6-8CEE-4DA0-A7FA-CD88689DD45B} MeshGroup",
+            "id": "{939BC43D-B12D-5335-99ED-B0AE949CE0D4}",
+            "name": "360_Arm",
+            "NodeSelectionList": {
+                "unselectedNodes": [
+                    {},
+                    "RootNode",
+                    "RootNode.360_arm"
+                ]
+            },
+            "PhysicsMaterialSlots": {
+                "Slots": [
+                    {
+                        "Name": "Entire object"
+                    }
+                ]
+            }
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "360_Arm",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    {},
+                    "RootNode",
+                    "RootNode.360_arm"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "MaterialRule"
+                    },
+                    {
+                        "$type": "TangentsRule"
+                    }
+                ]
+            },
+            "id": "{F50544F5-2342-567C-858D-C647EB65D09C}"
+        },
+        {
+            "$type": "{07B356B7-3635-40B5-878A-FAC4EFD5AD86} MeshGroup",
+            "name": "default_360_Arm_FEE052E4_5582_5CE3_9F57_99421DDFA8A6_",
+            "nodeSelectionList": {
+                "selectedNodes": [
+                    "RootNode.360_arm"
+                ]
+            },
+            "rules": {
+                "rules": [
+                    {
+                        "$type": "ProceduralMeshGroupRule"
+                    },
+                    {
+                        "$type": "UnmodifiableRule"
+                    },
+                    {
+                        "$type": "CoordinateSystemRule",
+                        "useAdvancedData": true
+                    },
+                    {
+                        "$type": "{6E796AC8-1484-4909-860A-6D3F22A7346F} LodRule"
+                    }
+                ]
+            },
+            "id": "{FEE052E4-5582-5CE3-9F57-99421DDFA8A6}"
+        },
+        {
+            "$type": "PrefabGroup",
+            "name": "Assets/Wrapper/360_Arm_fbx.procprefab",
+            "id": "{8F68D8A4-45F3-5BD9-87B6-78142FF1EE62}"
+        }
+    ]
+}

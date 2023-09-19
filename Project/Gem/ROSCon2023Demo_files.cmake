@@ -24,6 +24,11 @@ set(FILES
     Source/ROSCon2023DemoSystemComponent.h
     Source/Scripting/BoxSpawner.cpp
     Source/Scripting/BoxSpawner.h
+    Source/Scripting/ScriptSpawnSytemBus.h
+    Source/Scripting/FoilWrapperController.cpp
+    Source/Scripting/FoilWrapperController.h
+        Source/Scripting/ScriptSpawnLevelComponent.cpp
+        Source/Scripting/ScriptSpawnLevelComponent.h
     Source/Vision/IdealVisionSystem.cpp
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp

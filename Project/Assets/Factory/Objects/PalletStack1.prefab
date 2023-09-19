@@ -84,7 +84,13 @@
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7534831268200010493
+                    "Id": 7534831268200010493,
+                    "DisabledComponents": {
+                        "EditorStaticRigidBodyComponent": {
+                            "$type": "EditorStaticRigidBodyComponent",
+                            "Id": 2931853584306384289
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -119,9 +125,29 @@
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 15438096478292133298
                 },
-                "EditorStaticRigidBodyComponent": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 2931853584306384289
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 16194025660847969193,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 951.115234375,
+                        "Centre of mass offset": [
+                            -0.0017660557059571147,
+                            0.000875234545674175,
+                            0.510409951210022
+                        ],
+                        "Inertia tensor": [
+                            130.1202392578125,
+                            0.0,
+                            0.0,
+                            0.0,
+                            196.3515167236328,
+                            0.0,
+                            0.0,
+                            0.0,
+                            162.26979064941406
+                        ]
+                    }
                 },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",

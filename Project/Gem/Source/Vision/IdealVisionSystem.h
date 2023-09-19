@@ -10,6 +10,7 @@
 
 #include "IdealVisionSystemConfiguration.h"
 #include <AzCore/Component/Component.h>
+#include <AzCore/Component/EntityId.h>
 #include <AzCore/Component/TickBus.h>
 #include <AzCore/Math/Matrix3x3.h>
 #include <AzCore/std/containers/unordered_set.h>
@@ -17,6 +18,7 @@
 #include <AzFramework/Physics/ShapeConfiguration.h>
 #include <ROS2/Camera/CameraCalibrationRequestBus.h>
 #include <ROS2/Sensor/ROS2SensorComponent.h>
+#include <Vision/IdealVisionSystemBus.h>
 #include <geometry_msgs/msg/pose_array.hpp>
 #include <rclcpp/publisher.hpp>
 #include <vision_msgs/msg/detection2_d_array.hpp>

@@ -22,5 +22,6 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Include/Vision/IdealVisionSystemBus.h
     enabled_gems.cmake
 )

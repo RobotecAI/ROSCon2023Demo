@@ -11,6 +11,7 @@
 #include <Atom/RPI.Public/AuxGeom/AuxGeomDraw.h>
 #include <Atom/RPI.Public/AuxGeom/AuxGeomFeatureProcessorInterface.h>
 #include <Atom/RPI.Public/Scene.h>
+#include <AzCore/Component/EntityId.h>
 #include <AzCore/Component/TransformBus.h>
 #include <AzCore/Serialization/EditContext.h>
 #include <AzCore/Serialization/SerializeContext.h>
@@ -20,10 +21,12 @@
 #include <AzFramework/Physics/Shape.h>
 #include <AzFramework/Physics/SystemBus.h>
 #include <LmbrCentral/Scripting/TagComponentBus.h>
+#include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
 #include <ROS2/Sensor/ROS2SensorComponent.h>
 #include <ROS2/Utilities/ROS2Conversions.h>
 #include <ROS2/Utilities/ROS2Names.h>
+#include <Vision/IdealVisionSystemBus.h>
 
 namespace ROS2::Demo
 {
@@ -247,10 +250,14 @@ namespace ROS2::Demo
             request.m_filterCallback = nullptr;
             AzPhysics::SceneQueryHits results = sceneInterface->QueryScene(defaultSceneHandle, &request);
 
+            AZStd::vector<AZ::EntityId> detectedObjects;
+
             for (const auto& result : results.m_hits)
             {
                 if (!m_configuration.m_excludeEntities.contains(result.m_entityId))
                 {
+                    detectedObjects.push_back(result.m_entityId);
+
                     const AZ::Aabb aabb = result.m_shape->GetAabbLocal();
 
                     AZ::Transform resutlTransform;
@@ -317,6 +324,11 @@ namespace ROS2::Demo
 
                     detection2DArray.detections.push_back(detection2D);
                 }
+            }
+            if (detectedObjects.size())
+            {
+                IdealVisionSystemNotificationBus::Event(
+                    GetEntityId(), &IdealVisionSystemNotificationBus::Events::OnObjectsDetected, detectedObjects);
             }
         }
         m_detectionArrayPublisher->publish(poseArray);

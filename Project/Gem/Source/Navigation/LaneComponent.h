@@ -8,34 +8,45 @@
  */
 #pragma once
 
-#include "AzCore/std/string/string.h"
 #include <AzCore/Component/Component.h>
-#include <AzCore/Component/EntityId.h>
-#include <AzCore/std/containers/vector.h>
+#include <AzCore/Component/TickBus.h>
+#include <AzCore/std/containers/map.h>
+#include <AzCore/std/containers/set.h>
+#include <AzCore/std/string/string.h>
+#include <ROSCon2023Demo/Navigation/PathInfo.h>
+#include <lane_provider_msgs/msg/detail/lane_paths__struct.hpp>
+#include <nav_msgs/msg/detail/path__struct.hpp>
 
 namespace ROS2::Demo
 {
-    class LaneComponent : public AZ::Component
+    class LaneComponent
+        : public AZ::Component
+        , public AZ::TickBus::Handler
     {
-        //! Component that stores paths which are associated with one working lane (one robotic arm).
+        //! Component that stores paths associated with one working lane (one robotic arm).
     public:
         AZ_COMPONENT(LaneComponent, "{8c11ead8-5a40-4bbc-8547-4386d0eb1dd2}");
-        // LaneComponent() = default;
-        // ~LaneComponent() override = default;
 
         static void Reflect(AZ::ReflectContext* context);
-        static void GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required);
 
         // AZ::Component overrides ...
         void Activate() override;
         void Deactivate() override;
 
         AZStd::string GetLaneName();
-        AZStd::vector<AZ::EntityId> GetPaths();
+        lane_provider_msgs::msg::LanePaths GetLanePathMsgs();
 
     private:
-        int m_laneNumber = 0;
-        AZStd::vector<AZ::EntityId> m_paths;
-        //get paths associated with one working lane
+        //////////////////////////////////////////////////////////////////////////
+        // AZ::TickBus::Handler overrides
+        void OnTick(float deltaTime, AZ::ScriptTimePoint time) override;
+        //////////////////////////////////////////////////////////////////////////
+
+        AZStd::set<PathInfo, PathInfoComparator> m_paths;
+        AZStd::map<size_t, nav_msgs::msg::Path> m_pathsMsgs;
+        AZStd::string m_globalFrame = "map";
+
+        nav_msgs::msg::Path CalculatePoses(const PathInfo& pathEntityId);
     };
+
 } // namespace ROS2::Demo

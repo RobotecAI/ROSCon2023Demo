@@ -8,9 +8,8 @@
  */
 #pragma once
 
-#include <rclcpp/rclcpp.hpp>
 #include <lane_provider_msgs/srv/list_tracks.hpp>
-
+#include <rclcpp/rclcpp.hpp>
 
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/EntityId.h>
@@ -23,26 +22,26 @@ namespace ROS2::Demo
 
     class LanesService : public AZ::Component
     {
-        //! Component that stores paths which are associated with one working lane (one robotic arm).
+        //! Component that stores lanes.
     public:
-        AZ_COMPONENT(LanesService, "{8c11ead8-5a40-4bbc-8547-4386d0eb1dd2}");
-        // LanesService() = default;
-        // ~LanesService() override = default;
+        AZ_COMPONENT(LanesService, "{3c3a5a90-2395-4278-8251-54d819b0f6ac}");
 
         static void Reflect(AZ::ReflectContext* context);
-        static void GetRequiredServices(AZ::ComponentDescriptor::DependencyArrayType& required);
 
         // AZ::Component overrides ...
         void Activate() override;
         void Deactivate() override;
 
     private:
-        AZStd::vector<AZ::EntityId> m_laneEntities;
-        rclcpp::Service<lane_provider_msgs::srv::ListTracks>::SharedPtr m_listTracksService;
-        AZStd::string m_globalFrame = "map";
-        size_t m_poseCount = 10;
+        AZStd::vector<AZ::EntityId> m_lanesEntities;
 
+        AZStd::string m_globalFrame = "map";
+        rclcpp::Service<lane_provider_msgs::srv::ListTracks>::SharedPtr m_listTracksService;
+
+        // If no name is provided, it returns all lanes.
+        // If a valid lane name is provided, it returns that specific lane.
+        // If an invalid lane name is provided, it returns an empty message.
         void ListTracks(const ListTracksRequest request, const ListTracksResponse response);
- 
     };
+
 } // namespace ROS2::Demo

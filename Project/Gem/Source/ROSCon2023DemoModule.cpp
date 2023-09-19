@@ -3,6 +3,7 @@
 #include <AzCore/Module/Module.h>
 
 #include "Navigation/LaneComponent.h"
+#include "Navigation/LanesService.h"
 #include "Navigation/SplinePosesPublisher.h"
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Scripting/BoxSpawner.h"
@@ -32,6 +33,7 @@ namespace ROSCon2023Demo
                     ROS2::Demo::BoxSpawner::CreateDescriptor(),
                     ROS2::Demo::SplinePosesPublisher::CreateDescriptor(),
                     ROS2::Demo::LaneComponent::CreateDescriptor(),
+                    ROS2::Demo::LanesService::CreateDescriptor(),
                     ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
                     ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
                     ROS2::Demo::NavigationMeshOrchestratorComponent::CreateDescriptor(),

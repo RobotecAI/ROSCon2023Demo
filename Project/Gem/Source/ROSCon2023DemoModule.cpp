@@ -7,12 +7,13 @@
 #include "Navigation/SplinePosesPublisher.h"
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Scripting/BoxSpawner.h"
+#include "Scripting/ScriptSpawnLevelComponent.h"
 #include "Vision/IdealVisionSystem.h"
 #include <HumanNpc/AnimGraphInputProviderComponent.h>
 #include <HumanNpc/NavigationMeshOrchestratorComponent.h>
 #include <HumanNpc/NpcNavigatorComponent.h>
 #include <HumanNpc/WaypointComponent.h>
-
+#include <Scripting/FoilWrapperController.h>
 namespace ROSCon2023Demo
 {
     class ROSCon2023DemoModule : public AZ::Module
@@ -38,6 +39,8 @@ namespace ROSCon2023Demo
                     ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
                     ROS2::Demo::NavigationMeshOrchestratorComponent::CreateDescriptor(),
                     ROS2::Demo::WaypointComponent::CreateDescriptor(),
+                    ROS2::Demo::FoilWrapper::CreateDescriptor(),
+                    ROS2::Demo::ScriptSpawnLevelComponent::CreateDescriptor(),
                 });
         }
 

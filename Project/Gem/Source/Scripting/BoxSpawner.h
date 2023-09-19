@@ -8,12 +8,12 @@
  */
 #pragma once
 
+#include "ScriptSpawnSytemBus.h"
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/TickBus.h>
 #include <AzFramework/Physics/ShapeConfiguration.h>
 #include <AzFramework/Spawnable/Spawnable.h>
 #include <AzFramework/Spawnable/SpawnableEntitiesInterface.h>
-
 namespace ROS2::Demo
 {
     class BoxSpawnerConfiguration
@@ -51,6 +51,7 @@ namespace ROS2::Demo
     private:
         static constexpr size_t FrustumPointCount = 5;
 
+        // OnTickBus overrides...
         void OnTick(float deltaTime, AZ::ScriptTimePoint time) override;
 
         //! Spawn a single box in the location of this entity with given name, if previous box has been spawned successfully.
@@ -65,9 +66,7 @@ namespace ROS2::Demo
         size_t CountBoxesInBarrierRegion();
 
         BoxSpawnerConfiguration m_configuration;
-        AZStd::mutex m_ticketMutex;
-        AzFramework::EntitySpawnTicket m_ticket;
-        AZStd::unordered_map<AZ::EntityId, AzFramework::EntitySpawnTicket> m_spawnedEntities;
+        AZStd::vector<AZStd::string> m_spawnableNames;
         float m_timeSinceLastSpawn{ 0.0f };
     };
 } // namespace ROS2::Demo

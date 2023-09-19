@@ -129,7 +129,7 @@ namespace ROS2::Demo
             pose.pose.orientation.z = rotation.GetZ();
             pose.pose.orientation.w = rotation.GetW();
 
-            AZ_Info(
+            AZ_Trace(
                 "SplinePosesPublisher",
                 "Calculated point at fraction %f:  position: %f %f %f rotation: %f %f %f %f",
                 float(i) / steps,

@@ -8,6 +8,8 @@
  */
 
 #include "BoxSpawner.h"
+#include "ScriptSpawnSytemBus.h"
+
 #include <AzCore/Asset/AssetSerializer.h>
 #include <AzCore/Component/TransformBus.h>
 #include <AzCore/Serialization/EditContext.h>
@@ -107,62 +109,10 @@ namespace ROS2::Demo
 
     void BoxSpawner::SpawnBox(const AZStd::string& spawnableName)
     {
-        {
-            AZStd::unique_lock<AZStd::mutex> lock(m_ticketMutex);
-            if (m_ticket.IsValid())
-            {
-                return;
-            };
-        }
-
         AZ::Transform thisTransform;
         AZ::TransformBus::EventResult(thisTransform, GetEntityId(), &AZ::TransformBus::Events::GetWorldTM);
-
-        auto spawner = AZ::Interface<AzFramework::SpawnableEntitiesDefinition>::Get();
-        AZ_Assert(spawner, "Unable to get spawnable entities definition");
-        AzFramework::SpawnAllEntitiesOptionalArgs optionalArgs;
-        AzFramework::EntitySpawnTicket ticket(m_configuration.m_spawnable);
-
-        // Set the pre-spawn callback to set the name of the root entity to the name of the spawnable
-        optionalArgs.m_preInsertionCallback = [thisTransform, spawnableName](auto id, auto view)
-        {
-            if (view.empty())
-            {
-                return;
-            }
-            AZ::Entity* root = *view.begin();
-            root->SetName(spawnableName.c_str());
-            auto childPtrPtr =view.begin() + 1;
-            // update the name of the first child entity
-            if (childPtrPtr != view.end())
-            {
-                (**childPtrPtr).SetName(spawnableName.c_str());
-            }
-            auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
-            transformInterface->SetWorldTM(thisTransform);
-        };
-
-        // set the post-spawn callback to add the entity to the list of spawned entities
-        optionalArgs.m_completionCallback = [this, spawnableName](auto ticket, auto result)
-        {
-            if (!result.empty() && result.size() > 1)
-            {
-                AZStd::unique_lock<AZStd::mutex> lock(m_ticketMutex);
-
-                // get first entity that is not container entity
-                const AZ::Entity* firstChild = *(result.begin() + 1);
-
-                m_spawnedEntities[firstChild->GetId()] = m_ticket;
-                m_ticket = AzFramework::EntitySpawnTicket();
-            }
-        };
-
-        optionalArgs.m_priority = AzFramework::SpawnablePriority_Lowest;
-        spawner->SpawnAllEntities(ticket, optionalArgs);
-        {
-            AZStd::unique_lock<AZStd::mutex> lock(m_ticketMutex);
-            m_ticket = ticket;
-        }
+        ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::SpawnAsset, m_configuration.m_spawnable, thisTransform, spawnableName);
+        m_spawnableNames.push_back(spawnableName);
     }
 
     void BoxSpawner::DespawnBoxes()
@@ -175,13 +125,19 @@ namespace ROS2::Demo
             despawnRegionBoxConfig, m_configuration.m_despawnRegionEntityId, &LmbrCentral::BoxShapeComponentRequests::GetBoxConfiguration);
 
         AZStd::erase_if(
-            m_spawnedEntities,
-            [&despawnRegionTransform, &despawnRegionBoxConfig](const auto& pair)
+            m_spawnableNames,
+            [&despawnRegionTransform, &despawnRegionBoxConfig](const auto& name)
             {
-                AZ::EntityId boxEntityId = pair.first;
+                AZ::EntityId boxEntityId = AZ::EntityId();
+                ScriptSpawnSystemRequestBus::BroadcastResult(boxEntityId, &ScriptSpawnSystemRequestBus::Events::GetSpawnedEntityId, name);
                 AZ::Vector3 boxLocation{ AZ::Vector3::CreateZero() };
                 AZ::TransformBus::EventResult(boxLocation, boxEntityId, &AZ::TransformBus::Events::GetWorldTranslation);
-                return CheckIfEntityInsideBox(boxLocation, despawnRegionBoxConfig, despawnRegionTransform);
+                bool isInside = CheckIfEntityInsideBox(boxLocation, despawnRegionBoxConfig, despawnRegionTransform);
+                if (isInside)
+                {
+                    ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox,name);
+                }
+                return isInside;
             });
     }
 
@@ -194,11 +150,12 @@ namespace ROS2::Demo
         LmbrCentral::BoxShapeComponentRequestsBus::EventResult(
             barrierRegionBoxConfig, m_configuration.m_barrierRegionEntityId, &LmbrCentral::BoxShapeComponentRequests::GetBoxConfiguration);
         int count = AZStd::count_if(
-            m_spawnedEntities.begin(),
-            m_spawnedEntities.end(),
-            [&barrierRegionTransform, &barrierRegionBoxConfig](const auto& pair)
+            m_spawnableNames.begin(),
+            m_spawnableNames.end(),
+            [&barrierRegionTransform, &barrierRegionBoxConfig](const auto& name)
             {
-                AZ::EntityId boxEntityId = pair.first;
+                AZ::EntityId boxEntityId = AZ::EntityId();
+                ScriptSpawnSystemRequestBus::BroadcastResult(boxEntityId, &ScriptSpawnSystemRequestBus::Events::GetSpawnedEntityId, name);
                 AZ::Vector3 boxLocation{ AZ::Vector3::CreateZero() };
                 AZ::TransformBus::EventResult(boxLocation, boxEntityId, &AZ::TransformBus::Events::GetWorldTranslation);
                 return CheckIfEntityInsideBox(boxLocation, barrierRegionBoxConfig, barrierRegionTransform);
@@ -223,4 +180,6 @@ namespace ROS2::Demo
             m_timeSinceLastSpawn = 0.f;
         }
     }
+
+
 } // namespace ROS2::Demo

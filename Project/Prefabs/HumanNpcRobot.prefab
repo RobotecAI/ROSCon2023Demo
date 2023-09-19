@@ -98,7 +98,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 10987990975619969755,
                     "Child Entity Order": [
-                        "Instance_[65886913166901]/ContainerEntity"
+                        "Instance_[2744578779163]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -261,23 +261,32 @@
         }
     },
     "Instances": {
-        "Instance_[65886913166901]": {
-            "Source": "Prefabs/AsianWomanActor.prefab",
+        "Instance_[2744578779163]": {
+            "Source": "Prefabs/NPCActor.prefab",
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[65895503101493]/Components/AnimGraphInputProviderComponent/m_template/Rigid Body",
+                    "path": "/ContainerEntity/Components/Component_[10260911217474375854]/Parent Entity",
                     "value": "../Entity_[66011467218485]"
                 },
                 {
                     "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[66011467218485]"
+                    "path": "/ContainerEntity/Components/Component_[10260911217474375854]/Transform Data/Rotate/2",
+                    "value": -89.99999237060547
                 },
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -90.0
+                    "op": "add",
+                    "path": "/Entities/Entity_[126252750932242]/Components/AnimGraphInputProviderComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 16872570156727602939,
+                        "m_template": {
+                            "$type": "AnimGraphInputProviderComponent",
+                            "Id": 0,
+                            "Rigid Body": "../Entity_[66011467218485]",
+                            "Linear Speed Multiplier": 0.05000000074505806
+                        }
+                    }
                 }
             ]
         }

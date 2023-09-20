@@ -57,16 +57,21 @@ namespace ROS2::Demo
             [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, [[maybe_unused]] const AzPhysics::TriggerEvent& event)
             {
                 const auto entityId = event.m_otherBody->GetEntityId();
-                if (!isObjectBox(entityId))
+                if (isObjectBox(entityId))
                 {
-                    return;
+                    m_collidingEntities.push_back(entityId);
+                }
+                if (isObjectPallet(entityId))
+                {
+                    m_pallet = entityId;
+                    if (m_state == FoilWrapperState::Idle)
+                    {
+                        m_state = FoilWrapperState::Starting;
+                    }
                 }
                 AZ_Printf("FoilWrapper", "Entered box with entity id %s", entityId.ToString().c_str());
-                if (m_state == FoilWrapperState::Idle)
-                {
-                    m_state = FoilWrapperState::Starting;
-                }
-                m_collidingEntities.push_back(entityId);
+
+
             });
 
         AZ::TickBus::Handler::BusConnect();
@@ -83,6 +88,14 @@ namespace ROS2::Demo
         LmbrCentral::TagComponentRequestBus::EventResult(isBox, entityId, &LmbrCentral::TagComponentRequests::HasTag, BoxTag);
         return isBox;
     }
+
+    bool FoilWrapper::isObjectPallet(const AZ::EntityId entityId) const
+    {
+        bool isBox = false;
+        LmbrCentral::TagComponentRequestBus::EventResult(isBox, entityId, &LmbrCentral::TagComponentRequests::HasTag, PalletTag);
+        return isBox;
+    }
+
 
     void FoilWrapper::OnTick(float delta, AZ::ScriptTimePoint timePoint)
     {
@@ -119,22 +132,14 @@ namespace ROS2::Demo
         if (m_state == FoilWrapperState::Starting)
         {
             m_timer += delta;
-            if (m_timer > 10.0)
+            if (m_timer > 2.0)
             {
-                AZ_Printf("FoilWrapper", "Warpping starterd");
-                EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
-                    m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::PlayMotion);
-                m_state = FoilWrapperState::Wrapping;
-                m_timer = 0;
-            }
-        }
-        if (m_state == FoilWrapperState::Wrapping)
-        {
-            m_timer += delta;
-            if (m_timer > 10.0)
-            {
+                AZ_Printf("FoilWrapper", "Warpping started");
+
                 AZ::Transform transform = AZ::Transform::CreateIdentity();
-                AZ::TransformBus::EventResult(transform, m_configuration.m_collisionTrigger, &AZ::TransformBus::Events::GetWorldTM);
+                AZ::TransformBus::EventResult(transform, m_pallet, &AZ::TransformBus::Events::GetWorldTM);
+                transform.SetTranslation(transform.GetTranslation() + AZ::Vector3(0, 0, 0.2f)); //!< Spawn above the pallet
+
                 for (auto& entityId : m_collidingEntities)
                 {
                     AZ::Entity* entity{};
@@ -142,18 +147,41 @@ namespace ROS2::Demo
                     if (entity)
                     {
                         const auto& entityName = entity->GetName();
-                        AZ_Printf("FoilWrapper", "Despawning box with entity with name %s", entityName.c_str());
                         ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox, entityName);
                     }
                 }
-                ScriptSpawnSystemRequestBus::Broadcast(
-                    &ScriptSpawnSystemRequestBus::Events::SpawnAsset, m_configuration.m_spawnablePayloadFoiled, transform, "foo");
 
-                m_collidingEntities.clear();
-                m_state = FoilWrapperState::Idle;
-                AZ_Printf("FoilWrapper", "Done, going to idle");
+                AZStd::string name = AZStd::string::format("WrappedPallet%d", m_wrappedPallets++);
+                ScriptSpawnSystemRequestBus::Broadcast(
+                    &ScriptSpawnSystemRequestBus::Events::SpawnAsset, m_configuration.m_spawnablePayloadFoiled, transform, name);
+
+                EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
+                    m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::LoopMotion, false);
+
+
+                EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
+                    m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::PlayMotion);
+
+                m_state = FoilWrapperState::Wrapping;
                 m_timer = 0;
+
             }
+        }
+        if (m_state == FoilWrapperState::Wrapping)
+        {
+
+            m_timer += delta;
+            float duration{0};
+            EMotionFX::Integration::SimpleMotionComponentRequestBus::EventResult(
+                duration, m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::GetDuration);
+
+            if (m_timer >= duration)
+            {
+                AZ_Printf("FoilWrapper", "Wrapping done");
+                m_timer = 0;
+                m_state = FoilWrapperState::Idle;
+            }
+
         }
     }
 } // namespace ROS2::Demo

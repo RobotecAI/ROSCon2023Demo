@@ -29,7 +29,8 @@
                     "Instance_[9613713711690]/ContainerEntity",
                     "Instance_[9849799017068]/ContainerEntity",
                     "Instance_[121200306243929]/ContainerEntity",
-                    "Entity_[157997884966234]"
+                    "Entity_[157997884966234]",
+                    "Entity_[167575368069534]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -61,6 +62,13 @@
                 "$type": "LocalViewBookmarkComponent",
                 "Id": 8518178925782834082,
                 "LocalBookmarkFileName": "foo1_1693899577283504334.setreg"
+            },
+            "ScriptSpawnLevelComponent": {
+                "$type": "GenericComponentWrapper",
+                "Id": 15197999088279717366,
+                "m_template": {
+                    "$type": "ScriptSpawnLevelComponent"
+                }
             }
         }
     },
@@ -614,6 +622,71 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10249215676368019344,
+                    "Parent Entity": "Entity_[1146574390643]"
+                }
+            }
+        },
+        "Entity_[167575368069534]": {
+            "Id": "Entity_[167575368069534]",
+            "Name": "FoilWrapper",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5108760670660760982
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10867750837927179005
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8797996322268040065,
+                    "Child Entity Order": [
+                        "Entity_[23923972842980]",
+                        "Instance_[240902989913881]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 10579478067203232570
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18142370800530876580
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2239808376282938020
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7881332010551811183
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11083370798375568426
+                },
+                "FoilWrapper": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3773514971444242044,
+                    "m_template": {
+                        "$type": "FoilWrapper",
+                        "FoilWrapperConfig": {
+                            "FoilWrapperEntityId": "Instance_[44500390531235]/Instance_[22762098693080]/Instance_[2990698559568134]/Entity_[2990724329371910]",
+                            "CollisionTrigger": "Entity_[23923972842980]",
+                            "SpawnablePayloadFoiled": {
+                                "assetId": {
+                                    "guid": "{C0D5AF17-1683-5B34-BB2B-48B9AC98E51B}",
+                                    "subId": 4208933064
+                                },
+                                "assetHint": "assets/factory/objects/palletstack1.spawnable"
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8345518327526313285,
                     "Parent Entity": "Entity_[1146574390643]"
                 }
             }
@@ -1414,6 +1487,84 @@
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 4211710458139155881,
                     "Parent Entity": "Entity_[1146574390643]"
+                }
+            }
+        },
+        "Entity_[23923972842980]": {
+            "Id": "Entity_[23923972842980]",
+            "Name": "Collider",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 12441977599599685893,
+                    "ColliderConfiguration": {
+                        "Trigger": true,
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                2.0,
+                                2.0,
+                                2.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8537793346913250817
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17269105487848526776
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12201774849176485451
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 11567194923707562191
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16240257743198407771
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5240309350857304956
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3506376165812444596
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 3255264693798359515
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4177265803681788129
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11815668708255775981,
+                    "Parent Entity": "Entity_[167575368069534]",
+                    "Transform Data": {
+                        "Translate": [
+                            -29.0,
+                            16.5,
+                            1.160773515701294
+                        ]
+                    }
                 }
             }
         },
@@ -2395,31 +2546,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/0",
-                    "value": 0.30000001192092896
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/1",
-                    "value": 0.30000001192092896
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/EditorColliderComponent_3/ShapeConfiguration/Box/Configuration/2",
-                    "value": 0.30000001192092896
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 0.005416667088866234
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 0.0075000012293457985
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
                     "value": 2.4000000953674316
                 },
@@ -2490,6 +2616,31 @@
                 }
             ]
         },
+        "Instance_[240902989913881]": {
+            "Source": "Prefabs/TestSpawnerOTTO600WithPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[167575368069534]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -25.00311279296875
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 16.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.020160913467407227
+                }
+            ]
+        },
         "Instance_[4001389725264]": {
             "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
             "Patches": [
@@ -2522,10 +2673,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487574736107782]/Components/EditorEntitySortComponent/Child Entity Order/7",
                     "value": "Instance_[1493627579005190]/ContainerEntity"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487574736107782]/Components/EditorEntitySortComponent/Child Entity Order/8"
                 }
             ]
         },
@@ -2626,6 +2773,126 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[15647777048046]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "AZ::Render::EditorReflectionProbeComponent": {
+                            "$type": "AZ::Render::EditorReflectionProbeComponent",
+                            "Id": 4476442904406978452,
+                            "Controller": {
+                                "Configuration": {
+                                    "OuterHeight": 13.0,
+                                    "OuterLength": 38.0,
+                                    "OuterWidth": 52.0,
+                                    "InnerHeight": 8.0,
+                                    "InnerLength": 8.0,
+                                    "InnerWidth": 8.0,
+                                    "UseBakedCubemap": true,
+                                    "BakedCubemapQualityLevel": 2,
+                                    "BakedCubeMapRelativePath": "ReflectionProbes/ReflectionProbe__23465CA8-CA1F-4C87-BA84-D7E57A1315D6__iblspecularcm256.dds",
+                                    "BakedCubeMapAsset": {
+                                        "assetId": {
+                                            "guid": "{C18C6BE5-5FD8-5863-BB25-04251BA6AC20}",
+                                            "subId": 2000
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "reflectionprobes/entity1__d7c126a3-ad8a-470c-8b88-647cddf2f41f__iblspecularcm256.dds.streamingimage"
+                                    },
+                                    "AuthoredCubeMapAsset": {
+                                        "assetId": {
+                                            "guid": "{00000000-0000-0000-0000-000000000000}",
+                                            "subId": 0
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": ""
+                                    },
+                                    "EntityId": 3621640919152622570,
+                                    "UseParallaxCorrection": true,
+                                    "ShowVisualization": false,
+                                    "RenderExposure": 0.0,
+                                    "BakeExposure": 0.0
+                                }
+                            },
+                            "useBakedCubemap": true,
+                            "bakedCubeMapQualityLevel": 2,
+                            "bakedCubeMapRelativePath": "ReflectionProbes/ReflectionProbe__23465CA8-CA1F-4C87-BA84-D7E57A1315D6__iblspecularcm256.dds",
+                            "authoredCubeMapAsset": {
+                                "assetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                },
+                                "loadBehavior": "QueueLoad",
+                                "assetHint": ""
+                            },
+                            "bakeExposure": 0.0
+                        }
+                    }
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[15647777048046]/Components/AZ::Render::EditorReflectionProbeComponent"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[15652072015342]/Components/EditorDisabledCompositionComponent/DisabledComponents",
+                    "value": {
+                        "AZ::Render::EditorReflectionProbeComponent": {
+                            "$type": "AZ::Render::EditorReflectionProbeComponent",
+                            "Id": 4476442904406978452,
+                            "Controller": {
+                                "Configuration": {
+                                    "OuterHeight": 13.0,
+                                    "OuterLength": 38.0,
+                                    "OuterWidth": 52.0,
+                                    "InnerHeight": 8.0,
+                                    "InnerLength": 8.0,
+                                    "InnerWidth": 8.0,
+                                    "UseBakedCubemap": true,
+                                    "BakedCubemapQualityLevel": 2,
+                                    "BakedCubeMapRelativePath": "ReflectionProbes/ReflectionProbe__E2BF3E67-F4B0-4530-A114-6B4425F79010__iblspecularcm256.dds",
+                                    "BakedCubeMapAsset": {
+                                        "assetId": {
+                                            "guid": "{2F704B5B-F354-5019-8C79-DC95B61B4770}",
+                                            "subId": 2000
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": "reflectionprobes/entity1__94eae536-eeed-41e3-8e73-b92b71a61f07__iblspecularcm256.dds.streamingimage"
+                                    },
+                                    "AuthoredCubeMapAsset": {
+                                        "assetId": {
+                                            "guid": "{00000000-0000-0000-0000-000000000000}",
+                                            "subId": 0
+                                        },
+                                        "loadBehavior": "QueueLoad",
+                                        "assetHint": ""
+                                    },
+                                    "EntityId": 16009829414751416913,
+                                    "UseParallaxCorrection": true,
+                                    "ShowVisualization": false,
+                                    "RenderExposure": 0.0,
+                                    "BakeExposure": 0.0
+                                }
+                            },
+                            "useBakedCubemap": true,
+                            "bakedCubeMapQualityLevel": 2,
+                            "bakedCubeMapRelativePath": "ReflectionProbes/ReflectionProbe__E2BF3E67-F4B0-4530-A114-6B4425F79010__iblspecularcm256.dds",
+                            "authoredCubeMapAsset": {
+                                "assetId": {
+                                    "guid": "{00000000-0000-0000-0000-000000000000}",
+                                    "subId": 0
+                                },
+                                "loadBehavior": "QueueLoad",
+                                "assetHint": ""
+                            },
+                            "bakeExposure": 0.0
+                        }
+                    }
+                },
+                {
+                    "op": "remove",
+                    "path": "/Entities/Entity_[15652072015342]/Components/AZ::Render::EditorReflectionProbeComponent"
                 }
             ]
         },

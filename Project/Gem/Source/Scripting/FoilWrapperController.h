@@ -34,6 +34,13 @@ namespace ROS2::Demo
        AZ::Data::Asset<AzFramework::Spawnable> m_spawnablePayloadFoiled; //!< SpawnablePayloadFoiled asset
    };
 
+   //! FoilWrapper wraps a foil around a box, it is scripted object that makes multiple things:
+   //! It has some configuration, @see FoilWrapperConfig
+   //! The component awaits for enter the `m_collisionTrigger`. It waits for boxes and pallets (found by Tags).
+   //! When a box or pallet enters the `m_collisionTrigger`, it starts wrapping the box with the foil.
+   //! After some time, boxes are despawned.
+   //! And foiled pallets is spawned in the place of the despawned box.
+
    class FoilWrapper
        : public AZ::Component
        , public AZ::TickBus::Handler
@@ -71,8 +78,11 @@ namespace ROS2::Demo
        void OnTick(float delta, AZ::ScriptTimePoint timePoint) override;
 
        bool isObjectBox(const AZ::EntityId entityId) const;
+       bool isObjectPallet(const AZ::EntityId entityId) const;
 
        AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler m_onTriggerEnterHandler;
-       AZStd::vector<AZ::EntityId> m_collidingEntities;
+       AZStd::vector<AZ::EntityId> m_collidingEntities; //!< List of boxes that are in foil wrapper
+       AZ::EntityId m_pallet; //!< A pallet that is in foil wrapper
+       int m_wrappedPallets {0}; //!< Number of wrapped pallets
    };
 } // namespace ROS2::Demo

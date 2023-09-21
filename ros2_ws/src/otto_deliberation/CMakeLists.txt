@@ -12,6 +12,7 @@ find_package(rclcpp_action REQUIRED)
 find_package(blind_path_follower_msgs REQUIRED)
 find_package(lane_provider_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
+find_package(lock_service_msgs REQUIRED)
 
 add_executable(deliberation_otto_node src/deliberation_otto_node.cpp src/otto_autonomy.cpp src/nav2_action_client.cpp)
 target_include_directories(deliberation_otto_node PUBLIC
@@ -20,6 +21,7 @@ target_include_directories(deliberation_otto_node PUBLIC
 target_compile_features(deliberation_otto_node PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
         deliberation_otto_node
+        lock_service_msgs
         "rclcpp"
         "rclcpp_action"
         "blind_path_follower_msgs"
@@ -29,6 +31,8 @@ ament_target_dependencies(
 
 install(TARGETS deliberation_otto_node
         DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 if (BUILD_TESTING)
     find_package(ament_lint_auto REQUIRED)

@@ -21,7 +21,7 @@ struct Task
     RobotTaskStatus m_goalTaskStatus; // change to this status once task is completed.
 };
 
-typedef std::queue<Task> Tasks;
+typedef std::deque<Task> Tasks;
 typedef std::map<std::string, NavPath> NamedPathsMap;
 
 class TaskUtils

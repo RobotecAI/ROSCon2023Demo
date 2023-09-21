@@ -111,7 +111,12 @@ namespace ROS2::Demo
     {
         AZ::Transform thisTransform;
         AZ::TransformBus::EventResult(thisTransform, GetEntityId(), &AZ::TransformBus::Events::GetWorldTM);
-        ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::SpawnAsset, m_configuration.m_spawnable, thisTransform, spawnableName);
+        ScriptSpawnSystemRequestBus::Broadcast(
+            &ScriptSpawnSystemRequestBus::Events::SpawnAssetAndSetParent,
+            m_configuration.m_spawnable,
+            thisTransform,
+            spawnableName,
+            AZ::EntityId());
         m_spawnableNames.push_back(spawnableName);
     }
 

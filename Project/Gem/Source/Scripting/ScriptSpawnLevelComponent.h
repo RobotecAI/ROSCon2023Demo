@@ -43,7 +43,7 @@ namespace ROS2::Demo
         // ScriptSpawnSystemRequestBus::Handler interface implementation ...
         void DespawnBox(const AZStd::string& spawnableName) override;
         AZ::EntityId GetSpawnedEntityId(const AZStd::string& spawnableName) override;
-        void SpawnAsset(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable, const AZ::Transform& transform, const AZStd::string& spawnableName) override;
+        void SpawnAssetAndSetParent(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable, const AZ::Transform& transform, const AZStd::string& spawnableName, const AZ::EntityId parent) override;
 
    private:
        AZStd::unordered_map<AZStd::string, AZ::EntityId> m_spawnedEntitiesToNames;

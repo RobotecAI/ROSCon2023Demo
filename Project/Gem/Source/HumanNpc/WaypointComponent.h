@@ -15,6 +15,9 @@ namespace ROS2::Demo
         float m_idleTime{ 0 };
     };
 
+    //! Component that signifies a waypoint.
+    //! The waypoint may be configured to capture its orientation
+    //! (only the rotation around the z axis) or require an idle time.
     class WaypointComponent
         : public AZ::Component
         , private WaypointRequestBus::Handler

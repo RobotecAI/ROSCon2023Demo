@@ -132,7 +132,7 @@ namespace ROS2::Demo
         if (m_state == FoilWrapperState::Starting)
         {
             m_timer += delta;
-            if (m_timer > 2.0)
+            if (m_timer > 10.0)
             {
                 AZ_Printf("FoilWrapper", "Warpping started");
 

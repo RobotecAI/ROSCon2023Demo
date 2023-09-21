@@ -30,15 +30,15 @@ public:
     static bool IsTaskBlind(const std::string& taskKey)
     {
         static const std::set<std::string> blindTasks = {
-            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload"
+            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload", "ApproachWrapperGlobal"
         };
         return blindTasks.count(taskKey) == 1;
     }
 
     static RobotCargoStatus GetCargoStatus(const std::string& taskKey)
     {
-        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",  "DoWrapping",
-                                                          "GoToUnload", "ApproachUnload",     "ApproachPickup" };
+        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",   "DoWrapping",
+                                                          "ApproachUnload",     "ApproachPickup" };
         return cargoTasks.count(taskKey) == 1 ? RobotCargoStatus::CARGO_LOADED : RobotCargoStatus::CARGO_EMPTY;
     }
 
@@ -56,6 +56,7 @@ public:
             { "ApproachUnload", RobotTaskStatus::APPROACH_UNLOAD },
             { "WaitUnload", RobotTaskStatus::WAIT_LOAD },
             { "EvacuateFromUnload", RobotTaskStatus::EVACUATE_FROM_UNLOAD },
+            { "ApproachWrapperGlobal", RobotTaskStatus::GO_TO_WRAPPING_GLOBAL },
         };
         if (taskStatuses.find(taskKey) == taskStatuses.end())
         {

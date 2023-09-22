@@ -16,6 +16,7 @@ struct Task
     std::string m_taskKey; // unique task/path name
     bool m_requiresLock; // Whether the task needs a lock to start (and releases it when complete).
     bool m_reverse; // Whether the task is to be done driving backwards
+    bool m_lifterUp;
     NavPath m_path;
     RobotCargoStatus m_requiredCargoStatus; // wait for this cargo status before completing.
     RobotTaskStatus m_goalTaskStatus; // change to this status once task is completed.
@@ -69,5 +70,13 @@ public:
     {
         static constexpr std::string_view key("Evacuate");
         return taskKey.find(key) != std::string::npos ? true : false;
+    }
+
+        static bool GetLifter(const std::string& taskKey)
+    {
+        static const std::set<std::string> blindTasks = {
+            "ApproachPickup", "EvacuateFromPickup"
+        };
+        return blindTasks.count(taskKey) == 1;
     }
 };

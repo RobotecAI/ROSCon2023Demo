@@ -23,7 +23,7 @@ namespace TaskConstructor
 
         DropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 - change });
         DropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 + change });
-        DropConfig.insert({ ns + "/shoulder_lift_joint", -2.199610710144043 });
+        DropConfig.insert({ ns + "/shoulder_lift_joint", -2.0 });
         DropConfig.insert({ ns + "/wrist_2_joint", 1.5672444105148315 });
         DropConfig.insert({ ns + "/shoulder_pan_joint", -0.15679530799388885 });
         DropConfig.insert({ ns + "/wrist_3_joint", -3.1959822177886963 });

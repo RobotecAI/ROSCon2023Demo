@@ -62,7 +62,7 @@ namespace TaskConstructor
 
         std::map<std::string, double> LiftConfig;
 
-        constexpr static float change = 0.5f;
+        constexpr static float change = 0.35f;
         std::map<std::string, double> DropConfig;
 
         // Compose an MTC task from a series of stages.

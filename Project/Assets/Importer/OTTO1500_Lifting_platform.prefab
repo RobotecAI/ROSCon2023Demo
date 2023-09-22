@@ -3292,7 +3292,11 @@
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "Scene Queries"
+                                "lidarImplementation": "Scene Queries",
+                                "LidarParameters": {
+                                    "Points per layer": 128,
+                                    "Max horizontal angle": 90.0
+                                }
                             }
                         }
                     }
@@ -3306,11 +3310,6 @@
                             0.6000000238418579,
                             -0.8600000143051147,
                             0.09999999403953552
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            89.99999237060547
                         ]
                     }
                 }
@@ -3374,7 +3373,11 @@
                         },
                         "lidarCore": {
                             "lidarConfiguration": {
-                                "lidarImplementation": "Scene Queries"
+                                "lidarImplementation": "Scene Queries",
+                                "LidarParameters": {
+                                    "Points per layer": 128,
+                                    "Max horizontal angle": 90.0
+                                }
                             }
                         }
                     }
@@ -3392,7 +3395,7 @@
                         "Rotate": [
                             0.0,
                             0.0,
-                            89.99999237060547
+                            180.0
                         ]
                     }
                 }

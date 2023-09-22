@@ -15,6 +15,8 @@ find_package(geometry_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package (Eigen3 3.3 REQUIRED)
+find_package(lock_service_msgs REQUIRED)
+find_package(lane_provider_msgs REQUIRED)
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
@@ -27,6 +29,8 @@ $<INSTALL_INTERFACE:include>)
 ament_target_dependencies(
   demo_orchestration
   ur_moveit_demo_msg
+  lock_service_msgs
+  lane_provider_msgs
   "rclcpp"
   "tf2_msgs"
   "tf2_ros"

@@ -13,7 +13,6 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start = []
 
     otto_deliberation = Node(
-        name="otto_deliberation",
         package="otto_deliberation",
         executable="deliberation_otto_node",
         namespace=namespace,

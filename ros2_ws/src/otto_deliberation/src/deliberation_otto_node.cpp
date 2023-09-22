@@ -6,16 +6,22 @@
 #include <lane_provider_msgs/srv/list_tracks.hpp>
 #include <nav_msgs/msg/detail/path__struct.hpp>
 #include <otto_deliberation/otto_autonomy.h>
+#include <rclcpp/executor.hpp>
+#include <rclcpp/executors.hpp>
+#include <rclcpp/executors/multi_threaded_executor.hpp>
+#include <rclcpp/executors/single_threaded_executor.hpp>
+#include <rclcpp/node_options.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <string>
+#include <thread>
 
 class OttoDeliberation
 {
 public:
-    OttoDeliberation(rclcpp::Node::SharedPtr node)
+    OttoDeliberation(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
         : m_node(node)
-        , m_autonomy(node)
+        , m_autonomy(node, lock_node)
     {
         RCLCPP_INFO(m_node->get_logger(), "Otto deliberation node starting");
         m_namespace = m_node->get_namespace();
@@ -66,12 +72,13 @@ public:
 
         Tasks tasks;
         nav_msgs::msg::Path empty;
-        tasks.push(MakeTask("idle", empty));
+        tasks.push_back(MakeTask("idle", empty));
         for (size_t i = 0; i < assigned_lane.path_names.size(); ++i)
         { // Construct Tasks
-            tasks.push(MakeTask(assigned_lane.path_names[i], assigned_lane.lane_paths[i]));
+            tasks.push_back(MakeTask(assigned_lane.path_names[i], assigned_lane.lane_paths[i]));
         }
         m_autonomy.SetTasks(tasks);
+        m_autonomy.SetLane(assigned_lane_name);
 
         m_cargoStatusSubscriber = m_node->create_subscription<std_msgs::msg::Bool>(
             m_namespace + "/cargo_status",
@@ -104,6 +111,7 @@ private:
         t.m_goalTaskStatus = TaskUtils::GetTaskStatus(path_name);
         t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
         t.m_reverse = TaskUtils::GetReverse(path_name);
+        t.m_requiresLock = true;
 
         return t;
     }
@@ -119,14 +127,26 @@ private:
 int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
+    rclcpp::NodeOptions otto_node_options;
     auto otto_node = std::make_shared<rclcpp::Node>("otto_deliberation_node");
-    OttoDeliberation otto_deliberation(otto_node);
+    auto otto_lock_node = std::make_shared<rclcpp::Node>("otto_lock_node");
+    OttoDeliberation otto_deliberation(otto_node, otto_lock_node);
     if (!otto_deliberation.Initialize())
     {
         rclcpp::shutdown();
         return 1;
     }
+    rclcpp::executors::MultiThreadedExecutor executor;
+    executor.add_node(otto_lock_node);
+
+    std::thread spinner(
+        [&]()
+        {
+            executor.spin();
+        });
     rclcpp::spin(otto_node);
+    spinner.join();
+
     rclcpp::shutdown();
     RCLCPP_INFO(otto_node->get_logger(), "Otto terminating");
     return 0;

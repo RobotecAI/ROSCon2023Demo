@@ -9,6 +9,7 @@
 #pragma once
 
 #include <AzCore/Component/Component.h>
+#include <ROS2/Communication/TopicConfiguration.h>
 #include <rclcpp/subscription.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/detail/bool__struct.hpp>
@@ -33,7 +34,7 @@ namespace ROS2::Demo
     private:
         rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr m_lifterTopicSubscriber;
 
-        AZStd::string m_topic = "example_topic";
+        ROS2::TopicConfiguration m_topicConfiguration;
         float m_setpoint;
     };
 } // namespace ROS2::Demo

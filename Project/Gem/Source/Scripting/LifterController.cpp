@@ -29,7 +29,7 @@ namespace ROS2::Demo
         {
             serialize->Class<LifterControllerComponent, AZ::Component>()
                 ->Version(1)
-                ->Field("TopicName", &LifterControllerComponent::m_topic)
+                ->Field("TopicConfiguration", &LifterControllerComponent::m_topicConfiguration)
                 ->Field("MotorSetpoint", &LifterControllerComponent::m_setpoint);
             if (AZ::EditContext* editContext = serialize->GetEditContext())
             {
@@ -37,7 +37,8 @@ namespace ROS2::Demo
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                     ->Attribute(AZ::Edit::Attributes::Category, "ROS2::Demo")
                     ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
-                    ->DataElement(AZ::Edit::UIHandlers::Default, &LifterControllerComponent::m_topic, "Topic name", "")
+                    ->DataElement(
+                        AZ::Edit::UIHandlers::Default, &LifterControllerComponent::m_topicConfiguration, "Topic configuration", "")
                     ->DataElement(AZ::Edit::UIHandlers::Default, &LifterControllerComponent::m_setpoint, "Extended motor setpoint", "")
                     ->Attribute(AZ::Edit::Attributes::Min, 0.);
             }
@@ -55,10 +56,11 @@ namespace ROS2::Demo
         AZ_Assert(ros2Interface, "ROS2 interface not available");
         auto* ros2Frame = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(GetEntity());
         AZ_Assert(ros2Frame, "Missing ROS2FrameComponent");
-        AZStd::string topic = ros2Frame->GetNamespace() + "/" + m_topic;
+        AZStd::string topic = ros2Frame->GetNamespace() + "/" + m_topicConfiguration.m_topic;
+
         m_lifterTopicSubscriber = ros2Interface->GetNode()->create_subscription<std_msgs::msg::Bool>(
             topic.c_str(),
-            10,
+            m_topicConfiguration.GetQoS(),
             [&](std_msgs::msg::Bool msg)
             {
                 float setpoint = msg.data ? m_setpoint : 0.;

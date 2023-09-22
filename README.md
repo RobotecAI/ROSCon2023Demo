@@ -80,7 +80,7 @@ sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-tool
 ```
 Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `cd {$WORKDIR}`:
 ```bash
-cd {$WORKDIR}/ROSCon2023Demo
+cd {$WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets 
 ```

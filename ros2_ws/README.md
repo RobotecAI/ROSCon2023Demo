@@ -39,7 +39,8 @@ rosdep install --ignore-src --from-paths src -y
 ```
 
 ```
-apt-get install ros-humble-moveit-servo
+apt-get install ros-humble-moveit-servo ros-humble-moveit-visual-tools
+
 ```
 
 # Building 

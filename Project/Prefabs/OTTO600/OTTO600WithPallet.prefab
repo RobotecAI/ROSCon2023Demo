@@ -366,21 +366,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.4000000059604645
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.1658992767333984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 3.219341278076172
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[466631426571]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.fbx.azmodel"
                 },
@@ -408,6 +393,43 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[440861622795]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.4000000059604645
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 1.1658992767333984
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 3.219341278076172
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[406501884427]/Components/LifterControllerComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 14464864923481250071,
+                        "m_template": {
+                            "$type": "LifterControllerComponent",
+                            "Id": 0,
+                            "TopicConfiguration": {
+                                "Type": "std_msgs::msg::Empty",
+                                "Topic": "lifter",
+                                "QoS": {
+                                    "Reliability": 2,
+                                    "Durability": 2,
+                                    "Depth": 5
+                                }
+                            },
+                            "MotorSetpoint": 0.44999998807907104
+                        }
+                    }
                 }
             ]
         },

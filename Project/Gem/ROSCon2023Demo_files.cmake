@@ -27,8 +27,10 @@ set(FILES
     Source/Scripting/ScriptSpawnSytemBus.h
     Source/Scripting/FoilWrapperController.cpp
     Source/Scripting/FoilWrapperController.h
-        Source/Scripting/ScriptSpawnLevelComponent.cpp
-        Source/Scripting/ScriptSpawnLevelComponent.h
+    Source/Scripting/ScriptSpawnLevelComponent.cpp
+    Source/Scripting/ScriptSpawnLevelComponent.h
+    Source/Scripting/LifterController.cpp
+    Source/Scripting/LifterController.h
     Source/Vision/IdealVisionSystem.cpp
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp

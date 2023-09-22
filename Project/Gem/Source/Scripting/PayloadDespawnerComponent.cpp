@@ -1,14 +1,23 @@
+/*
+ * Copyright (c) Contributors to the Open 3D Engine Project.
+ * For complete copyright and license terms please see the LICENSE at the root of this distribution.
+ *
+ * SPDX-License-Identifier: Apache-2.0 OR MIT
+ *
+ */
+
 #include "PayloadDespawnerComponent.h"
-#include "AzCore/Component/ComponentApplicationBus.h"
-#include "AzCore/Debug/Trace.h"
-#include "AzCore/Serialization/EditContext.h"
-#include "AzCore/std/string/string.h"
-#include "AzFramework/Physics/PhysicsSystem.h"
-#include "LmbrCentral/Scripting/TagComponentBus.h"
-#include "ROS2/Frame/ROS2FrameComponent.h"
-#include "ROS2/ROS2Bus.h"
-#include "Scripting/ScriptSpawnSytemBus.h"
-#include "std_msgs/msg/bool.hpp"
+
+#include <AzCore/Component/ComponentApplicationBus.h>
+#include <AzCore/Debug/Trace.h>
+#include <AzCore/Serialization/EditContext.h>
+#include <AzCore/std/string/string.h>
+#include <AzFramework/Physics/PhysicsSystem.h>
+#include <LmbrCentral/Scripting/TagComponentBus.h>
+#include <ROS2/Frame/ROS2FrameComponent.h>
+#include <ROS2/ROS2Bus.h>
+#include <Scripting/ScriptSpawnSytemBus.h>
+#include <std_msgs/msg/bool.hpp>
 #include <rclcpp/publisher.hpp>
 
 namespace ROS2::Demo
@@ -37,7 +46,7 @@ namespace ROS2::Demo
     void PayloadDespawnerComponent::Activate()
     {
         m_onTriggerEnterHandler = AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler(
-            [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, [[maybe_unused]] const AzPhysics::TriggerEvent& event)
+            [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, const AzPhysics::TriggerEvent& event)
             {
                 const auto entityId = event.m_otherBody->GetEntityId();
                 AZ::Entity* entity{};
@@ -45,8 +54,6 @@ namespace ROS2::Demo
 
                 if (IsObjectBox(entityId))
                 {
-                    AZ::Entity* entity{};
-                    AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
                     if (entity)
                     {
                         const auto& entityName = entity->GetName();
@@ -55,13 +62,11 @@ namespace ROS2::Demo
                 }
                 else if (IsObjectAMR(entityId))
                 {
-                    AZ::Entity* entity{};
-                    AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
                     auto frame = entity->FindComponent<ROS2FrameComponent>();
                     AZ_Assert(frame, "AMR base_link does not have ROS2 Frame Component");
                     AZStd::string amr_namespace = frame->GetNamespace();
                     AZStd::string fullNamespace = amr_namespace + "/cargo_status";
-                    
+
                     auto ros2Node = ROS2Interface::Get()->GetNode();
                     auto deliberationPublisher =
                         ros2Node->create_publisher<std_msgs::msg::Bool>(fullNamespace.data(), rclcpp::SensorDataQoS());

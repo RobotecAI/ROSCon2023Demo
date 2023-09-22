@@ -8,10 +8,10 @@
  */
 #pragma once
 
-#include "AzCore/Component/Component.h"
-#include "AzCore/Component/TickBus.h"
-#include "AzCore/RTTI/ReflectContext.h"
-#include "AzFramework/Physics/Common/PhysicsSimulatedBodyEvents.h"
+#include <AzCore/Component/Component.h>
+#include <AzCore/Component/TickBus.h>
+#include <AzCore/RTTI/ReflectContext.h>
+#include <AzFramework/Physics/Common/PhysicsSimulatedBodyEvents.h>
 
 namespace ROS2::Demo
 {

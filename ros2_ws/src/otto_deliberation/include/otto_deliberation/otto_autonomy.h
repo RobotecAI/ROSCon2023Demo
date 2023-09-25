@@ -6,7 +6,9 @@
 #include <rclcpp/client.hpp>
 #include <rclcpp/logger.hpp>
 #include <rclcpp/node.hpp>
+#include <rclcpp/publisher.hpp>
 #include <rclcpp/rclcpp.hpp>
+#include <std_msgs/msg/bool.hpp>
 #include <string>
 
 #pragma once
@@ -27,6 +29,7 @@ private:
 
 	rclcpp::Logger m_logger;
 	rclcpp::Client<lock_service_msgs::srv::Lock>::SharedPtr m_lockServiceClient;
+	rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr m_lifterPublisher;
 	RobotStatus m_robotStatus;
 	Nav2ActionClient m_nav2ActionClient;
 	Tasks m_tasks;  // front task is the current one.

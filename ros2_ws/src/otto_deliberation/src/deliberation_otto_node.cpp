@@ -112,6 +112,7 @@ private:
         t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
         t.m_reverse = TaskUtils::GetReverse(path_name);
         t.m_requiresLock = true;
+        t.m_lifterUp = TaskUtils::GetLifter(path_name);
 
         return t;
     }

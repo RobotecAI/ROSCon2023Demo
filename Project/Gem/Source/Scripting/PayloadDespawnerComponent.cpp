@@ -17,8 +17,8 @@
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
 #include <Scripting/ScriptSpawnSytemBus.h>
-#include <std_msgs/msg/bool.hpp>
 #include <rclcpp/publisher.hpp>
+#include <std_msgs/msg/bool.hpp>
 
 namespace ROS2::Demo
 {
@@ -49,31 +49,14 @@ namespace ROS2::Demo
             [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, const AzPhysics::TriggerEvent& event)
             {
                 const auto entityId = event.m_otherBody->GetEntityId();
-                AZ::Entity* entity{};
-                AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
 
                 if (IsObjectBox(entityId))
                 {
-                    if (entity)
-                    {
-                        const auto& entityName = entity->GetName();
-                        ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox, entityName);
-                    }
+                    m_collidingBoxes.push_back(entityId);
                 }
                 else if (IsObjectAMR(entityId))
                 {
-                    auto frame = entity->FindComponent<ROS2FrameComponent>();
-                    AZ_Assert(frame, "AMR base_link does not have ROS2 Frame Component");
-                    AZStd::string amr_namespace = frame->GetNamespace();
-                    AZStd::string fullNamespace = amr_namespace + "/cargo_status";
-
-                    auto ros2Node = ROS2Interface::Get()->GetNode();
-                    auto deliberationPublisher =
-                        ros2Node->create_publisher<std_msgs::msg::Bool>(fullNamespace.data(), rclcpp::SensorDataQoS());
-
-                    std_msgs::msg::Bool message;
-                    message.data = false;
-                    deliberationPublisher->publish(message);
+                    m_collidingAmr = entityId;
                 }
             });
 
@@ -120,6 +103,43 @@ namespace ROS2::Demo
             {
                 AzPhysics::SimulatedBodyEvents::RegisterOnTriggerEnterHandler(foundBody.first, foundBody.second, m_onTriggerEnterHandler);
             }
+        }
+
+        if (m_collidingBoxes.empty() || !m_collidingAmr.IsValid())
+        {
+            m_timer = 0.0;
+        }
+        else
+        {
+            m_timer += delta;
+            if (m_timer > m_despawnerDelay)
+            {
+                for (auto& entityId : m_collidingBoxes)
+                {
+                    AZ::Entity* box{};
+                    AZ::ComponentApplicationBus::BroadcastResult(box, &AZ::ComponentApplicationRequests::FindEntity, entityId);
+                    if (box)
+                    {
+                        const auto& boxName = box->GetName();
+                        ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox, boxName);
+                    }
+                }
+            }
+
+            AZ::Entity* collidingAmr{};
+            AZ::ComponentApplicationBus::BroadcastResult(collidingAmr, &AZ::ComponentApplicationRequests::FindEntity, m_collidingAmr);
+            AZ_Assert(collidingAmr, "No entity found for colliding AMR") 
+            auto frame = collidingAmr->FindComponent<ROS2FrameComponent>();
+            AZ_Assert(frame, "AMR base_link does not have ROS2 Frame Component");
+            AZStd::string amr_namespace = frame->GetNamespace();
+            AZStd::string fullNamespace = amr_namespace + "/cargo_status";
+
+            auto ros2Node = ROS2Interface::Get()->GetNode();
+            auto deliberationPublisher = ros2Node->create_publisher<std_msgs::msg::Bool>(fullNamespace.data(), rclcpp::ParametersQoS());
+
+            std_msgs::msg::Bool message;
+            message.data = false;
+            deliberationPublisher->publish(message);
         }
     }
 } // namespace ROS2::Demo

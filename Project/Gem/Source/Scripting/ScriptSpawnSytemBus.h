@@ -1,8 +1,8 @@
 #pragma once
 
+#include <AzCore/Asset/AssetCommon.h>
 #include <AzCore/Component/EntityId.h>
 #include <AzCore/EBus/EBus.h>
-#include <AzCore/Asset/AssetCommon.h>
 #include <AzCore/Math/Transform.h>
 #include <AzFramework/Spawnable/Spawnable.h>
 namespace ROS2::Demo
@@ -15,14 +15,22 @@ namespace ROS2::Demo
         virtual ~ScriptSpawnSystemRequests() = default;
 
         //! Spawn an asset at the given transform with the given name and spawnable.
-        virtual void SpawnAsset(const AZ::Data::Asset<AzFramework::Spawnable>& spawnable, const AZ::Transform& transform, const AZStd::string& spawnableName) = 0;
+        //! The spawnable name is used to track the spawned entity and despawn it later.
+        //! @param spawnable The spawnable to spawn.
+        //! @param transform The transform to spawn the asset at.
+        //! @param spawnableName The name of the spawnable to spawn.
+        //! @param parent The parent entity id of the spawned entity, optional, set to InvalidEntityId if not used.
+        virtual void SpawnAssetAndSetParent(
+            const AZ::Data::Asset<AzFramework::Spawnable>& spawnable,
+            const AZ::Transform& transform,
+            const AZStd::string& spawnableName,
+            const AZ::EntityId parent) = 0;
 
         //! Get the entity id of the spawned box with the given name.
         virtual AZ::EntityId GetSpawnedEntityId(const AZStd::string& spawnableName) = 0;
 
         //! Despawn the box with the given name.
         virtual void DespawnBox(const AZStd::string& spawnableName) = 0;
-
     };
 
     class ScriptSpawnSystemBusTraits : public AZ::EBusTraits

@@ -5,6 +5,8 @@
 #include <AzCore/Serialization/SerializeContext.h>
 #include <AzFramework/Components/TransformComponent.h>
 #include <Integration/SimpleMotionComponentBus.h>
+#include <PhysX/Joint/Configuration/PhysXJointConfiguration.h>
+
 namespace ROS2::Demo
 {
     void FoilWrapperConfig::Reflect(AZ::ReflectContext* context)
@@ -69,9 +71,7 @@ namespace ROS2::Demo
                         m_state = FoilWrapperState::Starting;
                     }
                 }
-                AZ_Printf("FoilWrapper", "Entered box with entity id %s", entityId.ToString().c_str());
-
-
+                AZ_TracePrintf("FoilWrapper", "Entered box with entity id %s", entityId.ToString().c_str());
             });
 
         AZ::TickBus::Handler::BusConnect();
@@ -95,7 +95,6 @@ namespace ROS2::Demo
         LmbrCentral::TagComponentRequestBus::EventResult(isBox, entityId, &LmbrCentral::TagComponentRequests::HasTag, PalletTag);
         return isBox;
     }
-
 
     void FoilWrapper::OnTick(float delta, AZ::ScriptTimePoint timePoint)
     {
@@ -134,54 +133,81 @@ namespace ROS2::Demo
             m_timer += delta;
             if (m_timer > 10.0)
             {
-                AZ_Printf("FoilWrapper", "Warpping started");
+                AZ_TracePrintf("FoilWrapper", "Warpping started");
 
-                AZ::Transform transform = AZ::Transform::CreateIdentity();
-                AZ::TransformBus::EventResult(transform, m_pallet, &AZ::TransformBus::Events::GetWorldTM);
-                transform.SetTranslation(transform.GetTranslation() + AZ::Vector3(0, 0, 0.2f)); //!< Spawn above the pallet
+                AZ::Transform palletTransform = AZ::Transform::CreateIdentity();
+                AZ::TransformBus::EventResult(palletTransform, m_pallet, &AZ::TransformBus::Events::GetWorldTM);
 
+                // set foil as child to pallet
+                AZ::Entity* palletEntity{};
+                AZ::ComponentApplicationBus::BroadcastResult(palletEntity, &AZ::ComponentApplicationRequests::FindEntity, m_pallet);
+
+                // connect box to pallet with fixed joints
                 for (auto& entityId : m_collidingEntities)
                 {
-                    AZ::Entity* entity{};
-                    AZ::ComponentApplicationBus::BroadcastResult(entity, &AZ::ComponentApplicationRequests::FindEntity, entityId);
-                    if (entity)
-                    {
-                        const auto& entityName = entity->GetName();
-                        ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox, entityName);
-                    }
+                    AZ::Transform boxTransform = AZ::Transform::CreateIdentity();
+                    AZ::TransformBus::EventResult(boxTransform, entityId, &AZ::TransformBus::Events::GetWorldTM);
+
+                    // Find Transform of the child in parent's frame
+                    AZ::Transform childTransformParent = palletTransform.GetInverse() * boxTransform;
+                    childTransformParent.Invert();
+
+                    // get handles
+                    AzPhysics::SimulatedBodyHandle palletRigidBodyHandle =
+                        physicsSystem->FindAttachedBodyHandleFromEntityId(m_pallet).second;
+                    AzPhysics::SimulatedBodyHandle boxBodyHandle = physicsSystem->FindAttachedBodyHandleFromEntityId(entityId).second;
+
+                    // Configure new joint
+                    PhysX::FixedJointConfiguration jointConfig;
+                    jointConfig.m_debugName = "BoxPalletJoint";
+                    jointConfig.m_parentLocalRotation = AZ::Quaternion::CreateIdentity();
+                    jointConfig.m_parentLocalPosition = AZ::Vector3::CreateZero();
+                    jointConfig.m_childLocalRotation = childTransformParent.GetRotation();
+                    jointConfig.m_childLocalPosition = childTransformParent.GetTranslation();
+                    jointConfig.m_startSimulationEnabled = true;
+
+                    // Create new joint
+                    sceneInterface->AddJoint(defaultSceneHandle, &jointConfig, palletRigidBodyHandle, boxBodyHandle);
                 }
 
                 AZStd::string name = AZStd::string::format("WrappedPallet%d", m_wrappedPallets++);
                 ScriptSpawnSystemRequestBus::Broadcast(
-                    &ScriptSpawnSystemRequestBus::Events::SpawnAsset, m_configuration.m_spawnablePayloadFoiled, transform, name);
+                    &ScriptSpawnSystemRequestBus::Events::SpawnAssetAndSetParent,
+                    m_configuration.m_spawnablePayloadFoiled,
+                    palletTransform,
+                    name,
+                    m_pallet);
 
                 EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
-                    m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::LoopMotion, false);
-
+                    m_configuration.m_foilWrapperEntityId,
+                    &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::LoopMotion,
+                    false);
 
                 EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
                     m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::PlayMotion);
 
                 m_state = FoilWrapperState::Wrapping;
                 m_timer = 0;
-
             }
         }
         if (m_state == FoilWrapperState::Wrapping)
         {
-
             m_timer += delta;
-            float duration{0};
+            float duration{ 0 };
             EMotionFX::Integration::SimpleMotionComponentRequestBus::EventResult(
-                duration, m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::GetDuration);
+                duration,
+                m_configuration.m_foilWrapperEntityId,
+                &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::GetDuration);
+            AZStd::string name = AZStd::string::format("WrappedPallet%d", m_wrappedPallets);
+            AZ::EntityId wrappedPalletId(AZ::EntityId::InvalidEntityId);
+            ScriptSpawnSystemRequestBus::BroadcastResult(wrappedPalletId, &ScriptSpawnSystemRequestBus::Events::GetSpawnedEntityId, name);
 
             if (m_timer >= duration)
             {
-                AZ_Printf("FoilWrapper", "Wrapping done");
+                AZ_TracePrintf("FoilWrapper", "Wrapping done");
                 m_timer = 0;
                 m_state = FoilWrapperState::Idle;
             }
-
         }
     }
 } // namespace ROS2::Demo

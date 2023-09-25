@@ -54,38 +54,34 @@
             "Id": "Entity_[111195398374922]",
             "Name": "PalletStackPayloadFoil1",
             "Components": {
-                "EditorColliderComponent": {
-                    "$type": "EditorColliderComponent",
-                    "Id": 12976771083886741332,
-                    "ColliderConfiguration": {
-                        "Position": [
-                            -0.0017660558223724365,
-                            0.0008752346038818359,
-                            0.5806277990341187
-                        ],
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "Entire object"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "ShapeType": 1,
-                        "Box": {
-                            "Configuration": [
-                                1.200613260269165,
-                                0.7783622741699219,
-                                0.8773301839828491
-                            ]
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 7534831268200010493,
                     "DisabledComponents": {
+                        "EditorRigidBodyComponent": {
+                            "$type": "EditorRigidBodyComponent",
+                            "Id": 16194025660847969193,
+                            "Configuration": {
+                                "entityId": "",
+                                "Mass": 819.8756103515625,
+                                "Centre of mass offset": [
+                                    -0.0017660558223724365,
+                                    0.000875234545674175,
+                                    0.5806277990341187
+                                ],
+                                "Inertia tensor": [
+                                    93.9820556640625,
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    151.074462890625,
+                                    0.0,
+                                    0.0,
+                                    0.0,
+                                    139.87896728515625
+                                ]
+                            }
+                        },
                         "EditorStaticRigidBodyComponent": {
                             "$type": "EditorStaticRigidBodyComponent",
                             "Id": 2931853584306384289
@@ -135,30 +131,36 @@
                 },
                 "EditorPendingCompositionComponent": {
                     "$type": "EditorPendingCompositionComponent",
-                    "Id": 15438096478292133298
-                },
-                "EditorRigidBodyComponent": {
-                    "$type": "EditorRigidBodyComponent",
-                    "Id": 16194025660847969193,
-                    "Configuration": {
-                        "entityId": "",
-                        "Mass": 819.8756103515625,
-                        "Centre of mass offset": [
-                            -0.0017660558223724365,
-                            0.000875234545674175,
-                            0.5806277990341187
-                        ],
-                        "Inertia tensor": [
-                            93.9820556640625,
-                            0.0,
-                            0.0,
-                            0.0,
-                            151.074462890625,
-                            0.0,
-                            0.0,
-                            0.0,
-                            139.87896728515625
-                        ]
+                    "Id": 15438096478292133298,
+                    "PendingComponents": {
+                        "EditorColliderComponent": {
+                            "$type": "EditorColliderComponent",
+                            "Id": 12976771083886741332,
+                            "ColliderConfiguration": {
+                                "Position": [
+                                    -0.0017660558223724365,
+                                    0.0008752346038818359,
+                                    0.5806277990341187
+                                ],
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "Entire object"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "ShapeType": 1,
+                                "Box": {
+                                    "Configuration": [
+                                        1.200613260269165,
+                                        0.7783622741699219,
+                                        0.8773301839828491
+                                    ]
+                                }
+                            }
+                        }
                     }
                 },
                 "EditorVisibilityComponent": {

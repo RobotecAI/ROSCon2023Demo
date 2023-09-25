@@ -5,6 +5,8 @@
   <xacro:property name="base_link_length" value="1.83" />
   <xacro:property name="base_link_height" value="0.32" />
   <xacro:property name="base_link_box_height" value=".391179" />
+
+  <xacro:property name="ground_clearence" value="0.1" />
   
   <xacro:property name="wheel_axis_front" value="0.601175" />
   <xacro:property name="wheel_axis_rear" value="-0.601175" />
@@ -39,25 +41,10 @@
         <mesh filename="../meshes/OTTO1500_bodylink.stl" scale="1.0 1.0 1.0" />
       </geometry>
     </visual>
-    <!-- bottom collider box -->
     <collision>
-      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0.049"/>
+      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. ${base_link_height* (0.5 + ground_clearence/2)}"/>
       <geometry>
-        <box size="${base_link_width} ${base_link_length} 0.05" />
-      </geometry>
-    </collision>
-    <!-- center collider box -->
-    <collision>
-      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0.114"/>
-      <geometry>
-        <box size="1.135 1.663 0.079" />
-      </geometry>
-    </collision>
-    <!-- top collider box -->
-    <collision>
-      <origin rpy="0. 0. ${pi/2}" xyz="0. 0. 0.248"/>
-      <geometry>
-        <box size="${base_link_width} ${base_link_length} 0.187" />
+        <box size="${base_link_width} ${base_link_length} ${base_link_height}" />
       </geometry>
     </collision>
   </link>

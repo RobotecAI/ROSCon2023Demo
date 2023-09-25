@@ -148,10 +148,10 @@ private:
     void timer_callback()
     {
         double DesiredLinearVelocity = desired_linear_velocity_;
-        const double MaxBearingError = M_PI_2 * 0.25; //!< For larger bearing deviation we stop linear motion
-        const double CrossTrackGain = 0.1; //!< How much to correct angular velocity for cross track error (distance to track)
-        const double AlongTrackGain = 0.35; //!< How much to correct linear velocity for along track error (distance along track)
-        const double BearingGain = 2.0; //!< How much to correct angular velocity for bearing error (angle to track)
+        const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
+        const double CrossTrackGain = 0.35; //!< How much to correct angular velocity for cross track error (distance to track)
+        const double AlongTrackGain = 0.5; //!< How much to correct linear velocity for along track error (distance along track)
+        const double BearingGain = 5.0; //!< How much to correct angular velocity for bearing error (angle to track)
         const double MaxAngularSpeed = 0.6;
         if (poses_.empty())
         {

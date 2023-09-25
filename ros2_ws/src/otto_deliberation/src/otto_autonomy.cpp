@@ -5,6 +5,8 @@
 #include <lock_service_msgs/srv/detail/lock__struct.hpp>
 #include <lock_service_msgs/srv/lock.hpp>
 #include <otto_deliberation/otto_autonomy.h>
+#include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/detail/bool__struct.hpp>
 
 OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
     : m_logger(node->get_logger())
@@ -17,6 +19,8 @@ OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr
     {
         RCLCPP_ERROR(lock_node->get_logger(), "Lock service named %s not available", lock_service.c_str());
     }
+
+    m_lifterPublisher = node->create_publisher<std_msgs::msg::Bool>("lifter", 10);
 }
 
 void OttoAutonomy::SetTasks(const Tasks& tasks, bool loop)
@@ -120,6 +124,9 @@ void OttoAutonomy::Update()
                 TaskUtils::IsTaskBlind(nextTask.m_taskKey),
                 nextTask.m_reverse);
         }
+        std_msgs::msg::Bool lifterStatus;
+        lifterStatus.data = nextTask.m_lifterUp;
+        m_lifterPublisher->publish(lifterStatus);
     }
 }
 

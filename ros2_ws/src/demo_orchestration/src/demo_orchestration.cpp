@@ -93,7 +93,7 @@ private:
 
     bool IsPathGlobal(const std::string& path_name)
     {
-        static const std::set<std::string> globalPaths = {};
+        static const std::set<std::string> globalPaths = {"ApproachWrapperGlobal"};
         return globalPaths.count(path_name) == 1;
     };
 

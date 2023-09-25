@@ -19,6 +19,7 @@ struct Task
     bool m_reverse; // Whether the task is to be done driving backwards
     bool m_wait; // Whether the task needs to wait after completing.
     std::chrono::milliseconds m_waitTime;
+    bool m_lifterUp;
     NavPath m_path;
     RobotCargoStatus m_requiredCargoStatus; // wait for this cargo status before completing.
     RobotTaskStatus m_goalTaskStatus; // change to this status once task is completed.
@@ -33,15 +34,15 @@ public:
     static bool IsTaskBlind(const std::string& taskKey)
     {
         static const std::set<std::string> blindTasks = {
-            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload"
+            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload", "ApproachWrapperGlobal"
         };
         return blindTasks.count(taskKey) == 1;
     }
 
     static RobotCargoStatus GetCargoStatus(const std::string& taskKey)
     {
-        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",  "DoWrapping",
-                                                          "GoToUnload", "ApproachUnload",     "ApproachPickup" };
+        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",   "DoWrapping",
+                                                          "ApproachUnload",     "ApproachPickup" };
         return cargoTasks.count(taskKey) == 1 ? RobotCargoStatus::CARGO_LOADED : RobotCargoStatus::CARGO_EMPTY;
     }
 
@@ -59,6 +60,7 @@ public:
             { "ApproachUnload", RobotTaskStatus::APPROACH_UNLOAD },
             { "WaitUnload", RobotTaskStatus::WAIT_LOAD },
             { "EvacuateFromUnload", RobotTaskStatus::EVACUATE_FROM_UNLOAD },
+            { "ApproachWrapperGlobal", RobotTaskStatus::GO_TO_WRAPPING_GLOBAL },
         };
         if (taskStatuses.find(taskKey) == taskStatuses.end())
         {
@@ -71,5 +73,13 @@ public:
     {
         static constexpr std::string_view key("Evacuate");
         return taskKey.find(key) != std::string::npos ? true : false;
+    }
+
+        static bool GetLifter(const std::string& taskKey)
+    {
+        static const std::set<std::string> blindTasks = {
+            "ApproachPickup", "EvacuateFromPickup"
+        };
+        return blindTasks.count(taskKey) == 1;
     }
 };

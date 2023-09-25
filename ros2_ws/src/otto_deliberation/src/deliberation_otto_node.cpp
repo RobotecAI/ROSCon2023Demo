@@ -111,6 +111,7 @@ private:
         t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
         t.m_reverse = TaskUtils::GetReverse(path_name);
         t.m_requiresLock = true;
+        t.m_lifterUp = TaskUtils::GetLifter(path_name);
 
         if (path_name.find("GoToWrapping") != std::string::npos) {
             t.m_wait = true;

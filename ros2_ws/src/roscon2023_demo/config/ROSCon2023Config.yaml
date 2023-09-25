@@ -1,6 +1,7 @@
 fleet:
   - robot_name: otto600
     robot_namespace: otto_1
+    lane: Line1
     position: 
       x: -22.0
       y: 2.0
@@ -9,6 +10,7 @@ fleet:
 
   - robot_name: otto600
     robot_namespace: otto_2
+    lane: Line2
     position: 
       x: -23.0
       y: 2.0
@@ -16,6 +18,7 @@ fleet:
 
   - robot_name: otto600
     robot_namespace: otto_3
+    lane: Line1
     position: 
       x: -24.0
       y: 2.0
@@ -23,7 +26,16 @@ fleet:
 
   - robot_name: otto600
     robot_namespace: otto_4
+    lane: Line2
     position: 
       x: -25.0
       y: 2.0
       z: 0.2
+
+arms:
+  - namespace: ur1
+    num_of_boxes: 18
+    launch_rviz: false
+  - namespace: ur2
+    num_of_boxes: 18
+    launch_rviz: false

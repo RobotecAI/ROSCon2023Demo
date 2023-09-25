@@ -1,4 +1,5 @@
 
+#include <chrono>
 #include <lock_service_msgs/srv/detail/lock__struct.hpp>
 #include <otto_deliberation/nav2_action_client.h>
 #include <otto_deliberation/robot_status.h>
@@ -34,6 +35,8 @@ private:
 	Nav2ActionClient m_nav2ActionClient;
 	Tasks m_tasks;  // front task is the current one.
 	std::string m_laneName;
+	std::chrono::time_point<std::chrono::system_clock> m_waitTimePoint;
+	bool m_isWaiting;
 	bool m_loop;
 	bool m_hasLock;
 };

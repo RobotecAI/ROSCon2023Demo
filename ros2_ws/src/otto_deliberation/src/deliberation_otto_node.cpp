@@ -107,12 +107,19 @@ private:
         Task t;
         t.m_taskKey = path_name;
         t.m_path = path;
-        // TODO - map names to statuses / reverse / lock. Use const map or parameters for mapping.
         t.m_goalTaskStatus = TaskUtils::GetTaskStatus(path_name);
         t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
         t.m_reverse = TaskUtils::GetReverse(path_name);
         t.m_requiresLock = true;
         t.m_lifterUp = TaskUtils::GetLifter(path_name);
+
+        if (path_name.find("GoToWrapping") != std::string::npos) {
+            t.m_wait = true;
+            t.m_waitTime = std::chrono::seconds(5);
+        }
+        else {
+            t.m_wait = false;
+        }
 
         return t;
     }

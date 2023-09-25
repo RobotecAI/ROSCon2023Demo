@@ -84,5 +84,6 @@ namespace ROS2::Demo
        AZStd::vector<AZ::EntityId> m_collidingEntities; //!< List of boxes that are in foil wrapper
        AZ::EntityId m_pallet; //!< A pallet that is in foil wrapper
        int m_wrappedPallets {0}; //!< Number of wrapped pallets
+       bool m_payloadSpawned {false}; //!< Flag that indicates if the payload was spawned
    };
 } // namespace ROS2::Demo

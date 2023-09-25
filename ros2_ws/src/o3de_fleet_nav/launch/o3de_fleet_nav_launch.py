@@ -20,19 +20,23 @@ from ament_index_python.packages import get_package_share_directory
 
 from launch import LaunchDescription
 from launch.actions import (DeclareLaunchArgument, ExecuteProcess, GroupAction,
-                            IncludeLaunchDescription, LogInfo)
+                            IncludeLaunchDescription, LogInfo, OpaqueFunction)
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, TextSubstitution
 from nav2_common.launch import ReplaceString
 
 
-def generate_launch_description():
-    # Get the launch directory
+def launch_setup(context, *args, **kwargs):
+
+    nodes_to_start = []
+
+    fleet_config_file_path = LaunchConfiguration("fleet_config_path")
+
     o3de_fleet_nav_dir = get_package_share_directory('o3de_fleet_nav')
     o3de_launch_dir = os.path.join(o3de_fleet_nav_dir, 'launch')
 
-    fleet_config_file = os.path.join(o3de_fleet_nav_dir, 'config', 'fleet_config.yaml')
+    fleet_config_file = fleet_config_file_path.perform(context)
 
     robots = []
     with open(fleet_config_file, 'r') as f:
@@ -90,7 +94,6 @@ def generate_launch_description():
         
         configured_tree = ReplaceString(
             source_file=os.path.join(o3de_fleet_nav_dir, 'behaviour_trees', 'navigate_through_poses_w_replanning_and_recovery.xml'),
-            # source_file="/home/kacper/ROSCon2023Demo/ros2_ws/src/o3de_fleet_nav/params/navigate_through_poses_w_replanning_and_recovery.xml",
             replacements={
                 'robot_namespace' : robot['namespace']
             }
@@ -148,17 +151,30 @@ def generate_launch_description():
 
         nav_instances_cmds.append(group)
 
-    # Create the launch description and populate
-    ld = LaunchDescription()
-
     # Declare the launch options
-    ld.add_action(declare_map_yaml_cmd)
-    ld.add_action(declare_robot_params_file_cmd)
-    ld.add_action(declare_use_rviz_cmd)
-    ld.add_action(declare_autostart_cmd)
-    ld.add_action(declare_rviz_config_file_cmd)
+    nodes_to_start.append(declare_map_yaml_cmd)
+    nodes_to_start.append(declare_robot_params_file_cmd)
+    nodes_to_start.append(declare_use_rviz_cmd)
+    nodes_to_start.append(declare_autostart_cmd)
+    nodes_to_start.append(declare_rviz_config_file_cmd)
 
     for simulation_instance_cmd in nav_instances_cmds:
-        ld.add_action(simulation_instance_cmd)
+        nodes_to_start.append(simulation_instance_cmd)
+
+    return nodes_to_start
+
+
+def generate_launch_description():
+    declared_arguments = []
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            'fleet_config_path',
+            default_value=os.path.join(get_package_share_directory('o3de_fleet_nav'), 'config', 'fleet_config.yaml'),
+            description='Fleet configuration file'
+        )
+    )
+    
+    ld = LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
 
     return ld

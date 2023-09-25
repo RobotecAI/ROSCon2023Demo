@@ -27,6 +27,7 @@
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
                     "Instance_[9849799017068]/ContainerEntity",
+                    "Instance_[121200306243929]/ContainerEntity",
                     "Entity_[157997884966234]",
                     "Entity_[167575368069534]",
                     "Instance_[2387492465947421]/ContainerEntity"
@@ -2164,12 +2165,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.399999976158142
+                    "value": -1.219045639038086
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.6000000238418579
+                    "value": 0.6139712333679199
                 },
                 {
                     "op": "replace",
@@ -2180,6 +2181,51 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 180.0
+                }
+            ]
+        },
+        "Instance_[121200306243929]": {
+            "Source": "Assets/Factory/Box2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -21.452125549316406
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 19.438983917236328
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -9.487222671508787
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 2.4000000953674316
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
+                    "value": 1.2000000476837158
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/EditorNonUniformScaleComponent/NonUniformScale/2",
+                    "value": 1.5
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1375845813509]/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -0.15000000596046448
                 }
             ]
         },
@@ -2369,46 +2415,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[6417398750869]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
                     "value": 29.50874710083008
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6417398750869]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6417398750869]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6425988685461]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6425988685461]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6451758489237]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6451758489237]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6473233325717]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6473233325717]/Entities/Entity_[3817754087158]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
                 }
             ]
         },
@@ -2423,12 +2429,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.399999976158142
+                    "value": -1.219045639038086
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.6000000238418579
+                    "value": 0.5973215103149414
                 },
                 {
                     "op": "replace",
@@ -2439,6 +2445,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 180.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[1183889893861224]/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.175262451171875
                 }
             ]
         },
@@ -2483,7 +2494,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": 0.1841158866882324
                 }
             ]
         },
@@ -2518,7 +2529,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": 0.1841159015893936
                 }
             ]
         },

@@ -1,6 +1,7 @@
 
 #include "otto_deliberation/robot_status.h"
 #include "otto_deliberation/tasks.h"
+#include <chrono>
 #include <lock_service_msgs/srv/detail/lock__struct.hpp>
 #include <lock_service_msgs/srv/lock.hpp>
 #include <otto_deliberation/otto_autonomy.h>
@@ -62,6 +63,16 @@ void OttoAutonomy::Update()
             return;
         }
 
+        if (currentTask.m_wait) {
+            if (!m_isWaiting) {
+                m_isWaiting = true;
+                m_waitTimePoint = std::chrono::system_clock::now();
+            }
+            if (std::chrono::system_clock::now() - m_waitTimePoint < currentTask.m_waitTime) {
+                return;
+            }
+        }
+
         if (m_tasks.size() > 1)
         {
             if (m_tasks[1].m_requiresLock)
@@ -94,6 +105,7 @@ void OttoAutonomy::Update()
         }
 
         auto nextTask = m_tasks.front();
+        m_isWaiting = false;
         m_robotStatus.m_currentTaskKey = nextTask.m_taskKey;
         if (nextTask.m_path.poses.empty())
         {

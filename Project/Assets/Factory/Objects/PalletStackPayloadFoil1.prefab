@@ -1,0 +1,356 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "PalletStackPayloadFoil1",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 15923096428918388412
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 2418871329564422714
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 11249204315232552850,
+                "Child Entity Order": [
+                    "Entity_[111195398374922]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 4933312333388410731
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 6833036568086375641
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 17895267114181773663
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 2083852026509926903
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 17283108694173716123
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 17019282416827670008
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 8484170918303118908,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[111195398374922]": {
+            "Id": "Entity_[111195398374922]",
+            "Name": "PalletStackPayloadFoil1",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 12976771083886741332,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            -0.0017660558223724365,
+                            0.0008752346038818359,
+                            0.5806277990341187
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.200613260269165,
+                                0.7783622741699219,
+                                0.8773301839828491
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7534831268200010493,
+                    "DisabledComponents": {
+                        "EditorStaticRigidBodyComponent": {
+                            "$type": "EditorStaticRigidBodyComponent",
+                            "Id": 2931853584306384289
+                        }
+                    }
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10108395233985916805
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4714401750354199973,
+                    "Child Entity Order": [
+                        "Entity_[111199693342218]",
+                        "Entity_[111203988309514]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1787597540583658907,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 6817143871410918614
+                        },
+                        {
+                            "ComponentId": 16194025660847969193,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 12976771083886741332,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 2931853584306384289,
+                            "SortIndex": 3
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2640114087949855434
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11464030025418612229
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15438096478292133298
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 16194025660847969193,
+                    "Configuration": {
+                        "entityId": "",
+                        "Mass": 819.8756103515625,
+                        "Centre of mass offset": [
+                            -0.0017660558223724365,
+                            0.000875234545674175,
+                            0.5806277990341187
+                        ],
+                        "Inertia tensor": [
+                            93.9820556640625,
+                            0.0,
+                            0.0,
+                            0.0,
+                            151.074462890625,
+                            0.0,
+                            0.0,
+                            0.0,
+                            139.87896728515625
+                        ]
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16751138831502214173
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 6817143871410918614,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[111199693342218]": {
+            "Id": "Entity_[111199693342218]",
+            "Name": "boxes",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 3045442569972659643,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{FC3CFF30-9CD9-5C9D-BC5C-9D91015BD70A}",
+                                    "subId": 271696348
+                                },
+                                "assetHint": "assets/factory/objects/models/palletstack_payload_boxes.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7237688117547052979
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12527157386070376052
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14806722723288984698
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7002873844260722578
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2904295981200002289
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13902624689990078589,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3262687749
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7F25BBE7-F7B6-5380-9BEF-088A01D1969E}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/palletstack_boxes.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorNonUniformScaleComponent": {
+                    "$type": "EditorNonUniformScaleComponent",
+                    "Id": 17154896570760316912,
+                    "NonUniformScale": [
+                        1.0,
+                        1.0,
+                        0.9599999785423279
+                    ]
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14821275915021778934
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17457193817366695342
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1322988754354759146
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11429153650893171257,
+                    "Parent Entity": "Entity_[111195398374922]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            0.03799903392791748
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[111203988309514]": {
+            "Id": "Entity_[111203988309514]",
+            "Name": "foil",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 3045442569972659643,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{5A9276A3-8B0D-5F82-9CF5-B9EBCF2D8A7B}",
+                                    "subId": 271076259
+                                },
+                                "assetHint": "assets/factory/objects/models/palletstack_payload_foil.fbx.azmodel"
+                            },
+                            "LodType": 1,
+                            "QualityDecayRate": 0.20000000298023224
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 7237688117547052979
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 12527157386070376052
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14806722723288984698
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7002873844260722578
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2904295981200002289
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13902624689990078589,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3262687749
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{48416E17-316F-5C95-9E1D-02FD32C20570}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/palletstack_foil.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14821275915021778934
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17457193817366695342
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1322988754354759146
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 11429153650893171257,
+                    "Parent Entity": "Entity_[111195398374922]"
+                }
+            }
+        }
+    }
+}

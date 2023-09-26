@@ -100,12 +100,14 @@ namespace ROS2::Demo
                 return;
             }
             AZ::Entity* root = *view.begin();
+            AZ_Assert(root, "Invalid root entity");
             root->SetName(spawnableName.c_str());
-            auto childPtrPtr = view.begin() + 1;
-            // update the name of the first child entity
-            for (childPtrPtr; childPtrPtr != view.end(); ++childPtrPtr)
+            // update the name each child entity
+            for (auto childIterator = view.begin() + 1; childIterator != view.end(); ++childIterator)
             {
-                (**childPtrPtr).SetName(spawnableName.c_str());
+                auto* childEntity = *childIterator;
+                AZ_Assert(childEntity, "Invalid child entity");
+                childEntity->SetName(spawnableName.c_str());
             }
 
             auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();

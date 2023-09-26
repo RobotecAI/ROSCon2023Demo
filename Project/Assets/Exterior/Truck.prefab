@@ -1,0 +1,743 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Truck",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 6539602282795829380
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 15126564791878739822
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 14175699074509009479,
+                "Child Entity Order": [
+                    "Entity_[25323961857864]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 5509349793979134369
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 7012718149727794910
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 9680775173882956891
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 12325372487080953109
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 15871167706235388329
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 1404386803737554720
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 16246097035056266231,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[25306781988680]": {
+            "Id": "Entity_[25306781988680]",
+            "Name": "Tir",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 16525866872835831986,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1887A4DE-D7BF-59F1-90AD-2A4C4A988063}",
+                                    "subId": 276058538
+                                },
+                                "assetHint": "assets/exterior/models/default_truck_f7eef4c7_b1fe_52c5_a2fb_db9377671115_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2298552377183118876
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10479691368070419197
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14392159493972009309
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8532683695751419642
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16211716600845430952
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 10875837879749446616,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 745407269
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{CB554E28-80D9-5D92-8417-72F23B81E2EA}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_tir_tire.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2054059695
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{98B1ABBB-A147-5555-9054-6457B74D1222}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_tir.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17702492601128806513
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13603971010297529582
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 15461047831070073582
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3070392210941909065,
+                    "Parent Entity": "Entity_[25319666890568]",
+                    "Transform Data": {
+                        "Translate": [
+                            5.447437763214111,
+                            1.8314101696014404,
+                            1.0644257068634033
+                        ],
+                        "Rotate": [
+                            1.4248884190604105e-12,
+                            0.000004325708687247243,
+                            89.99996185302734
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[25311076955976]": {
+            "Id": "Entity_[25311076955976]",
+            "Name": "Door_01",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 840441074937868340,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1887A4DE-D7BF-59F1-90AD-2A4C4A988063}",
+                                    "subId": 269913171
+                                },
+                                "assetHint": "assets/exterior/models/default_truck_7b535e9f_126c_5dcc_a736_889598e881d6_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 16862887380404476828
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11441297494835437825
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14964124103828580343
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16773035680276808373
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1483405934455421437
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13794034931317613607
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 6136925029306928059
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3809662640520119443
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5340540286727168304,
+                    "Parent Entity": "Entity_[25319666890568]",
+                    "Transform Data": {
+                        "Translate": [
+                            -4.848847389221191,
+                            0.6575506329536438,
+                            0.8826934099197388
+                        ],
+                        "Rotate": [
+                            -7.973085303092375e-7,
+                            -0.000004289021489967126,
+                            -93.08384704589844
+                        ],
+                        "UniformScale": 0.6407781839370728
+                    }
+                }
+            }
+        },
+        "Entity_[25315371923272]": {
+            "Id": "Entity_[25315371923272]",
+            "Name": "Truck",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 8530702934536389671,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1887A4DE-D7BF-59F1-90AD-2A4C4A988063}",
+                                    "subId": 271278350
+                                },
+                                "assetHint": "assets/exterior/models/default_truck_fe8d7fce_6535_5dfb_a312_1fb21827f530_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 3485022180189536034
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15074440050619868202
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17302983938986642372
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8902031168889063225
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 6053433776676848994
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13281147064623821377,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 299413717
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7EB0040B-5E40-5E57-BA19-28DC19D54DCC}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_truck.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2426497293
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{2CF398D6-7E5F-5C9F-AB71-387DCC492815}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_tire.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15329644726611123866
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 7118028083541157358
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3233678068708206681
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16548301844521611990,
+                    "Parent Entity": "Entity_[25319666890568]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.3283360004425049,
+                            1.7992433309555054,
+                            2.3237407207489014
+                        ],
+                        "UniformScale": 0.640778124332428
+                    }
+                }
+            }
+        },
+        "Entity_[25319666890568]": {
+            "Id": "Entity_[25319666890568]",
+            "Name": "vis",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9995210513942249092
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10874076929786538690
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12693865025918347133,
+                    "Child Entity Order": [
+                        "Entity_[25306781988680]",
+                        "Entity_[25315371923272]",
+                        "Entity_[25311076955976]",
+                        "Entity_[25328256825160]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1946508981896448763
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 8656675317453868027
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16926820443470998624
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5273223407696808394
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 7211054003377738446
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 803060632282447210,
+                    "Parent Entity": "Entity_[25323961857864]",
+                    "Transform Data": {
+                        "UniformScale": 1.159999966621399
+                    }
+                }
+            }
+        },
+        "Entity_[25323961857864]": {
+            "Id": "Entity_[25323961857864]",
+            "Name": "Truck",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 3440673277422999732
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14325244230102475254
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14251652945930123274,
+                    "Child Entity Order": [
+                        "Entity_[25319666890568]",
+                        "Entity_[610614678005667]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8204997502237203284,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9745828408546668472
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10588241914893881613
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17449656233917590837
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16883304735254675647
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3252343324014960294
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9745828408546668472,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[25328256825160]": {
+            "Id": "Entity_[25328256825160]",
+            "Name": "Door_02",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 12142448674877591754,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1887A4DE-D7BF-59F1-90AD-2A4C4A988063}",
+                                    "subId": 272785806
+                                },
+                                "assetHint": "assets/exterior/models/default_truck_149fcd0e_342c_5bd8_a51e_c4df431e8a88_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6896004158320521851
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 2992908057908065981
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 15961786405641601892
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9565572390040745350
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15263407355478661521
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 3519622699989391278,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 299413717
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7EB0040B-5E40-5E57-BA19-28DC19D54DCC}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_truck.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2426497293
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{2CF398D6-7E5F-5C9F-AB71-387DCC492815}"
+                                            },
+                                            "assetHint": "assets/exterior/models/truck_tire.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1664548374319226018
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5775444017521864415
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 2434802506667555744
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 3596148604959550383,
+                    "Parent Entity": "Entity_[25319666890568]",
+                    "Transform Data": {
+                        "Translate": [
+                            -4.848923683166504,
+                            2.940845251083374,
+                            0.8826934099197388
+                        ],
+                        "Rotate": [
+                            0.000001805539568522363,
+                            0.00001125520338973729,
+                            92.7430648803711
+                        ],
+                        "UniformScale": 0.640778124332428
+                    }
+                }
+            }
+        },
+        "Entity_[610614678005667]": {
+            "Id": "Entity_[610614678005667]",
+            "Name": "collision",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 11740575530467284847,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.34403228759765625,
+                            2.0935170650482178,
+                            0.8768463134765625
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                12.027498245239258,
+                                2.9706101417541504,
+                                0.5448057651519775
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_2": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 12482185853958778423,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.3374788761138916,
+                            2.089585065841675,
+                            3.6550307273864746
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                12.040605545043945,
+                                2.886615753173828,
+                                0.17652705311775208
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_3": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 10549268414368315650,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.4222993850708008,
+                            3.4672935009002686,
+                            2.3574891090393066
+                        ],
+                        "Rotation": [
+                            -0.7071067094802856,
+                            0.0,
+                            0.0,
+                            0.70710688829422
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                12.12663459777832,
+                                2.9706101417541504,
+                                0.10772798955440521
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_4": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 6848499404931818687,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.3583821952342987,
+                            0.7004361152648926,
+                            2.3574891090393066
+                        ],
+                        "Rotation": [
+                            -0.7071067094802856,
+                            0.0,
+                            0.0,
+                            0.70710688829422
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                11.998797416687012,
+                                2.9706101417541504,
+                                0.10772799700498581
+                            ]
+                        }
+                    }
+                },
+                "EditorColliderComponent_5": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 2860468641014101951,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            5.81950569152832,
+                            2.0841190814971924,
+                            2.2350428104400635
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                0.5793280601501465,
+                                2.965104103088379,
+                                3.2243833541870117
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 46516371151159569
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 3579922548263638557
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9068464635634651466
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 17102571153475517918
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9615213120068631686
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 5698604641488859198
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1611120991385072871
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 313292769591816035
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14982343554344526395
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 4232187880824484572,
+                    "Parent Entity": "Entity_[25323961857864]"
+                }
+            }
+        }
+    }
+}

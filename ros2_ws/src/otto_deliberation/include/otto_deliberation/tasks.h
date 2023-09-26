@@ -2,82 +2,76 @@
 #include <geometry_msgs/msg/pose_stamped.h>
 #include <map>
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <otto_deliberation/robot_status.h>
+#include <optional>
 #include <queue>
 #include <string>
 #include <string_view>
-
+#include <unordered_set>
 #pragma once
 
-//typedef nav_msgs::msg::Path NavPath;
-//
-//struct Task
-//{
-//    std::string m_taskKey; // unique task/path name
-//    bool m_requiresLock; // Whether the task needs a lock to start (and releases it when complete).
-//    bool m_reverse; // Whether the task is to be done driving backwards
-//    bool m_wait; // Whether the task needs to wait after completing.
-//    std::chrono::milliseconds m_waitTime;
-//    NavPath m_path;
-//    RobotCargoStatus m_requiredCargoStatus; // wait for this cargo status before completing.
-//    RobotTaskStatus m_goalTaskStatus; // change to this status once task is completed.
-//};
-//
-//typedef std::deque<Task> Tasks;
-//typedef std::map<std::string, NavPath> NamedPathsMap;
-//
-//class TaskUtils
-//{
-//public:
-//    static bool IsTaskBlind(const std::string& taskKey)
-//    {
-//        static const std::set<std::string> blindTasks = {
-//            "ApproachPickup", "EvacuateFromPickup", "DoWrapping", "ApproachUnload", "EvacuateFromUnload", "ApproachWrapperGlobal"
-//        };
-//        return blindTasks.count(taskKey) == 1;
-//    }
-//
-//    static RobotCargoStatus GetCargoStatus(const std::string& taskKey)
-//    {
-//        static const std::set<std::string> cargoTasks = { "WaitLoad",   "EvacuateFromPickup", "GoToWrapping",   "DoWrapping",
-//                                                          "ApproachUnload",     "ApproachPickup" };
-//        return cargoTasks.count(taskKey) == 1 ? RobotCargoStatus::CARGO_LOADED : RobotCargoStatus::CARGO_EMPTY;
-//    }
-//
-//    static RobotTaskStatus GetTaskStatus(const std::string& taskKey)
-//    {
-//        static const std::map<std::string, RobotTaskStatus> taskStatuses = {
-//            { "Idle", RobotTaskStatus::IDLE },
-//            { "GoToPickup", RobotTaskStatus::GO_TO_PICK_UP },
-//            { "ApproachPickup", RobotTaskStatus::APPROACH_PICKUP },
-//            { "WaitLoad", RobotTaskStatus::WAIT_LOAD },
-//            { "EvacuateFromPickup", RobotTaskStatus::EVACUATE_FROM_PICK_UP },
-//            { "GoToWrapping", RobotTaskStatus::GO_TO_WRAPPING },
-//            { "DoWrapping", RobotTaskStatus::DO_WRAPPING },
-//            { "GoToUnload", RobotTaskStatus::GO_TO_UNLOAD },
-//            { "ApproachUnload", RobotTaskStatus::APPROACH_UNLOAD },
-//            { "WaitUnload", RobotTaskStatus::WAIT_LOAD },
-//            { "EvacuateFromUnload", RobotTaskStatus::EVACUATE_FROM_UNLOAD },
-//            { "ApproachWrapperGlobal", RobotTaskStatus::GO_TO_WRAPPING_GLOBAL },
-//        };
-//        if (taskStatuses.find(taskKey) == taskStatuses.end())
-//        {
-//            return RobotTaskStatus::IDLE;
-//        }
-//        return taskStatuses.find(taskKey)->second;
-//    }
-//
-//    static bool GetReverse(const std::string& taskKey)
-//    {
-//        static constexpr std::string_view key("Evacuate");
-//        return taskKey.find(key) != std::string::npos ? true : false;
-//    }
-//
-//        static bool GetLifter(const std::string& taskKey)
-//    {
-//        static const std::set<std::string> blindTasks = {
-//            "ApproachPickup", "EvacuateFromPickup"
-//        };
-//        return blindTasks.count(taskKey) == 1;
-//    }
-//};
+using NavPath = nav_msgs::msg::Path;
+using RobotTaskKey = std::string;
+using RobotTaskList = std::vector<RobotTaskKey>;
+using RobotTaskSet = std::unordered_set<RobotTaskKey>;
+
+//! Task definition for robot
+struct Task
+{
+    RobotTaskKey m_taskName;
+    RobotTaskKey m_nextTaskName;
+    bool m_isBlind;
+    bool m_isReverse;
+    bool m_isLifter;
+    bool m_isDummy;
+    bool m_isNeedLock;
+    bool m_isCargoUnload;
+    bool m_isCargoLoad;
+    std::optional<double> m_preTaskDelay;
+    std::optional<double> m_postTaskDelay;
+    nav_msgs::msg::Path m_path;
+};
+
+//! Robot tasks container class
+class RobotTasks
+{
+private:
+    mutable RobotTaskSet m_validTasks; //!< Tasks that are valid, accelerates validation
+    mutable std::unordered_map<RobotTaskKey, RobotTaskKey> m_taskTransitions; //!< Map of task transitions, accelerates transition lookup
+public:
+    bool m_loop = false; //!< Whether to loop the tasks
+    RobotTaskList m_tasks; //!< Complete list of tasks
+    RobotTaskSet m_lifterTasks; //!< Tasks that need lifter in lifted position
+    RobotTaskSet m_dummyTasks; //!< Tasks that has robot in dummy mode
+    RobotTaskSet m_blindTasks; //!< Tasks that are blind (use blind path follower instead nav stack)
+    RobotTaskSet m_blindTasksReverse; //!< Tasks that are blind and need to be reversed
+    RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo loaded to continue
+    RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
+    RobotTaskSet m_tasksWithLock; //!< Tasks that need lock to start
+    std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
+    std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
+    std::unordered_map<RobotTaskKey, nav_msgs::msg::Path> m_taskPaths; //!< Geometry of tasks
+
+public:
+    //! Print list of tasks
+    void PrintTasks();
+
+    //! Validate that all taks are defined correctly
+    //! @return true if all tasks were defined correctly
+    bool ValidateTasks() const;
+
+    //! Get the list of tasks
+    const RobotTaskList& GetTasks() const;
+
+    //! Get if task is defined in the RobotTasks
+    bool IsTaskValid(const RobotTaskKey& taskName) const;
+
+    //! Get next task name
+    //! @param taskName current task name
+    //! @return next task name
+    RobotTaskKey GetNextTaskName(const RobotTaskKey& taskName) const;
+
+    //! Get task with a given name
+    //! @param taskName task name
+    //! @return task definition, emtpy task if not found
+    Task ConstructTask(const RobotTaskKey& taskKey) const;
+};

@@ -8,7 +8,6 @@
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/detail/bool__struct.hpp>
 
-
 OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
     : m_logger(node->get_logger())
     , m_nav2ActionClient(node)
@@ -55,9 +54,6 @@ bool OttoAutonomy::SendLockRequest(const std::string& path_name, bool lock_statu
 
 void OttoAutonomy::Update()
 {
-    std_msgs::msg::Bool lifterStatus;
-    m_lifterPublisher->publish(lifterStatus);
-
     if (m_robotTasks.GetTasks().empty())
     {
         return;
@@ -66,85 +62,135 @@ void OttoAutonomy::Update()
     const auto currentTaskKey = m_robotStatus.m_currentTask;
     const auto& currentTask = m_robotTasks.ConstructTask(currentTaskKey);
 
+    // wait for pre-task delay
+    if (currentTask.m_preTaskDelay)
+    {
+        if (!m_isWaitingPreTaskDelay)
+        {
+            m_isWaitingPreTaskDelay = true;
+            m_waitTimePointPreTaskDelay = std::chrono::system_clock::now();
+        }
+        // todo use ros timer instead of chrono one
+        auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_waitTimePointPreTaskDelay);
+        if (duration.count() < currentTask.m_preTaskDelay.value())
+        {
+            // Waiting for pre-task delay
+            m_currentOperationDescription = "Waiting to predelay at " + currentTaskKey;
+            return;
+        }
+    }
+
     // try to lock
     if (currentTask.m_isNeedLock)
     {
         if (!SendLockRequest(currentTask.m_taskName, true))
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to lock %s", currentTaskKey.c_str());
+            m_currentOperationDescription = "Waiting to lock at " + currentTaskKey;
             return;
         }
     }
 
-    // wait for pre-task delay
-    if (currentTask.m_preTaskDelay) {
-        if (!m_isWaiting) {
-            m_isWaiting = true;
-            m_waitTimePoint = std::chrono::system_clock::now();
-        }
-        if ((std::chrono::system_clock::now() - m_waitTimePoint).count() < currentTask.m_preTaskDelay.value())
-        {
-            // Waiting for pre-task delay
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to predelay %s", currentTaskKey.c_str());
-            return;
-        }
-    }
+    std_msgs::msg::Bool lifterStatus;
+    lifterStatus.data = currentTask.m_isLifter;
+    m_lifterPublisher->publish(lifterStatus);
 
     if (currentTask.m_isCargoLoad)
     {
-        if ( m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
+        if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to load %s", currentTaskKey.c_str());
+            m_currentOperationDescription = "Waiting to load at " + currentTaskKey;
             return;
         }
-
     }
 
     if (currentTask.m_isCargoUnload)
     {
-        if ( m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
+        if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to unload %s", currentTaskKey.c_str());
+            m_currentOperationDescription = "Waiting to unload at " + currentTaskKey;
             return;
         }
     }
 
-    if (!currentTask.m_isDummy && currentTask.m_path) {
+    if (!currentTask.m_isDummy && !currentTask.m_path.poses.empty())
+    {
+        if (m_robotStatus.m_currentNavigationTask != currentTaskKey)
+        {
+            m_currentOperationDescription = "Started navigation at " + currentTaskKey;
+            m_robotStatus.m_currentNavigationTask = currentTaskKey;
+            m_robotStatus.m_finishedNavigationTask = "";
+            m_nav2ActionClient.SendGoal(
+                currentTask.m_path,
+                std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
+                currentTask.m_isBlind,
+                currentTask.m_isReverse);
+            RCLCPP_INFO(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
+        }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Navigating to %s", currentTaskKey.c_str());
+            m_currentOperationDescription = "Navigating to " + currentTaskKey;
             // Waiting for navigation
             return;
         }
-        if (m_robotStatus.m_currentNavigationTask!= currentTaskKey)
+    }
+
+    // wait for post-task delay
+    if (currentTask.m_postTaskDelay)
+    {
+        if (!m_isWaitingPostTaskDelay)
         {
-            m_robotStatus.m_finishedNavigationTask = "";
-            m_nav2ActionClient.SendGoal(
-                    currentTask.m_path.value(),
-                    std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1, currentTaskKey),
-                    currentTask.m_isBlind, currentTask.m_isReverse);
+            m_isWaitingPostTaskDelay = true;
+            m_waitTimePointPostTaskDelay = std::chrono::system_clock::now();
         }
+        // todo use ros timer instead of chrono one
+        auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_waitTimePointPostTaskDelay);
+        if (duration.count() < currentTask.m_postTaskDelay.value())
+        {
+            // Waiting for pre-task delay
+            m_currentOperationDescription = "Waiting post delay at " + currentTaskKey;
+            return;
+        }
+    }
+    if (currentTask.m_nextTaskName.empty())
+    {
+        return;
+    }
+    else
+    {
+        m_currentOperationDescription = "Task transition " + currentTaskKey + " -> " + currentTask.m_nextTaskName;
+        RCLCPP_DEBUG(m_logger, "task transition from  %s - > %s", currentTaskKey.c_str(), currentTask.m_nextTaskName.c_str());
     }
 
     m_robotStatus.m_currentTask = currentTask.m_nextTaskName;
-
+    m_isWaitingPreTaskDelay = false;
+    m_isWaitingPostTaskDelay = false;
 }
 
-void OttoAutonomy::NavigationGoalCompleted(bool success, const RobotTaskKey& taskName)
+void OttoAutonomy::NavigationGoalCompleted(bool success)
 {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Navigating finished  %s", taskName.c_str());
+    RCLCPP_INFO(m_logger, "Navigating finished  %s", m_robotStatus.m_currentNavigationTask.c_str());
     if (success)
     {
-        m_robotStatus.m_finishedNavigationTask = taskName;
+        m_robotStatus.m_finishedNavigationTask = m_robotStatus.m_currentNavigationTask;
     }
     else
     {
         // TODO - how to recover?
-        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to navigate, task name %s", taskName.c_str());
+        RCLCPP_ERROR(m_logger, "Failed to navigate, task name %s", m_robotStatus.m_currentNavigationTask.c_str());
     }
 }
 
 void OttoAutonomy::NotifyCargoChanged(bool hasCargoNow)
 {
     m_robotStatus.m_cargoStatus = hasCargoNow ? RobotCargoStatus::CARGO_LOADED : RobotCargoStatus::CARGO_EMPTY;
+}
+
+std::string OttoAutonomy::GetCurrentOperationDescription() const
+{
+    return m_currentOperationDescription;
+}
+
+std::string OttoAutonomy::GetCurrentTaskName() const
+{
+    return m_robotStatus.m_currentTask;
 }

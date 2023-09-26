@@ -97,7 +97,6 @@ void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal_msg, Res
 
 void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bool)> completionCallback, bool goBlind, bool reverse)
 {
-    RCLCPP_INFO(m_actionLogger, "Sending goal");
     if (goBlind)
     {
         if (!m_followClient->wait_for_action_server())

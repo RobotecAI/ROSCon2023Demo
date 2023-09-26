@@ -14,7 +14,7 @@ find_package(lane_provider_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(lock_service_msgs REQUIRED)
 
-add_executable(deliberation_otto_node src/deliberation_otto_node.cpp src/otto_autonomy.cpp src/nav2_action_client.cpp)
+add_executable(deliberation_otto_node src/deliberation_otto_node.cpp src/otto_autonomy.cpp src/nav2_action_client.cpp src/tasks.cpp src/robot_status.cpp)
 target_include_directories(deliberation_otto_node PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>)

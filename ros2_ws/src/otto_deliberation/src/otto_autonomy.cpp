@@ -8,6 +8,7 @@
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/detail/bool__struct.hpp>
 
+
 OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
     : m_logger(node->get_logger())
     , m_nav2ActionClient(node)
@@ -23,10 +24,11 @@ OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr
     m_lifterPublisher = node->create_publisher<std_msgs::msg::Bool>("lifter", 10);
 }
 
-void OttoAutonomy::SetTasks(const Tasks& tasks, bool loop)
+void OttoAutonomy::SetTasks(const RobotTasks& tasks, bool loop)
 {
     m_loop = loop;
-    m_tasks = tasks;
+    m_robotTasks = tasks;
+    m_robotStatus.m_currentTask = m_robotTasks.GetTasks().front(); // set first task as current task
 }
 
 void OttoAutonomy::SetLane(const std::string& lane_name)
@@ -53,90 +55,93 @@ bool OttoAutonomy::SendLockRequest(const std::string& path_name, bool lock_statu
 
 void OttoAutonomy::Update()
 {
-    if (m_tasks.empty())
+    std_msgs::msg::Bool lifterStatus;
+    m_lifterPublisher->publish(lifterStatus);
+
+    if (m_robotTasks.GetTasks().empty())
     {
         return;
     }
 
-    auto currentTask = m_tasks.front();
-    if (currentTask.m_goalTaskStatus == m_robotStatus.m_taskStatus)
+    const auto currentTaskKey = m_robotStatus.m_currentTask;
+    const auto& currentTask = m_robotTasks.ConstructTask(currentTaskKey);
+
+    // try to lock
+    if (currentTask.m_isNeedLock)
     {
-        if (currentTask.m_requiredCargoStatus != m_robotStatus.m_cargoStatus)
+        if (!SendLockRequest(currentTask.m_taskName, true))
         {
-            // Waiting for load/unload
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to lock %s", currentTaskKey.c_str());
             return;
         }
-
-        if (currentTask.m_wait) {
-            if (!m_isWaiting) {
-                m_isWaiting = true;
-                m_waitTimePoint = std::chrono::system_clock::now();
-            }
-            if (std::chrono::system_clock::now() - m_waitTimePoint < currentTask.m_waitTime) {
-                return;
-            }
-        }
-
-        if (m_tasks.size() > 1)
-        {
-            if (m_tasks[1].m_requiresLock)
-            {
-                if (!SendLockRequest(m_tasks[1].m_taskKey, true))
-                {
-                    return;
-                }
-            }
-        }
-        if (currentTask.m_requiresLock)
-        {
-            if (!SendLockRequest(currentTask.m_taskKey, false))
-            {
-                return;
-            }
-        }
-
-        // Current task completed!
-        if (m_loop)
-        {
-            m_tasks.push_back(currentTask);
-        }
-        m_tasks.pop_front();
-
-        // Go to next task if any
-        if (m_tasks.empty())
-        {
-            return;
-        }
-
-        auto nextTask = m_tasks.front();
-        m_isWaiting = false;
-        m_robotStatus.m_currentTaskKey = nextTask.m_taskKey;
-        if (nextTask.m_path.poses.empty())
-        {
-            // Trivially achieved navigation goal, but might need cargo status change to achieve task completion.
-            NavigationGoalCompleted(true);
-        }
-        else
-        {
-            m_nav2ActionClient.SendGoal(
-                nextTask.m_path,
-                std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
-                TaskUtils::IsTaskBlind(nextTask.m_taskKey),
-                nextTask.m_reverse);
-        }
-        std_msgs::msg::Bool lifterStatus;
-        lifterStatus.data = nextTask.m_lifterUp;
-        m_lifterPublisher->publish(lifterStatus);
     }
+
+    // wait for pre-task delay
+    if (currentTask.m_preTaskDelay) {
+        if (!m_isWaiting) {
+            m_isWaiting = true;
+            m_waitTimePoint = std::chrono::system_clock::now();
+        }
+        if ((std::chrono::system_clock::now() - m_waitTimePoint).count() < currentTask.m_preTaskDelay.value())
+        {
+            // Waiting for pre-task delay
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to predelay %s", currentTaskKey.c_str());
+            return;
+        }
+    }
+
+    if (currentTask.m_isCargoLoad)
+    {
+        if ( m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to load %s", currentTaskKey.c_str());
+            return;
+        }
+
+    }
+
+    if (currentTask.m_isCargoUnload)
+    {
+        if ( m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Waiting to unload %s", currentTaskKey.c_str());
+            return;
+        }
+    }
+
+    if (!currentTask.m_isDummy && currentTask.m_path) {
+        if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Navigating to %s", currentTaskKey.c_str());
+            // Waiting for navigation
+            return;
+        }
+        if (m_robotStatus.m_currentNavigationTask!= currentTaskKey)
+        {
+            m_robotStatus.m_finishedNavigationTask = "";
+            m_nav2ActionClient.SendGoal(
+                    currentTask.m_path.value(),
+                    std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1, currentTaskKey),
+                    currentTask.m_isBlind, currentTask.m_isReverse);
+        }
+    }
+
+    m_robotStatus.m_currentTask = currentTask.m_nextTaskName;
+
 }
 
-void OttoAutonomy::NavigationGoalCompleted(bool success)
+void OttoAutonomy::NavigationGoalCompleted(bool success, const RobotTaskKey& taskName)
 {
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Navigating finished  %s", taskName.c_str());
     if (success)
     {
-        m_robotStatus.m_taskStatus = m_tasks.front().m_goalTaskStatus;
+        m_robotStatus.m_finishedNavigationTask = taskName;
     }
-    // TODO - how to recover?
+    else
+    {
+        // TODO - how to recover?
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to navigate, task name %s", taskName.c_str());
+    }
 }
 
 void OttoAutonomy::NotifyCargoChanged(bool hasCargoNow)

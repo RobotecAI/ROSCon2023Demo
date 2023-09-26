@@ -15,6 +15,11 @@ Nav2ActionClient::Nav2ActionClient(rclcpp::Node::SharedPtr node)
     : m_actionLogger(node->get_logger())
 {
     std::string ns(node->get_namespace());
+    if (ns == "/")
+    {
+        RCLCPP_ERROR(m_actionLogger, "This node must be run in a namespace, terminating");
+        std::abort();
+    }
     m_nav2Client = rclcpp_action::create_client<Nav2Action>(node, ns + "/navigate_through_poses");
     m_followClient = rclcpp_action::create_client<FollowPathAction>(node, ns + "/blind_follow_path");
 }

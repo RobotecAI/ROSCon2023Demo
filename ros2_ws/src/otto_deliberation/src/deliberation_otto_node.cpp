@@ -70,13 +70,25 @@ public:
             return false;
         }
 
-        Tasks tasks;
-        nav_msgs::msg::Path empty;
-        tasks.push_back(MakeTask("idle", empty));
+
+        std::unordered_map<RobotTaskKey,nav_msgs::msg::Path> namedPathsMap;
         for (size_t i = 0; i < assigned_lane.path_names.size(); ++i)
-        { // Construct Tasks
-            tasks.push_back(MakeTask(assigned_lane.path_names[i], assigned_lane.lane_paths[i]));
+        {
+            if (namedPathsMap.find(assigned_lane.path_names[i]) != namedPathsMap.end())
+            {
+                RCLCPP_ERROR(m_node->get_logger(), "Duplicate path name %s specified for lane %s", assigned_lane.path_names[i].c_str(), assigned_lane_name.c_str());
+            }
+            namedPathsMap[assigned_lane.path_names[i]] = assigned_lane.lane_paths[i];
         }
+
+        // build tasks
+        RobotTasks tasks;
+        tasks.m_tasks = {"idle", "path1", "path2", "path3", "path4" };
+        tasks.m_blindTasks = {"path1", "path2", "path3", "path4"};
+        tasks.m_taskPaths = namedPathsMap;
+
+        tasks.ValidateTasks();
+
         m_autonomy.SetTasks(tasks);
         m_autonomy.SetLane(assigned_lane_name);
 
@@ -100,28 +112,6 @@ private:
             m_autonomy.NotifyCargoChanged(m_cargoLoaded);
         }
         m_autonomy.Update();
-    }
-
-    Task MakeTask(std::string path_name, NavPath path)
-    {
-        Task t;
-        t.m_taskKey = path_name;
-        t.m_path = path;
-        t.m_goalTaskStatus = TaskUtils::GetTaskStatus(path_name);
-        t.m_requiredCargoStatus = TaskUtils::GetCargoStatus(path_name);
-        t.m_reverse = TaskUtils::GetReverse(path_name);
-        t.m_requiresLock = true;
-        t.m_lifterUp = TaskUtils::GetLifter(path_name);
-
-        if (path_name.find("GoToWrapping") != std::string::npos) {
-            t.m_wait = true;
-            t.m_waitTime = std::chrono::seconds(5);
-        }
-        else {
-            t.m_wait = false;
-        }
-
-        return t;
     }
 
     rclcpp::Node::SharedPtr m_node;

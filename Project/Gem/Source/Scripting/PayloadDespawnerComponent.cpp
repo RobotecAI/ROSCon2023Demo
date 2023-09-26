@@ -56,7 +56,11 @@ namespace ROS2::Demo
                 }
                 else if (IsObjectAMR(entityId))
                 {
-                    m_collidingAmr = entityId;
+                    if (!m_collidingAmr.IsValid())
+                    {
+                        m_collidingAmr = entityId;
+                        m_timer = 0;
+                    }
                 }
             });
 
@@ -105,11 +109,7 @@ namespace ROS2::Demo
             }
         }
 
-        if (m_collidingBoxes.empty() || !m_collidingAmr.IsValid())
-        {
-            m_timer = 0.0;
-        }
-        else
+        if (m_collidingAmr.IsValid())
         {
             m_timer += delta;
             if (m_timer > m_despawnerDelay)
@@ -124,22 +124,38 @@ namespace ROS2::Demo
                         ScriptSpawnSystemRequestBus::Broadcast(&ScriptSpawnSystemRequestBus::Events::DespawnBox, boxName);
                     }
                 }
+
+                AZ::Entity* collidingAmr{};
+                AZ::ComponentApplicationBus::BroadcastResult(collidingAmr, &AZ::ComponentApplicationRequests::FindEntity, m_collidingAmr);
+                AZ_Assert(collidingAmr, "No entity found for colliding AMR")
+                    auto frame = collidingAmr->FindComponent<ROS2FrameComponent>();
+                AZ_Assert(frame, "AMR base_link does not have ROS2 Frame Component");
+                AZStd::string amr_namespace = frame->GetNamespace();
+                AZStd::string fullNamespace = amr_namespace + "/cargo_status";
+
+                auto ros2Node = ROS2Interface::Get()->GetNode();
+                auto deliberationPublisher = ros2Node->create_publisher<std_msgs::msg::Bool>(fullNamespace.data(), rclcpp::ParametersQoS());
+
+                AZ_Printf("PayloadDespawnerComponent", "Despawned %d entities from robot %s.", m_collidingBoxes.size(), amr_namespace.c_str());
+                for (const auto& m_collidingBox : m_collidingBoxes)
+                {
+                    AZ::Entity* box{};
+                    AZ::ComponentApplicationBus::BroadcastResult(box, &AZ::ComponentApplicationRequests::FindEntity, m_collidingBox);
+                    if (box)
+                    {
+                        const auto& boxName = box->GetName();
+                        AZ_Printf("PayloadDespawnerComponent", "Despawned box %s.", boxName.c_str());
+                    }
+                }
+
+                std_msgs::msg::Bool message;
+                message.data = false;
+                deliberationPublisher->publish(message);
+
+                m_collidingAmr = AZ::EntityId();// reset colliding AMR handle
             }
 
-            AZ::Entity* collidingAmr{};
-            AZ::ComponentApplicationBus::BroadcastResult(collidingAmr, &AZ::ComponentApplicationRequests::FindEntity, m_collidingAmr);
-            AZ_Assert(collidingAmr, "No entity found for colliding AMR") 
-            auto frame = collidingAmr->FindComponent<ROS2FrameComponent>();
-            AZ_Assert(frame, "AMR base_link does not have ROS2 Frame Component");
-            AZStd::string amr_namespace = frame->GetNamespace();
-            AZStd::string fullNamespace = amr_namespace + "/cargo_status";
 
-            auto ros2Node = ROS2Interface::Get()->GetNode();
-            auto deliberationPublisher = ros2Node->create_publisher<std_msgs::msg::Bool>(fullNamespace.data(), rclcpp::ParametersQoS());
-
-            std_msgs::msg::Bool message;
-            message.data = false;
-            deliberationPublisher->publish(message);
         }
     }
 } // namespace ROS2::Demo

@@ -85,5 +85,7 @@ namespace ROS2::Demo
        AZ::EntityId m_pallet; //!< A pallet that is in foil wrapper
        int m_wrappedPallets {0}; //!< Number of wrapped pallets
        bool m_payloadSpawned {false}; //!< Flag that indicates if the payload was spawned
+       bool m_payloadFixed {false}; //!< Flag that indicates if the payload was fixed
+       AZStd::string m_payloadName; //!< Name of the payload
    };
 } // namespace ROS2::Demo

@@ -24,7 +24,7 @@
                     "Instance_[290858521273289]/ContainerEntity",
                     "Entity_[312445026902985]",
                     "Instance_[334985015272393]/ContainerEntity",
-                    "Instance_[92609524813001]/ContainerEntity",
+                    "",
                     "Entity_[175158796242121]"
                 ]
             },
@@ -141,7 +141,7 @@
                             },
                             "MaxBoxCount": 1,
                             "BarrierRegionEntityId": "Entity_[106031297613001]",
-                            "DespawnRegionEntityId": ""
+                            "DespawnRegionEntityId": "Entity_[175158796242121]"
                         }
                     }
                 },
@@ -464,7 +464,10 @@
                 },
                 "Component_[5681893399601237518]": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 5681893399601237518
+                    "Id": 5681893399601237518,
+                    "Child Entity Order": [
+                        "Instance_[27011028939820]/ContainerEntity"
+                    ]
                 },
                 "Component_[592692962543397545]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -827,6 +830,13 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 844273211360204118
                 },
+                "PayloadDespawnerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3906279324220927042,
+                    "m_template": {
+                        "$type": "PayloadDespawnerComponent"
+                    }
+                },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 5138520408221107784,
@@ -835,7 +845,7 @@
                         "Translate": [
                             -4.753863334655762,
                             1.3725366592407227,
-                            1.3303003311157227
+                            0.9389328956604004
                         ]
                     }
                 }
@@ -970,7 +980,32 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 0.9720045328140259
+                    "value": 0.972004532814026
+                }
+            ]
+        },
+        "Instance_[27011028939820]": {
+            "Source": "Prefabs/PhysicalBoxStack2_3_3.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1159459292531]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 3.3134336471557617
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 6.880759239196777
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.20810461044311523
                 }
             ]
         },
@@ -993,6 +1028,15 @@
             "Source": "Assets/Factory/Objects/PalletStackPayloadFoil1.prefab",
             "Patches": [
                 {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorDisabledCompositionComponent",
+                    "value": {
+                        "$type": "EditorDisabledCompositionComponent",
+                        "Id": 15819338436831704096,
+                        "DisabledComponents": []
+                    }
+                },
+                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
@@ -1010,74 +1054,7 @@
             ]
         },
         "Instance_[92609524813001]": {
-            "Source": "Prefabs/PhysicalBoxStack2x3x3",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78887104302281]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78882809334985]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78960118746313]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[74897079684297]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[74884194782409]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78878514367689]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78955823779017]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[78964413713609]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[71035904085193]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.030500590801239014
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 2.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 6.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.1988685131072998
-                }
-            ]
+            "Source": "Prefabs/PhysicalBoxStack2x3x3"
         }
     }
 }

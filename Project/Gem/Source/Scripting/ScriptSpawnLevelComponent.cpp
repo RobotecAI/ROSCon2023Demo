@@ -103,10 +103,11 @@ namespace ROS2::Demo
             root->SetName(spawnableName.c_str());
             auto childPtrPtr = view.begin() + 1;
             // update the name of the first child entity
-            if (childPtrPtr != view.end())
+            for (childPtrPtr; childPtrPtr != view.end(); ++childPtrPtr)
             {
                 (**childPtrPtr).SetName(spawnableName.c_str());
             }
+
             auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
             transformInterface->SetWorldTM(transform);
             if (parent.IsValid())

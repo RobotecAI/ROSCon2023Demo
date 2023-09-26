@@ -19,12 +19,13 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
-                    "Instance_[296098381374409]/ContainerEntity",
+                    "Entity_[106022707678409]",
                     "Entity_[1176639161715]",
                     "Instance_[290858521273289]/ContainerEntity",
                     "Entity_[312445026902985]",
                     "Instance_[334985015272393]/ContainerEntity",
-                    "Instance_[4511059061687]/ContainerEntity"
+                    "",
+                    "Entity_[175158796242121]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -67,6 +68,255 @@
         }
     },
     "Entities": {
+        "Entity_[106022707678409]": {
+            "Id": "Entity_[106022707678409]",
+            "Name": "TestSpawnerOTTO600WithPallet",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9535892258768359572
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14095593657730492395
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 4979293616416519467,
+                    "Child Entity Order": [
+                        "Instance_[195623880435172]/ContainerEntity",
+                        "Entity_[106027002645705]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12966526456562546049
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10984585597002171785
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17322038405084257477
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 9326513382882844043
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6290167354983877792
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2830064943512791600,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            3.8923168182373047,
+                            1.7619833946228027,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[106027002645705]": {
+            "Id": "Entity_[106027002645705]",
+            "Name": "TestSpawner",
+            "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14828415578989904041,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{13903A54-0090-5D48-9738-F7A3BA0DDE6D}",
+                                    "subId": 1078827438
+                                },
+                                "assetHint": "prefabs/physicalboxstack2_3_3.spawnable"
+                            },
+                            "MaxBoxCount": 1,
+                            "BarrierRegionEntityId": "Entity_[106031297613001]",
+                            "DespawnRegionEntityId": "Entity_[175158796242121]"
+                        }
+                    }
+                },
+                "EditorCylinderShapeComponent": {
+                    "$type": "EditorCylinderShapeComponent",
+                    "Id": 6098953341268631389,
+                    "GameView": true,
+                    "ShapeColor": [
+                        1.0,
+                        0.0,
+                        0.7799954414367676,
+                        1.0
+                    ],
+                    "CylinderShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                0.0,
+                                0.7799954414367676
+                            ],
+                            "Height": 0.20000000298023224,
+                            "Radius": 0.20000000298023224
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12990530487444686184
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8455453099840307273
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16757517277857239356,
+                    "Child Entity Order": [
+                        "Entity_[106031297613001]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2042957777692277634,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 128578870509595623
+                        },
+                        {
+                            "ComponentId": 6098953341268631389,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 14828415578989904041,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16827365446763072852
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15622252778273895234
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17299405788772568831
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12904453803752729362
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 128578870509595623,
+                    "Parent Entity": "Entity_[106022707678409]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.00311279296875,
+                            0.0,
+                            2.0201609134674072
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[106031297613001]": {
+            "Id": "Entity_[106031297613001]",
+            "Name": "TestBarier",
+            "Components": {
+                "EditorBoxShapeComponent": {
+                    "$type": "EditorBoxShapeComponent",
+                    "Id": 16323004206393514184,
+                    "ShapeColor": [
+                        1.0,
+                        0.0,
+                        0.7799954414367676,
+                        1.0
+                    ],
+                    "BoxShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                0.0,
+                                0.7799954414367676
+                            ],
+                            "Dimensions": [
+                                7.426851749420166,
+                                5.0,
+                                5.0
+                            ],
+                            "TranslationOffset": [
+                                -2.5825345516204834,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9522083217463383276
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 946846328280688535
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 822844989825255498
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8328691890423297068,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 12647856469469822608
+                        },
+                        {
+                            "ComponentId": 16323004206393514184,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5108772317881622148
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1427578710622586071
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16800547078901619453
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11349538669198015100
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12647856469469822608,
+                    "Parent Entity": "Entity_[106027002645705]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -1.3440611362457275
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[1155164325235]": {
             "Id": "Entity_[1155164325235]",
             "Name": "Sun",
@@ -214,7 +464,10 @@
                 },
                 "Component_[5681893399601237518]": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 5681893399601237518
+                    "Id": 5681893399601237518,
+                    "Child Entity Order": [
+                        "Instance_[27011028939820]/ContainerEntity"
+                    ]
                 },
                 "Component_[592692962543397545]": {
                     "$type": "EditorPendingCompositionComponent",
@@ -499,6 +752,105 @@
                 }
             }
         },
+        "Entity_[175158796242121]": {
+            "Id": "Entity_[175158796242121]",
+            "Name": "Despawner",
+            "Components": {
+                "EditorBoxShapeComponent": {
+                    "$type": "EditorBoxShapeComponent",
+                    "Id": 15932920251526840376,
+                    "GameView": true,
+                    "BoxShape": {
+                        "Configuration": {
+                            "Dimensions": [
+                                2.0,
+                                2.0,
+                                2.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 11028493041870136579
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 17132274031599886171
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 8270805771252442896
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4056444536151477299
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 90306894093114986
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 18182394881328497906
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 15195771144292943689
+                },
+                "EditorShapeColliderComponent": {
+                    "$type": "EditorShapeColliderComponent",
+                    "Id": 5101556337578661153,
+                    "ColliderConfiguration": {
+                        "Trigger": true,
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfigs": [
+                        {
+                            "$type": "BoxShapeConfiguration",
+                            "Configuration": [
+                                2.0,
+                                2.0,
+                                2.0
+                            ]
+                        }
+                    ]
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 18368965790460427490
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 844273211360204118
+                },
+                "PayloadDespawnerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3906279324220927042,
+                    "m_template": {
+                        "$type": "PayloadDespawnerComponent"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5138520408221107784,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            -4.753863334655762,
+                            1.3725366592407227,
+                            0.9389328956604004
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[312445026902985]": {
             "Id": "Entity_[312445026902985]",
             "Name": "FoilWrapperController",
@@ -597,6 +949,66 @@
         }
     },
     "Instances": {
+        "Instance_[195623880435172]": {
+            "Source": "Prefabs/OTTO600/OTTO600WithPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[106022707678409]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.0031108856201171875
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 91.22830963134766
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.17514082789421082
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 0.4674946367740631
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
+                    "value": 0.972004532814026
+                }
+            ]
+        },
+        "Instance_[27011028939820]": {
+            "Source": "Prefabs/PhysicalBoxStack2_3_3.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1159459292531]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 3.3134336471557617
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 6.880759239196777
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.20810461044311523
+                }
+            ]
+        },
         "Instance_[290858521273289]": {
             "Source": "Assets/Wrapper/Wrapper_with_cage.prefab",
             "Patches": [
@@ -612,45 +1024,19 @@
                 }
             ]
         },
-        "Instance_[296098381374409]": {
-            "Source": "Prefabs/TestSpawnerOTTO600WithPallet.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[195623880435172]/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.17514082789421082
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[195623880435172]/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 0.4674946367740631
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[195623880435172]/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 0.972004532814026
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 3.8923168182373047
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 1.7619833946228027
-                }
-            ]
-        },
         "Instance_[334985015272393]": {
             "Source": "Assets/Factory/Objects/PalletStackPayloadFoil1.prefab",
             "Patches": [
                 {
+                    "op": "add",
+                    "path": "/ContainerEntity/Components/EditorDisabledCompositionComponent",
+                    "value": {
+                        "$type": "EditorDisabledCompositionComponent",
+                        "Id": 15819338436831704096,
+                        "DisabledComponents": []
+                    }
+                },
+                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
@@ -658,59 +1044,17 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.0319480895996094
+                    "value": 2.0
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 5.496763229370117
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.28977346420288086
+                    "value": 6.747241020202637
                 }
             ]
         },
-        "Instance_[4511059061687]": {
-            "Source": "Assets/Factory/Box2.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -3.020456552505493
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 12.788215637207031
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -5.712951183319092
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/Component_[16246303725359178974]/Transform Data/Translate/0",
-                    "value": 6.213749408721924
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/Component_[16246303725359178974]/Transform Data/Translate/1",
-                    "value": -8.98586368560791
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[191977789557570]/Components/Component_[16246303725359178974]/Transform Data/Translate/2",
-                    "value": 7.152332305908203
-                }
-            ]
+        "Instance_[92609524813001]": {
+            "Source": "Prefabs/PhysicalBoxStack2x3x3"
         }
     }
 }

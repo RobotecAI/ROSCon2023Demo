@@ -3,10 +3,6 @@
         "Id": "ContainerEntity",
         "Name": "PalletStackPayloadFoil1",
         "Components": {
-            "EditorDisabledCompositionComponent": {
-                "$type": "EditorDisabledCompositionComponent",
-                "Id": 15923096428918388412
-            },
             "EditorEntityIconComponent": {
                 "$type": "EditorEntityIconComponent",
                 "Id": 2418871329564422714
@@ -54,39 +50,50 @@
             "Id": "Entity_[111195398374922]",
             "Name": "PalletStackPayloadFoil1",
             "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7534831268200010493,
-                    "DisabledComponents": {
-                        "EditorRigidBodyComponent": {
-                            "$type": "EditorRigidBodyComponent",
-                            "Id": 16194025660847969193,
-                            "Configuration": {
-                                "entityId": "",
-                                "Mass": 819.8756103515625,
-                                "Centre of mass offset": [
-                                    -0.0017660558223724365,
-                                    0.000875234545674175,
-                                    0.5806277990341187
-                                ],
-                                "Inertia tensor": [
-                                    93.9820556640625,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    151.074462890625,
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    139.87896728515625
-                                ]
-                            }
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 12976771083886741332,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            0.0,
+                            1.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 0,
+                        "Sphere": {
+                            "Scale": [
+                                0.8500000238418579,
+                                0.8500000238418579,
+                                0.8500000238418579
+                            ],
+                            "Radius": 0.10000000149011612
                         },
-                        "EditorStaticRigidBodyComponent": {
-                            "$type": "EditorStaticRigidBodyComponent",
-                            "Id": 2931853584306384289
+                        "Box": {
+                            "Scale": [
+                                0.8500000238418579,
+                                0.8500000238418579,
+                                0.8500000238418579
+                            ],
+                            "Configuration": [
+                                0.20000000298023224,
+                                0.20000000298023224,
+                                0.20000000298023224
+                            ]
                         }
                     }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12939831670084041596
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -131,37 +138,21 @@
                 },
                 "EditorPendingCompositionComponent": {
                     "$type": "EditorPendingCompositionComponent",
-                    "Id": 15438096478292133298,
-                    "PendingComponents": {
-                        "EditorColliderComponent": {
-                            "$type": "EditorColliderComponent",
-                            "Id": 12976771083886741332,
-                            "ColliderConfiguration": {
-                                "Position": [
-                                    -0.0017660558223724365,
-                                    0.0008752346038818359,
-                                    0.5806277990341187
-                                ],
-                                "MaterialSlots": {
-                                    "Slots": [
-                                        {
-                                            "Name": "Entire object"
-                                        }
-                                    ]
-                                }
-                            },
-                            "ShapeConfiguration": {
-                                "ShapeType": 1,
-                                "Box": {
-                                    "Configuration": [
-                                        1.200613260269165,
-                                        0.7783622741699219,
-                                        0.8773301839828491
-                                    ]
-                                }
-                            }
-                        }
+                    "Id": 15438096478292133298
+                },
+                "EditorRigidBodyComponent": {
+                    "$type": "EditorRigidBodyComponent",
+                    "Id": 7941720463497902121,
+                    "Configuration": {
+                        "entityId": ""
                     }
+                },
+                "EditorTagComponent": {
+                    "$type": "EditorTagComponent",
+                    "Id": 10968047085832059099,
+                    "Tags": [
+                        "Box"
+                    ]
                 },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
@@ -172,7 +163,12 @@
                     "Id": 6817143871410918614,
                     "Parent Entity": "ContainerEntity",
                     "Transform Data": {
-                        "UniformScale": 0.6000000238418579
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -0.12798425555229187
+                        ],
+                        "UniformScale": 0.8500000238418579
                     }
                 }
             }
@@ -198,7 +194,7 @@
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7237688117547052979
+                    "Id": 16653004989442124685
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -297,7 +293,7 @@
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7237688117547052979
+                    "Id": 17782302497670334607
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",

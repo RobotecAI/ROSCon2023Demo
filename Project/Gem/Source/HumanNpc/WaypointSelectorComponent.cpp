@@ -1,3 +1,11 @@
+/*
+* Copyright (c) Contributors to the Open 3D Engine Project.
+* For complete copyright and license terms please see the LICENSE at the root
+* of this distribution.
+*
+* SPDX-License-Identifier: Apache-2.0 OR MIT
+*
+*/
 #include <HumanNpc/NpcNavigatorBus.h>
 #include <HumanNpc/WaypointSelectorComponent.h>
 
@@ -11,7 +19,7 @@ namespace ROS2::Demo
                 ->Version(1)
                 ->Field("Seed", &WaypointSelectorComponent::m_seed)
                 ->Field("Human Npcs", &WaypointSelectorComponent::m_humanNpcs)
-                ->Field("Waypoint Entities", &WaypointSelectorComponent::m_waypointEntities);
+                ->Field("Waypoint Entities", &WaypointSelectorComponent::m_waypoints);
 
             if (AZ::EditContext* editContext = serialize->GetEditContext())
             {
@@ -31,7 +39,7 @@ namespace ROS2::Demo
                         "Entities with the NpcNavigator components.")
                     ->DataElement(
                         AZ::Edit::UIHandlers::Default,
-                        &WaypointSelectorComponent::m_waypointEntities,
+                        &WaypointSelectorComponent::m_waypoints,
                         "Waypoints",
                         "Entities with the Waypoint components.");
                 // clang-format on
@@ -68,22 +76,22 @@ namespace ROS2::Demo
 
     AZStd::vector<AZ::EntityId> WaypointSelectorComponent::SelectWaypointPah()
     {
-        if (m_waypointEntities.empty())
+        if (m_waypoints.empty())
         {
             AZ_Printf(__func__, "No waypoint entities to select from.") return {};
         }
 
-        std::uniform_int_distribution<size_t> uniformDistribution(0, m_waypointEntities.size());
+        std::uniform_int_distribution<size_t> uniformDistribution(0, m_waypoints.size());
         AZStd::vector<AZ::EntityId> waypointPath;
-        while (waypointPath.size() != m_waypointEntities.size())
+        while (waypointPath.size() != m_waypoints.size())
         {
             size_t index = uniformDistribution(m_mersenneTwister);
-            while (!waypointPath.empty() && (m_waypointEntities[index] == waypointPath.back())) // Disallow duplicate waypoint sequences.
+            while (!waypointPath.empty() && (m_waypoints[index] == waypointPath.back())) // Disallow duplicate waypoint sequences.
             {
                 index = uniformDistribution(m_mersenneTwister);
             }
 
-            waypointPath.push_back(m_waypointEntities[index]);
+            waypointPath.push_back(m_waypoints[index]);
         }
 
         return waypointPath;

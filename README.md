@@ -78,7 +78,16 @@ Install necessary packages from ROS 2:
 ```bash 
 sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav-msgs
 ```
-Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `cd {$WORKDIR}`:
+
+You need to build and source the ROS 2 workspace first as it contains messages that the simulator uses to communicate.
+```bash
+cd #{WORKDIR}/ROSCon2023Demo/ros2_ws
+colcon build --symlink-install
+source install/setup.bash
+```
+The source command needs to be done in the same console where you build and run O3DE.
+
+Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `{$WORKDIR}`:
 ```bash
 cd {$WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON

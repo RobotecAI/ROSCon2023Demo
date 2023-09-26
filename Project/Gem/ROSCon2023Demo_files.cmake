@@ -37,5 +37,7 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Source/PlanningScene/ShapePublisherComponent.h
+    Source/PlanningScene/ShapePublisherComponent.cpp
     enabled_gems.cmake
 )

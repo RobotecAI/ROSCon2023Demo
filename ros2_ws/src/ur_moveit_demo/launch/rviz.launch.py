@@ -64,7 +64,6 @@ def launch_setup(context, *args, **kwargs):
     rviz_config_file = LaunchConfiguration("rviz_config_file")
     ur_namespace = LaunchConfiguration("ur_namespace")
     warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
-    prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
     launch_rviz = LaunchConfiguration("launch_rviz")
     launch_servo = LaunchConfiguration("launch_servo")
@@ -214,7 +213,7 @@ def launch_setup(context, *args, **kwargs):
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        namespace=ur_namespace,
+        namespace=ur_namespace.perform(context),
         parameters=[
             robot_description,
             robot_description_semantic,
@@ -227,6 +226,8 @@ def launch_setup(context, *args, **kwargs):
             planning_scene_monitor_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
+            {'publish_robot_description': True},
+            {'publish_robot_description_semantic': True},
         ],
     )
 
@@ -242,7 +243,7 @@ def launch_setup(context, *args, **kwargs):
         executable="rviz2",
         name="rviz2_moveit1",
         output="log",
-        namespace=ur_namespace,
+        namespace=ur_namespace.perform(context),
         arguments=["-d", rviz_config_file],
         parameters=[
             robot_description,
@@ -251,33 +252,17 @@ def launch_setup(context, *args, **kwargs):
             robot_description_kinematics,
             # robot_description_planning,
             warehouse_ros_config,
+            {'publish_robot_description': True},
+            {'publish_robot_description_semantic': True},
         ]
     )
 
-    hello_moveit = Node(
-        name="hello_moveit",
-        package="ur_moveit_demo",
-        executable="mtc",
-        output="screen",
-        namespace=ur_namespace,
-        parameters=[
-            robot_description,
-            robot_description_semantic,
-            robot_description_kinematics,
-            # robot_description_planning,
-            ompl_planning_pipeline_config,
-            trajectory_execution,
-            moveit_controllers,
-            planning_scene_monitor_parameters,
-            {"use_sim_time": use_sim_time},
-            warehouse_ros_config,
-            {'publish_robot_description': True},
-            {'publish_robot_description_semantic': True},
-            {"ns": ur_namespace.perform(context)},
-        ],
-    )
 
-    nodes_to_start = [rviz_node]
+
+    nodes_to_start = [
+        rviz_node, 
+        move_group_node
+    ]
 
 
     return nodes_to_start

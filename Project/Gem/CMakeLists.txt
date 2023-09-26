@@ -65,7 +65,10 @@ ly_add_target(
             Gem::ROS2.Static
             Gem::RecastNavigation.API
             Gem::EMotionFX.Static
+            Gem::LmbrCentral.API
 )
+
+target_depends_on_ros2_packages(${gem_name}.Private.Object moveit_msgs)
 
 ly_add_target(
     NAME ${gem_name} ${PAL_TRAIT_MONOLITHIC_DRIVEN_MODULE_TYPE}

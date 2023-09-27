@@ -1,3 +1,11 @@
+/*
+* Copyright (c) Contributors to the Open 3D Engine Project.
+* For complete copyright and license terms please see the LICENSE at the root
+* of this distribution.
+*
+* SPDX-License-Identifier: Apache-2.0 OR MIT
+*
+*/
 #include <HumanNpc/NpcNavigatorComponent.h>
 
 #include <AzCore/Component/TransformBus.h>
@@ -20,6 +28,7 @@ namespace ROS2::Demo
             serialize->Class<NpcNavigatorComponent, AZ::Component>()
                 ->Version(1)
                 ->Field("Debug Mode", &NpcNavigatorComponent::m_debugMode)
+                ->Field("Restart on traversed", &NpcNavigatorComponent::m_restartOnTraversed)
                 ->Field("Waypoints", &NpcNavigatorComponent::m_waypointEntities)
                 ->Field("Detour Navigation Entity", &NpcNavigatorComponent::m_navigationEntity)
                 ->Field("Topic Configuration", &NpcNavigatorComponent::m_topicConfiguration)
@@ -30,11 +39,15 @@ namespace ROS2::Demo
             if (AZ::EditContext* editContext = serialize->GetEditContext())
             {
                 // clang-format off
-                editContext->Class<NpcNavigatorComponent>("Npc Navigator", "Component that processes paths and publishes twist messages")
+                editContext->Class<NpcNavigatorComponent>(
+                                    "Npc Navigator",
+                                    "Component used for navigating an npc along a selected waypoint path."
+                                    "It processes paths and publishes twist messages")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                         ->Attribute(AZ::Edit::Attributes::Category, "Demo")
                         ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
                     ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_debugMode, "Debug Mode", "")
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_restartOnTraversed, "Restart on traversed", "")
                     ->DataElement(AZ::Edit::UIHandlers::Default, &NpcNavigatorComponent::m_waypointEntities, "Waypoints", "")
                     ->DataElement(
                         AZ::Edit::UIHandlers::Default,
@@ -60,10 +73,12 @@ namespace ROS2::Demo
         {
             AzFramework::EntityDebugDisplayEventBus::Handler::BusConnect(m_entity->GetId());
         }
+        NpcNavigatorRequestBus::Handler::BusConnect(GetEntityId());
     }
 
     void NpcNavigatorComponent::Deactivate()
     {
+        NpcNavigatorRequestBus::Handler::BusDisconnect();
         if (m_debugMode)
         {
             AzFramework::EntityDebugDisplayEventBus::Handler::BusDisconnect(m_entity->GetId());
@@ -170,6 +185,20 @@ namespace ROS2::Demo
         RecalculateCurrentGoalPath();
     }
 
+    void NpcNavigatorComponent::ClearWaypoints()
+    {
+        m_goalIndex = 0;
+        m_goalPath.clear();
+        m_state = NavigationState::Navigate;
+        m_waypointIndex = 0;
+        m_waypointEntities.clear();
+    }
+
+    void NpcNavigatorComponent::AddWaypoint(AZ::EntityId waypointEntityId)
+    {
+        m_waypointEntities.push_back(waypointEntityId);
+    }
+
     AZ::Transform NpcNavigatorComponent::GetCurrentTransform() const
     {
         return GetEntityTransform(GetEntityId());
@@ -243,30 +272,30 @@ namespace ROS2::Demo
     {
         switch (m_state)
         {
-        case NavigationState::IDLE:
+        case NavigationState::Idle:
             if ((m_waypointConfiguration.m_idleTime -= deltaTime) <= 0.0f)
             {
                 m_goalIndex = 0;
-                ++m_waypointIndex;
-                if (m_waypointIndex >= m_waypointEntities.size())
+                if (++m_waypointIndex >= m_waypointEntities.size() && m_restartOnTraversed)
                 {
                     m_waypointIndex = 0;
                 }
                 m_goalPath.clear();
                 m_waypointConfiguration = FetchWaypointConfiguration(m_waypointEntities[m_waypointIndex]);
-                m_state = NavigationState::NAVIGATE;
+                m_state = NavigationState::Navigate;
             }
             return {};
-        case NavigationState::ROTATE:
+        case NavigationState::Rotate:
             {
-                AZ_Assert(m_goalIndex == m_goalPath.size(), "The Npc Navigator component is in an invalid state due to programmer's error.");
+                AZ_Assert(
+                    m_goalIndex == m_goalPath.size(), "The Npc Navigator component is in an invalid state due to programmer's error.");
                 const float BearingError = GetSignedAngleBetweenUnitVectors(
                     GetCurrentTransform().GetRotation().TransformVector(AZ::Vector3::CreateAxisX()),
                     m_goalPath[m_goalIndex - 1].m_direction);
 
                 if (std::abs(BearingError) < AcceptableAngleError)
                 {
-                    m_state = NavigationState::IDLE;
+                    m_state = NavigationState::Idle;
                     return {};
                 }
                 else
@@ -277,12 +306,12 @@ namespace ROS2::Demo
                     };
                 }
             }
-        case NavigationState::NAVIGATE:
+        case NavigationState::Navigate:
             if (IsClose(m_goalPath[m_goalIndex].m_position, GetCurrentTransform().GetTranslation()))
             {
                 if (++m_goalIndex == m_goalPath.size())
                 {
-                    m_state = m_waypointConfiguration.m_orientationCaptured ? NavigationState::ROTATE : NavigationState::IDLE;
+                    m_state = m_waypointConfiguration.m_orientationCaptured ? NavigationState::Rotate : NavigationState::Idle;
                     return {};
                 }
             }

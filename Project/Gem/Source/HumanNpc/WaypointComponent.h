@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) Contributors to the Open 3D Engine Project.
+ * For complete copyright and license terms please see the LICENSE at the root
+ * of this distribution.
+ *
+ * SPDX-License-Identifier: Apache-2.0 OR MIT
+ *
+ */
 #pragma once
 
 #include <AzCore/Component/Component.h>
@@ -15,6 +23,9 @@ namespace ROS2::Demo
         float m_idleTime{ 0 };
     };
 
+    //! Component that signifies a waypoint.
+    //! The waypoint may be configured to capture its orientation
+    //! (only the rotation around the z axis) or require an idle time.
     class WaypointComponent
         : public AZ::Component
         , private WaypointRequestBus::Handler

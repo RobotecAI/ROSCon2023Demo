@@ -10,6 +10,7 @@
 #pragma once
 
 using NavPath = nav_msgs::msg::Path;
+using NavPathPtr = std::shared_ptr<NavPath>;
 using RobotTaskKey = std::string;
 using RobotTaskList = std::vector<RobotTaskKey>;
 using RobotTaskSet = std::unordered_set<RobotTaskKey>;
@@ -29,7 +30,7 @@ struct Task
     bool m_isCargoLoad;
     std::optional<double> m_preTaskDelay;
     std::optional<double> m_postTaskDelay;
-    nav_msgs::msg::Path m_path;
+    NavPathPtr m_path;
 };
 
 //! Robot tasks container class
@@ -45,13 +46,13 @@ public:
     RobotTaskSet m_dummyTasks; //!< Tasks that has robot in dummy mode
     RobotTaskSet m_blindTasks; //!< Tasks that are blind (use blind path follower instead nav stack)
     RobotTaskSet m_blindTasksReverse; //!< Tasks that are blind and need to be reversed
-    RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo loaded to continue
+    RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo m_taskPaths to continue
     RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
     RobotTaskSet m_acquireLock; //!< Tasks that needs acquire a lock
     RobotTaskSet m_releaseLock; //!< Tasks that releases a lock
     std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
     std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
-    std::unordered_map<RobotTaskKey, nav_msgs::msg::Path> m_taskPaths; //!< Geometry of tasks
+    std::unordered_map<RobotTaskKey, NavPathPtr> m_taskPaths; //!< Geometry of tasks
 
 public:
     //! Print list of tasks
@@ -76,7 +77,6 @@ public:
     //! @param taskName current task name
     //! @return next task name
     bool GetIfTaskNeedsLock(const RobotTaskKey& taskName) const;
-
 
     //! Get task with a given name
     //! @param taskName task name

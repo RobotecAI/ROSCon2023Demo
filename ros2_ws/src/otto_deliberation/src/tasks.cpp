@@ -97,7 +97,7 @@ bool RobotTasks::ValidateTasks() const
 
     for (const auto& t : m_validTasks)
     {
-        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0)
+        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0 && m_taskPaths.at(t)!= nullptr)
         {
             isValid = false;
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has no valid geometry paths", t.c_str());

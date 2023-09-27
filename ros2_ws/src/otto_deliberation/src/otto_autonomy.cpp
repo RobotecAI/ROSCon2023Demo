@@ -116,7 +116,7 @@ void OttoAutonomy::Update()
         }
     }
 
-    if (!currentTask.m_isDummy && !currentTask.m_path.poses.empty())
+    if (!currentTask.m_isDummy && !currentTask.m_path->poses.empty())
     {
         if (m_robotStatus.m_currentNavigationTask != currentTaskKey)
         {
@@ -124,7 +124,7 @@ void OttoAutonomy::Update()
             m_robotStatus.m_currentNavigationTask = currentTaskKey;
             m_robotStatus.m_finishedNavigationTask = "";
             m_nav2ActionClient.SendGoal(
-                currentTask.m_path,
+                *currentTask.m_path,
                 std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
                 currentTask.m_isBlind,
                 currentTask.m_isReverse);

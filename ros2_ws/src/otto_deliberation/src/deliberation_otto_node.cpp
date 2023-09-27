@@ -180,7 +180,7 @@ public:
             return false;
         }
 
-        std::unordered_map<RobotTaskKey, nav_msgs::msg::Path> namedPathsMap;
+        std::unordered_map<RobotTaskKey, NavPathPtr> namedPathsMap;
         for (size_t i = 0; i < assigned_lane.path_names.size(); ++i)
         {
             if (namedPathsMap.find(assigned_lane.path_names[i]) != namedPathsMap.end())
@@ -191,7 +191,7 @@ public:
                     assigned_lane.path_names[i].c_str(),
                     assigned_lane_name.c_str());
             }
-            namedPathsMap[assigned_lane.path_names[i]] = assigned_lane.lane_paths[i];
+            namedPathsMap[assigned_lane.path_names[i]] = std::make_shared<NavPath>(std::move(assigned_lane.lane_paths[i]));
         }
 
         m_autonomy.SetLane(assigned_lane_name);

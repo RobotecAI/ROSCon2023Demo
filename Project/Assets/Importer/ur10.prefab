@@ -1605,14 +1605,38 @@
                             }
                         }
                     },
-                    "Initial positions": {
-                        "elbow_joint": 1.399999976158142,
-                        "shoulder_lift_joint": -1.6200000047683716,
-                        "shoulder_pan_joint": {},
-                        "wrist_1_joint": -1.2000000476837158,
-                        "wrist_2_joint": -1.600000023841858,
-                        "wrist_3_joint": -0.10999999940395355
-                    }
+                    "Initial positions ordered": [
+                        {
+                            "Name": "elbow_joint",
+                            "Position": 1.399999976158142,
+                            "Index": 0
+                        },
+                        {
+                            "Name": "shoulder_lift_joint",
+                            "Position": -1.6200000047683716,
+                            "Index": 1
+                        },
+                        {
+                            "Name": "shoulder_pan_joint",
+                            "Position": {},
+                            "Index": 2
+                        },
+                        {
+                            "Name": "wrist_1_joint",
+                            "Position": -1.2000000476837158,
+                            "Index": 3
+                        },
+                        {
+                            "Name": "wrist_2_joint",
+                            "Position": -1.600000023841858,
+                            "Index": 4
+                        },
+                        {
+                            "Name": "wrist_3_joint",
+                            "Position": -0.10999999940395355,
+                            "Index": 5
+                        }
+                    ]
                 },
                 "JointsTrajectoryComponent": {
                     "$type": "GenericComponentWrapper",

@@ -30,7 +30,8 @@
 //! - blind_task_reverse: a list of tasks that will be executed with the robot blind and in reverse (no nav2 action used)
 //! - cargo_unload_tasks: a list of tasks that will be executed with the robot unloading cargo
 //! - cargo_load_tasks: a list of tasks that will be executed with the robot loading cargo
-//! - tasks_with_lock: a list of tasks that will be executed with the robot locked to a path
+//! - task_acquire_lock : a list of tasks that will be executed with the robot locked to a path
+//! - task_release_lock : a list of task that will release lock on the end of the task
 //! - pre_task_delay: a list of doubles that represent the delay in seconds to wait before executing the next task
 //! - post_task_delay: a list of doubles that represent the delay in seconds to wait after executing the next task
 //! - loop: if true, the robot will loop the list of tasks
@@ -55,7 +56,7 @@ public:
     {
         RCLCPP_INFO(m_node->get_logger(), "Otto deliberation node starting");
         m_namespace = m_node->get_namespace();
-        m_timer = m_node->create_wall_timer(std::chrono::milliseconds(50), std::bind(&OttoDeliberation::TimerCallback, this));
+        m_timer = m_node->create_wall_timer(std::chrono::milliseconds(500), std::bind(&OttoDeliberation::TimerCallback, this));
         m_deliberationStatusDescriptionPublisher = m_node->create_publisher<std_msgs::msg::String>("deliberation_description", 10);
         m_deliberationStatePublisher = m_node->create_publisher<std_msgs::msg::String>("deliberation_state", 10);
     }
@@ -87,7 +88,9 @@ public:
         auto blindTasksReverse = m_node->declare_parameter<std::vector<std::string>>("blind_tasks_reverse", { "" });
         auto cargoLoadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_load_tasks", { "" });
         auto cargoUnloadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_unload_tasks", { "" });
-        auto tasksWithLock = m_node->declare_parameter<std::vector<std::string>>("tasks_with_lock", { "" });
+        auto taskAcquireLock = m_node->declare_parameter<std::vector<std::string>>("task_acquire_lock", { "" });
+        auto taskReleaseLock = m_node->declare_parameter<std::vector<std::string>>("task_release_lock", { "" });
+
         auto preTaskDelays = m_node->declare_parameter<std::vector<double>>("pre_task_delays", { 0.0 });
         auto postTaskDelays = m_node->declare_parameter<std::vector<double>>("post_task_delays", { 0.0 });
         auto loop = m_node->declare_parameter<bool>("loop", false);
@@ -101,7 +104,8 @@ public:
         const auto blindTasksReverseFiltered = filterEmptyElements(blindTasksReverse);
         const auto cargoLoadTasksFiltered = filterEmptyElements(cargoLoadTasks);
         const auto cargoUnloadTasksFiltered = filterEmptyElements(cargoUnloadTasks);
-        const auto tasksWithLockFiltered = filterEmptyElements(tasksWithLock);
+        const auto taskAcquireLockFiltered = filterEmptyElements(taskAcquireLock);
+        const auto taskReleaseLockFiltered = filterEmptyElements(taskReleaseLock);
 
         tasks.m_loop = loop;
         tasks.m_tasks = filterEmptyElements(taskList);
@@ -111,7 +115,8 @@ public:
         tasks.m_blindTasksReverse = RobotTaskSet(blindTasksReverseFiltered.begin(), blindTasksReverseFiltered.end());
         tasks.m_cargoLoadTasks = RobotTaskSet(cargoLoadTasksFiltered.begin(), cargoLoadTasksFiltered.end());
         tasks.m_cargoUnLoadTasks = RobotTaskSet(cargoUnloadTasksFiltered.begin(), cargoUnloadTasksFiltered.end());
-        tasks.m_tasksWithLock = RobotTaskSet(tasksWithLockFiltered.begin(), tasksWithLockFiltered.end());
+        tasks.m_acquireLock = RobotTaskSet(taskAcquireLockFiltered.begin(), taskAcquireLockFiltered.end());
+        tasks.m_releaseLock = RobotTaskSet(taskReleaseLockFiltered.begin(), taskReleaseLockFiltered.end());
 
         if (preTaskDelays.size() != tasks.m_tasks.size())
         {

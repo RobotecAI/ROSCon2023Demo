@@ -23,7 +23,8 @@ struct Task
     bool m_isReverse;
     bool m_isLifter;
     bool m_isDummy;
-    bool m_isNeedLock;
+    bool m_isAcquiresLock;
+    bool m_isReleasesLock;
     bool m_isCargoUnload;
     bool m_isCargoLoad;
     std::optional<double> m_preTaskDelay;
@@ -46,7 +47,8 @@ public:
     RobotTaskSet m_blindTasksReverse; //!< Tasks that are blind and need to be reversed
     RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo loaded to continue
     RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
-    RobotTaskSet m_tasksWithLock; //!< Tasks that need lock to start
+    RobotTaskSet m_acquireLock; //!< Tasks that needs acquire a lock
+    RobotTaskSet m_releaseLock; //!< Tasks that releases a lock
     std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
     std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
     std::unordered_map<RobotTaskKey, nav_msgs::msg::Path> m_taskPaths; //!< Geometry of tasks
@@ -69,6 +71,12 @@ public:
     //! @param taskName current task name
     //! @return next task name
     RobotTaskKey GetNextTaskName(const RobotTaskKey& taskName) const;
+
+    //! Return true if task needs lock to be executed
+    //! @param taskName current task name
+    //! @return next task name
+    bool GetIfTaskNeedsLock(const RobotTaskKey& taskName) const;
+
 
     //! Get task with a given name
     //! @param taskName task name

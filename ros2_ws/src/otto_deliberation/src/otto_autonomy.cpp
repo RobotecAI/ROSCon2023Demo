@@ -58,7 +58,7 @@ void OttoAutonomy::Update()
     {
         return;
     }
-
+    m_currentOperationDescription = "";
     const auto currentTaskKey = m_robotStatus.m_currentTask;
     const auto& currentTask = m_robotTasks.ConstructTask(currentTaskKey);
 
@@ -75,19 +75,23 @@ void OttoAutonomy::Update()
         if (duration.count() < currentTask.m_preTaskDelay.value())
         {
             // Waiting for pre-task delay
-            m_currentOperationDescription = "Waiting to predelay at " + currentTaskKey;
+            m_currentOperationDescription += "Waiting to predelay at " + currentTaskKey + "\n";
             return;
         }
     }
 
     // try to lock
-    if (currentTask.m_isNeedLock)
+    if (!m_hasLock && currentTask.m_isAcquiresLock)
     {
         if (!SendLockRequest(currentTask.m_taskName, true))
         {
-            m_currentOperationDescription = "Waiting to lock at " + currentTaskKey;
+            m_currentOperationDescription += "Waiting to lock at " + currentTaskKey + "\n";
             return;
         }
+        m_currentOperationDescription += "Lock obtained " + currentTaskKey + "\n";
+        m_lockTaskName = currentTask.m_taskName;
+        RCLCPP_INFO(m_logger, "Lock obtained %s", m_lockTaskName.c_str());
+        m_hasLock = true;
     }
 
     std_msgs::msg::Bool lifterStatus;
@@ -98,7 +102,7 @@ void OttoAutonomy::Update()
     {
         if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
-            m_currentOperationDescription = "Waiting to load at " + currentTaskKey;
+            m_currentOperationDescription += "Waiting to load at " + currentTaskKey + "\n";
             return;
         }
     }
@@ -107,7 +111,7 @@ void OttoAutonomy::Update()
     {
         if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
-            m_currentOperationDescription = "Waiting to unload at " + currentTaskKey;
+            m_currentOperationDescription += "Waiting to unload at " + currentTaskKey + "\n";
             return;
         }
     }
@@ -116,7 +120,7 @@ void OttoAutonomy::Update()
     {
         if (m_robotStatus.m_currentNavigationTask != currentTaskKey)
         {
-            m_currentOperationDescription = "Started navigation at " + currentTaskKey;
+            m_currentOperationDescription += "Started navigation at " + currentTaskKey + "\n";
             m_robotStatus.m_currentNavigationTask = currentTaskKey;
             m_robotStatus.m_finishedNavigationTask = "";
             m_nav2ActionClient.SendGoal(
@@ -128,7 +132,7 @@ void OttoAutonomy::Update()
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
-            m_currentOperationDescription = "Navigating to " + currentTaskKey;
+            m_currentOperationDescription += "Navigating to " + currentTaskKey;
             // Waiting for navigation
             return;
         }
@@ -147,10 +151,41 @@ void OttoAutonomy::Update()
         if (duration.count() < currentTask.m_postTaskDelay.value())
         {
             // Waiting for pre-task delay
-            m_currentOperationDescription = "Waiting post delay at " + currentTaskKey;
+            m_currentOperationDescription += "Waiting post delay at " + currentTaskKey + "\n";
             return;
         }
     }
+
+    // unlock
+    if (currentTask.m_isReleasesLock && m_hasLock)
+    {
+        // check if next task has lock, if so try lock it to prevent releasing this task
+        const auto& nextTaskName = currentTask.m_nextTaskName;
+        if (!nextTaskName.empty() && m_robotTasks.GetIfTaskNeedsLock(nextTaskName))
+        {
+            if (!SendLockRequest(nextTaskName, true))
+            {
+                m_currentOperationDescription += "Waiting to acquire next task lock "+ nextTaskName + " at " + currentTaskKey + "\n";
+                return;
+            }
+            // release old lock
+            SendLockRequest(m_lockTaskName, false);
+            m_currentOperationDescription += "Lock obtained " + nextTaskName + ", releasing lock " + m_lockTaskName + "\n";
+            RCLCPP_INFO(m_logger, "Lock obtained %s, releasing lock %s", nextTaskName.c_str(), m_lockTaskName.c_str());
+            m_lockTaskName = nextTaskName;
+            m_hasLock = true;
+        }
+        else
+        {
+            SendLockRequest(m_lockTaskName, false);
+            m_currentOperationDescription += "Releasing lock " + m_lockTaskName + "\n";
+            RCLCPP_INFO(m_logger, "Releasing lock %s", m_lockTaskName.c_str());
+            m_lockTaskName = "";
+            m_hasLock = false;
+        }
+
+    }
+
     if (currentTask.m_nextTaskName.empty())
     {
         return;

@@ -59,7 +59,16 @@ bool RobotTasks::ValidateTasks() const
         }
     }
 
-    for (auto& m : m_tasksWithLock)
+    for (auto& m : m_acquireLock)
+    {
+        if (m_validTasks.count(m) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with lock but not in tasks list", m.c_str());
+        }
+    }
+
+    for (auto& m : m_releaseLock)
     {
         if (m_validTasks.count(m) == 0)
         {
@@ -99,6 +108,24 @@ bool RobotTasks::ValidateTasks() const
         RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Technically, empty scenario is valid, but it is not very useful.");
     }
 
+    bool lock = false;
+    for (auto &taskName : m_tasks)
+    {
+        const auto task = ConstructTask(taskName);
+        if (task.m_isAcquiresLock)
+        {
+            lock = true;
+        }
+        if (task.m_isReleasesLock)
+        {
+            lock = false;
+        }
+    }
+    if (lock)
+    {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Lock is not released at the end of the scenario");
+    }
     return isValid;
 }
 
@@ -171,7 +198,8 @@ Task RobotTasks::ConstructTask(const RobotTaskKey& taskKey) const
     task.m_isReverse = m_blindTasksReverse.count(taskKey) > 0;
     task.m_isLifter = m_lifterTasks.count(taskKey) > 0;
     task.m_isDummy = m_dummyTasks.count(taskKey) > 0;
-    task.m_isNeedLock = m_tasksWithLock.count(taskKey) > 0;
+    task.m_isAcquiresLock = m_acquireLock.count(taskKey) > 0;
+    task.m_isReleasesLock = m_releaseLock.count(taskKey) > 0;
     task.m_isCargoUnload = m_cargoUnLoadTasks.count(taskKey) > 0;
     task.m_isCargoLoad = m_cargoLoadTasks.count(taskKey) > 0;
     if (m_taskPaths.count(taskKey) > 0)
@@ -187,4 +215,9 @@ Task RobotTasks::ConstructTask(const RobotTaskKey& taskKey) const
         task.m_postTaskDelay = m_postTaskDelays.at(taskKey);
     }
     return task;
+}
+
+bool RobotTasks::GetIfTaskNeedsLock(const RobotTaskKey& taskName) const
+{
+    return m_acquireLock.count(taskName) > 0;
 }

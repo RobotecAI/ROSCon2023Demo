@@ -45,5 +45,6 @@ private:
     bool m_isWaitingPreTaskDelay{ false };
     bool m_loop{ false };
     bool m_hasLock{ false };
+    std::string m_lockTaskName {};
     std::string m_currentOperationDescription;
 };

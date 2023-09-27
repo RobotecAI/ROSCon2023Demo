@@ -74,7 +74,7 @@ def launch_setup(context, *args, **kwargs):
     ])
 
     deliberation_group = TimerAction(
-        period = 10.,
+        period = 30.,
         actions = [
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
@@ -99,11 +99,15 @@ def launch_setup(context, *args, **kwargs):
     o3de_fleet_nav = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(o3de_fleet_nav_dir, "o3de_fleet_nav_launch.py")
-        )
+        ),
+        launch_arguments = {
+            "use_rviz": "False",
+            "fleet_config_path": config_file_arg,
+        }.items()
     )
 
     nodes_to_start.append(orchestrator)
-    nodes_to_start.append(blind_path_followers_group)
+    # nodes_to_start.append(blind_path_followers_group)
     nodes_to_start.append(moveIt_group)
     nodes_to_start.append(o3de_fleet_nav)
     nodes_to_start.append(deliberation_group)

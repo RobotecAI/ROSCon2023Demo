@@ -3,7 +3,7 @@ fleet:
     robot_namespace: otto_1
     lane: Line1
     position: 
-      x: -28.0
+      x: -40.0
       y: 2.0
       z: 0.1
 
@@ -12,30 +12,73 @@ fleet:
     robot_namespace: otto_2
     lane: Line2
     position: 
-      x: -26.0
+      x: -38.0
       y: 2.0
       z: 0.2
 
   - robot_name: otto600
     robot_namespace: otto_3
-    lane: Line1
+    lane: Line3
     position: 
-      x: -24.0
-      y: 2.0
+      x: -40.0
+      y: 29.0
       z: 0.2
 
   - robot_name: otto600
     robot_namespace: otto_4
-    lane: Line2
+    lane: Line4
     position: 
-      x: -22.0
-      y: 2.0
+      x: -38.0
+      y: 29.0
       z: 0.2
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_5
+  #   lane: Line1
+  #   position: 
+  #     x: -36.0
+  #     y: 2.0
+  #     z: 0.1
+
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_6
+  #   lane: Line2
+  #   position: 
+  #     x: -34.0
+  #     y: 2.0
+  #     z: 0.2
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_7
+  #   lane: Line3
+  #   position: 
+  #     x: -36.0
+  #     y: 29.0
+  #     z: 0.2
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_8
+  #   lane: Line4
+  #   position: 
+  #     x: -34.0
+  #     y: 29.0
+  #     z: 0.2
+      
 
 arms:
   - namespace: ur1
-    num_of_boxes: 18
+    num_of_boxes: 1
     launch_rviz: false
+
   - namespace: ur2
-    num_of_boxes: 18
+    num_of_boxes: 1
+    launch_rviz: false
+
+  - namespace: ur3
+    num_of_boxes: 1
+    launch_rviz: false
+
+  - namespace: ur4
+    num_of_boxes: 1
     launch_rviz: false

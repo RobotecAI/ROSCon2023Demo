@@ -1,6 +1,13 @@
+/*
+* Copyright (c) Contributors to the Open 3D Engine Project.
+* For complete copyright and license terms please see the LICENSE at the root
+* of this distribution.
+*
+* SPDX-License-Identifier: Apache-2.0 OR MIT
+*
+*/
 #pragma once
 
-#include "WaypointComponent.h"
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/EntityId.h>
 #include <AzCore/Component/TickBus.h>
@@ -10,6 +17,8 @@
 #include <AzCore/std/containers/vector.h>
 #include <AzCore/std/utils.h>
 #include <AzFramework/Entity/EntityDebugDisplayBus.h>
+#include <HumanNpc/NpcNavigatorBus.h>
+#include <HumanNpc/WaypointComponent.h>
 #include <ROS2/Communication/TopicConfiguration.h>
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <RecastNavigation/RecastNavigationMeshBus.h>
@@ -18,11 +27,13 @@
 
 namespace ROS2::Demo
 {
+    //! Component used for navigating an npc along a selected waypoint path.
     class NpcNavigatorComponent
         : public AZ::Component
         , private AZ::TickBus::Handler
         , private AzFramework::EntityDebugDisplayEventBus::Handler
         , private RecastNavigation::RecastNavigationMeshNotificationBus::Handler
+        , private NpcNavigatorRequestBus::Handler
     {
     public:
         AZ_COMPONENT(NpcNavigatorComponent, "{2b71bda6-b986-4627-8e68-15821565f503}", AZ::Component);
@@ -43,9 +54,9 @@ namespace ROS2::Demo
         using PublisherPtr = std::shared_ptr<rclcpp::Publisher<geometry_msgs::msg::Twist>>;
         enum class NavigationState
         {
-            IDLE,
-            NAVIGATE,
-            ROTATE,
+            Idle,
+            Navigate,
+            Rotate,
         };
 
         struct Speed
@@ -87,6 +98,10 @@ namespace ROS2::Demo
         {
         }
 
+        // NpcNavigatorRequestBus overrides
+        void ClearWaypoints() override;
+        void AddWaypoint(AZ::EntityId waypointEntityId) override;
+
         [[nodiscard]] AZ::Transform GetCurrentTransform() const;
 
         AZStd::vector<GoalPose> TryFindGoalPath();
@@ -98,9 +113,9 @@ namespace ROS2::Demo
         void Publish(Speed speed);
         void RecalculateCurrentGoalPath();
 
-        bool m_debugMode{ false };
+        bool m_debugMode{ false }, m_restartOnTraversed{ true };
 
-        NavigationState m_state{ NavigationState::NAVIGATE };
+        NavigationState m_state{ NavigationState::Navigate };
         AZ::EntityId m_navigationEntity;
         WaypointConfiguration m_waypointConfiguration;
         size_t m_waypointIndex{ 0LU }, m_goalIndex{ 0LU };

@@ -13,18 +13,17 @@
 
 namespace ROS2::Demo
 {
-    struct WaypointConfiguration;
-
-    class WaypointRequests
+    class NpcNavigatorRequests
     {
     public:
-        AZ_RTTI(WaypointRequests, "{0c56b5b6-2daf-4b8b-a1a3-7b43a04d3549}");
-        virtual ~WaypointRequests() = default;
+        AZ_RTTI(NpcNavigatorRequests, "{31d0a864-9d15-4ad7-a597-a4573937957d}");
+        virtual ~NpcNavigatorRequests() = default;
 
-        virtual WaypointConfiguration GetConfiguration() = 0;
+        virtual void ClearWaypoints() = 0;
+        virtual void AddWaypoint(AZ::EntityId waypointEntityId) = 0;
     };
 
-    class WaypointRequestBusTraits : public AZ::EBusTraits
+    class NpcNavigatorRequestBusTraits : public AZ::EBusTraits
     {
     public:
         //////////////////////////////////////////////////////////////////////////
@@ -35,5 +34,5 @@ namespace ROS2::Demo
         //////////////////////////////////////////////////////////////////////////
     };
 
-    using WaypointRequestBus = AZ::EBus<WaypointRequests, WaypointRequestBusTraits>;
+    using NpcNavigatorRequestBus = AZ::EBus<NpcNavigatorRequests, NpcNavigatorRequestBusTraits>;
 } // namespace ROS2::Demo

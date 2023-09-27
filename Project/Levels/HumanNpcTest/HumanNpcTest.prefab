@@ -30,7 +30,8 @@
                     "Entity_[1671042079723]",
                     "Entity_[476097959717]",
                     "Instance_[24377731236726]/ContainerEntity",
-                    "Instance_[5523627744235]/ContainerEntity"
+                    "Instance_[5523627744235]/ContainerEntity",
+                    "Entity_[554674214099]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -4778,6 +4779,69 @@
                 }
             }
         },
+        "Entity_[554674214099]": {
+            "Id": "Entity_[554674214099]",
+            "Name": "Waypoint Selector",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 5659694760957730575
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 9739839171739550696
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3084307055121948726
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 516418720441768257
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10470144171870681511
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13500482554142502498
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 8467327842455255215
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14399286436638543504
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13636399276237972625,
+                    "Parent Entity": "Entity_[1146574390643]"
+                },
+                "WaypointSelectorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 1356174256600895397,
+                    "m_template": {
+                        "$type": "WaypointSelectorComponent",
+                        "Seed": 43,
+                        "Human Npcs": [
+                            "Instance_[24377731236726]/Entity_[66011467218485]",
+                            "Instance_[5523627744235]/Entity_[66011467218485]"
+                        ],
+                        "Waypoint Entities": [
+                            "Entity_[488982861605]",
+                            "Entity_[25799761774418]",
+                            "Entity_[8486598139339]",
+                            "Entity_[8495188073931]",
+                            "Entity_[1662452145131]",
+                            "Entity_[1671042079723]"
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[558238975826]": {
             "Id": "Entity_[558238975826]",
             "Name": "Cube",
@@ -6745,6 +6809,11 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
                     "value": "../Entity_[476097959717]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Angular Speed",
+                    "value": 3.0
                 }
             ]
         },
@@ -6825,6 +6894,11 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
                     "value": "../Entity_[476097959717]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Angular Speed",
+                    "value": 3.0
                 }
             ]
         }

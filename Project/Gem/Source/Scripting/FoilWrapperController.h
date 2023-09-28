@@ -81,7 +81,8 @@ namespace ROS2::Demo
        bool isObjectPallet(const AZ::EntityId entityId) const;
 
        AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler m_onTriggerEnterHandler;
-       AZStd::vector<AZ::EntityId> m_collidingEntities; //!< List of boxes that are in foil wrapper
+       AzPhysics::SimulatedBodyEvents::OnTriggerExit::Handler m_onTriggerExitHandler;
+       AZStd::unordered_set<AZ::EntityId> m_collidingEntities; //!< List of boxes that are in foil wrapper
        AZ::EntityId m_pallet; //!< A pallet that is in foil wrapper
        int m_wrappedPallets {0}; //!< Number of wrapped pallets
        bool m_payloadSpawned {false}; //!< Flag that indicates if the payload was spawned

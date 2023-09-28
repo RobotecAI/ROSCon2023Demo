@@ -1,9 +1,10 @@
+import os
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import OpaqueFunction
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
-
+from ament_index_python.packages import get_package_share_directory
 
 def launch_setup(context, *args, **kwargs):
 
@@ -12,13 +13,20 @@ def launch_setup(context, *args, **kwargs):
 
     nodes_to_start = []
 
+    task_descriptions = os.path.join(
+        get_package_share_directory('otto_deliberation'),
+        'config',
+        'otto600_tasks.yaml'
+    )
+         
     otto_deliberation = Node(
         package="otto_deliberation",
         executable="deliberation_otto_node",
         namespace=namespace,
         output="screen",
         parameters=[
-            {"assigned_lane": assigned_lane}
+            {"assigned_lane": assigned_lane},
+            task_descriptions
         ],
     )
 

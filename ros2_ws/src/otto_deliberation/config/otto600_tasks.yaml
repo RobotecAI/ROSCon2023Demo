@@ -2,7 +2,7 @@
   ros__parameters:
     loop: true
     tasks : ["Idle", "GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "GoToWrappingGlobal", "ApproachWrappingGlobal", "DoWrapping", "GoToUnload", "GoToUnloadExactGlobal", "ApproachUnloadGlobal", "WaitUnload", "EvacuateFromUnloadGlobal", "LeaveUnload" ]
-    lifter_tasks : ["GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup"]
+    lifter_tasks : ["ApproachPickup", "WaitLoad", "EvacuateFromPickup"]
     pre_task_delays : [0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     post_task_delays : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     dummy_tasks: ["Idle",  "WaitUnload", "DoWrapping", "WaitUnload", "WaitLoad"]

@@ -807,27 +807,7 @@
             "Components": {
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 5108760670660760982,
-                    "DisabledComponents": {
-                        "FoilWrapper": {
-                            "$type": "GenericComponentWrapper",
-                            "Id": 3773514971444242044,
-                            "m_template": {
-                                "$type": "FoilWrapper",
-                                "FoilWrapperConfig": {
-                                    "FoilWrapperEntityId": "Instance_[2387492465947421]/Instance_[22762098693080]/Instance_[2990698559568134]/Entity_[2990724329371910]",
-                                    "CollisionTrigger": "Entity_[23923972842980]",
-                                    "SpawnablePayloadFoiled": {
-                                        "assetId": {
-                                            "guid": "{C0D5AF17-1683-5B34-BB2B-48B9AC98E51B}",
-                                            "subId": 4208933064
-                                        },
-                                        "assetHint": "assets/factory/objects/palletstack1.spawnable"
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    "Id": 5108760670660760982
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -859,6 +839,24 @@
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 11083370798375568426
+                },
+                "FoilWrapper": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 255403179754428852,
+                    "m_template": {
+                        "$type": "FoilWrapper",
+                        "FoilWrapperConfig": {
+                            "FoilWrapperEntityId": "Instance_[2387492465947421]/Instance_[22762098693080]/Instance_[2990698559568134]/Entity_[2990724329371910]",
+                            "CollisionTrigger": "Entity_[23923972842980]",
+                            "SpawnablePayloadFoiled": {
+                                "assetId": {
+                                    "guid": "{0D44721F-2398-5BD7-80E0-81A23300265C}",
+                                    "subId": 346410741
+                                },
+                                "assetHint": "assets/factory/objects/palletstackpayloadfoil1.spawnable"
+                            }
+                        }
+                    }
                 },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
@@ -919,9 +917,19 @@
                                         -0.12433278560638428
                                     ],
                                     [
-                                        -1.636489987373352,
-                                        -7.869860649108887,
+                                        -3.1327569484710693,
+                                        -7.8539018630981445,
+                                        -0.11967816948890686
+                                    ],
+                                    [
+                                        -3.0311694145202637,
+                                        -6.382462978363037,
                                         -0.11644113063812256
+                                    ],
+                                    [
+                                        -1.5632883310317993,
+                                        -6.369952201843262,
+                                        -0.08761601895093918
                                     ],
                                     [
                                         -1.3407864570617676,
@@ -2793,8 +2801,18 @@
                                         -0.048885345458984375
                                     ],
                                     [
+                                        -2.48345947265625,
+                                        -2.4217007160186768,
+                                        -0.12433421611785889
+                                    ],
+                                    [
+                                        -2.446535110473633,
+                                        0.23279891908168793,
+                                        -0.12433421611785889
+                                    ],
+                                    [
                                         -0.9593809843063354,
-                                        -2.2953224182128906,
+                                        0.16576552391052246,
                                         0.0
                                     ]
                                 ]

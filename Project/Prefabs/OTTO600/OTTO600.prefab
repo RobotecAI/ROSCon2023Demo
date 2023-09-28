@@ -1799,6 +1799,97 @@
                         "SolverVelocityIterations": 10
                     }
                 },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 8939594795009609009,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{E74C5AFD-6A39-5B3E-9189-2266FA51EE43}",
+                            "path": "Prefabs/Otto600-Platform/LiftAnimationOtto600.scriptcanvas"
+                        },
+                        "sourceName": "LiftAnimationOtto600.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{E74C5AFD-6A39-5B3E-9189-2266FA51EE43}",
+                                "path": "Prefabs/Otto600-Platform/LiftAnimationOtto600.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{198EA003-71F6-4DD1-907E-1B3686677B84}"
+                                    },
+                                    "VariableName": "LiftEntity",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{D70B845B-F701-4CE8-A126-CED6D2D72369}"
+                                    },
+                                    "VariableName": "MotorEntity",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[466631426571]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{198EA003-71F6-4DD1-907E-1B3686677B84}"
+                                    },
+                                    "VariableName": "LiftEntity",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[406501884427]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{D70B845B-F701-4CE8-A126-CED6D2D72369}"
+                                    },
+                                    "VariableName": "MotorEntity",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 10910652991628068510
@@ -1901,7 +1992,7 @@
                     },
                     "Linear Limit": {
                         "Lower Limit": 0.0,
-                        "Upper Limit": 0.04500000178813934
+                        "Upper Limit": 0.05999999865889549
                     },
                     "Motor": {
                         "UseMotor": true,
@@ -1917,14 +2008,14 @@
                         "Centre of mass offset": [
                             0.0,
                             0.0,
-                            0.39500001072883606
+                            0.4000000059604645
                         ],
                         "Inertia tensor": [
-                            1.1658997535705566,
+                            1.1658992767333984,
                             0.0,
                             0.0,
                             0.0,
-                            3.21934175491333,
+                            3.219341278076172,
                             0.0,
                             0.0,
                             0.0,
@@ -2549,7 +2640,7 @@
                                     "guid": "{68D29BB5-976C-5549-87DB-B4C30628E7E3}",
                                     "subId": 282067103
                                 },
-                                "assetHint": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.azmodel"
+                                "assetHint": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.fbx.azmodel"
                             }
                         }
                     }
@@ -2573,29 +2664,6 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 8060207052912309212
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 16543513318289656469,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2084814471
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            },
-                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
                 },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
@@ -3174,7 +3242,7 @@
                                     "guid": "{68D29BB5-976C-5549-87DB-B4C30628E7E3}",
                                     "subId": 273667124
                                 },
-                                "assetHint": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.azmodel"
+                                "assetHint": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.fbx.azmodel"
                             }
                         }
                     }
@@ -3199,42 +3267,6 @@
                     "$type": "EditorLockComponent",
                     "Id": 6000755697717999463
                 },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 15539110423320234127,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2084814471
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            },
-                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3382174916
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            },
-                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 2449285048577716153
@@ -3255,12 +3287,12 @@
                         "Translate": [
                             0.0,
                             0.0,
-                            0.34360799193382263
+                            0.35199999809265137
                         ],
                         "Rotate": [
                             0.0,
                             0.0,
-                            90.0
+                            89.99994659423828
                         ]
                     }
                 }

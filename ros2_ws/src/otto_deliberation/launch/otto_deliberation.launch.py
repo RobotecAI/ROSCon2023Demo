@@ -10,6 +10,8 @@ def launch_setup(context, *args, **kwargs):
 
     namespace = LaunchConfiguration("namespace")
     assigned_lane = LaunchConfiguration("assigned_lane")
+    tasks_config_file = LaunchConfiguration("tasks_config_file")
+
 
     nodes_to_start = []
 
@@ -26,7 +28,7 @@ def launch_setup(context, *args, **kwargs):
         output="screen",
         parameters=[
             {"assigned_lane": assigned_lane},
-            task_descriptions
+            tasks_config_file.perform(context)
         ],
     )
 
@@ -41,6 +43,8 @@ def generate_launch_description():
     namespace = DeclareLaunchArgument("namespace")
 
     assigned_lane = DeclareLaunchArgument("assigned_lane")
+
+    task_config_file = DeclareLaunchArgument("tasks_config_file")
 
     declared_arguments = [namespace, assigned_lane]
 

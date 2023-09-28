@@ -36,9 +36,11 @@ def launch_setup(context, *args, **kwargs):
                     "lane": robot["lane"],
                     "x_pose": robot["position"]["x"],
                     "y_pose": robot["position"]["y"],
-                    "z_pose": robot["position"]["z"]
+                    "z_pose": robot["position"]["z"],
+                    "tasks_config_file": robot["tasks_config_file"],
                 }
             )
+            print(os.path.join(deliberation_dir, robot["tasks_config_file"]))
         
         for ur in configuration["arms"]:
             arms.append(
@@ -74,14 +76,15 @@ def launch_setup(context, *args, **kwargs):
     ])
 
     deliberation_group = TimerAction(
-        period = 10.,
+        period = 15.,
         actions = [
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    os.path.join(deliberation_dir, 'otto600_deliberation.launch.py')),
+                    os.path.join(deliberation_dir, 'otto_deliberation.launch.py')),
                 launch_arguments = {
                     "namespace" : robot["namespace"],
                     "assigned_lane" : robot["lane"],
+                    "tasks_config_file" : os.path.join(get_package_share_directory("otto_deliberation"), robot["tasks_config_file"]),
                 }.items()
             ) for robot in robots
         ]

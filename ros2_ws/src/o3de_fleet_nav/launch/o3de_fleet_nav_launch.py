@@ -174,6 +174,14 @@ def generate_launch_description():
             description='Fleet configuration file'
         )
     )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            'use_rviz',
+            default_value='True',
+            description='Launch rviz with nav2'
+        )
+    )
     
     ld = LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
 

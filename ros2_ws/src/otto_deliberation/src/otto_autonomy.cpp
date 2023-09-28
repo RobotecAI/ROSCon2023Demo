@@ -109,7 +109,7 @@ void OttoAutonomy::Update()
 
     if (currentTask.m_isCargoUnload)
     {
-        if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
+        if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_EMPTY)
         {
             m_currentOperationDescription += "Waiting to unload at " + currentTaskKey + "\n";
             return;

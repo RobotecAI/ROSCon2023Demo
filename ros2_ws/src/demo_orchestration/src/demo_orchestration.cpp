@@ -26,7 +26,6 @@ public:
     {
         if (request->lock_status == true)
         {
-            std::cerr << "Request to lock " << request->lane_name << " " << request->path_name << std::endl;
             bool isLocked = IsPathLocked(request->lane_name, request->path_name);
             if (!isLocked)
             {
@@ -108,7 +107,6 @@ private:
         bool isLocked = false;
         if (IsPathGlobal(path_name))
         {
-            std::cerr << "Path " << path_name << " is global" << std::endl;
             for (auto paths : m_lanesLocks)
             {
                 auto lockIterator = paths.second.find(path_name);
@@ -117,11 +115,9 @@ private:
                     isLocked |= lockIterator->second;
                 }
             }
-            std::cerr << "Determined locked: " << isLocked << std::endl;
         }
         else
         {
-            std::cerr << "Path " << path_name << " is NON global" << std::endl;
             auto paths = m_lanesLocks.find(lane_name);
             if (paths == m_lanesLocks.end())
             {
@@ -133,15 +129,12 @@ private:
                 return false;
             }
             isLocked |= pathIterator->second;
-            std::cerr << "Determined locked: " << isLocked << std::endl;
         }
         auto pathDependency = PathDependency(path_name);
         if (!isLocked && pathDependency)
         {
-            std::cerr << "Found dependency: " << *pathDependency << std::endl;
             isLocked |= IsPathLocked(lane_name, *pathDependency);
         }
-        std::cerr << "Finally path " << path_name << " determinded: " << isLocked << std::endl;
         return isLocked;
     }
 

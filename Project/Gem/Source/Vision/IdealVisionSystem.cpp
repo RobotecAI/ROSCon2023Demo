@@ -22,7 +22,6 @@
 #include <LmbrCentral/Scripting/TagComponentBus.h>
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
-#include <ROS2/Sensor/ROS2SensorComponent.h>
 #include <ROS2/Utilities/ROS2Conversions.h>
 #include <ROS2/Utilities/ROS2Names.h>
 
@@ -162,11 +161,22 @@ namespace ROS2::Demo
             AzFramework::EntityDebugDisplayEventBus::Handler::BusConnect(this->GetEntityId());
         }
 
-        ROS2SensorComponent::Activate();
+        StartSensor(
+            m_sensorConfiguration.m_frequency,
+            [this]([[maybe_unused]] auto&&... args)
+            {
+                if (!m_sensorConfiguration.m_publishingEnabled)
+                {
+                    return;
+                }
+                FrequencyTick();
+            });
+
     }
 
     void IdealVisionSystem::Deactivate()
     {
+        StopSensor();
         m_detection3DPublisher.reset();
         m_detection2DPublisher.reset();
         m_detectionArrayPublisher.reset();
@@ -174,7 +184,6 @@ namespace ROS2::Demo
         {
             AzFramework::EntityDebugDisplayEventBus::Handler::BusDisconnect();
         }
-        ROS2SensorComponent::Deactivate();
 
     }
 
@@ -183,7 +192,7 @@ namespace ROS2::Demo
         IdealVisionSystemConfiguration::Reflect(context);
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<IdealVisionSystem, ROS2SensorComponent>()->Version(1)->Field(
+            serialize->Class<IdealVisionSystem, ROS2SensorComponentBase>()->Version(1)->Field(
                 "configuration", &IdealVisionSystem::m_configuration);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())

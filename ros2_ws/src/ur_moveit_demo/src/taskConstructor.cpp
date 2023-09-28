@@ -1,4 +1,5 @@
 #include "taskConstructor.h"
+#include "moveit/task_constructor/solvers/multi_planner.h"
 #include "utils.h"
 
 namespace TaskConstructor
@@ -21,9 +22,9 @@ namespace TaskConstructor
         LiftConfig.insert({ ns + "/shoulder_pan_joint", -2.644500255584717 });
         LiftConfig.insert({ ns + "/wrist_3_joint", -4.113039656 });
 
-        DropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 - change });
-        DropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 + change });
-        DropConfig.insert({ ns + "/shoulder_lift_joint", -2.0 });
+        DropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 });
+        DropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 });
+        DropConfig.insert({ ns + "/shoulder_lift_joint", -1.8 });
         DropConfig.insert({ ns + "/wrist_2_joint", 1.5672444105148315 });
         DropConfig.insert({ ns + "/shoulder_pan_joint", -0.15679530799388885 });
         DropConfig.insert({ ns + "/wrist_3_joint", -3.1959822177886963 });
@@ -42,12 +43,13 @@ namespace TaskConstructor
             RCLCPP_ERROR_STREAM(node_->get_logger(), e);
             return false;
         }
-        std::cerr << "Exited init" << std::endl;
+	     RCLCPP_INFO_STREAM(node_->get_logger(), "Task initialized: " << task_.name());
         try
         {
-            if (!task_.plan(5))
+            if (!task_.plan(3))
             {
-                RCLCPP_ERROR_STREAM(node_->get_logger(), "Task planning failed");
+                RCLCPP_ERROR_STREAM(node_->get_logger(), "Task planning failed for task " << task_.name());
+			       task_.explainFailure();
                 return false;
             }
 
@@ -76,10 +78,9 @@ namespace TaskConstructor
         task.loadRobotModel(node_);
 
         auto cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
-        cartesian_planner->setMaxVelocityScaling(1.0);
-        cartesian_planner->setMaxAccelerationScaling(1.0);
-        cartesian_planner->setStepSize(.01);
-
+        cartesian_planner->setMaxVelocityScalingFactor(0.1);
+        cartesian_planner->setMaxAccelerationScalingFactor(0.1);
+        cartesian_planner->setStepSize(.005);
 
         auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
         task.add(std::move(stage_state_current));
@@ -88,11 +89,12 @@ namespace TaskConstructor
         sampling_planner->setTimeout(10.);
         auto interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
         interpolation_planner->setTimeout(10);
+	     interpolation_planner->setMaxVelocityScalingFactor(0.5);
+	     interpolation_planner->setMaxAccelerationScalingFactor(0.5);
 
-        // auto cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
-        // cartesian_planner->setMaxVelocityScaling(1.0);
-        // cartesian_planner->setMaxAccelerationScaling(1.0);
-        // cartesian_planner->setStepSize(.01);
+	     auto multi_planner = std::make_shared<mtc::solvers::MultiPlanner>();
+	     multi_planner->push_back(interpolation_planner);
+	     multi_planner->push_back(sampling_planner);
 
         {
             auto PickupSerial = std::make_unique<mtc::SerialContainer>("Pickup");
@@ -107,7 +109,7 @@ namespace TaskConstructor
                 PickupSerial->insert(std::move(stage));
             }
             {
-                auto stage = std::make_unique<mtc::stages::MoveTo>("Over conveyor", sampling_planner);
+                auto stage = std::make_unique<mtc::stages::MoveTo>("Over conveyor", multi_planner);
                 stage->setGroup(ns + "/ur_manipulator");
                 stage->setGoal(LiftConfig);
 
@@ -164,16 +166,24 @@ namespace TaskConstructor
         auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
         task.add(std::move(stage_state_current));
 
-        auto sampling_planner = std::make_shared<mtc::solvers::PipelinePlanner>(node_);
+	     auto sampling_planner = std::make_shared<mtc::solvers::PipelinePlanner>(node_);
+	     sampling_planner->setTimeout(10.);
+
         auto interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
         interpolation_planner->setTimeout(10);
+	     interpolation_planner->setMaxVelocityScalingFactor(0.5);
+	     interpolation_planner->setMaxAccelerationScalingFactor(0.5);
 
         auto cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
-        cartesian_planner->setMaxVelocityScaling(1.0);
-        cartesian_planner->setMaxAccelerationScaling(1.0);
-        cartesian_planner->setStepSize(.01);
+        cartesian_planner->setMaxVelocityScalingFactor(0.1);
+        cartesian_planner->setMaxAccelerationScalingFactor(0.1);
+        cartesian_planner->setStepSize(.005);
 
-        auto MoveToDrop = std::make_unique<mtc::SerialContainer>("Move to drop");
+	     auto multi_planner = std::make_shared<mtc::solvers::MultiPlanner>();
+	     multi_planner->push_back(interpolation_planner);
+	     multi_planner->push_back(sampling_planner);
+
+	     auto MoveToDrop = std::make_unique<mtc::SerialContainer>("Move to drop");
         {
             auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("Set scene");
 
@@ -224,14 +234,14 @@ namespace TaskConstructor
             MoveToDrop->insert(std::move(relativeMove));
         }
         {
-            auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", interpolation_planner);
+            auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location", multi_planner);
             moveToDropLocation->setGroup(ns + "/ur_manipulator");
             moveToDropLocation->setGoal(DropConfig);
 
             MoveToDrop->insert(std::move(moveToDropLocation));
         }
         {
-            auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location exact", interpolation_planner);
+            auto moveToDropLocation = std::make_unique<mtc::stages::MoveTo>("Drop location exact", multi_planner);
             moveToDropLocation->setGroup(ns + "/ur_manipulator");
             moveToDropLocation->setIKFrame(ns + "/gripper_link");
 
@@ -280,11 +290,18 @@ namespace TaskConstructor
         auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
         task.add(std::move(stage_state_current));
 
+	     auto sampling_planner = std::make_shared<mtc::solvers::PipelinePlanner>(node_);
+	     sampling_planner->setTimeout(10.);
         auto interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
         interpolation_planner->setTimeout(10);
+	     interpolation_planner->setMaxVelocityScalingFactor(0.5);
+	     interpolation_planner->setMaxAccelerationScalingFactor(0.5);
+	     auto multi_planner = std::make_shared<mtc::solvers::MultiPlanner>();
+	     multi_planner->push_back(interpolation_planner);
+	     multi_planner->push_back(sampling_planner);
 
         {
-            auto stage = std::make_unique<mtc::stages::MoveTo>("Park position", interpolation_planner);
+            auto stage = std::make_unique<mtc::stages::MoveTo>("Park position", multi_planner);
             stage->setGroup(ns + "/ur_manipulator");
             stage->setGoal(ns + "/test_configuration");
             task.add(std::move(stage));

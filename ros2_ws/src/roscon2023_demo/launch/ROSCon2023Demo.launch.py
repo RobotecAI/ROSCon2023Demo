@@ -78,7 +78,7 @@ def launch_setup(context, *args, **kwargs):
         actions = [
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    os.path.join(deliberation_dir, 'otto_deliberation.launch.py')),
+                    os.path.join(deliberation_dir, 'otto600_deliberation.launch.py')),
                 launch_arguments = {
                     "namespace" : robot["namespace"],
                     "assigned_lane" : robot["lane"],

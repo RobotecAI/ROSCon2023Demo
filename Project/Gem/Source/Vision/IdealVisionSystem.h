@@ -16,7 +16,8 @@
 #include <AzFramework/Entity/EntityDebugDisplayBus.h>
 #include <AzFramework/Physics/ShapeConfiguration.h>
 #include <ROS2/Camera/CameraCalibrationRequestBus.h>
-#include <ROS2/Sensor/ROS2SensorComponent.h>
+#include <ROS2/Sensor/Events/TickBasedSource.h>
+#include <ROS2/Sensor/ROS2SensorComponentBase.h>
 #include <geometry_msgs/msg/pose_array.hpp>
 #include <rclcpp/publisher.hpp>
 #include <vision_msgs/msg/detection2_d_array.hpp>
@@ -25,11 +26,11 @@
 namespace ROS2::Demo
 {
     class IdealVisionSystem
-        : public ROS2SensorComponent
+        : public ROS2SensorComponentBase<TickBasedSource>
         , protected AzFramework::EntityDebugDisplayEventBus::Handler
     {
     public:
-        AZ_COMPONENT(IdealVisionSystem, "{4f983ee4-33e7-447e-b668-970166e24519}", ROS2SensorComponent);
+        AZ_COMPONENT(IdealVisionSystem, "{4f983ee4-33e7-447e-b668-970166e24519}", SensorBaseType);
         IdealVisionSystem();
         IdealVisionSystem(const IdealVisionSystemConfiguration& configuration);
         ~IdealVisionSystem() = default;
@@ -44,7 +45,7 @@ namespace ROS2::Demo
         static constexpr size_t FrustumPointCount = 5;
 
         // ROS::SensorComponent overrides...
-        void FrequencyTick() override;
+        void FrequencyTick();
 
         // EntityDebugDisplayEventBus::Handler overrides
         void DisplayEntityViewport(const AzFramework::ViewportInfo& viewportInfo, AzFramework::DebugDisplayRequests& debugDisplay) override;

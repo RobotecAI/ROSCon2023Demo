@@ -58,18 +58,32 @@ namespace ROS2::Demo
         m_onTriggerEnterHandler = AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler(
             [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, [[maybe_unused]] const AzPhysics::TriggerEvent& event)
             {
+                if (m_state == FoilWrapperState::Idle || m_state == FoilWrapperState::Starting)
+                {
+                    const auto entityId = event.m_otherBody->GetEntityId();
+
+                    if (isObjectBox(entityId))
+                    {
+                        m_collidingEntities.insert(entityId);
+                    }
+                    if (isObjectPallet(entityId))
+                    {
+                        m_pallet = entityId;
+                        if (m_state == FoilWrapperState::Idle)
+                        {
+                            m_state = FoilWrapperState::Starting;
+                        }
+                    }
+                }
+            });
+
+        m_onTriggerExitHandler = AzPhysics::SimulatedBodyEvents::OnTriggerExit::Handler(
+            [this]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, const AzPhysics::TriggerEvent& event)
+            {
                 const auto entityId = event.m_otherBody->GetEntityId();
                 if (isObjectBox(entityId))
                 {
-                    m_collidingEntities.push_back(entityId);
-                }
-                if (isObjectPallet(entityId))
-                {
-                    m_pallet = entityId;
-                    if (m_state == FoilWrapperState::Idle)
-                    {
-                        m_state = FoilWrapperState::Starting;
-                    }
+                    m_collidingEntities.erase(entityId);
                 }
             });
 
@@ -142,7 +156,7 @@ namespace ROS2::Demo
 
         // Connect the trigger handlers if not already connected, it is circumventing the issue GH-16188, the
         // RigidbodyNotificationBus should be used instead.
-        if (!m_onTriggerEnterHandler.IsConnected())
+        if (!m_onTriggerEnterHandler.IsConnected() || !m_onTriggerExitHandler.IsConnected())
         {
             AZ_Assert(m_configuration.m_foilWrapperEntityId.IsValid(), "Invalid foil wrapper entity id.");
             if (m_configuration.m_foilWrapperEntityId.IsValid())
@@ -154,6 +168,8 @@ namespace ROS2::Demo
                 {
                     AzPhysics::SimulatedBodyEvents::RegisterOnTriggerEnterHandler(
                         foundBody.first, foundBody.second, m_onTriggerEnterHandler);
+                    AzPhysics::SimulatedBodyEvents::RegisterOnTriggerExitHandler(
+                        foundBody.first, foundBody.second, m_onTriggerExitHandler);
                 }
             }
         }
@@ -223,6 +239,7 @@ namespace ROS2::Demo
                     palletTransform,
                     m_payloadName,
                     m_pallet);
+                m_collidingEntities.clear();
             }
 
             float duration{ 0 };
@@ -240,6 +257,7 @@ namespace ROS2::Demo
             {
                 CreateFixedJoint(m_pallet, wrappedPalletId, physicsSystem, sceneInterface, defaultSceneHandle);
                 m_payloadFixed = true;
+                m_pallet = AZ::EntityId(AZ::EntityId::InvalidEntityId);
             }
 
             if (m_timer >= duration)

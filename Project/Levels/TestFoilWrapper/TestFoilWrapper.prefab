@@ -843,7 +843,7 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            -4.753863334655762,
+                            -11.830199241638184,
                             1.3725366592407227,
                             0.9389328956604004
                         ]
@@ -946,6 +946,201 @@
                     }
                 }
             }
+        },
+        "Entity_[90362926553763]": {
+            "Id": "Entity_[90362926553763]",
+            "Name": "TestSpawner",
+            "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14828415578989904041,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{13903A54-0090-5D48-9738-F7A3BA0DDE6D}",
+                                    "subId": 1078827438
+                                },
+                                "assetHint": "prefabs/physicalboxstack2_3_3.spawnable"
+                            },
+                            "MaxBoxCount": 1,
+                            "BarrierRegionEntityId": "Entity_[90367221521059]",
+                            "DespawnRegionEntityId": "Entity_[175158796242121]"
+                        }
+                    }
+                },
+                "EditorCylinderShapeComponent": {
+                    "$type": "EditorCylinderShapeComponent",
+                    "Id": 6098953341268631389,
+                    "GameView": true,
+                    "ShapeColor": [
+                        1.0,
+                        0.0,
+                        0.7799954414367676,
+                        1.0
+                    ],
+                    "CylinderShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                0.0,
+                                0.7799954414367676
+                            ],
+                            "Height": 0.20000000298023224,
+                            "Radius": 0.20000000298023224
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12990530487444686184
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8455453099840307273
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16757517277857239356,
+                    "Child Entity Order": [
+                        "Entity_[90367221521059]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2042957777692277634,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 128578870509595623
+                        },
+                        {
+                            "ComponentId": 6098953341268631389,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 14828415578989904041,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16827365446763072852
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15622252778273895234
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 17299405788772568831
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12904453803752729362
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 128578870509595623,
+                    "Parent Entity": "Entity_[106022707678409]",
+                    "Transform Data": {
+                        "Translate": [
+                            4.834745407104492,
+                            0.0,
+                            2.0201609134674072
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[90367221521059]": {
+            "Id": "Entity_[90367221521059]",
+            "Name": "TestBarier",
+            "Components": {
+                "EditorBoxShapeComponent": {
+                    "$type": "EditorBoxShapeComponent",
+                    "Id": 16323004206393514184,
+                    "ShapeColor": [
+                        1.0,
+                        0.0,
+                        0.7799954414367676,
+                        1.0
+                    ],
+                    "BoxShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                1.0,
+                                0.0,
+                                0.7799954414367676
+                            ],
+                            "Dimensions": [
+                                7.426851749420166,
+                                5.0,
+                                5.0
+                            ],
+                            "TranslationOffset": [
+                                -2.5825345516204834,
+                                0.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9522083217463383276
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 946846328280688535
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 822844989825255498
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8328691890423297068,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 12647856469469822608
+                        },
+                        {
+                            "ComponentId": 16323004206393514184,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5108772317881622148
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1427578710622586071
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16800547078901619453
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11349538669198015100
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12647856469469822608,
+                    "Parent Entity": "Entity_[90362926553763]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            0.0,
+                            -1.3440611362457275
+                        ]
+                    }
+                }
+            }
         }
     },
     "Instances": {
@@ -969,18 +1164,8 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.17514082789421082
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 0.4674946367740631
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 0.972004532814026
+                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/SkidSteeringModelComponent/m_template/ManualControl",
+                    "value": true
                 }
             ]
         },
@@ -1050,6 +1235,36 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
                     "value": 6.747241020202637
+                }
+            ]
+        },
+        "Instance_[90332861782691]": {
+            "Source": "Prefabs/OTTO600/OTTO600WithPallet.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[351923866075673]/Entities/Entity_[376437113355]/Components/SkidSteeringModelComponent/m_template/ManualControl",
+                    "value": true
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[106022707678409]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 5.005086898803711
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.10738217830657959
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 91.22830963134766
                 }
             ]
         },

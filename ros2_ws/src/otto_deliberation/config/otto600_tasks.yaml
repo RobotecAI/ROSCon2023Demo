@@ -1,14 +1,14 @@
 /**:
   ros__parameters:
     loop: true
-    tasks : ["Idle", "GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "DoWrapping", "GoToUnload", "ApproachUnload", "WaitUnload", "EvacuateFromUnload" ]
-    lifter_tasks : ["GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "DoWrapping", "GoToUnload", "ApproachUnload", "WaitUnload", "EvacuateFromUnload"]
-    pre_task_delays : [0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 5.0, 0.0, 0.0, 5.0, 0.0]
-    post_task_delays : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    dummy_tasks: ["Idle",  "WaitUnload", "DoWrapping", "WaitUnload", EvacuateFromUnload, ApproachUnload, WaitLoad]
-    blind_tasks: ["ApproachPickup","EvacuateFromPickup", "ApproachUnload", "EvacuateFromUnload" ]
-    blind_tasks_reverse: ["EvacuateFromPickup", "EvacuateFromUnload"]
+    tasks : ["Idle", "GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "GoToWrappingGlobal", "ApproachWrappingGlobal", "DoWrapping", "GoToUnload", "GoToUnloadExactGlobal", "ApproachUnloadGlobal", "WaitUnload", "EvacuateFromUnloadGlobal", "LeaveUnload" ]
+    lifter_tasks : ["ApproachPickup", "WaitLoad", "EvacuateFromPickup"]
+    pre_task_delays : [0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    post_task_delays : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    dummy_tasks: ["Idle",  "WaitUnload", "DoWrapping", "WaitUnload", "WaitLoad"]
+    blind_tasks: ["ApproachPickup", "EvacuateFromPickup", "ApproachWrappingGlobal", "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal" ]
+    blind_tasks_reverse: ["EvacuateFromPickup", "EvacuateFromUnloadGlobal"]
     cargo_load_tasks: ["WaitLoad"]
     cargo_unload_tasks: ["WaitUnload"]
-    task_acquire_lock: ["GoToPickup", "GoToWrapping"]
-    task_release_lock: ["EvacuateFromPickup", "GoToUnload"]
+    task_acquire_lock: ["GoToPickup", "GoToWrapping", "GoToWrappingGlobal", "GoToUnloadExactGlobal"]
+    task_release_lock: ["EvacuateFromPickup", "GoToWrapping", "DoWrapping", "EvacuateFromUnloadGlobal"]

@@ -359,6 +359,52 @@
                 }
             }
         },
+        "Entity_[32799934489056]": {
+            "Id": "Entity_[32799934489056]",
+            "Name": "Forklifts",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 16920441581612750818
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5093262972919897590
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 3483713390465155610,
+                    "Child Entity Order": [
+                        "Instance_[55251802242124]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6088334847999458826
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11279112597960661914
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 10991109018324713562
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1926630266556565923
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14374867997632299407
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2350399225392410214,
+                    "Parent Entity": "Entity_[44620649615523]"
+                }
+            }
+        },
         "Entity_[342729264636313]": {
             "Id": "Entity_[342729264636313]",
             "Name": "Under_mezzanine",
@@ -671,7 +717,8 @@
                         "Entity_[44680779157667]",
                         "Entity_[35970861945539]",
                         "Entity_[22259587519448]",
-                        "Instance_[29443303357176]/ContainerEntity"
+                        "Instance_[29443303357176]/ContainerEntity",
+                        "Entity_[32799934489056]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -3038,6 +3085,56 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[12545710239443216069]/Transform Data/Translate/1",
                     "value": -18.379396438598633
+                }
+            ]
+        },
+        "Instance_[55251802242124]": {
+            "Source": "Assets/Forklift/Electric_forklift.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[32799934489056]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -93.8958511352539
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 27.047224044799805
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -74.97868347167969
+                }
+            ]
+        },
+        "Instance_[55376356293708]": {
+            "Source": "Assets/Forklift/Electric_forklift.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[32799934489056]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -57.219791412353516
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 1.172602891921997
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -105.86019134521484
                 }
             ]
         },

@@ -48,7 +48,8 @@ def launch_setup(context, *args, **kwargs):
                     "namespace": robot["robot_namespace"],
                     "x_pose": robot["position"]["x"],
                     "y_pose": robot["position"]["y"],
-                    "z_pose": robot["position"]["z"]
+                    "z_pose": robot["position"]["z"],
+                    "nav2_param_file": robot["nav2_param_file"],
                 }
             )
 
@@ -90,7 +91,7 @@ def launch_setup(context, *args, **kwargs):
     # Define commands for launching the navigation instances
     nav_instances_cmds = []
     for robot in robots:
-        params_file = LaunchConfiguration("robot_params_file")
+        params_file = os.path.join(o3de_fleet_nav_dir, 'params', distro, robot["nav2_param_file"])
         
         configured_tree = ReplaceString(
             source_file=os.path.join(o3de_fleet_nav_dir, 'behaviour_trees', 'navigate_through_poses_w_replanning_and_recovery.xml'),

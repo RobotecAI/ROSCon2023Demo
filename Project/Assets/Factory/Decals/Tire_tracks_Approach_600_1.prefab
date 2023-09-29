@@ -1,0 +1,250 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Tire_tracks_Approach_600_1",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 4914875359661473754
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 21558060555556296
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 976103508634615996,
+                "Child Entity Order": [
+                    "Entity_[162311068651027]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 6309829491156274507
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 5872536812692873369
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 3277005789476830348
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 12075644795218540183
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 496980189795058555
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 1931648941039534043
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 11583312202289711340,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[162311068651027]": {
+            "Id": "Entity_[162311068651027]",
+            "Name": "Tire_tracks_Approach_600_1",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 14852577667258934697
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4773207552679252176
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5412589581834381904,
+                    "Child Entity Order": [
+                        "Instance_[160601671667219]/ContainerEntity",
+                        "Instance_[160588786765331]/ContainerEntity",
+                        "Instance_[160614556569107]/ContainerEntity",
+                        "Instance_[160575901863443]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16148212403573472311,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 15837513254950296234
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5474071998710591391
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16789783818068102162
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13832106359987917525
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 18247612215165616271
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15837513254950296234,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[160575901863443]": {
+            "Source": "Assets/Factory/Decals/Tire_tracks_Otto_600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[162311068651027]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.15002822875976565
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 0.9664592742919922
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/AZ::Render::EditorDecalComponent/Controller/Configuration/Opacity",
+                    "value": 0.12999999523162842
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 5.0
+                }
+            ]
+        },
+        "Instance_[160588786765331]": {
+            "Source": "Assets/Factory/Decals/Tire_tracks_Otto_600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[162311068651027]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.5647792816162109
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 1.768930435180664
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 113.46829986572266
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/AZ::Render::EditorDecalComponent/Controller/Configuration/Opacity",
+                    "value": 0.12999999523162842
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 3.0
+                }
+            ]
+        },
+        "Instance_[160601671667219]": {
+            "Source": "Assets/Factory/Decals/Tire_tracks_Otto_600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[162311068651027]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.25864219665527344
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 1.707315444946289
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 97.07528686523438
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/AZ::Render::EditorDecalComponent/Controller/Configuration/Opacity",
+                    "value": 0.1899999976158142
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 4.0
+                }
+            ]
+        },
+        "Instance_[160614556569107]": {
+            "Source": "Assets/Factory/Decals/Tire_tracks_Otto_600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[162311068651027]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.0373802185058594
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 2.2445735931396484
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -44.389156341552734
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/AZ::Render::EditorDecalComponent/Controller/Configuration/Opacity",
+                    "value": 0.12999999523162842
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[160451347811859]/Components/EditorNonUniformScaleComponent/NonUniformScale/0",
+                    "value": 3.0
+                }
+            ]
+        }
+    }
+}

@@ -79,7 +79,7 @@ public:
 
 private:
 	void TimerCallback() {
-		if (true || m_visionSystem->IsRobotPresent()) {
+		if (m_visionSystem->IsRobotPresent()) {
 			if (!m_isExecuting && m_robotLeft) {
 				if (m_robotName == "") {
 					RCLCPP_INFO(m_node->get_logger(), "Robot detected");

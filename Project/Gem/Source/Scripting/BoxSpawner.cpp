@@ -13,9 +13,12 @@
 #include <AzCore/Asset/AssetSerializer.h>
 #include <AzCore/Component/TransformBus.h>
 #include <AzCore/Serialization/EditContext.h>
+#include <AzCore/Serialization/EditContextConstants.inl>
 #include <AzFramework/Components/TransformComponent.h>
 #include <AzFramework/Physics/SystemBus.h>
+#include <ImGuiBus.h>
 #include <LmbrCentral/Shape/BoxShapeComponentBus.h>
+#include <imgui/imgui.h>
 
 namespace ROS2::Demo
 {
@@ -30,7 +33,8 @@ namespace ROS2::Demo
                 ->Field("MaxBoxCount", &BoxSpawnerConfiguration::m_maxBoxCount)
                 ->Field("BoxSpawnInterval", &BoxSpawnerConfiguration::m_boxSpawnInterval)
                 ->Field("BarrierRegionEntityId", &BoxSpawnerConfiguration::m_barrierRegionEntityId)
-                ->Field("DespawnRegionEntityId", &BoxSpawnerConfiguration::m_despawnRegionEntityId);
+                ->Field("DespawnRegionEntityId", &BoxSpawnerConfiguration::m_despawnRegionEntityId)
+                ->Field("Manual Mode", &BoxSpawnerConfiguration::m_manualMode);
             AZ::EditContext* editContext = serializeContext->GetEditContext();
             if (editContext)
             {
@@ -51,8 +55,26 @@ namespace ROS2::Demo
                         AZ::Edit::UIHandlers::Default,
                         &BoxSpawnerConfiguration::m_despawnRegionEntityId,
                         "DespawnRegionEntityId",
-                        "DespawnRegionEntityId with box shape.");
+                        "DespawnRegionEntityId with box shape.")
+                    ->DataElement(
+                        AZ::Edit::UIHandlers::Default,
+                        &BoxSpawnerConfiguration::m_manualMode,
+                        "Manual mode",
+                        "Switch for manual mode to be used with IMGui only");
             }
+        }
+    }
+
+    void BoxSpawner::OnImGuiUpdate()
+    {
+        if (m_configuration.m_manualMode)
+        {
+            ImGui::Begin("Box spawner manual");
+            if (ImGui::Button("Spawn"))
+            {
+                m_shouldSpawnManual = true;
+            }
+            ImGui::End();
         }
     }
 
@@ -87,11 +109,19 @@ namespace ROS2::Demo
             m_configuration.m_barrierRegionEntityId.IsValid(),
             "Note that the barrier region is not set, so boxes will be spawned with constant interval.");
         AZ::TickBus::Handler::BusConnect();
+        if (m_configuration.m_manualMode)
+        {
+            ImGui::ImGuiUpdateListenerBus::Handler::BusConnect();
+        }
     }
 
     void BoxSpawner::Deactivate()
     {
         AZ::TickBus::Handler::BusDisconnect();
+        if (m_configuration.m_manualMode)
+        {
+            ImGui::ImGuiUpdateListenerBus::Handler::BusDisconnect();
+        }
     }
 
     bool CheckIfEntityInsideBox(
@@ -172,7 +202,7 @@ namespace ROS2::Demo
     {
         m_timeSinceLastSpawn += deltaTime;
         DespawnBoxes();
-        if (m_timeSinceLastSpawn > m_configuration.m_boxSpawnInterval)
+        if (m_timeSinceLastSpawn > m_configuration.m_boxSpawnInterval && !m_configuration.m_manualMode)
         {
             const size_t count = m_configuration.m_barrierRegionEntityId.IsValid() ? CountBoxesInBarrierRegion() : 0;
             if (count < m_configuration.m_maxBoxCount)
@@ -183,6 +213,17 @@ namespace ROS2::Demo
                 SpawnBox(spawnableName);
             }
             m_timeSinceLastSpawn = 0.f;
+        }
+        else
+        {
+            if (m_shouldSpawnManual)
+            {
+                AZ::Crc32 checksum = AZ::Crc32(m_entity->GetId().ToString());
+                checksum.Add(time.ToString());
+                const AZStd::string spawnableName = AZStd::string::format("Box_%u", AZ::u32(checksum));
+                SpawnBox(spawnableName);
+                m_shouldSpawnManual = false;
+            }
         }
     }
 

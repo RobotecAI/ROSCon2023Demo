@@ -14,6 +14,8 @@
 #include <AzFramework/Physics/ShapeConfiguration.h>
 #include <AzFramework/Spawnable/Spawnable.h>
 #include <AzFramework/Spawnable/SpawnableEntitiesInterface.h>
+#include <ImGuiBus.h>
+
 namespace ROS2::Demo
 {
     class BoxSpawnerConfiguration
@@ -28,11 +30,13 @@ namespace ROS2::Demo
         AZ::EntityId m_barrierRegionEntityId; //!< EntityId of the barrier entity
         AZ::EntityId m_despawnRegionEntityId; //!< EntityId of the despawn region entity
         float m_boxSpawnInterval{ 1.0f };
+        bool m_manualMode{ false };
     };
 
     class BoxSpawner
         : public AZ::Component
         , protected AZ::TickBus::Handler
+        , protected ImGui::ImGuiUpdateListenerBus::Handler
     {
     public:
         AZ_COMPONENT(BoxSpawner, "{4c85c12b-996a-42ff-874b-4cb3902784bf}");
@@ -40,6 +44,8 @@ namespace ROS2::Demo
         BoxSpawner() = default;
 
         ~BoxSpawner() = default;
+
+        void OnImGuiUpdate() override;
 
         // AZ::Component overrides...
         void Activate() override;
@@ -68,5 +74,6 @@ namespace ROS2::Demo
         BoxSpawnerConfiguration m_configuration;
         AZStd::vector<AZStd::string> m_spawnableNames;
         float m_timeSinceLastSpawn{ 0.0f };
+        bool m_shouldSpawnManual = false;
     };
 } // namespace ROS2::Demo

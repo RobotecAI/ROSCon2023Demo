@@ -2,13 +2,13 @@
 #include "rclcpp/rclcpp.hpp"
 
 #include <Eigen/Dense>
+#include <blind_path_follower_msgs/action/follow_path.hpp>
 #include <cassert>
 #include <cmath>
 #include <geometry_msgs/msg/twist.hpp>
 #include <rclcpp_action/create_server.hpp>
 #include <tf2_eigen/tf2_eigen.hpp>
 #include <tf2_ros/transform_listener.h>
-#include <blind_path_follower_msgs/action/follow_path.hpp>
 
 //! Interpolate between multiple poses
 //! @param p 0-1 value of interpolation
@@ -109,6 +109,8 @@ private:
     rclcpp::TimerBase::SharedPtr timer_;
     std::vector<Eigen::Affine3d> poses_;
 
+    bool m_robotPassedStart = false;
+
     rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const FlwPthAction::Goal> goal)
     {
         (void)uuid;
@@ -149,9 +151,12 @@ private:
     {
         double DesiredLinearVelocity = desired_linear_velocity_;
         const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
-        const double CrossTrackGain = 0.35; //!< How much to correct angular velocity for cross track error (distance to track)
+        const double MaxVirtualDistance = 0.3; //!< Distance between a the virtual robot and the real robot before slowdown.
+        const int LookupTime = 100; //!< Multiplier to detect sharp turns
+        const double CrossTrackGain = 0.5; //!< How much to correct angular velocity for cross track error (distance to track)
+        const double StartTolerance = 0.2; //!< Distance between virtual robot and real robot before start
         const double AlongTrackGain = 0.5; //!< How much to correct linear velocity for along track error (distance along track)
-        const double BearingGain = 5.0; //!< How much to correct angular velocity for bearing error (angle to track)
+        const double BearingGain = 1.75; //!< How much to correct angular velocity for bearing error (angle to track)
         const double MaxAngularSpeed = 0.6;
         if (poses_.empty())
         {
@@ -160,11 +165,13 @@ private:
             timer_->cancel();
             auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
+            m_robotPassedStart = false;
             goal_handle_->succeed(result);
             return;
         }
 
         const double p = DesiredLinearVelocity * path_elapsed_ / path_length_;
+        const double pFuture = std::min(1., DesiredLinearVelocity * (path_elapsed_ + LoopTimeSec * LookupTime) / path_length_);
         const Eigen::Affine3d idealGoal = interpolatePath(p, poses_);
         geometry_msgs::msg::PoseStamped poseMsg;
         poseMsg.pose = tf2::toMsg(idealGoal);
@@ -174,10 +181,14 @@ private:
         geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_ + "/base_link", tf2::TimePointZero);
         Eigen::Affine3d poseBaseLink = tf2::transformToEigen(transformStamped.transform);
 
+        if ((poses_[0].translation() - poseBaseLink.translation()).norm() < StartTolerance)
+        {
+            m_robotPassedStart = true;
+        }
+
         if (reverse_)
         {
             poseBaseLink = poseBaseLink * Eigen::AngleAxis<double>(M_PI, Eigen::Vector3d(0.0, 0.0, 1.0));
-            ;
         }
 
         const Eigen::Vector3d robotLocationInGoalSpace = idealGoal.inverse() * poseBaseLink.translation();
@@ -191,12 +202,34 @@ private:
         const float bearingError = GetAngle(tangentRobot, tangentGoal);
 
         geometry_msgs::msg::Twist cmd;
-        cmd.angular.z = bearingError * BearingGain + crossTrackError * CrossTrackGain;
-        cmd.angular.z = std::max(std::min(cmd.angular.z,MaxAngularSpeed ), -MaxAngularSpeed);
+        if (!m_robotPassedStart)
+        {
+            double closeness = (poses_[0].translation() - poseBaseLink.translation()).norm();
+            double adjustableBearingGain = BearingGain * std::min(1., closeness * 0.25);
+            double adjustableCrossTrackGain = CrossTrackGain * std::max(1.5, 0.25 / closeness);
+            cmd.angular.z = bearingError * adjustableBearingGain + crossTrackError * adjustableCrossTrackGain;
+        }
+        else
+        {
+            cmd.angular.z = bearingError * BearingGain + crossTrackError * CrossTrackGain;
+        }
+        cmd.angular.z = std::max(std::min(cmd.angular.z, MaxAngularSpeed), -MaxAngularSpeed);
         double requestedLinearVelocity = DesiredLinearVelocity + alongTrackError * AlongTrackGain;
         if (std::abs(bearingError) > MaxBearingError)
         {
             requestedLinearVelocity = 0.0;
+        }
+        else
+        {
+            requestedLinearVelocity *= std::abs(
+                (MaxBearingError - std::abs(m_robotPassedStart ? (bearingError) : (bearingError + crossTrackError))) / MaxBearingError);
+        }
+
+        auto futureAngle = std::abs(GetAngle(interpolatePath(pFuture, poses_).rotation().col(0), tangentRobot));
+
+        if (futureAngle > MaxBearingError && m_robotPassedStart)
+        {
+            requestedLinearVelocity /= 2;
         }
 
         cmd.linear.x = requestedLinearVelocity;
@@ -216,12 +249,27 @@ private:
             timer_->cancel();
             auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
+            m_robotPassedStart = false;
             std::cout << "Path Succeed" << std::endl;
             goal_handle_->succeed(result);
         }
         cmd_publisher_->publish(cmd);
-
-        path_elapsed_ += LoopTimeSec;
+        if (m_robotPassedStart)
+        {
+            if (std::abs(bearingError) > MaxBearingError ||
+                (idealGoal.translation() - poseBaseLink.translation()).norm() > MaxVirtualDistance)
+            {
+                path_elapsed_ += LoopTimeSec / 10;
+            }
+            else if (futureAngle > MaxBearingError)
+            {
+                path_elapsed_ += LoopTimeSec / 2;
+            }
+            else
+            {
+                path_elapsed_ += LoopTimeSec;
+            }
+        }
     }
 };
 

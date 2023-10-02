@@ -50,7 +50,7 @@ namespace TaskConstructor
 
         bool setPosePIP(const std::string& poseName);
 
-        bool setPosePIP(const Eigen::Vector3d &tcp_position, float speed = 0.75f, const std::string& interpolation="PTP");
+        bool setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed = 0.75f, const std::string& interpolation="PTP");
 
         bool doTask(mtc::Task& task);
 

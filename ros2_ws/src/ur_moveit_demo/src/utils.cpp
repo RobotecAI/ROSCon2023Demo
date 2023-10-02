@@ -69,13 +69,22 @@ namespace Utils
 
     geometry_msgs::msg::Pose getBoxTargetPose(const Eigen::Vector3f& adress, const geometry_msgs::msg::Pose& palletPose,const Eigen::Vector3d& boxDimension, float separation)
     {
+
         geometry_msgs::msg::Pose pose;
 
         pose.position = palletPose.position;
-        const Eigen::Quaterniond palletOrientation = fromMsgQuaternion(palletPose.orientation);
+
+        // take into account the pallet is symmetrical
+        const Eigen::Quaterniond idealPalletOrientation {0.7071067690849304, 0.0, 0.0, 0.7071067690849304};
+        const Eigen::Quaterniond palletOrientation1 = fromMsgQuaternion(palletPose.orientation);
+        const Eigen::Quaterniond palletOrientation2 = palletOrientation1 * Eigen::Quaterniond(Eigen::AngleAxisd(M_PI, Eigen::Vector3d::UnitZ()));
+
+        const Eigen::Quaterniond palletOrientation = GetClosestQuaternionFromList(idealPalletOrientation, {palletOrientation1, palletOrientation2});
+
         Eigen::Vector3d localPalletDirX = palletOrientation * Eigen::Vector3d::UnitX();
         Eigen::Vector3d localPalletDirY = palletOrientation * Eigen::Vector3d::UnitY();
         Eigen::Vector3d localPalletDirZ = palletOrientation * Eigen::Vector3d::UnitZ();
+
 
         Eigen::Vector3d p = fromMsgPosition(palletPose.position);
         Eigen::Quaterniond q = fromMsgQuaternion(palletPose.orientation);
@@ -95,15 +104,15 @@ namespace Utils
     {
         float smallestAngle = std::numeric_limits<float>::max();
         Eigen::Quaterniond closestQ = qlist.front();
-//        for (const auto& q : qlist)
-//        {
-//            float angle = std::abs(q1.angularDistance(q));
-//            if (angle < smallestAngle)
-//            {
-//                smallestAngle = angle;
-//                closestQ = q;
-//            }
-//        }
+        for (const auto& q : qlist)
+        {
+            float angle = std::abs(q1.angularDistance(q));
+            if (angle < smallestAngle)
+            {
+                smallestAngle = angle;
+                closestQ = q;
+            }
+        }
         return closestQ;
     }
 

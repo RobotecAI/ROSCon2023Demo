@@ -104,12 +104,11 @@ namespace TaskConstructor
         }
     }
 
-    bool MTCController::setPosePIP(const Eigen::Vector3d &tcp_position, float speed, const std::string& interpolation)
+    bool MTCController::setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed, const std::string& interpolation)
     {
 
-        const Eigen::Quaterniond OrientationDown{ -0.5, -0.5, 0.5, -0.5 };
         Eigen::Isometry3d tcp_pose;
-        tcp_pose.fromPositionOrientationScale(tcp_position, OrientationDown, Eigen::Vector3d::Ones());
+        tcp_pose.fromPositionOrientationScale(tcp_position, tcp_orientation, Eigen::Vector3d::Ones());
         m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
         m_move_groupIterface->setMaxVelocityScalingFactor(speed);
         m_move_groupIterface->setPlanningPipelineId ("pilz_industrial_motion_planner");

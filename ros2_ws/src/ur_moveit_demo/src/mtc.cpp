@@ -171,20 +171,20 @@ private:
 			}
 
 
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position)+ PickupZStartOffset))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position)+ PickupZStartOffset, OrientationDown))
 			{
 				std::abort();
 			}
 
 
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStopOffset  ,0.1, "LIN"))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStopOffset, OrientationDown, 0.1, "LIN"))
 			{
 				std::abort();
 			}
 
 			gripperController->Grip();
 			std::this_thread::sleep_for(50ms);
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStartOffset2, 0.25, "LIN" ))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStartOffset2, OrientationDown, 0.25, "LIN" ))
 			{
 				std::abort();
 			}
@@ -194,11 +194,11 @@ private:
 			auto poseExact = Utils::getBoxTargetPose(address, *palletPose, BoxDimension, Separation);
 
 
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + DropZStartOffset))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + DropZStartOffset, Utils::fromMsgQuaternion(poseExact.orientation)))
 			{
 				std::abort();
 			}
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PickupZOffset, 0.05, "LIN"))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PickupZOffset, Utils::fromMsgQuaternion(poseExact.orientation), 0.05, "LIN"))
 			{
 				std::abort();
 			}
@@ -215,7 +215,7 @@ private:
 //			}
 			gripperController->Release();
 			std::this_thread::sleep_for(50ms);
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + DropZStartOffset))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + DropZStartOffset, Utils::fromMsgQuaternion(poseExact.orientation)))
 			{
 				std::abort();
 			}

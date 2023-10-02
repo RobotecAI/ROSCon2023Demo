@@ -91,4 +91,20 @@ namespace Utils
         pose.orientation = toMsg(Eigen::Quaterniond(q.toRotationMatrix() * rotation));
         return pose;
     }
+    Eigen::Quaterniond GetClosestQuaternionFromList (const Eigen::Quaterniond& q1, const std::vector<Eigen::Quaterniond>& qlist)
+    {
+        float smallestAngle = std::numeric_limits<float>::max();
+        Eigen::Quaterniond closestQ = qlist.front();
+//        for (const auto& q : qlist)
+//        {
+//            float angle = std::abs(q1.angularDistance(q));
+//            if (angle < smallestAngle)
+//            {
+//                smallestAngle = angle;
+//                closestQ = q;
+//            }
+//        }
+        return closestQ;
+    }
+
 } // namespace Utils

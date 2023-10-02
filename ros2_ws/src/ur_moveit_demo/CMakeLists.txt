@@ -15,7 +15,7 @@ find_package(tf2_msgs REQUIRED)
 find_package(moveit_task_constructor_core REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(ur_moveit_demo_msg REQUIRED)
-add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
+#add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 
 add_library(gripper src/gripper.cpp src/gripper.h)
 add_library(vision src/vision.cpp src/vision.h)
@@ -24,23 +24,23 @@ add_library(utils src/utils.cpp src/utils.h)
 
 add_executable(mtc src/mtc.cpp)
 target_link_libraries(mtc gripper vision taskConstructor utils)
-target_include_directories(ur_moveit_demo PUBLIC
-$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-$<INSTALL_INTERFACE:include>)
+#target_include_directories(ur_moveit_demo PUBLIC
+#$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#$<INSTALL_INTERFACE:include>)
 target_include_directories(mtc PUBLIC
 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 $<INSTALL_INTERFACE:include>)
 
-target_compile_features(ur_moveit_demo PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(
-  ur_moveit_demo
-  moveit_task_constructor_core
-  "moveit_ros_planning_interface"
-  "moveit_visual_tools"
-  "rclcpp"
-  "control_msgs"
-  "tf2_msgs"
-  )
+#target_compile_features(ur_moveit_demo PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+#ament_target_dependencies(
+#  ur_moveit_demo
+#  moveit_task_constructor_core
+#  "moveit_ros_planning_interface"
+#  "moveit_visual_tools"
+#  "rclcpp"
+#  "control_msgs"
+#  "tf2_msgs"
+#  )
 ament_target_dependencies(
   mtc
   moveit_task_constructor_core
@@ -90,7 +90,7 @@ ament_target_dependencies(
   "tf2_msgs"
   "vision_msgs")
 
-install(TARGETS ur_moveit_demo mtc
+install(TARGETS mtc
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})

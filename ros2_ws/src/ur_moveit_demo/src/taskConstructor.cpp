@@ -1,6 +1,8 @@
 #include "taskConstructor.h"
 #include "moveit/task_constructor/solvers/multi_planner.h"
+#include "moveit/robot_model_loader/robot_model_loader.h"
 #include "utils.h"
+#include "pilz_industrial_motion_planner/planning_context_ptp.h"
 
 namespace TaskConstructor
 {
@@ -8,27 +10,38 @@ namespace TaskConstructor
     MTCController::MTCController(rclcpp::Node::SharedPtr node, std::string ns)
         : node_(node)
     {
-        PickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
-        PickupConfig.insert({ ns + "/wrist_2_joint", 1.5643877983093262 });
-        PickupConfig.insert({ ns + "/elbow_joint", -1.550349235534668 });
-        PickupConfig.insert({ ns + "/shoulder_pan_joint", -2.7139534950256348 });
-        PickupConfig.insert({ ns + "/shoulder_lift_joint", -2.314471483230591 });
-        PickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
+        PredefinePoseJointSpace pickupConfig;
+        pickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
+        pickupConfig.insert({ ns + "/wrist_2_joint", 1.5643877983093262 });
+        pickupConfig.insert({ ns + "/elbow_joint", -1.550349235534668 });
+        pickupConfig.insert({ ns + "/shoulder_pan_joint", -2.7139534950256348 });
+        pickupConfig.insert({ ns + "/shoulder_lift_joint", -2.314471483230591 });
+        pickupConfig.insert({ ns + "/wrist_1_joint", -0.8385483622550964 });
 
-        LiftConfig.insert({ ns + "/wrist_1_joint", -1.6993759870529175 });
-        LiftConfig.insert({ ns + "/elbow_joint", -1.0284128189086914 });
-        LiftConfig.insert({ ns + "/shoulder_lift_joint", -1.9712634086608887 });
-        LiftConfig.insert({ ns + "/wrist_2_joint", 1.5634684562683105 });
-        LiftConfig.insert({ ns + "/shoulder_pan_joint", -2.644500255584717 });
-        LiftConfig.insert({ ns + "/wrist_3_joint", -4.113039656 });
+        PredefinePoseJointSpace liftConfig;
+        liftConfig.insert({ ns + "/wrist_1_joint", -1.6993759870529175 });
+        liftConfig.insert({ ns + "/elbow_joint", -1.0284128189086914 });
+        liftConfig.insert({ ns + "/shoulder_lift_joint", -1.9712634086608887 });
+        liftConfig.insert({ ns + "/wrist_2_joint", 1.5634684562683105 });
+        liftConfig.insert({ ns + "/shoulder_pan_joint", -2.644500255584717 });
+        liftConfig.insert({ ns + "/wrist_3_joint", -4.113039656 });
 
-        DropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 });
-        DropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 });
-        DropConfig.insert({ ns + "/shoulder_lift_joint", -1.8 });
-        DropConfig.insert({ ns + "/wrist_2_joint", 1.5672444105148315 });
-        DropConfig.insert({ ns + "/shoulder_pan_joint", -0.15679530799388885 });
-        DropConfig.insert({ ns + "/wrist_3_joint", -3.1959822177886963 });
+        PredefinePoseJointSpace dropConfig;
+        dropConfig.insert({ ns + "/wrist_1_joint", -1.5789473056793213 });
+        dropConfig.insert({ ns + "/elbow_joint", -0.9531064033508301 });
+        dropConfig.insert({ ns + "/shoulder_lift_joint", -1.8 });
+        dropConfig.insert({ ns + "/wrist_2_joint", 1.5672444105148315 });
+        dropConfig.insert({ ns + "/shoulder_pan_joint", -0.15679530799388885 });
+        dropConfig.insert({ ns + "/wrist_3_joint", -3.1959822177886963 });
 
+        m_predefinedPoses.insert({ PickupPoseName, pickupConfig });
+        m_predefinedPoses.insert({ "lift", liftConfig });
+        m_predefinedPoses.insert({ "drop", dropConfig });
+
+        robot_model_loader::RobotModelLoader robot_model_loader(node);
+        m_kinematic_model = robot_model_loader.getModel();
+        moveit::planning_interface::MoveGroupInterface::Options options(ns + "/ur_manipulator", robot_model_loader.getRobotDescription(), "/" + ns);
+        m_move_groupIterface = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node, options);
         this->ns = ns;
     }
 
@@ -69,7 +82,53 @@ namespace TaskConstructor
 
         return true;
     }
+    bool MTCController::setPosePIP(const std::string& poseName)
+    {
+        m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
+        m_move_groupIterface->setMaxVelocityScalingFactor(1.0f);
 
+        m_move_groupIterface->setPlanningPipelineId ("pilz_industrial_motion_planner");
+        m_move_groupIterface->setPlannerId("PTP");
+        m_move_groupIterface->setJointValueTarget(m_predefinedPoses.at(poseName));
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        auto isOk = m_move_groupIterface->plan(plan);
+        if (isOk)
+        {
+            m_move_groupIterface->execute(plan);
+            return true;
+        }
+        else
+        {
+            RCLCPP_ERROR_STREAM(node_->get_logger(), "Planning failed for pose " << poseName);
+            return false;
+        }
+    }
+
+    bool MTCController::setPosePIP(const Eigen::Vector3d &tcp_position, float speed, const std::string& interpolation)
+    {
+
+        const Eigen::Quaterniond OrientationDown{ -0.5, -0.5, 0.5, -0.5 };
+        Eigen::Isometry3d tcp_pose;
+        tcp_pose.fromPositionOrientationScale(tcp_position, OrientationDown, Eigen::Vector3d::Ones());
+        m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
+        m_move_groupIterface->setMaxVelocityScalingFactor(speed);
+        m_move_groupIterface->setPlanningPipelineId ("pilz_industrial_motion_planner");
+        m_move_groupIterface->setPlannerId("PTP");
+        m_move_groupIterface->setApproximateJointValueTarget(tcp_pose, ns + "/gripper_link");
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        auto isOk = m_move_groupIterface->plan(plan);
+        if (!isOk)
+        {
+            return false;
+        }
+        auto successExecution = m_move_groupIterface->execute(plan);
+
+        if (!successExecution)
+        {
+            return false;
+        }
+        return true;
+    }
     mtc::Task MTCController::createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns)
     {
         // ToDo make use of boxPose parameter
@@ -89,8 +148,8 @@ namespace TaskConstructor
         sampling_planner->setTimeout(10.);
         auto interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
         interpolation_planner->setTimeout(10);
-	     interpolation_planner->setMaxVelocityScalingFactor(0.5);
-	     interpolation_planner->setMaxAccelerationScalingFactor(0.5);
+	    interpolation_planner->setMaxVelocityScalingFactor(0.5);
+	    interpolation_planner->setMaxAccelerationScalingFactor(0.5);
 
 	     auto multi_planner = std::make_shared<mtc::solvers::MultiPlanner>();
 	     multi_planner->push_back(interpolation_planner);
@@ -111,7 +170,7 @@ namespace TaskConstructor
             {
                 auto stage = std::make_unique<mtc::stages::MoveTo>("Over conveyor", multi_planner);
                 stage->setGroup(ns + "/ur_manipulator");
-                stage->setGoal(LiftConfig);
+                stage->setGoal(m_predefinedPoses.at(LiftPoseName));
 
                 PickupSerial->insert(std::move(stage));
             }
@@ -250,7 +309,7 @@ namespace TaskConstructor
             pose.header.stamp = node_->now();
 
             //! Relative position of the drop location
-            constexpr float DropRise = 1.2f;
+
             pose.pose = Utils::getBoxTargetPose(adress + DropRise * Eigen::Vector3f::UnitZ(), palletPose, BoxDimension);
 
             moveToDropLocation->setGoal(pose);

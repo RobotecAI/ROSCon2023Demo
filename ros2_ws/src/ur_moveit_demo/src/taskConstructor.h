@@ -23,7 +23,9 @@
 
 #include "vision.h"
 #include "utils.h"
-
+#include "moveit/robot_model_loader/robot_model_loader.h"
+#include <moveit/move_group_interface/move_group_interface.h>
+#include "constants.h"
 #pragma once
 
 namespace mtc = moveit::task_constructor;
@@ -31,17 +33,24 @@ namespace mtc = moveit::task_constructor;
 namespace TaskConstructor
 {
 
-    const Eigen::Vector3d BoxDimension{ 0.3, 0.3, 0.2 };
-    const Eigen::Vector3d PalletDimensions{ 1.2, 0.769, 2.0*0.111 };
+
 
     static const rclcpp::Logger LOGGER = rclcpp::get_logger("mtc");
 
     class MTCController
     {
     public:
+        static constexpr char PickupPoseName[] = "pickup";
+        static constexpr char LiftPoseName[] = "lift";
+        static constexpr char DropPoseName[] = "drop";
+
         MTCController(rclcpp::Node::SharedPtr node, std::string ns);
 
         rclcpp::node_interfaces::NodeBaseInterface::SharedPtr getNodeBaseInterface();
+
+        bool setPosePIP(const std::string& poseName);
+
+        bool setPosePIP(const Eigen::Vector3d &tcp_position, float speed = 0.75f, const std::string& interpolation="PTP");
 
         bool doTask(mtc::Task& task);
 
@@ -58,9 +67,8 @@ namespace TaskConstructor
         mtc::Task createTaskPark(std::string ns);
 
     private:
-        std::map<std::string, double> PickupConfig;
-
-        std::map<std::string, double> LiftConfig;
+        using PredefinePoseJointSpace = std::map<std::string, double>;
+        std::unordered_map<std::string, PredefinePoseJointSpace> m_predefinedPoses;
 
         constexpr static float change = 0.35f;
         std::map<std::string, double> DropConfig;
@@ -71,6 +79,8 @@ namespace TaskConstructor
 
         std::vector<std::string> namesOfBoxes;
 
+        moveit::core::RobotModelPtr m_kinematic_model;
+        std::shared_ptr<moveit::planning_interface::MoveGroupInterface> m_move_groupIterface;
         std::string ns;
     };
 } // namespace TaskConstructor

@@ -213,6 +213,7 @@ def launch_setup(context, *args, **kwargs):
     move_group_capabilities = {
         "capabilities": "move_group/ExecuteTaskSolutionCapability"
     }
+
     pilz_config =  {
         "planning_pipelines" : ["pilz_industrial_motion_planner"],
         "pilz_industrial_motion_planner":
@@ -228,29 +229,29 @@ def launch_setup(context, *args, **kwargs):
                 "max_trans_vel" :4.0
             },
             "joint_limits":{
-                'ur1/elbow_joint': {
+                ur_namespace.perform(context)+'/elbow_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 },
-                'ur1/shoulder_lift_joint': {
+                ur_namespace.perform(context)+'/shoulder_lift_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 },
-                'ur1/shoulder_pan_joint': {
+                ur_namespace.perform(context)+'/shoulder_pan_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 },
-                'ur1/wrist_1_joint': {
+                ur_namespace.perform(context)+'/wrist_1_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 },
-                'ur1/wrist_2_joint': {
+                ur_namespace.perform(context)+'/wrist_2_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 },
-                'ur1/wrist_3_joint': {
+                ur_namespace.perform(context)+'/wrist_3_joint': {
                     'has_acceleration_limits': True,
-                    'max_acceleration': 10.5
+                    'max_acceleration': 2.5
                 }
             }
         }

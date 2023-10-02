@@ -56,6 +56,8 @@ namespace TaskConstructor
 
         mtc::Task createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns);
 
+        Eigen::Quaterniond getCurrentOrientation();
+
         mtc::Task createTaskDrop(
             const Eigen::Vector3f address,
             std::string boxname,

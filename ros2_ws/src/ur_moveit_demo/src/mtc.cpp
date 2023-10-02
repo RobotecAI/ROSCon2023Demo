@@ -140,13 +140,7 @@ private:
 
 			auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
 
-//			mtc::Task taskGrab = mtc_task_node->createTaskGrab(*myClosestBox, PickedBoxName, m_ns);
-//			if (!mtc_task_node->doTask(taskGrab)) {
-//				gripperController->Release();
-//				failedBoxes.push_back(address);
-//				previousFailed = true;
-//				continue;
-//			}
+
 			if (!mtc_task_node->setPosePIP(TaskConstructor::MTCController::PickupPoseName))
 			{
 				std::abort();
@@ -171,25 +165,31 @@ private:
 			}
 
 
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position)+ PickupZStartOffset, OrientationDown))
+			auto currentOrientation = mtc_task_node->getCurrentOrientation();
+			auto orientationDown = Utils::GetClosestQuaternionFromList(currentOrientation, OrientationsDown);
+
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position)+ PickupZStartOffset, orientationDown))
 			{
 				std::abort();
 			}
 
 
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStopOffset, OrientationDown, 0.1, "LIN"))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStopOffset, orientationDown, 0.1, "LIN"))
 			{
 				std::abort();
 			}
 
 			gripperController->Grip();
 			std::this_thread::sleep_for(50ms);
-			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStartOffset2, OrientationDown, 0.25, "LIN" ))
+			if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PickupZStartOffset2, orientationDown, 0.25, "LIN" ))
 			{
 				std::abort();
 			}
 
             mtc_task_node->setPosePIP(TaskConstructor::MTCController::DropPoseName);
+
+			auto currentOrientationDrop = mtc_task_node->getCurrentOrientation();
+			auto orientationDownDrop = Utils::GetClosestQuaternionFromList(currentOrientationDrop, OrientationsDown);
 
 			auto poseExact = Utils::getBoxTargetPose(address, *palletPose, BoxDimension, Separation);
 
@@ -240,25 +240,12 @@ private:
 
 		std::vector<Eigen::Vector3f> boxesTargetPlaces;
 		boxesTargetPlaces.resize(m_numOfBoxes);
-		float scaling = 1.2f;
+		float scaling = 1.05f;
 		std::transform(Pattern.begin(), Pattern.begin() + m_numOfBoxes, boxesTargetPlaces.begin(),
 		               [scaling](Eigen::Vector3f element) { return element * scaling; });
+
 		auto failedBoxes = putBoxesInPlaces(mtc_task_node, gripperController, boxesTargetPlaces);
 
-//		std::vector<Eigen::Vector3f> boxesTargetPlaces;
-//		boxesTargetPlaces.resize(m_numOfBoxes);
-//		float scaling = 1.2f;
-//		std::transform(Pattern.begin(), Pattern.begin() + m_numOfBoxes, boxesTargetPlaces.begin(),
-//		               [scaling](Eigen::Vector3f element) { return element * scaling; });
-//		auto failedBoxes = putBoxesInPlaces(mtc_task_node, gripperController, boxesTargetPlaces);
-//
-//		// Retry once for failed boxes
-//		failedBoxes = putBoxesInPlaces(mtc_task_node, gripperController, failedBoxes);
-//		if (failedBoxes.size() > 0) {
-//			RCLCPP_WARN_STREAM(m_node->get_logger(), "Failed boxes " << failedBoxes.size());
-//		}
-//
-//		mtc::Task taskPark = mtc_task_node->createTaskPark(m_ns);
 		mtc_task_node->setPosePIP(TaskConstructor::MTCController::PickupPoseName);
 
 		auto slashLocation = m_robotName.find("/");

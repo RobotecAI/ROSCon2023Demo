@@ -209,6 +209,15 @@ namespace TaskConstructor
         return task;
     }
 
+    Eigen::Quaterniond MTCController::getCurrentOrientation()
+    {
+        auto currentPose = m_move_groupIterface->getCurrentPose(ns + "/gripper_link");
+        Eigen::Quaterniond currentOrientation(currentPose.pose.orientation.w, currentPose.pose.orientation.x,
+                                              currentPose.pose.orientation.y, currentPose.pose.orientation.z);
+        return currentOrientation;
+    }
+
+
     mtc::Task MTCController::createTaskDrop(
         const Eigen::Vector3f adress,
         std::string boxname,

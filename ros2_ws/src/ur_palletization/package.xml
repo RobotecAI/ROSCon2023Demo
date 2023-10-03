@@ -1,23 +1,18 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>ur_moveit_demo</name>
+  <name>ur_palletization</name>
   <version>0.0.0</version>
   <description>TODO: Package description</description>
   <maintainer email="kacper.lewandowski@robotec.ai">kacper</maintainer>
   <license>TODO: License declaration</license>
 
-
   <depend>moveit_ros_planning_interface</depend>
-  <depend>moveit_task_constructor_core</depend>
   <depend>rclcpp</depend>
   <depend>control_msgs</depend>
   <depend>tf2_msgs</depend>
   <depend>vision_msgs</depend>
-  <depend>ur_moveit_demo_msg</depend>
   <depend>moveit_core</depend>
-
-  <exec_depend>moveit_configs_utils</exec_depend>
   
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

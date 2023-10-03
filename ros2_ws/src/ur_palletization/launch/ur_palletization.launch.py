@@ -279,9 +279,9 @@ def launch_setup(context, *args, **kwargs):
     )
 
     mtc = Node(
-        name="hello_moveit",
-        package="ur_moveit_demo",
-        executable="mtc",
+        name="palletization",
+        package="ur_palletization",
+        executable="palletizationNode",
         output="screen",
         namespace=ur_namespace,
         parameters=[

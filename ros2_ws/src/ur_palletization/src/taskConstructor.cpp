@@ -1,13 +1,12 @@
 #include "taskConstructor.h"
-#include "moveit/task_constructor/solvers/multi_planner.h"
 #include "moveit/robot_model_loader/robot_model_loader.h"
 #include "utils.h"
 #include "pilz_industrial_motion_planner/planning_context_ptp.h"
 
-namespace TaskConstructor
+namespace Palletization
 {
 
-    MTCController::MTCController(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, std::string ns)
+    RoboticArmController::RoboticArmController(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, std::string ns)
         : m_move_groupIterface(moveGroupInterface)
     {
         PredefinePoseJointSpace pickupConfig;
@@ -38,12 +37,11 @@ namespace TaskConstructor
         m_predefinedPoses.insert({ "lift", liftConfig });
         m_predefinedPoses.insert({ "drop", dropConfig });
 
-
         this->ns = ns;
     }
 
 
-    bool MTCController::setPosePIP(const std::string& poseName)
+    bool RoboticArmController::setPosePIP(const std::string& poseName)
     {
         m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
         m_move_groupIterface->setMaxVelocityScalingFactor(1.0f);
@@ -65,7 +63,7 @@ namespace TaskConstructor
         }
     }
 
-    bool MTCController::setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed, const std::string& interpolation)
+    bool RoboticArmController::setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed, const std::string& interpolation)
     {
 
         Eigen::Isometry3d tcp_pose;
@@ -91,7 +89,7 @@ namespace TaskConstructor
     }
 
 
-    Eigen::Quaterniond MTCController::getCurrentOrientation()
+    Eigen::Quaterniond RoboticArmController::getCurrentOrientation()
     {
         auto currentPose = m_move_groupIterface->getCurrentPose(ns + "/gripper_link");
         Eigen::Quaterniond currentOrientation(currentPose.pose.orientation.w, currentPose.pose.orientation.x,

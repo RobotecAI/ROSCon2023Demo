@@ -83,7 +83,7 @@ void PalletizationNode::TimerCallback() {
 
 
 std::vector<Eigen::Vector3f>
-PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmController> mtc_task_node,
+PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmController> robotArmController,
                                     std::shared_ptr<Gripper::GripperController> gripperController,
                                     const std::vector<Eigen::Vector3f> &targets) {
     using namespace std::chrono_literals;
@@ -111,7 +111,7 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
             continue;
         }
 
-        if (!mtc_task_node->setPosePIP(Palletization::RoboticArmController::PickupPoseName)) {
+        if (!robotArmController->setPosePIP(Palletization::RoboticArmController::PickupPoseName)) {
             std::abort();
         }
         // update box position before grabbing.
@@ -132,47 +132,47 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
 
         assert(myClosestBox); // myClosestBox should be set by now
         auto pose = m_move_groupIterface->getCurrentPose();
-        auto currentOrientation = mtc_task_node->getCurrentOrientation();
+        auto currentOrientation = robotArmController->getCurrentOrientation();
         auto orientationDown = Utils::GetClosestQuaternionFromList(currentOrientation, PalCnt::OrientationsDown);
         SendStatus("Get box from pose: %f %f %f", myClosestBox->position.x, myClosestBox->position.y,
                    myClosestBox->position.z);
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset,
-                                       orientationDown)) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset,
+                                            orientationDown)) {
             std::abort();
         }
 
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStopOffset,
-                                       orientationDown, 0.1, "LIN")) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStopOffset,
+                                            orientationDown, 0.1, "LIN")) {
             std::abort();
         }
 
         gripperController->Grip();
         std::this_thread::sleep_for(50ms);
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset2,
-                                       orientationDown, 0.25, "LIN")) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset2,
+                                            orientationDown, 0.25, "LIN")) {
             std::abort();
         }
 
-        mtc_task_node->setPosePIP(Palletization::RoboticArmController::DropPoseName);
+        robotArmController->setPosePIP(Palletization::RoboticArmController::DropPoseName);
 
         auto poseExact = Utils::getBoxTargetPose(address, *palletPose, PalCnt::BoxDimension, PalCnt::Separation);
 
         SendStatus("Put box in pose: %f %f %f", poseExact.position.x, poseExact.position.y, poseExact.position.z);
 
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::DropZStartOffset,
-                                       Utils::fromMsgQuaternion(poseExact.orientation))) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::DropZStartOffset,
+                                            Utils::fromMsgQuaternion(poseExact.orientation))) {
             std::abort();
         }
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::PickupZOffset,
-                                       Utils::fromMsgQuaternion(poseExact.orientation), 0.05, "LIN")) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::PickupZOffset,
+                                            Utils::fromMsgQuaternion(poseExact.orientation), 0.05, "LIN")) {
             std::abort();
         }
         std::this_thread::sleep_for(100ms);
 
         gripperController->Release();
         std::this_thread::sleep_for(50ms);
-        if (!mtc_task_node->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::DropZStartOffset,
-                                       Utils::fromMsgQuaternion(poseExact.orientation))) {
+        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::DropZStartOffset,
+                                            Utils::fromMsgQuaternion(poseExact.orientation))) {
             std::abort();
         }
         SendStatus("Done placing box %d", i);
@@ -189,7 +189,7 @@ void PalletizationNode::execute(const std::string &amrName) {
     moveit::planning_interface::PlanningSceneInterface planning_scene_interface("/" + m_ns);
     planning_scene_interface.removeCollisionObjects(planning_scene_interface.getKnownObjectNames());
 
-    auto mtc_task_node = std::make_shared<Palletization::RoboticArmController>(m_move_groupIterface, m_ns);
+    auto robotArmController = std::make_shared<Palletization::RoboticArmController>(m_move_groupIterface, m_ns);
     auto gripperController = std::make_shared<Gripper::GripperController>(m_node, "/" + m_ns + "/gripper_server");
 
     if (m_numOfBoxes > PalCnt::Pattern.size()) {
@@ -197,7 +197,7 @@ void PalletizationNode::execute(const std::string &amrName) {
         m_numOfBoxes = PalCnt::Pattern.size();
     }
 
-    mtc_task_node->setPosePIP(Palletization::RoboticArmController::PickupPoseName);
+    robotArmController->setPosePIP(Palletization::RoboticArmController::PickupPoseName);
 
     std::vector<Eigen::Vector3f> boxesTargetPlaces;
     boxesTargetPlaces.resize(m_numOfBoxes);
@@ -206,11 +206,11 @@ void PalletizationNode::execute(const std::string &amrName) {
                    boxesTargetPlaces.begin(),
                    [scaling](Eigen::Vector3f element) { return element * scaling; });
 
-    auto failedBoxes = putBoxesInPlaces(mtc_task_node, gripperController, boxesTargetPlaces);
+    auto failedBoxes = putBoxesInPlaces(robotArmController, gripperController, boxesTargetPlaces);
     SendStatus("Number of failed boxes %d ", failedBoxes.size());
-    putBoxesInPlaces(mtc_task_node, gripperController, failedBoxes);
+    putBoxesInPlaces(robotArmController, gripperController, failedBoxes);
 
-    mtc_task_node->setPosePIP(Palletization::RoboticArmController::PickupPoseName);
+    robotArmController->setPosePIP(Palletization::RoboticArmController::PickupPoseName);
 
     auto slashLocation = m_robotName.find("/");
     const auto cargoStatusMsg = "/" + m_robotName.substr(0, slashLocation + 1) + "cargo_status";
@@ -219,7 +219,7 @@ void PalletizationNode::execute(const std::string &amrName) {
     cargoFullMessage.data = true;
     cargoPublisher->publish(cargoFullMessage);
 
-    // wait for robot to left
+    // wait for robot to leave
     while (m_visionSystem->IsRobotPresent()) {
         RCLCPP_INFO(m_node->get_logger(), "Wait for robot to go away, resending request at topic %s ",
                     cargoStatusMsg.c_str());
@@ -243,7 +243,7 @@ int main(int argc, char **argv) {
     rclcpp::executors::MultiThreadedExecutor executor_mtc;
 
     auto const node = std::make_shared<rclcpp::Node>(
-            "mtc_moveit", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
+            "ur_palletization", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
     rclcpp::executors::SingleThreadedExecutor executor;
     executor.add_node(node);

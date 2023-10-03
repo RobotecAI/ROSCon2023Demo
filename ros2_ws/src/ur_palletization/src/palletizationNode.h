@@ -36,18 +36,23 @@ private:
     void SendStatus(const char *format, ...);
 
     //! Check if the robot is stationary
+    //! @param robotPose - Current pose of the robot
+    //! @return True if robot is stationary for 3s, false otherwise
     bool CheckIfAmrIsStationary(const geometry_msgs::msg::Pose& robotPose);
 
     //! Main loop of the node
     void TimerCallback();
 
-
-    //!
-    std::vector<Eigen::Vector3f> putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmController> mtc_task_node,
+    //! Sends robots command to create box pattern
+    //! @param robotArmController - Robotic arm controller
+    //! @param gripperController - Gripper controller
+    //! @param targets - Target positions for boxes (in normalized coordinates)
+    std::vector<Eigen::Vector3f> putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmController> robotArmController,
                                                   std::shared_ptr<Gripper::GripperController> gripperController,
                                                   const std::vector<Eigen::Vector3f> &targets);
 
-    //! Executes the palletization task
+    //! Executes the palletization task and notify the AMR
+    //! @param amrName - Name of the AMR to be notified
     void execute(const std::string &amrName) ;
 
     rclcpp::Node::SharedPtr m_node;

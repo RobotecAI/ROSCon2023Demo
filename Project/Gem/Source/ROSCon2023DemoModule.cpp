@@ -8,6 +8,7 @@
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Scripting/BoxSpawner.h"
 #include "Scripting/LifterController.h"
+#include "Scripting/ObjectDetectionComponent.h"
 #include "Scripting/PayloadDespawnerComponent.h"
 #include "Scripting/ScriptSpawnLevelComponent.h"
 #include "Vision/IdealVisionSystem.h"
@@ -15,8 +16,8 @@
 #include <HumanNpc/NavigationMeshOrchestratorComponent.h>
 #include <HumanNpc/NpcNavigatorComponent.h>
 #include <HumanNpc/WaypointComponent.h>
-#include <Scripting/FoilWrapperController.h>
 #include <HumanNpc/WaypointSelectorComponent.h>
+#include <Scripting/FoilWrapperController.h>
 
 namespace ROSCon2023Demo
 {
@@ -48,6 +49,7 @@ namespace ROSCon2023Demo
                     ROS2::Demo::ScriptSpawnLevelComponent::CreateDescriptor(),
                     ROS2::Demo::LifterControllerComponent::CreateDescriptor(),
                     ROS2::Demo::PayloadDespawnerComponent::CreateDescriptor(),
+                    ROS2::Demo::ObjectDetectionComponent::CreateDescriptor(),
                 });
         }
 

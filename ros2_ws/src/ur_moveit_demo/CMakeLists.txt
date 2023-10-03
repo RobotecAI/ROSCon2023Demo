@@ -15,7 +15,6 @@ find_package(tf2_msgs REQUIRED)
 find_package(moveit_task_constructor_core REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(ur_moveit_demo_msg REQUIRED)
-#add_executable(ur_moveit_demo src/ur_moveit_demo.cpp)
 
 add_library(gripper src/gripper.cpp src/gripper.h)
 add_library(vision src/vision.cpp src/vision.h)

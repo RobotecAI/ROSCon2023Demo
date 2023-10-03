@@ -44,7 +44,7 @@ namespace TaskConstructor
         static constexpr char LiftPoseName[] = "lift";
         static constexpr char DropPoseName[] = "drop";
 
-        MTCController(rclcpp::Node::SharedPtr node, std::string ns);
+        MTCController(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, std::string ns);
 
         rclcpp::node_interfaces::NodeBaseInterface::SharedPtr getNodeBaseInterface();
 
@@ -52,21 +52,8 @@ namespace TaskConstructor
 
         bool setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed = 0.75f, const std::string& interpolation="PTP");
 
-        bool doTask(mtc::Task& task);
-
-        mtc::Task createTaskGrab(const geometry_msgs::msg::Pose& boxPose, std::string boxname, std::string ns);
-
         Eigen::Quaterniond getCurrentOrientation();
 
-        mtc::Task createTaskDrop(
-            const Eigen::Vector3f address,
-            std::string boxname,
-            geometry_msgs::msg::Pose& palletPose,
-            geometry_msgs::msg::Pose& boxPose,
-            std::vector<geometry_msgs::msg::Pose> boxes,
-            std::string ns);
-
-        mtc::Task createTaskPark(std::string ns);
 
     private:
         using PredefinePoseJointSpace = std::map<std::string, double>;
@@ -81,7 +68,6 @@ namespace TaskConstructor
 
         std::vector<std::string> namesOfBoxes;
 
-        moveit::core::RobotModelPtr m_kinematic_model;
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> m_move_groupIterface;
         std::string ns;
     };

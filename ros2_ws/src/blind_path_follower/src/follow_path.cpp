@@ -2,13 +2,15 @@
 #include "rclcpp/rclcpp.hpp"
 
 #include <Eigen/Dense>
+#include <blind_path_follower_msgs/action/follow_path.hpp>
 #include <cassert>
 #include <cmath>
 #include <geometry_msgs/msg/twist.hpp>
+#include <rclcpp/subscription.hpp>
 #include <rclcpp_action/create_server.hpp>
+#include <std_msgs/msg/bool.hpp>
 #include <tf2_eigen/tf2_eigen.hpp>
 #include <tf2_ros/transform_listener.h>
-#include <blind_path_follower_msgs/action/follow_path.hpp>
 
 //! Interpolate between multiple poses
 //! @param p 0-1 value of interpolation
@@ -106,8 +108,11 @@ private:
     bool reverse_ = false;
     double path_length_ = 0;
     double path_elapsed_ = 0;
+    bool should_stop = false;
     rclcpp::TimerBase::SharedPtr timer_;
     std::vector<Eigen::Affine3d> poses_;
+
+    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr objectDetector;
 
     rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const FlwPthAction::Goal> goal)
     {
@@ -118,6 +123,7 @@ private:
     rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<FlwPthGoal> goal_handle)
     {
         (void)goal_handle;
+        objectDetector.reset();
         return rclcpp_action::CancelResponse::ACCEPT;
     }
 
@@ -128,6 +134,14 @@ private:
         desired_linear_velocity_ = goal_handle->get_goal()->speed;
         reverse_ = goal_handle->get_goal()->reverse;
         poses_.clear();
+
+        objectDetector = node_->create_subscription<std_msgs::msg::Bool>(
+            ns_ + "/object_detector",
+            10,
+            [&](std_msgs::msg::Bool msg)
+            {
+                should_stop = msg.data;
+            });
 
         for (auto& pose : goal_handle->get_goal()->poses)
         {
@@ -160,6 +174,7 @@ private:
             timer_->cancel();
             auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
+            objectDetector.reset();
             goal_handle_->succeed(result);
             return;
         }
@@ -192,9 +207,9 @@ private:
 
         geometry_msgs::msg::Twist cmd;
         cmd.angular.z = bearingError * BearingGain + crossTrackError * CrossTrackGain;
-        cmd.angular.z = std::max(std::min(cmd.angular.z,MaxAngularSpeed ), -MaxAngularSpeed);
+        cmd.angular.z = std::max(std::min(cmd.angular.z, MaxAngularSpeed), -MaxAngularSpeed);
         double requestedLinearVelocity = DesiredLinearVelocity + alongTrackError * AlongTrackGain;
-        if (std::abs(bearingError) > MaxBearingError)
+        if (std::abs(bearingError) > MaxBearingError || should_stop)
         {
             requestedLinearVelocity = 0.0;
         }
@@ -216,12 +231,16 @@ private:
             timer_->cancel();
             auto result = std::make_shared<FlwPthAction::Result>();
             result->success = true;
+            objectDetector.reset();
             std::cout << "Path Succeed" << std::endl;
             goal_handle_->succeed(result);
         }
         cmd_publisher_->publish(cmd);
 
-        path_elapsed_ += LoopTimeSec;
+        if (!should_stop)
+        {
+            path_elapsed_ += LoopTimeSec;
+        }
     }
 };
 

@@ -20,6 +20,7 @@ namespace Utils
 
     const geometry_msgs::msg::Quaternion toMsgQuaternion(const Eigen::Quaterniond& q);
 
+    Eigen::Quaterniond GetClosestQuaternionFromList (const Eigen::Quaterniond& q1, const std::vector<Eigen::Quaterniond>& qlist);
     moveit_msgs::msg::CollisionObject CreateBoxCollision(
         const std::string& name,
         const Eigen::Vector3d dimension,

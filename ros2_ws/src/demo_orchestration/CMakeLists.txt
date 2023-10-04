@@ -10,7 +10,6 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
-find_package(ur_moveit_demo_msg REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav2_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
@@ -28,7 +27,6 @@ $<INSTALL_INTERFACE:include>)
 
 ament_target_dependencies(
   demo_orchestration
-  ur_moveit_demo_msg
   lock_service_msgs
   lane_provider_msgs
   "rclcpp"

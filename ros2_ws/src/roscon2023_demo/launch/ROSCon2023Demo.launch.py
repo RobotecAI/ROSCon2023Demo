@@ -15,7 +15,7 @@ import yaml
 def launch_setup(context, *args, **kwargs):
 
     blind_path_follower_dir = os.path.join(get_package_share_directory("blind_path_follower"), 'launch')
-    mtc_dir = os.path.join(get_package_share_directory("ur_moveit_demo"), 'launch')
+    palletization_dir = os.path.join(get_package_share_directory("ur_palletization"), 'launch')
     orchestrator_dir = os.path.join(get_package_share_directory("demo_orchestration"), "launch")
     o3de_fleet_nav_dir = os.path.join(get_package_share_directory("o3de_fleet_nav"), "launch")
     deliberation_dir = os.path.join(get_package_share_directory("otto_deliberation"), "launch")
@@ -64,7 +64,7 @@ def launch_setup(context, *args, **kwargs):
     moveIt_group = GroupAction([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
-                os.path.join(mtc_dir, 'mtc.launch.py')),
+                os.path.join(palletization_dir, 'ur_palletization.launch.py')),
             launch_arguments = {
                 "ur_namespace" : ur["namespace"],
                 "num_of_boxes" : str(ur["num_of_boxes"]),

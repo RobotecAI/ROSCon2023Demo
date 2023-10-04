@@ -214,6 +214,48 @@ def launch_setup(context, *args, **kwargs):
         "capabilities": "move_group/ExecuteTaskSolutionCapability"
     }
 
+    pilz_config =  {
+        "planning_pipelines" : ["pilz_industrial_motion_planner"],
+        "pilz_industrial_motion_planner":
+            {
+                "default_planner_config": "PTP",
+                "planning_plugin": "pilz_industrial_motion_planner/CommandPlanner"
+            },
+        "robot_description_planning":{
+            "cartesian_limits":{
+                "max_rot_vel" : 4.5,
+                "max_trans_acc" : 4.0,
+                "max_trans_dec" : 4.0,
+                "max_trans_vel" :4.0
+            },
+            "joint_limits":{
+                ur_namespace.perform(context)+'/elbow_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                },
+                ur_namespace.perform(context)+'/shoulder_lift_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                },
+                ur_namespace.perform(context)+'/shoulder_pan_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                },
+                ur_namespace.perform(context)+'/wrist_1_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                },
+                ur_namespace.perform(context)+'/wrist_2_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                },
+                ur_namespace.perform(context)+'/wrist_3_joint': {
+                    'has_acceleration_limits': True,
+                    'max_acceleration': 2.5
+                }
+            }
+        }
+    }
     # Start the actual move_group node/action server
     move_group_node = Node(
         package="moveit_ros_move_group",
@@ -232,13 +274,14 @@ def launch_setup(context, *args, **kwargs):
             planning_scene_monitor_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
+            pilz_config
         ],
     )
 
     mtc = Node(
-        name="hello_moveit",
-        package="ur_moveit_demo",
-        executable="mtc",
+        name="palletization",
+        package="ur_palletization",
+        executable="palletizationNode",
         output="screen",
         namespace=ur_namespace,
         parameters=[
@@ -258,6 +301,7 @@ def launch_setup(context, *args, **kwargs):
             {"num_of_boxes": num_of_boxes},
             {"pose_tolerance": pose_tolerance},
             {"wait_time": wait_time},
+            pilz_config
         ],
     )
 
@@ -280,6 +324,7 @@ def launch_setup(context, *args, **kwargs):
             robot_description_kinematics,
             # robot_description_planning,
             warehouse_ros_config,
+            pilz_config
         ]
     )
 

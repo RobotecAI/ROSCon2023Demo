@@ -50,6 +50,15 @@ bool RobotTasks::ValidateTasks() const
         }
     }
 
+    for (auto& m : m_blindHighSpeed)
+    {
+        if (m_validTasks.count(m) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in blind tasks high speed but not in tasks list", m.c_str());
+        }
+    }
+
     for (auto& m : m_cargoUnLoadTasks)
     {
         if (m_validTasks.count(m) == 0)
@@ -202,6 +211,7 @@ Task RobotTasks::ConstructTask(const RobotTaskKey& taskKey) const
     task.m_isReleasesLock = m_releaseLock.count(taskKey) > 0;
     task.m_isCargoUnload = m_cargoUnLoadTasks.count(taskKey) > 0;
     task.m_isCargoLoad = m_cargoLoadTasks.count(taskKey) > 0;
+    task.m_isBlindHighSpeed = m_blindHighSpeed.count(taskKey) > 0;
     if (m_taskPaths.count(taskKey) > 0)
     {
         task.m_path = m_taskPaths.at(taskKey);

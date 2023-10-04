@@ -15,7 +15,7 @@ public:
     using FollowPathAction = blind_path_follower_msgs::action::FollowPath;
 
     Nav2ActionClient(rclcpp::Node::SharedPtr node);
-    void SendGoal(const NavPath& targetPath, ResultCallback resultCallback, bool goBlind = false, bool reverse = false);
+    void SendGoal(const NavPath& targetPath, ResultCallback resultCallback, bool goBlind = false, bool reverse = false, bool blindHighSpeed = false);
 
 private:
     rclcpp_action::Client<Nav2Action>::SharedPtr m_nav2Client;

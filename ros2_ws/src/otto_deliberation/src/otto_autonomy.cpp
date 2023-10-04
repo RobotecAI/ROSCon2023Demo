@@ -127,7 +127,8 @@ void OttoAutonomy::Update()
                 *currentTask.m_path,
                 std::bind(&OttoAutonomy::NavigationGoalCompleted, this, std::placeholders::_1),
                 currentTask.m_isBlind,
-                currentTask.m_isReverse);
+                currentTask.m_isReverse,
+                currentTask.m_isBlindHighSpeed);
             RCLCPP_INFO(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)

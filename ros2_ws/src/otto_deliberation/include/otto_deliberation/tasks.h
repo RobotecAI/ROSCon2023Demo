@@ -28,6 +28,7 @@ struct Task
     bool m_isReleasesLock;
     bool m_isCargoUnload;
     bool m_isCargoLoad;
+    bool m_isBlindHighSpeed;
     std::optional<double> m_preTaskDelay;
     std::optional<double> m_postTaskDelay;
     NavPathPtr m_path;
@@ -50,6 +51,7 @@ public:
     RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
     RobotTaskSet m_acquireLock; //!< Tasks that needs acquire a lock
     RobotTaskSet m_releaseLock; //!< Tasks that releases a lock
+    RobotTaskSet m_blindHighSpeed; //!< Tasks that are high speed blind
     std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
     std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
     std::unordered_map<RobotTaskKey, NavPathPtr> m_taskPaths; //!< Geometry of tasks

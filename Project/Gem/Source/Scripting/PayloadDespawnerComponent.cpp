@@ -26,14 +26,16 @@ namespace ROS2::Demo
     {
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<PayloadDespawnerComponent>()->Version(1);
+            serialize->Class<PayloadDespawnerComponent>()->Version(1)
+                ->Field("DespawnDelay", &PayloadDespawnerComponent::m_despawnerDelay);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {
                 ec->Class<PayloadDespawnerComponent>("PayloadDespawnerComponent", "PayloadDespawnerComponent")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                     ->Attribute(AZ::Edit::Attributes::Category, "ROS2::Demo")
-                    ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"));
+                    ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"))
+                    ->DataElement(AZ::Edit::UIHandlers::Default, &PayloadDespawnerComponent::m_despawnerDelay, "Despawn Delay", "Despawn Delay");
             }
         }
     }

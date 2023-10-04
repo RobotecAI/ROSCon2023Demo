@@ -314,9 +314,73 @@
                         }
                     }
                 },
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 14378893233652968289,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            0.0,
+                            -0.6000000238418579,
+                            0.0
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                1.0,
+                                0.10000000149011612,
+                                1.0
+                            ]
+                        }
+                    }
+                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8083411231243397331
+                    "Id": 8083411231243397331,
+                    "DisabledComponents": {
+                        "EditorMeshColliderComponent": {
+                            "$type": "EditorMeshColliderComponent",
+                            "Id": 7719347654338345666,
+                            "ColliderConfiguration": {
+                                "MaterialSlots": {
+                                    "Slots": [
+                                        {
+                                            "Name": "DefaultMaterial"
+                                        }
+                                    ]
+                                }
+                            },
+                            "ShapeConfiguration": {
+                                "PhysicsAsset": {
+                                    "Asset": {
+                                        "assetId": {
+                                            "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
+                                            "subId": 2874233289
+                                        },
+                                        "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
+                                    },
+                                    "Configuration": {
+                                        "PhysicsAsset": {
+                                            "assetId": {
+                                                "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
+                                                "subId": 2874233289
+                                            },
+                                            "loadBehavior": "QueueLoad",
+                                            "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -354,40 +418,6 @@
                                     }
                                 }
                             ]
-                        }
-                    }
-                },
-                "EditorMeshColliderComponent": {
-                    "$type": "EditorMeshColliderComponent",
-                    "Id": 7719347654338345666,
-                    "ColliderConfiguration": {
-                        "MaterialSlots": {
-                            "Slots": [
-                                {
-                                    "Name": "DefaultMaterial"
-                                }
-                            ]
-                        }
-                    },
-                    "ShapeConfiguration": {
-                        "PhysicsAsset": {
-                            "Asset": {
-                                "assetId": {
-                                    "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                    "subId": 2874233289
-                                },
-                                "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                            },
-                            "Configuration": {
-                                "PhysicsAsset": {
-                                    "assetId": {
-                                        "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                        "subId": 2874233289
-                                    },
-                                    "loadBehavior": "QueueLoad",
-                                    "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                                }
-                            }
                         }
                     }
                 },

@@ -95,7 +95,7 @@ void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal_msg, Res
     m_followClient->async_send_goal(goal_msg, send_goal_options);
 }
 
-void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bool)> completionCallback, bool goBlind, bool reverse)
+void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bool)> completionCallback, bool goBlind, bool reverse, bool highSpeed)
 {
     if (goBlind)
     {
@@ -105,7 +105,7 @@ void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bo
             return;
         }
 
-        constexpr float speed = 0.25; // TODO - move out to parameters if needs to vary between blind paths
+        const float speed = highSpeed ? 0.55 : 0.25;
         auto goal_msg = FollowPathAction::Goal();
         goal_msg.speed = speed;
         goal_msg.reverse = reverse;

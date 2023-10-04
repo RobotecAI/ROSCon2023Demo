@@ -36,6 +36,8 @@ set(FILES
     Source/Scripting/PayloadDespawnerComponent.h
     Source/Scripting/ScriptSpawnLevelComponent.cpp
     Source/Scripting/ScriptSpawnLevelComponent.h
+    Source/Scripting/ObjectDetectionComponent.cpp
+    Source/Scripting/ObjectDetectionComponent.h
     Source/Vision/IdealVisionSystem.cpp
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp

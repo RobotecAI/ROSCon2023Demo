@@ -85,6 +85,7 @@ public:
         auto lifterTasks = m_node->declare_parameter<std::vector<std::string>>("lifter_tasks", { "" });
         auto dummyTasks = m_node->declare_parameter<std::vector<std::string>>("dummy_tasks", { "" });
         auto blindTasks = m_node->declare_parameter<std::vector<std::string>>("blind_tasks", { "" });
+        auto blindTasksHighSpeed = m_node->declare_parameter<std::vector<std::string>>("blind_tasks_high_speed", { "" });
         auto blindTasksReverse = m_node->declare_parameter<std::vector<std::string>>("blind_tasks_reverse", { "" });
         auto cargoLoadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_load_tasks", { "" });
         auto cargoUnloadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_unload_tasks", { "" });
@@ -106,6 +107,7 @@ public:
         const auto cargoUnloadTasksFiltered = filterEmptyElements(cargoUnloadTasks);
         const auto taskAcquireLockFiltered = filterEmptyElements(taskAcquireLock);
         const auto taskReleaseLockFiltered = filterEmptyElements(taskReleaseLock);
+        const auto blindTasksHighSpeedFiltered = filterEmptyElements(blindTasksHighSpeed);
 
         tasks.m_loop = loop;
         tasks.m_tasks = filterEmptyElements(taskList);
@@ -117,6 +119,7 @@ public:
         tasks.m_cargoUnLoadTasks = RobotTaskSet(cargoUnloadTasksFiltered.begin(), cargoUnloadTasksFiltered.end());
         tasks.m_acquireLock = RobotTaskSet(taskAcquireLockFiltered.begin(), taskAcquireLockFiltered.end());
         tasks.m_releaseLock = RobotTaskSet(taskReleaseLockFiltered.begin(), taskReleaseLockFiltered.end());
+        tasks.m_blindHighSpeed = RobotTaskSet(blindTasksHighSpeedFiltered.begin(), blindTasksHighSpeedFiltered.end());
 
         if (preTaskDelays.size() != tasks.m_tasks.size())
         {

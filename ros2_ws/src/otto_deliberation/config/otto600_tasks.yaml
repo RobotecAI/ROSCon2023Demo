@@ -1,13 +1,14 @@
 /**:
   ros__parameters:
     loop: true
-    tasks : ["Idle", "GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "GoToWrappingGlobal", "ApproachWrappingGlobal", "DoWrapping", "GoToUnload", "GoToUnloadExactGlobal", "ApproachUnloadGlobal", "WaitUnload", "EvacuateFromUnloadGlobal", "LeaveUnload" ]
+    tasks : ["Idle", "GoToPickup", "ApproachPickup", "WaitLoad", "EvacuateFromPickup",  "GoToWrapping", "GoToWrappingGlobal", "ApproachWrappingGlobal", "DoWrapping", "GoToUnload", "QueueUnload", "GoToUnloadExactGlobal", "ApproachUnloadGlobal", "WaitUnload", "EvacuateFromUnloadGlobal", "LeaveUnload" ]
     lifter_tasks : ["ApproachPickup", "WaitLoad", "EvacuateFromPickup"]
-    pre_task_delays : [0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-    post_task_delays : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    pre_task_delays : [0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    post_task_delays : [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     dummy_tasks: ["Idle",  "WaitUnload", "DoWrapping", "WaitUnload", "WaitLoad"]
-    blind_tasks: ["ApproachPickup", "EvacuateFromPickup", "ApproachWrappingGlobal", "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal" ]
+    blind_tasks: ["ApproachPickup", "EvacuateFromPickup", "ApproachWrappingGlobal", "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal", "QueueUnload" ]
     blind_tasks_reverse: ["EvacuateFromPickup", "EvacuateFromUnloadGlobal"]
+    blind_tasks_high_speed: ["QueueUnload", "ApproachWrappingGlobal"]
     cargo_load_tasks: ["WaitLoad"]
     cargo_unload_tasks: ["WaitUnload"]
     task_acquire_lock: ["GoToPickup", "GoToWrapping", "GoToWrappingGlobal", "GoToUnloadExactGlobal"]

@@ -58,6 +58,13 @@
                 "$type": "LocalViewBookmarkComponent",
                 "Id": 8518178925782834082,
                 "LocalBookmarkFileName": "foo1_1693899577283504334.setreg"
+            },
+            "ScriptSpawnLevelComponent": {
+                "$type": "GenericComponentWrapper",
+                "Id": 9541610368378632940,
+                "m_template": {
+                    "$type": "ScriptSpawnLevelComponent"
+                }
             }
         }
     },
@@ -1407,7 +1414,6 @@
                         "Instance_[449028952343441]/ContainerEntity",
                         "Entity_[1206059887936401]",
                         "Entity_[1206089952707473]",
-                        "Entity_[1206132902380433]",
                         "Entity_[1206042708067217]"
                     ]
                 },
@@ -1648,6 +1654,25 @@
             "Id": "Entity_[1206029823165329]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 2427477323132392234,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[1206008348328849]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -3086,6 +3111,25 @@
             "Id": "Entity_[1206115722511249]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 5237684272116750613,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[1206004053361553]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -3306,6 +3350,25 @@
             "Id": "Entity_[1206128607413137]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 6304116445710971293,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[1205965398655889]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -3382,85 +3445,6 @@
                             5.0,
                             -0.005530357360839844,
                             0.4857635498046875
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[1206132902380433]": {
-            "Id": "Entity_[1206132902380433]",
-            "Name": "Spawner",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8716467794155507848
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 11217278184377731101
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 5733903695194418616
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 4261319125997465624
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14386499870014740989
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8977963404717803197
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3652502057217407836
-                },
-                "EditorStaticRigidBodyComponent": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 10582313689306545614
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 16665446713452648272
-                },
-                "ROS2SpawnerEditorComponent": {
-                    "$type": "ROS2SpawnerEditorComponent",
-                    "Id": 16779392780569771372,
-                    "Controller": {
-                        "Configuration": {
-                            "Editor entity id": "Entity_[1206132902380433]",
-                            "Spawnables": {
-                                "otto600": {
-                                    "assetId": {
-                                        "guid": "{34E77627-6EDA-5CF6-8304-B8EA4E4ABE59}",
-                                        "subId": 1911613189
-                                    },
-                                    "assetHint": "prefabs/otto600/otto600withpallet.spawnable"
-                                }
-                            },
-                            "Default spawn pose": {
-                                "Translation": [
-                                    -22.0,
-                                    2.0,
-                                    0.10000000149011612
-                                ]
-                            }
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10249215676368019344,
-                    "Parent Entity": "Entity_[1206012643296145]",
-                    "Transform Data": {
-                        "Translate": [
-                            -29.032737731933594,
-                            2.9228999614715576,
-                            0.0
                         ]
                     }
                 }
@@ -3603,6 +3587,25 @@
             "Id": "Entity_[1206145787282321]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 513308667126763659,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[1205961103688593]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -4423,6 +4426,25 @@
             "Id": "Entity_[193886249452057]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17017552421857759334,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[193890544419353]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -5786,6 +5808,25 @@
             "Id": "Entity_[288027430150581]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 16479102086113794552,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[288031725117877]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -6807,7 +6848,6 @@
                         "Instance_[449028952343441]/ContainerEntity",
                         "Entity_[448930168095633]",
                         "Entity_[448947347964817]",
-                        "Entity_[448908693259153]",
                         "Entity_[448917283193745]"
                     ]
                 },
@@ -7315,6 +7355,25 @@
             "Id": "Entity_[448844268749713]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14965937656723389882,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[448921578161041]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -7661,6 +7720,25 @@
             "Id": "Entity_[448861448618897]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 11011415010605710741,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[448797024109457]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -7800,6 +7878,25 @@
             "Id": "Entity_[448870038553489]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 316587696753435603,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[448925873128337]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -8148,6 +8245,25 @@
             "Id": "Entity_[448891513389969]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 6087687699734161674,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[448831383847825]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -8441,85 +8557,6 @@
                         "Rotate": [
                             180.0,
                             0.0,
-                            0.0
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[448908693259153]": {
-            "Id": "Entity_[448908693259153]",
-            "Name": "Spawner",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8716467794155507848
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 11217278184377731101
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 5733903695194418616
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 4261319125997465624
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14386499870014740989
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8977963404717803197
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3652502057217407836
-                },
-                "EditorStaticRigidBodyComponent": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 10582313689306545614
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 16665446713452648272
-                },
-                "ROS2SpawnerEditorComponent": {
-                    "$type": "ROS2SpawnerEditorComponent",
-                    "Id": 16779392780569771372,
-                    "Controller": {
-                        "Configuration": {
-                            "Editor entity id": "Entity_[448908693259153]",
-                            "Spawnables": {
-                                "otto600": {
-                                    "assetId": {
-                                        "guid": "{34E77627-6EDA-5CF6-8304-B8EA4E4ABE59}",
-                                        "subId": 1911613189
-                                    },
-                                    "assetHint": "prefabs/otto600/otto600withpallet.spawnable"
-                                }
-                            },
-                            "Default spawn pose": {
-                                "Translation": [
-                                    -22.0,
-                                    2.0,
-                                    0.10000000149011612
-                                ]
-                            }
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10249215676368019344,
-                    "Parent Entity": "Entity_[448814203978641]",
-                    "Transform Data": {
-                        "Translate": [
-                            -29.032737731933594,
-                            2.9228999614715576,
                             0.0
                         ]
                     }
@@ -10282,6 +10319,25 @@
             "Id": "Entity_[747642609611035]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 17508065455905616190,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[747646904578331]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -10446,6 +10502,25 @@
             "Id": "Entity_[747664084447515]",
             "Name": "SpawnBox",
             "Components": {
+                "BoxSpawner": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 10839710321930147807,
+                    "m_template": {
+                        "$type": "BoxSpawner",
+                        "configuration": {
+                            "Spawnable": {
+                                "assetId": {
+                                    "guid": "{A340D2D4-3D29-5C22-ADC1-FAAF9C2CE30B}",
+                                    "subId": 1877876294
+                                },
+                                "assetHint": "assets/factory/box2.spawnable"
+                            },
+                            "MaxBoxCount": 6,
+                            "BarrierRegionEntityId": "Entity_[747668379414811]",
+                            "DespawnRegionEntityId": ""
+                        }
+                    }
+                },
                 "EditorCylinderShapeComponent": {
                     "$type": "EditorCylinderShapeComponent",
                     "Id": 6152424402753581197,
@@ -10860,11 +10935,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1206120017478545]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -10883,6 +10953,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur4"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1206120017478545]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -11035,11 +11115,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1206085657740177]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -11058,6 +11133,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur3"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1206085657740177]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -11250,11 +11335,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15289328081690]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -11273,6 +11353,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur4"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15289328081690]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -11391,58 +11481,23 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/1",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[330586773687144]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
-                    "value": 1.0
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[874835155826217]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[789412551276073]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[460716024407971]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 },
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[789403961341481]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935547
+                    "value": 14.414012908935549
                 }
             ]
         },
@@ -11520,11 +11575,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[448874333520785]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -11543,6 +11593,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur4"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[448874333520785]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -11870,11 +11930,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[448964527834001]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -11893,6 +11948,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur3"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[448964527834001]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },
@@ -11970,11 +12035,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[15293623048986]"
-                },
-                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -11993,6 +12053,16 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
                     "value": "ur3"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[15293623048986]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
                 }
             ]
         },

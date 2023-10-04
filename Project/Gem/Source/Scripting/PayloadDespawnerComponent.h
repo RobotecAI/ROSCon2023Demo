@@ -46,7 +46,7 @@ namespace ROS2::Demo
         void OnTick(float delta, AZ::ScriptTimePoint timePoint) override;
 
         AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler m_onTriggerEnterHandler;
-        float m_despawnerDelay = 2.0;
+        float m_despawnerDelay = 15.0;
         float m_timer = 0.0f;
 
         bool IsObjectBox(const AZ::EntityId entityId) const;

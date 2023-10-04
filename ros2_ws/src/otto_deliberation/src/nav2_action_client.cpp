@@ -105,7 +105,7 @@ void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bo
             return;
         }
 
-        constexpr float speed = 0.15; // TODO - move out to parameters if needs to vary between blind paths
+        constexpr float speed = 0.25; // TODO - move out to parameters if needs to vary between blind paths
         auto goal_msg = FollowPathAction::Goal();
         goal_msg.speed = speed;
         goal_msg.reverse = reverse;

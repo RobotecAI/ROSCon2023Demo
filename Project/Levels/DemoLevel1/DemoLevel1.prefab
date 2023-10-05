@@ -28,8 +28,9 @@
                     "Instance_[9613713711690]/ContainerEntity",
                     "Instance_[9849799017068]/ContainerEntity",
                     "Entity_[157997884966234]",
-                    "Instance_[2387492465947421]/ContainerEntity",
-                    "Entity_[1842731393655449]"
+                    "",
+                    "Entity_[1842731393655449]",
+                    "Instance_[34325215302150]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -358,7 +359,7 @@
                     "m_template": {
                         "$type": "FoilWrapper",
                         "FoilWrapperConfig": {
-                            "FoilWrapperEntityId": "Instance_[2387492465947421]/Instance_[22762098693080]/Instance_[2990698559568134]/Entity_[2990724329371910]",
+                            "FoilWrapperEntityId": "",
                             "CollisionTrigger": "Entity_[23923972842980]",
                             "SpawnablePayloadFoiled": {
                                 "assetId": {
@@ -4793,41 +4794,6 @@
                 }
             ]
         },
-        "Instance_[2387492465947421]": {
-            "Source": "Assets/Factory/Objects/WarehouseObjects.prefab",
-            "Patches": [
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/8",
-                    "value": "Instance_[349072931332505]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/9",
-                    "value": "Instance_[349137355841945]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/10",
-                    "value": "Instance_[349098701136281]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/11",
-                    "value": "Instance_[349124470940057]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/12",
-                    "value": "Instance_[349111586038169]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/13",
-                    "value": "Instance_[349085816234393]/ContainerEntity"
-                }
-            ]
-        },
         "Instance_[23912791405281]": {
             "Source": "Prefabs/Otto600-Stand/Otto600Stand_fbx.prefab",
             "Patches": [
@@ -5164,6 +5130,76 @@
                 }
             ]
         },
+        "Instance_[34325215302150]": {
+            "Source": "Assets/Factory/Objects/WarehouseObjects.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/13",
+                    "value": "Instance_[628116669736867]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/14",
+                    "value": "Instance_[627974935816099]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/15",
+                    "value": "Instance_[628090899933091]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[22762098693080]/Entities/Entity_[3487630570682630]/Components/EditorEntitySortComponent/Child Entity Order/16",
+                    "value": "Instance_[628103784834979]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[32799934489056]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Instance_[55376356293708]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Instance_[349137355841945]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Instance_[349150240743833]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/10",
+                    "value": "Instance_[349111586038169]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/11",
+                    "value": "Instance_[349124470940057]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/12",
+                    "value": "Instance_[349098701136281]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/13",
+                    "value": "Instance_[349085816234393]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[342729264636313]/Components/EditorEntitySortComponent/Child Entity Order/14",
+                    "value": "Instance_[349072931332505]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                }
+            ]
+        },
         "Instance_[4001389725264]": {
             "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
             "Patches": [
@@ -5286,6 +5322,18 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1080548856515450]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1080561741417338]"
+                },
+                {
+                    "op": "remove",
+                    "path": "/Instances/Instance_[1137435698350970]"
                 }
             ]
         },

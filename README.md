@@ -48,7 +48,7 @@ scripts/o3de.sh register --this-engine
 
 This project uses the [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2), [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) and [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation).
 Please make sure to follow the installation guide
-in [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file.
+in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file.
 To learn more about how the Gem works check out
 the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/concepts-and-components-overview/).
 
@@ -110,7 +110,7 @@ cd {$WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets 
 ```
-To launch built project:
+To launch the built project:
 ```bash
 cd {$WORKDIR}/ROSCon2023Demo
 ./build/linux/bin/profile/Editor
@@ -125,15 +125,7 @@ cd {$WORKDIR}/ROSCon2023Demo/ros2_ws
 source install/setup.bash
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```
-In a few seconds the robots should spawn and start moving.  
-For a more in depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
+In a few seconds, the robots should spawn and start moving.  
+For a more in-depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
 
-## Universal Robots ROS2 Driver and ROS2 workspace
-
-Follow installation [Build from source](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble#build-from-source) section of [Universal Robots ROS2 Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble)
-The modified URDF of the UR10 arm is provided in ros2 workspace 
-
-### Building ROS2 workspace
-
-To build workspace follow [readme](ros2_ws/README.md).
  

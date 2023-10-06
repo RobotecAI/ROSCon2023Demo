@@ -113,7 +113,7 @@ def launch_setup(context, *args, **kwargs):
     # nodes_to_start.append(blind_path_followers_group)
     nodes_to_start.append(moveIt_group)
     nodes_to_start.append(o3de_fleet_nav)
-    # nodes_to_start.append(deliberation_group)
+    nodes_to_start.append(deliberation_group)
 
     return nodes_to_start
 

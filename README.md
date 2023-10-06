@@ -94,7 +94,7 @@ Now install all dependencies of submodules.
 sudo apt install python3-colcon-common-extensions python3-vcstool
 rosdep update
 rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
-apt-get install ros-humble-moveit-servo ros-humble-moveit-visual-tools
+sudo apt-get install ros-humble-moveit-servo ros-humble-moveit-visual-tools
 ```
 Now build and source the workspace.
 ```bash

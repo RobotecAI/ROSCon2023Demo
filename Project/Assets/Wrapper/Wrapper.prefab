@@ -50,6 +50,103 @@
         }
     },
     "Entities": {
+        "Entity_[155453635247189]": {
+            "Id": "Entity_[155453635247189]",
+            "Name": "Logic",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 7863973355119432943,
+                    "ColliderConfiguration": {
+                        "Trigger": true,
+                        "InSceneQueries": false,
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                2.0,
+                                2.0,
+                                2.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13293549367491089679
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13978706557958276908
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5390389658480573852
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6911989319475010841
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2244978636038446389
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4703299429121030539
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1557301694421745297
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 12624789126236103020
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14202080595680341005
+                },
+                "FoilWrapper": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 5321218964914144301,
+                    "m_template": {
+                        "$type": "FoilWrapper",
+                        "FoilWrapperConfig": {
+                            "FoilWrapperEntityId": "Entity_[2990724329371910]",
+                            "CollisionTrigger": "Entity_[155453635247189]",
+                            "SpawnablePayloadFoiled": {
+                                "assetId": {
+                                    "guid": "{0D44721F-2398-5BD7-80E0-81A23300265C}",
+                                    "subId": 346410741
+                                },
+                                "assetHint": "assets/factory/objects/palletstackpayloadfoil1.spawnable"
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9690302264875424617,
+                    "Parent Entity": "Entity_[2990715739437318]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.026288986206054688,
+                            1.4855995178222656,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[2990707149502726]": {
             "Id": "Entity_[2990707149502726]",
             "Name": "360_arm_001",
@@ -233,7 +330,8 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 11835557949134534592,
                     "Child Entity Order": [
-                        "Entity_[2990711444470022]"
+                        "Entity_[2990711444470022]",
+                        "Entity_[155453635247189]"
                     ]
                 },
                 "EditorInspectorComponent": {

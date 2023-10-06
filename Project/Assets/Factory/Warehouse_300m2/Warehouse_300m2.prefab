@@ -179,9 +179,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{F145EB8B-0F25-5585-A607-8A95B622A25B}"
+                                                "guid": "{50ADFF62-1A3E-5D18-8755-F154351E9E99}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_shoes.azmaterial"
+                                            "assetHint": "assets/asianwoman/material/npc_shoes.azmaterial"
                                         }
                                     }
                                 },
@@ -192,9 +192,8 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{574C720B-89E4-5C16-BE37-D1FEDE39AC00}"
-                                            },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_vest.azmaterial"
+                                                "guid": "{BE0F7D82-B5B1-506E-8A00-5F2026F746BF}"
+                                            }
                                         }
                                     }
                                 },
@@ -205,9 +204,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{0104BD42-81CF-55E8-AB26-398369E60EF1}"
+                                                "guid": "{D81C826D-3D91-546F-A424-60D79CF738B6}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_body.azmaterial"
+                                            "assetHint": "assets/asianwoman/material/npc_body_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -218,9 +217,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{CA7AEDD1-5614-51EB-8643-484445930B3B}"
+                                                "guid": "{7FF5EFF0-696D-567E-8503-2C1DB02C4348}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_mask.azmaterial"
+                                            "assetHint": "assets/asianwoman/material/npc_face_mask_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -231,9 +230,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{614F086A-1353-54D4-BF77-9CC849353055}"
+                                                "guid": "{7B0D002B-791F-5C67-9FF4-76212E5466EE}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_hair.azmaterial"
+                                            "assetHint": "assets/asianwoman/material/npc_hair_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -244,9 +243,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{BDA5C024-4EAB-5729-B441-5E67CAF59901}"
+                                                "guid": "{0294F6D1-9ED4-56BB-A0BD-35A0D8741B1F}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_eyes.azmaterial"
+                                            "assetHint": "assets/asianwoman/material/npc_eyes.azmaterial"
                                         }
                                     }
                                 }
@@ -377,6 +376,73 @@
                 }
             }
         },
+        "Entity_[1138625404291962]": {
+            "Id": "Entity_[1138625404291962]",
+            "Name": "Gate_lines",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17113014712055807565
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13790103023037498798
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16806358844540057503,
+                    "Child Entity Order": [
+                        "Instance_[1023954072456058]/ContainerEntity",
+                        "Instance_[1080445777300346]/ContainerEntity",
+                        "Instance_[1080548856515450]/ContainerEntity",
+                        "Instance_[1080561741417338]/ContainerEntity",
+                        "Instance_[1137422813449082]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6978173428455281444,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 2757510667251557672
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2573270627241289491
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2955156280763255893
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16764046274712668057
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13694524521424258694
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2757510667251557672,
+                    "Parent Entity": "Entity_[351881303185622]",
+                    "Transform Data": {
+                        "Translate": [
+                            -1.7347564697265625,
+                            -4.668562889099121,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            180.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[1138732778474362]": {
             "Id": "Entity_[1138732778474362]",
             "Name": "Gate_lines",
@@ -393,11 +459,11 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 16806358844540057503,
                     "Child Entity Order": [
-                        "",
-                        "",
+                        "Instance_[1023954072456058]/ContainerEntity",
+                        "Instance_[1080445777300346]/ContainerEntity",
                         "Instance_[1080548856515450]/ContainerEntity",
                         "Instance_[1080561741417338]/ContainerEntity",
-                        "",
+                        "Instance_[1137422813449082]/ContainerEntity",
                         "Instance_[1138745663376250]/ContainerEntity",
                         "Instance_[1138737073441658]/ContainerEntity",
                         "Instance_[1138749958343546]/ContainerEntity",
@@ -437,7 +503,7 @@
                     "Transform Data": {
                         "Translate": [
                             -1.7347564697265625,
-                            -4.668562889099121,
+                            4.684237480163574,
                             0.0
                         ],
                         "Rotate": [
@@ -2993,8 +3059,8 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 16525521940788664722,
                     "Child Entity Order": [
+                        "Entity_[1138625404291962]",
                         "Entity_[1138732778474362]",
-                        "Entity_[35725374640646]",
                         "Entity_[351649374951638]",
                         "Entity_[1199729904012154]"
                     ]
@@ -3028,78 +3094,6 @@
                             -97.94430541992188,
                             15.097567558288574,
                             0.0
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[35725374640646]": {
-            "Id": "Entity_[35725374640646]",
-            "Name": "Gate_lines",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 17113014712055807565
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 13790103023037498798
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 16806358844540057503,
-                    "Child Entity Order": [
-                        "",
-                        "",
-                        "Instance_[1080548856515450]/ContainerEntity",
-                        "Instance_[1080561741417338]/ContainerEntity",
-                        "",
-                        "Instance_[1138745663376250]/ContainerEntity",
-                        "Instance_[1138737073441658]/ContainerEntity",
-                        "Instance_[1138749958343546]/ContainerEntity",
-                        "Instance_[1138754253310842]/ContainerEntity",
-                        "Instance_[1138741368408954]/ContainerEntity"
-                    ]
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 6978173428455281444,
-                    "ComponentOrderEntryArray": [
-                        {
-                            "ComponentId": 2757510667251557672
-                        }
-                    ]
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 2573270627241289491
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 2955156280763255893
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 16764046274712668057
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 13694524521424258694
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 2757510667251557672,
-                    "Parent Entity": "Entity_[351881303185622]",
-                    "Transform Data": {
-                        "Translate": [
-                            -1.7347564697265625,
-                            4.684237480163574,
-                            0.0
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            180.0
                         ]
                     }
                 }
@@ -5101,6 +5095,51 @@
         }
     },
     "Instances": {
+        "Instance_[1023954072456058]": {
+            "Source": "Assets/Factory/Decals/Yellow_line_turn1.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1138625404291962]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.396942138671875
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 2.4735445976257324
+                }
+            ]
+        },
+        "Instance_[1080445777300346]": {
+            "Source": "Assets/Factory/Decals/Yellow_line_turn2.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1138625404291962]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.396942138671875
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -2.1657400131225586
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 180.0
+                }
+            ]
+        },
         "Instance_[1080548856515450]": {
             "Source": "Assets/Factory/Decals/Yellow_line_straight1.prefab",
             "Patches": [
@@ -5133,6 +5172,36 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
                     "value": 2.5403151512145996
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
+                }
+            ]
+        },
+        "Instance_[1137422813449082]": {
+            "Source": "Assets/Factory/Decals/Yellow_line_straight1.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[479150355860346]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
+                    "value": 0.800000011920929
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1138625404291962]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -0.494720458984375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -2.2337121963500977
                 },
                 {
                     "op": "replace",
@@ -5302,7 +5371,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.4646987915039063
+                    "value": -1.4646987915039065
                 },
                 {
                     "op": "replace",
@@ -9692,171 +9761,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 89.99994659423828
-                }
-            ]
-        },
-        "Instance_[35729669607942]": {
-            "Source": "Assets/Factory/Decals/Yellow_line_straight1.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[479150355860346]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
-                    "value": 0.800000011920929
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[35725374640646]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.494720458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 2.5403151512145996
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
-                }
-            ]
-        },
-        "Instance_[35733964575238]": {
-            "Source": "Assets/Factory/Decals/Yellow_line_turn2.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[35725374640646]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.396942138671875
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.1657400131225586
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
-                }
-            ]
-        },
-        "Instance_[35738259542534]": {
-            "Source": "Assets/Factory/Decals/Yellow_line_turn1.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[35725374640646]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.396942138671875
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 2.4735445976257324
-                }
-            ]
-        },
-        "Instance_[35742554509830]": {
-            "Source": "Assets/Factory/Decals/Yellow_line_straight1.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[479150355860346]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
-                    "value": 0.800000011920929
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[35725374640646]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.494720458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.2337121963500977
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
-                }
-            ]
-        },
-        "Instance_[35746849477126]": {
-            "Source": "Assets/Factory/Decals/Yellow_line_straight1.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[479150355860346]/Components/EditorNonUniformScaleComponent/NonUniformScale/1",
-                    "value": 2.200000047683716
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[35725374640646]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.4646987915039065
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.15633869171142578
-                }
-            ]
-        },
-        "Instance_[35802684051974]": {
-            "Source": "Assets/Factory/Decals/Gate_lines.prefab",
-            "Patches": [
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[1137444288285562]/Components/EditorEntitySortComponent/Child Entity Order/3",
-                    "value": "Instance_[1137422813449082]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[1137444288285562]/Components/EditorEntitySortComponent/Child Entity Order/4",
-                    "value": "Instance_[1080561741417338]/ContainerEntity"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[1080548856515450]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -1.4646987915039063
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1199729904012154]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 5.262603759765625
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -5.002101898193359
                 }
             ]
         },

@@ -149,9 +149,9 @@ controller_server:
     FollowPath:
       plugin: "dwb_core::DWBLocalPlanner"
       debug_trajectory_details: True
-      min_vel_x: -1.0
+      min_vel_x: -0.70
       min_vel_y: 0.0
-      max_vel_x: 1.0
+      max_vel_x: 0.70
       max_vel_y: 0.0
       max_vel_theta: 1.0
       min_speed_xy: 0.0
@@ -291,6 +291,12 @@ planner_server:
       tolerance: 0.5
       use_astar: false
       allow_unknown: true
+
+velocity_smoother:
+  ros__parameters: 
+    max_velocity: [1.25, 0.0, 1.0] 
+    min_velocity: [-1.25, 0.0, -1.0] 
+
 
 smoother_server:
   ros__parameters:

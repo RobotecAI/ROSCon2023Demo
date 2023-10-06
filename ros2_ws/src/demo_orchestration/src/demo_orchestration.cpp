@@ -81,11 +81,15 @@ private:
 
     std::optional<std::string> PathDependency(const std::string& path_name)
     {
-        static const std::map<std::string, std::string> dependencies = { { "GoToPickup", "ApproachPickup" },
-                                                                         { "ApproachPickup", "EvacuateFromPickup" },
-                                                                         { "GoToWrappingGlobal", "ApproachWrappingGlobal" },
-                                                                         { "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal" },
-                                                                         { "GoToUnloadExactGlobal", "ApproachUnloadGlobal" } };
+        static const std::map<std::string, std::string> dependencies = {
+            { "GoToPickup", "ApproachPickup" },
+            { "ApproachPickup", "EvacuateFromPickup" },
+            { "GoToWrappingGlobal", "ApproachWrappingGlobal" },
+            { "ApproachUnloadGlobalLeft", "EvacuateFromUnloadGlobalLeft" },
+            { "GoToUnloadExactGlobalLeft", "ApproachUnloadGlobalLeft" },
+            { "ApproachUnloadGlobalRight", "EvacuateFromUnloadGlobalRight" },
+            { "GoToUnloadExactGlobalRight", "ApproachUnloadGlobalRight" },
+        };
 
         if (dependencies.find(path_name) == dependencies.end())
         {
@@ -96,9 +100,10 @@ private:
 
     bool IsPathGlobal(const std::string& path_name)
     {
-        static const std::set<std::string> globalPaths = {
-            "ApproachWrappingGlobal", "GoToWrappingGlobal", "GoToUnloadExactGlobal", "EvacuateFromUnloadGlobal", "ApproachUnloadGlobal"
-        };
+        static const std::set<std::string> globalPaths = { "ApproachWrappingGlobal",        "GoToWrappingGlobal",
+                                                           "GoToUnloadExactGlobalLeft",     "EvacuateFromUnloadGlobalLeft",
+                                                           "ApproachUnloadGlobalLeft",      "GoToUnloadExactGlobalRight",
+                                                           "EvacuateFromUnloadGlobalRight", "ApproachUnloadGlobalRight" };
         return globalPaths.count(path_name) == 1;
     };
 

@@ -34,7 +34,7 @@ def launch_setup(context, *args, **kwargs):
     fleet_config_file_path = LaunchConfiguration("fleet_config_path")
 
     otto_fleet_nav_dir = get_package_share_directory('otto_fleet_nav')
-    o3de_launch_dir = os.path.join(otto_fleet_nav_dir, 'launch')
+    otto_launch_dir = os.path.join(otto_fleet_nav_dir, 'launch')
 
     fleet_config_file = fleet_config_file_path.perform(context)
 
@@ -115,7 +115,7 @@ def launch_setup(context, *args, **kwargs):
         group = GroupAction([
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                        os.path.join(o3de_launch_dir, 'o3de_rviz_launch.py')),
+                        os.path.join(otto_launch_dir, 'otto_rviz_launch.py')),
                 condition=IfCondition(use_rviz),
                 launch_arguments={
                                   'namespace': TextSubstitution(text=robot['namespace']),
@@ -123,8 +123,8 @@ def launch_setup(context, *args, **kwargs):
                                   'rviz_config': rviz_config_file}.items()),
 
             IncludeLaunchDescription(
-                PythonLaunchDescriptionSource(os.path.join(o3de_launch_dir,
-                                                           'o3de_nav_launch.py')),
+                PythonLaunchDescriptionSource(os.path.join(otto_launch_dir,
+                                                           'otto_nav_launch.py')),
                 launch_arguments={'namespace': robot['namespace'],
                                   'use_namespace': 'True',
                                   'map': map_yaml_file,

@@ -98,7 +98,7 @@ def generate_launch_description():
 
     rviz_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(otto_fleet_nav_launch_dir, 'o3de_rviz_launch.py')),
+            os.path.join(otto_fleet_nav_launch_dir, 'otto_rviz_launch.py')),
         condition=IfCondition(use_rviz),
         launch_arguments={'namespace': namespace,
                           'use_namespace': use_namespace,
@@ -106,7 +106,7 @@ def generate_launch_description():
 
     bringup_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(otto_fleet_nav_launch_dir, 'o3de_bringup_launch.py')),
+            os.path.join(otto_fleet_nav_launch_dir, 'otto_bringup_launch.py')),
         launch_arguments={'namespace': namespace,
                           'use_namespace': use_namespace,
                           'map': map_yaml_file,

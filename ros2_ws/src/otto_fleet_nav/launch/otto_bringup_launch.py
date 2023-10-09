@@ -116,7 +116,7 @@ def generate_launch_description():
 
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(os.path.join(otto_fleet_nav_launch_dir,
-                                                       'o3de_localization_launch.py')),
+                                                       'otto_localization_launch.py')),
             launch_arguments={'namespace': namespace,
                               'map': map_yaml_file,
                               'use_sim_time': use_sim_time,
@@ -127,7 +127,7 @@ def generate_launch_description():
                               'container_name': 'nav2_container'}.items()),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(otto_fleet_nav_launch_dir, 'o3de_navigation_launch.py')),
+            PythonLaunchDescriptionSource(os.path.join(otto_fleet_nav_launch_dir, 'otto_navigation_launch.py')),
             launch_arguments={'namespace': namespace,
                               'use_sim_time': use_sim_time,
                               'autostart': autostart,

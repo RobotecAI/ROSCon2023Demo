@@ -16,7 +16,7 @@ def launch_setup(context, *args, **kwargs):
 
     blind_path_follower_dir = os.path.join(get_package_share_directory("blind_path_follower"), 'launch')
     palletization_dir = os.path.join(get_package_share_directory("ur_palletization"), 'launch')
-    path_lock_dir = os.path.join(get_package_share_directory("demo_orchestration"), "launch")
+    path_lock_dir = os.path.join(get_package_share_directory("global_path_lock"), "launch")
     otto_fleet_nav_dir = os.path.join(get_package_share_directory("otto_fleet_nav"), "launch")
     deliberation_dir = os.path.join(get_package_share_directory("otto_deliberation"), "launch")
 

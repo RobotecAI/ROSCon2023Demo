@@ -29,8 +29,8 @@ from nav2_common.launch import RewrittenYaml
 
 def generate_launch_description():
     # Get the launch directory
-    o3de_fleet_nav_dir = get_package_share_directory('o3de_fleet_nav')
-    o3de_fleet_nav_launch_dir = os.path.join(o3de_fleet_nav_dir, 'launch')
+    otto_fleet_nav_dir = get_package_share_directory('otto_fleet_nav')
+    otto_fleet_nav_launch_dir = os.path.join(otto_fleet_nav_dir, 'launch')
 
     distro = os.getenv('ROS_DISTRO')
 
@@ -80,7 +80,7 @@ def generate_launch_description():
 
     declare_params_file_cmd = DeclareLaunchArgument(
         'params_file',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
 
     declare_autostart_cmd = DeclareLaunchArgument(
@@ -115,7 +115,7 @@ def generate_launch_description():
             output='screen'),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(o3de_fleet_nav_launch_dir,
+            PythonLaunchDescriptionSource(os.path.join(otto_fleet_nav_launch_dir,
                                                        'o3de_localization_launch.py')),
             launch_arguments={'namespace': namespace,
                               'map': map_yaml_file,
@@ -127,7 +127,7 @@ def generate_launch_description():
                               'container_name': 'nav2_container'}.items()),
 
         IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(os.path.join(o3de_fleet_nav_launch_dir, 'o3de_navigation_launch.py')),
+            PythonLaunchDescriptionSource(os.path.join(otto_fleet_nav_launch_dir, 'o3de_navigation_launch.py')),
             launch_arguments={'namespace': namespace,
                               'use_sim_time': use_sim_time,
                               'autostart': autostart,

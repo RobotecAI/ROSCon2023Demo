@@ -28,7 +28,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
 
     ways = Node(
-            package='o3de_fleet_nav',
+            package='otto_fleet_nav',
             executable='follow_waypoints',
             output='log'
     )

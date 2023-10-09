@@ -2,7 +2,7 @@ import os
 from glob import glob
 from setuptools import setup
 
-package_name = 'o3de_fleet_nav'
+package_name = 'otto_fleet_nav'
 
 setup(
     name=package_name,
@@ -30,8 +30,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'robot_spawner = o3de_fleet_nav.robot_spawner:main',
-            'follow_waypoints = o3de_fleet_nav.follow_waypoints:main',
+            'robot_spawner = otto_fleet_nav.robot_spawner:main',
+            'follow_waypoints = otto_fleet_nav.follow_waypoints:main',
         ],
     },
 )

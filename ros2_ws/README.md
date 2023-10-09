@@ -27,10 +27,10 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 
 ### src/otto_deliberation
 - Autonomy for OTTO AMRs
-- Manages tasks, sends commands to o3de_fleet_nav and blind_path_follower
+- Manages tasks, sends commands to otto_fleet_nav and blind_path_follower
 - Contains task description configurations
 
-### src/o3de_fleet_nav
+### src/otto_fleet_nav
 - Nav2 for OTTO AMRs
 - Spawns and controls robots movements
 

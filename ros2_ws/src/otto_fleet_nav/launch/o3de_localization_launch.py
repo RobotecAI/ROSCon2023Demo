@@ -29,7 +29,7 @@ from nav2_common.launch import RewrittenYaml
 
 def generate_launch_description():
     # Get the launch directory
-    o3de_fleet_nav_dir = get_package_share_directory('o3de_fleet_nav')
+    otto_fleet_nav_dir = get_package_share_directory('otto_fleet_nav')
 
     namespace = LaunchConfiguration('namespace')
     map_yaml_file = LaunchConfiguration('map')
@@ -77,7 +77,7 @@ def generate_launch_description():
 
     declare_params_file_cmd = DeclareLaunchArgument(
         'params_file',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
         description='Full path to the ROS2 parameters file to use for all launched nodes')
 
     declare_autostart_cmd = DeclareLaunchArgument(

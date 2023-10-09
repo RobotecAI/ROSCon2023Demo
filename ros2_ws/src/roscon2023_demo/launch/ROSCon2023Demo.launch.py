@@ -17,7 +17,7 @@ def launch_setup(context, *args, **kwargs):
     blind_path_follower_dir = os.path.join(get_package_share_directory("blind_path_follower"), 'launch')
     palletization_dir = os.path.join(get_package_share_directory("ur_palletization"), 'launch')
     path_lock_dir = os.path.join(get_package_share_directory("demo_orchestration"), "launch")
-    o3de_fleet_nav_dir = os.path.join(get_package_share_directory("o3de_fleet_nav"), "launch")
+    otto_fleet_nav_dir = os.path.join(get_package_share_directory("otto_fleet_nav"), "launch")
     deliberation_dir = os.path.join(get_package_share_directory("otto_deliberation"), "launch")
 
     config_file_arg = LaunchConfiguration("ROS2Con2023Config")
@@ -99,9 +99,9 @@ def launch_setup(context, *args, **kwargs):
         }.items()
     )
 
-    o3de_fleet_nav = IncludeLaunchDescription(
+    otto_fleet_nav = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
-            os.path.join(o3de_fleet_nav_dir, "o3de_fleet_nav_launch.py")
+            os.path.join(otto_fleet_nav_dir, "otto_fleet_nav_launch.py")
         ),
         launch_arguments = {
             "use_rviz": use_rviz,
@@ -112,7 +112,7 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start.append(path_lock)
     # nodes_to_start.append(blind_path_followers_group)
     nodes_to_start.append(moveIt_group)
-    nodes_to_start.append(o3de_fleet_nav)
+    nodes_to_start.append(otto_fleet_nav)
     nodes_to_start.append(deliberation_group)
 
     return nodes_to_start

@@ -33,8 +33,8 @@ def launch_setup(context, *args, **kwargs):
 
     fleet_config_file_path = LaunchConfiguration("fleet_config_path")
 
-    o3de_fleet_nav_dir = get_package_share_directory('o3de_fleet_nav')
-    o3de_launch_dir = os.path.join(o3de_fleet_nav_dir, 'launch')
+    otto_fleet_nav_dir = get_package_share_directory('otto_fleet_nav')
+    o3de_launch_dir = os.path.join(otto_fleet_nav_dir, 'launch')
 
     fleet_config_file = fleet_config_file_path.perform(context)
 
@@ -66,12 +66,12 @@ def launch_setup(context, *args, **kwargs):
     # Declare the launch arguments
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'maps', 'map_demolevel1.yaml'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'maps', 'map_demolevel1.yaml'),
         description='Full path to map file to load')
 
     declare_robot_params_file_cmd = DeclareLaunchArgument(
         'robot_params_file',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'params', distro, 'nav2_multirobot_params.yaml'),
         description='Full path to the ROS2 parameters file to use for all robot launched nodes')
 
     declare_autostart_cmd = DeclareLaunchArgument(
@@ -80,7 +80,7 @@ def launch_setup(context, *args, **kwargs):
 
     declare_rviz_config_file_cmd = DeclareLaunchArgument(
         'rviz_config',
-        default_value=os.path.join(o3de_fleet_nav_dir, 'rviz', 'nav2_namespaced_view.rviz'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'rviz', 'nav2_namespaced_view.rviz'),
         description='Full path to the RVIZ config file to use.')
 
     declare_use_rviz_cmd = DeclareLaunchArgument(
@@ -91,10 +91,10 @@ def launch_setup(context, *args, **kwargs):
     # Define commands for launching the navigation instances
     nav_instances_cmds = []
     for robot in robots:
-        params_file = os.path.join(o3de_fleet_nav_dir, 'params', distro, robot["nav2_param_file"])
+        params_file = os.path.join(otto_fleet_nav_dir, 'params', distro, robot["nav2_param_file"])
         
         configured_tree = ReplaceString(
-            source_file=os.path.join(o3de_fleet_nav_dir, 'behaviour_trees', 'navigate_through_poses_w_replanning_and_recovery.xml'),
+            source_file=os.path.join(otto_fleet_nav_dir, 'behaviour_trees', 'navigate_through_poses_w_replanning_and_recovery.xml'),
             replacements={
                 'robot_namespace' : robot['namespace']
             }
@@ -171,7 +171,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'fleet_config_path',
-            default_value=os.path.join(get_package_share_directory('o3de_fleet_nav'), 'config', 'fleet_config.yaml'),
+            default_value=os.path.join(get_package_share_directory('otto_fleet_nav'), 'config', 'fleet_config.yaml'),
             description='Fleet configuration file'
         )
     )

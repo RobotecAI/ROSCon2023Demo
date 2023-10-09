@@ -12,7 +12,7 @@ find_package(rclcpp REQUIRED)
 find_package(control_msgs REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
-find_package(moveit_visual_tools)
+find_package(moveit_core)
 add_library(gripper src/gripper.cpp src/gripper.h)
 add_library(vision src/vision.cpp src/vision.h)
 add_library(taskConstructor src/taskConstructor.cpp src/taskConstructor.h)
@@ -31,7 +31,6 @@ ament_target_dependencies(
   palletizationNode
   "rclcpp"
   "moveit_ros_planning_interface"
-  "moveit_visual_tools"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")
@@ -58,7 +57,6 @@ ament_target_dependencies(
   taskConstructor
   "rclcpp"
   "moveit_ros_planning_interface"
-  "moveit_visual_tools"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")
@@ -67,7 +65,6 @@ ament_target_dependencies(
   utils
   "rclcpp"
   "moveit_ros_planning_interface"
-  "moveit_visual_tools"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")

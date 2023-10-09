@@ -22,7 +22,7 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 - Launch file for palletization demo
 - Uses pilz_industrial_motion_planner
 
-### src/OTTO600_Description src/OTTO1500_Description
+### src/otto600_description src/otto1500_description
 - Contains all urdf and mesh files for OTTO AMRs
 
 ### src/otto_deliberation

@@ -34,7 +34,7 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 - Nav2 for OTTO AMRs
 - Spawns and controls robots movements
 
-### src/demo_orchestration
+### src/global_path_lock
 - Manages access to all paths that robots take
 - Provides a path locking ROS2 service
 

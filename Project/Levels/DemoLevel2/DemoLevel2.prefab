@@ -7288,24 +7288,6 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 1455713704386725607
                 },
-                "FoilWrapper": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 9513010274771325537,
-                    "m_template": {
-                        "$type": "FoilWrapper",
-                        "FoilWrapperConfig": {
-                            "FoilWrapperEntityId": "",
-                            "CollisionTrigger": "",
-                            "SpawnablePayloadFoiled": {
-                                "assetId": {
-                                    "guid": "{0D44721F-2398-5BD7-80E0-81A23300265C}",
-                                    "subId": 346410741
-                                },
-                                "assetHint": "assets/factory/objects/palletstackpayloadfoil1.spawnable"
-                            }
-                        }
-                    }
-                },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 15586212035450571136,
@@ -10273,24 +10255,6 @@
                     "$type": "EditorVisibilityComponent",
                     "Id": 1455713704386725607
                 },
-                "FoilWrapper": {
-                    "$type": "GenericComponentWrapper",
-                    "Id": 9513010274771325537,
-                    "m_template": {
-                        "$type": "FoilWrapper",
-                        "FoilWrapperConfig": {
-                            "FoilWrapperEntityId": "",
-                            "CollisionTrigger": "",
-                            "SpawnablePayloadFoiled": {
-                                "assetId": {
-                                    "guid": "{0D44721F-2398-5BD7-80E0-81A23300265C}",
-                                    "subId": 346410741
-                                },
-                                "assetHint": "assets/factory/objects/palletstackpayloadfoil1.spawnable"
-                            }
-                        }
-                    }
-                },
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 15586212035450571136,
@@ -12971,26 +12935,6 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[11561839088463]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[10251874063183]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur4"
-                },
-                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[549931654428655]"
@@ -12999,12 +12943,7 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.25
-                }
-            ]
-        },
-        "Instance_[550008963839983]": {
-            "Source": "Prefabs/ur20_cameras.prefab",
-            "Patches": [
+                },
                 {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
@@ -13023,8 +12962,13 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur1"
-                },
+                    "value": "ur8"
+                }
+            ]
+        },
+        "Instance_[550008963839983]": {
+            "Source": "Prefabs/ur20_cameras.prefab",
+            "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -13034,6 +12978,26 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.25
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "ur5"
                 }
             ]
         },
@@ -13086,6 +13050,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[549850050050031]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -13103,17 +13077,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur3"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[549850050050031]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur7"
                 }
             ]
         },
@@ -13472,6 +13436,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[549880114821103]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[10251874063183]"
@@ -13489,17 +13463,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[549880114821103]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur6"
                 }
             ]
         },
@@ -13642,6 +13606,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[550447050504175]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -13659,17 +13633,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[550447050504175]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur9"
                 }
             ]
         },
@@ -13707,6 +13671,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[550532949850095]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[10251874063183]"
@@ -13724,17 +13698,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur2"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[550532949850095]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur10"
                 }
             ]
         },
@@ -14048,6 +14012,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[550494295144431]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -14065,17 +14039,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[550494295144431]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur12"
                 }
             ]
         },
@@ -14163,6 +14127,16 @@
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
                 {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[550515769980911]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.25
+                },
+                {
                     "op": "add",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
                     "value": "Entity_[11561839088463]"
@@ -14180,17 +14154,7 @@
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[8954793939791]/Entities/Entity_[1060644049743]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "ur3"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[550515769980911]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.25
+                    "value": "ur11"
                 }
             ]
         },

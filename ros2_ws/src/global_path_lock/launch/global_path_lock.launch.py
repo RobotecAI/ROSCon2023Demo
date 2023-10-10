@@ -12,9 +12,9 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start = []
 
     orchestration = Node(
-        name="orchestration",
-        package="demo_orchestration",
-        executable="demo_orchestration",
+        name="global_path_lock",
+        package="global_path_lock",
+        executable="global_path_lock",
         output="screen",
     )
 

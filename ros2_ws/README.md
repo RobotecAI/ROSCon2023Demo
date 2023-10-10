@@ -22,19 +22,19 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 - Launch file for palletization demo
 - Uses pilz_industrial_motion_planner
 
-### src/OTTO600_Description src/OTTO1500_Description
+### src/otto600_description src/otto1500_description
 - Contains all urdf and mesh files for OTTO AMRs
 
 ### src/otto_deliberation
 - Autonomy for OTTO AMRs
-- Manages tasks, sends commands to o3de_fleet_nav and blind_path_follower
+- Manages tasks, sends commands to otto_fleet_nav and blind_path_follower
 - Contains task description configurations
 
-### src/o3de_fleet_nav
+### src/otto_fleet_nav
 - Nav2 for OTTO AMRs
 - Spawns and controls robots movements
 
-### src/demo_orchestration
+### src/global_path_lock
 - Manages access to all paths that robots take
 - Provides a path locking ROS2 service
 

@@ -76,7 +76,7 @@ def launch_setup(context, *args, **kwargs):
     ])
 
     deliberation_group = TimerAction(
-        period = 15.,
+        period = 60.,
         actions = [
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(

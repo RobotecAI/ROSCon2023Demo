@@ -177,56 +177,6 @@
                                     "Publish Transform": true
                                 }
                             },
-                            "ROS2Lidar2DSensorComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 6050254106500754846,
-                                "m_template": {
-                                    "$type": "ROS2Lidar2DSensorComponent",
-                                    "Id": 0,
-                                    "SensorConfiguration": {
-                                        "Visualize": true,
-                                        "Publishing Enabled": true,
-                                        "Frequency (HZ)": 10.0,
-                                        "Publishers": {
-                                            "sensor_msgs::msg::LaserScan": {
-                                                "Type": "sensor_msgs::msg::LaserScan",
-                                                "Topic": "scan",
-                                                "QoS": {
-                                                    "Reliability": 1,
-                                                    "Durability": 2,
-                                                    "Depth": 5
-                                                }
-                                            }
-                                        }
-                                    },
-                                    "lidarCore": {
-                                        "lidarConfiguration": {
-                                            "lidarModelName": "CustomLidar2D",
-                                            "lidarImplementation": "Scene Queries",
-                                            "LidarParameters": {
-                                                "Name": "CustomLidar2D",
-                                                "Layers": 1,
-                                                "Points per layer": 924,
-                                                "Min horizontal angle": -180.0,
-                                                "Max horizontal angle": 180.0,
-                                                "Min vertical angle": 0.0,
-                                                "Max vertical angle": 0.0,
-                                                "Min range": 0.0,
-                                                "Max range": 100.0,
-                                                "Enable Noise": true,
-                                                "Noise Parameters": {
-                                                    "Angular noise standard deviation": 0.0,
-                                                    "Distance noise standard deviation base": 0.019999999552965164,
-                                                    "Distance noise standard deviation slope": 0.0010000000474974513
-                                                }
-                                            },
-                                            "IgnoredLayerIndices": [],
-                                            "ExcludedEntities": [],
-                                            "PointsAtMax": false
-                                        }
-                                    }
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 12398744267687126906,

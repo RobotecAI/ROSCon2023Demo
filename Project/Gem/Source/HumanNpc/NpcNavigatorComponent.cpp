@@ -230,14 +230,14 @@ namespace ROS2::Demo
         for (size_t i = 0; i < positionPath.size(); ++i)
         {
             AZ::Vector3 direction = AZ::Vector3::CreateZero();
-            if (i == positionPath.size() - 1 && m_waypointConfiguration.m_orientationCaptured)
+
+            // get direction
+            auto it = positionPath.begin()+i;
+            auto nextIt = it + 1;
+            if ( nextIt != positionPath.end())
             {
-                direction =
-                    GetEntityTransform(m_waypointEntities[m_waypointIndex]).GetRotation().TransformVector(AZ::Vector3::CreateAxisX());
-            }
-            else
-            {
-                direction = (positionPath[i + 1] - positionPath[i]).GetNormalized();
+
+                direction = (*nextIt - *it ).GetNormalized();
             }
             goalPath.push_back({ .m_position = positionPath[i], .m_direction = direction });
         }

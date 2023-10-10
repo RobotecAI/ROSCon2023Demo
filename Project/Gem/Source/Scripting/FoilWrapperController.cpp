@@ -158,7 +158,7 @@ namespace ROS2::Demo
         // RigidbodyNotificationBus should be used instead.
         if (!m_onTriggerEnterHandler.IsConnected() || !m_onTriggerExitHandler.IsConnected())
         {
-            AZ_Assert(m_configuration.m_foilWrapperEntityId.IsValid(), "Invalid foil wrapper entity id.");
+            //AZ_Assert(m_configuration.m_foilWrapperEntityId.IsValid(), "Invalid foil wrapper entity id.");
             if (m_configuration.m_foilWrapperEntityId.IsValid())
             {
                 AZStd::pair<AzPhysics::SceneHandle, AzPhysics::SimulatedBodyHandle> foundBody =
@@ -171,6 +171,8 @@ namespace ROS2::Demo
                     AzPhysics::SimulatedBodyEvents::RegisterOnTriggerExitHandler(
                         foundBody.first, foundBody.second, m_onTriggerExitHandler);
                 }
+            }else{
+                AZ_Warning("FoilWrapper", false, "Invalid foil wrapper entity id.");
             }
         }
         if (m_state == FoilWrapperState::Idle)

@@ -234,7 +234,7 @@ namespace ROS2::Demo
 
                 AZ_TracePrintf("FoilWrapper", "Number of boxes that were \"wrapped\": %d", m_collidingEntities.size());
 
-                m_payloadName = AZStd::string::format("WrappedPallet%d", m_wrappedPallets++);
+                m_payloadName = AZStd::string::format("WrappedPallet_from_%s_no_%d", m_entity->GetId().ToString().c_str() , m_wrappedPallets++);
                 ScriptSpawnSystemRequestBus::Broadcast(
                     &ScriptSpawnSystemRequestBus::Events::SpawnAssetAndSetParent,
                     m_configuration.m_spawnablePayloadFoiled,

@@ -7,6 +7,8 @@
 #include <string>
 #include <string_view>
 #include <unordered_set>
+#include <unordered_map>
+
 #pragma once
 
 using NavPath = nav_msgs::msg::Path;

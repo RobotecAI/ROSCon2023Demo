@@ -1,0 +1,5 @@
+/**:
+  ros__parameters:
+    global_paths: ["ApproachWrappingGlobal", "GoToWrappingGlobal", "GoToUnloadExactGlobal", "EvacuateFromUnloadGlobal", "ApproachUnloadGlobal"]
+    dependencies_first: ["GoToPickup", "ApproachPickup", "GoToWrappingGlobal", "ApproachUnloadGlobal", "GoToUnloadExactGlobal"]
+    dependencies_second: ["ApproachPickup", "EvacuateFromPickup", "ApproachWrappingGlobal", "EvacuateFromUnloadGlobal", "ApproachUnloadGlobal"]

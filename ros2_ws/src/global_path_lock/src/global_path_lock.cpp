@@ -1,3 +1,4 @@
+#include <cassert>
 #include <functional>
 #include <lane_provider_msgs/srv/list_tracks.hpp>
 #include <lock_service_msgs/srv/detail/lock__struct.hpp>
@@ -40,6 +41,23 @@ public:
         }
     };
 
+    template<typename Container>
+    Container filterEmptyElements(const Container& container)
+    {
+        Container filteredContainer;
+        using T = typename Container::value_type;
+        std::copy_if(
+            container.begin(),
+            container.end(),
+            std::back_inserter(filteredContainer),
+            [](const T element)
+            {
+                return element != T();
+            });
+
+        return filteredContainer;
+    }
+
     bool Initialize()
     {
         std::string lane_track_service = m_node->declare_parameter<std::string>("lane_track_service", "/get_lanes_and_paths");
@@ -69,6 +87,35 @@ public:
             }
             m_lanesLocks.insert({ lane.lane_name, locks });
         }
+
+        auto globalPaths = m_node->declare_parameter<std::vector<std::string>>("global_paths", { "" });
+        auto dependenciesFirst = m_node->declare_parameter<std::vector<std::string>>("dependencies_first", { "" });
+        auto dependenciesSecond = m_node->declare_parameter<std::vector<std::string>>("dependencies_second", { "" });
+
+        // we need to filter out empty elements from the task lists to overcome
+        // https://github.com/ros2/rclcpp/issues/1955
+        const auto globalPathsFiltered = filterEmptyElements(globalPaths);
+        const auto dependenciesFirstFiltered = filterEmptyElements(dependenciesFirst);
+        const auto dependenciesSecondFiltered = filterEmptyElements(dependenciesSecond);
+
+        if (dependenciesFirstFiltered.size() != dependenciesSecondFiltered.size())
+        {
+            RCLCPP_ERROR(
+                m_node->get_logger(),
+                "dependencies_first size %zu != dependencies_second size %zu",
+                dependenciesFirstFiltered.size(),
+                dependenciesSecondFiltered.size());
+            return false;
+        }
+        for (auto path : globalPathsFiltered)
+        {
+            m_globalPaths.insert(path);
+        }
+        for (int i = 0; i < dependenciesFirstFiltered.size(); i++)
+        {
+            m_dependencies.insert({ dependenciesFirstFiltered[i], dependenciesSecondFiltered[i] });
+        }
+
         return true;
     }
 
@@ -77,29 +124,23 @@ private:
 
     std::map<std::string, PathLocks> m_lanesLocks;
 
+    std::set<std::string> m_globalPaths;
+    std::map<std::string, std::string> m_dependencies;
+
     rclcpp::Service<lock_service_msgs::srv::Lock>::SharedPtr m_service;
 
     std::optional<std::string> PathDependency(const std::string& path_name)
     {
-        static const std::map<std::string, std::string> dependencies = { { "GoToPickup", "ApproachPickup" },
-                                                                         { "ApproachPickup", "EvacuateFromPickup" },
-                                                                         { "GoToWrappingGlobal", "ApproachWrappingGlobal" },
-                                                                         { "ApproachUnloadGlobal", "EvacuateFromUnloadGlobal" },
-                                                                         { "GoToUnloadExactGlobal", "ApproachUnloadGlobal" } };
-
-        if (dependencies.find(path_name) == dependencies.end())
+        if (m_dependencies.find(path_name) == m_dependencies.end())
         {
             return std::optional<std::string>();
         }
-        return std::optional<std::string>(dependencies.find(path_name)->second);
+        return std::optional<std::string>(m_dependencies.find(path_name)->second);
     };
 
     bool IsPathGlobal(const std::string& path_name)
     {
-        static const std::set<std::string> globalPaths = {
-            "ApproachWrappingGlobal", "GoToWrappingGlobal", "GoToUnloadExactGlobal", "EvacuateFromUnloadGlobal", "ApproachUnloadGlobal"
-        };
-        return globalPaths.count(path_name) == 1;
+        return m_globalPaths.count(path_name) == 1;
     };
 
     bool IsPathLocked(const std::string& lane_name, std::string path_name)
@@ -158,11 +199,7 @@ int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
 
-    rclcpp::NodeOptions options;
-    options.automatically_declare_parameters_from_overrides(true);
-
-    auto const node =
-        std::make_shared<rclcpp::Node>("orchestrator", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
+    auto const node = std::make_shared<rclcpp::Node>("orchestrator", rclcpp::NodeOptions());
 
     LockService lockService(node);
     lockService.Initialize();

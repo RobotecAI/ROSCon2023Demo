@@ -68,24 +68,34 @@ public:
 
     FollowPathActionServer(rclcpp::Node::SharedPtr node, std::string ns)
         : node_(node)
-        , ns_(ns)
         , tf_buffer_(node->get_clock())
         , tf_listener_(tf_buffer_)
     {
         using namespace std::placeholders;
 
-        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>(ns + "/blind_goal", 1);
+        goal_publisher_ = node_->create_publisher<geometry_msgs::msg::PoseStamped>("blind_goal", 1);
         timer_ = node_->create_wall_timer(
             std::chrono::milliseconds(int(1000 * LoopTimeSec)), std::bind(&FollowPathActionServer::timer_callback, this));
         timer_->cancel();
-        cmd_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>(ns + "/cmd_vel", 1);
+        cmd_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1);
+
+        if (!ns.empty() && ns[0] == '/') {
+            ns_ = ns.substr(1);
+        }
+        else
+        {
+            ns_ = ns;
+        }
+        if (ns.empty() || ns[ns.size() - 1] != '/') {
+            RCLCPP_WARN(node->get_logger(), "Starting path follower, but with empty namespace. This is probably not what you want.");
+        }
 
         this->action_server_ = rclcpp_action::create_server<FlwPthAction>(
             node->get_node_base_interface(),
             node->get_node_clock_interface(),
             node->get_node_logging_interface(),
             node->get_node_waitables_interface(),
-            ns + "/blind_follow_path",
+            "blind_follow_path",
             std::bind(&FollowPathActionServer::handle_goal, this, _1, _2),
             std::bind(&FollowPathActionServer::handle_cancel, this, _1),
             std::bind(&FollowPathActionServer::handle_accepted, this, _1));
@@ -137,7 +147,7 @@ private:
         poses_.clear();
 
         objectDetector = node_->create_subscription<std_msgs::msg::Bool>(
-            ns_ + "/object_detector",
+            "/object_detector",
             10,
             [&](std_msgs::msg::Bool msg)
             {
@@ -162,6 +172,7 @@ private:
 
     void timer_callback()
     {
+
         double DesiredLinearVelocity = desired_linear_velocity_;
         const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
         const double MaxVirtualDistance = 0.3; //!< Distance between a the virtual robot and the real robot before slowdown.
@@ -192,8 +203,15 @@ private:
         poseMsg.header.frame_id = "map";
         poseMsg.header.stamp = node_->now();
         goal_publisher_->publish(poseMsg);
-        geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_ + "/base_link", tf2::TimePointZero);
-        Eigen::Affine3d poseBaseLink = tf2::transformToEigen(transformStamped.transform);
+        Eigen::Affine3d poseBaseLink =  Eigen::Affine3d::Identity();
+
+        try {
+            const geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_+"/base_link", tf2::TimePointZero);
+            poseBaseLink = tf2::transformToEigen(transformStamped.transform);
+        }  catch (tf2::TransformException &ex) {
+            RCLCPP_ERROR(node_->get_logger(), "%s", ex.what());
+            return;
+        }
 
         if (reverse_)
         {
@@ -310,14 +328,9 @@ int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
 
-    rclcpp::NodeOptions options;
-    options.automatically_declare_parameters_from_overrides(true);
-
     auto node = std::make_shared<rclcpp::Node>("follow_path", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
-    auto parameter = node->get_parameter("robot_namespace");
-    auto ns = parameter.as_string();
-
+    auto ns = node->get_namespace();
     RCLCPP_INFO(node->get_logger(), "Starting path follower");
 
     auto action_server = std::make_shared<FollowPathActionServer>(node, ns);

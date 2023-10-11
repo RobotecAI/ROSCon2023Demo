@@ -128,7 +128,7 @@ def generate_launch_description():
         package="blind_path_follower",
         executable="blind_path_follower",
         output="screen",
-        parameters=[{'robot_namespace': namespace}]
+        namespace=namespace
     )
     # Ground truth map
     tf_pub = Node(

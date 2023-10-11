@@ -13,8 +13,6 @@ import yaml
 
 
 def launch_setup(context, *args, **kwargs):
-
-    blind_path_follower_dir = os.path.join(get_package_share_directory("blind_path_follower"), 'launch')
     palletization_dir = os.path.join(get_package_share_directory("ur_palletization"), 'launch')
     path_lock_dir = os.path.join(get_package_share_directory("global_path_lock"), "launch")
     otto_fleet_nav_dir = os.path.join(get_package_share_directory("otto_fleet_nav"), "launch")
@@ -53,16 +51,6 @@ def launch_setup(context, *args, **kwargs):
 
     nodes_to_start = []
 
-    blind_path_followers_group = GroupAction([
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                os.path.join(blind_path_follower_dir, 'blind_path_follower.launch.py')),
-            launch_arguments = {
-                "amr_namespace" : robot["namespace"],
-            }.items()
-        ) for robot in robots
-    ])
-
     moveIt_group = GroupAction([
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -76,7 +64,7 @@ def launch_setup(context, *args, **kwargs):
     ])
 
     deliberation_group = TimerAction(
-        period = 60.,
+        period = 15.,
         actions = [
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
@@ -110,7 +98,6 @@ def launch_setup(context, *args, **kwargs):
     )
 
     nodes_to_start.append(path_lock)
-    # nodes_to_start.append(blind_path_followers_group)
     nodes_to_start.append(moveIt_group)
     nodes_to_start.append(otto_fleet_nav)
     nodes_to_start.append(deliberation_group)

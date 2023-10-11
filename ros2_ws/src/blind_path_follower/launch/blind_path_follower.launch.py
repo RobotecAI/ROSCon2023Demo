@@ -19,11 +19,11 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start.append(Node(
         name="pathFollower",
         package="blind_path_follower",
+        namespace=amr_namespace,
         executable="blind_path_follower",
         output="screen",
         parameters=[
-            {"use_sim_time": True},
-            {"robot_namespace": amr_namespace},
+            {"use_sim_time": True}
         ],
     ))
 

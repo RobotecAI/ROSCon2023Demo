@@ -165,7 +165,7 @@ private:
         timer_->reset();
         RCLCPP_INFO(
             node_->get_logger(),
-            "Received tack to follow, number of goals %d, length %f",
+            "Received tack to follow, number of goals %ld, length %f",
             goal_handle->get_goal()->poses.size(),
             path_length_);
     }

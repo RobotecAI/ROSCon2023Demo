@@ -63,6 +63,7 @@ void PalletizationNode::TimerCallback() {
         if (m_threadPalletization && !m_isExecuting && m_threadPalletization->joinable()) {
             m_threadPalletization->join();
             m_threadPalletization = nullptr;
+            m_robotName = "";
         }
         if (!m_isExecuting && m_threadPalletization == nullptr) {
             if (m_robotName == "") {

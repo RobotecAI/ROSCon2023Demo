@@ -18,8 +18,6 @@ find_package(blind_path_follower_msgs)
 
 add_executable(blind_path_follower src/follow_path.cpp)
 
-install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
-
 ament_target_dependencies( blind_path_follower
     "blind_path_follower_msgs"
     "rclcpp"

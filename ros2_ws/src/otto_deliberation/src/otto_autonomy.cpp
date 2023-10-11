@@ -133,7 +133,7 @@ void OttoAutonomy::Update()
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
-            m_currentOperationDescription += "Navigating to " + currentTaskKey;
+            m_currentOperationDescription += "Navigating to " + currentTaskKey + " is blind : " + std::to_string(currentTask.m_isBlind);
             // Waiting for navigation
             return;
         }

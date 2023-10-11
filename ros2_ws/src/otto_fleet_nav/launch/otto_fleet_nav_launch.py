@@ -66,7 +66,7 @@ def launch_setup(context, *args, **kwargs):
     # Declare the launch arguments
     declare_map_yaml_cmd = DeclareLaunchArgument(
         'map',
-        default_value=os.path.join(otto_fleet_nav_dir, 'maps', 'map_demolevel1.yaml'),
+        default_value=os.path.join(otto_fleet_nav_dir, 'maps', 'map_demolevel2.yaml'),
         description='Full path to map file to load')
 
     declare_robot_params_file_cmd = DeclareLaunchArgument(

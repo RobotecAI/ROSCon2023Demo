@@ -1,0 +1,177 @@
+fleet:
+  - robot_name: otto600
+    robot_namespace: otto_1
+    lane: Line11
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -30.0
+      y: 2.0
+      z: 0.1
+
+
+  - robot_name: otto600
+    robot_namespace: otto_2
+    lane: Line12
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -28.0
+      y: 2.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_3
+    lane: Line13
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -30.0
+      y: 27.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_4
+    lane: Line14
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -28.0
+      y: 27.0
+      z: 0.2
+
+  - robot_name: otto1500
+    robot_namespace: otto_5
+    lane: OTTO1500_1
+    tasks_config_file: config/otto1500_tasks.yaml
+    nav2_param_file: otto1500Params.yaml
+    position: 
+      x: -36.0
+      y: 11.0
+      z: 0.1
+
+
+  - robot_name: otto600
+    robot_namespace: otto_6
+    lane: Line21
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -30.0
+      y: 32.0
+      z: 0.1
+
+
+  - robot_name: otto600
+    robot_namespace: otto_7
+    lane: Line22
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -28.0
+      y: 32.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_8
+    lane: Line23
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -30.0
+      y: 57.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_9
+    lane: Line24
+    tasks_config_file: config/otto600_tasks.yaml
+    nav2_param_file: otto600Params.yaml
+    position: 
+      x: -28.0
+      y: 57.0
+      z: 0.2
+
+  - robot_name: otto1500
+    robot_namespace: otto_10
+    lane: OTTO1500_1
+    tasks_config_file: config/otto1500_tasks.yaml
+    nav2_param_file: otto1500Params.yaml
+    position: 
+      x: -36.0
+      y: 31.0
+      z: 0.1
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_6
+  #   lane: Line2
+  #   position: 
+  #     x: -34.0
+  #     y: 2.0
+  #     z: 0.2
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_7
+  #   lane: Line3
+  #   position: 
+  #     x: -36.0
+  #     y: 29.0
+  #     z: 0.2
+
+  # - robot_name: otto600
+  #   robot_namespace: otto_8
+  #   lane: Line4
+  #   position: 
+  #     x: -34.0
+  #     y: 29.0
+  #     z: 0.2
+      
+
+arms:
+  - namespace: ur1
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur2
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur3
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur4
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur5
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur6
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur7
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur8
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur9
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur10
+    num_of_boxes: 6
+    launch_rviz: false   
+
+  - namespace: ur11
+    num_of_boxes: 6
+    launch_rviz: false
+
+  - namespace: ur12
+    num_of_boxes: 6
+    launch_rviz: false

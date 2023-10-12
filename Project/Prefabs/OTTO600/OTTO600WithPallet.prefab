@@ -109,108 +109,6 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[393616982539]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_platform_upper.stl.azmodel"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[298795236062456]",
-                    "value": {
-                        "Id": "Entity_[298795236062456]",
-                        "Name": "LaserScanner",
-                        "Components": {
-                            "EditorDisabledCompositionComponent": {
-                                "$type": "EditorDisabledCompositionComponent",
-                                "Id": 1369166045994395106,
-                                "DisabledComponents": []
-                            },
-                            "EditorEntityIconComponent": {
-                                "$type": "EditorEntityIconComponent",
-                                "Id": 8528705741773796865,
-                                "EntityIconAssetId": {
-                                    "guid": "{00000000-0000-0000-0000-000000000000}",
-                                    "subId": 0
-                                }
-                            },
-                            "EditorEntitySortComponent": {
-                                "$type": "EditorEntitySortComponent",
-                                "Id": 1064616849250810873,
-                                "Child Entity Order": []
-                            },
-                            "EditorInspectorComponent": {
-                                "$type": "EditorInspectorComponent",
-                                "Id": 16785604699205184222,
-                                "ComponentOrderEntryArray": []
-                            },
-                            "EditorLockComponent": {
-                                "$type": "EditorLockComponent",
-                                "Id": 254088434678340528,
-                                "Locked": false
-                            },
-                            "EditorOnlyEntityComponent": {
-                                "$type": "EditorOnlyEntityComponent",
-                                "Id": 11148785080939771031,
-                                "IsEditorOnly": false
-                            },
-                            "EditorPendingCompositionComponent": {
-                                "$type": "EditorPendingCompositionComponent",
-                                "Id": 8119348236880183698,
-                                "PendingComponents": []
-                            },
-                            "EditorVisibilityComponent": {
-                                "$type": "EditorVisibilityComponent",
-                                "Id": 18281130913709619320,
-                                "VisibilityFlag": true
-                            },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 13418491268963714845,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "sensor_frame",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
-                            "TransformComponent": {
-                                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                                "Id": 12398744267687126906,
-                                "Parent Entity": "Entity_[376437113355]",
-                                "Transform Data": {
-                                    "Translate": [
-                                        0.550000011920929,
-                                        0.0,
-                                        0.25
-                                    ],
-                                    "Rotate": [
-                                        0.0,
-                                        0.0,
-                                        0.0
-                                    ],
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "Locked": false,
-                                    "UniformScale": 1.0
-                                },
-                                "Parent Activation Transform Mode": 0,
-                                "IsStatic": false,
-                                "InterpolatePosition": 0,
-                                "InterpolateRotation": 0
-                            }
-                        },
-                        "IsRuntimeActive": true
-                    }
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Name",
                     "value": "otto_1"
                 },
@@ -236,6 +134,26 @@
                 },
                 {
                     "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/EditorTagComponent/Id",
+                    "value": 7864192969969983559
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "value": "otto_1"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[376437113355]/Components/SkidSteeringModelComponent/m_template/ManualControl",
+                    "value": false
+                },
+                {
+                    "op": "replace",
                     "path": "/Entities/Entity_[385027047947]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
                 },
@@ -243,21 +161,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[406501884427]/Components/EditorPrismaticJointComponent/Linear Limit/Upper Limit",
                     "value": 0.10000000149011612
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.4000000059604645
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.1658992767333984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 3.219341278076172
                 },
                 {
                     "op": "add",
@@ -298,48 +201,13 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[440861622795]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[458041491979]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[466631426571]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[483811295755]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[376437113355]/Components/EditorEntitySortComponent/Child Entity Order/8",
-                    "value": "Entity_[298795236062456]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/EditorTagComponent/Id",
-                    "value": 7864192969969983559
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
-                    "value": 3
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
-                    "value": "otto_1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/SkidSteeringModelComponent/m_template/ManualControl",
-                    "value": false
                 }
             ]
         },

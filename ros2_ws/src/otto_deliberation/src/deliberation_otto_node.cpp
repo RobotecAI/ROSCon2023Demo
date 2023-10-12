@@ -155,7 +155,7 @@ public:
 
         std::string lane_track_service = m_node->declare_parameter<std::string>("lane_track_service", "/get_lanes_and_paths");
         auto laneTracksClient = m_node->create_client<lane_provider_msgs::srv::ListTracks>(lane_track_service);
-        if (!laneTracksClient->wait_for_service(std::chrono::seconds(10)))
+        if (!laneTracksClient->wait_for_service(std::chrono::seconds(30)))
         {
             RCLCPP_ERROR(m_node->get_logger(), "Lane track service named %s not available", lane_track_service.c_str());
             return false;

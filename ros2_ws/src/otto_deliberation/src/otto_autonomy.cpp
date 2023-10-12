@@ -15,7 +15,7 @@ OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr
     std::string lock_service = lock_node->declare_parameter<std::string>("lock_service", "/lock_service");
     lock_node->get_parameter<std::string>("lock_service", lock_service);
     m_lockServiceClient = lock_node->create_client<lock_service_msgs::srv::Lock>(lock_service);
-    if (!m_lockServiceClient->wait_for_service(std::chrono::seconds(2)))
+    if (!m_lockServiceClient->wait_for_service(std::chrono::seconds(30)))
     {
         RCLCPP_ERROR(lock_node->get_logger(), "Lock service named %s not available", lock_service.c_str());
     }
@@ -42,9 +42,16 @@ RobotStatus OttoAutonomy::GetCurrentStatus() const
 
 bool OttoAutonomy::SendLockRequest(const std::string& path_name, bool lock_status)
 {
+    static const std::set<std::string> lanePaths = { "GoToPickup", "GoToWrapping" };
+
+    auto name = path_name;
+    if (lanePaths.count(path_name) > 0)
+    {
+        name += m_laneName;
+    }
+
     auto lockRequest = std::make_shared<lock_service_msgs::srv::Lock::Request>();
-    lockRequest->lane_name = m_laneName;
-    lockRequest->path_name = path_name;
+    lockRequest->key = name;
     lockRequest->lock_status = lock_status;
     auto future = m_lockServiceClient->async_send_request(lockRequest);
     future.wait();
@@ -86,6 +93,7 @@ void OttoAutonomy::Update()
         if (!SendLockRequest(currentTask.m_taskName, true))
         {
             m_currentOperationDescription += "Waiting to lock at " + currentTaskKey + "\n";
+            RCLCPP_ERROR(m_logger, "WAITING FOR LOCK");
             return;
         }
         m_currentOperationDescription += "Lock obtained " + currentTaskKey + "\n";
@@ -129,7 +137,7 @@ void OttoAutonomy::Update()
                 currentTask.m_isBlind,
                 currentTask.m_isReverse,
                 currentTask.m_isBlindHighSpeed);
-            RCLCPP_INFO(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
+            RCLCPP_ERROR(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
@@ -166,13 +174,13 @@ void OttoAutonomy::Update()
         {
             if (!SendLockRequest(nextTaskName, true))
             {
-                m_currentOperationDescription += "Waiting to acquire next task lock "+ nextTaskName + " at " + currentTaskKey + "\n";
+                m_currentOperationDescription += "Waiting to acquire next task lock " + nextTaskName + " at " + currentTaskKey + "\n";
                 return;
             }
             // release old lock
             SendLockRequest(m_lockTaskName, false);
             m_currentOperationDescription += "Lock obtained " + nextTaskName + ", releasing lock " + m_lockTaskName + "\n";
-            RCLCPP_INFO(m_logger, "Lock obtained %s, releasing lock %s", nextTaskName.c_str(), m_lockTaskName.c_str());
+            RCLCPP_ERROR(m_logger, "Lock obtained %s, releasing lock %s", nextTaskName.c_str(), m_lockTaskName.c_str());
             m_lockTaskName = nextTaskName;
             m_hasLock = true;
         }
@@ -180,11 +188,10 @@ void OttoAutonomy::Update()
         {
             SendLockRequest(m_lockTaskName, false);
             m_currentOperationDescription += "Releasing lock " + m_lockTaskName + "\n";
-            RCLCPP_INFO(m_logger, "Releasing lock %s", m_lockTaskName.c_str());
+            RCLCPP_ERROR(m_logger, "Releasing lock %s", m_lockTaskName.c_str());
             m_lockTaskName = "";
             m_hasLock = false;
         }
-
     }
 
     if (currentTask.m_nextTaskName.empty())
@@ -194,7 +201,7 @@ void OttoAutonomy::Update()
     else
     {
         m_currentOperationDescription = "Task transition " + currentTaskKey + " -> " + currentTask.m_nextTaskName;
-        RCLCPP_DEBUG(m_logger, "task transition from  %s - > %s", currentTaskKey.c_str(), currentTask.m_nextTaskName.c_str());
+        RCLCPP_ERROR(m_logger, "task transition from  %s - > %s", currentTaskKey.c_str(), currentTask.m_nextTaskName.c_str());
     }
 
     m_robotStatus.m_currentTask = currentTask.m_nextTaskName;

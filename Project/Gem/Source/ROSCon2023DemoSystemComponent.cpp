@@ -4,7 +4,10 @@
 #include <AzCore/Serialization/EditContextConstants.inl>
 
 #include "ROSCon2023DemoSystemComponent.h"
-
+#include <AzCore/RTTI/BehaviorContext.h>
+#include <ILevelSystem.h>
+#include <ISystem.h>
+#include <AzCore/Component/TickBus.h>
 namespace ROSCon2023Demo
 {
     void ROSCon2023DemoSystemComponent::Reflect(AZ::ReflectContext* context)
@@ -23,6 +26,12 @@ namespace ROSCon2023Demo
                         ->Attribute(AZ::Edit::Attributes::AutoExpand, true)
                     ;
             }
+
+        }
+        if (AZ::BehaviorContext* behaviorContext = azrtti_cast<AZ::BehaviorContext*>(context))
+        {
+            behaviorContext->EBus<ROSCon2023DemoRequestBus>("ROSCon2023DemoRequestBus")
+                ->Event("ReloadLevel", &ROSCon2023DemoRequestBus::Events::ReloadLevel);
         }
     }
 
@@ -72,5 +81,20 @@ namespace ROSCon2023Demo
     void ROSCon2023DemoSystemComponent::Deactivate()
     {
         ROSCon2023DemoRequestBus::Handler::BusDisconnect();
+    }
+
+    void ROSCon2023DemoSystemComponent::ReloadLevel()
+    {
+        ISystem* systemInterface = nullptr;
+        CrySystemRequestBus::BroadcastResult(systemInterface, &CrySystemRequests::GetCrySystem);
+        if(systemInterface && systemInterface->GetILevelSystem())
+        {
+            ILevelSystem* levelSystem = systemInterface->GetILevelSystem();
+            AZStd::string currentLevelName = levelSystem->GetCurrentLevelName();
+            levelSystem->UnloadLevel();
+            AZ::TickBus::QueueFunction([levelSystem, currentLevelName]() {
+                                           levelSystem->LoadLevel(currentLevelName.c_str());
+                                       });
+        }
     }
 }

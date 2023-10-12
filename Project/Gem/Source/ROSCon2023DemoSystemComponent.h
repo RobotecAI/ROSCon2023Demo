@@ -36,5 +36,9 @@ namespace ROSCon2023Demo
         void Activate() override;
         void Deactivate() override;
         ////////////////////////////////////////////////////////////////////////
+    private:
+        // ROSCon2023DemoRequests overrides ...
+        void ReloadLevel() override;
+
     };
 }

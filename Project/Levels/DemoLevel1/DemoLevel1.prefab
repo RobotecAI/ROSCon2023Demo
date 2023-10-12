@@ -27,9 +27,10 @@
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
                     "Instance_[9849799017068]/ContainerEntity",
+                    "Instance_[29519965819879]/ContainerEntity",
                     "Entity_[157997884966234]",
-                    "",
                     "Entity_[1842731393655449]",
+                    "Instance_[34325215302150]/ContainerEntity",
                     "Instance_[34325215302150]/ContainerEntity"
                 ]
             },
@@ -5225,6 +5226,31 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[1184100347258728]/Components/TransformComponent/Transform Data/Translate/1",
                     "value": -0.008516311645507813
+                }
+            ]
+        },
+        "Instance_[29519965819879]": {
+            "Source": "Prefabs/UILogic.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[13142080617915271961]/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[13142080617915271961]/Transform Data/Translate/0",
+                    "value": -39.02769470214844
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[13142080617915271961]/Transform Data/Translate/1",
+                    "value": 19.699275970458984
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/Component_[13142080617915271961]/Transform Data/Translate/2",
+                    "value": 6.728830337524414
                 }
             ]
         },

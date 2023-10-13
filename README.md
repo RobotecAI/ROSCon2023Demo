@@ -123,6 +123,7 @@ Now go to the ```ros2_ws``` folder and run the all ros2 packages.
 ```bash
 cd {$WORKDIR}/ROSCon2023Demo/ros2_ws
 source install/setup.bash
+ros2 launch roscon2023_demo spawnRobots.launch.py
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```
 In a few seconds, the robots should spawn and start moving.  

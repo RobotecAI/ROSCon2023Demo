@@ -10,6 +10,7 @@
 #include <rclcpp/publisher.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/bool.hpp>
+#include <std_msgs/msg/string.hpp>
 #include <string>
 
 #pragma once
@@ -30,16 +31,18 @@ public:
 
 private:
     bool SendLockRequest(const std::string& path_name, bool lock_status);
+    void SendColor (const std::string& color);
 
     rclcpp::Logger m_logger;
     rclcpp::Client<lock_service_msgs::srv::Lock>::SharedPtr m_lockServiceClient;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr m_lifterPublisher;
+    rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_colorPublisher;
     RobotStatus m_robotStatus;
     Nav2ActionClient m_nav2ActionClient;
     std::string m_laneName;
     std::chrono::time_point<std::chrono::system_clock> m_waitTimePointPreTaskDelay;
     std::chrono::time_point<std::chrono::system_clock> m_waitTimePointPostTaskDelay;
-
+    std::chrono::time_point<std::chrono::system_clock> m_startNavigationTimePoint;
     RobotTasks m_robotTasks;
     bool m_isWaitingPostTaskDelay{ false };
     bool m_isWaitingPreTaskDelay{ false };

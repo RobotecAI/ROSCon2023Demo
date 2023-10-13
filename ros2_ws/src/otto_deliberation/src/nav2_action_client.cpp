@@ -28,12 +28,13 @@ void Nav2ActionClient::SendNav2Goal(const Nav2Action::Goal& goal_msg, ResultCall
 {
     using GoalHandleNav2 = rclcpp_action::ClientGoalHandle<Nav2Action>;
     auto send_goal_options = rclcpp_action::Client<Nav2Action>::SendGoalOptions();
-    send_goal_options.goal_response_callback = [&logger = m_actionLogger](std::shared_ptr<GoalHandleNav2> future)
+    send_goal_options.goal_response_callback = [&logger = m_actionLogger, callback](std::shared_ptr<GoalHandleNav2> future)
     {
         auto goal_handle = future.get();
         if (!goal_handle)
         {
             RCLCPP_ERROR(logger, "Goal was rejected by server");
+            callback(false);
         }
         else
         {

@@ -85,7 +85,7 @@ def generate_launch_description():
         description='Automatically startup the nav2 stack')
 
     declare_use_composition_cmd = DeclareLaunchArgument(
-        'use_composition', default_value='False',
+        'use_composition', default_value='True',
         description='Use composed bringup if True')
 
     declare_container_name_cmd = DeclareLaunchArgument(

@@ -3,6 +3,7 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import OpaqueFunction, GroupAction, IncludeLaunchDescription, TimerAction
+from launch.conditions import IfCondition
 from launch_ros.actions import Node
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
@@ -17,9 +18,12 @@ def launch_setup(context, *args, **kwargs):
     path_lock_dir = os.path.join(get_package_share_directory("global_path_lock"), "launch")
     otto_fleet_nav_dir = os.path.join(get_package_share_directory("otto_fleet_nav"), "launch")
     deliberation_dir = os.path.join(get_package_share_directory("otto_deliberation"), "launch")
+    roscon2023demo_dir = os.path.join(get_package_share_directory("roscon2023_demo"), "launch")
 
     config_file_arg = LaunchConfiguration("ROS2Con2023Config")
     use_rviz = LaunchConfiguration("use_rviz")
+    spawn_amrs = LaunchConfiguration("spawn_amrs")
+    start_amr_navigation = LaunchConfiguration("start_amr_navigation")
     config_file = config_file_arg.perform(context)
 
     robots = []
@@ -75,7 +79,8 @@ def launch_setup(context, *args, **kwargs):
                     "tasks_config_file" : os.path.join(get_package_share_directory("otto_deliberation"), robot["tasks_config_file"]),
                 }.items()
             ) for robot in robots
-        ]
+        ],
+        condition=IfCondition(LaunchConfiguration('start_amr_navigation'))
     )
 
     path_lock = IncludeLaunchDescription(
@@ -94,13 +99,25 @@ def launch_setup(context, *args, **kwargs):
         launch_arguments = {
             "use_rviz": use_rviz,
             "fleet_config_path": config_file_arg,
-        }.items()
+        }.items(),
+        condition=IfCondition(LaunchConfiguration('start_amr_navigation'))
     )
 
+    spawner = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(roscon2023demo_dir, "spawnRobots.launch.py")
+        ),
+        launch_arguments = {
+            "fleet_config_path": config_file_arg,
+        }.items(),
+        condition=IfCondition(LaunchConfiguration('spawn_amrs'))
+    )
+
+    nodes_to_start.append(spawner)
     nodes_to_start.append(path_lock)
     nodes_to_start.append(moveIt_group)
-    #nodes_to_start.append(otto_fleet_nav)
-    #nodes_to_start.append(deliberation_group)
+    nodes_to_start.append(otto_fleet_nav)
+    nodes_to_start.append(deliberation_group)
 
     return nodes_to_start
 
@@ -127,6 +144,22 @@ def generate_launch_description():
         )
     )
 
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "spawn_amrs",
+            default_value="True",
+            description="Spawn AMRs"
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "start_amr_navigation",
+            default_value="True",
+            description="Start AMRs with navigation"
+        )
+    )
+    
     ld = LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
 
     return ld

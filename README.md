@@ -248,17 +248,22 @@ https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclo
 ```
 Please refer to [DDS tunning information](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cyclone-dds-tuning) to learn more.
 ## 
-1. On Machine 1 start "RosCon2023.GameLaucher", switch level to DemoLevel2 by hitting tilde `~`
-   and entering in console: `loadlevel DemoLevel2`:
+1. On **Machine 1** start GameLauncher, without connecting to `AssetProcess`, with resolution set to 2.5K and in fullscreen mode:
+    ```bash
+    RosCon2023.GameLaucher -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=2560 -r_height=1440 -r_resolutionMode=1
+    ```
 
+2. On **Machine 1**, with GameLauncher started, switch level to `DemoLevel2` by hitting tilde `~` and 
+   entering command `loadlevel DemoLevel2` in Debug Console.
    ![](media/level.png)
-2. On Machine 2 build ROS2 workspace (no need to build o3de project), source workspace:
+
+3. On Machine 2 build ROS2 workspace (no need to build o3de project), source workspace:
    ```bash
    cd ROSCon2023Demo/ros2_ws
    colcon build --symlink-install
-   source ROSCon2023Demo/ros2_ws/install/setup.bash
+   source ./install/setup.bash
    ```
-3. On Machine 2 start two scripts that will bring all ROS 2 software stacks:
+4. On **Machine 2** start two scripts that will bring all ROS 2 software stacks:
    ```bash
     ./src/roscon2023_demo/bash/spawn.sh
     ./src/roscon2023_demo/bash/start_fleet.sh
@@ -266,7 +271,7 @@ Please refer to [DDS tunning information](https://docs.ros.org/en/humble/How-To-
     The `spawn.sh` script start MoveIt2 move groups, palletization drivers and spawn all AMRs one by one.
     Second script `start_fleet.sh` creates multiple screen session to adjust
 
-4. To stop system on Machine 2, simply close all `screen` session:   
+5. To stop system on **Machine 2**, simply close all `screen` session:   
     ```bash
     killall screen
     ```

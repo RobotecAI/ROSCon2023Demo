@@ -17,6 +17,7 @@ def launch_setup(context, *args, **kwargs):
     path_lock_dir = os.path.join(get_package_share_directory("global_path_lock"), "launch")
     otto_fleet_nav_dir = os.path.join(get_package_share_directory("otto_fleet_nav"), "launch")
     deliberation_dir = os.path.join(get_package_share_directory("otto_deliberation"), "launch")
+    roscon2023demo_dir = os.path.join(get_package_share_directory("roscon2023_demo"), "launch")
 
     config_file_arg = LaunchConfiguration("ROS2Con2023Config")
     use_rviz = LaunchConfiguration("use_rviz")
@@ -97,6 +98,17 @@ def launch_setup(context, *args, **kwargs):
         }.items()
     )
 
+    spawner = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(roscon2023demo_dir, "spawnRobots.launch.py")
+        ),
+        launch_arguments = {
+            "use_rviz": use_rviz,
+            "fleet_config_path": config_file_arg,
+        }.items()
+    )
+
+    # nodes_to_start.append(spawner)
     nodes_to_start.append(path_lock)
     nodes_to_start.append(moveIt_group)
     nodes_to_start.append(otto_fleet_nav)

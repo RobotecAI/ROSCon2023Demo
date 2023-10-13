@@ -127,6 +127,7 @@ def launch_setup(context, *args, **kwargs):
                                                            'otto_nav_launch.py')),
                 launch_arguments={'namespace': robot['namespace'],
                                   'use_namespace': 'True',
+                                  'use_composition': 'True',
                                   'map': map_yaml_file,
                                   'use_sim_time': 'True',
                                   'params_file': configured_params,

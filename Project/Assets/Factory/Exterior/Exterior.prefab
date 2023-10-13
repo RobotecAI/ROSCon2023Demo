@@ -351,6 +351,90 @@
                 }
             }
         },
+        "Entity_[40093722410847]": {
+            "Id": "Entity_[40093722410847]",
+            "Name": "TruckGround",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 10461678646801111623,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{AEFC12E4-B92E-5473-9B09-C6CDEC23EC7E}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "physx/concrete.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                20.0,
+                                20.0,
+                                1.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1610078075459783430
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 4583064864022255311
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5382479179336092789
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3118726127731985623
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18395196835687960616
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 14824246203223024951
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14394266169957448674
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 8806872723996785688
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10909947543107060690
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13341300288921014825,
+                    "Parent Entity": "Entity_[9622303646282]",
+                    "Transform Data": {
+                        "Translate": [
+                            -109.885986328125,
+                            16.131668090820313,
+                            -0.4980583190917969
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[607058445084579]": {
             "Id": "Entity_[607058445084579]",
             "Name": "skybox",
@@ -689,7 +773,8 @@
                         "Entity_[25053711648930]",
                         "Entity_[25504683215010]",
                         "Instance_[25491798313122]/ContainerEntity",
-                        "Entity_[607058445084579]"
+                        "Entity_[607058445084579]",
+                        "Entity_[40093722410847]"
                     ]
                 },
                 "EditorInspectorComponent": {

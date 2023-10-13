@@ -32,7 +32,8 @@
                     "Entity_[157997884966234]",
                     "Entity_[1842731393655449]",
                     "Instance_[116977520753928]/ContainerEntity",
-                    "Instance_[574610897631168]/ContainerEntity"
+                    "Instance_[574610897631168]/ContainerEntity",
+                    "Instance_[1942428182194461]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -972,21 +973,21 @@
                     "m_template": {
                         "$type": "LanesServiceComponent",
                         "LanesInWarehouse": [
-                            "Entity_[9769530803792]",
-                            "Entity_[6888547663069]",
-                            "Entity_[15293623048986]",
-                            "Entity_[15289328081690]",
-                            "Entity_[134442205772178]",
-                            "Entity_[549935949395951]",
-                            "Entity_[549880114821103]",
-                            "Entity_[549850050050031]",
-                            "Entity_[549931654428655]",
-                            "",
-                            "Entity_[550447050504175]",
-                            "Entity_[550532949850095]",
-                            "Entity_[550515769980911]",
-                            "Entity_[550494295144431]",
-                            ""
+                            "Instance_[1942428182194461]/Entity_[37916311995156]",
+                            "Instance_[1942428182194461]/Entity_[37976441537300]",
+                            "Instance_[1942428182194461]/Entity_[37912017027860]",
+                            "Instance_[1942428182194461]/Entity_[37967851602708]",
+                            "Instance_[1942428182194461]/Entity_[37856182453012]",
+                            "Instance_[2183947078150429]/Entity_[37916311995156]",
+                            "Instance_[2183947078150429]/Entity_[37976441537300]",
+                            "Instance_[2183947078150429]/Entity_[37912017027860]",
+                            "Instance_[2183947078150429]/Entity_[37967851602708]",
+                            "Instance_[2183947078150429]/Entity_[37856182453012]",
+                            "Instance_[2183899833510173]/Entity_[37916311995156]",
+                            "Instance_[2183899833510173]/Entity_[37976441537300]",
+                            "Instance_[2183899833510173]/Entity_[37912017027860]",
+                            "Instance_[2183899833510173]/Entity_[37967851602708]",
+                            "Instance_[2183899833510173]/Entity_[37856182453012]"
                         ]
                     }
                 },
@@ -6350,6 +6351,96 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[15293623048986]"
+                }
+            ]
+        },
+        "Instance_[1942428182194461]": {
+            "Source": "Prefabs/Features/Lines.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                }
+            ]
+        },
+        "Instance_[2183899833510173]": {
+            "Source": "Prefabs/Features/Lines.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 30.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37916311995156]/Name",
+                    "value": "Line31"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37976441537300]/Name",
+                    "value": "Line32"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37912017027860]/Name",
+                    "value": "Line33"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37967851602708]/Name",
+                    "value": "Line34"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37856182453012]/Name",
+                    "value": "OTTO1500_2"
+                }
+            ]
+        },
+        "Instance_[2183947078150429]": {
+            "Source": "Prefabs/Features/Lines.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 60.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37916311995156]/Name",
+                    "value": "Line21"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37976441537300]/Name",
+                    "value": "Line22"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37912017027860]/Name",
+                    "value": "Line23"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37967851602708]/Name",
+                    "value": "Line24"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[37856182453012]/Name",
+                    "value": "OTTO1500_1"
                 }
             ]
         },

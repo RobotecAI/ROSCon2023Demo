@@ -750,7 +750,8 @@
                     "Id": 13925694622586755420,
                     "Child Entity Order": [
                         "Instance_[9877395075560]/ContainerEntity",
-                        "Entity_[147961791093930]"
+                        "Entity_[147961791093930]",
+                        "Instance_[127075287688768]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -2171,7 +2172,8 @@
                         "Instance_[47498166699429]/ContainerEntity",
                         "Instance_[47601245914533]/ContainerEntity",
                         "Entity_[468574849186057]",
-                        "Entity_[468394460559625]"
+                        "Entity_[468394460559625]",
+                        "Instance_[256469767415360]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -3871,6 +3873,31 @@
                 }
             ]
         },
+        "Instance_[127075287688768]": {
+            "Source": "Assets/Factory/Warehouse_300m2/Door.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[22267146954420]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.016553163528442383
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 16.23627471923828
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.833634614944458
+                }
+            ]
+        },
         "Instance_[12708072072111]": {
             "Source": "Assets/Factory/Objects/Cage_Wall3_with_holder.prefab",
             "Patches": [
@@ -4423,6 +4450,31 @@
                 }
             ]
         },
+        "Instance_[191817624708672]": {
+            "Source": "Assets/Factory/Warehouse_300m2/Door.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[22267146954420]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.016553163528442383
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 2.284231662750244
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.833634614944458
+                }
+            ]
+        },
         "Instance_[2335530734628]": {
             "Source": "Assets/Factory/Warehouse_300m2/Warehouse_300m2_structure.prefab",
             "Patches": [
@@ -4729,6 +4781,31 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": 89.99994659423828
+                }
+            ]
+        },
+        "Instance_[256469767415360]": {
+            "Source": "Assets/Factory/Warehouse_300m2/Door.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[467428092918025]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -1.47210693359375
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 9.89703369140625
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99993133544922
                 }
             ]
         },

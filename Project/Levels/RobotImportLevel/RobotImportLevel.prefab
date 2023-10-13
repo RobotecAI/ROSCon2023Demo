@@ -577,6 +577,44 @@
                         }
                     }
                 },
+                "EditorMeshColliderComponent": {
+                    "$type": "EditorMeshColliderComponent",
+                    "Id": 17629788934208220164,
+                    "ColliderConfiguration": {
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "M_Walls"
+                                },
+                                {
+                                    "Name": "M_Floor"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "PhysicsAsset": {
+                            "Asset": {
+                                "assetId": {
+                                    "guid": "{47465EAB-09ED-508B-ACAF-E3F5AFCE8EE9}",
+                                    "subId": 817001551
+                                },
+                                "assetHint": "assets/room/room.fbx.pxmesh"
+                            },
+                            "Configuration": {
+                                "PhysicsAsset": {
+                                    "assetId": {
+                                        "guid": "{47465EAB-09ED-508B-ACAF-E3F5AFCE8EE9}",
+                                        "subId": 817001551
+                                    },
+                                    "loadBehavior": "QueueLoad",
+                                    "assetHint": "assets/room/room.fbx.pxmesh"
+                                },
+                                "UseMaterialsFromAsset": false
+                            }
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 10515248414530541808
@@ -584,6 +622,10 @@
                 "EditorPendingCompositionComponent": {
                     "$type": "EditorPendingCompositionComponent",
                     "Id": 8865661116181167209
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 5221216978297635140
                 },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",

@@ -50,6 +50,95 @@
         }
     },
     "Entities": {
+        "Entity_[151831028870018]": {
+            "Id": "Entity_[151831028870018]",
+            "Name": "BedLevel",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 1598938190464504156,
+                    "ColliderConfiguration": {
+                        "Position": [
+                            -10.0,
+                            45.0,
+                            -0.5
+                        ],
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object",
+                                    "MaterialAsset": {
+                                        "assetId": {
+                                            "guid": "{AEFC12E4-B92E-5473-9B09-C6CDEC23EC7E}",
+                                            "subId": 1
+                                        },
+                                        "assetHint": "physx/concrete.physicsmaterial"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                20.0,
+                                90.0,
+                                1.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12785841864663260899
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13189360524882384834
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 14861948843697211486
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2500436959493306388
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10030617357911118743
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1366007816570728768
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 8597016586049655401
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 3563320282305666731
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9147721955368819703
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5422486894048789812,
+                    "Parent Entity": "Entity_[575332452136896]",
+                    "Transform Data": {
+                        "Translate": [
+                            -100.0,
+                            0.0,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[574619487565760]": {
             "Id": "Entity_[574619487565760]",
             "Name": "spot",
@@ -618,7 +707,8 @@
                         "Entity_[574645257369536]",
                         "Instance_[25298192054088]/ContainerEntity",
                         "Entity_[574640962402240]",
-                        "Instance_[25491798313122]/ContainerEntity"
+                        "Instance_[25491798313122]/ContainerEntity",
+                        "Entity_[151831028870018]"
                     ]
                 },
                 "EditorInspectorComponent": {

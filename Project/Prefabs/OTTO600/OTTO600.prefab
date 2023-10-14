@@ -1364,6 +1364,37 @@
                         }
                     }
                 },
+                "LightController": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 871340531893127552,
+                    "m_template": {
+                        "$type": "LightController",
+                        "configuration": {
+                            "LightEntityIdList": [
+                                "Entity_[359257244171]",
+                                "Entity_[3627727356427]",
+                                "Entity_[453746524683]",
+                                "Entity_[432271688203]",
+                                "Entity_[4276267418123]",
+                                "Entity_[445156590091]",
+                                "Entity_[419386786315]",
+                                "Entity_[3580482716171]",
+                                "Entity_[2974892327435]",
+                                "Entity_[488106263051]",
+                                "Entity_[3610547487243]",
+                                "Entity_[380732080651]",
+                                "",
+                                ""
+                            ],
+                            "TopicConfiguration": {
+                                "Topic": "color",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
+                            }
+                        }
+                    }
+                },
                 "ROS2FrameComponent": {
                     "$type": "GenericComponentWrapper",
                     "Id": 17397470648387535370,
@@ -2277,7 +2308,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{73AD6398-0854-5467-839E-7E0AF9A25146}"
-                                            }
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission03.azmaterial"
                                         }
                                     }
                                 },
@@ -2773,7 +2805,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            }
+                                            },
+                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
                                         }
                                     }
                                 }
@@ -3397,7 +3430,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{E33FDE83-F05B-5EFF-A68E-6D92FCBAF5C5}"
-                                            }
+                                            },
+                                            "assetHint": "prefabs/otto600-platform/otto600platform_otto600platform.azmaterial"
                                         }
                                     }
                                 }

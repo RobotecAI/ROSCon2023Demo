@@ -4,6 +4,8 @@
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
     Include/ROSCon2023Demo/Navigation/PathInfo.h
+    Source/Lights/LightController.cpp
+    Source/Lights/LightController.h
     Source/Navigation/LaneComponent.cpp
     Source/Navigation/LaneComponent.h
     Source/Navigation/LanesServiceComponent.cpp

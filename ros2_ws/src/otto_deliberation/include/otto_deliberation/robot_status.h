@@ -17,5 +17,6 @@ struct RobotStatus
     RobotTaskKey m_currentNavigationTask;
     RobotTaskKey m_finishedNavigationTask;
     RobotCargoStatus m_cargoStatus;
+    bool m_resendGoal{false};
     RobotStatus();
 };

@@ -21,6 +21,7 @@ OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr
     }
 
     m_lifterPublisher = node->create_publisher<std_msgs::msg::Bool>("lifter", 10);
+    m_colorPublisher = node->create_publisher<std_msgs::msg::String>("color", 10);
 }
 
 void OttoAutonomy::SetTasks(const RobotTasks& tasks, bool loop)
@@ -58,6 +59,12 @@ bool OttoAutonomy::SendLockRequest(const std::string& path_name, bool lock_statu
     auto result = future.get();
     return result->result;
 }
+void OttoAutonomy::SendColor (const std::string& color)
+{
+    auto msg = std_msgs::msg::String();
+    msg.data = color;
+    m_colorPublisher->publish(msg);
+}
 
 void OttoAutonomy::Update()
 {
@@ -83,6 +90,7 @@ void OttoAutonomy::Update()
         {
             // Waiting for pre-task delay
             m_currentOperationDescription += "Waiting to predelay at " + currentTaskKey + "\n";
+            SendColor("YELLOW");
             return;
         }
     }
@@ -93,7 +101,9 @@ void OttoAutonomy::Update()
         if (!SendLockRequest(currentTask.m_taskName, true))
         {
             m_currentOperationDescription += "Waiting to lock at " + currentTaskKey + "\n";
-            RCLCPP_ERROR(m_logger, "WAITING FOR LOCK");
+            auto steady_clock = rclcpp::Clock();
+            RCLCPP_ERROR_THROTTLE(m_logger,steady_clock, 1500, "WAITING FOR LOCK");
+            SendColor("BLUE");
             return;
         }
         m_currentOperationDescription += "Lock obtained " + currentTaskKey + "\n";
@@ -111,6 +121,7 @@ void OttoAutonomy::Update()
         if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
             m_currentOperationDescription += "Waiting to load at " + currentTaskKey + "\n";
+            SendColor("ORANGE");
             return;
         }
     }
@@ -120,14 +131,21 @@ void OttoAutonomy::Update()
         if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_EMPTY)
         {
             m_currentOperationDescription += "Waiting to unload at " + currentTaskKey + "\n";
+            SendColor("GREEN");
             return;
         }
     }
 
     if (!currentTask.m_isDummy && !currentTask.m_path->poses.empty())
     {
-        if (m_robotStatus.m_currentNavigationTask != currentTaskKey)
+        if (m_robotStatus.m_currentNavigationTask != currentTaskKey || m_robotStatus.m_resendGoal)
         {
+            if (m_robotStatus.m_resendGoal)
+            {
+                RCLCPP_ERROR(m_logger, "!!!!!! Resending goal for task %s", currentTaskKey.c_str());
+                m_robotStatus.m_resendGoal = false;
+            }
+            m_startNavigationTimePoint = std::chrono::system_clock::now();
             m_currentOperationDescription += "Started navigation at " + currentTaskKey + "\n";
             m_robotStatus.m_currentNavigationTask = currentTaskKey;
             m_robotStatus.m_finishedNavigationTask = "";
@@ -138,11 +156,13 @@ void OttoAutonomy::Update()
                 currentTask.m_isReverse,
                 currentTask.m_isBlindHighSpeed);
             RCLCPP_ERROR(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
+            SendColor("");
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
-            m_currentOperationDescription += "Navigating to " + currentTaskKey + " is blind : " + std::to_string(currentTask.m_isBlind);
-            // Waiting for navigation
+
+            auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_startNavigationTimePoint);
+            m_currentOperationDescription += "Navigating to " + currentTaskKey + " is blind : " + std::to_string(currentTask.m_isBlind) +" elapsed time : " + std::to_string(duration.count()) + "\n";
             return;
         }
     }
@@ -207,6 +227,7 @@ void OttoAutonomy::Update()
     m_robotStatus.m_currentTask = currentTask.m_nextTaskName;
     m_isWaitingPreTaskDelay = false;
     m_isWaitingPostTaskDelay = false;
+    m_robotStatus.m_resendGoal = false;
 }
 
 void OttoAutonomy::NavigationGoalCompleted(bool success)
@@ -220,6 +241,8 @@ void OttoAutonomy::NavigationGoalCompleted(bool success)
     {
         // TODO - how to recover?
         RCLCPP_ERROR(m_logger, "Failed to navigate, task name %s", m_robotStatus.m_currentNavigationTask.c_str());
+        m_robotStatus.m_resendGoal = true;
+
     }
 }
 

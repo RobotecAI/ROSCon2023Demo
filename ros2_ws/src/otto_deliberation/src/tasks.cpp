@@ -106,12 +106,23 @@ bool RobotTasks::ValidateTasks() const
 
     for (const auto& t : m_validTasks)
     {
-        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0 && m_taskPaths.at(t)!= nullptr)
+        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0)
         {
             isValid = false;
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has no valid geometry paths", t.c_str());
         }
     }
+
+    for (const auto& t : m_validTasks)
+    {
+        if ( m_taskPaths.count(t)!= 0 &&  m_taskPaths.at(t) == nullptr)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has null geometry paths", t.c_str());
+        }
+
+    }
+
     if (m_validTasks.empty())
     {
         RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Technically, empty scenario is valid, but it is not very useful.");

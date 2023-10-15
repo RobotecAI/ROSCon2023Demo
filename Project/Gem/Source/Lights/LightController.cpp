@@ -93,7 +93,6 @@ namespace ROS2::Demo
             [&](std_msgs::msg::String msg)
             {
                 AZStd::string message{ msg.data.c_str() };
-                AZ_Printf("LightController", "Received message: %s", message.c_str());
 
                 if (message.empty() || message == "default") // default is a reserved keyword for "reset to original color
                 {

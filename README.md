@@ -126,7 +126,7 @@ Following that, change the OTTO 600 prefab so that both front and back lidars us
 
 Make sure to install necessary ROS 2 packages installed.
 ```bash 
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav2-msgs
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav2-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library
 ```
 
 ### Project 
@@ -143,7 +143,6 @@ Now install all dependencies of submodules.
 sudo apt install python3-colcon-common-extensions python3-vcstool
 rosdep update
 rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
-sudo apt-get install ros-humble-moveit-servo ros-humble-moveit-visual-tools ros-humble-moveit ros-humble-pilz-industrial-motion-planner
 ```
 Now build and source the workspace.
 ```bash

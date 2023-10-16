@@ -1,0 +1,151 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Pin_green",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 13891312629388889931
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 5099561574357097360
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 10081494095410196684,
+                "Child Entity Order": [
+                    "Entity_[247895058385775]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 15910567396738269410
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 11775297503575727591
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 2820344244354217338
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 4613382203777131719
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 2975202442792741014
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 11921795100507438428
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 11241825846374860297,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[247895058385775]": {
+            "Id": "Entity_[247895058385775]",
+            "Name": "Pin_green",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 14629914383696622732,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{E980142C-F2C3-5E39-8B9A-92CBDE89BF37}",
+                                    "subId": 277163507
+                                },
+                                "assetHint": "assets/factory/objects/misc/pin.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 1251540015557287837
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 15459708520977082393
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17951874118002364022
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 6745580102892499170,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9286854308921138441
+                        },
+                        {
+                            "ComponentId": 14629914383696622732,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 13489477069279947789,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 5179638816902094893
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13489477069279947789,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2084814471
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{71751C48-FDDB-5ECC-9301-3D8536C60FFD}"
+                                            },
+                                            "assetHint": "assets/factory/objects/misc/pin_green.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13372273349967887384
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 16192997318996287277
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12009762173850114035
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9286854308921138441,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "UniformScale": 1.2999999523162842
+                    }
+                }
+            }
+        }
+    }
+}

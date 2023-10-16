@@ -103,7 +103,7 @@ void OttoAutonomy::Update()
             m_currentOperationDescription += "Waiting to lock at " + currentTaskKey + "\n";
             auto steady_clock = rclcpp::Clock();
             RCLCPP_ERROR_THROTTLE(m_logger,steady_clock, 1500, "WAITING FOR LOCK");
-            SendColor("BLUE");
+            SendColor("YELLOW");
             return;
         }
         m_currentOperationDescription += "Lock obtained " + currentTaskKey + "\n";
@@ -121,7 +121,7 @@ void OttoAutonomy::Update()
         if (m_robotStatus.m_cargoStatus != RobotCargoStatus::CARGO_LOADED)
         {
             m_currentOperationDescription += "Waiting to load at " + currentTaskKey + "\n";
-            SendColor("ORANGE");
+            SendColor("GREEN");
             return;
         }
     }

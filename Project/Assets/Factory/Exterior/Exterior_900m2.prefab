@@ -415,7 +415,8 @@
                     "Child Entity Order": [
                         "Entity_[575332452136896]",
                         "Entity_[575366811875264]",
-                        "Entity_[575461301155776]"
+                        "Entity_[575461301155776]",
+                        "Entity_[740085833239913]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -516,9 +517,9 @@
                     "$type": "EditorNonUniformScaleComponent",
                     "Id": 14640113597117063865,
                     "NonUniformScale": [
+                        2.0,
                         1.0,
-                        1.0,
-                        2.0
+                        5.0
                     ]
                 },
                 "EditorOnlyEntityComponent": {
@@ -540,8 +541,8 @@
                     "Transform Data": {
                         "Translate": [
                             -177.93592834472656,
-                            -30.787492752075195,
-                            -1.563759207725525
+                            -48.64518737792969,
+                            -1.563741683959961
                         ],
                         "Rotate": [
                             89.99993896484375,
@@ -1373,6 +1374,94 @@
                             0.0,
                             0.0
                         ]
+                    }
+                }
+            }
+        },
+        "Entity_[740085833239913]": {
+            "Id": "Entity_[740085833239913]",
+            "Name": "env_cube",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 8293915513555188868,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{1F3EB1A0-CF3E-5FCF-A36C-047050FE8E07}",
+                                    "subId": 277539103
+                                },
+                                "assetHint": "assets/factory/exterior/models/environmental_cube.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 2928268265804951520
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14898657037663962749
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 16731520292828238831
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3424537116952415771
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 16506659028411986280
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 18107592193053721836,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4180107804
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{89EA333B-DC1D-5D64-9C18-12CE26DDE305}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 7614659379710914407
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 4903003788849098705
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 10440996352877337176
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10923957691592970469,
+                    "Parent Entity": "Entity_[574636667434944]",
+                    "Transform Data": {
+                        "Translate": [
+                            -50.0,
+                            30.0,
+                            0.0
+                        ],
+                        "UniformScale": 100.0
                     }
                 }
             }

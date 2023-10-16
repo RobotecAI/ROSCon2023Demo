@@ -124,9 +124,9 @@ Following that, change the OTTO 600 prefab so that both front and back lidars us
 
 ### ROS 2 packages
 
-If you followed the instructions, you should have necessary ROS 2 packages installed. You can check / install with this command:
+Make sure to install necessary ROS 2 packages installed.
 ```bash 
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav-msgs
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav2-msgs
 ```
 
 ### Project 

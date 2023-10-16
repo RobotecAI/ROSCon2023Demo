@@ -207,6 +207,70 @@ In a few seconds, the robots should spawn and start moving.
 For a more in-depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
 > **_NOTE:_** By default, 4 robots are spawned. To change the number of robots see [#changing-robots-amount paragraph](ros2_ws/README.md#changing-robots-amount).
 
+
+## Simulation with large scene with 36 robots
+
+### Limitations 
+
+We experienced problem with scale and ROS 2 launch. With standard approach, where we used single launch file number of issues were experienced:
+- Some robots were not spawned
+- Some Nav2 stacks were created in state in which they were not operational.
+
+Problem is communication in ROS 2 that were temporarly saturated.
+Number of mechanism in ROS 2 nodes depends on assumptions that QoS for services is reliable.
+It could be not true for saturated system.
+In other words, this demo, is a great torture test for your DDS.
+To counteract impact of those limitations, we launch system with bash scripts, and every robot has its own `screen` session.
+
+### Prerequisities
+1. Two machines connected in 2.5 Gbps network locally, ideally point-to-point.
+Specification we used:
+- Intel 13th Gen Core i9-13900K
+- NVIDIA GeForce RTX 4080
+- 64 Gb of DDR4 RAM
+
+2. Correctly set ROS 2 domain to communicate does two machine.
+We used CycloneDDS with following config:
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config
+https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclonedds.xsd">
+    <Domain id="any">
+        <Internal>
+		<SocketReceiveBufferSize min="10MB" max="default" />
+        </Internal>
+    	<Discovery>
+      		<ParticipantIndex>auto</ParticipantIndex>
+      		<MaxAutoParticipantIndex>1000</MaxAutoParticipantIndex>
+    	</Discovery>
+    </Domain>
+</CycloneDDS>
+```
+Please refer to [DDS tunning information](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cyclone-dds-tuning) to learn more.
+## 
+1. On Machine 1 start "RosCon2023.GameLaucher", switch level to DemoLevel2 by hitting tilde `~`
+   and entering in console: `loadlevel DemoLevel2`:
+
+   ![](media/level.png)
+2. On Machine 2 build ROS2 workspace (no need to build o3de project), source workspace:
+   ```bash
+   cd ROSCon2023Demo/ros2_ws
+   colcon build --symlink-install
+   source ROSCon2023Demo/ros2_ws/install/setup.bash
+   ```
+3. On Machine 2 start two scripts that will bring all ROS 2 software stacks:
+   ```bash
+    ./src/roscon2023_demo/bash/spawn.sh
+    ./src/roscon2023_demo/bash/start_fleet.sh
+    ```
+    The `spawn.sh` script start MoveIt2 move groups, palletization drivers and spawn all AMRs one by one.
+    Second script `start_fleet.sh` creates multiple screen session to adjust
+
+4. To stop system on Machine 2, simply close all `screen` session:   
+    ```bash
+    killall screen
+    ```
+
 ### Troubleshooting
 
 If you intend to switch between Humble and Iron distributions, it is best to perform a clean build, or at least rebuild ROS 2 and RGL Gem. Make sure you build the workspace and the simulation project with the same distribution (rebuild and source on change).
@@ -214,6 +278,7 @@ If you intend to switch between Humble and Iron distributions, it is best to per
 If your simulation does not work as intended, please first make sure you sourced the workspace properly before running the project.
 
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
+
 
 ## Notes and acknowledgments
 

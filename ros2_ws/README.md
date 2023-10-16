@@ -1,49 +1,47 @@
-# Ros2 workspace
+# ROS 2 workspace
+
+This is the ROS 2 workspace to build and source before you build or run the simulation project. Make sure to always source this workspace before running the simulator,
+it won't work properly without it.
 
 ## Content
 
 ### src/Universal_Robots_ROS2_Description
-Modified description package [Owner avatar
-Universal_Robots_ROS2_Description
-](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description)
+Modified package of [Universal_Robots_ROS2_Description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description).
 
 **Modifications**
-- Add vacuum gripper model
+- Added vacuum gripper model.
 
 ### src/Universal_Robots_ROS2_Driver
-Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble)
-
-**Modifications**
-- No modifications, git submodule
+Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble) as submodule.
 
 ### src/ur_palletization
-- Simple palletization code for Moveit2
-- Modified launch files for UR Moveit2 stack
-- Launch file for palletization demo
-- Uses pilz_industrial_motion_planner
+- Simple palletization code for Moveit2.
+- Modified launch files for UR Moveit2 stack.
+- Launch file for palletization demo.
+- Uses pilz_industrial_motion_planner.
 
 ### src/otto600_description src/otto1500_description
-- Contains all urdf and mesh files for OTTO AMRs
+- Contains all urdf and mesh files for OTTO AMRs.
 
 ### src/otto_deliberation
-- Autonomy for OTTO AMRs
-- Manages tasks, sends commands to otto_fleet_nav and blind_path_follower
-- Contains task description configurations
+- Autonomy for OTTO AMRs.
+- Manages tasks, sends commands to `otto_fleet_nav` and `blind_path_follower`.
+- Contains task description configurations.
 
 ### src/otto_fleet_nav
-- Nav2 for OTTO AMRs
-- Spawns and controls robots movements
+- Nav2 for OTTO AMRs.
+- Spawns and controls robots movements.
 
 ### src/global_path_lock
-- Manages access to all paths that robots take
-- Provides a path locking ROS2 service
+- Manages access to paths that only one robot should take (e.g. loading, wrapping).
+- Provides a simple locking ROS 2 service.
 
 ### src/blind_path_follower
-- Steers robots during docking
+- Steers robots during docking. It is here due to the fact that nav2 stack alone was not easy to tame for such tight approaches. 
 
 ### src/roscon2023_demo
-- Combines all launch files into one
-- Contains the configuration for all of the robots
+- Combines all launch files into one.
+- Contains the configuration for all of the robots. You can change configuration files in this package to run a different setup.
 
 ## Changing the scene
 ### Changing robots amount
@@ -59,10 +57,10 @@ To change the robots amount simply modify the ```src/roscon2023_demo/config/ROSC
       y: 2.0
       z: 0.1
 ```
-Robots must have different namespaces to work and to be assigned a lane which is defined in the O3DE Editor. You can also change the robots spawn position, tasks configuration file and Nav2 parameters file.
+Robots must have different namespaces to work and to be assigned a lane which is defined in the O3DE Editor (see "Line X" entities). You can also change the robots spawn position, tasks configuration file and Nav2 parameters file.
 
 ### Modifying the UR arms
-To change the UR arms configuration modify the  ```src/roscon2023_demo/config/ROSCon2023Config.yaml``` by adding a new UR arm:
+To change the UR arms configuration modify the  ```src/roscon2023_demo/config/ROSCon2023Config.yaml```, here is an example:
 ```yaml 
   - namespace: ur1
     num_of_boxes: 18
@@ -97,4 +95,8 @@ To change task modify or adding the ```src/otto_deliberation/config/<nameoftasks
 - cargo_unload_tasks: Tasks where the cargo is unloaded from the robot
 - task_acquire_lock: Tasks where a lock is acquired (prevents robots from using the same path). Each lock must be later released
 - task_release_lock: Tasks where a lock is released.
+
+## Warning: demo code
+Code quality is "demo", so be careful when using it for building serious projects. This codebase was only meant to enable demonstration of O3DE capabilities. 
+
 

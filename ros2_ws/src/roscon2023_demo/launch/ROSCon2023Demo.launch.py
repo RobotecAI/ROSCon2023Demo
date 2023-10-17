@@ -114,7 +114,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'ROS2Con2023Config',
-            default_value=os.path.join(ROSCon2023Params, 'config', 'ROSCon2023Config_8.yaml'),
+            default_value=os.path.join(ROSCon2023Params, 'config', 'ROSCon2023Config_4.yaml'),
             description='Full path to the ROS2 parameters file to use for all robot launched nodes'
         )
     )

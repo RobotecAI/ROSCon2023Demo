@@ -64,6 +64,25 @@ For more FPS, larger scene or more robots, consider:
 
 ## Project Setup
 
+### ROS 2 middleware 
+This project should be used with the  ```rmw_cyclonedds_cpp``` as the ROS 2 middleware.  
+[MoveIt2 does not recommend usage of the default RMW](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html#switch-to-cyclone-dds) and as it is a part ot this project using the default RMW will not work.  
+
+Install the CycloneDDS RMW by installing its package:
+```bash
+sudo apt install ros-${ROS_DISTRO}-rmw-cyclonedds-cpp
+```
+After the installation add this command to your ```.bashrc``` or equivalent file.
+```bash 
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+```
+This will change the default RMW implementation to CycloneDDS.  
+Now source your new configuration:
+```bash
+source ~/.bashrc
+```
+> ***Note:*** The ROS2 daemon may need to be restarted to use the CycloneDDS RMW. Use ```ros2 daemon stop``` and ```ros2 daemon start``` to restart the daemon.
+
 ### O3DE
 
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make

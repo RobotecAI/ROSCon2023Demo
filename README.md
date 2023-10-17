@@ -175,7 +175,7 @@ ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```
 In a few seconds, the robots should spawn and start moving.  
 For a more in-depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
-> **_NOTE:_** By default 4 robots are spawned. To change the number of robots see [#changing-robots-amount paragraph](ros2_ws/README.md#changing-robots-amount).
+> **_NOTE:_** By default, 4 robots are spawned. To change the number of robots see [#changing-robots-amount paragraph](ros2_ws/README.md#changing-robots-amount).
 
 ### Troubleshooting
 

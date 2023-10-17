@@ -45,13 +45,13 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 
 ## Changing the scene
 ### Changing robots amount
-To change the robots amount simply choose a different configuration file. For example to spawn 8 robots instead of 4 use:
+To change the number of robots simply choose a different configuration file. For example, to spawn 8 robots instead of 4 use:
 ```bash
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:=<full_path_to>/ROSCon2023Config_8.yaml
 ```
-> **_NOTE:_** Replace the ```<full_path_to>/ROSCon2023Config_4.yaml``` with the full path to your desired file.  
+> **_NOTE:_** Replace the `<full_path_to>/ROSCon2023Config_4.yaml` with the full path to your desired file.  
 
-The available configuration files are ```ROSCon2023Config_2/4/8.yaml``` which are prepared for the smaller scene (```DemoLevel1.prefab```) or ```ROSCon2023Config_900.yaml``` which is for the bigger scene (```DemoLevel2.prefab```).
+There are multiple configuration files available. The files `ROSCon2023Config_2/4/8.yaml` are prepared for the smaller scene (`DemoLevel1.prefab`), while `ROSCon2023Config_900.yaml` should be used with the bigger scene (`DemoLevel2.prefab`).
 
 You can also create a custom configuration file or modify the config by adding a new robot to the fleet:
 ```yaml

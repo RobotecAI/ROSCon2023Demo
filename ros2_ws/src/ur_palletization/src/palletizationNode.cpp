@@ -89,7 +89,6 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
                                     const std::vector<Eigen::Vector3f> &targets) {
     using namespace std::chrono_literals;
     namespace PalCnt = Palletization::Constants;
-    bool previousFailed = false;
     std::vector<Eigen::Vector3f> failedBoxes;
     for (size_t i = 0; i < targets.size(); i++) {
         SendStatus("Started placing box %d", i);
@@ -108,7 +107,6 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
         if (!myClosestBox) {
             RCLCPP_ERROR(m_node->get_logger(), "No box found");
 
-            previousFailed = true;
             continue;
         }
 

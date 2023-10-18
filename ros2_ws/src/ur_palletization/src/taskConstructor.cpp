@@ -61,7 +61,7 @@ namespace Palletization {
     bool
     RoboticArmController::setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond &tcp_orientation,
                                      float speed, const std::string &interpolation) {
-
+        (void)interpolation;
         Eigen::Isometry3d tcp_pose;
         tcp_pose.fromPositionOrientationScale(tcp_position, tcp_orientation, Eigen::Vector3d::Ones());
         m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);

@@ -11,7 +11,7 @@ Modified package of [Universal_Robots_ROS2_Description](https://github.com/Unive
 - Added vacuum gripper model.
 
 ### src/Universal_Robots_ROS2_Driver
-Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble) as a submodule.
+Branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble) for current $ROS_DISTRO, as a submodule.
 
 ### src/ur_palletization
 - Simple palletization code for Moveit2.

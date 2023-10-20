@@ -147,7 +147,7 @@ sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-tool
 ### Project
 
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
-This workspace depends on submodules that need to be pulled first. This is done through the script (setup_submodules.bash) that depends on $ROS_DISTRO.
+This workspace depends on submodules that need to be pulled first. This is done through the script (`setup_submodules.bash`) that selects a submodule's version based on the detected ROS 2 distribution.
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
 ./setup_submodules.bash

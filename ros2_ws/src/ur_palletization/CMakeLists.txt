@@ -68,7 +68,6 @@ ament_target_dependencies(
   utils
   "rclcpp"
   "moveit_ros_planning_interface"
-
   "pilz_industrial_motion_planner"
   "control_msgs"
   "tf2_msgs"

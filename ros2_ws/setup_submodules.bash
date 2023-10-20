@@ -4,8 +4,14 @@ if [ "$ROS_DISTRO" == "iron" ]
 then
 	git submodule init
 	git submodule update
+	
 	cd ./src/Universal_Robots_ROS2_Driver/
 	git checkout 129687763140508b4b5cb497b197ce1057defe88
+	if [ $? -ne 0 ]
+	then
+		echo "Failed to checkout ROS 2 iron branch."
+		exit 1
+	fi
 elif [ "$ROS_DISTRO" == "humble" ]
 then
 	# submodule init and update are sufficient for humble

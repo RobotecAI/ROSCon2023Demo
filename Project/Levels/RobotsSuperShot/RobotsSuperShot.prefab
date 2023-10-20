@@ -28,12 +28,12 @@
                     "Entity_[52822122960453]",
                     "Entity_[62880936367685]",
                     "Entity_[63439282116165]",
-                    "Instance_[52107276561755]/ContainerEntity",
                     "Entity_[63645440546373]",
-                    "Instance_[105180187438427]/ContainerEntity",
                     "Instance_[52234162091038]/ContainerEntity",
                     "Entity_[752013183628318]",
-                    "Instance_[844810247025694]/ContainerEntity"
+                    "Instance_[844810247025694]/ContainerEntity",
+                    "Instance_[281531617010361]/ContainerEntity",
+                    "Instance_[281707710669497]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -1177,112 +1177,6 @@
         }
     },
     "Instances": {
-        "Instance_[105180187438427]": {
-            "Source": "Prefabs/OTTO600/OTTO600.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 30.11166000366211
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.8995141983032227
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -4.76837158203125e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -24.658050537109375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[363552211467]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[385027047947]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.4000000059604645
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.1658992767333984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 3.219341278076172
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[415091819019]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600/otto600.fbx.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[415091819019]/Components/EditorEntitySortComponent/Child Entity Order/5"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[415091819019]/Components/EditorEntitySortComponent/Child Entity Order/4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[427976720907]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[436566655499]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[440861622795]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[458041491979]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[466631426571]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[483811295755]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[187685058540532]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[207905764570100]"
-                }
-            ]
-        },
         "Instance_[225234362758547]": {
             "Source": "Assets/Importer/ur10.prefab",
             "Patches": [
@@ -1853,8 +1747,70 @@
                 }
             ]
         },
-        "Instance_[407908449120945]": {
-            "Source": "Assets/Importer/OTTO1500.prefab"
+        "Instance_[281531617010361]": {
+            "Source": "Assets/Importer/OTTO1500_Basic_platform.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2528064860699]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/platform_a.stl.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 28.074159622192383
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -2.511599540710449
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -7.152557373046875e-7
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -25.399513244628906
+                }
+            ]
+        },
+        "Instance_[281707710669497]": {
+            "Source": "Prefabs/OTTO600/OTTO600.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 30.11166000366211
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -2.8995141983032227
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 2.384185791015625e-7
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -24.658050537109375
+                }
+            ]
         },
         "Instance_[487522926640547]": {
             "Source": "Prefabs/WarehouseScene.prefab",
@@ -3759,107 +3715,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[376138858138692]/Entities/Entity_[376147448073284]/Components/Component_[13299402086043239524]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
                     "value": "assets/warehouse/models/warehouse_floor.fbx.pxmesh"
-                }
-            ]
-        },
-        "Instance_[52107276561755]": {
-            "Source": "Assets/Importer/OTTO1500_Basic_platform.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2420690678299]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2463640351259]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2467935318555]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2485115187739]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2502295056923]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_center.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2480820220443]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2424985645595]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[2498000089627]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/3",
-                    "value": "Entity_[2429280612891]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/5"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2528064860699]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/platform_a.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2536654795291]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_center.stl.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[16359154575719]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[16363449543015]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 28.074159622192383
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.511599540710449
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -3.576278686523438e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -25.399513244628903
                 }
             ]
         },

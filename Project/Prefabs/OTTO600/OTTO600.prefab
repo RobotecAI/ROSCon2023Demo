@@ -123,11 +123,11 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 15602598512040496450,
-                    "Parent Entity": "Entity_[415091819019]",
+                    "Parent Entity": "Entity_[376437113355]",
                     "Transform Data": {
                         "Translate": [
-                            0.5297555923461914,
-                            0.40851765871047974,
+                            0.529754638671875,
+                            0.40851783752441406,
                             0.18674802780151367
                         ],
                         "Rotate": [
@@ -387,11 +387,11 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 15602598512040496450,
-                    "Parent Entity": "Entity_[415091819019]",
+                    "Parent Entity": "Entity_[376437113355]",
                     "Transform Data": {
                         "Translate": [
                             -0.5857334136962891,
-                            -0.40281927585601807,
+                            -0.4028191566467285,
                             0.1852550506591797
                         ],
                         "Rotate": [
@@ -2577,10 +2577,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -2620,7 +2620,10 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 5603363823810660091,
-                    "Parent Entity": "Entity_[367847178763]"
+                    "Parent Entity": "Entity_[367847178763]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         },
@@ -3042,14 +3045,16 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 15191659956461039518,
                     "Child Entity Order": [
-                        "Entity_[479516328459]",
+                        "Entity_[187685058540532]",
+                        "Entity_[207905764570100]",
                         "Entity_[402206917131]",
+                        "Entity_[479516328459]",
                         "Entity_[449451557387]",
                         "Entity_[389322015243]",
                         "Entity_[462336459275]",
                         "Entity_[372142146059]",
-                        "Entity_[415091819019]",
                         "Entity_[367847178763]",
+                        "Entity_[415091819019]",
                         "Entity_[24172719660011]"
                     ]
                 },
@@ -3306,10 +3311,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -3349,7 +3354,10 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 6159509585614812483,
-                    "Parent Entity": "Entity_[479516328459]"
+                    "Parent Entity": "Entity_[479516328459]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         },
@@ -3862,21 +3870,6 @@
             "Id": "Entity_[415091819019]",
             "Name": "base_link_visual",
             "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 3270945428654281390,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
-                                    "subId": 273650306
-                                },
-                                "assetHint": "prefabs/otto600/otto600.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 544057150285502687
@@ -3889,12 +3882,11 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 1235514382533876233,
                     "Child Entity Order": [
+                        "Entity_[53867428940913]",
                         "Entity_[470926393867]",
                         "Entity_[210679758454008]",
                         "Entity_[210739887996152]",
-                        "Entity_[210838672243960]",
-                        "Entity_[187685058540532]",
-                        "Entity_[207905764570100]"
+                        "Entity_[210838672243960]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -3904,68 +3896,6 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 15121884590352162101
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 13570587953096653072,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 48421206
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{73AD6398-0854-5467-839E-7E0AF9A25146}"
-                                            },
-                                            "assetHint": "prefabs/otto600/otto600_emission03.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 114592210
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{BC11CF39-9966-5086-BAAA-67410FCC66B8}"
-                                            },
-                                            "assetHint": "prefabs/otto600/otto600_emission02.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 1355161694
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{8505748C-1422-57A0-BA40-5E817F0EBBCA}"
-                                            },
-                                            "assetHint": "prefabs/otto600/otto600_emission01.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3373457715
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{A39B27FE-9F92-52CA-A9A5-E5A707BDF6AA}"
-                                            },
-                                            "assetHint": "prefabs/otto600/otto600_otto600.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
                 },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
@@ -3997,10 +3927,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -4040,7 +3970,10 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 12493637505676290818,
-                    "Parent Entity": "Entity_[462336459275]"
+                    "Parent Entity": "Entity_[462336459275]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         },
@@ -4055,10 +3988,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -4098,7 +4031,10 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 9733178881028597695,
-                    "Parent Entity": "Entity_[389322015243]"
+                    "Parent Entity": "Entity_[389322015243]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         },
@@ -4356,10 +4292,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -4399,7 +4335,10 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 17205227778608021128,
-                    "Parent Entity": "Entity_[449451557387]"
+                    "Parent Entity": "Entity_[449451557387]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         },
@@ -4865,10 +4804,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{8EC189BD-0C14-5684-BF63-D1E6A4C1A8CE}",
-                                    "subId": 268640466
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 274705241
                                 },
-                                "assetHint": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.azmodel"
+                                "assetHint": "prefabs/otto600/default_otto600_1656cfa9_69f2_5d41_85db_1a4fcba4b0f5_.fbx.azmodel"
                             }
                         }
                     }
@@ -4908,7 +4847,133 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 15691846221364367981,
-                    "Parent Entity": "Entity_[372142146059]"
+                    "Parent Entity": "Entity_[372142146059]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
+                }
+            }
+        },
+        "Entity_[53867428940913]": {
+            "Id": "Entity_[53867428940913]",
+            "Name": "chassis",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 3270945428654281390,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{D0C0E57A-0068-5269-B3A0-A827DD4090D9}",
+                                    "subId": 268661737
+                                },
+                                "assetHint": "prefabs/otto600/default_otto600_a4533a21_d44d_5c0e_a25b_2e1648ad4ade_.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 544057150285502687
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6531586077965411731
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 1235514382533876233
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 2188915127976599391
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15121884590352162101
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 13570587953096653072,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 48421206
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{73AD6398-0854-5467-839E-7E0AF9A25146}"
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission03.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 114592210
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{BC11CF39-9966-5086-BAAA-67410FCC66B8}"
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission02.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1355161694
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{8505748C-1422-57A0-BA40-5E817F0EBBCA}"
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_emission01.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3373457715
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A39B27FE-9F92-52CA-A9A5-E5A707BDF6AA}"
+                                            },
+                                            "assetHint": "prefabs/otto600/otto600_otto600.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 4591162971207547223
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13066348973541846704
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 1347097501921190582
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5818932725488436259,
+                    "Parent Entity": "Entity_[415091819019]",
+                    "Transform Data": {
+                        "UniformScale": 0.009999999776482582
+                    }
                 }
             }
         }

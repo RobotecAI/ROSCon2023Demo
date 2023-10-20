@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(control_msgs REQUIRED)
+find_package(pilz_industrial_motion_planner REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 find_package(moveit_core)
@@ -31,6 +32,7 @@ ament_target_dependencies(
   palletizationNode
   "rclcpp"
   "moveit_ros_planning_interface"
+  "pilz_industrial_motion_planner"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")
@@ -57,6 +59,7 @@ ament_target_dependencies(
   taskConstructor
   "rclcpp"
   "moveit_ros_planning_interface"
+  "pilz_industrial_motion_planner"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")
@@ -65,6 +68,7 @@ ament_target_dependencies(
   utils
   "rclcpp"
   "moveit_ros_planning_interface"
+  "pilz_industrial_motion_planner"
   "control_msgs"
   "tf2_msgs"
   "vision_msgs")

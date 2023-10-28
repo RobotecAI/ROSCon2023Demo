@@ -92,7 +92,7 @@ source ~/.bashrc
 The following commands should prepare O3DE:
 
 ```bash
-cd {$WORKDIR}
+cd ${WORKDIR}
 git clone --branch main --single-branch https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
@@ -166,15 +166,15 @@ source install/setup.bash
 ```
 The source command needs to be done in the same console where you build and run O3DE.
 
-Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `{$WORKDIR}`:
+Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
 ```bash
-cd {$WORKDIR}/ROSCon2023Demo/Project
+cd ${WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets
 ```
 To launch the built project:
 ```bash
-cd {$WORKDIR}/ROSCon2023Demo
+cd ${WORKDIR}/ROSCon2023Demo
 ./build/linux/bin/profile/Editor
 ```
 
@@ -183,7 +183,7 @@ Open the level: `DemoLevel1.prefab`.
 Launch the O3DE simulation by clicking `CTRL + G` or by clicking the launch arrow next to the `Play Controls` in the top right corner.
 Now go to the `ros2_ws` folder and run the all ros2 packages.
 ```bash
-cd {$WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
 source install/setup.bash
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```

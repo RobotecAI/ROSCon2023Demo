@@ -170,7 +170,7 @@ Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was 
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
-cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets
+cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
 ```
 To launch the built project:
 ```bash

@@ -40,7 +40,7 @@ class RobotSpawner(Node):
 
         self.cli = self.create_client(SpawnEntity, 'spawn_entity')
         
-        while not self.cli.wait_for_service(timeout_sec=1.0):
+        while not self.cli.wait_for_service(timeout_sec=5.0):
             self.get_logger().info('Spawning service not available, waiting...')
 
         self.req = SpawnEntity.Request()

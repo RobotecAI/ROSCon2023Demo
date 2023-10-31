@@ -120,17 +120,17 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace Strategy",
                     "value": 3
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace",
                     "value": "ur1"
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameComponent/m_template/Publish Transform",
+                    "path": "/Entities/Entity_[2844844128358]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Publish Transform",
                     "value": true
                 },
                 {
@@ -305,21 +305,6 @@
                                 "Id": 4720855398655358834,
                                 "VisibilityFlag": true
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 1586225048509550916,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "Park",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 3973755322994343354,
@@ -347,6 +332,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 1586225048509550916,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "Park",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -402,21 +401,6 @@
                                 "Id": 7534089191044523442,
                                 "VisibilityFlag": true
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 14459931361656117788,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "Drop",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 9599094991467190531,
@@ -444,6 +428,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 14459931361656117788,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "Drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -499,21 +497,6 @@
                                 "Id": 11893509090435207875,
                                 "VisibilityFlag": true
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 673973100445986234,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "Pickup",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 7155344431639955871,
@@ -541,6 +524,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 673973100445986234,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "Pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -698,21 +695,6 @@
                                     }
                                 }
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 5364483958052265547,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_pickup",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 17197644915412255258,
@@ -740,6 +722,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 5364483958052265547,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -897,21 +893,6 @@
                                     }
                                 }
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 15092627223095051452,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_drop",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 11340372032319460387,
@@ -939,6 +920,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 15092627223095051452,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true

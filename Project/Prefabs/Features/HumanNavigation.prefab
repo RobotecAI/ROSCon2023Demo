@@ -984,9 +984,7 @@
                             "Agent Radius": 0.4000000059604645,
                             "Detail Sample Distance": 1.0,
                             "Detail Sample Max Error": 0.10000000149011612,
-                            "Edge Max Error": 0.75,
-                            "Debug Draw": true,
-                            "Editor Preview": true
+                            "Edge Max Error": 0.75
                         }
                     }
                 },
@@ -1041,11 +1039,11 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 17170628381715023655,
                     "Child Entity Order": [
-                        "Instance_[5523627744235]/ContainerEntity",
-                        "Instance_[24377731236726]/ContainerEntity",
                         "Entity_[9879863788140]",
                         "Entity_[9884158755436]",
-                        "Entity_[9875568820844]"
+                        "Entity_[9875568820844]",
+                        "Instance_[53741569943658]/ContainerEntity",
+                        "Instance_[53758749812842]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -1082,108 +1080,27 @@
         }
     },
     "Instances": {
-        "Instance_[24377731236726]": {
-            "Source": "Prefabs/HumanNpcRobot.prefab",
+        "Instance_[53741569943658]": {
+            "Source": "HumanWorker/HumanWorkerRobot.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[9901338624620]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -32.257591247558594
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 10.57594394683838
+                    "op": "add",
+                    "path": "/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/AnimGraphInputProviderComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 3759371715024017840,
+                        "m_template": {
+                            "$type": "AnimGraphInputProviderComponent",
+                            "Id": 0,
+                            "Rigid Body": "../Entity_[66011467218485]",
+                            "Linear Speed Multiplier": 0.05000000074505806
+                        }
+                    }
                 },
                 {
                     "op": "replace",
                     "path": "/Entities/Entity_[66011467218485]/Name",
-                    "value": "HumanNpcRobot3"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/EditorShapeColliderComponent/ColliderConfiguration/CollisionLayer/Index",
-                    "value": 1
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Debug Mode",
-                    "value": true
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/0",
-                    "value": "../Entity_[9871273853548]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/1",
-                    "value": "../Entity_[9862683918956]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/2",
-                    "value": "../Entity_[9892748690028]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/3",
-                    "value": "../Entity_[29531291004454]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/4",
-                    "value": "../Entity_[29557060808230]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/5",
-                    "value": "../Entity_[29544175906342]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
-                    "value": "../Entity_[9879863788140]"
-                }
-            ]
-        },
-        "Instance_[5523627744235]": {
-            "Source": "Prefabs/HumanNpcRobot.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[9901338624620]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -35.321266174316406
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 19.8799991607666
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Name",
-                    "value": "HumanNpcRobot1"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/EditorShapeColliderComponent/ColliderConfiguration/CollisionLayer/Index",
-                    "value": 1
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Debug Mode",
-                    "value": true
+                    "value": "HumanWorker1"
                 },
                 {
                     "op": "add",
@@ -1231,9 +1148,113 @@
                     "value": "../Entity_[9866978886252]"
                 },
                 {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/9",
+                    "value": "../Entity_[9858388951660]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/10",
+                    "value": "../Entity_[9888453722732]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/11",
+                    "value": "../Entity_[9866978886252]"
+                },
+                {
                     "op": "replace",
                     "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
                     "value": "../Entity_[9879863788140]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[9901338624620]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -35.32099914550781
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 19.8799991607666
+                }
+            ]
+        },
+        "Instance_[53758749812842]": {
+            "Source": "HumanWorker/HumanWorkerRobot.prefab",
+            "Patches": [
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/AnimGraphInputProviderComponent",
+                    "value": {
+                        "$type": "GenericComponentWrapper",
+                        "Id": 17003170945208284354,
+                        "m_template": {
+                            "$type": "AnimGraphInputProviderComponent",
+                            "Id": 0,
+                            "Rigid Body": "../Entity_[66011467218485]",
+                            "Linear Speed Multiplier": 0.05000000074505806
+                        }
+                    }
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Name",
+                    "value": "HumanWorker2"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/0",
+                    "value": "../Entity_[9871273853548]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/1",
+                    "value": "../Entity_[9862683918956]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/2",
+                    "value": "../Entity_[9892748690028]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/3",
+                    "value": "../Entity_[29531291004454]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/4",
+                    "value": "../Entity_[29557060808230]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/5",
+                    "value": "../Entity_[29544175906342]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
+                    "value": "../Entity_[9879863788140]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[9901338624620]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": -32.257999420166016
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 10.576000213623047
                 }
             ]
         }

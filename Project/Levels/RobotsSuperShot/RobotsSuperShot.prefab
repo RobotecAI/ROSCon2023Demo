@@ -347,9 +347,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{7B0D002B-791F-5C67-9FF4-76212E5466EE}"
+                                                "guid": "{92DD3E5E-8579-582C-B708-D7339D717A47}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_hair_sss.azmaterial"
+                                            "assetHint": "humanworker/materials/hair_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -360,9 +360,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{96E1B11B-68F3-5C20-A9F0-1C283BAFE544}"
+                                                "guid": "{3032BC21-A288-5244-9609-F49B572C235E}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_tablet.azmaterial"
+                                            "assetHint": "humanworker/materials/tablet.azmaterial"
                                         }
                                     }
                                 },
@@ -373,9 +373,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{D81C826D-3D91-546F-A424-60D79CF738B6}"
+                                                "guid": "{D449F87F-F988-5B4F-B741-3C82C8D4AB05}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_body_sss.azmaterial"
+                                            "assetHint": "humanworker/materials/body_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -386,9 +386,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{D4FDD778-5A7F-52E9-9774-02BE4BDA2D38}"
+                                                "guid": "{AD1368CC-D8E4-5FBF-86CA-5568FCD6F964}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_cloths.azmaterial"
+                                            "assetHint": "humanworker/materials/cloths.azmaterial"
                                         }
                                     }
                                 },
@@ -399,9 +399,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{50ADFF62-1A3E-5D18-8755-F154351E9E99}"
+                                                "guid": "{3C241580-D064-5D17-A0DD-0168644B580D}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_shoes.azmaterial"
+                                            "assetHint": "humanworker/materials/shoes.azmaterial"
                                         }
                                     }
                                 },
@@ -412,9 +412,8 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{BE0F7D82-B5B1-506E-8A00-5F2026F746BF}"
-                                            },
-                                            "assetHint": "assets/asianwoman/material/npc_vest_sss.azmaterial"
+                                                "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
+                                            }
                                         }
                                     }
                                 },
@@ -425,9 +424,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{0294F6D1-9ED4-56BB-A0BD-35A0D8741B1F}"
+                                                "guid": "{AC088825-F5C4-5F2E-A5EF-D561F570502D}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/npc_eyes.azmaterial"
+                                            "assetHint": "humanworker/materials/eyes.azmaterial"
                                         }
                                     }
                                 }
@@ -1221,6 +1220,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": -25.399513244628903
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[16359154575719]/Components/ROS2Lidar2DSensorComponent/m_template/SensorConfiguration/Visualize",
+                    "value": false
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[16363449543015]/Components/ROS2Lidar2DSensorComponent/m_template/SensorConfiguration/Visualize",
+                    "value": false
                 }
             ]
         },

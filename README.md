@@ -39,7 +39,7 @@ Note that they don't see robots, as they use navigation through a Gem and only c
 
 ### The project includes
 - **Scenery** initially created using a [Warehouse project template](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/#ros-2-project-templates), but many new models have been added.
-- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR20 collaborative robot. The prefabs are available in a separate gem.
+- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR20 collaborative robot. The prefabs are available in a separate Gem.
 - **AMRs** instantiated prefabs of OTTO600 and OTTO1500 robots from [OTTO Motors](https://ottomotors.com/).
 - **Boxes** that are transported using conveyor belts from [Warehouse Automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation) and palletized.
 
@@ -101,9 +101,9 @@ python/get_python.sh
 scripts/o3de.sh register --this-engine
 ```
 
-### ROS 2 Gem and other gems
+### ROS 2 Gem and other Gems
 
-This project uses the following gems:
+This project uses the following Gems:
 - [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2)
 - [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) 
 - [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation)
@@ -120,7 +120,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 **During build use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is essential for articulation.
 
 We assume that the directory with the project is `${WORKDIR}`.
-Clone o3de-extras repo
+Clone o3de-extras repo:
 ```bash
 cd ${WORKDIR}
 git clone https://github.com/o3de/o3de-extras
@@ -136,7 +136,7 @@ cd ${WORKDIR}
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
 ```
 
-Clone and register the remaining gems
+Clone and register the remaining Gems
 ```bash
 cd ${WORKDIR}
 git clone https://github.com/RobotecAI/o3de-humanworker-gem.git

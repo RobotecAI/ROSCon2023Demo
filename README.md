@@ -9,16 +9,16 @@ You can learn more about the features of O3DE for robotics and how to get starte
 
 ### Levels
 
-- **DemoLevel1**: 30x100 meters scene with 4 conveyor belts, 4 robotic arms. Suitable for 4-8 AMRs.
+- **DemoLevel1**: 30x100 meters scene with 4 conveyor belts, and 4 robotic arms. Suitable for 4-8 AMRs.
 - **DemoLevel2**: 90x100 meters, three times larger, 12 robotic arms, suitable for 12-24 AMRs.
 - **RobotsSuperShot**: a level showcasing 3D models, with several different robots, a human, and a forklift. Some robots are not equipped with components yet, but you are welcome to try and make them work!
-- **RobotImportLevel**: a small enclosed space with a table, good for [importing your own robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
+- **RobotImportLevel**: a small enclosed space with a table, good for [importing your robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
 
 ### Detailed description
 
 UR20 robot arms controlled by MoveIt2 with [pilz_industrial_motion_planner](https://moveit.picknik.ai/humble/doc/examples/pilz_industrial_motion_planner/pilz_industrial_motion_planner.html?highlight=pilz#pilz-industrial-motion-planner).
 Boxes are supplied by conveyor belts, which are implemented through spawning when below a certain number in an area.
-UR20 arms are placing boxes based on a ground truth vision system, which means they actually look at the scene and that there is no error in pose measurement.
+UR20 arms are placing boxes based on a ground truth vision system, which means they look at the scene and that there is no error in pose measurement.
 UR20 arms start working as soon as an immobile pallet is detected in their load area and will load a configurable number of boxes (up to 18, by default 18) on each pallet.
 
 Pallets are moved around by robots modeled after OTTO 600.
@@ -58,7 +58,7 @@ The demo is rather demanding, as it aims to show what is possible. Minimum specs
 - Intel i7-11800H (16 cores) CPU.
 - 64 GB RAM.
 
-For more FPS, larger scene, or more robots, consider:
+For more FPS, a larger scene, or more robots, consider:
 - NVIDIA RTX 3080 Ti (or better) GPU (16 GB).
 - Intel i7-12900KF (24 cores) CPU.
 
@@ -134,7 +134,7 @@ The Gems are open to your contributions!
 ### RGL Gem (Optional)
 
 Optionally, especially when intending to run more robots or change their lidar to a higher resolution one, you can enable and use Robotec GPU Lidar Gem (RGL Gem).
-Please follow instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable within the project.
+Please follow the instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable it within the project.
 Following that, change the OTTO 600 prefab so that both front and back lidars use the GPU lidar (use combo box to select it).
 
 ### ROS 2 packages

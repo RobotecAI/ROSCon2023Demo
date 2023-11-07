@@ -9,8 +9,8 @@ You can learn more about the features of O3DE for robotics and how to get starte
 
 ### Levels
 
-- **DemoLevel1**: 30x100 meters scene with 4 conveyor belts, 4 robotic arms. Suitable for 4-8 AMRs.
-- **DemoLevel2**: 90x100 meters, three times larger, 12 robotic arms, suitable for 12-24 AMRs.
+- **DemoLevel1**: 30x100 meters scene with 4 conveyor belts, and 4 robotic arms. Suitable for 4-8 AMRs.
+- **DemoLevel2**: 90x100 meters, three times larger, and 12 robotic arms, suitable for 12-24 AMRs.
 - **RobotsSuperShot**: a level showcasing 3D models, with several different robots, a human, and a forklift. Some robots are not equipped with components yet, but you are welcome to try and make them work!
 - **RobotImportLevel**: a small enclosed space with a table, good for [importing your own robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
 
@@ -18,14 +18,14 @@ You can learn more about the features of O3DE for robotics and how to get starte
 
 UR20 robot arms controlled by MoveIt2 with [pilz_industrial_motion_planner](https://moveit.picknik.ai/humble/doc/examples/pilz_industrial_motion_planner/pilz_industrial_motion_planner.html?highlight=pilz#pilz-industrial-motion-planner).
 Boxes are supplied by conveyor belts, which are implemented through spawning when below a certain number in an area.
-UR20 arms are placing boxes based on a ground truth vision system, which means they actually look at the scene and that there is no error in pose measurement.
+UR20 arms are placing boxes based on a ground truth vision system, which means they look at the scene and that there is no error in pose measurement.
 UR20 arms start working as soon as an immobile pallet is detected in their load area and will load a configurable number of boxes (up to 18, by default 18) on each pallet.
 
 Pallets are moved around by robots modeled after OTTO 600.
 Note that these AMRs do not use the software of real OTTO 600 and do not have the same sensors.
 They can navigate thanks to front/back lidar and operate cargo lifts.
 OTTO 600 robots have assigned task loops, which are loading, wrapping, and delivering cargo to the other end of the warehouse.
-They use nav2 action server to realize their paths, and also a custom path follow solution for docking and unloading (for simplicity).
+They use a nav2 action server to realize their paths, and also a custom path follow solution for docking and unloading (for simplicity).
 Note that robots follow their task independently but see and avoid each other.
 
 In the warehouse, you can also notice some humans walking around.
@@ -38,8 +38,8 @@ Note that they don't see robots, as they use navigation through a Gem and only c
 <img src="media/view3.png" width="640">
 
 ### The project includes
-- **Scenery** that initially created using a [Warehouse project template](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/#ros-2-project-templates), but lot of new models have been added.
-- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR20 collaborative robot .
+- **Scenery** initially created using a [Warehouse project template](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/#ros-2-project-templates), but many new models have been added.
+- **Robotic Arms** imported using [URDF description](https://github.com/UniversalRobots/Universal_Robots_ROS2_Description) provided by Universal Robotics for their UR20 collaborative robot. The prefabs are available in a separate Gem.
 - **AMRs** instantiated prefabs of OTTO600 and OTTO1500 robots from [OTTO Motors](https://ottomotors.com/).
 - **Boxes** that are transported using conveyor belts from [Warehouse Automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation) and palletized.
 
@@ -58,7 +58,7 @@ The demo is rather demanding, as it aims to show what is possible. Minimum specs
 - Intel i7-11800H (16 cores) CPU.
 - 64 GB RAM.
 
-For more FPS, larger scene, or more robots, consider:
+For more FPS, a larger scene, or more robots, consider:
 - NVIDIA RTX 3080 Ti (or better) GPU (16 GB).
 - Intel i7-12900KF (24 cores) CPU.
 
@@ -66,7 +66,7 @@ For more FPS, larger scene, or more robots, consider:
 
 ### ROS 2 middleware
 This project should be used with the `rmw_cyclonedds_cpp` as the ROS 2 middleware.
-[MoveIt2 does not recommend usage of the default RMW](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html#switch-to-cyclone-dds) and as it is a part ot this project using the default RMW will not work.
+[MoveIt2 does not recommend usage of the default RMW](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html#switch-to-cyclone-dds) and as it is a part of this project using the default RMW will not work.
 
 Install the CycloneDDS RMW by installing its package:
 ```bash
@@ -101,9 +101,15 @@ python/get_python.sh
 scripts/o3de.sh register --this-engine
 ```
 
-### ROS 2 Gem and other gems
+### ROS 2 Gem and other Gems
 
-This project uses the [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2), [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) and [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation).
+This project uses the following Gems:
+- [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2)
+- [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) 
+- [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation)
+- [HumanWorker Gem](https://github.com/RobotecAI/o3de-humanworker-gem)
+- [UR10 and UR20 Robots Gem](https://github.com/RobotecAI/o3de-ur-robots-gem)
+  
 Please make sure to follow the installation guide in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file up until the creation of a new Project.
 
 To learn more about how the Gem works check out the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/concepts-and-components-overview/).
@@ -114,7 +120,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 **During build use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is essential for articulation.
 
 We assume that the directory with the project is `${WORKDIR}`.
-Clone o3de-extras repo
+Clone o3de-extras repo:
 ```bash
 cd ${WORKDIR}
 git clone https://github.com/o3de/o3de-extras
@@ -125,8 +131,18 @@ git lfs pull
 And register required Gems:
 ```bash
 cd ${WORKDIR}
+./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/ROS2
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAssets
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
+```
+
+Clone and register the remaining Gems
+```bash
+cd ${WORKDIR}
+git clone https://github.com/RobotecAI/o3de-humanworker-gem.git
+git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
+./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
+./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ```
 
 The Gems are open to your contributions!
@@ -134,7 +150,7 @@ The Gems are open to your contributions!
 ### RGL Gem (Optional)
 
 Optionally, especially when intending to run more robots or change their lidar to a higher resolution one, you can enable and use Robotec GPU Lidar Gem (RGL Gem).
-Please follow instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable within the project.
+Please follow the instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable it within the project.
 Following that, change the OTTO 600 prefab so that both front and back lidars use the GPU lidar (use combo box to select it).
 
 ### ROS 2 packages
@@ -166,7 +182,7 @@ source install/setup.bash
 ```
 The source command needs to be done in the same console where you build and run O3DE.
 
-Assuming that [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
+Assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON

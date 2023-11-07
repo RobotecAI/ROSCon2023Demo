@@ -7,7 +7,6 @@ export ROBOT_NAMESPACE=$1
 export LINE=$2
 export TASK=$3
 echo Staring robot $ROBOT_NAMESPACE
-# kill -9 $(ps -aux | grep $ROBOT_NAMESPACE | awk '{print $2}')
 
 ros2 service call /lock_service lock_service_msgs/srv/Lock "{ key: '${LINE}_GoToPickup', lock_status: false }"
 

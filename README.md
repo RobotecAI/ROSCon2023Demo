@@ -212,24 +212,24 @@ For a more in-depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
 
 ### Limitations 
 
-We experienced problem with scale and ROS 2 launch. With standard approach, where we used single launch file number of issues were experienced:
+We experienced a problem with scale and ROS 2 launch. The standard approach of a single launch file might cause the following issues:
 - Some robots were not spawned
-- Some Nav2 stacks were created in state in which they were not operational.
+- Some Nav2 stacks were created in a state in which they were not operational.
 
-Problem is communication in ROS 2 that were temporarly saturated.
-Number of mechanism in ROS 2 nodes depends on assumptions that QoS for services is reliable.
-It could be not true for saturated system.
-In other words, this demo, is a great torture test for your DDS.
-To counteract impact of those limitations, we launch system with bash scripts, and every robot has its own `screen` session.
+The problem is communication in ROS 2 which was temporarily saturated.
+The number of mechanisms in ROS 2 nodes depends on the assumption that QoS for services is reliable.
+It could be not true for a saturated system.
+In other words, this demo is a great torture test for your DDS.
+To counteract the impact of those limitations, we launch a system with bash scripts, and every robot has its own `screen` session.
 
-### Prerequisities
+### Prerequisites
 1. Two machines connected in 2.5 Gbps network locally, ideally point-to-point.
 Specification we used:
 - Intel 13th Gen Core i9-13900K
 - NVIDIA GeForce RTX 4080
 - 64 Gb of DDR4 RAM
 
-2. Correctly set ROS 2 domain to communicate does two machine.
+2. Correctly set ROS 2 domain to establish the communication between two machines.
 We used CycloneDDS with following config:
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -268,8 +268,8 @@ Please refer to [DDS tunning information](https://docs.ros.org/en/humble/How-To-
     ./src/roscon2023_demo/bash/spawn.sh
     ./src/roscon2023_demo/bash/start_fleet.sh
     ```
-    The `spawn.sh` script start MoveIt2 move groups, palletization drivers and spawn all AMRs one by one.
-    Second script `start_fleet.sh` creates multiple screen session to adjust
+    The `spawn.sh` script starts MoveIt2 move groups, palletization drivers and spawns all AMRs one by one.
+    The second script, `start_fleet.sh`, creates multiple screen sessions to adjust
 
 5. To stop system on **Machine 2**, simply close all `screen` session:   
     ```bash

@@ -93,7 +93,6 @@ def launch_setup(context, *args, **kwargs):
         'use_rviz',
         default_value='True',
         description='Whether to start RVIZ')
-    
     # Define commands for launching the navigation instances
     nav_instances_cmds = []
     for robot in robots:

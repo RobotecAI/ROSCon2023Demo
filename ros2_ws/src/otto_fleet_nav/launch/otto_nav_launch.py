@@ -115,14 +115,6 @@ def generate_launch_description():
                           'autostart': autostart,
                           'use_composition': use_composition,
                           'use_respawn': use_respawn}.items())
-    
-    # spawning is disabled currently
-    spawner = Node(
-            package='otto_fleet_nav',
-            executable='robot_spawner',
-            output='screen',
-            parameters=[params_file]
-    )
 
     blind_follower = Node(
         package="blind_path_follower",
@@ -156,7 +148,6 @@ def generate_launch_description():
 
     ld.add_action(rviz_cmd)
     ld.add_action(bringup_cmd)
-    # ld.add_action(spawner)
     ld.add_action(blind_follower)
     ld.add_action(tf_pub)
 

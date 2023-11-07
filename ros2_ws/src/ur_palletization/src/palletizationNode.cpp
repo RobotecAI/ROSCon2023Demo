@@ -89,7 +89,6 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
                                     const std::vector<Eigen::Vector3f> &targets) {
     using namespace std::chrono_literals;
     namespace PalCnt = Palletization::Constants;
-    bool previousFailed = false;
     std::vector<Eigen::Vector3f> failedBoxes;
     for (size_t i = 0; i < targets.size(); i++) {
         SendStatus("Started placing box %d", i);
@@ -108,7 +107,6 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
         if (!myClosestBox) {
             RCLCPP_ERROR(m_node->get_logger(), "No box found");
 
-            previousFailed = true;
             continue;
         }
 
@@ -142,15 +140,17 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
             std::abort();
         }
 
-        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStopOffset,
-                                            orientationDown, 0.1, "LIN")) {
+        if (!robotArmController->setPosePIP(
+                Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStopOffset, orientationDown, 0.1))
+        {
             std::abort();
         }
 
         gripperController->Grip();
         std::this_thread::sleep_for(50ms);
-        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset2,
-                                            orientationDown, 0.25, "LIN")) {
+        if (!robotArmController->setPosePIP(
+                Utils::fromMsgPosition(myClosestBox->position) + PalCnt::PickupZStartOffset2, orientationDown, 0.25))
+        {
             std::abort();
         }
 
@@ -164,8 +164,9 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
                                             Utils::fromMsgQuaternion(poseExact.orientation))) {
             std::abort();
         }
-        if (!robotArmController->setPosePIP(Utils::fromMsgPosition(poseExact.position) + PalCnt::PickupZOffset,
-                                            Utils::fromMsgQuaternion(poseExact.orientation), 0.05, "LIN")) {
+        if (!robotArmController->setPosePIP(
+                Utils::fromMsgPosition(poseExact.position) + PalCnt::PickupZOffset, Utils::fromMsgQuaternion(poseExact.orientation), 0.05))
+        {
             std::abort();
         }
         std::this_thread::sleep_for(100ms);

@@ -58,16 +58,15 @@ namespace Palletization {
         }
     }
 
-    bool
-    RoboticArmController::setPosePIP(const Eigen::Vector3d &tcp_position, const Eigen::Quaterniond &tcp_orientation,
-                                     float speed, const std::string &interpolation) {
-
+    bool RoboticArmController::setPosePIP(
+        const Eigen::Vector3d& tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed, const std::string& interpolation)
+    {
         Eigen::Isometry3d tcp_pose;
         tcp_pose.fromPositionOrientationScale(tcp_position, tcp_orientation, Eigen::Vector3d::Ones());
         m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
         m_move_groupIterface->setMaxVelocityScalingFactor(speed);
         m_move_groupIterface->setPlanningPipelineId("pilz_industrial_motion_planner");
-        m_move_groupIterface->setPlannerId("PTP");
+        m_move_groupIterface->setPlannerId(interpolation);
         m_move_groupIterface->setApproximateJointValueTarget(tcp_pose, ns + "/gripper_link");
         moveit::planning_interface::MoveGroupInterface::Plan plan;
         auto isOk = m_move_groupIterface->plan(plan);
@@ -81,7 +80,6 @@ namespace Palletization {
         }
         return true;
     }
-
 
     Eigen::Quaterniond RoboticArmController::getCurrentOrientation() {
         auto currentPose = m_move_groupIterface->getCurrentPose(ns + "/gripper_link");

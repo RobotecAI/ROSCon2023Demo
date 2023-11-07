@@ -79,14 +79,16 @@ public:
         timer_->cancel();
         cmd_publisher_ = node_->create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 1);
 
-        if (!ns.empty() && ns[0] == '/') {
+        if (!ns.empty() && ns[0] == '/')
+        {
             ns_ = ns.substr(1);
         }
         else
         {
             ns_ = ns;
         }
-        if (ns.empty() || ns[ns.size() - 1] != '/') {
+        if (ns.empty() || ns[ns.size() - 1] != '/')
+        {
             RCLCPP_WARN(node->get_logger(), "Starting path follower, but with empty namespace. This is probably not what you want.");
         }
 
@@ -125,15 +127,14 @@ private:
     bool m_robotPassedStart = false;
     rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr objectDetector;
 
-    rclcpp_action::GoalResponse handle_goal(const rclcpp_action::GoalUUID& uuid, std::shared_ptr<const FlwPthAction::Goal> goal)
+    rclcpp_action::GoalResponse handle_goal(
+        [[maybe_unused]] const rclcpp_action::GoalUUID& uuid, [[maybe_unused]] std::shared_ptr<const FlwPthAction::Goal> goal)
     {
-        (void)uuid;
         return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
     }
 
-    rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<FlwPthGoal> goal_handle)
+    rclcpp_action::CancelResponse handle_cancel([[maybe_unused]] const std::shared_ptr<FlwPthGoal> goal_handle)
     {
-        (void)goal_handle;
         objectDetector.reset();
         return rclcpp_action::CancelResponse::ACCEPT;
     }
@@ -172,7 +173,6 @@ private:
 
     void timer_callback()
     {
-
         double DesiredLinearVelocity = desired_linear_velocity_;
         const double MaxBearingError = M_PI_2 * 0.2; //!< For larger bearing deviation we stop linear motion
         const double MaxVirtualDistance = 0.3; //!< Distance between a the virtual robot and the real robot before slowdown.
@@ -203,12 +203,15 @@ private:
         poseMsg.header.frame_id = "map";
         poseMsg.header.stamp = node_->now();
         goal_publisher_->publish(poseMsg);
-        Eigen::Affine3d poseBaseLink =  Eigen::Affine3d::Identity();
+        Eigen::Affine3d poseBaseLink = Eigen::Affine3d::Identity();
 
-        try {
-            const geometry_msgs::msg::TransformStamped transformStamped = tf_buffer_.lookupTransform("map", ns_+"/base_link", tf2::TimePointZero);
+        try
+        {
+            const geometry_msgs::msg::TransformStamped transformStamped =
+                tf_buffer_.lookupTransform("map", ns_ + "/base_link", tf2::TimePointZero);
             poseBaseLink = tf2::transformToEigen(transformStamped.transform);
-        }  catch (tf2::TransformException &ex) {
+        } catch (tf2::TransformException& ex)
+        {
             RCLCPP_ERROR(node_->get_logger(), "%s", ex.what());
             return;
         }

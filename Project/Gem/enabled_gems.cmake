@@ -20,7 +20,6 @@ set(ENABLED_GEMS
     WhiteBox
     DiffuseProbeGrid
     Compression
-    ProteusRobot
     WarehouseAssets
     ROS2
     PhysXDebug

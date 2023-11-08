@@ -13,18 +13,6 @@ set(FILES
     Source/Navigation/PathInfo.cpp
     Source/Navigation/SplinePosesPublisher.cpp
     Source/Navigation/SplinePosesPublisher.h
-    Source/HumanNpc/AnimGraphInputProviderComponent.cpp
-    Source/HumanNpc/AnimGraphInputProviderComponent.h
-    Source/HumanNpc/NavigationMeshOrchestratorComponent.cpp
-    Source/HumanNpc/NavigationMeshOrchestratorComponent.h
-    Source/HumanNpc/NpcNavigatorBus.h
-    Source/HumanNpc/NpcNavigatorComponent.cpp
-    Source/HumanNpc/NpcNavigatorComponent.h
-    Source/HumanNpc/WaypointBus.h
-    Source/HumanNpc/WaypointComponent.cpp
-    Source/HumanNpc/WaypointComponent.h
-    Source/HumanNpc/WaypointSelectorComponent.cpp
-    Source/HumanNpc/WaypointSelectorComponent.h
     Source/ROSCon2023DemoSystemComponent.cpp
     Source/ROSCon2023DemoSystemComponent.h
     Source/Scripting/BoxSpawner.cpp

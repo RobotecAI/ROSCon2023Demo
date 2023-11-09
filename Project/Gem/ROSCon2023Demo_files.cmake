@@ -4,8 +4,6 @@
 set(FILES
     Include/ROSCon2023Demo/ROSCon2023DemoBus.h
     Include/ROSCon2023Demo/Navigation/PathInfo.h
-    Source/Lights/LightController.cpp
-    Source/Lights/LightController.h
     Source/Navigation/LaneComponent.cpp
     Source/Navigation/LaneComponent.h
     Source/Navigation/LanesServiceComponent.cpp
@@ -20,8 +18,6 @@ set(FILES
     Source/Scripting/ScriptSpawnSytemBus.h
     Source/Scripting/FoilWrapperController.cpp
     Source/Scripting/FoilWrapperController.h
-    Source/Scripting/LifterController.cpp
-    Source/Scripting/LifterController.h
     Source/Scripting/PayloadDespawnerComponent.cpp
     Source/Scripting/PayloadDespawnerComponent.h
     Source/Scripting/ScriptSpawnLevelComponent.cpp

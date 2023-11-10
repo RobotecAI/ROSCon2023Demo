@@ -3079,7 +3079,7 @@
     },
     "Instances": {
         "Instance_[37349376312084]": {
-            "Source": "Prefabs/Otto600-Stand/Otto600Stand_fbx.prefab",
+            "Source": "OTTO600/Stand/Otto600Stand.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -3109,7 +3109,7 @@
             ]
         },
         "Instance_[37357966246676]": {
-            "Source": "Prefabs/Otto600-Stand/Otto600Stand_fbx.prefab",
+            "Source": "OTTO600/Stand/Otto600Stand.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -3130,238 +3130,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": -0.6179373264312744
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[3817754087158]/Components/EditorColliderComponent",
-                    "value": {
-                        "$type": "EditorColliderComponent",
-                        "Id": 2686953446146493988,
-                        "ColliderConfiguration": {
-                            "CollisionLayer": {
-                                "Index": 0
-                            },
-                            "CollisionGroupId": {
-                                "GroupId": "{00000000-0000-0000-0000-000000000000}"
-                            },
-                            "Visible": false,
-                            "Trigger": false,
-                            "Simulated": true,
-                            "DummySimulated": false,
-                            "InSceneQueries": true,
-                            "Exclusive": true,
-                            "Position": [
-                                0.0,
-                                -0.6000000238418579,
-                                0.0
-                            ],
-                            "Rotation": [
-                                0.0,
-                                0.0,
-                                0.0,
-                                1.0
-                            ],
-                            "MaterialSlots": {
-                                "Slots": [
-                                    {
-                                        "Name": "Entire object",
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{00000000-0000-0000-0000-000000000000}",
-                                                "subId": 0
-                                            },
-                                            "loadBehavior": "QueueLoad",
-                                            "assetHint": ""
-                                        }
-                                    }
-                                ]
-                            },
-                            "propertyVisibilityFlags": 255,
-                            "ColliderTag": "",
-                            "RestOffset": 0.0,
-                            "ContactOffset": 0.019999999552965164
-                        },
-                        "ShapeConfiguration": {
-                            "ShapeType": 1,
-                            "Sphere": {
-                                "Scale": [
-                                    1.0,
-                                    1.0,
-                                    1.0
-                                ],
-                                "Radius": 0.5
-                            },
-                            "Box": {
-                                "Scale": [
-                                    1.0,
-                                    1.0,
-                                    1.0
-                                ],
-                                "Configuration": [
-                                    1.0,
-                                    0.10000000149011612,
-                                    1.0
-                                ]
-                            },
-                            "Capsule": {
-                                "Scale": [
-                                    1.0,
-                                    1.0,
-                                    1.0
-                                ],
-                                "Height": 1.0,
-                                "Radius": 0.25
-                            },
-                            "Cylinder": {
-                                "Configuration": {
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "CookedData": "",
-                                    "Type": 0
-                                },
-                                "Subdivision": 16,
-                                "Height": 1.0,
-                                "Radius": 1.0
-                            },
-                            "PhysicsAsset": {
-                                "Asset": {
-                                    "assetId": {
-                                        "guid": "{00000000-0000-0000-0000-000000000000}",
-                                        "subId": 0
-                                    },
-                                    "loadBehavior": "QueueLoad",
-                                    "assetHint": ""
-                                },
-                                "Configuration": {
-                                    "Scale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "PhysicsAsset": {
-                                        "assetId": {
-                                            "guid": "{00000000-0000-0000-0000-000000000000}",
-                                            "subId": 0
-                                        },
-                                        "loadBehavior": "PreLoad",
-                                        "assetHint": ""
-                                    },
-                                    "AssetScale": [
-                                        1.0,
-                                        1.0,
-                                        1.0
-                                    ],
-                                    "UseMaterialsFromAsset": true,
-                                    "SubdivisionLevel": 4
-                                }
-                            },
-                            "HasNonUniformScale": false,
-                            "SubdivisionLevel": 4
-                        },
-                        "DebugDrawSettings": {
-                            "LocallyEnabled": true
-                        },
-                        "ComponentMode": {},
-                        "HasNonUniformScale": false
-                    }
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[3817754087158]/Components/EditorDisabledCompositionComponent/DisabledComponents",
-                    "value": {
-                        "EditorMeshColliderComponent": {
-                            "$type": "EditorMeshColliderComponent",
-                            "Id": 7719347654338345666,
-                            "ColliderConfiguration": {
-                                "CollisionLayer": {
-                                    "Index": 0
-                                },
-                                "CollisionGroupId": {
-                                    "GroupId": "{00000000-0000-0000-0000-000000000000}"
-                                },
-                                "Visible": false,
-                                "Trigger": false,
-                                "Simulated": true,
-                                "DummySimulated": false,
-                                "InSceneQueries": true,
-                                "Exclusive": true,
-                                "Position": [
-                                    0.0,
-                                    0.0,
-                                    0.0
-                                ],
-                                "Rotation": [
-                                    0.0,
-                                    0.0,
-                                    0.0,
-                                    1.0
-                                ],
-                                "MaterialSlots": {
-                                    "Slots": [
-                                        {
-                                            "Name": "DefaultMaterial",
-                                            "MaterialAsset": {
-                                                "assetId": {
-                                                    "guid": "{00000000-0000-0000-0000-000000000000}",
-                                                    "subId": 0
-                                                },
-                                                "loadBehavior": "QueueLoad",
-                                                "assetHint": ""
-                                            }
-                                        }
-                                    ]
-                                },
-                                "propertyVisibilityFlags": 255,
-                                "ColliderTag": "",
-                                "RestOffset": 0.0,
-                                "ContactOffset": 0.019999999552965164
-                            },
-                            "ShapeConfiguration": {
-                                "PhysicsAsset": {
-                                    "Asset": {
-                                        "assetId": {
-                                            "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                            "subId": 2874233289
-                                        },
-                                        "loadBehavior": "QueueLoad",
-                                        "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                                    },
-                                    "Configuration": {
-                                        "Scale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "PhysicsAsset": {
-                                            "assetId": {
-                                                "guid": "{7B7D5796-CB49-5733-B743-4C004C289E3C}",
-                                                "subId": 2874233289
-                                            },
-                                            "loadBehavior": "QueueLoad",
-                                            "assetHint": "prefabs/otto600-stand/otto600standcollider-1.fbx.pxmesh"
-                                        },
-                                        "AssetScale": [
-                                            1.0,
-                                            1.0,
-                                            1.0
-                                        ],
-                                        "UseMaterialsFromAsset": true,
-                                        "SubdivisionLevel": 4
-                                    }
-                                },
-                                "HasNonUniformScale": false,
-                                "SubdivisionLevel": 4
-                            },
-                            "DebugDrawSettings": {
-                                "LocallyEnabled": true
-                            },
-                            "ComponentMode": {},
-                            "HasNonUniformScale": false
-                        }
-                    }
                 },
                 {
                     "op": "replace",
@@ -3411,7 +3179,7 @@
             ]
         },
         "Instance_[37362261213972]": {
-            "Source": "Prefabs/Otto600-Stand/Otto600Stand_fbx.prefab",
+            "Source": "OTTO600/Stand/Otto600Stand.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -3441,7 +3209,7 @@
             ]
         },
         "Instance_[37383736050452]": {
-            "Source": "Prefabs/Otto600-Stand/Otto600Stand_fbx.prefab",
+            "Source": "OTTO600/Stand/Otto600Stand.prefab",
             "Patches": [
                 {
                     "op": "replace",

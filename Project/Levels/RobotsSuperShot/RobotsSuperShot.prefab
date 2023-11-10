@@ -21,7 +21,6 @@
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
                     "Entity_[52560383408370]",
-                    "Entity_[52431534389490]",
                     "Instance_[487522926640547]/ContainerEntity",
                     "Instance_[225234362758547]/ContainerEntity",
                     "Entity_[52749108516421]",
@@ -33,7 +32,8 @@
                     "Entity_[752013183628318]",
                     "Instance_[844810247025694]/ContainerEntity",
                     "Instance_[281531617010361]/ContainerEntity",
-                    "Instance_[281707710669497]/ContainerEntity"
+                    "Instance_[281707710669497]/ContainerEntity",
+                    "Entity_[74180564871409]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -192,56 +192,6 @@
                 }
             }
         },
-        "Entity_[52431534389490]": {
-            "Id": "Entity_[52431534389490]",
-            "Name": "Idol_without_mask_fbx",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 3609126064567522935
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 10350344273406509573
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2130003263077743354
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 8933851204806277850
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 16701066001292947367
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8686458219457645346
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 7461490651064066093
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 7209533395231412900
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 6813856489528044853,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            29.344058990478516,
-                            -5.655754089355469,
-                            -4.76837158203125e-7
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[52560383408370]": {
             "Id": "Entity_[52560383408370]",
             "Name": "Idol_without_mask_static_fbx",
@@ -287,9 +237,9 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            30.624420166015625,
-                            -4.307464122772217,
-                            -5.960464477539063e-7
+                            29.736465454101563,
+                            -1.1116986274719238,
+                            0.6299999952316284
                         ]
                     }
                 }
@@ -413,7 +363,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
-                                            }
+                                            },
+                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -451,11 +402,6 @@
                     "Id": 6622026838994580033,
                     "Parent Entity": "Entity_[52560383408370]",
                     "Transform Data": {
-                        "Translate": [
-                            -0.5900554656982422,
-                            3.156421422958374,
-                            0.6315487027168274
-                        ],
                         "Rotate": [
                             -89.99994659423828,
                             89.99994659423828,
@@ -766,6 +712,28 @@
                     "$type": "EditorLockComponent",
                     "Id": 3313780747823252127
                 },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 17705532674928420934,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2262306517
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7FD9B1CA-F94E-5791-A800-B5DD2FE9B991}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 17684987481773247294
@@ -924,9 +892,8 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{6322DF16-CC2B-54CE-B222-4BA4AF781234}"
-                                            },
-                                            "assetHint": "assets/summitxl/summitxl.azmaterial"
+                                                "guid": "{88626CCD-9500-564C-AA7F-979FED8B55C3}"
+                                            }
                                         },
                                         "PropertyOverrides": {
                                             "baseColor.textureMap": {
@@ -1004,6 +971,56 @@
                             0.0,
                             0.0,
                             -65.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[74180564871409]": {
+            "Id": "Entity_[74180564871409]",
+            "Name": "Idol_without_mask_static_fbx",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10431578490035156285
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5520275823778531759
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9282293558539455727
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9980731192934331077
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1729334129864919817
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12151884583732759847
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14388176025639665016
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17100091423373796426
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16315484361436382558,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            29.56219482421875,
+                            -4.698356628417969,
+                            -3.5762786865234375e-7
                         ]
                     }
                 }

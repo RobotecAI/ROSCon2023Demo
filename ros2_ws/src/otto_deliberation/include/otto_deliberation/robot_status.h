@@ -1,9 +1,6 @@
+#pragma once
 
 #include "tasks.h"
-#include <nav_msgs/msg/path.hpp>
-#include <rclcpp/rclcpp.hpp>
-
-#pragma once
 
 enum class RobotCargoStatus
 {
@@ -16,7 +13,7 @@ struct RobotStatus
     RobotTaskKey m_currentTask;
     RobotTaskKey m_currentNavigationTask;
     RobotTaskKey m_finishedNavigationTask;
-    RobotCargoStatus m_cargoStatus;
-    bool m_resendGoal{false};
-    RobotStatus();
+    RobotCargoStatus m_cargoStatus{ RobotCargoStatus::CARGO_EMPTY };
+    bool m_resendGoal{ false };
+    RobotStatus() = default;
 };

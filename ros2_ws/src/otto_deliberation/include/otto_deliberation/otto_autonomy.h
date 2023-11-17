@@ -1,19 +1,17 @@
+#pragma once
 
-#include <chrono>
 #include <lock_service_msgs/srv/detail/lock__struct.hpp>
-#include <otto_deliberation/nav2_action_client.h>
-#include <otto_deliberation/robot_status.h>
-#include <otto_deliberation/tasks.h>
+#include "otto_deliberation/nav2_action_client.h"
+#include "otto_deliberation/robot_status.h"
 #include <rclcpp/client.hpp>
 #include <rclcpp/logger.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/publisher.hpp>
-#include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/string.hpp>
-#include <string>
 
-#pragma once
+#include <chrono>
+#include <string>
 
 class OttoAutonomy
 {

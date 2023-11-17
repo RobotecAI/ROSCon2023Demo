@@ -1,9 +1,8 @@
+#pragma once
+
 #include <blind_path_follower_msgs/action/follow_path.hpp>
-#include <geometry_msgs/msg/pose_stamped.hpp>
 #include <nav2_msgs/action/navigate_through_poses.hpp>
-#include <nav2_msgs/action/navigate_to_pose.hpp>
-#include <otto_deliberation/tasks.h>
-#include <rclcpp/logger.hpp>
+#include "otto_deliberation/tasks.h"
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
 

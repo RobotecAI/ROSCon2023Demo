@@ -1,15 +1,8 @@
-#include <nav2_msgs/action/detail/navigate_through_poses__struct.hpp>
-#include <nav2_msgs/action/navigate_through_poses.hpp>
-#include <nav2_msgs/action/navigate_to_pose.hpp>
+#include "otto_deliberation/nav2_action_client.h"
+
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <nav_msgs/msg/path.hpp>
-#include <otto_deliberation/nav2_action_client.h>
 #include <rclcpp/node.hpp>
-#include <rclcpp/publisher.hpp>
-#include <rclcpp/qos.hpp>
-#include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/create_client.hpp>
-#include <rclcpp_action/rclcpp_action.hpp>
 
 Nav2ActionClient::Nav2ActionClient(rclcpp::Node::SharedPtr node)
     : m_actionLogger(node->get_logger())

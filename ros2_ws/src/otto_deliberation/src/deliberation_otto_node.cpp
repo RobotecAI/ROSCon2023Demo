@@ -1,26 +1,23 @@
-
-#include "otto_deliberation/robot_status.h"
-#include "otto_deliberation/tasks.h"
-#include <chrono>
-#include <functional>
 #include <lane_provider_msgs/srv/list_tracks.hpp>
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <otto_deliberation/otto_autonomy.h>
+#include "otto_deliberation/otto_autonomy.h"
+#include "otto_deliberation/robot_status.h"
+#include "otto_deliberation/tasks.h"
 #include <rclcpp/executor.hpp>
 #include <rclcpp/executors.hpp>
-#include <rclcpp/executors/multi_threaded_executor.hpp>
-#include <rclcpp/executors/single_threaded_executor.hpp>
-#include <rclcpp/node_options.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/string.hpp>
+
+#include <chrono>
+#include <functional>
 #include <string>
 #include <thread>
 
 
 //! Node that handles the deliberation of the Otto robot
 //! It allows to create a list of tasks that the robot will execute in sequence
-//! It also allows to lock the robot to a specific path communicating with orhcestrator
+//! It also allows to lock the robot to a specific path communicating with orchestrator
 //! It accepts following parameters:
 //! - assigned_lane: the name of the lane assigned to the robot
 //! - tasks: a list of tasks to be executed by the robot
@@ -253,7 +250,6 @@ private:
 int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::NodeOptions otto_node_options;
     auto otto_node = std::make_shared<rclcpp::Node>("otto_deliberation_node");
     auto otto_lock_node = std::make_shared<rclcpp::Node>("otto_lock_node");
     OttoDeliberation otto_deliberation(otto_node, otto_lock_node);

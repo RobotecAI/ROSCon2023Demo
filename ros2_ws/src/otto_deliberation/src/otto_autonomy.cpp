@@ -1,12 +1,10 @@
+#include "otto_deliberation/otto_autonomy.h"
 
-#include "otto_deliberation/robot_status.h"
-#include "otto_deliberation/tasks.h"
-#include <chrono>
-#include <lock_service_msgs/srv/detail/lock__struct.hpp>
 #include <lock_service_msgs/srv/lock.hpp>
-#include <otto_deliberation/otto_autonomy.h>
+#include "otto_deliberation/tasks.h"
 #include <std_msgs/msg/bool.hpp>
-#include <std_msgs/msg/detail/bool__struct.hpp>
+
+#include <chrono>
 
 OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
     : m_logger(node->get_logger())

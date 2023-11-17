@@ -1,15 +1,12 @@
+#pragma once
 
 #include <geometry_msgs/msg/pose_stamped.h>
-#include <map>
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <optional>
-#include <queue>
-#include <string>
-#include <string_view>
-#include <unordered_set>
-#include <unordered_map>
 
-#pragma once
+#include <optional>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 using NavPath = nav_msgs::msg::Path;
 using NavPathPtr = std::shared_ptr<NavPath>;
@@ -42,6 +39,7 @@ class RobotTasks
 private:
     mutable RobotTaskSet m_validTasks; //!< Tasks that are valid, accelerates validation
     mutable std::unordered_map<RobotTaskKey, RobotTaskKey> m_taskTransitions; //!< Map of task transitions, accelerates transition lookup
+
 public:
     bool m_loop = false; //!< Whether to loop the tasks
     RobotTaskList m_tasks; //!< Complete list of tasks

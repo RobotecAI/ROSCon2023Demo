@@ -89,11 +89,3 @@ sleep 3
 ${SCRIPTPATH}/_navigate_deliberation.sh otto_38 Line34 ${TaskDir}/otto600_tasks_34_lane3.yaml
 sleep 3
 
-while true; do
-    read -n 1 -p "Press 'q' to exit: " input
-    if [ "$input" == "q" ]; then
-        ${SCRIPTPATH}/stop_fleet.sh
-        echo ""
-        break
-    fi
-done

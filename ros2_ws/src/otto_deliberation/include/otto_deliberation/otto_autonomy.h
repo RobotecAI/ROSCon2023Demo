@@ -17,7 +17,7 @@ class OttoAutonomy
 {
 public:
     OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node);
-    void SetTasks(const RobotTasks& tasks, bool loop = true);
+    void SetTasks(const RobotTasks& tasks);
     void SetLane(const std::string& lane_name);
     void Update();
 
@@ -44,7 +44,6 @@ private:
     RobotTasks m_robotTasks;
     bool m_isWaitingPostTaskDelay{ false };
     bool m_isWaitingPreTaskDelay{ false };
-    bool m_loop{ false };
     bool m_hasLock{ false };
     std::string m_lockTaskName {};
     std::string m_currentOperationDescription;

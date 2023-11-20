@@ -22,9 +22,8 @@ OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr
     m_colorPublisher = node->create_publisher<std_msgs::msg::String>("color", 10);
 }
 
-void OttoAutonomy::SetTasks(const RobotTasks& tasks, bool loop)
+void OttoAutonomy::SetTasks(const RobotTasks& tasks)
 {
-    m_loop = loop;
     m_robotTasks = tasks;
     m_robotStatus.m_currentTask = m_robotTasks.GetTasks().front(); // set first task as current task
 }

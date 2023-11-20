@@ -2,7 +2,7 @@
 
 #include <rclcpp/rclcpp.hpp>
 
-void RobotTasks::PrintTasks()
+void RobotTasks::PrintTasks() const
 {
     for (auto& m : m_tasks)
     {
@@ -13,116 +13,19 @@ void RobotTasks::PrintTasks()
 bool RobotTasks::ValidateTasks() const
 {
     bool isValid = true;
-    m_validTasks = std::unordered_set<RobotTaskKey>(m_tasks.begin(), m_tasks.end());
+    m_validTasks = RobotTaskSet(m_tasks.begin(), m_tasks.end());
 
-    for (auto& m : m_lifterTasks)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in lifter tasks but not in tasks list", m.c_str());
-        }
-    }
+    isValid = ValidateTaskSet(m_lifterTasks, "lifter tasks") && isValid;
+    isValid = ValidateTaskSet(m_dummyTasks, "dummy tasks") && isValid;
+    isValid = ValidateTaskSet(m_blindTasks, "blind tasks") && isValid;
+    isValid = ValidateTaskSet(m_blindTasksReverse, "blind tasks reverse") && isValid;
+    isValid = ValidateTaskSet(m_blindHighSpeed, "blind tasks high speed") && isValid;
+    isValid = ValidateTaskSet(m_cargoUnLoadTasks, "cargo unload") && isValid;
+    isValid = ValidateTaskSet(m_acquireLock, "tasks with lock (acquire)") && isValid;
+    isValid = ValidateTaskSet(m_releaseLock, "tasks with lock (release)") && isValid;
 
-    for (auto& m : m_dummyTasks)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in dummy tasks but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_blindTasks)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in blind tasks but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_blindTasksReverse)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in blind tasks reverse but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_blindHighSpeed)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in blind tasks high speed but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_cargoUnLoadTasks)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in cargo unload but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_acquireLock)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with lock but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& m : m_releaseLock)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with lock but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& [m, _] : m_postTaskDelays)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with pre-delay but not in tasks list", m.c_str());
-        }
-    }
-
-    for (auto& [m, _] : m_preTaskDelay)
-    {
-        if (m_validTasks.count(m) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with post-delay but not in tasks list", m.c_str());
-        }
-    }
-
-    for (const auto& t : m_validTasks)
-    {
-        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has no valid geometry paths", t.c_str());
-        }
-    }
-
-    for (const auto& t : m_validTasks)
-    {
-        if ( m_taskPaths.count(t)!= 0 &&  m_taskPaths.at(t) == nullptr)
-        {
-            isValid = false;
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has null geometry paths", t.c_str());
-        }
-
-    }
+    isValid = ValidateTaskDelays() && isValid;
+    isValid = ValidateTaskPaths() && isValid;
 
     if (m_validTasks.empty())
     {
@@ -159,7 +62,7 @@ bool RobotTasks::IsTaskValid(const RobotTaskKey& taskName) const
 {
     if (m_validTasks.empty())
     {
-        m_validTasks = std::unordered_set<RobotTaskKey>(m_tasks.begin(), m_tasks.end());
+        m_validTasks = RobotTaskSet(m_tasks.begin(), m_tasks.end());
     }
     return m_validTasks.count(taskName) > 0;
 }
@@ -242,4 +145,69 @@ Task RobotTasks::ConstructTask(const RobotTaskKey& taskKey) const
 bool RobotTasks::GetIfTaskNeedsLock(const RobotTaskKey& taskName) const
 {
     return m_acquireLock.count(taskName) > 0;
+}
+
+bool RobotTasks::ValidateTaskSet(const RobotTaskSet& taskSet, const std::string& taskSetName) const
+{
+    bool isValid = true;
+    for (const auto& task : taskSet)
+    {
+        if (m_validTasks.count(task) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in %s but not in tasks list", task.c_str(), taskSetName.c_str());
+        }
+    }
+    return isValid;
+}
+
+bool RobotTasks::ValidateTaskDelays() const
+{
+    bool isValid = true;
+
+    for (auto& [m, _] : m_postTaskDelays)
+    {
+        if (m_validTasks.count(m) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with post-delay but not in tasks list", m.c_str());
+        }
+    }
+
+    for (auto& [m, _] : m_preTaskDelay)
+    {
+        if (m_validTasks.count(m) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is in task with pre-delay but not in tasks list", m.c_str());
+        }
+    }
+
+    return isValid;
+}
+
+bool RobotTasks::ValidateTaskPaths() const
+{
+    bool isValid = true;
+
+    for (const auto& t : m_validTasks)
+    {
+        if (m_dummyTasks.count(t) == 0 && m_taskPaths.count(t) == 0)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has no valid geometry paths", t.c_str());
+        }
+    }
+
+    for (const auto& t : m_validTasks)
+    {
+        if ( m_taskPaths.count(t)!= 0 &&  m_taskPaths.at(t) == nullptr)
+        {
+            isValid = false;
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Task %s is not in dummy tasks but has null geometry paths", t.c_str());
+        }
+
+    }
+
+    return isValid;
 }

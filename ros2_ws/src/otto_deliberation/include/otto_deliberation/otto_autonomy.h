@@ -16,9 +16,9 @@
 class OttoAutonomy
 {
 public:
-    OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node);
+    OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lockNode);
     void SetTasks(const RobotTasks& tasks);
-    void SetLane(const std::string& lane_name);
+    void SetLane(const std::string& laneName);
     void Update();
 
     void NavigationGoalCompleted(bool success);
@@ -28,7 +28,7 @@ public:
     std::string GetCurrentTaskName() const;
 
 private:
-    bool SendLockRequest(const std::string& path_name, bool lock_status);
+    bool SendLockRequest(const std::string& pathName, bool lockStatus);
     void SendColor (const std::string& color);
 
     rclcpp::Logger m_logger;

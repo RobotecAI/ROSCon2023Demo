@@ -6,16 +6,16 @@
 
 #include <chrono>
 
-OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
+OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lockNode)
     : m_logger(node->get_logger())
     , m_nav2ActionClient(node)
 {
-    std::string lock_service = lock_node->declare_parameter<std::string>("lock_service", "/lock_service");
-    lock_node->get_parameter<std::string>("lock_service", lock_service);
-    m_lockServiceClient = lock_node->create_client<lock_service_msgs::srv::Lock>(lock_service);
+    std::string lock_service = lockNode->declare_parameter<std::string>("lock_service", "/lock_service");
+    lockNode->get_parameter<std::string>("lock_service", lock_service);
+    m_lockServiceClient = lockNode->create_client<lock_service_msgs::srv::Lock>(lock_service);
     if (!m_lockServiceClient->wait_for_service(std::chrono::seconds(30)))
     {
-        RCLCPP_ERROR(lock_node->get_logger(), "Lock service named %s not available", lock_service.c_str());
+        RCLCPP_ERROR(lockNode->get_logger(), "Lock service named %s not available", lock_service.c_str());
     }
 
     m_lifterPublisher = node->create_publisher<std_msgs::msg::Bool>("lifter", 10);
@@ -28,9 +28,9 @@ void OttoAutonomy::SetTasks(const RobotTasks& tasks)
     m_robotStatus.m_currentTask = m_robotTasks.GetTasks().front(); // set first task as current task
 }
 
-void OttoAutonomy::SetLane(const std::string& lane_name)
+void OttoAutonomy::SetLane(const std::string& laneName)
 {
-    m_laneName = lane_name;
+    m_laneName = laneName;
 }
 
 RobotStatus OttoAutonomy::GetCurrentStatus() const
@@ -38,19 +38,19 @@ RobotStatus OttoAutonomy::GetCurrentStatus() const
     return m_robotStatus;
 }
 
-bool OttoAutonomy::SendLockRequest(const std::string& path_name, bool lock_status)
+bool OttoAutonomy::SendLockRequest(const std::string& pathName, bool lockStatus)
 {
     static const std::set<std::string> lanePaths = { "GoToPickup", "GoToWrapping" };
 
-    auto name = path_name;
-    if (lanePaths.count(path_name) > 0)
+    auto name = pathName;
+    if (lanePaths.count(pathName) > 0)
     {
         name += m_laneName;
     }
 
     auto lockRequest = std::make_shared<lock_service_msgs::srv::Lock::Request>();
     lockRequest->key = name;
-    lockRequest->lock_status = lock_status;
+    lockRequest->lock_status = lockStatus;
     auto future = m_lockServiceClient->async_send_request(lockRequest);
     future.wait();
     auto result = future.get();

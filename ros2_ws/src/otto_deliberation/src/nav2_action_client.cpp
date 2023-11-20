@@ -7,8 +7,8 @@
 Nav2ActionClient::Nav2ActionClient(rclcpp::Node::SharedPtr node)
     : m_actionLogger(node->get_logger())
 {
-    std::string ns(node->get_namespace());
-    if (ns == "/")
+    const std::string nodeNamespace(node->get_namespace());
+    if (nodeNamespace == "/")
     {
         RCLCPP_ERROR(m_actionLogger, "This node must be run in a namespace, terminating");
         std::abort();
@@ -17,14 +17,14 @@ Nav2ActionClient::Nav2ActionClient(rclcpp::Node::SharedPtr node)
     m_followClient = rclcpp_action::create_client<FollowPathAction>(node, "blind_follow_path");
 }
 
-void Nav2ActionClient::SendNav2Goal(const Nav2Action::Goal& goal_msg, ResultCallback callback)
+void Nav2ActionClient::SendNav2Goal(const Nav2Action::Goal& goal, ResultCallback callback)
 {
     using GoalHandleNav2 = rclcpp_action::ClientGoalHandle<Nav2Action>;
-    auto send_goal_options = rclcpp_action::Client<Nav2Action>::SendGoalOptions();
-    send_goal_options.goal_response_callback = [&logger = m_actionLogger, callback](std::shared_ptr<GoalHandleNav2> future)
+    auto sendGoalOptions = rclcpp_action::Client<Nav2Action>::SendGoalOptions();
+    sendGoalOptions.goal_response_callback = [&logger = m_actionLogger, callback](std::shared_ptr<GoalHandleNav2> future)
     {
-        auto goal_handle = future.get();
-        if (!goal_handle)
+        auto goalHandle = future.get();
+        if (!goalHandle)
         {
             RCLCPP_ERROR(logger, "Goal was rejected by server");
             callback(false);
@@ -34,10 +34,10 @@ void Nav2ActionClient::SendNav2Goal(const Nav2Action::Goal& goal_msg, ResultCall
             RCLCPP_INFO(logger, "Goal accepted by server, waiting for result");
         }
     };
-    send_goal_options.feedback_callback = [](GoalHandleNav2::SharedPtr, const std::shared_ptr<const GoalHandleNav2::Feedback>)
+    sendGoalOptions.feedback_callback = [](GoalHandleNav2::SharedPtr, const std::shared_ptr<const GoalHandleNav2::Feedback>)
     {
     };
-    send_goal_options.result_callback = [&logger = m_actionLogger, callback](const GoalHandleNav2::WrappedResult& result)
+    sendGoalOptions.result_callback = [&logger = m_actionLogger, callback](const GoalHandleNav2::WrappedResult& result)
     {
         switch (result.code)
         {
@@ -50,15 +50,15 @@ void Nav2ActionClient::SendNav2Goal(const Nav2Action::Goal& goal_msg, ResultCall
             return;
         };
     };
-    m_nav2Client->async_send_goal(goal_msg, send_goal_options);
+    m_nav2Client->async_send_goal(goal, sendGoalOptions);
 }
 
 // TODO - template with action type instead!
-void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal_msg, ResultCallback callback)
+void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal, ResultCallback callback)
 {
     using GoalHandleFollowPath = rclcpp_action::ClientGoalHandle<FollowPathAction>;
-    auto send_goal_options = rclcpp_action::Client<FollowPathAction>::SendGoalOptions();
-    send_goal_options.goal_response_callback = [&logger = m_actionLogger](std::shared_ptr<GoalHandleFollowPath> future)
+    auto sendGoalOptions = rclcpp_action::Client<FollowPathAction>::SendGoalOptions();
+    sendGoalOptions.goal_response_callback = [&logger = m_actionLogger](std::shared_ptr<GoalHandleFollowPath> future)
     {
         auto goal_handle = future.get();
         if (!goal_handle)
@@ -70,10 +70,10 @@ void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal_msg, Res
             RCLCPP_INFO(logger, "Goal accepted by server, waiting for result");
         }
     };
-    send_goal_options.feedback_callback = [](GoalHandleFollowPath::SharedPtr, const std::shared_ptr<const GoalHandleFollowPath::Feedback>)
+    sendGoalOptions.feedback_callback = [](GoalHandleFollowPath::SharedPtr, const std::shared_ptr<const GoalHandleFollowPath::Feedback>)
     {
     };
-    send_goal_options.result_callback = [&logger = m_actionLogger, callback](const GoalHandleFollowPath::WrappedResult& result)
+    sendGoalOptions.result_callback = [&logger = m_actionLogger, callback](const GoalHandleFollowPath::WrappedResult& result)
     {
         switch (result.code)
         {
@@ -86,10 +86,10 @@ void Nav2ActionClient::SendBlindGoal(const FollowPathAction::Goal& goal_msg, Res
             return;
         };
     };
-    m_followClient->async_send_goal(goal_msg, send_goal_options);
+    m_followClient->async_send_goal(goal, sendGoalOptions);
 }
 
-void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bool)> completionCallback, bool goBlind, bool reverse, bool highSpeed)
+void Nav2ActionClient::SendGoal(const NavPath& targetPath, ResultCallback completionCallback, bool goBlind, bool reverse, bool highSpeed)
 {
     if (goBlind)
     {
@@ -100,11 +100,11 @@ void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bo
         }
 
         const float speed = highSpeed ? 0.55 : 0.25;
-        auto goal_msg = FollowPathAction::Goal();
-        goal_msg.speed = speed;
-        goal_msg.reverse = reverse;
-        goal_msg.poses = targetPath.poses;
-        SendBlindGoal(goal_msg, completionCallback);
+        auto goal = FollowPathAction::Goal();
+        goal.speed = speed;
+        goal.reverse = reverse;
+        goal.poses = targetPath.poses;
+        SendBlindGoal(goal, completionCallback);
         return;
     }
 
@@ -114,7 +114,7 @@ void Nav2ActionClient::SendGoal(const NavPath& targetPath, std::function<void(bo
         return;
     }
 
-    auto goal_msg = Nav2Action::Goal();
-    goal_msg.poses = targetPath.poses;
-    SendNav2Goal(goal_msg, completionCallback);
+    auto goal = Nav2Action::Goal();
+    goal.poses = targetPath.poses;
+    SendNav2Goal(goal, completionCallback);
 }

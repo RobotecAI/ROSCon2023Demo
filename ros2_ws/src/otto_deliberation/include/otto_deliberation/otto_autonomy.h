@@ -29,7 +29,7 @@ public:
 
 private:
     bool SendLockRequest(const std::string& pathName, bool lockStatus);
-    void SendColor (const std::string& color);
+    void SendColor(const std::string& color);
 
     rclcpp::Logger m_logger;
     rclcpp::Client<lock_service_msgs::srv::Lock>::SharedPtr m_lockServiceClient;

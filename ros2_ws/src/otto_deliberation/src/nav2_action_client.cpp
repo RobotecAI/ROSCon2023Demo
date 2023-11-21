@@ -19,30 +19,27 @@ Nav2ActionClient::Nav2ActionClient(rclcpp::Node::SharedPtr node)
 
 void Nav2ActionClient::SendGoal(const NavPath& targetPath, ResultCallback completionCallback, bool goBlind, bool reverse, bool highSpeed)
 {
-    if (goBlind)
-    {
-        if (!m_followClient->wait_for_action_server())
-        {
-            RCLCPP_ERROR(m_actionLogger, "Action server not available after waiting");
-            return;
-        }
-
-        const float speed = highSpeed ? 0.55 : 0.25;
-        auto goal = FollowPathAction::Goal();
-        goal.speed = speed;
-        goal.reverse = reverse;
-        goal.poses = targetPath.poses;
-        SendSpecializedGoal<FollowPathAction>(goal, completionCallback, m_followClient);
-        return;
-    }
-
-    if (!m_nav2Client->wait_for_action_server())
+    if (!m_followClient->wait_for_action_server())
     {
         RCLCPP_ERROR(m_actionLogger, "Action server not available after waiting");
         return;
     }
 
-    auto goal = Nav2Action::Goal();
-    goal.poses = targetPath.poses;
-    SendSpecializedGoal<Nav2Action>(goal, completionCallback, m_nav2Client);
+    if (goBlind)
+    {
+        constexpr float highSpeedValue = 0.55f;
+        constexpr float lowSpeedValue = 0.25f;
+
+        auto goal = FollowPathAction::Goal();
+        goal.speed = highSpeed ? highSpeedValue : lowSpeedValue;
+        goal.reverse = reverse;
+        goal.poses = targetPath.poses;
+        SendSpecializedGoal<FollowPathAction>(goal, completionCallback, m_followClient);
+    }
+    else
+    {
+        auto goal = Nav2Action::Goal();
+        goal.poses = targetPath.poses;
+        SendSpecializedGoal<Nav2Action>(goal, completionCallback, m_nav2Client);
+    }
 }

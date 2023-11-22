@@ -4,7 +4,6 @@
 #include <control_msgs/action/gripper_command.h>
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/client.hpp>
-#include <rclcpp_action/create_client.hpp>
 
 #include <memory>
 #include <string>
@@ -22,6 +21,6 @@ namespace Gripper
     private:
         bool SendGripCommand(bool shouldAttach);
 
-        rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr m_client_ptr;
+        rclcpp_action::Client<control_msgs::action::GripperCommand>::SharedPtr m_client;
     };
 } // namespace Gripper

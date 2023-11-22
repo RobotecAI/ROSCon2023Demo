@@ -16,19 +16,19 @@
 //! @param p 0-1 value of interpolation
 //! @param poses vector of poses to interpolate between
 //! @return interpolated pose
-Eigen::Affine3d interpolatePath(double p, const std::vector<Eigen::Affine3d>& poses)
+Eigen::Affine3d InterpolatePath(double p, const std::vector<Eigen::Affine3d>& poses)
 {
     const double indexUnormalized = poses.size() * p;
     int indexLower = floor(indexUnormalized);
     int indexUpper = ceil(indexUnormalized);
-    indexLower = std::min(std::max(0, indexLower), int(poses.size() - 1));
-    indexUpper = std::min(std::max(0, indexUpper), int(poses.size() - 1));
+    indexLower = std::min(std::max(0, indexLower), static_cast<int>(poses.size() - 1));
+    indexUpper = std::min(std::max(0, indexUpper), static_cast<int>(poses.size() - 1));
     if (indexLower == indexUpper)
     {
         return poses[indexLower];
     }
-    auto& poseLower = poses[indexLower];
-    auto& poseUpper = poses[indexUpper];
+    const auto& poseLower = poses[indexLower];
+    const auto& poseUpper = poses[indexUpper];
     const double fraction = indexUnormalized - indexLower;
     assert(fraction >= 0.0 && fraction <= 1.0);
 
@@ -50,7 +50,10 @@ float GetAngle(const Eigen::Vector3d& v1, const Eigen::Vector3d& v2)
     return atan2(v1.cross(v2).dot(Eigen::Vector3d::UnitZ()), v1.dot(v2));
 }
 
-double getPathLength(const std::vector<Eigen::Affine3d>& poses)
+//! Get path length for vector of poses
+//! @param poses vector of poses
+//! @return path length as sum of distances between poses
+double GetPathLength(const std::vector<Eigen::Affine3d>& poses)
 {
     double length = 0.0;
     for (size_t i = 1; i < poses.size(); ++i)
@@ -161,7 +164,7 @@ private:
             tf2::fromMsg(pose.pose, poseEigen);
             poses_.push_back(poseEigen);
         }
-        path_length_ = getPathLength(poses_);
+        path_length_ = GetPathLength(poses_);
         path_elapsed_ = 0;
         timer_->reset();
         RCLCPP_INFO(
@@ -197,7 +200,7 @@ private:
 
         const double p = DesiredLinearVelocity * path_elapsed_ / path_length_;
         const double pFuture = std::min(1., DesiredLinearVelocity * (path_elapsed_ + LoopTimeSec * LookupTime) / path_length_);
-        const Eigen::Affine3d idealGoal = interpolatePath(p, poses_);
+        const Eigen::Affine3d idealGoal = InterpolatePath(p, poses_);
         geometry_msgs::msg::PoseStamped poseMsg;
         poseMsg.pose = tf2::toMsg(idealGoal);
         poseMsg.header.frame_id = "map";
@@ -269,7 +272,7 @@ private:
         }
 
         // if the sharp turn is detected in the future, adapt the linear speed
-        auto futureAngle = std::abs(GetAngle(interpolatePath(pFuture, poses_).rotation().col(0), tangentRobot));
+        auto futureAngle = std::abs(GetAngle(InterpolatePath(pFuture, poses_).rotation().col(0), tangentRobot));
 
         if (futureAngle > MaxBearingError && m_robotPassedStart)
         {

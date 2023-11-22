@@ -71,7 +71,7 @@ void PalletizationNode::TimerCallback() {
                 m_robotName = m_visionSystem->GetRobotName();
             }
 
-            geometry_msgs::msg::Pose robotPose = *m_visionSystem->getObjectPose(m_robotName);
+            geometry_msgs::msg::Pose robotPose = *m_visionSystem->GetObjectPose(m_robotName);
             bool amrStopped = CheckIfAmrIsStationary(robotPose);
             if (amrStopped) {
                 RCLCPP_INFO(m_node->get_logger(), "Starting palletization");
@@ -96,10 +96,10 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
         std::optional<geometry_msgs::msg::Pose> myClosestBox;
         std::vector<geometry_msgs::msg::Pose> allBoxesOnPallet;
 
-        myClosestBox = m_visionSystem->getClosestBox();
-        allBoxesOnPallet = m_visionSystem->getAllBoxesOnPallet();
+        myClosestBox = m_visionSystem->GetClosestBox();
+        allBoxesOnPallet = m_visionSystem->GetAllBoxesOnPallet();
 
-        auto palletPose = m_visionSystem->getObjectPose("/EuroPallet");
+        auto palletPose = m_visionSystem->GetObjectPose("/EuroPallet");
         if (!palletPose) {
             break;
         }
@@ -116,7 +116,7 @@ PalletizationNode::putBoxesInPlaces(std::shared_ptr<Palletization::RoboticArmCon
         // update box position before grabbing.
         bool boxIsMoving = true;
         while (boxIsMoving) {
-            const auto boxCheck = m_visionSystem->getClosestBox();
+            const auto boxCheck = m_visionSystem->GetClosestBox();
             if (boxCheck) {
                 auto diff =
                         Utils::fromMsgPosition(boxCheck->position) - Utils::fromMsgPosition(myClosestBox->position);

@@ -12,17 +12,12 @@ namespace Gripper
         auto goal = control_msgs::action::GripperCommand::Goal();
         goal.command.position = shouldAttach ? 0.0 : 1.0;
         goal.command.max_effort = 10000.0;
+
         auto future = m_client_ptr->async_send_goal(goal);
+        auto goalHandle = future.get();
 
-        future.wait();
-
-        auto goal_handle = future.get();
-
-        auto result_future = m_client_ptr->async_get_result(goal_handle);
-
-        result_future.wait();
-
-        auto result = result_future.get().result;
+        auto resultFuture = m_client_ptr->async_get_result(goalHandle);
+        auto result = resultFuture.get().result;
 
         return result->reached_goal;
     }

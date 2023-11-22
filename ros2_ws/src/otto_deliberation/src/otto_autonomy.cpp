@@ -98,7 +98,7 @@ void OttoAutonomy::Update()
         {
             m_currentOperationDescription += "Waiting to lock at " + currentTaskKey + "\n";
             auto steady_clock = rclcpp::Clock();
-            RCLCPP_ERROR_THROTTLE(m_logger, steady_clock, 1500, "WAITING FOR LOCK");
+            RCLCPP_WARN_THROTTLE(m_logger, steady_clock, 1500, "WAITING FOR LOCK");
             SendColor("YELLOW");
             return;
         }
@@ -151,7 +151,7 @@ void OttoAutonomy::Update()
                 currentTask.m_isBlind,
                 currentTask.m_isReverse,
                 currentTask.m_isBlindHighSpeed);
-            RCLCPP_ERROR(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
+            RCLCPP_INFO(m_logger, "Sending goal for task %s", currentTaskKey.c_str());
             SendColor("");
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
@@ -196,7 +196,7 @@ void OttoAutonomy::Update()
             // release old lock
             SendLockRequest(m_lockTaskName, false);
             m_currentOperationDescription += "Lock obtained " + nextTaskName + ", releasing lock " + m_lockTaskName + "\n";
-            RCLCPP_ERROR(m_logger, "Lock obtained %s, releasing lock %s", nextTaskName.c_str(), m_lockTaskName.c_str());
+            RCLCPP_INFO(m_logger, "Lock obtained %s, releasing lock %s", nextTaskName.c_str(), m_lockTaskName.c_str());
             m_lockTaskName = nextTaskName;
             m_hasLock = true;
         }
@@ -204,7 +204,7 @@ void OttoAutonomy::Update()
         {
             SendLockRequest(m_lockTaskName, false);
             m_currentOperationDescription += "Releasing lock " + m_lockTaskName + "\n";
-            RCLCPP_ERROR(m_logger, "Releasing lock %s", m_lockTaskName.c_str());
+            RCLCPP_INFO(m_logger, "Releasing lock %s", m_lockTaskName.c_str());
             m_lockTaskName = "";
             m_hasLock = false;
         }

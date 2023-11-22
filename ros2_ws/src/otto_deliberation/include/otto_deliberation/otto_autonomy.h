@@ -32,15 +32,17 @@ private:
     void SendColor(const std::string& color);
 
     rclcpp::Logger m_logger;
+    rclcpp::Clock m_clock;
+
     rclcpp::Client<lock_service_msgs::srv::Lock>::SharedPtr m_lockServiceClient;
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr m_lifterPublisher;
     rclcpp::Publisher<std_msgs::msg::String>::SharedPtr m_colorPublisher;
     RobotStatus m_robotStatus;
     Nav2ActionClient m_nav2ActionClient;
     std::string m_laneName;
-    std::chrono::time_point<std::chrono::system_clock> m_waitTimePointPreTaskDelay;
-    std::chrono::time_point<std::chrono::system_clock> m_waitTimePointPostTaskDelay;
-    std::chrono::time_point<std::chrono::system_clock> m_startNavigationTimePoint;
+    rclcpp::Time m_waitTimePointPreTaskDelay;
+    rclcpp::Time m_waitTimePointPostTaskDelay;
+    rclcpp::Time m_startNavigationTimePoint;
     RobotTasks m_robotTasks;
     bool m_isWaitingPostTaskDelay{ false };
     bool m_isWaitingPreTaskDelay{ false };

@@ -4,10 +4,9 @@
 #include "otto_deliberation/tasks.h"
 #include <std_msgs/msg/bool.hpp>
 
-#include <chrono>
-
 OttoAutonomy::OttoAutonomy(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lockNode)
     : m_logger(node->get_logger())
+    , m_clock()
     , m_nav2ActionClient(node)
 {
     std::string lockService = lockNode->declare_parameter<std::string>("lock_service", "/lock_service");
@@ -78,11 +77,11 @@ void OttoAutonomy::Update()
         if (!m_isWaitingPreTaskDelay)
         {
             m_isWaitingPreTaskDelay = true;
-            m_waitTimePointPreTaskDelay = std::chrono::system_clock::now();
+            m_waitTimePointPreTaskDelay = m_clock.now();
         }
-        // todo use ros timer instead of chrono one
-        const auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_waitTimePointPreTaskDelay);
-        if (static_cast<double>(duration.count()) < currentTask.m_preTaskDelay.value())
+
+        const auto duration = m_clock.now() - m_waitTimePointPreTaskDelay;
+        if (duration.seconds() < currentTask.m_preTaskDelay.value())
         {
             // Waiting for pre-task delay
             m_currentOperationDescription += "Waiting to predelay at " + currentTaskKey + "\n";
@@ -141,7 +140,7 @@ void OttoAutonomy::Update()
                 RCLCPP_ERROR(m_logger, "Resending goal for task %s", currentTaskKey.c_str());
                 m_robotStatus.m_resendGoal = false;
             }
-            m_startNavigationTimePoint = std::chrono::system_clock::now();
+            m_startNavigationTimePoint = m_clock.now();
             m_currentOperationDescription += "Started navigation at " + currentTaskKey + "\n";
             m_robotStatus.m_currentNavigationTask = currentTaskKey;
             m_robotStatus.m_finishedNavigationTask = "";
@@ -156,9 +155,8 @@ void OttoAutonomy::Update()
         }
         if (m_robotStatus.m_finishedNavigationTask != currentTaskKey)
         {
-
-            const auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_startNavigationTimePoint);
-            m_currentOperationDescription += "Navigating to " + currentTaskKey + " is blind : " + std::to_string(currentTask.m_isBlind) +" elapsed time : " + std::to_string(duration.count()) + "\n";
+            const auto duration = m_clock.now() - m_startNavigationTimePoint;
+            m_currentOperationDescription += "Navigating to " + currentTaskKey + " is blind : " + std::to_string(currentTask.m_isBlind) +" elapsed time : " + std::to_string(duration.seconds()) + "\n";
             return;
         }
     }
@@ -169,11 +167,11 @@ void OttoAutonomy::Update()
         if (!m_isWaitingPostTaskDelay)
         {
             m_isWaitingPostTaskDelay = true;
-            m_waitTimePointPostTaskDelay = std::chrono::system_clock::now();
+            m_waitTimePointPostTaskDelay = m_clock.now();
         }
-        // todo use ros timer instead of chrono one
-        const auto duration = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now() - m_waitTimePointPostTaskDelay);
-        if (static_cast<double>(duration.count()) < currentTask.m_postTaskDelay.value())
+
+        const auto duration = m_clock.now() - m_waitTimePointPostTaskDelay;
+        if (duration.seconds() < currentTask.m_postTaskDelay.value())
         {
             // Waiting for pre-task delay
             m_currentOperationDescription += "Waiting post delay at " + currentTaskKey + "\n";

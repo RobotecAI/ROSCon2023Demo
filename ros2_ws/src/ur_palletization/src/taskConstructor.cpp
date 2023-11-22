@@ -1,13 +1,14 @@
 #include "taskConstructor.h"
-#include <moveit/robot_model_loader/robot_model_loader.h>
-#include "utils.h"
+
 #include <pilz_industrial_motion_planner/planning_context_ptp.h>
+#include "utils.h"
 
-namespace Palletization {
-
+namespace Palletization
+{
     RoboticArmController::RoboticArmController(
-            std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, std::string ns)
-            : m_move_groupIterface(moveGroupInterface) {
+            std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, const std::string& ns)
+            : m_moveGroupInterface(moveGroupInterface)
+    {
         PredefinePoseJointSpace pickupConfig;
         pickupConfig.insert({ns + "/wrist_1_joint", -0.8385483622550964});
         pickupConfig.insert({ns + "/wrist_2_joint", 1.5643877983093262});
@@ -40,53 +41,62 @@ namespace Palletization {
     }
 
 
-    bool RoboticArmController::setPosePIP(const std::string &poseName) {
-        m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
-        m_move_groupIterface->setMaxVelocityScalingFactor(1.0f);
+    bool RoboticArmController::SetPosePIP(const std::string &poseName)
+    {
+        m_moveGroupInterface->setMaxAccelerationScalingFactor(0.5f);
+        m_moveGroupInterface->setMaxVelocityScalingFactor(1.0f);
 
-        m_move_groupIterface->setPlanningPipelineId("pilz_industrial_motion_planner");
-        m_move_groupIterface->setPlannerId("PTP");
-        m_move_groupIterface->setJointValueTarget(m_predefinedPoses.at(poseName));
+        m_moveGroupInterface->setPlanningPipelineId("pilz_industrial_motion_planner");
+        m_moveGroupInterface->setPlannerId("PTP");
+        m_moveGroupInterface->setJointValueTarget(m_predefinedPoses.at(poseName));
+
         moveit::planning_interface::MoveGroupInterface::Plan plan;
-        auto isOk = m_move_groupIterface->plan(plan);
-        if (isOk) {
-            m_move_groupIterface->execute(plan);
+        const auto isOk = m_moveGroupInterface->plan(plan);
+        if (isOk)
+        {
+            m_moveGroupInterface->execute(plan);
             return true;
-        } else {
-            RCLCPP_ERROR_STREAM(node_->get_logger(), "Planning failed for pose " << poseName);
+        }
+        else
+        {
+            RCLCPP_ERROR_STREAM(node->get_logger(), "Planning failed for pose " << poseName);
             return false;
         }
     }
 
-    bool RoboticArmController::setPosePIP(
-        const Eigen::Vector3d& tcp_position, const Eigen::Quaterniond& tcp_orientation, float speed, const std::string& interpolation)
+    bool RoboticArmController::SetPosePIP(
+        const Eigen::Vector3d& tcpPosition, const Eigen::Quaterniond& tcpOrientation, float speed, const std::string& interpolation)
     {
         Eigen::Isometry3d tcp_pose;
-        tcp_pose.fromPositionOrientationScale(tcp_position, tcp_orientation, Eigen::Vector3d::Ones());
-        m_move_groupIterface->setMaxAccelerationScalingFactor(0.5f);
-        m_move_groupIterface->setMaxVelocityScalingFactor(speed);
-        m_move_groupIterface->setPlanningPipelineId("pilz_industrial_motion_planner");
-        m_move_groupIterface->setPlannerId(interpolation);
-        m_move_groupIterface->setApproximateJointValueTarget(tcp_pose, ns + "/gripper_link");
-        moveit::planning_interface::MoveGroupInterface::Plan plan;
-        auto isOk = m_move_groupIterface->plan(plan);
-        if (!isOk) {
-            return false;
-        }
-        auto successExecution = m_move_groupIterface->execute(plan);
+        tcp_pose.fromPositionOrientationScale(tcpPosition, tcpOrientation, Eigen::Vector3d::Ones());
+        m_moveGroupInterface->setMaxAccelerationScalingFactor(0.5f);
+        m_moveGroupInterface->setMaxVelocityScalingFactor(speed);
+        m_moveGroupInterface->setPlanningPipelineId("pilz_industrial_motion_planner");
+        m_moveGroupInterface->setPlannerId(interpolation);
+        m_moveGroupInterface->setApproximateJointValueTarget(tcp_pose, ns + "/gripper_link");
 
-        if (!successExecution) {
+        moveit::planning_interface::MoveGroupInterface::Plan plan;
+        const auto isOk = m_moveGroupInterface->plan(plan);
+        if (!isOk)
+        {
             return false;
         }
+
+        const auto successExecution = m_moveGroupInterface->execute(plan);
+        if (!successExecution)
+        {
+            return false;
+        }
+
         return true;
     }
 
-    Eigen::Quaterniond RoboticArmController::getCurrentOrientation() {
-        auto currentPose = m_move_groupIterface->getCurrentPose(ns + "/gripper_link");
+    Eigen::Quaterniond RoboticArmController::GetCurrentOrientation() const
+    {
+        const auto currentPose = m_moveGroupInterface->getCurrentPose(ns + "/gripper_link");
         Eigen::Quaterniond currentOrientation(currentPose.pose.orientation.w, currentPose.pose.orientation.x,
                                               currentPose.pose.orientation.y, currentPose.pose.orientation.z);
         return currentOrientation;
     }
-
 
 } // namespace TaskConstructor

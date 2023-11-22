@@ -109,6 +109,7 @@ This project uses the following Gems:
 - [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation)
 - [HumanWorker Gem](https://github.com/RobotecAI/o3de-humanworker-gem)
 - [UR10 and UR20 Robots Gem](https://github.com/RobotecAI/o3de-ur-robots-gem)
+- [OTTO 600 and OTTO 1500 Robots Gem](https://github.com/RobotecAI/o3de-otto-robots-gem)
   
 Please make sure to follow the installation guide in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file up until the creation of a new Project.
 
@@ -141,8 +142,10 @@ Clone and register the remaining Gems
 cd ${WORKDIR}
 git clone https://github.com/RobotecAI/o3de-humanworker-gem.git
 git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
+git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
+./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
 ```
 
 The Gems are open to your contributions!

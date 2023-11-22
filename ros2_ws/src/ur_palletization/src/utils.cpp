@@ -2,8 +2,7 @@
 
 namespace Utils
 {
-
-    Eigen::Quaterniond fromMsgQuaternion(const geometry_msgs::msg::Quaternion& msg)
+    Eigen::Quaterniond FromMsgQuaternion(const geometry_msgs::msg::Quaternion& msg)
     {
         Eigen::Quaterniond q;
         q.x() = msg.x;
@@ -13,18 +12,18 @@ namespace Utils
         return q;
     }
 
-    Eigen::Vector3d fromMsgPosition(const geometry_msgs::msg::Point msg)
+    Eigen::Vector3d FromMsgPosition(const geometry_msgs::msg::Point& msg)
     {
         Eigen::Vector3d v{ msg.x, msg.y, msg.z };
         return v;
     }
-    Eigen::Vector3d fromMsgPosition(const geometry_msgs::msg::Vector3 msg)
+    Eigen::Vector3d FromMsgPosition(const geometry_msgs::msg::Vector3& msg)
     {
         Eigen::Vector3d v{ msg.x, msg.y, msg.z };
         return v;
     }
 
-    const geometry_msgs::msg::Point toMsgPoint(Eigen::Vector3d v)
+    geometry_msgs::msg::Point ToMsgPoint(const Eigen::Vector3d& v)
     {
         geometry_msgs::msg::Point msg;
         msg.x = v.x();
@@ -33,7 +32,7 @@ namespace Utils
         return msg;
     }
 
-    const geometry_msgs::msg::Quaternion toMsgQuaternion(const Eigen::Quaterniond& q)
+    geometry_msgs::msg::Quaternion ToMsgQuaternion(const Eigen::Quaterniond& q)
     {
         geometry_msgs::msg::Quaternion msg;
         msg.x = q.x();
@@ -45,10 +44,10 @@ namespace Utils
 
     moveit_msgs::msg::CollisionObject CreateBoxCollision(
         const std::string& name,
-        const Eigen::Vector3d dimension,
-        const Eigen::Vector3d location,
+        const Eigen::Vector3d& dimension,
+        const Eigen::Vector3d& location,
         const Eigen::Quaterniond& rot,
-        std::string ns)
+        const std::string& ns)
     {
         moveit_msgs::msg::CollisionObject collision_object;
         collision_object.header.frame_id = ns + "/world";
@@ -60,23 +59,22 @@ namespace Utils
         primitive.dimensions.push_back(dimension.z());
         collision_object.primitives.push_back(primitive);
         geometry_msgs::msg::Pose box_pose;
-        box_pose.position = toMsgPoint(location);
-        box_pose.orientation = toMsgQuaternion(rot);
+        box_pose.position = ToMsgPoint(location);
+        box_pose.orientation = ToMsgQuaternion(rot);
         collision_object.primitive_poses.push_back(box_pose);
         collision_object.operation = collision_object.ADD;
         return collision_object;
     }
 
-    geometry_msgs::msg::Pose getBoxTargetPose(const Eigen::Vector3f& adress, const geometry_msgs::msg::Pose& palletPose,const Eigen::Vector3d& boxDimension, float separation)
+    geometry_msgs::msg::Pose
+    GetBoxTargetPose(const Eigen::Vector3f& adress, const geometry_msgs::msg::Pose& palletPose,const Eigen::Vector3d& boxDimension, float separation)
     {
-
         geometry_msgs::msg::Pose pose;
-
         pose.position = palletPose.position;
 
         // take into account the pallet is symmetrical
         const Eigen::Quaterniond idealPalletOrientation {0.7071067690849304, 0.0, 0.0, 0.7071067690849304};
-        const Eigen::Quaterniond palletOrientation1 = fromMsgQuaternion(palletPose.orientation);
+        const Eigen::Quaterniond palletOrientation1 = FromMsgQuaternion(palletPose.orientation);
         const Eigen::Quaterniond palletOrientation2 = palletOrientation1 * Eigen::Quaterniond(Eigen::AngleAxisd(M_PI, Eigen::Vector3d::UnitZ()));
 
         const Eigen::Quaterniond palletOrientation = GetClosestQuaternionFromList(idealPalletOrientation, {palletOrientation1, palletOrientation2});
@@ -85,9 +83,8 @@ namespace Utils
         Eigen::Vector3d localPalletDirY = palletOrientation * Eigen::Vector3d::UnitY();
         Eigen::Vector3d localPalletDirZ = palletOrientation * Eigen::Vector3d::UnitZ();
 
-
-        Eigen::Vector3d p = fromMsgPosition(palletPose.position);
-        Eigen::Quaterniond q = fromMsgQuaternion(palletPose.orientation);
+        Eigen::Vector3d p = FromMsgPosition(palletPose.position);
+        Eigen::Quaterniond q = FromMsgQuaternion(palletPose.orientation);
 
         // change local coordinate system for UR10 gipper targe pose in the way to have X+ pointing sky
         // Used blender to find this matrix.
@@ -96,15 +93,16 @@ namespace Utils
         p += adress.x() * localPalletDirX * separation * boxDimension.x() + adress.y() * localPalletDirY * separation * boxDimension.y() +
             adress.z() * localPalletDirZ * separation * boxDimension.z();
 
-        pose.position = toMsgPoint(p);
+        pose.position = ToMsgPoint(p);
         pose.orientation = toMsg(Eigen::Quaterniond(q.toRotationMatrix() * rotation));
         return pose;
     }
-    Eigen::Quaterniond GetClosestQuaternionFromList (const Eigen::Quaterniond& q1, const std::vector<Eigen::Quaterniond>& qlist)
+
+    Eigen::Quaterniond GetClosestQuaternionFromList(const Eigen::Quaterniond& q1, const std::vector<Eigen::Quaterniond>& qList)
     {
         float smallestAngle = std::numeric_limits<float>::max();
-        Eigen::Quaterniond closestQ = qlist.front();
-        for (const auto& q : qlist)
+        Eigen::Quaterniond closestQ = qList.front();
+        for (const auto& q : qList)
         {
             float angle = std::abs(q1.angularDistance(q));
             if (angle < smallestAngle)
@@ -115,5 +113,4 @@ namespace Utils
         }
         return closestQ;
     }
-
 } // namespace Utils

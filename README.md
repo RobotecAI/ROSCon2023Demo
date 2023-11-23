@@ -58,9 +58,10 @@ The demo is rather demanding, as it aims to show what is possible. Minimum specs
 - Intel i7-11800H (16 cores) CPU.
 - 64 GB RAM.
 
-For more FPS, a larger scene, or more robots, consider:
+For more FPS, a larger scene, and more robots, we used:
 - NVIDIA RTX 3080 Ti (or better) GPU (16 GB).
 - Intel i7-12900KF (24 cores) CPU.
+- 64 GB RAM.
 
 ## Project Setup
 
@@ -117,7 +118,7 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-**Use the `roscon2023demo` branch, which is a bit ahead of stable 2310**.
+**Use the latest stable release branch for both `o3de` and `o3de-extras` repositories**.
 **During build use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is essential for articulation.
 
 We assume that the directory with the project is `${WORKDIR}`.
@@ -137,7 +138,7 @@ cd ${WORKDIR}
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
 ```
 
-Clone and register the remaining Gems
+Clone and register the remaining Gems:
 ```bash
 cd ${WORKDIR}
 git clone https://github.com/RobotecAI/o3de-humanworker-gem.git
@@ -210,8 +211,9 @@ In a few seconds, the robots should spawn and start moving.
 For a more in-depth explanation see the [ros2_ws/README.md](ros2_ws/README.md).
 > **_NOTE:_** By default, 4 robots are spawned. To change the number of robots see [#changing-robots-amount paragraph](ros2_ws/README.md#changing-robots-amount).
 
+You can watch the simulation of a smaller warehouse `DemoLevel1.prefab` from one out of six predefined viewpoints: the first four are set towards four different loading areas and the remaining two show the wrapping station and the unloading area respectively. The viewpoints can be changed using `[1]` to `[6]` keys on the keyboard. Simulation of a large warehouse `DemoLevel2.prefab` is observed from the fly camera, which can freely move around the scene. Use `[w]`, `[s]`, `[a]`, and `[d]` keys and a mouse to change a camera position.
 
-## Simulation with large scene with 36 robots
+## Simulation of a large scene with 36 robots
 
 ### Limitations 
 
@@ -223,17 +225,17 @@ The problem is communication in ROS 2 which was temporarily saturated.
 The number of mechanisms in ROS 2 nodes depends on the assumption that QoS for services is reliable.
 It could be not true for a saturated system.
 In other words, this demo is a great torture test for your DDS.
-To counteract the impact of those limitations, we launch a system with bash scripts, and every robot has its own `screen` session.
+To counteract the impact of those limitations, we launch a system with bash scripts, and every robot uses a separate `screen` session.
 
 ### Prerequisites
-1. Two machines connected in 2.5 Gbps network locally, ideally point-to-point.
+1. Two machines connected in a 2.5 Gbps local network, ideally point-to-point.
 Specification we used:
 - Intel 13th Gen Core i9-13900K
 - NVIDIA GeForce RTX 4080
-- 64 Gb of DDR4 RAM
+- 64 GB of DDR4 RAM
 
 2. Correctly set ROS 2 domain to establish the communication between two machines.
-We used CycloneDDS with following config:
+We used CycloneDDS with the following config:
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
 <CycloneDDS xmlns="https://cdds.io/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://cdds.io/config
@@ -274,7 +276,7 @@ Please refer to [DDS tunning information](https://docs.ros.org/en/humble/How-To-
     The `spawn.sh` script starts MoveIt2 move groups, palletization drivers and spawns all AMRs one by one.
     The second script, `start_fleet.sh`, creates multiple screen sessions to adjust
 
-5. To stop system on **Machine 2**, simply close all `screen` session:   
+5. To stop the demo, simply close all `screen` sessions on **Machine 2**:   
     ```bash
     killall screen
     ```

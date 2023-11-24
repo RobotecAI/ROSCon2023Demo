@@ -414,7 +414,7 @@
         },
         "Entity_[52749108516421]": {
             "Id": "Entity_[52749108516421]",
-            "Name": "TM12m",
+            "Name": "TM12",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -423,10 +423,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{764D4FFA-0FDD-5768-AAB3-C5163B9F4A1E}",
-                                    "subId": 283531519
+                                    "guid": "{D204FCBB-C517-51F4-86FA-5A72E7E8B3AF}",
+                                    "subId": 278718102
                                 },
-                                "assetHint": "assets/tm12/tm12m.fbx.azmodel"
+                                "assetHint": "assets/tm12/tm12.fbx.azmodel"
                             }
                         }
                     }
@@ -464,9 +464,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{A909CAE1-CE57-5EF3-8F66-383C149DCC39}"
+                                                "guid": "{BB0E01AF-5975-54D1-A10D-8EEE16F7F923}"
                                             },
-                                            "assetHint": "assets/tm12/tm12m_tm12.azmaterial"
+                                            "assetHint": "assets/tm12/tm12_tm12.azmaterial"
                                         }
                                     }
                                 }
@@ -507,7 +507,7 @@
         },
         "Entity_[52822122960453]": {
             "Id": "Entity_[52822122960453]",
-            "Name": "Huskym",
+            "Name": "Husky",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -675,7 +675,7 @@
         },
         "Entity_[62880936367685]": {
             "Id": "Entity_[62880936367685]",
-            "Name": "Anymalm",
+            "Name": "Anymal",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -726,7 +726,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{7FD9B1CA-F94E-5791-A800-B5DD2FE9B991}"
-                                            }
+                                            },
+                                            "assetHint": "assets/anymal/anymal.azmaterial"
                                         }
                                     }
                                 }
@@ -767,7 +768,7 @@
         },
         "Entity_[63439282116165]": {
             "Id": "Entity_[63439282116165]",
-            "Name": "OP3m",
+            "Name": "OP3",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -776,10 +777,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{84885141-C562-535C-BCBA-EC6DD9346455}",
-                                    "subId": 278407372
+                                    "guid": "{BAD9DA82-7775-5318-A2EA-D6D686509752}",
+                                    "subId": 270880239
                                 },
-                                "assetHint": "assets/op3/op3m.fbx.azmodel"
+                                "assetHint": "assets/op3/op3.fbx.azmodel"
                             }
                         }
                     }
@@ -803,6 +804,29 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 13901598753343679119
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 18252004887944594951,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2617574278
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{5BE70230-E53A-5763-A062-89083DEC30BE}"
+                                            },
+                                            "assetHint": "assets/op3/op3.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "EditorNonUniformScaleComponent": {
                     "$type": "EditorNonUniformScaleComponent",
@@ -842,7 +866,7 @@
         },
         "Entity_[63645440546373]": {
             "Id": "Entity_[63645440546373]",
-            "Name": "SummitXLm",
+            "Name": "SummitXL",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -881,7 +905,7 @@
                 },
                 "EditorMaterialComponent": {
                     "$type": "EditorMaterialComponent",
-                    "Id": 1544871062231908430,
+                    "Id": 16905773915821755908,
                     "Controller": {
                         "Configuration": {
                             "materials": [
@@ -892,51 +916,7 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{88626CCD-9500-564C-AA7F-979FED8B55C3}"
-                                            }
-                                        },
-                                        "PropertyOverrides": {
-                                            "baseColor.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{077D4F8B-2F48-57F6-98DD-A89149D0C773}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "metallic.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{05F431BB-DF87-5E8C-A50B-292B51CA2E9E}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "normal.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{85E7D39B-AC16-5A2B-9697-0192FFA6ACC4}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "occlusion.specularTextureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{AA5C89D2-687B-5C4C-A8B8-B4BBFD317FAD}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "roughness.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{D5AA7D1B-9C47-595A-B937-B436F1606A7D}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "roughness.upperBound": {
-                                                "$type": "float",
-                                                "Value": 1.0
-                                            },
-                                            "specularF0.textureMap": {
-                                                "$type": "AssetId"
+                                                "guid": "{6322DF16-CC2B-54CE-B222-4BA4AF781234}"
                                             }
                                         }
                                     }

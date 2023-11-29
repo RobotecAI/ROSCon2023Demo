@@ -26,7 +26,7 @@ namespace Palletization
 
         RoboticArmController(std::shared_ptr<moveit::planning_interface::MoveGroupInterface> moveGroupInterface, const std::string& ns);
 
-        bool SetPosePIP(const std::string &poseName);
+        bool SetPosePIP(const std::string& poseName);
 
         bool SetPosePIP(
             const Eigen::Vector3d &tcpPosition,
@@ -40,13 +40,10 @@ namespace Palletization
         using PredefinePoseJointSpace = std::map<std::string, double>;
 
         // Compose an MTC task from a series of stages.
-        rclcpp::Node::SharedPtr node;
-        std::map<std::string, double> dropConfig;
-
+        rclcpp::Node::SharedPtr m_node;
         std::unordered_map<std::string, PredefinePoseJointSpace> m_predefinedPoses;
-        std::vector<std::string> namesOfBoxes;
 
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> m_moveGroupInterface;
-        std::string ns;
+        std::string m_ns;
     };
 } // namespace TaskConstructor

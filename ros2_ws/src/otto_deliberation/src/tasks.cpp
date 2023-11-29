@@ -165,7 +165,7 @@ bool RobotTasks::ValidateTaskDelays() const
 {
     bool isValid = true;
 
-    for (auto& [m, _] : m_postTaskDelays)
+    for (const auto& [m, _] : m_postTaskDelays)
     {
         if (m_validTasks.count(m) == 0)
         {
@@ -174,7 +174,7 @@ bool RobotTasks::ValidateTaskDelays() const
         }
     }
 
-    for (auto& [m, _] : m_preTaskDelay)
+    for (const auto& [m, _] : m_preTaskDelay)
     {
         if (m_validTasks.count(m) == 0)
         {

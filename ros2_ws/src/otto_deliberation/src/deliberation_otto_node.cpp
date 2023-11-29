@@ -103,7 +103,7 @@ private:
     void TimerCallback()
     { // Get tasks, updates etc. here
         RobotStatus robotStatus = m_autonomy.GetCurrentStatus();
-        bool robotLoaded = robotStatus.m_cargoStatus == RobotCargoStatus::CARGO_LOADED;
+        const bool robotLoaded = robotStatus.m_cargoStatus == RobotCargoStatus::CARGO_LOADED;
         if (m_cargoLoaded != robotLoaded)
         { // Cargo status changed - notify
             m_autonomy.NotifyCargoChanged(m_cargoLoaded);

@@ -24,15 +24,14 @@ private:
         auto sendGoalOptions = typename rclcpp_action::Client<ActionType>::SendGoalOptions();
         sendGoalOptions.goal_response_callback = [&logger = m_actionLogger, callback](std::shared_ptr<GoalHandleType> future)
         {
-            auto goalHandle = future.get();
-            if (!goalHandle)
+            if (!future.get())
             {
-                RCLCPP_ERROR(logger, "Goal was rejected by server");
+                RCLCPP_ERROR(logger, "Goal was rejected by the server");
                 callback(false);
             }
             else
             {
-                RCLCPP_INFO(logger, "Goal accepted by server, waiting for result");
+                RCLCPP_INFO(logger, "Goal accepted by the server, waiting for result");
             }
         };
         sendGoalOptions.feedback_callback = [](typename GoalHandleType::SharedPtr, const std::shared_ptr<const typename GoalHandleType::Feedback>)
@@ -40,16 +39,14 @@ private:
         };
         sendGoalOptions.result_callback = [&logger = m_actionLogger, callback](const typename GoalHandleType::WrappedResult& result)
         {
-            switch (result.code)
+            if (result.code != rclcpp_action::ResultCode::SUCCEEDED)
             {
-            case rclcpp_action::ResultCode::SUCCEEDED:
-                callback(true);
-                break;
-            default:
                 RCLCPP_ERROR(logger, "Goal did not succeed");
                 callback(false);
                 return;
-            };
+            }
+
+            callback(true);
         };
         m_client->async_send_goal(goal, sendGoalOptions);
     }

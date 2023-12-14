@@ -78,6 +78,21 @@ source ~/.bashrc
 ```
 > ***Note:*** The ROS2 daemon may need to be restarted to use the CycloneDDS RMW. Use `ros2 daemon stop` and `ros2 daemon start` to restart the daemon.
 
+### ROS 2 navigation stack
+Install the required ROS2 navigation dependencies:
+```bash
+sudo apt install ros-${ROS_DISTRO}-navigation2
+```
+
+### Additional dependencies
+Make sure the following tools and libraries are installed on your system:
+```bash
+sudo apt install python3-rosdep2 ninja-build screen
+```
+```bash
+sudo apt install libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
+```
+
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).

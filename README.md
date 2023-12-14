@@ -78,21 +78,6 @@ source ~/.bashrc
 ```
 > ***Note:*** The ROS2 daemon may need to be restarted to use the CycloneDDS RMW. Use `ros2 daemon stop` and `ros2 daemon start` to restart the daemon.
 
-### ROS 2 navigation stack
-Install the required ROS2 navigation dependencies:
-```bash
-sudo apt install ros-${ROS_DISTRO}-navigation2
-```
-
-### Additional dependencies
-Make sure the following tools and libraries are installed on your system:
-```bash
-sudo apt install python3-rosdep2 ninja-build screen
-```
-```bash
-sudo apt install libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
-```
-
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
@@ -162,7 +147,7 @@ After that, change the OTTO 600 prefab so that both front and back lidars use th
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-nav2-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2
 ```
 
 ### Project
@@ -174,7 +159,7 @@ cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
 ```
 Now install all dependencies of submodules.
 ```bash
-sudo apt install python3-colcon-common-extensions python3-vcstool
+sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep2
 rosdep update
 rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
 ```
@@ -185,6 +170,11 @@ colcon build --symlink-install
 source install/setup.bash
 ```
 The source command needs to be done in the same console where you build and run O3DE.
+
+Make sure the following tools and libraries are installed on your system (they are required to build the project):
+```bash
+sudo apt install ninja-build libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
+```
 
 **On the project build step use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is **essential** for articulation.
 Now, assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
@@ -270,7 +260,11 @@ Please refer to [DDS tuning information](https://docs.ros.org/en/humble/How-To-G
    colcon build --symlink-install
    source ./install/setup.bash
    ```
-4. On **Machine 2** start two scripts that will bring all ROS 2 software stacks:
+4. On **Machine 2** make sure you have the `screen` binary installed as it is used by bash launch scripts:
+   ```bash
+   sudo apt install screen
+   ```
+   Then start two scripts that will bring all ROS 2 software stacks:
    ```bash
     ./src/roscon2023_demo/bash/spawn.sh
     ./src/roscon2023_demo/bash/start_fleet.sh

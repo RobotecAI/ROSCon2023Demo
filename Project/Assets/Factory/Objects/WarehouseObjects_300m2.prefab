@@ -3083,10 +3083,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{A6A5536E-668D-5CA8-80EB-23C1B630F167}",
-                                    "subId": 275391814
+                                    "guid": "{17F44ED1-6868-5B02-A7CF-FAEBDCED9B85}",
+                                    "subId": 273590380
                                 },
-                                "assetHint": "assets/asianwoman/actor/asianwoman_balcony.fbx.azmodel"
+                                "assetHint": "assets/humanworkerstatic/onbalcony.fbx.azmodel"
                             }
                         }
                     }
@@ -3151,7 +3151,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
-                                            }
+                                            },
+                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -4749,10 +4750,6 @@
                     "op": "add",
                     "path": "/Entities/Entity_[137069584241005]/Components/EditorEntitySortComponent/Child Entity Order/6",
                     "value": "Instance_[136996569796973]/ContainerEntity"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[137048109404525]"
                 }
             ]
         },
@@ -5053,14 +5050,6 @@
                     "op": "add",
                     "path": "/Entities/Entity_[137069584241005]/Components/EditorEntitySortComponent/Child Entity Order/5",
                     "value": "Instance_[137009454698861]/ContainerEntity"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[137035224502637]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Instances/Instance_[137048109404525]"
                 }
             ]
         },
@@ -5307,11 +5296,6 @@
         "Instance_[174185521862728]": {
             "Source": "Assets/Factory/Objects/PalletWithBarrell.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[174065262778440]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935549
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -5639,33 +5623,13 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[6117779831230]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6126369765822]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[151111580776894]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[6010405648830]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[151098695875006]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6100599962046]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
                 },
                 {
                     "op": "add",
@@ -5689,18 +5653,8 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[6027585518014]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[151085810973118]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6096304994750]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
                 },
                 {
                     "op": "replace",
@@ -5726,11 +5680,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/Component_[226710958716547824]/Transform Data/Rotate/2",
                     "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6104894929342]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
                 },
                 {
                     "op": "replace",
@@ -5789,11 +5738,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[5997520746942]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[5915916368318]/Entities/Entity_[5804247218622]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box4.fbx.azmodel"
                 },
@@ -5824,21 +5768,13 @@
                     "op": "remove",
                     "path": "/Entities/Entity_[339384794066681]/Components/Component_[13951741074857396852]/Child Entity Order/3"
                 },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[5984635845054]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
+
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[112224946878910]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
                 },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6109189896638]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
+
                 {
                     "op": "replace",
                     "path": "/Instances/Instance_[246046564790009]/Entities/Entity_[5804247218622]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
@@ -5846,23 +5782,8 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[199742522371833]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[5971750943166]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
                     "path": "/Instances/Instance_[292737154264825]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6134959700414]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
                 },
                 {
                     "op": "add",
@@ -5883,11 +5804,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[292719974395641]/Entities/Entity_[5722642839998]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
                     "value": "assets/warehouse/models/box2.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[6023290550718]/Entities/Entity_[5641038461374]/Components/Component_[7605271439870430818]/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/warehouse/models/box1.fbx.azmodel"
                 },
                 {
                     "op": "replace",
@@ -13586,11 +13502,6 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[174065262778440]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935549
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[800262904600648]"
                 },
@@ -13609,11 +13520,6 @@
         "Instance_[801259337013320]": {
             "Source": "Assets/Factory/Objects/PalletWithBarrell.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[174065262778440]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935549
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -13701,11 +13607,6 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Instances/Instance_[174065262778440]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935549
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[800262904600648]"
                 },
@@ -13729,11 +13630,6 @@
         "Instance_[852429577377864]": {
             "Source": "Assets/Factory/Objects/PalletWithBarrell.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[174065262778440]/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 14.414012908935549
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",

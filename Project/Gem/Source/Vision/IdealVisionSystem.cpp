@@ -281,7 +281,7 @@ namespace ROS2::Demo
 
                     AZ_Assert(targetEntity, "IdealVisionSystem result entity not found");
 
-                    auto targetROS2FrameComponent = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(targetEntity);
+                    auto targetROS2FrameComponent = targetEntity->FindComponent<ROS2FrameComponent>();
                     AZStd::string frameNamespace = "";
                     if (targetROS2FrameComponent)
                     {

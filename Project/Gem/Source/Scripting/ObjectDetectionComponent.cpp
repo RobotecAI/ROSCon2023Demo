@@ -76,7 +76,7 @@ namespace ROS2::Demo
         AZ_Assert(ROS2Interface, "ROS2Interface not available");
         auto ROS2Node = ROS2Interface->GetNode();
         AZ_Assert(ROS2Node, "ROS2Node not available");
-        auto ros2Frame = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(GetEntity());
+        auto ros2Frame = GetEntity()->FindComponent<ROS2::ROS2FrameComponent>();
         AZ_Assert(ros2Frame, "Missing ROS2FrameComponent");
         AZStd::string topicName = ros2Frame->GetNamespace() + m_configuration.m_topicConfiguration.m_topic;
         m_topicPublisher =

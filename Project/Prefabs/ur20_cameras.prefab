@@ -210,21 +210,6 @@
                                     }
                                 }
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 4145488354555654048,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_pickup",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 2741027279447392744,
@@ -252,6 +237,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 4145488354555654048,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -409,21 +408,6 @@
                                     }
                                 }
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 920434809922726795,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_drop",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 2552988515570240159,
@@ -451,6 +435,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 920434809922726795,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true

@@ -1,7 +1,6 @@
 # ROS 2 workspace
 
-This is the ROS 2 workspace to build and source before you build or run the simulation project. Make sure to always source this workspace before running the simulator,
-it won't work properly without it.
+This ROS 2 workspace should be built and sourced before building or running the simulation project. Make sure to always source this workspace before running the simulator, as it won't work properly without it.
 
 ## Content
 
@@ -12,7 +11,7 @@ Modified package of [Universal_Robots_ROS2_Description](https://github.com/Unive
 - Added vacuum gripper model.
 
 ### src/Universal_Robots_ROS2_Driver
-Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble) as submodule.
+Branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver/tree/humble) for current $ROS_DISTRO, as a submodule.
 
 ### src/ur_palletization
 - Simple palletization code for Moveit2.
@@ -25,27 +24,35 @@ Humble branch of [Universal_Robots_ROS2_Driver](https://github.com/UniversalRobo
 
 ### src/otto_deliberation
 - Autonomy for OTTO AMRs.
-- Manages tasks, sends commands to `otto_fleet_nav` and `blind_path_follower`.
+- Manages tasks, and sends commands to `otto_fleet_nav` and `blind_path_follower`.
 - Contains task description configurations.
 
 ### src/otto_fleet_nav
 - Nav2 for OTTO AMRs.
-- Spawns and controls robots movements.
+- Spawns and controls robots' movements.
 
 ### src/global_path_lock
 - Manages access to paths that only one robot should take (e.g. loading, wrapping).
 - Provides a simple locking ROS 2 service.
 
 ### src/blind_path_follower
-- Steers robots during docking. It is here due to the fact that nav2 stack alone was not easy to tame for such tight approaches. 
+- Steers robots during docking. It is here due to the fact that nav2 stack alone was not easy to tame for such tight approaches.
 
 ### src/roscon2023_demo
 - Combines all launch files into one.
 - Contains the configuration for all of the robots. You can change configuration files in this package to run a different setup.
 
 ## Changing the scene
-### Changing robots amount
-To change the robots amount simply modify the ```src/roscon2023_demo/config/ROSCon2023Config.yaml``` by adding a new robot to the fleet:
+### Changing the number of robots
+To change the number of robots simply choose a different configuration file. For example, to spawn 8 robots instead of 4 use:
+```bash
+ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:=<full_path_to>/ROSCon2023Config_8.yaml
+```
+> **_NOTE:_** Replace the `<full_path_to>/ROSCon2023Config_8.yaml` with the full path to your desired file.
+
+There are multiple configuration files available. The files `ROSCon2023Config_2/4/8.yaml` are prepared for the smaller scene (`DemoLevel1.prefab`), while `ROSCon2023Config_900.yaml` should be used with the bigger scene (`DemoLevel2.prefab`).
+
+You can also create a custom configuration file or modify the config by adding a new robot to the fleet:
 ```yaml
   - robot_name: otto600
     robot_namespace: otto_1
@@ -57,19 +64,19 @@ To change the robots amount simply modify the ```src/roscon2023_demo/config/ROSC
       y: 2.0
       z: 0.1
 ```
-Robots must have different namespaces to work and to be assigned a lane which is defined in the O3DE Editor (see "Line X" entities). You can also change the robots spawn position, tasks configuration file and Nav2 parameters file.
+Robots must have different namespaces to work and to be assigned a lane which is defined in the O3DE Editor (see "Line X" entities). You can also change the robots' spawn position, tasks configuration file, and Nav2 parameters file.
 
 ### Modifying the UR arms
-To change the UR arms configuration modify the  ```src/roscon2023_demo/config/ROSCon2023Config.yaml```, here is an example:
+To change the UR arms configuration modify the  `src/roscon2023_demo/config/ROSCon2023Config.yaml`, here is an example:
 ```yaml 
   - namespace: ur1
     num_of_boxes: 18
     launch_rviz: false
 ```
-The arms should have the same namespace as in the O3DE Editor. These namespaces must be unique. YOu can also change the amount of boxes to be placed on the pallet (maximum of 18 is supported).
+The arms should have the same namespace as in the O3DE Editor. These namespaces must be unique. You can also change the amount of boxes to be placed on the pallet (a maximum of 18 is supported).
 
-### Modifying the robots tasks
-To change task modify or adding the ```src/otto_deliberation/config/<nameoftasks>.yaml``` file. Example configuration can be found in ```src/otto_deliberation/config/otto600_tasks_left.yaml```
+### Modifying the robots' tasks
+To change the task modify or add the `src/otto_deliberation/config/<nameoftasks>.yaml` file. Sample configuration can be found in `src/otto_deliberation/config/otto600_tasks_left.yaml`
 ```yaml
 /**:
     ros__parameters:
@@ -97,6 +104,5 @@ To change task modify or adding the ```src/otto_deliberation/config/<nameoftasks
 - task_release_lock: Tasks where a lock is released.
 
 ## Warning: demo code
-Code quality is "demo", so be careful when using it for building serious projects. This codebase was only meant to enable demonstration of O3DE capabilities. 
-
+Code quality is "demo", so be careful when using it for building serious projects. This codebase was only meant to enable the demonstration of O3DE capabilities.
 

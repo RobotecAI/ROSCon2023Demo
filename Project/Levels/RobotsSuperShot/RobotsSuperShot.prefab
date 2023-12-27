@@ -21,19 +21,19 @@
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
                     "Entity_[52560383408370]",
-                    "Entity_[52431534389490]",
                     "Instance_[487522926640547]/ContainerEntity",
                     "Instance_[225234362758547]/ContainerEntity",
                     "Entity_[52749108516421]",
                     "Entity_[52822122960453]",
                     "Entity_[62880936367685]",
                     "Entity_[63439282116165]",
-                    "Instance_[52107276561755]/ContainerEntity",
                     "Entity_[63645440546373]",
-                    "Instance_[105180187438427]/ContainerEntity",
                     "Instance_[52234162091038]/ContainerEntity",
                     "Entity_[752013183628318]",
-                    "Instance_[844810247025694]/ContainerEntity"
+                    "Instance_[844810247025694]/ContainerEntity",
+                    "Instance_[281531617010361]/ContainerEntity",
+                    "Instance_[281707710669497]/ContainerEntity",
+                    "Entity_[74180564871409]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -192,59 +192,9 @@
                 }
             }
         },
-        "Entity_[52431534389490]": {
-            "Id": "Entity_[52431534389490]",
-            "Name": "Idol_without_mask_fbx",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 3609126064567522935
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 10350344273406509573
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2130003263077743354
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 8933851204806277850
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 16701066001292947367
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8686458219457645346
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 7461490651064066093
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 7209533395231412900
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 6813856489528044853,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            29.344058990478516,
-                            -5.655754089355469,
-                            -4.76837158203125e-7
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[52560383408370]": {
             "Id": "Entity_[52560383408370]",
-            "Name": "Idol_without_mask_static_fbx",
+            "Name": "HumanWorker",
             "Components": {
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -287,9 +237,9 @@
                     "Parent Entity": "Entity_[1146574390643]",
                     "Transform Data": {
                         "Translate": [
-                            30.624420166015625,
-                            -4.307464122772217,
-                            -5.960464477539063e-7
+                            29.736465454101563,
+                            -1.1116986274719238,
+                            0.6299999952316284
                         ]
                     }
                 }
@@ -297,7 +247,7 @@
         },
         "Entity_[52564678375666]": {
             "Id": "Entity_[52564678375666]",
-            "Name": "AsianWoman_Mesh",
+            "Name": "Mesh",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -306,10 +256,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{91C01B60-E247-50F3-81B3-FD97C8BDFEFC}",
-                                    "subId": 284918932
+                                    "guid": "{1A6D5A74-CF06-5DF4-BAE5-AB6A6D1F48C0}",
+                                    "subId": 269150508
                                 },
-                                "assetHint": "assets/asianwoman/actor/default_idol_without_mask_static_91f42ef2_478d_58b7_b47e_08707c934dbd_.fbx.azmodel"
+                                "assetHint": "assets/humanworkerstatic/default_withoutmask_a2782c23_388c_525e_945c_022362774658_.fbx.azmodel"
                             }
                         }
                     }
@@ -336,10 +286,23 @@
                 },
                 "EditorMaterialComponent": {
                     "$type": "EditorMaterialComponent",
-                    "Id": 14202531573650423994,
+                    "Id": 4445193819244807675,
                     "Controller": {
                         "Configuration": {
                             "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 9124765
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AD1368CC-D8E4-5FBF-86CA-5568FCD6F964}"
+                                            },
+                                            "assetHint": "humanworker/materials/cloths.azmaterial"
+                                        }
+                                    }
+                                },
                                 {
                                     "Key": {
                                         "materialSlotStableId": 256284067
@@ -347,15 +310,22 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{614F086A-1353-54D4-BF77-9CC849353055}"
+                                                "guid": "{92DD3E5E-8579-582C-B708-D7339D717A47}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_hair.azmaterial"
-                                        },
-                                        "PropertyOverrides": {
-                                            "specularF0.factor": {
-                                                "$type": "float",
-                                                "Value": 0.0
-                                            }
+                                            "assetHint": "humanworker/materials/hair_sss.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 688956128
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{3C241580-D064-5D17-A0DD-0168644B580D}"
+                                            },
+                                            "assetHint": "humanworker/materials/shoes.azmaterial"
                                         }
                                     }
                                 },
@@ -366,9 +336,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{2BAA3195-957E-50BB-808D-46D66669346C}"
+                                                "guid": "{3032BC21-A288-5244-9609-F49B572C235E}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_tablet.azmaterial"
+                                            "assetHint": "humanworker/materials/tablet.azmaterial"
                                         }
                                     }
                                 },
@@ -379,15 +349,35 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{0104BD42-81CF-55E8-AB26-398369E60EF1}"
+                                                "guid": "{D449F87F-F988-5B4F-B741-3C82C8D4AB05}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_body.azmaterial"
-                                        },
-                                        "PropertyOverrides": {
-                                            "baseColor.factor": {
-                                                "$type": "float",
-                                                "Value": 0.4699999988079071
-                                            }
+                                            "assetHint": "humanworker/materials/body_sss.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1479533416
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{AC088825-F5C4-5F2E-A5EF-D561F570502D}"
+                                            },
+                                            "assetHint": "humanworker/materials/eyes.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2213318644
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{D449F87F-F988-5B4F-B741-3C82C8D4AB05}"
+                                            },
+                                            "assetHint": "humanworker/materials/body_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -398,15 +388,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{AF9168F0-F545-54DC-9E6E-2AFA185B9053}"
+                                                "guid": "{AD1368CC-D8E4-5FBF-86CA-5568FCD6F964}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_cloth.azmaterial"
-                                        },
-                                        "PropertyOverrides": {
-                                            "specularF0.factor": {
-                                                "$type": "float",
-                                                "Value": 0.0
-                                            }
+                                            "assetHint": "humanworker/materials/cloths.azmaterial"
                                         }
                                     }
                                 },
@@ -417,9 +401,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{F145EB8B-0F25-5585-A607-8A95B622A25B}"
+                                                "guid": "{3C241580-D064-5D17-A0DD-0168644B580D}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_shoes.azmaterial"
+                                            "assetHint": "humanworker/materials/shoes.azmaterial"
                                         }
                                     }
                                 },
@@ -430,19 +414,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{574C720B-89E4-5C16-BE37-D1FEDE39AC00}"
+                                                "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_vest.azmaterial"
-                                        },
-                                        "PropertyOverrides": {
-                                            "roughness.factor": {
-                                                "$type": "float",
-                                                "Value": 0.33000001311302185
-                                            },
-                                            "specularF0.factor": {
-                                                "$type": "float",
-                                                "Value": 0.1599999964237213
-                                            }
+                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
                                         }
                                     }
                                 },
@@ -453,9 +427,35 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{BDA5C024-4EAB-5729-B441-5E67CAF59901}"
+                                                "guid": "{AC088825-F5C4-5F2E-A5EF-D561F570502D}"
                                             },
-                                            "assetHint": "assets/asianwoman/material/asianwoman_eyes.azmaterial"
+                                            "assetHint": "humanworker/materials/eyes.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3989177510
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{92DD3E5E-8579-582C-B708-D7339D717A47}"
+                                            },
+                                            "assetHint": "humanworker/materials/hair_sss.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 4004858287
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
+                                            },
+                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
                                         }
                                     }
                                 }
@@ -480,11 +480,6 @@
                     "Id": 6622026838994580033,
                     "Parent Entity": "Entity_[52560383408370]",
                     "Transform Data": {
-                        "Translate": [
-                            -0.5900554656982422,
-                            3.156421422958374,
-                            0.6315487027168274
-                        ],
                         "Rotate": [
                             -89.99994659423828,
                             89.99994659423828,
@@ -497,7 +492,7 @@
         },
         "Entity_[52749108516421]": {
             "Id": "Entity_[52749108516421]",
-            "Name": "TM12m",
+            "Name": "TM12",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -506,10 +501,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{764D4FFA-0FDD-5768-AAB3-C5163B9F4A1E}",
-                                    "subId": 283531519
+                                    "guid": "{D204FCBB-C517-51F4-86FA-5A72E7E8B3AF}",
+                                    "subId": 278718102
                                 },
-                                "assetHint": "assets/tm12/tm12m.fbx.azmodel"
+                                "assetHint": "assets/tm12/tm12.fbx.azmodel"
                             }
                         }
                     }
@@ -547,9 +542,9 @@
                                     "Value": {
                                         "MaterialAsset": {
                                             "assetId": {
-                                                "guid": "{A909CAE1-CE57-5EF3-8F66-383C149DCC39}"
+                                                "guid": "{BB0E01AF-5975-54D1-A10D-8EEE16F7F923}"
                                             },
-                                            "assetHint": "assets/tm12/tm12m_tm12.azmaterial"
+                                            "assetHint": "assets/tm12/tm12_tm12.azmaterial"
                                         }
                                     }
                                 }
@@ -590,7 +585,7 @@
         },
         "Entity_[52822122960453]": {
             "Id": "Entity_[52822122960453]",
-            "Name": "Huskym",
+            "Name": "Husky",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -758,7 +753,7 @@
         },
         "Entity_[62880936367685]": {
             "Id": "Entity_[62880936367685]",
-            "Name": "Anymalm",
+            "Name": "Anymal",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -795,6 +790,29 @@
                     "$type": "EditorLockComponent",
                     "Id": 3313780747823252127
                 },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 17705532674928420934,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2262306517
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7FD9B1CA-F94E-5791-A800-B5DD2FE9B991}"
+                                            },
+                                            "assetHint": "assets/anymal/anymal.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 17684987481773247294
@@ -828,7 +846,7 @@
         },
         "Entity_[63439282116165]": {
             "Id": "Entity_[63439282116165]",
-            "Name": "OP3m",
+            "Name": "OP3",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -837,10 +855,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{84885141-C562-535C-BCBA-EC6DD9346455}",
-                                    "subId": 278407372
+                                    "guid": "{BAD9DA82-7775-5318-A2EA-D6D686509752}",
+                                    "subId": 270880239
                                 },
-                                "assetHint": "assets/op3/op3m.fbx.azmodel"
+                                "assetHint": "assets/op3/op3.fbx.azmodel"
                             }
                         }
                     }
@@ -864,6 +882,29 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 13901598753343679119
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 18252004887944594951,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2617574278
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{5BE70230-E53A-5763-A062-89083DEC30BE}"
+                                            },
+                                            "assetHint": "assets/op3/op3.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "EditorNonUniformScaleComponent": {
                     "$type": "EditorNonUniformScaleComponent",
@@ -903,7 +944,7 @@
         },
         "Entity_[63645440546373]": {
             "Id": "Entity_[63645440546373]",
-            "Name": "SummitXLm",
+            "Name": "SummitXL",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -942,7 +983,7 @@
                 },
                 "EditorMaterialComponent": {
                     "$type": "EditorMaterialComponent",
-                    "Id": 1544871062231908430,
+                    "Id": 16905773915821755908,
                     "Controller": {
                         "Configuration": {
                             "materials": [
@@ -956,50 +997,6 @@
                                                 "guid": "{6322DF16-CC2B-54CE-B222-4BA4AF781234}"
                                             },
                                             "assetHint": "assets/summitxl/summitxl.azmaterial"
-                                        },
-                                        "PropertyOverrides": {
-                                            "baseColor.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{077D4F8B-2F48-57F6-98DD-A89149D0C773}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "metallic.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{05F431BB-DF87-5E8C-A50B-292B51CA2E9E}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "normal.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{85E7D39B-AC16-5A2B-9697-0192FFA6ACC4}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "occlusion.specularTextureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{AA5C89D2-687B-5C4C-A8B8-B4BBFD317FAD}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "roughness.textureMap": {
-                                                "$type": "AssetId",
-                                                "Value": {
-                                                    "guid": "{D5AA7D1B-9C47-595A-B937-B436F1606A7D}",
-                                                    "subId": 1000
-                                                }
-                                            },
-                                            "roughness.upperBound": {
-                                                "$type": "float",
-                                                "Value": 1.0
-                                            },
-                                            "specularF0.textureMap": {
-                                                "$type": "AssetId"
-                                            }
                                         }
                                     }
                                 }
@@ -1033,6 +1030,56 @@
                             0.0,
                             0.0,
                             -65.0
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[74180564871409]": {
+            "Id": "Entity_[74180564871409]",
+            "Name": "Idol_without_mask_static_fbx",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10431578490035156285
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 5520275823778531759
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9282293558539455727
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 9980731192934331077
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 1729334129864919817
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 12151884583732759847
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 14388176025639665016
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 17100091423373796426
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 16315484361436382558,
+                    "Parent Entity": "Entity_[1146574390643]",
+                    "Transform Data": {
+                        "Translate": [
+                            29.56219482421875,
+                            -4.698356628417969,
+                            -3.5762786865234375e-7
                         ]
                     }
                 }
@@ -1177,8 +1224,88 @@
         }
     },
     "Instances": {
-        "Instance_[105180187438427]": {
-            "Source": "Prefabs/OTTO600/OTTO600.prefab",
+        "Instance_[225234362758547]": {
+            "Source": "UR10/UR10.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 28.592967987060547
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -0.8153513669967651
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 50.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 17.75452423095703
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": -22.427474975585938
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
+                    "value": 171.16624450683594
+                }
+            ]
+        },
+        "Instance_[281531617010361]": {
+            "Source": "OTTO1500/OTTO1500_Basic_platform.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 28.074159622192383
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -2.511599540710449
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -7.152557373046875e-7
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -25.399513244628903
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[16359154575719]/Components/ROS2Lidar2DSensorComponent/m_template/SensorConfiguration/Visualize",
+                    "value": false
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[16363449543015]/Components/ROS2Lidar2DSensorComponent/m_template/SensorConfiguration/Visualize",
+                    "value": false
+                }
+            ]
+        },
+        "Instance_[281707710669497]": {
+            "Source": "OTTO600/OTTO600.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -1198,663 +1325,14 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -4.76837158203125e-7
+                    "value": 2.384185791015625e-7
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
                     "value": -24.658050537109375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[363552211467]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[385027047947]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
-                    "value": 0.4000000059604645
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
-                    "value": 1.1658992767333984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[406501884427]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/4",
-                    "value": 3.219341278076172
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[415091819019]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600/otto600.fbx.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[415091819019]/Components/EditorEntitySortComponent/Child Entity Order/5"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[415091819019]/Components/EditorEntitySortComponent/Child Entity Order/4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[427976720907]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[436566655499]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[440861622795]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_c41b2a86_5279_56ab_8747_bd72702efeaa_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[458041491979]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[466631426571]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "prefabs/otto600-platform/default_otto600platform_10e8adf1_1410_52ee_ae8b_af86963a942b_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[483811295755]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/3514951866_otto600.urdf/otto600_wheel.stl.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[187685058540532]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[207905764570100]"
                 }
             ]
-        },
-        "Instance_[225234362758547]": {
-            "Source": "Assets/Importer/ur10.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2849139095654]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_55945219_b09e_502e_afec_59bf5e4705f7_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.0000026226043701171875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0000057220458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0000057220458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -179.99989318847656
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.00006830188794992864
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2857729030246]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -0.000003415030278119957
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 9.5367431640625e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99958038330078
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.000008150171197485179
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2831959226470]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -0.000027468731786939315
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.6120016574859619
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.000003814697265625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.000003814697265625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.000005122641141497297
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.000003415094397496432
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2784714586214]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -0.000003415093942749081
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_427041ae_2fb1_5949_9e67_b17ec0bbcf22_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.0000029802322387695313
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.1148977279663086
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.9994125366211
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99994659423828
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2789009553510]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2853434062950]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_fe499ed7_fd74_586c_94f6_babc13492d5d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2853434062950]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2853434062950]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 9.5367431640625e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2853434062950]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.0000026226043701171875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0000057220458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0000057220458984375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.99922943115234
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.00003073584957746789
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2767534717030]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99922943115234
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.000003814697265625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99444580078125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2780419618918]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.99942016601563
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_685b50fa_749c_5af0_b2c9_94c40f036e50_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.000005125999450683594
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.000011444091796875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.09220504760742188
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.9992904663086
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.000009659346687840298
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2823369291878]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -180.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2776124651622]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.00000667572021484375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2776124651622]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.00000476837158203125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2776124651622]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.000003814697265625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2776124651622]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99722290039063
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2776124651622]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 89.99958801269531
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_893b5eee_8597_55f2_aa22_5937373fddd3_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.000005364418029785156
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.22094058990478516
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.99921417236328
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -89.9998779296875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2801894455398]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.0000019073486328125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -9.5367431640625e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.12729978561401367
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 0.00006792670319555327
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2797599488102]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 89.99979400634766
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.0000029802322387695313
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.0921926498413086
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.000011444091796875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.99959564208984
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.000005433367277873913
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2793304520806]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 0.000004225982593197841
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.000001430511474609375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.00000762939453125
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.030000686645507813
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99586486816406
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 0.00002561320798122324
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2840549161062]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.995849609375
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2836254193766]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_7d1d54bb_8d7e_5451_9f5b_1ba6fcddbe7d_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2836254193766]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 0.000003337860107421875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2836254193766]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -9.5367431640625e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2836254193766]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.11579704284667967
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/AZ::Render::EditorMeshComponent_2/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/ur10_pretty/default_ur10_a0698388_efea_5436_ab4c_d60c155684c1_.fbx.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.000003695487976074219
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.04904937744140625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.95187377929688
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -88.9997329711914
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2771829684326]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -0.0014672062825411558
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 28.96598243713379
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.3711225092411041
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -0.0005087330937385559
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -138.83375549316406
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Centre of mass offset/1",
-                    "value": -1.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
-                    "value": -21.56153678894043
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
-                    "value": 19.34624671936035
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
-                    "value": 0.0005087367608211935
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
-                    "value": -13.874624252319336
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2819074324582]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.5722994208335876
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2819074324582]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 0.000003814697265625
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2819074324582]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.16394424438476565
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2810484389990]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 1.3341735716210223e-8
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2810484389990]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.9999996423721312
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2810484389990]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -180.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": -0.000003933906555175781
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -0.11569976806640624
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": 0.00000286102294921875
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": 89.99979400634766
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": -0.0000018111389863406655
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2806189422694]/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 25.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/elbow_joint",
-                    "value": 0.5
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/shoulder_lift_joint",
-                    "value": -0.5
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_1_joint",
-                    "value": 0.20000000298023224
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_2_joint",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2827664259174]/Components/JointsManipulationEditorComponent/Initial positions/wrist_3_joint",
-                    "value": 0.5
-                }
-            ]
-        },
-        "Instance_[407908449120945]": {
-            "Source": "Assets/Importer/OTTO1500.prefab"
         },
         "Instance_[487522926640547]": {
             "Source": "Prefabs/WarehouseScene.prefab",
@@ -3759,107 +3237,6 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[376138858138692]/Entities/Entity_[376147448073284]/Components/Component_[13299402086043239524]/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
                     "value": "assets/warehouse/models/warehouse_floor.fbx.pxmesh"
-                }
-            ]
-        },
-        "Instance_[52107276561755]": {
-            "Source": "Assets/Importer/OTTO1500_Basic_platform.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2420690678299]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2463640351259]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2467935318555]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2485115187739]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_front_rear.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2502295056923]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_center.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/0",
-                    "value": "Entity_[2480820220443]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Entity_[2424985645595]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Entity_[2498000089627]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/3",
-                    "value": "Entity_[2429280612891]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/5"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[2506590024219]/Components/EditorEntitySortComponent/Child Entity Order/4"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2528064860699]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/platform_a.stl.azmodel"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[2536654795291]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/urdfimporter/2620430307_otto1500_basic_platform.urdf/otto1500_wheel_center.stl.azmodel"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[16359154575719]"
-                },
-                {
-                    "op": "remove",
-                    "path": "/Entities/Entity_[16363449543015]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 28.074159622192383
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": -2.511599540710449
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
-                    "value": -3.576278686523438e-7
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -25.399513244628903
                 }
             ]
         },

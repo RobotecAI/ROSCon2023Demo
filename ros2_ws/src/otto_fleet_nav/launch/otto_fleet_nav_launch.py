@@ -32,16 +32,22 @@ def launch_setup(context, *args, **kwargs):
     nodes_to_start = []
 
     fleet_config_file_path = LaunchConfiguration("fleet_config_path")
+    spawn_only_one = LaunchConfiguration("spawn_only_one")
 
     otto_fleet_nav_dir = get_package_share_directory('otto_fleet_nav')
     otto_launch_dir = os.path.join(otto_fleet_nav_dir, 'launch')
 
     fleet_config_file = fleet_config_file_path.perform(context)
+    robot_to_run = spawn_only_one.perform(context)
 
     robots = []
     with open(fleet_config_file, 'r') as f:
         configuration = yaml.safe_load(f)
         for robot in configuration["fleet"]:
+            if robot_to_run != '' and robot["robot_namespace"] != robot_to_run:
+                ## DEBUG
+                # print(f"Skipping {robot['robot_namespace']}")
+                continue
             robots.append(
                 {
                     "name": robot["robot_name"],
@@ -87,10 +93,13 @@ def launch_setup(context, *args, **kwargs):
         'use_rviz',
         default_value='True',
         description='Whether to start RVIZ')
-
     # Define commands for launching the navigation instances
     nav_instances_cmds = []
     for robot in robots:
+        if robot_to_run != '' and robot["namespace"] != robot_to_run:
+            print(f"Skipping {robot['namespace']}")
+            continue
+
         params_file = os.path.join(otto_fleet_nav_dir, 'params', distro, robot["nav2_param_file"])
         
         configured_tree = ReplaceString(
@@ -174,6 +183,14 @@ def generate_launch_description():
             'fleet_config_path',
             default_value=os.path.join(get_package_share_directory('otto_fleet_nav'), 'config', 'fleet_config.yaml'),
             description='Fleet configuration file'
+        )
+    )
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            'spawn_only_one',
+            default_value="",
+            description='Robot to spawn'
         )
     )
 

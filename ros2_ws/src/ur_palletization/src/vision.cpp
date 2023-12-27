@@ -3,15 +3,14 @@
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <geometry_msgs/msg/transform_stamped.hpp>
-#include <string>
 
 namespace Camera
 {
     GroundTruthCamera::GroundTruthCamera(
-        std::shared_ptr<rclcpp::Node> node, const std::string& topicPickup, const std::string& topicDrop, std::string ns)
+        std::shared_ptr<rclcpp::Node> node, const std::string& topicPickup, const std::string& topicDrop, const std::string& ns)
     {
-        m_tf_buffer = std::make_shared<tf2_ros::Buffer>(node->get_clock());
-        m_tf_listener = std::make_shared<tf2_ros::TransformListener>(*m_tf_buffer);
+      m_tfBuffer = std::make_shared<tf2_ros::Buffer>(node->get_clock());
+      m_tfListener = std::make_shared<tf2_ros::TransformListener>(*m_tfBuffer);
         m_subscriberDrop = node->create_subscription<vision_msgs::msg::Detection3DArray>(
             topicDrop,
             10,
@@ -22,7 +21,7 @@ namespace Camera
                 std::map<std::string, geometry_msgs::msg::Pose> boxesPoses;
                 UpdateObjectPoses(boxesPoses, ns + "/world", msg, { BoxNamePrefix });
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
-                m_allBoxesOnPallet = getAllBoxesOnPallet(boxesPoses);
+                m_allBoxesOnPallet = GetAllBoxesOnPallet(boxesPoses);
             });
         m_subscriberPickup = node->create_subscription<vision_msgs::msg::Detection3DArray>(
             topicPickup,
@@ -33,23 +32,23 @@ namespace Camera
                 std::map<std::string, geometry_msgs::msg::Pose> poses;
                 UpdateObjectPoses(poses, ns + "/world", msg, { BoxNamePrefix });
                 std::lock_guard<std::mutex> lock(m_locationsMutex);
-                m_closestBox = getClosestBox(poses);
+                m_closestBox = GetClosestBox(poses);
             });
     }
 
-    bool GroundTruthCamera::IsRobotPresent()
+    bool GroundTruthCamera::IsRobotPresent() const
     {
         return m_isRobotPresent;
     }
 
-    std::string GroundTruthCamera::GetRobotName()
+    std::string GroundTruthCamera::GetRobotName() const
     {
         return m_robotName;
     }
 
     void GroundTruthCamera::UpdateObjectPresence(
         vision_msgs::msg::Detection3DArray::SharedPtr msg,
-        std::vector<std::string> interestingObjectsPrefixes,
+        const std::vector<std::string>& interestingObjectsPrefixes,
         bool& objectPresence,
         std::string& objectName)
     {
@@ -81,7 +80,7 @@ namespace Camera
         std::map<std::string, geometry_msgs::msg::Pose>& objectPoses,
         const std::string& targetFrame,
         vision_msgs::msg::Detection3DArray::SharedPtr msg,
-        std::vector<std::string> interestingObjectsPrefixes)
+        const std::vector<std::string>& interestingObjectsPrefixes)
     {
         for (auto& detection : msg->detections)
         {
@@ -105,7 +104,7 @@ namespace Camera
             geometry_msgs::msg::TransformStamped transform;
             try
             {
-                transform = m_tf_buffer->lookupTransform(targetFrame, pose.header.frame_id, tf2::TimePointZero, tf2::Duration(0));
+                transform = m_tfBuffer->lookupTransform(targetFrame, pose.header.frame_id, tf2::TimePointZero, tf2::Duration(0));
             } catch (tf2::TransformException& ex)
             {
                 std::cerr << ex.what() << std::endl;
@@ -117,10 +116,10 @@ namespace Camera
         }
     }
 
-    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::getClosestBox(
-        const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses, Eigen::Vector3d origin)
+    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::GetClosestBox(
+        const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses, const Eigen::Vector3d& origin)
     {
-        std::map<float, geometry_msgs::msg::Pose> box_locations;
+        std::map<float, geometry_msgs::msg::Pose> boxLocations;
         auto it = objectPoses.begin();
         if (it == objectPoses.end())
         {
@@ -133,14 +132,14 @@ namespace Camera
             {
                 continue;
             }
-            Eigen::Vector3d box_location{ it->second.position.x, it->second.position.y, it->second.position.z };
-            float distance = std::abs(origin.x() - box_location.x());
-            box_locations[distance] = it->second;
+            Eigen::Vector3d boxLocation{ it->second.position.x, it->second.position.y, it->second.position.z };
+            float distance = static_cast<float>(std::abs(origin.x() - boxLocation.x()));
+            boxLocations[distance] = it->second;
         }
-        return std::optional<geometry_msgs::msg::Pose>(box_locations.begin()->second);
+        return std::optional<geometry_msgs::msg::Pose>(boxLocations.begin()->second);
     }
 
-    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::getAllBoxesOnPallet(
+    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::GetAllBoxesOnPallet(
         const std::map<std::string, geometry_msgs::msg::Pose>& objectPoses)
     {
         std::vector<geometry_msgs::msg::Pose> boxes;
@@ -161,7 +160,7 @@ namespace Camera
         return boxes;
     }
 
-    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::getObjectPose(std::string objectName)
+    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::GetObjectPose(const std::string& objectName) const
     {
         auto it = std::lower_bound(
             m_objectPoses.begin(),
@@ -174,7 +173,7 @@ namespace Camera
         if (it == m_objectPoses.end() || it->first.find(objectName) == std::string::npos)
         {
             std::cerr << objectName << " not found, detected objects: " << std::endl;
-            for (auto it = m_objectPoses.begin(); it != m_objectPoses.end(); ++it)
+            for (it = m_objectPoses.begin(); it != m_objectPoses.end(); ++it)
             {
                 std::cerr << it->first << std::endl;
             }
@@ -183,16 +182,15 @@ namespace Camera
         return std::optional<geometry_msgs::msg::Pose>(it->second);
     }
 
-    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::getClosestBox()
+    std::optional<geometry_msgs::msg::Pose> GroundTruthCamera::GetClosestBox()
     {
         std::lock_guard<std::mutex> lock(m_locationsMutex);
         return m_closestBox;
     }
 
-    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::getAllBoxesOnPallet()
+    std::vector<geometry_msgs::msg::Pose> GroundTruthCamera::GetAllBoxesOnPallet()
     {
         std::lock_guard<std::mutex> lock(m_locationsMutex);
         return m_allBoxesOnPallet;
     }
-
 } // namespace Camera

@@ -1,26 +1,22 @@
-
+#include "otto_deliberation/otto_autonomy.h"
 #include "otto_deliberation/robot_status.h"
 #include "otto_deliberation/tasks.h"
-#include <chrono>
-#include <functional>
 #include <lane_provider_msgs/srv/list_tracks.hpp>
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <otto_deliberation/otto_autonomy.h>
 #include <rclcpp/executor.hpp>
 #include <rclcpp/executors.hpp>
-#include <rclcpp/executors/multi_threaded_executor.hpp>
-#include <rclcpp/executors/single_threaded_executor.hpp>
-#include <rclcpp/node_options.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <std_msgs/msg/bool.hpp>
 #include <std_msgs/msg/string.hpp>
+
+#include <chrono>
+#include <functional>
 #include <string>
 #include <thread>
 
-
 //! Node that handles the deliberation of the Otto robot
 //! It allows to create a list of tasks that the robot will execute in sequence
-//! It also allows to lock the robot to a specific path communicating with orhcestrator
+//! It also allows to lock the robot to a specific path communicating with orchestrator
 //! It accepts following parameters:
 //! - assigned_lane: the name of the lane assigned to the robot
 //! - tasks: a list of tasks to be executed by the robot
@@ -50,9 +46,9 @@
 class OttoDeliberation
 {
 public:
-    OttoDeliberation(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lock_node)
+    OttoDeliberation(rclcpp::Node::SharedPtr node, rclcpp::Node::SharedPtr lockNode)
         : m_node(node)
-        , m_autonomy(node, lock_node)
+        , m_autonomy(node, lockNode)
     {
         RCLCPP_INFO(m_node->get_logger(), "Otto deliberation node starting");
         m_namespace = m_node->get_namespace();
@@ -61,65 +57,96 @@ public:
         m_deliberationStatePublisher = m_node->create_publisher<std_msgs::msg::String>("deliberation_state", 10);
     }
 
-    template<typename Container>
-    Container filterEmptyElements(const Container& container)
-    {
-        Container filteredContainer;
-        using T = typename Container::value_type;
-        std::copy_if(
-            container.begin(),
-            container.end(),
-            std::back_inserter(filteredContainer),
-            [](const T element)
-            {
-                return element != T();
-            });
-
-        return filteredContainer;
-    }
-
     bool Initialize()
     {
-        std::string assigned_lane_name = m_node->declare_parameter<std::string>("assigned_lane", "");
-        auto taskList = m_node->declare_parameter<std::vector<std::string>>("tasks", { "" });
-        auto lifterTasks = m_node->declare_parameter<std::vector<std::string>>("lifter_tasks", { "" });
-        auto dummyTasks = m_node->declare_parameter<std::vector<std::string>>("dummy_tasks", { "" });
-        auto blindTasks = m_node->declare_parameter<std::vector<std::string>>("blind_tasks", { "" });
-        auto blindTasksHighSpeed = m_node->declare_parameter<std::vector<std::string>>("blind_tasks_high_speed", { "" });
-        auto blindTasksReverse = m_node->declare_parameter<std::vector<std::string>>("blind_tasks_reverse", { "" });
-        auto cargoLoadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_load_tasks", { "" });
-        auto cargoUnloadTasks = m_node->declare_parameter<std::vector<std::string>>("cargo_unload_tasks", { "" });
-        auto taskAcquireLock = m_node->declare_parameter<std::vector<std::string>>("task_acquire_lock", { "" });
-        auto taskReleaseLock = m_node->declare_parameter<std::vector<std::string>>("task_release_lock", { "" });
+        const std::string assigned_lane_name = m_node->declare_parameter<std::string>("assigned_lane", "");
+        if (assigned_lane_name.empty())
+        {
+            RCLCPP_ERROR(m_node->get_logger(), "No assigned lane, terminating");
+            return false;
+        }
 
-        auto preTaskDelays = m_node->declare_parameter<std::vector<double>>("pre_task_delays", { 0.0 });
-        auto postTaskDelays = m_node->declare_parameter<std::vector<double>>("post_task_delays", { 0.0 });
-        auto loop = m_node->declare_parameter<bool>("loop", false);
         RobotTasks tasks;
+        tasks.m_loop = m_node->declare_parameter<bool>("loop", false);
+        tasks.m_tasks = PrepareNamedTaskList("tasks");
+        tasks.m_dummyTasks = PrepareNamedTaskSet("dummy_tasks");
+        tasks.m_lifterTasks = PrepareNamedTaskSet("lifter_tasks");
+        tasks.m_blindTasks = PrepareNamedTaskSet("blind_tasks");
+        tasks.m_blindTasksReverse = PrepareNamedTaskSet("blind_tasks_reverse");
+        tasks.m_cargoLoadTasks = PrepareNamedTaskSet("cargo_load_tasks");
+        tasks.m_cargoUnLoadTasks = PrepareNamedTaskSet("cargo_unload_tasks");
+        tasks.m_acquireLock = PrepareNamedTaskSet("task_acquire_lock");
+        tasks.m_releaseLock = PrepareNamedTaskSet("task_release_lock");
+        tasks.m_blindHighSpeed = PrepareNamedTaskSet("blind_tasks_high_speed");
 
+        if (!PrepareTaskDelays(tasks) || !PrepareTaskPaths(tasks, assigned_lane_name) || !tasks.ValidateTasks())
+        {
+            RCLCPP_ERROR(m_node->get_logger(), "Task list is invalid, terminating");
+            return false;
+        }
+
+        m_autonomy.SetLane(assigned_lane_name);
+        m_autonomy.SetTasks(tasks);
+
+        m_cargoStatusSubscriber = m_node->create_subscription<std_msgs::msg::Bool>(
+            m_namespace + "/cargo_status",
+            1,
+            [&](std_msgs::msg::Bool b)
+            {
+                m_cargoLoaded = b.data;
+            });
+
+        return true;
+    }
+
+private:
+    void TimerCallback()
+    { // Get tasks, updates etc. here
+        RobotStatus robotStatus = m_autonomy.GetCurrentStatus();
+        const bool robotLoaded = robotStatus.m_cargoStatus == RobotCargoStatus::CARGO_LOADED;
+        if (m_cargoLoaded != robotLoaded)
+        { // Cargo status changed - notify
+            m_autonomy.NotifyCargoChanged(m_cargoLoaded);
+        }
+
+        m_autonomy.Update();
+
+        std_msgs::msg::String msgDescription;
+        msgDescription.data = m_autonomy.GetCurrentOperationDescription();
+        m_deliberationStatusDescriptionPublisher->publish(msgDescription);
+
+        std_msgs::msg::String msgTaskName;
+        msgTaskName.data = m_autonomy.GetCurrentTaskName();
+        m_deliberationStatePublisher->publish(msgTaskName);
+    }
+
+    std::vector<std::string> PrepareNamedTaskList(const std::string& taskListName)
+    {
         // we need to filter out empty elements from the task lists to overcome
         // https://github.com/ros2/rclcpp/issues/1955
-        const auto dummyTasksFiltered = filterEmptyElements(dummyTasks);
-        const auto lifterTasksFiltered = filterEmptyElements(lifterTasks);
-        const auto blindTasksFiltered = filterEmptyElements(blindTasks);
-        const auto blindTasksReverseFiltered = filterEmptyElements(blindTasksReverse);
-        const auto cargoLoadTasksFiltered = filterEmptyElements(cargoLoadTasks);
-        const auto cargoUnloadTasksFiltered = filterEmptyElements(cargoUnloadTasks);
-        const auto taskAcquireLockFiltered = filterEmptyElements(taskAcquireLock);
-        const auto taskReleaseLockFiltered = filterEmptyElements(taskReleaseLock);
-        const auto blindTasksHighSpeedFiltered = filterEmptyElements(blindTasksHighSpeed);
+        auto taskList = m_node->declare_parameter<std::vector<std::string>>(taskListName, { "" });
+        taskList.erase(
+            std::remove_if(
+                taskList.begin(),
+                taskList.end(),
+                [](const auto& taskName)
+                {
+                    return taskName.empty();
+                }),
+            taskList.end());
+        return taskList;
+    }
 
-        tasks.m_loop = loop;
-        tasks.m_tasks = filterEmptyElements(taskList);
-        tasks.m_dummyTasks = RobotTaskSet(dummyTasksFiltered.begin(), dummyTasksFiltered.end());
-        tasks.m_lifterTasks = RobotTaskSet(lifterTasksFiltered.begin(), lifterTasksFiltered.end());
-        tasks.m_blindTasks = RobotTaskSet(blindTasksFiltered.begin(), blindTasksFiltered.end());
-        tasks.m_blindTasksReverse = RobotTaskSet(blindTasksReverseFiltered.begin(), blindTasksReverseFiltered.end());
-        tasks.m_cargoLoadTasks = RobotTaskSet(cargoLoadTasksFiltered.begin(), cargoLoadTasksFiltered.end());
-        tasks.m_cargoUnLoadTasks = RobotTaskSet(cargoUnloadTasksFiltered.begin(), cargoUnloadTasksFiltered.end());
-        tasks.m_acquireLock = RobotTaskSet(taskAcquireLockFiltered.begin(), taskAcquireLockFiltered.end());
-        tasks.m_releaseLock = RobotTaskSet(taskReleaseLockFiltered.begin(), taskReleaseLockFiltered.end());
-        tasks.m_blindHighSpeed = RobotTaskSet(blindTasksHighSpeedFiltered.begin(), blindTasksHighSpeedFiltered.end());
+    RobotTaskSet PrepareNamedTaskSet(const std::string& taskSetName)
+    {
+        const auto taskList = PrepareNamedTaskList(taskSetName);
+        return { taskList.begin(), taskList.end() };
+    }
+
+    bool PrepareTaskDelays(RobotTasks& tasks)
+    {
+        const auto preTaskDelays = m_node->declare_parameter<std::vector<double>>("pre_task_delays", { 0.0 });
+        const auto postTaskDelays = m_node->declare_parameter<std::vector<double>>("post_task_delays", { 0.0 });
 
         if (preTaskDelays.size() != tasks.m_tasks.size())
         {
@@ -147,13 +174,12 @@ public:
             }
         }
 
-        if (assigned_lane_name.empty())
-        {
-            RCLCPP_ERROR(m_node->get_logger(), "No assigned lane, terminating");
-            return false;
-        }
+        return true;
+    }
 
-        std::string lane_track_service = m_node->declare_parameter<std::string>("lane_track_service", "/get_lanes_and_paths");
+    bool PrepareTaskPaths(RobotTasks& tasks, const std::string& assigned_lane_name)
+    {
+        const std::string lane_track_service = m_node->declare_parameter<std::string>("lane_track_service", "/get_lanes_and_paths");
         auto laneTracksClient = m_node->create_client<lane_provider_msgs::srv::ListTracks>(lane_track_service);
         if (!laneTracksClient->wait_for_service(std::chrono::seconds(30)))
         {
@@ -169,7 +195,7 @@ public:
             RCLCPP_ERROR(m_node->get_logger(), "Failed to call service %s", lane_track_service.c_str());
             return false;
         }
-        auto lane_paths = lane_track_response_future.get()->lane_paths;
+        const auto lane_paths = lane_track_response_future.get()->lane_paths;
         if (lane_paths.empty())
         {
             RCLCPP_ERROR(m_node->get_logger(), "No paths returned for lane %s", assigned_lane_name.c_str());
@@ -183,61 +209,20 @@ public:
             return false;
         }
 
-        std::unordered_map<RobotTaskKey, NavPathPtr> namedPathsMap;
         for (size_t i = 0; i < assigned_lane.path_names.size(); ++i)
         {
-            if (namedPathsMap.find(assigned_lane.path_names[i]) != namedPathsMap.end())
+            if (tasks.m_taskPaths.find(assigned_lane.path_names[i]) != tasks.m_taskPaths.end())
             {
                 RCLCPP_ERROR(
                     m_node->get_logger(),
-                    "Duplicate path name %s specified for lane %s",
+                    "Duplicate path name %s specified for lane %s - assigning new Nav path",
                     assigned_lane.path_names[i].c_str(),
                     assigned_lane_name.c_str());
             }
-            namedPathsMap[assigned_lane.path_names[i]] = std::make_shared<NavPath>(std::move(assigned_lane.lane_paths[i]));
+            tasks.m_taskPaths[assigned_lane.path_names[i]] = std::make_shared<NavPath>(std::move(assigned_lane.lane_paths[i]));
         }
-
-        m_autonomy.SetLane(assigned_lane_name);
-
-        m_cargoStatusSubscriber = m_node->create_subscription<std_msgs::msg::Bool>(
-            m_namespace + "/cargo_status",
-            1,
-            [&](std_msgs::msg::Bool b)
-            {
-                m_cargoLoaded = b.data;
-            });
-
-        tasks.m_taskPaths = namedPathsMap;
-        if (!tasks.ValidateTasks())
-        {
-            RCLCPP_ERROR(m_node->get_logger(), "Task list is invalid, terminating");
-            return false;
-        }
-
-        m_autonomy.SetTasks(tasks);
 
         return true;
-    }
-
-private:
-    void TimerCallback()
-    { // Get tasks, updates etc. here
-        RobotStatus robotStatus = m_autonomy.GetCurrentStatus();
-        bool robotLoaded = robotStatus.m_cargoStatus == RobotCargoStatus::CARGO_LOADED;
-        if (m_cargoLoaded != robotLoaded)
-        { // Cargo status changed - notify
-            m_autonomy.NotifyCargoChanged(m_cargoLoaded);
-        }
-
-        m_autonomy.Update();
-
-        std_msgs::msg::String msgDescription;
-        msgDescription.data = m_autonomy.GetCurrentOperationDescription();
-        m_deliberationStatusDescriptionPublisher->publish(msgDescription);
-
-        std_msgs::msg::String msgTaskName;
-        msgTaskName.data = m_autonomy.GetCurrentTaskName();
-        m_deliberationStatePublisher->publish(msgTaskName);
     }
 
     rclcpp::Node::SharedPtr m_node;
@@ -253,7 +238,6 @@ private:
 int main(int argc, char** argv)
 {
     rclcpp::init(argc, argv);
-    rclcpp::NodeOptions otto_node_options;
     auto otto_node = std::make_shared<rclcpp::Node>("otto_deliberation_node");
     auto otto_lock_node = std::make_shared<rclcpp::Node>("otto_lock_node");
     OttoDeliberation otto_deliberation(otto_node, otto_lock_node);

@@ -2,12 +2,12 @@
     "gem_name": "ROSCon2023Demo",
     "version": "1.0.0",
     "display_name": "ROSCon2023Demo",
-    "license": "What license ROSCon2023Demo uses goes here: i.e. Apache-2.0 or MIT",
-    "license_url": "Link to the license web site goes here: i.e. https://opensource.org/licenses/Apache-2.0 Or https://opensource.org/licenses/MIT",
-    "origin": "The name of the originator goes here. i.e. XYZ Inc.",
-    "origin_url": "The primary repo for ROSCon2023Demo goes here: i.e. http://www.mydomain.com",
-    "type": "",
-    "summary": "A short description of ROSCon2023Demo.",
+    "license": "Apache-2.0",
+    "license_url": "https://opensource.org/licenses/Apache-2.0",
+    "origin": "RobotecAI",
+    "origin_url": "https://robotec.ai",
+    "type": "Code",
+    "summary": "Multi-robot warehouse demo presented at ROSCon2023.",
     "canonical_tags": [
         "Gem"
     ],
@@ -15,15 +15,21 @@
         "ROSCon2023Demo"
     ],
     "platforms": [
-        "${Platforms}"
+        "Linux"
     ],
     "icon_path": "preview.png",
-    "requirements": "",
-    "documentation_url": "",
+    "requirements": "This gem requires ROS2, HumanWorker, URRobots, WarehouseAssets and WarehouseAutomation assets.",
+    "documentation_url": "https://github.com/RobotecAI/ROSCon2023Demo",
     "dependencies": [
+        "ROS2", 
+        "HumanWorker", 
+        "URRobots", 
+        "WarehouseAssets",
+        "WarehouseAutomation"
     ],
     "compatible_engines": [
     ],
     "engine_api_dependencies":[
-    ]
+    ],
+    "repo_uri": "https://github.com/RobotecAI/ROSCon2023Demo"
 }

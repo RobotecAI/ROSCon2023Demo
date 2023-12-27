@@ -1,5 +1,7 @@
 #pragma once
+
 #include <Eigen/Dense>
+
 namespace Palletization::Constants
 {
     const Eigen::Vector3d BoxDimension{ 0.3, 0.3, 0.2 };
@@ -26,15 +28,11 @@ namespace Palletization::Constants
     constexpr char PalletNamePrefix[] = "EuroPallet";
     constexpr char PickedBoxName[] = "PickedBox";
 
-    const std::vector<Eigen::Vector3f> Pattern{
-            //    { -1.f, 0.5, 1.f }, { 0.f, 0.5f, 1.f }, { 1.f, 0.5f, 1.f },{ -1.f, -0.5f, 1.f }, { 0.f, -0.5f, 1.f }, { 1.f,
-            //    -0.5f, 1.f },
-            //    { -1.f, 0.5, 2.f }, { 0.f, 0.5f, 2.f }, { 1.f, 0.5f, 2.f }, { -1.f, -0.5f, 2.f }, { 0.f, -0.5f, 2.f }, { 1.f,
-            //    -0.5f, 2.f },
+    const std::vector<Eigen::Vector3f> Pattern
+        {
             { -1.0f, 0.5f, 1.f },  { 0.0f, 0.5f, 1.f },  { 1.0f, 0.5f, 1.f },  { -1.0f, -0.5f, 1.f }, { 0.0f, -0.5f, 1.f },
             { 1.0f, -0.5f, 1.f },  { -1.0f, 0.5f, 2.f }, { 0.0f, 0.5f, 2.f },  { 1.0f, 0.5f, 2.f },   { -1.0f, -0.5f, 2.f },
             { 0.0f, -0.5f, 2.f },  { 1.0f, -0.5f, 2.f }, { -1.0f, 0.5f, 3.f }, { 0.0f, 0.5f, 3.f },   { 1.0f, 0.5f, 3.f },
             { -1.0f, -0.5f, 3.f }, { 0.0f, -0.5f, 3.f }, { 1.0f, -0.5f, 3.f },
-
-    };
+        };
 }

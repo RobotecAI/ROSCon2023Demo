@@ -162,6 +162,88 @@ fleet:
       z: 0.2
 
 
+########################
+
+  - robot_name: otto600
+    robot_namespace: otto_31
+    lane: Line21
+    tasks_config_file: config/otto600_tasks_12_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -32.0
+      y: 32.0
+      z: 0.1
+
+  - robot_name: otto600
+    robot_namespace: otto_32
+    lane: Line21
+    tasks_config_file: config/otto600_tasks_12_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -30.0
+      y: 32.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_33
+    lane: Line22
+    tasks_config_file: config/otto600_tasks_12_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -28.0
+      y: 32.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_34
+    lane: Line22
+    tasks_config_file: config/otto600_tasks_12_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -26.0
+      y: 32.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_35
+    lane: Line23
+    tasks_config_file: config/otto600_tasks_34_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -32.0
+      y: 57.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_36
+    lane: Line23
+    tasks_config_file: config/otto600_tasks_34_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -30.0
+      y: 57.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_37
+    lane: Line24
+    tasks_config_file: config/otto600_tasks_34_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -28.0
+      y: 57.0
+      z: 0.2
+
+  - robot_name: otto600
+    robot_namespace: otto_38
+    lane: Line24
+    tasks_config_file: config/otto600_tasks_34_lane3.yaml
+    nav2_param_file: otto600Params.yaml
+    position:
+      x: -26.0
+      y: 57.0
+      z: 0.2
+
   # - robot_name: otto1500
   #   robot_namespace: otto_5
   #   lane: OTTO1500
@@ -174,15 +256,15 @@ fleet:
 
 arms:
   - namespace: ur1
-    num_of_boxes: 6
+    num_of_boxes: 18
     launch_rviz: false
 
   - namespace: ur2
-    num_of_boxes: 6
+    num_of_boxes: 18
     launch_rviz: false
 
   - namespace: ur3
-    num_of_boxes: 6
+    num_of_boxes: 18
     launch_rviz: false
 
   - namespace: ur4
@@ -202,6 +284,22 @@ arms:
     launch_rviz: false
 
   - namespace: ur8
+    num_of_boxes: 18
+    launch_rviz: false
+
+  - namespace: ur9
+    num_of_boxes: 18
+    launch_rviz: false
+
+  - namespace: ur10
+    num_of_boxes: 18
+    launch_rviz: false
+
+  - namespace: ur11
+    num_of_boxes: 18
+    launch_rviz: false
+
+  - namespace: ur12
     num_of_boxes: 18
     launch_rviz: false
 

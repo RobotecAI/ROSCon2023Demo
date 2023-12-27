@@ -597,7 +597,7 @@
                                         "guid": "{B51DFA85-1FF8-5970-A16A-ADCFD0F8D7AF}",
                                         "subId": 2545626186
                                     },
-                                    "assetHint": "assets/importer/otto1500_lifting_platform.spawnable"
+                                    "assetHint": "otto1500/otto1500_lifting_platform.spawnable"
                                 },
                                 "otto600": {
                                     "assetId": {
@@ -1359,7 +1359,8 @@
                                 },
                                 "assetHint": "assets/factory/box2.spawnable"
                             },
-                            "MaxBoxCount": 6,
+                            "MaxBoxCount": 4,
+                            "BoxSpawnInterval": 3.0,
                             "BarrierRegionEntityId": "Entity_[288031725117877]",
                             "DespawnRegionEntityId": "Entity_[1035527589276214]"
                         }
@@ -3034,63 +3035,8 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[9897043657324]/Components/EditorRecastNavigationMeshComponent/Controller/Configuration/Debug Draw",
-                    "value": false
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[9897043657324]/Components/EditorRecastNavigationMeshComponent/Controller/Configuration/Editor Preview",
-                    "value": false
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[24377731236726]/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Debug Mode",
-                    "value": false
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[24377731236726]/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/EditorAnimGraphComponent/ParameterDefaults/Parameters/0/name",
-                    "value": "Speed"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[24377731236726]/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/EditorAnimGraphComponent/ParameterDefaults/Parameters/0/value",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[5523627744235]/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/EditorAnimGraphComponent/ParameterDefaults/Parameters/0/name",
-                    "value": "Speed"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[5523627744235]/Instances/Instance_[2744578779163]/Entities/Entity_[126252750932242]/Components/EditorAnimGraphComponent/ParameterDefaults/Parameters/0/value",
-                    "value": 0.0
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Instances/Instance_[5523627744235]/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Debug Mode",
-                    "value": false
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[5523627744235]/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/9",
-                    "value": "../Entity_[9858388951660]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[5523627744235]/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/10",
-                    "value": "../Entity_[9888453722732]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Instances/Instance_[5523627744235]/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/11",
-                    "value": "../Entity_[9866978886252]"
                 }
             ]
         }

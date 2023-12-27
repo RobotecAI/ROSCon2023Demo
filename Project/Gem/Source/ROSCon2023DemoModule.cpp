@@ -7,18 +7,11 @@
 #include "Navigation/SplinePosesPublisher.h"
 #include "ROSCon2023DemoSystemComponent.h"
 #include "Scripting/BoxSpawner.h"
-#include "Scripting/LifterController.h"
 #include "Scripting/ObjectDetectionComponent.h"
 #include "Scripting/PayloadDespawnerComponent.h"
 #include "Scripting/ScriptSpawnLevelComponent.h"
 #include "Vision/IdealVisionSystem.h"
-#include <HumanNpc/AnimGraphInputProviderComponent.h>
-#include <HumanNpc/NavigationMeshOrchestratorComponent.h>
-#include <HumanNpc/NpcNavigatorComponent.h>
-#include <HumanNpc/WaypointComponent.h>
-#include <HumanNpc/WaypointSelectorComponent.h>
 #include <Scripting/FoilWrapperController.h>
-#include <Lights/LightController.h>
 namespace ROSCon2023Demo
 {
     class ROSCon2023DemoModule : public AZ::Module
@@ -40,17 +33,10 @@ namespace ROSCon2023Demo
                     ROS2::Demo::SplinePosesPublisher::CreateDescriptor(),
                     ROS2::Demo::LaneComponent::CreateDescriptor(),
                     ROS2::Demo::LanesServiceComponent::CreateDescriptor(),
-                    ROS2::Demo::AnimGraphInputProviderComponent::CreateDescriptor(),
-                    ROS2::Demo::NpcNavigatorComponent::CreateDescriptor(),
-                    ROS2::Demo::NavigationMeshOrchestratorComponent::CreateDescriptor(),
-                    ROS2::Demo::WaypointComponent::CreateDescriptor(),
-                    ROS2::Demo::WaypointSelectorComponent::CreateDescriptor(),
                     ROS2::Demo::FoilWrapper::CreateDescriptor(),
                     ROS2::Demo::ScriptSpawnLevelComponent::CreateDescriptor(),
-                    ROS2::Demo::LifterControllerComponent::CreateDescriptor(),
                     ROS2::Demo::PayloadDespawnerComponent::CreateDescriptor(),
                     ROS2::Demo::ObjectDetectionComponent::CreateDescriptor(),
-                    ROS2::Demo::LightController::CreateDescriptor(),
                 });
         }
 

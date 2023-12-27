@@ -1,15 +1,12 @@
+#pragma once
 
 #include <geometry_msgs/msg/pose_stamped.h>
-#include <map>
 #include <nav_msgs/msg/detail/path__struct.hpp>
-#include <optional>
-#include <queue>
-#include <string>
-#include <string_view>
-#include <unordered_set>
-#include <unordered_map>
 
-#pragma once
+#include <optional>
+#include <string>
+#include <unordered_map>
+#include <unordered_set>
 
 using NavPath = nav_msgs::msg::Path;
 using NavPathPtr = std::shared_ptr<NavPath>;
@@ -39,37 +36,21 @@ struct Task
 //! Robot tasks container class
 class RobotTasks
 {
-private:
-    mutable RobotTaskSet m_validTasks; //!< Tasks that are valid, accelerates validation
-    mutable std::unordered_map<RobotTaskKey, RobotTaskKey> m_taskTransitions; //!< Map of task transitions, accelerates transition lookup
-public:
-    bool m_loop = false; //!< Whether to loop the tasks
-    RobotTaskList m_tasks; //!< Complete list of tasks
-    RobotTaskSet m_lifterTasks; //!< Tasks that need lifter in lifted position
-    RobotTaskSet m_dummyTasks; //!< Tasks that has robot in dummy mode
-    RobotTaskSet m_blindTasks; //!< Tasks that are blind (use blind path follower instead nav stack)
-    RobotTaskSet m_blindTasksReverse; //!< Tasks that are blind and need to be reversed
-    RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo m_taskPaths to continue
-    RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
-    RobotTaskSet m_acquireLock; //!< Tasks that needs acquire a lock
-    RobotTaskSet m_releaseLock; //!< Tasks that releases a lock
-    RobotTaskSet m_blindHighSpeed; //!< Tasks that are high speed blind
-    std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
-    std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
-    std::unordered_map<RobotTaskKey, NavPathPtr> m_taskPaths; //!< Geometry of tasks
-
 public:
     //! Print list of tasks
-    void PrintTasks();
+    void PrintTasks() const;
 
     //! Validate that all taks are defined correctly
     //! @return true if all tasks were defined correctly
     bool ValidateTasks() const;
 
     //! Get the list of tasks
+    //! @return list of tasks.
     const RobotTaskList& GetTasks() const;
 
     //! Get if task is defined in the RobotTasks
+    //! @param taskName current task name
+    //! @return whether task is valid
     bool IsTaskValid(const RobotTaskKey& taskName) const;
 
     //! Get next task name
@@ -86,4 +67,27 @@ public:
     //! @param taskName task name
     //! @return task definition, emtpy task if not found
     Task ConstructTask(const RobotTaskKey& taskKey) const;
+
+    bool m_loop = false; //!< Whether to loop the tasks
+    RobotTaskList m_tasks; //!< Complete list of tasks
+    RobotTaskSet m_lifterTasks; //!< Tasks that need lifter in lifted position
+    RobotTaskSet m_dummyTasks; //!< Tasks that has robot in dummy mode
+    RobotTaskSet m_blindTasks; //!< Tasks that are blind (use blind path follower instead nav stack)
+    RobotTaskSet m_blindTasksReverse; //!< Tasks that are blind and need to be reversed
+    RobotTaskSet m_cargoLoadTasks; //!< Tasks that need to have cargo m_taskPaths to continue
+    RobotTaskSet m_cargoUnLoadTasks; //!< Tasks that need to have cargo un loaded to continue
+    RobotTaskSet m_acquireLock; //!< Tasks that needs acquire a lock
+    RobotTaskSet m_releaseLock; //!< Tasks that releases a lock
+    RobotTaskSet m_blindHighSpeed; //!< Tasks that are high speed blind
+    std::unordered_map<RobotTaskKey, double> m_postTaskDelays; //!< Tasks that need delay to start
+    std::unordered_map<RobotTaskKey, double> m_preTaskDelay; //!< Tasks that need delay to finish
+    std::unordered_map<RobotTaskKey, NavPathPtr> m_taskPaths; //!< Geometry of tasks
+
+private:
+    bool ValidateTaskSet(const RobotTaskSet& taskSet, const std::string& taskSetName) const;
+    bool ValidateTaskDelays() const;
+    bool ValidateTaskPaths() const;
+
+    mutable RobotTaskSet m_validTasks; //!< Tasks that are valid, accelerates validation
+    mutable std::unordered_map<RobotTaskKey, RobotTaskKey> m_taskTransitions; //!< Map of task transitions, accelerates transition lookup
 };

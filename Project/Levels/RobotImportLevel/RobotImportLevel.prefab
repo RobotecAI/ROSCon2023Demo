@@ -20,7 +20,8 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
-                    "Entity_[4189935783732]"
+                    "Entity_[4189935783732]",
+                    "Instance_[436112606235]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -989,7 +990,12 @@
                 },
                 "EditorCameraComponent": {
                     "$type": "{CA11DA46-29FF-4083-B5F6-E02C3A8C3A3D} EditorCameraComponent",
-                    "Id": 17794084959949726180
+                    "Id": 17794084959949726180,
+                    "Controller": {
+                        "Configuration": {
+                            "Field of View": 60.0
+                        }
+                    }
                 },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -1044,18 +1050,60 @@
                     "Parent Entity": "Entity_[1176639161715]",
                     "Transform Data": {
                         "Translate": [
-                            4.654199600219727,
-                            -0.9950499534606934,
-                            1.375063419342041
+                            1.4485511779785156,
+                            -0.9963974952697754,
+                            1.8278805017471313
                         ],
                         "Rotate": [
-                            -4.726922035217285,
-                            7.882526874542236,
-                            121.08724975585938
+                            12.356194496154785,
+                            -0.23780588805675507,
+                            178.91456604003906
                         ]
                     }
                 }
             }
+        }
+    },
+    "Instances": {
+        "Instance_[436112606235]": {
+            "Source": "UR10/UR10.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 1.81070876121521
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": 2.6639058589935303
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.7113151550292969
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/0",
+                    "value": 1.81070876121521
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/1",
+                    "value": 2.6639058589935303
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Position/2",
+                    "value": -0.7113151550292969
+                }
+            ]
         }
     }
 }

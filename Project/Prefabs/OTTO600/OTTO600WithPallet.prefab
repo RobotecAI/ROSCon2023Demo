@@ -144,12 +144,12 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace Strategy",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace Strategy",
                     "value": 3
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameComponent/m_template/Namespace Configuration/Namespace",
+                    "path": "/Entities/Entity_[376437113355]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace",
                     "value": "otto_1"
                 },
                 {
@@ -424,21 +424,6 @@
                                     }
                                 }
                             },
-                            "ROS2FrameComponent": {
-                                "$type": "GenericComponentWrapper",
-                                "Id": 1859594132773617675,
-                                "m_template": {
-                                    "$type": "ROS2FrameComponent",
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "sensor_frame",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
-                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 15485897771088290664,
@@ -466,6 +451,20 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
+                            },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 1859594132773617675,
+                                "ROS2FrameConfiguration": {
+                                    "Id": 0,
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "sensor_frame",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
                             }
                         },
                         "IsRuntimeActive": true

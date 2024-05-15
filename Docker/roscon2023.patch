@@ -1,0 +1,45 @@
+diff --git a/ros2_ws/setup_submodules.bash b/ros2_ws/setup_submodules.bash
+index 2e278c0..5c03a3d 100755
+--- a/ros2_ws/setup_submodules.bash
++++ b/ros2_ws/setup_submodules.bash
+@@ -17,6 +17,14 @@ then
+ 	# submodule init and update are sufficient for humble
+ 	git submodule init
+ 	git submodule update
++	cd ./src/Universal_Robots_ROS2_Driver/
++	git checkout humble
++	if [ $? -ne 0 ]
++	then
++		echo "Failed to checkout ROS 2 iron branch."
++		exit 1
++	fi
++
+ elif [ -z "$ROS_DISTRO" ]
+ then
+ 	echo "ROS 2 distribution not found."
+diff --git a/Project/Gem/gem.json b/Project/Gem/gem.json
+index 296fe3f..be3d898 100644
+--- a/Project/Gem/gem.json
++++ b/Project/Gem/gem.json
+@@ -21,6 +21,8 @@
+     "requirements": "This gem requires ROS2, HumanWorker, URRobots, WarehouseAssets and WarehouseAutomation assets.",
+     "documentation_url": "https://github.com/RobotecAI/ROSCon2023Demo",
+     "dependencies": [
++        "PhysX5",
++        "PhysX5Debug",
+         "ROS2", 
+         "HumanWorker", 
+         "URRobots", 
+diff --git a/Project/project.json b/Project/project.json
+index bbccc36..9ab4ff1 100644
+--- a/Project/project.json
++++ b/Project/project.json
+@@ -22,7 +22,7 @@
+     "gem_names": [
+         "HumanWorker==2.0.0",
+         "OTTORobots==2.0.0",
+-        "ROS2==3.1.0",
++        "ROS2>=3.1.0",
+         "URRobots==2.0.0",
+         "WarehouseAssets",
+         "WarehouseAutomation"

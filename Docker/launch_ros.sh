@@ -8,7 +8,10 @@
 
 . /opt/ros/${ROS_DISTRO}/setup.sh
 
-cd $ROSCON_SIMULATION_HOME
-./ROSCon2023Demo.GameLauncher -bg_connectToAssetProcessor=0
+cd $ROSCON_DEMO_ROOT/ros2_ws
+. ./install/setup.sh
+
+cd $ROSCON_DEMO_ROOT/ros2_ws
+ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 
 exit 0

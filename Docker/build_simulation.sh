@@ -6,6 +6,18 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 
+# Validate the ROCSON_DEMO_LEVEL value before starting the longer git processes
+if [ "$ROCSON_DEMO_LEVEL" == 'level1' ]
+then
+    DEMO_LEVEL=demolevel1
+elif [ "$ROCSON_DEMO_LEVEL" == 'level2' ]
+then    
+    DEMO_LEVEL=demolevel2
+else
+    echo "Invalid 'level' argument '$ROCSON_DEMO_LEVEL'. Must be level1 or level2."
+    exit 1
+fi
+
 # Initialize ROS
 . /opt/ros/${ROS_DISTRO}/setup.sh
 
@@ -60,7 +72,7 @@ fi
 ############################################################### 
 # Clone and register the ROSCON Demo Human Worker Gem
 ###############################################################
-echo "Cloning the ROSCON Demo Human Worker Gem"
+echo "Cloning the RosCon2023 Demo Human Worker Gem"
 git clone --single-branch -b $ROSCON_DEMO_HUMAN_WORKER_BRANCH $ROSCON_DEMO_HUMAN_WORKER_REPO $ROSCON_DEMO_HUMAN_WORKER_ROOT && \
     git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT lfs install && \
     git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT lfs pull && \
@@ -130,8 +142,7 @@ echo "Cloning the RosCon2023Demo project"
 git clone --single-branch -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
     git -C $ROSCON_DEMO_ROOT lfs install && \
     git -C $ROSCON_DEMO_ROOT lfs pull && \
-    git -C $ROSCON_DEMO_ROOT reset --hard $ROSCON_DEMO_COMMIT && \
-    git -C $ROSCON_DEMO_ROOT apply -v $WORKSPACE/roscon2023.patch
+    git -C $ROSCON_DEMO_ROOT reset --hard $ROSCON_DEMO_COMMIT
 if [ $? -ne 0 ]
 then
     echo "Error cloning RosCon2023Demo project $ROSCON_DEMO_REPO"
@@ -144,6 +155,29 @@ then
     echo "Error registering the RosCon2023Demo Project"
     exit 1
 fi
+
+
+###############################################################################
+# Track the git commits from all the repos
+###############################################################################
+echo -e "\n\
+Repository                        | Commit \n\
+----------------------------------+-----------------------------------------\n\
+o3de                              | $O3DE_REPO/tree/$(git -C $O3DE_ROOT rev-parse HEAD)\n\
+o3de-extras                       | $O3DE_EXTRAS_REPO/tree/$(git -C $O3DE_EXTRAS_ROOT rev-parse HEAD) ) \n\
+RosCon2023 Demo Human Worker Gem  | $ROSCON_DEMO_HUMAN_WORKER_REPO/tree/$(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse HEAD) ) \n\
+RosCon2023 UR Robots Gem          | $ROSCON_DEMO_UR_ROBOTS_REPO/tree/$(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse HEAD) ) \n\
+RosCon2023 OTTO Robots Gem        | $ROSCON_DEMO_OTTO_ROBOTS_REPO/tree/$(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse HEAD) ) \n\
+RosCon2023Demo Project            | $ROSCON_DEMO_REPO/tree/$(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse HEAD) ) \n\
+\n\
+" >> $WORKSPACE/git_commit.txt
+
+
+###############################################################
+# Generate the autoexec.cfg based on the selected level
+###############################################################
+echo -e "LoadLevel levels/$DEMO_LEVEL/$DEMO_LEVEL.spawnable\n\
+r_displayInfo 0\n" > $ROSCON_DEMO_PROJECT/autoexec.cfg
 
 ###############################################################
 # Build and install the additional ros2 packages and drivers
@@ -208,18 +242,20 @@ mkdir -p $ROSCON_SIMULATION_HOME/Cache/linux
 # Generate the asset lists file for the game
 pushd $ROSCON_DEMO_PROJECT/build/tools/bin/profile
 
+echo "Creating the game assetList ..."
 ./AssetBundlerBatch assetLists \
          --assetListFile $ROSCON_DEMO_PROJECT/build/bundles/game_linux.assetList \
          --platform linux \
          --project-path $ROSCON_DEMO_PROJECT \
-         --seedListFile $WORKSPACE/RosConDemoSeedList.seed \
+         --addSeed levels/$DEMO_LEVEL/$DEMO_LEVEL.spawnable \
          --allowOverwrites
 if [ $? -ne 0 ]
 then
-    echo "Error generating asset list from $WORKSPACE/RosConDemoSeedList.seed"
+    echo "Error generating asset list from levels/$DEMO_LEVEL/$DEMO_LEVEL.spawnable"
     exit 1
 fi
 
+echo "Creating the engine assetList ..."
 ./AssetBundlerBatch assetLists \
          --assetListFile $ROSCON_DEMO_PROJECT/build/bundles/engine_linux.assetList \
          --platform linux \
@@ -232,6 +268,7 @@ then
     exit 1
 fi
 
+echo "Creating the game asset bundle (pak) ..."
 ./AssetBundlerBatch bundles \
         --maxSize 2048 \
         --platform linux \
@@ -245,6 +282,7 @@ then
     exit 1
 fi
              
+echo "Creating the engine asset bundle (pak) ..."
 ./AssetBundlerBatch bundles \
         --maxSize 2048 \
         --platform linux \

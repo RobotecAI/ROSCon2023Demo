@@ -21,7 +21,7 @@ then
 	git checkout humble
 	if [ $? -ne 0 ]
 	then
-		echo "Failed to checkout ROS 2 iron branch."
+		echo "Failed to checkout ROS 2 humble branch."
 		exit 1
 	fi
 

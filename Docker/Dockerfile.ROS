@@ -17,12 +17,13 @@ WORKDIR $WORKSPACE
 ARG ROSCON_DEMO_REPO=https://github.com/RobotecAI/ROSCon2023Demo.git
 ARG ROSCON_DEMO_BRANCH=development
 ARG ROSCON_DEMO_COMMIT=HEAD
-ARG ROCSON_DEMO_LEVEL=level1
+ARG ROSCON_DEMO_LARGE_SCALE=0
 
 # ROSConDemo Environment Variables
 ENV ROSCON_DEMO_REPO=$ROSCON_DEMO_REPO
 ENV ROSCON_DEMO_BRANCH=$ROSCON_DEMO_BRANCH
 ENV ROSCON_DEMO_COMMIT=$ROSCON_DEMO_COMMIT
+ENV ROSCON_DEMO_LARGE_SCALE=$ROSCON_DEMO_LARGE_SCALE
 
 ENV ROSCON_DEMO_ROOT=$WORKSPACE/ROSCon2023Demo
 ENV ROSCON_DEMO_PROJECT=$ROSCON_DEMO_ROOT/Project
@@ -43,8 +44,11 @@ RUN apt-get update \
 # Install the required ubuntu packages
 RUN apt-get update \
     && apt-get install -y \
+            git \
+            git-lfs \
             python3-pip \
             software-properties-common \
+            screen \
             ros-${ROS_DISTRO}-ackermann-msgs \
             ros-${ROS_DISTRO}-control-toolbox \
             ros-${ROS_DISTRO}-nav-msgs \
@@ -74,9 +78,13 @@ ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
 COPY build_ros.sh $WORKSPACE/
 COPY launch_ros.sh $WORKSPACE/
+COPY launch_ros_fleet.sh $WORKSPACE/
+COPY roscon2023_large_cyclone_config.xml $WORKSPACE/
 
 RUN cd $WORKSPACE \
-    && ./build_ros.sh
+    && ./build_ros.sh \
+    && rm build_ros.sh \
+    && if [ $ROSCON_DEMO_LARGE_SCALE -eq 0 ];then rm launch_ros_fleet.sh;fi
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all

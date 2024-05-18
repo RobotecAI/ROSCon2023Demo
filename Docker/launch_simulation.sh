@@ -8,7 +8,13 @@
 
 . /opt/ros/${ROS_DISTRO}/setup.sh
 
-cd $ROSCON_SIMULATION_HOME
-./ROSCon2023Demo.GameLauncher -bg_connectToAssetProcessor=0
+if [ $ROSCON_DEMO_LARGE_SCALE -eq 1 ]
+then
+    export CYCLONEDDS_URI=/data/workspace/roscon2023_large_cyclone_config.xml
+fi
 
-exit 0
+cd $ROSCON_DEMO_ROOT/ros2_ws
+. ./install/setup.sh
+
+cd $ROSCON_SIMULATION_HOME
+./ROSCon2023Demo.GameLauncher -r_fullscreen=$ROCSON_DEMO_FULLSCREEN -bg_connectToAssetProcessor=0

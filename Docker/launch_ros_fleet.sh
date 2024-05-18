@@ -8,15 +8,18 @@
 
 . /opt/ros/${ROS_DISTRO}/setup.sh
 
-if [ $ROSCON_DEMO_LARGE_SCALE -eq 1 ]
+if [ $ROSCON_DEMO_LARGE_SCALE -eq 0 ]
 then
+    echo "The ROSCON_DEMO_LARGE_SCALE argument was not set to 1 on this image."
+    exit 1
+else
     export CYCLONEDDS_URI=/data/workspace/roscon2023_large_cyclone_config.xml
 fi
 
-cd $ROSCON_DEMO_ROOT/ros2_ws
-. ./install/setup.sh
+cd $ROSCON_DEMO_ROOT/ros2_ws/src/roscon2023_demo/bash/
 
-cd $ROSCON_DEMO_ROOT/ros2_ws
-ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
+. ./spawn.sh
+
+. ./start_fleet.sh
 
 exit 0

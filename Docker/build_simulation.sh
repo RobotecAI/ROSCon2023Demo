@@ -161,14 +161,14 @@ fi
 # Track the git commits from all the repos
 ###############################################################################
 echo -e "\n\
-Repository                        | Commit \n\
+Repository                        | Commit    | Branch\n\
 ----------------------------------+-----------------------------------------\n\
-o3de                              | $O3DE_REPO/tree/$(git -C $O3DE_ROOT rev-parse HEAD)\n\
-o3de-extras                       | $O3DE_EXTRAS_REPO/tree/$(git -C $O3DE_EXTRAS_ROOT rev-parse HEAD) ) \n\
-RosCon2023 Demo Human Worker Gem  | $ROSCON_DEMO_HUMAN_WORKER_REPO/tree/$(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse HEAD) ) \n\
-RosCon2023 UR Robots Gem          | $ROSCON_DEMO_UR_ROBOTS_REPO/tree/$(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse HEAD) ) \n\
-RosCon2023 OTTO Robots Gem        | $ROSCON_DEMO_OTTO_ROBOTS_REPO/tree/$(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse HEAD) ) \n\
-RosCon2023Demo Project            | $ROSCON_DEMO_REPO/tree/$(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse HEAD) ) \n\
+o3de                              | $(git -C $O3DE_ROOT rev-parse --short HEAD)   | $O3DE_BRANCH\n\
+o3de-extras                       | $(git -C $O3DE_EXTRAS_ROOT rev-parse --short HEAD)   | $O3DE_EXTRAS_BRANCH\n\
+RosCon2023 Demo Human Worker Gem  | $(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_HUMAN_WORKER_BRANCH\n\
+RosCon2023 UR Robots Gem          | $(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_UR_ROBOTS_BRANCH\n\
+RosCon2023 OTTO Robots Gem        | $(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_OTTO_ROBOTS_BRANCH\n\
+RosCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_BRANCH\n\
 \n\
 " >> $WORKSPACE/git_commit.txt
 

@@ -24,6 +24,17 @@ then
     exit 1
 fi
 
+###############################################################################
+# Track the git commits from all the repos
+###############################################################################
+echo -e "\n\
+Repository                        | Commit    | Branch\n\
+----------------------------------+-----------------------------------------\n\
+RosCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_BRANCH\n\
+\n\
+" >> $WORKSPACE/git_commit.txt
+
+
 ###############################################################
 # Build and install the additional ros2 packages and drivers
 ###############################################################
@@ -40,6 +51,8 @@ then
     echo "Error building and installing additional ros2 packages and drivers"
     exit 1
 fi
+
+
 
 # Cleanup
 rm -rf $ROSCON_DEMO_ROOT/Project

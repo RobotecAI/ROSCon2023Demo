@@ -126,21 +126,27 @@ Depending on which level is specified with the `ROCSON_DEMO_LEVEL` the simulatio
 
 # Large scale simulation
 
-As described in the main [README.md](../README.md), running a large scale simulation with 36 robots is processor and resource intensive and is recommended to run the Ros2 stack on a different machine. The Docker image for ROS provides just the ROS 2 components needed to start ROS and spawning and starting the navigation stacks. The the large scale simulation, you will also need to build a Docker image for `level2` which contains the large warehouse.
+As described in the main [README.md](../README.md), running a large scale simulation with 36 robots is processor and resource intensive and is recommended to run the Ros2 stack on a different machine. The Docker image for ROS provides just the ROS 2 components needed to start ROS and spawning and starting the navigation stacks. For the large scale simulation, you will also need to build a Docker image for `level2` which contains the large warehouse (the default `level1` was not designed for the large scale simulation).
 
 ## Building the large scale Docker images
 
-Build the O3DE and ROS Docker images on separate machines. 
+You will need to build the O3DE and ROS Docker images on separate machines. The machine that will run the simulation will require a higher-end machine spec to handle the heavy graphics load. Refer to the [Main README.md](../README.md) for more information.
 
 On the machine that will run the simulation, run the following command to build the O3DE Docker image for the large scale simulation:
 ```
 docker build -f Dockerfile.O3DE --build-arg ROCSON_DEMO_LEVEL=level2 --build-arg ROSCON_DEMO_LARGE_SCALE=1 -t roscon2023_demo_large/o3de:latest .
 ```
+This will create the docker image `roscon2023_demo_large/o3de:latest` that will launch the Docker container from.
+
 
 On the machine that will run the ROS stack to spawn and launch the 36 robots into the simulation, run the following command:
 ```
-docker build -f Dockerfile.ROS --build-arg --build-arg ROSCON_DEMO_LARGE_SCALE=1 -t roscon2023_demo_large/ros:latest .
+docker build -f Dockerfile.ROS --build-arg ROSCON_DEMO_LARGE_SCALE=1 -t roscon2023_demo_large/ros:latest .
 ```
+This will create the docker image `roscon2023_demo_large/ros:latest` that will launch the Docker container from.
+
+Also make sure that the two machines are on the same subnet.
+
 
 ## Running the large scale Docker images
 
@@ -165,6 +171,7 @@ When logged into the Docker container, launch the O3DE warehouse simulation clie
 ./launch_simulation.sh > simulation.log &>1 &
 ```
 
+
 On the machine that will spawn and run the ROS robot navigation stack, run the following commands to start the Docker image and log into the container:
 ```
 xhost +local:root
@@ -182,3 +189,5 @@ Next, start the script to spawn and run the fleet:
 ```
 ./launch_ros_fleet.sh
 ```
+You can shut down the simulation shutting down the Docker containers. For more information on running the simulation, refer to the [Main README.md](../README.md) for more information.
+

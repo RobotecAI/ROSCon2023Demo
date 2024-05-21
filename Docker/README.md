@@ -10,6 +10,7 @@
 * [NVidia container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 * [rocker](https://github.com/osrf/rocker)
   * **Optional** This tool simplifies injecting nvidia support when running Docker images. If not installed, you can still run GPU-required Docker images but with additional setup steps.
+  * **Note** There known issues using rocker with Ubuntu 22.04 and NVIDIA drivers newer than version 525.
 
 # Building the Docker image
 There are 2 different Dockerscripts that build the two different types of ROSCon2023Demo images:

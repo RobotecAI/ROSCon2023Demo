@@ -3,7 +3,7 @@
 ## Prerequisites
 
 * [Hardware requirements of o3de](https://www.o3de.org/docs/welcome-guide/requirements/)
-* Any Linux distribution that supports Docker and the Nvidia container toolkey (see below)
+* Any Linux distribution that supports Docker and the Nvidia container toolkit (see below)
 * At least 60 GB of free disk space
 * Docker installed and configured
   * **Note** It is recommended to have Docker installed correctly and in a secure manner so that the Docker commands in this guide do not require elevated priviledges (sudo) in order to run them. See [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/) for more details.

@@ -14,7 +14,7 @@ then
 fi
 
 cd $ROSCON_DEMO_ROOT/ros2_ws
-. ./install/setup.sh
+source ./install/setup.bash
 
 cd $ROSCON_DEMO_ROOT/ros2_ws
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py

@@ -176,11 +176,10 @@ Make sure the following tools and libraries are installed on your system (they a
 sudo apt install ninja-build libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
 ```
 
-**On the project build step use `AZ_USE_PHYSX5:=ON`** to enable PhysX 5.1. It is **essential** for articulation.
 Now, assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/Project
-cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DLY_STRIP_DEBUG_SYMBOLS=ON -DAZ_USE_PHYSX5:=ON
+cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DLY_STRIP_DEBUG_SYMBOLS=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
 ```
 You can now run the project Editor with:

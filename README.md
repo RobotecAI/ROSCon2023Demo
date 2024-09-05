@@ -81,13 +81,13 @@ source ~/.bashrc
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. **Use the `main` branch (version 2310.1)**.
+3. **Use the version 2409**.
 
 The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de.git
+git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -113,7 +113,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 **Use 2310.1 tag for both `o3de` and `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull

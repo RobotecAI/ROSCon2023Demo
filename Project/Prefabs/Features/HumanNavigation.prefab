@@ -1085,76 +1085,6 @@
             "Patches": [
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Name",
-                    "value": "HumanWorker1"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/0",
-                    "value": "../Entity_[9858388951660]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/1",
-                    "value": "../Entity_[9888453722732]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/2",
-                    "value": "../Entity_[9866978886252]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/3",
-                    "value": "../Entity_[9871273853548]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/4",
-                    "value": "../Entity_[9862683918956]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/5",
-                    "value": "../Entity_[9892748690028]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/6",
-                    "value": "../Entity_[29531291004454]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/7",
-                    "value": "../Entity_[29557060808230]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/8",
-                    "value": "../Entity_[9866978886252]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/9",
-                    "value": "../Entity_[9858388951660]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/10",
-                    "value": "../Entity_[9888453722732]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/11",
-                    "value": "../Entity_[9866978886252]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
-                    "value": "../Entity_[9879863788140]"
-                },
-                {
-                    "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[9901338624620]"
                 },
@@ -1167,52 +1097,77 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
                     "value": 19.8799991607666
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Name",
+                    "value": "HumanWorker1"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Detour Navigation Entity",
+                    "value": "../Entity_[9879863788140]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/0",
+                    "value": "../Entity_[9871273853548]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/1",
+                    "value": "../Entity_[9862683918956]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/2",
+                    "value": "../Entity_[9892748690028]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/3",
+                    "value": "../Entity_[29531291004454]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/4",
+                    "value": "../Entity_[29557060808230]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/5",
+                    "value": "../Entity_[29544175906342]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/6",
+                    "value": "../Entity_[9858388951660]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/7",
+                    "value": "../Entity_[9888453722732]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/8",
+                    "value": "../Entity_[9866978886252]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/9",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace",
+                    "value": "HumanWorker1"
                 }
             ]
         },
         "Instance_[53758749812842]": {
             "Source": "HumanWorker/HumanWorkerRobot.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Name",
-                    "value": "HumanWorker2"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/0",
-                    "value": "../Entity_[9871273853548]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/1",
-                    "value": "../Entity_[9862683918956]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/2",
-                    "value": "../Entity_[9892748690028]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/3",
-                    "value": "../Entity_[29531291004454]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/4",
-                    "value": "../Entity_[29557060808230]"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Waypoints/5",
-                    "value": "../Entity_[29544175906342]"
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[66011467218485]/Components/NpcNavigatorComponent/m_template/Detour Navigation Entity",
-                    "value": "../Entity_[9879863788140]"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -1226,7 +1181,67 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 10.576000213623047
+                    "value": 10.576000213623049
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Name",
+                    "value": "HumanWorker2"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/0",
+                    "value": "../Entity_[9871273853548]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/1",
+                    "value": "../Entity_[9862683918956]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/2",
+                    "value": "../Entity_[9892748690028]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/3",
+                    "value": "../Entity_[29531291004454]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/4",
+                    "value": "../Entity_[29557060808230]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/5",
+                    "value": "../Entity_[29544175906342]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/6",
+                    "value": "../Entity_[9858388951660]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/7",
+                    "value": "../Entity_[9888453722732]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/8",
+                    "value": "../Entity_[9866978886252]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Waypoints/9",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/ROS2FrameEditorComponent/ROS2FrameConfiguration/Namespace Configuration/Namespace",
+                    "value": "HumanWorker2"
                 }
             ]
         }

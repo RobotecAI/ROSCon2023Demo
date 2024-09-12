@@ -26,11 +26,11 @@
                     "Entity_[21524318507725]",
                     "Entity_[1035527589276214]",
                     "Instance_[9613713711690]/ContainerEntity",
-                    "Instance_[9849799017068]/ContainerEntity",
                     "Entity_[157997884966234]",
                     "Entity_[1842731393655449]",
                     "Instance_[447351292908083]/ContainerEntity",
-                    "Instance_[46481451049499]/ContainerEntity"
+                    "Instance_[46481451049499]/ContainerEntity",
+                    "Instance_[31781608218152]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -157,7 +157,6 @@
                     "Id": 9072099036731173943,
                     "Controller": {
                         "Configuration": {
-                            "Enabled": true,
                             "Intensity": 0.20000000298023224
                         }
                     }
@@ -173,7 +172,8 @@
                                 0.6000000238418579
                             ],
                             "FogStartDistance": 30.0,
-                            "FogEndDistance": 1000.0
+                            "FogEndDistance": 1000.0,
+                            "IsEnabled": false
                         }
                     }
                 },
@@ -186,6 +186,7 @@
                     "Id": 7386665190117786251,
                     "Controller": {
                         "Configuration": {
+                            "Enabled": false,
                             "Strength": 1.5,
                             "SamplingRadius": 0.029999999329447746
                         }
@@ -421,7 +422,7 @@
                         "$type": "FollowingCameraComponent",
                         "FollowingCameraConfiguration": {
                             "PredefinedViews": [
-                                "Entity_[184814826836354]",
+                                "Instance_[31781608218152]/Entity_[109915952719713]",
                                 "Entity_[184836301672834]",
                                 "Entity_[297428869337474]",
                                 "Entity_[297441754239362]",
@@ -1806,25 +1807,27 @@
             "Id": "Entity_[421450726761993]",
             "Name": "Entity1",
             "Components": {
-                "AZ::Render::EditorHDRiSkyboxComponent": {
-                    "$type": "AZ::Render::EditorHDRiSkyboxComponent",
-                    "Id": 3354924468159567969,
-                    "Controller": {
-                        "Configuration": {
-                            "CubemapAsset": {
-                                "assetId": {
-                                    "guid": "{40D2CCBC-1372-59E5-BF36-D2EA46C10195}",
-                                    "subId": 2000
-                                },
-                                "assetHint": "lightingpresets/lowcontrast/champagne_castle_1_4k_iblskyboxcm_iblspecular.exr.streamingimage"
-                            },
-                            "Exposure": -4.300000190734863
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 15474577136015268507
+                    "Id": 15474577136015268507,
+                    "DisabledComponents": {
+                        "AZ::Render::EditorHDRiSkyboxComponent": {
+                            "$type": "AZ::Render::EditorHDRiSkyboxComponent",
+                            "Id": 3354924468159567969,
+                            "Controller": {
+                                "Configuration": {
+                                    "CubemapAsset": {
+                                        "assetId": {
+                                            "guid": "{40D2CCBC-1372-59E5-BF36-D2EA46C10195}",
+                                            "subId": 2000
+                                        },
+                                        "assetHint": "lightingpresets/lowcontrast/champagne_castle_1_4k_iblskyboxcm_iblspecular.exr.streamingimage"
+                                    },
+                                    "Exposure": -4.300000190734863
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -2536,6 +2539,26 @@
                 }
             ]
         },
+        "Instance_[31781608218152]": {
+            "Source": "Prefabs/Features/StereoRobotEgo.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[110259550103393]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.8991775512695313
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[110259550103393]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": 0.4168357253074646
+                }
+            ]
+        },
         "Instance_[4001389725264]": {
             "Source": "Assets/Factory/Workstation/CellConveyor.prefab",
             "Patches": [
@@ -2878,6 +2901,51 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14801240651808]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14728226207776]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14749701044256]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14762585946144]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14788355749920]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14775470848032]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213519181686691]/Entities/Entity_[5559434082750]/Components/Component_[16399451670871728784]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorage.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[5907326433726]/Entities/Entity_[5559434082750]/Components/Component_[16399451670871728784]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorage.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[22960678390652]/Entities/Entity_[5559434082750]/Components/Component_[16399451670871728784]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorage.azmaterial"
                 }
             ]
         },
@@ -3110,6 +3178,46 @@
                 {
                     "op": "remove",
                     "path": "/Instances/Instance_[1137435698350970]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44675714163097]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[13150453703599]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44959182004633]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44954887037337]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45496052916633]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45500347883929]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44680009130393]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[12678007301039]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
                 }
             ]
         },
@@ -3167,16 +3275,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[33370629259023]/Components/EditorSplineComponent/Configuration/Spline/Vertices/Vertices/2/0",
                     "value": 0.8323283195495605
-                }
-            ]
-        },
-        "Instance_[9849799017068]": {
-            "Source": "Prefabs/Features/HumanNavigation.prefab",
-            "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
                 }
             ]
         }

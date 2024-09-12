@@ -41,7 +41,6 @@ namespace ROS2::Demo
 
     void GrayscaleCamera::ApplyPostProcessing(sensor_msgs::msg::Image& imageMessage)
     {
-        AZ_Printf("GrayscaleCamera", "Applying grayscale post-processing");
         AZ_Assert(imageMessage.encoding == "rgba8", "GrayscaleCamera only supports rga8 format");
         // Convert the image to grayscale
         cv::Mat rgb_image(cv::Size(imageMessage.width, imageMessage.height), CV_8UC4, (void*)imageMessage.data.data());

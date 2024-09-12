@@ -175,12 +175,16 @@
                                 "Type": "sensor_msgs::msg::Image",
                                 "Topic": "right",
                                 "QoS": {
-                                    "Reliability": 1
+                                    "Reliability": 1,
+                                    "Durability": 1
                                 }
                             },
                             "Depth Camera Info": {
                                 "Type": "sensor_msgs::msg::CameraInfo",
-                                "Topic": "depth_camera_info"
+                                "Topic": "depth_camera_info",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
                             },
                             "Depth Image": {
                                 "Type": "sensor_msgs::msg::Image",
@@ -189,11 +193,10 @@
                         }
                     }
                 },
-                "ROS2FrameComponent": {
-                    "$type": "GenericComponentWrapper",
+                "ROS2FrameEditorComponent": {
+                    "$type": "ROS2FrameEditorComponent",
                     "Id": 13419650106523352273,
-                    "m_template": {
-                        "$type": "ROS2FrameComponent",
+                    "ROS2FrameConfiguration": {
                         "Namespace Configuration": {
                             "Namespace Strategy": 1
                         }
@@ -272,12 +275,16 @@
                                 "Type": "sensor_msgs::msg::Image",
                                 "Topic": "left",
                                 "QoS": {
-                                    "Reliability": 1
+                                    "Reliability": 1,
+                                    "Durability": 1
                                 }
                             },
                             "Depth Camera Info": {
                                 "Type": "sensor_msgs::msg::CameraInfo",
-                                "Topic": "depth_camera_info"
+                                "Topic": "depth_camera_info",
+                                "QoS": {
+                                    "Reliability": 1
+                                }
                             },
                             "Depth Image": {
                                 "Type": "sensor_msgs::msg::Image",
@@ -286,11 +293,10 @@
                         }
                     }
                 },
-                "ROS2FrameComponent": {
-                    "$type": "GenericComponentWrapper",
+                "ROS2FrameEditorComponent": {
+                    "$type": "ROS2FrameEditorComponent",
                     "Id": 10544973937302450561,
-                    "m_template": {
-                        "$type": "ROS2FrameComponent",
+                    "ROS2FrameConfiguration": {
                         "Namespace Configuration": {
                             "Namespace Strategy": 1
                         }
@@ -302,7 +308,7 @@
                     "Parent Entity": "Entity_[817498669027603]",
                     "Transform Data": {
                         "Translate": [
-                            -0.10000000149011612,
+                            -0.02500000037252903,
                             0.0,
                             0.0
                         ]

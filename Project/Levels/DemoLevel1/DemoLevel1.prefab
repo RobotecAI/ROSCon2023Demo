@@ -30,7 +30,8 @@
                     "Entity_[1842731393655449]",
                     "Instance_[447351292908083]/ContainerEntity",
                     "Instance_[46481451049499]/ContainerEntity",
-                    "Instance_[31781608218152]/ContainerEntity"
+                    "Instance_[31781608218152]/ContainerEntity",
+                    "Instance_[36083801989456]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -2556,6 +2557,21 @@
                     "op": "replace",
                     "path": "/Instances/Instance_[110259550103393]/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.4168357253074646
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[530664777546111]/Components/ScriptEditorComponent/ScriptComponent/Properties/Properties/0/value",
+                    "value": false
+                }
+            ]
+        },
+        "Instance_[36083801989456]": {
+            "Source": "Prefabs/Features/HumanNavigation.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
                 }
             ]
         },

@@ -1,0 +1,56 @@
+{
+    "Shader": "materials/types/eye_mainpipeline_forwardpass_skinlighting.shader",
+    "Variants": [
+        {
+            "StableId": 1,
+            "Options": {
+                "o_applySpecularAA": "true",
+                "o_enableAreaLights": "true",
+                "o_enableDirectionalLights": "true",
+                "o_enableDualSpecular": "false",
+                "o_enableIBL": "true",
+                "o_enablePunctualLights": "true",
+                "o_enableShadows": "true",
+                "o_enableSubsurfaceScattering": "false",
+                "o_iris_o_baseColorTextureBlendMode": "TextureBlendMode::Lerp",
+                "o_iris_o_baseColor_useTexture": "true",
+                "o_iris_o_normal_useTexture": "false",
+                "o_iris_o_roughness_useTexture": "false",
+                "o_materialUseForwardPassIBLSpecular": "false",
+                "o_sclera_o_baseColorTextureBlendMode": "TextureBlendMode::Multiply",
+                "o_sclera_o_baseColor_useTexture": "false",
+                "o_sclera_o_normal_useTexture": "false",
+                "o_sclera_o_roughness_useTexture": "false",
+                "o_specularF0_enableMultiScatterCompensation": "false",
+                "o_specularF0_useTexture": "false",
+                "o_subsurfaceScattering_useTexture": "false",
+                "o_transmission_mode": "TransmissionMode::None",
+                "o_transmission_useTexture": "false"
+            }
+        }
+    ],
+    "MaterialOptionsHint": [
+        "o_applySpecularAA",
+        "o_enableAreaLights",
+        "o_enableDirectionalLights",
+        "o_enableDualSpecular",
+        "o_enableIBL",
+        "o_enablePunctualLights",
+        "o_enableShadows",
+        "o_enableSubsurfaceScattering",
+        "o_iris_o_baseColorTextureBlendMode",
+        "o_iris_o_baseColor_useTexture",
+        "o_iris_o_normal_useTexture",
+        "o_iris_o_roughness_useTexture",
+        "o_materialUseForwardPassIBLSpecular",
+        "o_sclera_o_baseColorTextureBlendMode",
+        "o_sclera_o_baseColor_useTexture",
+        "o_sclera_o_normal_useTexture",
+        "o_sclera_o_roughness_useTexture",
+        "o_specularF0_enableMultiScatterCompensation",
+        "o_specularF0_useTexture",
+        "o_subsurfaceScattering_useTexture",
+        "o_transmission_mode",
+        "o_transmission_useTexture"
+    ]
+}

@@ -107,14 +107,14 @@
                             "LightType": 2,
                             "Intensity": 2200.0,
                             "AttenuationRadiusMode": 0,
-                            "AttenuationRadius": 40.0,
+                            "AttenuationRadius": 30.0,
                             "EnableShutters": true,
                             "InnerShutterAngleDegrees": 72.0999984741211,
                             "OuterShutterAngleDegrees": 90.0,
                             "Enable Shadow": true,
                             "Shadow Bias": 0.30000001192092896,
                             "Normal Shadow Bias": 6.400000095367432,
-                            "Shadowmap Max Size": "Size2048",
+                            "Shadowmap Max Size": "Size1024",
                             "Shadow Filter Method": 1,
                             "Filtering Sample Count": 64,
                             "Esm Exponent": 5000.0,
@@ -153,20 +153,6 @@
                     "$type": "EditorEntityIconComponent",
                     "Id": 1095037194436951656
                 },
-                "Component_[12212508019327560574]": {
-                    "$type": "AZ::Render::EditorAreaLightComponent",
-                    "Id": 12212508019327560574,
-                    "Controller": {
-                        "Configuration": {
-                            "LightType": 6,
-                            "Intensity": 150.0,
-                            "AttenuationRadiusMode": 0,
-                            "AttenuationRadius": 3.0,
-                            "InnerShutterAngleDegrees": 0.5,
-                            "OuterShutterAngleDegrees": 90.0
-                        }
-                    }
-                },
                 "Component_[13594745669572308455]": {
                     "$type": "EditorVisibilityComponent",
                     "Id": 13594745669572308455
@@ -197,7 +183,23 @@
                 },
                 "Component_[5955608983902780874]": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 5955608983902780874
+                    "Id": 5955608983902780874,
+                    "DisabledComponents": {
+                        "Component_[12212508019327560574]": {
+                            "$type": "AZ::Render::EditorAreaLightComponent",
+                            "Id": 12212508019327560574,
+                            "Controller": {
+                                "Configuration": {
+                                    "LightType": 6,
+                                    "Intensity": 150.0,
+                                    "AttenuationRadiusMode": 0,
+                                    "AttenuationRadius": 3.0,
+                                    "InnerShutterAngleDegrees": 0.5,
+                                    "OuterShutterAngleDegrees": 90.0
+                                }
+                            }
+                        }
+                    }
                 },
                 "Component_[7245391332595000583]": {
                     "$type": "EditorLockComponent",

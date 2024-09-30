@@ -4784,6 +4784,12 @@
                                 },
                                 {
                                     "$type": "AzFramework::ScriptPropertyString",
+                                    "id": 713255967,
+                                    "name": "StopTopic",
+                                    "value": "/distance_error"
+                                },
+                                {
+                                    "$type": "AzFramework::ScriptPropertyString",
                                     "id": 2638274075,
                                     "name": "Topic",
                                     "value": "/cmd_vel"
@@ -4888,12 +4894,17 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/0",
-                    "value": -89.99994659423828
+                    "value": -0.00018311948224436492
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/1",
-                    "value": 89.99994659423828
+                    "value": 75.96916198730469
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99991607666016
                 }
             ]
         }

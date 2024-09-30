@@ -10,19 +10,29 @@ local tractor_control =
             LookAhead = 1.0,
             TractorForwardAxis = {default = Vector3.ConstructFromValues(0.0,1.0,0.0) },
             TractorRightAxis = {default = Vector3.ConstructFromValues(1.0,0.0,0.0) },
-            Topic = { default = "ackermann_vel" },
+            Topic = { default = "cmd_vel" },
+            StopTopic = { default = "distance_error" },
             Debug = true,
             StartupDelay = {default = 10}
     },
     Spline = nil,
     SplineTransform = nil,
-    CurrentTime = 0
+    CurrentTime = 0,
+    DepthWarningStatus = 0
 
 }
 
+function tractor_control:OnStdMsgInt32(message)
+    self.DepthWarningStatus = message
+end
+
 function tractor_control:OnActivate()     
      self.tickBusHandler = TickBus.CreateHandler(self,  0)
-     self.tickBusHandler:Connect()    
+     self.tickBusHandler:Connect()
+     Debug.Log(" StopTopic " .. self.Properties.StopTopic)
+     self.ros2BusHandler = SubscriberNotificationsBus.Connect(self, self.Properties.StopTopic)
+     SubscriberRequestBus.Broadcast.SubscribeToStdMsgInt32(self.Properties.StopTopic)
+
 end
 
 function tractor_control:OnTick(deltaTime, timePoint)
@@ -100,6 +110,12 @@ function tractor_control:OnTick(deltaTime, timePoint)
 
 		local steeringAngle =  - self.Properties.SteeringGainCrossTrack * crossTrackError + self.Properties.SteeringGainLateral * headingError
 		local speed = self.Properties.Speed
+		if self.DepthWarningStatus == 1 then
+			speed = speed * 0.5
+		end
+		if self.DepthWarningStatus == 2 then
+			speed = 0
+		end
 		
 		-- check if we are in the end of path 
 		
@@ -117,6 +133,7 @@ function tractor_control:OnTick(deltaTime, timePoint)
 			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(tractorPosition, 0.2, Color.ConstructFromValues(255,0,0,255), 0)
 			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(tractorPosition+tractorTangentAxis, 0.1, Color.ConstructFromValues(0,255,0,255), 0)
 			
+			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2.5), 'FPGA collision ' .. tostring(self.DepthWarningStatus), Color.ConstructFromValues(255,225,0,255), 0)
 			
 			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(1), 'crosstrack ' .. tostring(crossTrackError), Color.ConstructFromValues(255,0,0,255), 0)
 			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2), 'heading '.. tostring(headingError), Color.ConstructFromValues(0,255,0,255), 0)

@@ -133,11 +133,13 @@ git clone https://github.com/RobotecAI/o3de-humanworker-gem.git --branch develop
 git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git --branch development
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem --branch development
 git clone https://github.com/RobotecAI/robotec-o3de-tools
+git clone https://github.com/RobotecAI/robotec-warehouse-assets.git -b mp/add_rack_gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path robotec-o3de-tools/Gems/ROS2ScriptIntegration
+./o3de/scripts/o3de.sh register -agp ./robotec-warehouse-assets/
 ```
 
 The Gems are open to your contributions!
@@ -290,3 +292,4 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 ## Notes and acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
+

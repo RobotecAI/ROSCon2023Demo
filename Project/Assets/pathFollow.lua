@@ -5,8 +5,8 @@ local tractor_control =
             TractorEntityId = { default = EntityId() },
             PathEntityId= {default = EntityId()},
             Speed = 1.0,
-            SteeringGainCrossTrack = 10.0,
-            SteeringGainLateral = 10.0,
+            SteeringGainCrossTrack = 1.0,
+            SteeringGainLateral = 1.0,
             LookAhead = 1.0,
             TractorForwardAxis = {default = Vector3.ConstructFromValues(0.0,1.0,0.0) },
             TractorRightAxis = {default = Vector3.ConstructFromValues(1.0,0.0,0.0) },
@@ -30,8 +30,10 @@ function tractor_control:OnActivate()
      self.tickBusHandler = TickBus.CreateHandler(self,  0)
      self.tickBusHandler:Connect()
      Debug.Log(" StopTopic " .. self.Properties.StopTopic)
-     self.ros2BusHandler = SubscriberNotificationsBus.Connect(self, self.Properties.StopTopic)
-     SubscriberRequestBus.Broadcast.SubscribeToStdMsgInt32(self.Properties.StopTopic)
+     if #self.Properties.StopTopic > 0 then
+        self.ros2BusHandler = SubscriberNotificationsBus.Connect(self, self.Properties.StopTopic)
+        SubscriberRequestBus.Broadcast.SubscribeToStdMsgInt32(self.Properties.StopTopic)
+     end
 
 end
 
@@ -120,6 +122,7 @@ function tractor_control:OnTick(deltaTime, timePoint)
 		-- check if we are in the end of path 
 		
 		if math.abs(headingError) > 0.5  then
+			steeringAngle =  self.Properties.SteeringGainLateral * headingError
 			speed = 0.0
 		end
 		
@@ -135,9 +138,9 @@ function tractor_control:OnTick(deltaTime, timePoint)
 			
 			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2.5), 'FPGA collision ' .. tostring(self.DepthWarningStatus), Color.ConstructFromValues(255,225,0,255), 0)
 			
-			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(1), 'crosstrack ' .. tostring(crossTrackError), Color.ConstructFromValues(255,0,0,255), 0)
-			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2), 'heading '.. tostring(headingError), Color.ConstructFromValues(0,255,0,255), 0)
-			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(1.5), 'speed '.. tostring(speed) .. ' angular '.. tostring(steeringAngle), Color.ConstructFromValues(0,255,255,255), 0)
+			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(1), 'crosstrack ' .. string.format("%.3f",crossTrackError), Color.ConstructFromValues(255,0,0,255), 0)
+			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2), 'heading '.. string.format("%.3f",headingError), Color.ConstructFromValues(0,255,0,255), 0)
+			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(1.5), 'speed '.. string.format("%.1f",speed) .. ' angular '.. string.format("%.3f",steeringAngle), Color.ConstructFromValues(0,255,255,255), 0)
 		
 		end 
 		

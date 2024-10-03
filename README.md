@@ -290,3 +290,13 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 ## Notes and acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
+
+
+### Stereovision HIL-testing
+
+Start game launcher
+
+
+```
+ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:='/media/michal/xilinx/github/ROSCon2023Demo/ros2_ws/src/roscon2023_demo/config/ROSCon2023Config_stereoNPCS.yaml' use_rviz:=true
+```

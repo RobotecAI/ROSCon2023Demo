@@ -635,7 +635,8 @@
                         "Entity_[143067400392733]",
                         "Entity_[143071695360029]",
                         "Entity_[143075990327325]",
-                        "Entity_[143080285294621]"
+                        "Entity_[143080285294621]",
+                        "Entity_[959114032772123]"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -667,6 +668,93 @@
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 16613052242235760194,
                     "Parent Entity": "ContainerEntity"
+                }
+            }
+        },
+        "Entity_[959114032772123]": {
+            "Id": "Entity_[959114032772123]",
+            "Name": "Collision6",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 16942044782130163414,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{A23833E5-9119-5B68-89A0-D2120F3FBA07}",
+                                    "subId": 276561705
+                                },
+                                "assetHint": "assets/factory/objects/misc/plasticcanister.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 233736371366830052
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 16003207209901856639
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12514376143978688397
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12889639896393235163
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10390763280969079414
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 1314065170888290130
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 18103242496402895331
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 7573120687981342337,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                            "path": "AdjustVisibility.scriptcanvas"
+                        },
+                        "sourceName": "AdjustVisibility.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                                "path": "AdjustVisibility.scriptcanvas"
+                            }
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3395722446171461762
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5568016285781684182,
+                    "Parent Entity": "Entity_[143084580261917]",
+                    "Transform Data": {
+                        "Translate": [
+                            -59.980255126953125,
+                            11.29430103302002,
+                            0.2309575080871582
+                        ],
+                        "Rotate": [
+                            -0.45371267199516296,
+                            0.0670635998249054,
+                            -20.321767807006836
+                        ]
+                    }
                 }
             }
         }

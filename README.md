@@ -294,9 +294,14 @@ This demo project was originally developed by [Robotec.ai](https://robotec.ai) i
 
 ### Stereovision HIL-testing
 
-Start game launcher
-
+Start game launcher, following command will start the game in a windowed mode with a resolution of 960x960 pixels, and load the `demostereo` level:
+```bash
+ROSCon2023Demo/Project/build/linux/bin/profile/ROSCon2023Demo.GameLauncher -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=960 -r_height=960 +LoadLevel levels/demostereo/demostereo.spawnable +r_displayInfo 1
+```
+Next, spawn NPC robots and start the ROS 2 nodes:
 
 ```
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:='/media/michal/xilinx/github/ROSCon2023Demo/ros2_ws/src/roscon2023_demo/config/ROSCon2023Config_stereoNPCS.yaml' use_rviz:=true
 ```
+
+Finally, start the stereo vision node on the board.

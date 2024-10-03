@@ -28,7 +28,8 @@
                     "Instance_[240252471538715]/ContainerEntity",
                     "Instance_[40844984210615]/ContainerEntity",
                     "Instance_[467167252115820]/ContainerEntity",
-                    "Instance_[138390453586674]/ContainerEntity"
+                    "Instance_[138390453586674]/ContainerEntity",
+                    "Entity_[32066938122373]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -514,6 +515,60 @@
                             -71.2750015258789,
                             87.52101135253906
                         ]
+                    }
+                }
+            }
+        },
+        "Entity_[32066938122373]": {
+            "Id": "Entity_[32066938122373]",
+            "Name": "UI",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 301360968460832682
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 2774454227935073555
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6463669699793512832
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 13840533148641273248
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2037470628590226902
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15920610559483469663
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1839208098123319723
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9155555204666460988
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 5742535584155968634,
+                    "Parent Entity": "Entity_[1146574390643]"
+                },
+                "UiCanvasAssetRefComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 3887980436906430004,
+                    "m_template": {
+                        "$type": "UiCanvasAssetRefComponent",
+                        "CanvasAssetRef": {
+                            "AssetPath": "assets/ui/branding.uicanvas"
+                        },
+                        "IsAutoLoad": true
                     }
                 }
             }

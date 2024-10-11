@@ -15,6 +15,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 1880998080077943768,
                 "Child Entity Order": [
+                    "Instance_[69426680830572]/ContainerEntity",
                     "Entity_[25605772552099]"
                 ]
             },
@@ -66,7 +67,6 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 11153347311398851903,
                     "Child Entity Order": [
-                        "Entity_[25610067519395]",
                         "Entity_[25614362486691]"
                     ]
                 },
@@ -106,52 +106,6 @@
                             0.010907173156738281
                         ]
                     }
-                }
-            }
-        },
-        "Entity_[25610067519395]": {
-            "Id": "Entity_[25610067519395]",
-            "Name": "CollisionBarrierStraight_Type2_fbx",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 13218121300557936404
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 13162374364822780066
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 7743769631989322465,
-                    "Child Entity Order": [
-                        "Entity_[25618657453987]"
-                    ]
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 4347052422594387438
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 5469527291421443440
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 14793949378031846400
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 2563425790646220428
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 969431354650062664
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 11572331188320364071,
-                    "Parent Entity": "Entity_[25605772552099]"
                 }
             }
         },
@@ -229,95 +183,18 @@
                     "Parent Entity": "Entity_[25605772552099]"
                 }
             }
-        },
-        "Entity_[25618657453987]": {
-            "Id": "Entity_[25618657453987]",
-            "Name": "vis",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 10773955515112022489,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{9AB13BB9-3556-5394-B6E8-F33B01E96619}",
-                                    "subId": 278267466
-                                },
-                                "assetHint": "assets/factory/objects/models/default_collisionbarrierstraight_type2_aae1864b_3db2_56ab_9535_5b662465de3b_.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 12635364358571170364
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 1295614560408632194
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 12893433934279691854
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 14345820008516769394
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 451624084942642723
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 2824759315543638886,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 242701632
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{7B5BFDDC-058E-53C8-B189-ACC6F82E377A}"
-                                            },
-                                            "assetHint": "assets/factory/objects/models/collisionbarrierstraight_type2__collision_barrier_straight.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 9219341677713972512
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 11266143117885234213
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 12249457351042775473
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 13865850889624030675,
-                    "Parent Entity": "Entity_[25610067519395]",
-                    "Transform Data": {
-                        "Rotate": [
-                            90.00000762939453,
-                            0.0,
-                            0.0
-                        ],
-                        "UniformScale": 100.0
-                    }
+        }
+    },
+    "Instances": {
+        "Instance_[69426680830572]": {
+            "Source": "Barriers/BarrierStraight_Visual.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../ContainerEntity"
                 }
-            }
+            ]
         }
     }
 }

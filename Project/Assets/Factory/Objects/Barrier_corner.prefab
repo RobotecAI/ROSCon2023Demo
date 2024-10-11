@@ -227,7 +227,7 @@
                     "$type": "EditorEntitySortComponent",
                     "Id": 1617599436348851655,
                     "Child Entity Order": [
-                        "Entity_[115163158300353]"
+                        "Instance_[173682716973676]/ContainerEntity"
                     ]
                 },
                 "EditorInspectorComponent": {
@@ -253,97 +253,21 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 12929602094115250949,
-                    "Parent Entity": "Entity_[115150273398465]",
-                    "Transform Data": {
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            45.0
-                        ]
-                    }
+                    "Parent Entity": "Entity_[115150273398465]"
                 }
             }
-        },
-        "Entity_[115163158300353]": {
-            "Id": "Entity_[115163158300353]",
-            "Name": "Collision_barrier_Corner",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 8621007698568483478,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{310215C9-2377-56B3-A302-0EE8E0BFE979}",
-                                    "subId": 281174212
-                                },
-                                "assetHint": "assets/factory/objects/models/default_colisionbariercornertype2_d248b0ab_52eb_5366_81a5_c85868928a96_.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 16140308087621010096
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 5077558461743899603
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 11320634293345910227
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 11662692542498778489
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 8760480332546100183
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 13810647292954479952,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2920737768
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{90AC4361-84D9-5574-ACF8-28D1AF580A27}"
-                                            },
-                                            "assetHint": "assets/factory/objects/models/colisionbariercornertype2_mcolision_barier_corner.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 16735111209931371418
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 10355971259136731998
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 3815249684439092859
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 7558307136765264896,
-                    "Parent Entity": "Entity_[115158863333057]"
+        }
+    },
+    "Instances": {
+        "Instance_[173682716973676]": {
+            "Source": "Barriers/BarrierCorner_Visual.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[115158863333057]"
                 }
-            }
+            ]
         }
     }
 }

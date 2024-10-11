@@ -132,9 +132,12 @@ cd ${WORKDIR}
 git clone https://github.com/RobotecAI/o3de-humanworker-gem.git
 git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
+git clone https://github.com/RobotecAI/o3de-otto-robots-gem
+git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
+./o3de/scripts/o3de.sh register -agp ./robotec-warehouse-assets/
 ```
 
 The Gems are open to your contributions!

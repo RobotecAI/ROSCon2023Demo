@@ -85,6 +85,14 @@
                         "Configuration": {
                             "Intensity": 1.2999999523162842,
                             "CameraEntityId": "",
+                            "ShadowFarClipDistance": 80.0,
+                            "ShadowmapSize": "Size2048",
+                            "CascadeFarDepths": [
+                                20.0,
+                                40.0,
+                                60.0,
+                                80.0
+                            ],
                             "ShadowFilterMethod": 1
                         }
                     }
@@ -223,11 +231,11 @@
                     "Controller": {
                         "Configuration": {
                             "LightType": 4,
-                            "Intensity": 200000.0,
-                            "AttenuationRadius": 1414.213623046875,
+                            "Intensity": 400000.0,
+                            "AttenuationRadius": 2000.0,
                             "LightingChannelConfig": {
                                 "lightingChannelFlags": [
-                                    false,
+                                    {},
                                     true,
                                     {},
                                     {},

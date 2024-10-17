@@ -48,13 +48,13 @@ The project runs on Ubuntu 22.04 with ROS 2 Humble or ROS 2 Iron.
 
 ### Hardware
 The demo is rather demanding, as it aims to show what is possible. Minimum specs are not determined, but we ran it on:
-- NVIDIA GeForce RTX 3070 GPU (8 GB).
-- Intel i7-11800H (16 cores) CPU.
+- AMD Radeon RX 6800 / NVIDIA GeForce RTX 3070 GPU (8 GB).
+- AMD Ryzen 9 5900HX CPU / Intel i7-11800H.
 - 64 GB RAM.
 
 For more FPS, a larger scene, and more robots, we used:
-- NVIDIA RTX 3080 Ti (or better) GPU (16 GB).
-- Intel i7-12900KF (24 cores) CPU.
+- AMD Radeon RX 7900 XT / NVIDIA RTX 3080 Ti  (or better) GPU (16 GB).
+- AMD Ryzen 9 7950X / Intel i7-12900KF (24 cores) CPU.
 - 64 GB RAM.
 
 ## Project Setup

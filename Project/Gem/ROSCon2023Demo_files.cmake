@@ -28,5 +28,7 @@ set(FILES
     Source/Vision/IdealVisionSystem.h
     Source/Vision/IdealVisionSystemConfiguration.cpp
     Source/Vision/IdealVisionSystemConfiguration.h
+    Source/CameraPostprocess/GrayscaleCamera.cpp
+    Source/CameraPostprocess/GrayscaleCamera.h
     enabled_gems.cmake
 )

@@ -81,13 +81,13 @@ source ~/.bashrc
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. **Use the `main` branch (version 2310.1)**.
+3. **Use the version 2409**.
 
 The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de.git
+git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -113,7 +113,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 **Use 2310.1 tag for both `o3de` and `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -290,3 +290,57 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 ## Notes and acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
+
+
+
+
+### Stereovision HIL-testing
+
+Start game launcher, following command will start the game in a windowed mode with a resolution of 960x960 pixels, and load the `demostereo` level:
+```bash
+ROSCon2023Demo/Project/build/linux/bin/profile/ROSCon2023Demo.GameLauncher -r_fullscreen=false -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=960 -r_height=960 +LoadLevel levels/demostereo/demostereo.spawnable +r_displayInfo 0
+```
+
+Next, spawn NPC robots and start the ROS 2 nodes:
+
+```
+ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:='/media/michal/xilinx/github/ROSCon2023Demo/ros2_ws/src/roscon2023_demo/config/ROSCon2023Config_stereoNPCS.yaml' use_rviz:=true
+```
+
+Finally, start the stereo vision node on the board.
+
+# Build release package
+
+To build a release package with all levels:
+```
+cd ${WORKDIR}/o3de
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
+#Consider copying ROS 2 workspace
+mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+```
+The build package is avaialable here:
+```
+${WORKDIR}/ROSCon2023Demo/Project/build/release 
+└── ROSCon2023DemoGamePackage
+    ├── Cache
+    │   └── linux
+    │       ├── engine_linux.pak
+    │       └── game_linux.pak
+    ├── libPhysXGpu_64.so
+    ├── libVkLayer_khronos_validation.so
+    ├── project.json
+    ├── Registry
+    │   └── IgnoreAssetProcessor.profile.setregpatch
+    ├── ROSCon2023Demo.GameLauncher
+    └── VkLayer_khronos_validation.json
+```
+To start a released gamelaucher simply:
+
+```
+${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
+${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
+```
+
+This package can be moved to cloud instance or other computer.
+Note that it still needs custom ROS 2 workspace sourced!

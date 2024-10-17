@@ -245,26 +245,28 @@
             "Id": "Entity_[31350177482222]",
             "Name": "foil",
             "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 3045442569972659643,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{20DF344F-2672-5F77-BE21-9948AAEEBCBE}",
-                                    "subId": 282068300
-                                },
-                                "assetHint": "assets/factory/objects/models/palletstack_foil.fbx.azmodel"
-                            },
-                            "LodType": 1,
-                            "QualityDecayRate": 0.20000000298023224
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
-                    "Id": 7237688117547052979
+                    "Id": 7237688117547052979,
+                    "DisabledComponents": {
+                        "AZ::Render::EditorMeshComponent": {
+                            "$type": "AZ::Render::EditorMeshComponent",
+                            "Id": 3045442569972659643,
+                            "Controller": {
+                                "Configuration": {
+                                    "ModelAsset": {
+                                        "assetId": {
+                                            "guid": "{20DF344F-2672-5F77-BE21-9948AAEEBCBE}",
+                                            "subId": 282068300
+                                        },
+                                        "assetHint": "assets/factory/objects/models/palletstack_foil.fbx.azmodel"
+                                    },
+                                    "LodType": 1,
+                                    "QualityDecayRate": 0.20000000298023224
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorEntityIconComponent": {
                     "$type": "EditorEntityIconComponent",
@@ -282,36 +284,38 @@
                     "$type": "EditorLockComponent",
                     "Id": 2904295981200002289
                 },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 13902624689990078589,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3262687749
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{48416E17-316F-5C95-9E1D-02FD32C20570}"
-                                            },
-                                            "assetHint": "assets/factory/objects/models/palletstack_foil.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 14821275915021778934
                 },
                 "EditorPendingCompositionComponent": {
                     "$type": "EditorPendingCompositionComponent",
-                    "Id": 17457193817366695342
+                    "Id": 17457193817366695342,
+                    "PendingComponents": {
+                        "EditorMaterialComponent": {
+                            "$type": "EditorMaterialComponent",
+                            "Id": 13902624689990078589,
+                            "Controller": {
+                                "Configuration": {
+                                    "materials": [
+                                        {
+                                            "Key": {
+                                                "materialSlotStableId": 3262687749
+                                            },
+                                            "Value": {
+                                                "MaterialAsset": {
+                                                    "assetId": {
+                                                        "guid": "{48416E17-316F-5C95-9E1D-02FD32C20570}"
+                                                    },
+                                                    "assetHint": "assets/factory/objects/models/palletstack_foil.azmaterial"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 },
                 "EditorVisibilityComponent": {
                     "$type": "EditorVisibilityComponent",

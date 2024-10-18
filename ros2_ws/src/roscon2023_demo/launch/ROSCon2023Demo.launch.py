@@ -22,6 +22,7 @@ def launch_setup(context, *args, **kwargs):
 
     config_file_arg = LaunchConfiguration("ROS2Con2023Config")
     use_rviz = LaunchConfiguration("use_rviz")
+    start_arm_deliberation = LaunchConfiguration("start_arm_deliberation")
     spawn_amrs = LaunchConfiguration("spawn_amrs")
     start_amr_navigation = LaunchConfiguration("start_amr_navigation")
     config_file = config_file_arg.perform(context)
@@ -43,15 +44,15 @@ def launch_setup(context, *args, **kwargs):
                     "tasks_config_file": robot["tasks_config_file"],
                 }
             )
-        
-        for ur in configuration["arms"]:
-            arms.append(
-                {
-                    "namespace" : ur["namespace"],
-                    "num_of_boxes" : ur["num_of_boxes"],
-                    "launch_rviz": ur["launch_rviz"],
-                }
-            )
+        if "arms" in configuration:
+            for ur in configuration["arms"]:
+                arms.append(
+                    {
+                        "namespace" : ur["namespace"],
+                        "num_of_boxes" : ur["num_of_boxes"],
+                        "launch_rviz": ur["launch_rviz"],
+                    }
+                )
 
     nodes_to_start = []
 
@@ -80,7 +81,7 @@ def launch_setup(context, *args, **kwargs):
                 }.items()
             ) for robot in robots
         ],
-        condition=IfCondition(LaunchConfiguration('start_amr_navigation'))
+        condition=IfCondition(LaunchConfiguration('start_arm_deliberation'))
     )
 
     path_lock = IncludeLaunchDescription(
@@ -89,7 +90,8 @@ def launch_setup(context, *args, **kwargs):
         ),
         launch_arguments = {
             "fleet_config_path": config_file_arg
-        }.items()
+        }.items(),
+        condition=IfCondition(LaunchConfiguration('start_arm_deliberation'))
     )
 
     otto_fleet_nav = IncludeLaunchDescription(
@@ -159,7 +161,14 @@ def generate_launch_description():
             description="Start AMRs with navigation"
         )
     )
-    
+
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            "start_arm_deliberation",
+            default_value="True",
+            description="Use deliberation system for ARMs"
+        )
+    )
     ld = LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])
 
     return ld

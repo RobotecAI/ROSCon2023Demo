@@ -87,7 +87,7 @@ The following commands should prepare O3DE (assuming that the project repository
 
 ```bash
 cd ${WORKDIR}
-git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de.git
+git clone --tag 2409.0 --single-branch https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -110,10 +110,10 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-**Use 2310.1 tag for both `o3de` and `o3de-extras` repositories:**
+**Use 2409.0 tag for `o3de` and 2409.1 `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch stabilization/2409 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch point-release/24091 --single-branch https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -311,15 +311,17 @@ Finally, start the stereo vision node on the board.
 
 # Build release package
 
-To build a release package with all levels:
-```
+To build a release package with all use export script available in o3de.
+Release package is a standalone package that can be run on any computer without the need to build the project, it is 
+a self-contained package with all assets and binaries.
+To learn more on exporting game launcher see [O3DE documentation](https://www.docs.o3de.org/docs/user-guide/packaging/project-export/project-export-pc/).
+
+To build the game launcher and bundle assets:
+```bash
 cd ${WORKDIR}/o3de
 ./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
-#Consider copying ROS 2 workspace
-mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
-cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
 ```
-The build package is avaialable here:
+The build package is available here:
 ```
 ${WORKDIR}/ROSCon2023Demo/Project/build/release 
 └── ROSCon2023DemoGamePackage
@@ -335,12 +337,20 @@ ${WORKDIR}/ROSCon2023Demo/Project/build/release
     ├── ROSCon2023Demo.GameLauncher
     └── VkLayer_khronos_validation.json
 ```
-To start a released gamelaucher simply:
-
+Please consider copying ROS 2 workspace to the release package. The ROS 2 workspace is required to run the ROS 2 nodes,
+since GameLauncher does not contain dynamic libraries required by ROS 2.
+```bash
+# Consider copying ROS 2 workspace
+mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
 ```
+
+To start a released the GameLauncher simply:
+```bash
+cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+colcon build --symlink-install
 ${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
 ${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
 ```
 
 This package can be moved to cloud instance or other computer.
-Note that it still needs custom ROS 2 workspace sourced!

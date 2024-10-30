@@ -1,0 +1,683 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "CollisionObjects",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 12524826353040076709
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 14087496649859078426
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 17159739115414058724,
+                "Child Entity Order": [
+                    "Entity_[32453166181235]",
+                    "Entity_[32461756115827]",
+                    "Entity_[32466051083123]",
+                    "Entity_[32457461148531]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 8225151677174758954
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 6867300377514843525
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 9619969357369853618
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 5488525397937844510
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 10509254846331837352
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 7922819614596094703
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 3271826134151160291,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[32453166181235]": {
+            "Id": "Entity_[32453166181235]",
+            "Name": "Collision2",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18283754402657770273,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{E5986F7E-E3D9-5ED8-BEE9-CF632531CC3F}",
+                                    "subId": 283805129
+                                },
+                                "assetHint": "assets/factory/objects/misc/plasticbarrel.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9477497534502226220
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14428401069041803107
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2784323575439940696
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16570605180524333938,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10631917990859386789
+                        },
+                        {
+                            "ComponentId": 3076604475548040403,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18283754402657770273,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9779738204639057189
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16890435955482208406
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11660213891027442642
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 3076604475548040403,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                            "path": "AdjustVisibility.scriptcanvas"
+                        },
+                        "sourceName": "AdjustVisibility.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                                "path": "AdjustVisibility.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 18172825077298097937
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10631917990859386789,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            17.96497344970703,
+                            0.031929969787597656,
+                            0.10732841491699219
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[32457461148531]": {
+            "Id": "Entity_[32457461148531]",
+            "Name": "Collision5",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18283754402657770273,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{4EBE1BD2-DE7E-570B-8D74-EFB1B3241E72}",
+                                    "subId": 269970252
+                                },
+                                "assetHint": "assets/forklift/electric_forklift.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9477497534502226220
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14428401069041803107
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2784323575439940696
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16570605180524333938,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10631917990859386789
+                        },
+                        {
+                            "ComponentId": 3076604475548040403,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18283754402657770273,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 1514142953251923446,
+                            "SortIndex": 3
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9779738204639057189
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 1514142953251923446,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 568790644
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{7A1D925D-0A1B-51E8-891F-3C086D52EA04}"
+                                            },
+                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift_alpha.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2654025647
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A8D26C94-F4A7-5266-98CA-0C7CC06E3A1E}"
+                                            },
+                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift.azmaterial"
+                                        }
+                                    }
+                                },
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2875683869
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A8D26C94-F4A7-5266-98CA-0C7CC06E3A1E}"
+                                            },
+                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16890435955482208406
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11660213891027442642
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 3076604475548040403,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                            "path": "AdjustVisibility.scriptcanvas"
+                        },
+                        "sourceName": "AdjustVisibility.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                                "path": "AdjustVisibility.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 18172825077298097937
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10631917990859386789,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -18.424942016601563,
+                            -0.3278799057006836,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -52.45297622680664
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[32461756115827]": {
+            "Id": "Entity_[32461756115827]",
+            "Name": "Collision3",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18283754402657770273,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{E8930D47-8F3D-517D-892F-4718D42B2C9E}",
+                                    "subId": 275434013
+                                },
+                                "assetHint": "assets/factory/objects/misc/paintcan.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9477497534502226220
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14428401069041803107
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2784323575439940696
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16570605180524333938,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10631917990859386789
+                        },
+                        {
+                            "ComponentId": 3076604475548040403,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18283754402657770273,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9779738204639057189
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16890435955482208406
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11660213891027442642
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 3076604475548040403,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                            "path": "AdjustVisibility.scriptcanvas"
+                        },
+                        "sourceName": "AdjustVisibility.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                                "path": "AdjustVisibility.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 18172825077298097937
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10631917990859386789,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            9.980316162109375,
+                            0.031929969787597656,
+                            0.15382862091064453
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[32466051083123]": {
+            "Id": "Entity_[32466051083123]",
+            "Name": "Collision5",
+            "Components": {
+                "AZ::Render::EditorMeshComponent": {
+                    "$type": "AZ::Render::EditorMeshComponent",
+                    "Id": 18283754402657770273,
+                    "Controller": {
+                        "Configuration": {
+                            "ModelAsset": {
+                                "assetId": {
+                                    "guid": "{756F48EB-D031-5061-8057-4C0F10C5786F}",
+                                    "subId": 271081187
+                                },
+                                "assetHint": "assets/factory/objects/models/wheelrollmonitor_lp.fbx.azmodel"
+                            }
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 9477497534502226220
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 14428401069041803107
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 2784323575439940696
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16570605180524333938,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10631917990859386789
+                        },
+                        {
+                            "ComponentId": 3076604475548040403,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 18283754402657770273,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 18261032591690187210,
+                            "SortIndex": 3
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9779738204639057189
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 18261032591690187210,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 1770453908
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{8A608C93-369B-564A-93CF-B22771DB1834}"
+                                            },
+                                            "assetHint": "assets/factory/objects/models/wheelrollmonitor_lp_mat.azmaterial"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 16890435955482208406
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11660213891027442642
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 3076604475548040403,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                            "path": "AdjustVisibility.scriptcanvas"
+                        },
+                        "sourceName": "AdjustVisibility.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
+                                "path": "AdjustVisibility.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
+                                    },
+                                    "VariableName": "Robot",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 18172825077298097937
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10631917990859386789,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -9.520347595214844,
+                            0.2640209197998047,
+                            0.0
+                        ],
+                        "Rotate": [
+                            0.0,
+                            0.0,
+                            -52.45297622680664
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

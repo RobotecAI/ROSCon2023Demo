@@ -12,6 +12,7 @@ You can learn more about the features of O3DE for robotics and how to get starte
 - **DemoLevel2**: 90x100 meters, three times larger, and 12 robotic arms, suitable for 12-24 AMRs.
 - **RobotsSuperShot**: a level showcasing 3D models, with several different robots, a human, and a forklift. Some robots are not equipped with components yet, but you are welcome to try and make them work!
 - **RobotImportLevel**: a small enclosed space with a table, good for [importing your own robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
+- **DemoStereo**: a level showcasing HIL setup with AMD KRIA and stereo cameras. Visit [KRIA depth demo](https://github.com/RobotecAI/kria_depth_demo) for more information.
 
 ### Detailed description
 UR20 robot arms controlled by MoveIt2 with [pilz_industrial_motion_planner](https://moveit.picknik.ai/humble/doc/examples/pilz_industrial_motion_planner/pilz_industrial_motion_planner.html?highlight=pilz#pilz-industrial-motion-planner).
@@ -81,13 +82,13 @@ source ~/.bashrc
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. **Use the `main` branch (version 2310.1)**.
+3. **Use the version 2409**.
 
 The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de.git
+git clone --tag 2409.0 --single-branch https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -110,10 +111,10 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-**Use 2310.1 tag for both `o3de` and `o3de-extras` repositories:**
+**Use 2409.0 tag for `o3de` and 2409.0 `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch 2310.1 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch 2409 --single-branch https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -134,10 +135,12 @@ git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
+git clone https://github.com/RobotecAI/robotec-o3de-tools.git
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
 ./o3de/scripts/o3de.sh register -agp ./robotec-warehouse-assets/
+./o3de/scripts/o3de.sh register --gem-path robotec-o3de-tools/Gems/ROS2ScriptIntegration
 ```
 
 The Gems are open to your contributions!
@@ -150,7 +153,7 @@ After that, change the OTTO 600 prefab so that both front and back lidars use th
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev
 ```
 
 ### Project
@@ -290,3 +293,49 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 ## Notes and acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
+
+# Build release package
+
+To build a release package with all use export script available in o3de.
+Release package is a standalone package that can be run on any computer without the need to build the project, it is 
+a self-contained package with all assets and binaries.
+To learn more on exporting game launcher see [O3DE documentation](https://www.docs.o3de.org/docs/user-guide/packaging/project-export/project-export-pc/).
+
+To build the game launcher and bundle assets:
+```bash
+cd ${WORKDIR}/o3de
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
+```
+The build package is available here:
+```
+${WORKDIR}/ROSCon2023Demo/Project/build/release 
+└── ROSCon2023DemoGamePackage
+    ├── Cache
+    │   └── linux
+    │       ├── engine_linux.pak
+    │       └── game_linux.pak
+    ├── libPhysXGpu_64.so
+    ├── libVkLayer_khronos_validation.so
+    ├── project.json
+    ├── Registry
+    │   └── IgnoreAssetProcessor.profile.setregpatch
+    ├── ROSCon2023Demo.GameLauncher
+    └── VkLayer_khronos_validation.json
+```
+Please consider copying ROS 2 workspace to the release package. The ROS 2 workspace is required to run the ROS 2 nodes,
+since GameLauncher does not contain dynamic libraries required by ROS 2.
+```bash
+# Consider copying ROS 2 workspace
+mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+```
+
+To start a released the GameLauncher simply:
+```bash
+cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+colcon build --symlink-install
+${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
+${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
+```
+
+This package can be moved to cloud instance or other computer.

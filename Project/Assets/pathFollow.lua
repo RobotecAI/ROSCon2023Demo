@@ -1,15 +1,15 @@
-local tractor_control = 
+local RobotPathFollow = 
 {
     Properties =
     {
-            TractorEntityId = { default = EntityId() },
+            RobotEntity = { default = EntityId() },
             PathEntityId= {default = EntityId()},
             Speed = 1.0,
             SteeringGainCrossTrack = 1.0,
             SteeringGainLateral = 1.0,
             LookAhead = 1.0,
-            TractorForwardAxis = {default = Vector3.ConstructFromValues(0.0,1.0,0.0) },
-            TractorRightAxis = {default = Vector3.ConstructFromValues(1.0,0.0,0.0) },
+            RobotForwardAxis = {default = Vector3.ConstructFromValues(0.0,1.0,0.0) },
+            RobotRightAxis = {default = Vector3.ConstructFromValues(1.0,0.0,0.0) },
             Topic = { default = "cmd_vel" },
             StopTopic = { default = "distance_error" },
             Debug = true,
@@ -22,11 +22,11 @@ local tractor_control =
 
 }
 
-function tractor_control:OnStdMsgInt32(message)
+function RobotPathFollow:OnStdMsgInt32(message)
     self.DepthWarningStatus = message
 end
 
-function tractor_control:OnActivate()     
+function RobotPathFollow:OnActivate()     
      self.tickBusHandler = TickBus.CreateHandler(self,  0)
      self.tickBusHandler:Connect()
      Debug.Log(" StopTopic " .. self.Properties.StopTopic)
@@ -37,9 +37,9 @@ function tractor_control:OnActivate()
 
 end
 
-function tractor_control:OnTick(deltaTime, timePoint)
+function RobotPathFollow:OnTick(deltaTime, timePoint)
 
-	assert(self.Properties.TractorEntityId ~= EntityId() , "No tractor entity set")
+	assert(self.Properties.RobotEntity ~= EntityId() , "No robot entity set")
 	assert(self.Properties.PathEntityId ~= EntityId() , "No path entity set")
 
 	
@@ -61,19 +61,19 @@ function tractor_control:OnTick(deltaTime, timePoint)
 	local angular = 0
 	
 	if self.Spline ~= nil then
-		local tractorPosition = TransformBus.Event.GetWorldTranslation(self.Properties.TractorEntityId)
-		assert(tractorPosition~=nil, "tractorPosition is missing")
-		local tractorPose = TransformBus.Event.GetWorldTM(self.Properties.TractorEntityId) 
-		assert(tractorPose~=nil, "tractorPose is missing")
-		local tractorTangentAxis = Transform.GetBasisX(tractorPose)
-		assert(tractorTangentAxis~=nil, "tractorTangentAxis is missing")
+		local robotPosition = TransformBus.Event.GetWorldTranslation(self.Properties.RobotEntity)
+		assert(robotPosition~=nil, "robotPosition is missing")
+		local robotPose = TransformBus.Event.GetWorldTM(self.Properties.RobotEntity) 
+		assert(robotPose~=nil, "robotPose is missing")
+		local robotTangentAxis = Transform.GetBasisX(robotPose)
+		assert(robotTangentAxis~=nil, "robotTangentAxis is missing")
 		
 				
-		tractorPoseInv = Transform.Clone(tractorPose)
-		Transform.Invert(tractorPoseInv)
+		robotPoseInv = Transform.Clone(robotPose)
+		Transform.Invert(robotPoseInv)
 		
 		lookAhead = self.Properties.LookAhead
-		probePosition = tractorPosition + Transform.TransformVector(tractorPose, self.Properties.TractorForwardAxis * lookAhead )
+		probePosition = robotPosition + Transform.TransformVector(robotPose, self.Properties.RobotForwardAxis * lookAhead )
 		assert(probePosition~=nil, "probePosition is missing")
 		
 		splineTransform = TransformBus.Event.GetWorldTM(self.Properties.PathEntityId)
@@ -96,10 +96,10 @@ function tractor_control:OnTick(deltaTime, timePoint)
 		
 		
 		
-		nearestPositionTractorFrame = tractorPoseInv * nearestPositionWorld
-		crossTrackError = Vector3.Dot(nearestPositionTractorFrame, self.Properties.TractorRightAxis)
+		nearestPositionRobotFrame = robotPoseInv * nearestPositionWorld
+		crossTrackError = Vector3.Dot(nearestPositionRobotFrame, self.Properties.RobotRightAxis)
 
-		errorVector = Vector3.Cross(tractorTangentAxis, tangentVectorWorld)
+		errorVector = Vector3.Cross(robotTangentAxis, tangentVectorWorld)
 		assert(errorVector~=nil, "errorVector is missing")
 		
 		local headingError = math.asin(Vector3.GetLength(errorVector))
@@ -133,8 +133,8 @@ function tractor_control:OnTick(deltaTime, timePoint)
 			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(tangentLocation, 0.1, Color.ConstructFromValues(0,255,0,255), 0)
 			
 			
-			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(tractorPosition, 0.2, Color.ConstructFromValues(255,0,0,255), 0)
-			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(tractorPosition+tractorTangentAxis, 0.1, Color.ConstructFromValues(0,255,0,255), 0)
+			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(robotPosition, 0.2, Color.ConstructFromValues(255,0,0,255), 0)
+			DebugDrawRequestBus.Broadcast.DrawSphereAtLocation(robotPosition+robotTangentAxis, 0.1, Color.ConstructFromValues(0,255,0,255), 0)
 			
 			DebugDrawRequestBus.Broadcast.DrawTextAtLocation(nearestPositionWorld + Vector3.CreateAxisZ(2.5), 'FPGA collision ' .. tostring(self.DepthWarningStatus), Color.ConstructFromValues(255,225,0,255), 0)
 			
@@ -152,4 +152,4 @@ function tractor_control:OnTick(deltaTime, timePoint)
 
 end
 
-return tractor_control
+return RobotPathFollow

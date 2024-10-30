@@ -12,6 +12,7 @@ You can learn more about the features of O3DE for robotics and how to get starte
 - **DemoLevel2**: 90x100 meters, three times larger, and 12 robotic arms, suitable for 12-24 AMRs.
 - **RobotsSuperShot**: a level showcasing 3D models, with several different robots, a human, and a forklift. Some robots are not equipped with components yet, but you are welcome to try and make them work!
 - **RobotImportLevel**: a small enclosed space with a table, good for [importing your own robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
+- **DemoStereo**: a level showcasing HIL setup with AMD KRIA and stereo cameras. Visit [KRIA depth demo](https://github.com/RobotecAI/kria_depth_demo) for more information.
 
 ### Detailed description
 UR20 robot arms controlled by MoveIt2 with [pilz_industrial_motion_planner](https://moveit.picknik.ai/humble/doc/examples/pilz_industrial_motion_planner/pilz_industrial_motion_planner.html?highlight=pilz#pilz-industrial-motion-planner).
@@ -110,10 +111,10 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-**Use 2409.0 tag for `o3de` and 2409.1 `o3de-extras` repositories:**
+**Use 2409.0 tag for `o3de` and 2409.0 `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch point-release/24091 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch 2409 --single-branch https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -134,10 +135,12 @@ git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
+git clone https://github.com/RobotecAI/robotec-o3de-tools.git
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
 ./o3de/scripts/o3de.sh register -agp ./robotec-warehouse-assets/
+./o3de/scripts/o3de.sh register --gem-path robotec-o3de-tools/Gems/ROS2ScriptIntegration
 ```
 
 The Gems are open to your contributions!
@@ -150,7 +153,7 @@ After that, change the OTTO 600 prefab so that both front and back lidars use th
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev
 ```
 
 ### Project
@@ -290,24 +293,6 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 ## Notes and acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
-
-
-
-
-### Stereovision HIL-testing
-
-Start game launcher, following command will start the game in a windowed mode with a resolution of 960x960 pixels, and load the `demostereo` level:
-```bash
-ROSCon2023Demo/Project/build/linux/bin/profile/ROSCon2023Demo.GameLauncher -r_fullscreen=false -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=960 -r_height=960 +LoadLevel levels/demostereo/demostereo.spawnable +r_displayInfo 0
-```
-
-Next, spawn NPC robots and start the ROS 2 nodes:
-
-```
-ros2 launch roscon2023_demo ROSCon2023Demo.launch.py ROS2Con2023Config:='/media/michal/xilinx/github/ROSCon2023Demo/ros2_ws/src/roscon2023_demo/config/ROSCon2023Config_stereoNPCS.yaml' use_rviz:=true
-```
-
-Finally, start the stereo vision node on the board.
 
 # Build release package
 

@@ -1,14 +1,14 @@
 /*
-* Copyright (c) Contributors to the Open 3D Engine Project.
-* For complete copyright and license terms please see the LICENSE at the root of this distribution.
-*
-* SPDX-License-Identifier: Apache-2.0 OR MIT
-*
-*/
+ * Copyright (c) Contributors to the Open 3D Engine Project.
+ * For complete copyright and license terms please see the LICENSE at the root of this distribution.
+ *
+ * SPDX-License-Identifier: Apache-2.0 OR MIT
+ *
+ */
 
 #include "GrayscaleCamera.h"
-#include <AzCore/Serialization/SerializeContext.h>
 #include <AzCore/Serialization/EditContext.h>
+#include <AzCore/Serialization/SerializeContext.h>
 #include <opencv2/opencv.hpp>
 
 namespace ROS2::Demo
@@ -28,15 +28,13 @@ namespace ROS2::Demo
     {
         if (auto* serializeContext = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serializeContext->Class<GrayscaleCamera, AZ::Component>()
-                ->Version(1);
+            serializeContext->Class<GrayscaleCamera, AZ::Component>()->Version(1);
             if (auto* editContext = serializeContext->GetEditContext())
             {
                 editContext->Class<GrayscaleCamera>("GrayscaleCamera", "GrayscaleCamera")
                     ->ClassElement(AZ::Edit::ClassElements::EditorData, "")
                     ->Attribute(AZ::Edit::Attributes::Category, "ROS2::Demo")
                     ->Attribute(AZ::Edit::Attributes::AppearsInAddComponentMenu, AZ_CRC_CE("Game"));
-
             }
         }
     }
@@ -58,5 +56,4 @@ namespace ROS2::Demo
         imageMessageMono.header = imageMessage.header;
         std::swap(imageMessageMono, imageMessage);
     }
-
-}
+} // namespace ROS2::Demo

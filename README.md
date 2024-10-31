@@ -104,7 +104,10 @@ This project uses the following Gems:
 - [HumanWorker Gem](https://github.com/RobotecAI/o3de-humanworker-gem)
 - [UR10 and UR20 Robots Gem](https://github.com/RobotecAI/o3de-ur-robots-gem)
 - [OTTO 600 and OTTO 1500 Robots Gem](https://github.com/RobotecAI/o3de-otto-robots-gem)
-  
+- [Additional warehouse assets](https://github.com/RobotecAI/robotec-warehouse-assets)
+- [Additional generic assets](https://github.com/RobotecAI/robotec-generic-assets)
+
+
 Please make sure to follow the installation guide in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file up until the creation of a new Project.
 
 To learn more about how the Gem works check out the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/concepts-and-components-overview/).
@@ -135,11 +138,13 @@ git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
+git clone https://github.com/RobotecAI/robotec-generic-assets.git 
 git clone https://github.com/RobotecAI/robotec-o3de-tools.git
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
-./o3de/scripts/o3de.sh register -agp ./robotec-warehouse-assets/
+./o3de/scripts/o3de.sh register --all-gems-path robotec-warehouse-assets
+./o3de/scripts/o3de.sh register --all-gems-path robotec-generic-assets
 ./o3de/scripts/o3de.sh register --gem-path robotec-o3de-tools/Gems/ROS2ScriptIntegration
 ```
 

@@ -19,18 +19,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
-                    "Entity_[1176639161715]",
-                    "Instance_[6541469569187]/ContainerEntity",
-                    "Entity_[378904850629145]",
-                    "Entity_[469859373056537]",
-                    "Entity_[21524318507725]",
-                    "Entity_[1035527589276214]",
-                    "Instance_[9613713711690]/ContainerEntity",
-                    "Instance_[9849799017068]/ContainerEntity",
-                    "Entity_[157997884966234]",
-                    "Entity_[1842731393655449]",
-                    "Instance_[447351292908083]/ContainerEntity",
-                    "Instance_[46481451049499]/ContainerEntity"
+                    "Entity_[1264206549204810]"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -62,6 +51,22 @@
                 "$type": "LocalViewBookmarkComponent",
                 "Id": 8518178925782834082,
                 "LocalBookmarkFileName": "foo1_1693899577283504334.setreg"
+            },
+            "NPCControlComponent": {
+                "$type": "GenericComponentWrapper",
+                "Id": 17235954481715628060,
+                "m_template": {
+                    "$type": "NPCControlComponent",
+                    "DetourNavigationEntityId": "Instance_[1273427843989322]/Entity_[470681276497738]",
+                    "SupportWGS": true
+                }
+            },
+            "NPCSpawner": {
+                "$type": "GenericComponentWrapper",
+                "Id": 18229333093112863903,
+                "m_template": {
+                    "$type": "NPCSpawner"
+                }
             },
             "ScriptSpawnLevelComponent": {
                 "$type": "GenericComponentWrapper",
@@ -137,7 +142,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 4788539947361095685,
-                    "Parent Entity": "Entity_[1146574390643]",
+                    "Parent Entity": "Entity_[1264206549204810]",
                     "Transform Data": {
                         "Translate": [
                             -30.37836265563965,
@@ -266,7 +271,7 @@
                 "Component_[10757302973393310045]": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10757302973393310045,
-                    "Parent Entity": "Entity_[1146574390643]"
+                    "Parent Entity": "Entity_[1264206549204810]"
                 },
                 "Component_[14505817420424255464]": {
                     "$type": "EditorInspectorComponent",
@@ -310,6 +315,75 @@
                 "Component_[9277695270015777859]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 9277695270015777859
+                }
+            }
+        },
+        "Entity_[1264206549204810]": {
+            "Id": "Entity_[1264206549204810]",
+            "Name": "World",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 13795085880739532455
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7977302722026076544
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17194282812926956508,
+                    "Child Entity Order": [
+                        "Entity_[1176639161715]",
+                        "Instance_[6541469569187]/ContainerEntity",
+                        "Entity_[378904850629145]",
+                        "Entity_[469859373056537]",
+                        "Entity_[21524318507725]",
+                        "Entity_[1035527589276214]",
+                        "Instance_[9613713711690]/ContainerEntity",
+                        "Instance_[9849799017068]/ContainerEntity",
+                        "Entity_[1842731393655449]",
+                        "Instance_[447351292908083]/ContainerEntity",
+                        "Instance_[46481451049499]/ContainerEntity",
+                        "Instance_[1273410664120138]/ContainerEntity",
+                        "Instance_[1273427843989322]/ContainerEntity",
+                        "Instance_[1282838117334858]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 12382292267211403779
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 11386121376270824071
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 3813633331425585032
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 22839772933862851
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13941327542494502290
+                },
+                "ROS2FrameEditorComponent": {
+                    "$type": "ROS2FrameEditorComponent",
+                    "Id": 16476729232907919061,
+                    "ROS2FrameConfiguration": {
+                        "Namespace Configuration": {
+                            "Namespace Strategy": 1
+                        },
+                        "Frame Name": "world"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 12037156381126148203,
+                    "Parent Entity": "Entity_[1146574390643]"
                 }
             }
         },
@@ -545,92 +619,6 @@
                 }
             }
         },
-        "Entity_[157997884966234]": {
-            "Id": "Entity_[157997884966234]",
-            "Name": "Spawner",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8716467794155507848
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 11217278184377731101
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 5733903695194418616
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 4261319125997465624
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14386499870014740989
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8977963404717803197
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3652502057217407836
-                },
-                "EditorStaticRigidBodyComponent": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 10582313689306545614
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 16665446713452648272
-                },
-                "ROS2SpawnerEditorComponent": {
-                    "$type": "ROS2SpawnerEditorComponent",
-                    "Id": 16779392780569771372,
-                    "Controller": {
-                        "Configuration": {
-                            "Editor entity id": "Entity_[157997884966234]",
-                            "Spawnables": {
-                                "otto1500": {
-                                    "assetId": {
-                                        "guid": "{B51DFA85-1FF8-5970-A16A-ADCFD0F8D7AF}",
-                                        "subId": 2545626186
-                                    },
-                                    "assetHint": "otto1500/otto1500_lifting_platform.spawnable"
-                                },
-                                "otto600": {
-                                    "assetId": {
-                                        "guid": "{34E77627-6EDA-5CF6-8304-B8EA4E4ABE59}",
-                                        "subId": 1911613189
-                                    },
-                                    "assetHint": "prefabs/otto600/otto600withpallet.spawnable"
-                                }
-                            },
-                            "Default spawn pose": {
-                                "Translation": [
-                                    -22.0,
-                                    2.0,
-                                    0.10000000149011612
-                                ]
-                            }
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10249215676368019344,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            -29.032737731933594,
-                            2.9228999614715576,
-                            0.0
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[1842714213786265]": {
             "Id": "Entity_[1842714213786265]",
             "Name": "ViewPortCameraRotCenterBack",
@@ -792,7 +780,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 18179739078575988939,
-                    "Parent Entity": "Entity_[1146574390643]"
+                    "Parent Entity": "Entity_[1264206549204810]"
                 }
             }
         },
@@ -1251,7 +1239,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 4211710458139155881,
-                    "Parent Entity": "Entity_[1146574390643]"
+                    "Parent Entity": "Entity_[1264206549204810]"
                 }
             }
         },
@@ -1801,7 +1789,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 11495079650059428090,
-                    "Parent Entity": "Entity_[1146574390643]"
+                    "Parent Entity": "Entity_[1264206549204810]"
                 }
             }
         },
@@ -1903,7 +1891,7 @@
                 "TransformComponent": {
                     "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                     "Id": 10131651121134953962,
-                    "Parent Entity": "Entity_[1146574390643]",
+                    "Parent Entity": "Entity_[1264206549204810]",
                     "Transform Data": {
                         "Translate": [
                             -22.708070755004883,
@@ -2449,6 +2437,36 @@
         }
     },
     "Instances": {
+        "Instance_[1273410664120138]": {
+            "Source": "Prefabs/Spawner.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1264206549204810]"
+                }
+            ]
+        },
+        "Instance_[1273427843989322]": {
+            "Source": "Prefabs/NPCControl_DemoLevel1.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1264206549204810]"
+                }
+            ]
+        },
+        "Instance_[1282838117334858]": {
+            "Source": "Prefabs/OccupancyGrid_DemoLevel1.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1264206549204810]"
+                }
+            ]
+        },
         "Instance_[146117451086181]": {
             "Source": "Prefabs/ur20_cameras.prefab",
             "Patches": [
@@ -2526,6 +2544,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[15289328081690]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[64332123955082]/Entities/Entity_[64259109511050]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/objects/models/tableunderrobot.fbx.azmodel"
                 }
             ]
         },
@@ -2536,6 +2559,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[15293623048986]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[64332123955082]/Entities/Entity_[64259109511050]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/objects/models/tableunderrobot.fbx.azmodel"
                 }
             ]
         },
@@ -2546,6 +2574,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[6888547663069]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[64332123955082]/Entities/Entity_[64259109511050]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/objects/models/tableunderrobot.fbx.azmodel"
                 }
             ]
         },
@@ -2555,208 +2588,13 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
+                    "value": "../Entity_[1264206549204810]"
                 }
             ]
         },
         "Instance_[46481451049499]": {
             "Source": "Assets/Factory/Objects/WarehouseObjects_300m2.prefab",
             "Patches": [
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/1",
-                    "value": "Instance_[612481889784870]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/2",
-                    "value": "Instance_[852429577377864]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/3",
-                    "value": "Instance_[553267175674918]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/4",
-                    "value": "Instance_[731864800744486]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/5",
-                    "value": "Instance_[437298763715622]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/6",
-                    "value": "Instance_[437272993911846]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/7",
-                    "value": "Instance_[437247224108070]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/8",
-                    "value": "Instance_[437260109009958]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/9",
-                    "value": "Instance_[852399512606792]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/10",
-                    "value": "Instance_[612507659588646]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/11",
-                    "value": "Instance_[553237110903846]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/12",
-                    "value": "Instance_[672117510689830]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/13",
-                    "value": "Instance_[553207046132774]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/14",
-                    "value": "Instance_[612494774686758]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/15",
-                    "value": "Instance_[437285878813734]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/18",
-                    "value": "Instance_[547916396091464]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/19",
-                    "value": "Instance_[547929280993352]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/20",
-                    "value": "Instance_[399263283009608]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/21",
-                    "value": "Instance_[399250398107720]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/22",
-                    "value": "Instance_[351481771841608]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/23",
-                    "value": "Instance_[351468886939720]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/24",
-                    "value": "Instance_[399276167911496]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/25",
-                    "value": "Instance_[399211743402056]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/26",
-                    "value": "Instance_[547877741385800]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/27",
-                    "value": "Instance_[323941691872294]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/28",
-                    "value": "Instance_[448457838417992]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/29",
-                    "value": "Instance_[399224628303944]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/30",
-                    "value": "Instance_[698888791513160]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/31",
-                    "value": "Instance_[598107383912520]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/32",
-                    "value": "Instance_[323928806970406]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/33",
-                    "value": "Instance_[399173088696392]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/34",
-                    "value": "Instance_[399185973598280]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/35",
-                    "value": "Instance_[448483608221768]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/36",
-                    "value": "Instance_[448470723319880]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/37",
-                    "value": "Instance_[323915922068518]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/38",
-                    "value": "Instance_[399198858500168]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/39",
-                    "value": "Instance_[351456002037832]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/40",
-                    "value": "Instance_[399160203794504]/ContainerEntity"
-                },
-                {
-                    "op": "add",
-                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/41",
-                    "value": "Instance_[399237513205832]/ContainerEntity"
-                },
                 {
                     "op": "add",
                     "path": "/Entities/Entity_[351430232234056]/Components/EditorEntitySortComponent/Child Entity Order/10",
@@ -2876,6 +2714,496 @@
                     "op": "add",
                     "path": "/Entities/Entity_[904463106168904]/Components/EditorEntitySortComponent/Child Entity Order/19",
                     "value": "Instance_[380016784888870]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[43561185856546]/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorline/default_europallet_42675f1e_b39c_540f_9096_4698b5d106dd_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[43483876445218]/Entities/Entity_[41557998601191]/Components/Component_[16911120774673039211]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorageonwheels.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6104894929342]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[460716024407971]/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorline/default_europallet_42675f1e_b39c_540f_9096_4698b5d106dd_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6010405648830]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[148210729406829]/Entities/Entity_[137069584241005]/Components/EditorEntitySortComponent/Child Entity Order/6",
+                    "value": "Instance_[137035224502637]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[148210729406829]/Entities/Entity_[137069584241005]/Components/EditorEntitySortComponent/Child Entity Order/7",
+                    "value": "Instance_[137048109404525]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[260354073950654]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[151111580776894]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[801259337013320]/Instances/Instance_[174065262778440]/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorline/default_europallet_42675f1e_b39c_540f_9096_4698b5d106dd_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[24167564200828]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[116748232002415]/Entities/Entity_[246839994985560]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Instance_[248174231260015]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[116748232002415]/Entities/Entity_[246839994985560]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Instance_[248122691652463]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[295499791333822]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[292719974395641]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[852429577377864]/Instances/Instance_[174065262778440]/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorline/default_europallet_42675f1e_b39c_540f_9096_4698b5d106dd_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6117779831230]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[5920211335614]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[5997520746942]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[259976116828606]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[260040541338046]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[43496761347106]/Entities/Entity_[41557998601191]/Components/Component_[16911120774673039211]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorageonwheels.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6096304994750]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[259946052057534]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[569993488067058]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[51696657337199]/Entities/Entity_[246839994985560]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Instance_[248174231260015]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[51696657337199]/Entities/Entity_[246839994985560]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Instance_[248122691652463]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[246003615117049]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[292732859297529]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[137060994306413]/Entities/Entity_[137069584241005]/Components/EditorEntitySortComponent/Child Entity Order/7",
+                    "value": "Instance_[137048109404525]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[246059449691897]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[259958936959422]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14775470848032]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14749701044256]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[43475286510626]/Entities/Entity_[41557998601191]/Components/Component_[16911120774673039211]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorageonwheels.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14762585946144]/Entities/Entity_[1614665180534621]/Components/Component_[14793421525127928751]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseprops.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[246016500018937]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[260006181599678]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[199742522371833]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[295495496366526]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213519181686691]/Entities/Entity_[5559434082750]/Components/Component_[16399451670871728784]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorage.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[5971750943166]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Instance_[612481889784870]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Instance_[852429577377864]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/3",
+                    "value": "Instance_[553267175674918]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Instance_[731864800744486]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/5",
+                    "value": "Instance_[437298763715622]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/6",
+                    "value": "Instance_[437272993911846]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/7",
+                    "value": "Instance_[437247224108070]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/8",
+                    "value": "Instance_[437260109009958]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/9",
+                    "value": "Instance_[852399512606792]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/10",
+                    "value": "Instance_[612507659588646]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/11",
+                    "value": "Instance_[553237110903846]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/12",
+                    "value": "Instance_[672117510689830]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/13",
+                    "value": "Instance_[553207046132774]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/14",
+                    "value": "Instance_[612494774686758]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/15",
+                    "value": "Instance_[437285878813734]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/16",
+                    "value": "Instance_[1419771376568740]/ContainerEntity"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[800262904600648]/Components/EditorEntitySortComponent/Child Entity Order/17",
+                    "value": "Instance_[1355643219872164]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[43548300954658]/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "factory/conveyorline/default_europallet_42675f1e_b39c_540f_9096_4698b5d106dd_.fbx.azmodel"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[412992797821986]/Entities/Entity_[41557998601191]/Components/Component_[16911120774673039211]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehousestorageonwheels.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[295461136628158]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6023290550718]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/18",
+                    "value": "Instance_[547916396091464]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/19",
+                    "value": "Instance_[547929280993352]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/20",
+                    "value": "Instance_[399263283009608]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/21",
+                    "value": "Instance_[399250398107720]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/22",
+                    "value": "Instance_[351481771841608]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/23",
+                    "value": "Instance_[351468886939720]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/24",
+                    "value": "Instance_[399276167911496]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/25",
+                    "value": "Instance_[399211743402056]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/26",
+                    "value": "Instance_[547877741385800]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/27",
+                    "value": "Instance_[323941691872294]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/28",
+                    "value": "Instance_[448457838417992]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/29",
+                    "value": "Instance_[399224628303944]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/30",
+                    "value": "Instance_[698888791513160]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/31",
+                    "value": "Instance_[598107383912520]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/32",
+                    "value": "Instance_[323928806970406]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/33",
+                    "value": "Instance_[399173088696392]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/34",
+                    "value": "Instance_[399185973598280]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/35",
+                    "value": "Instance_[448483608221768]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/36",
+                    "value": "Instance_[448470723319880]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/37",
+                    "value": "Instance_[323915922068518]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/38",
+                    "value": "Instance_[399198858500168]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/39",
+                    "value": "Instance_[351456002037832]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/40",
+                    "value": "Instance_[399160203794504]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/41",
+                    "value": "Instance_[399237513205832]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/42",
+                    "value": "Instance_[397537968252480]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/43",
+                    "value": "Instance_[320282437192559]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[351417347332168]/Components/EditorEntitySortComponent/Child Entity Order/44",
+                    "value": "Instance_[320295322094447]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[917677454603817]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[260345484016062]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[295534151072190]/Entities/Entity_[5804247218622]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "add",
+                    "path": "/Instances/Instance_[116748232002415]/Entities/Entity_[246848584920152]/Components/EditorEntitySortComponent/Child Entity Order/4",
+                    "value": "Instance_[248075447012207]/ContainerEntity"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[5920211335614]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[213244303779747]/Instances/Instance_[6027585518014]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[199729637469945]/Entities/Entity_[5722642839998]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[260023361468862]/Entities/Entity_[5641038461374]/Components/Component_[3144205669266579244]/Controller/Configuration/materials/0/Value/MaterialAsset/assetHint",
+                    "value": "assets/warehouse/materials/mwarehouseboxes.azmaterial"
                 },
                 {
                     "op": "replace",
@@ -3143,11 +3471,6 @@
             "Source": "Assets/Factory/Warehouse_300m2/Warehouse_300m2.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
                     "op": "remove",
                     "path": "/Instances/Instance_[1080548856515450]"
                 },
@@ -3205,11 +3528,6 @@
             "Source": "Assets/Factory/Exterior/Exterior.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
-                },
-                {
                     "op": "remove",
                     "path": "/Entities/Entity_[607058445084579]/Components/AZ::Render::EditorHDRiSkyboxComponent"
                 },
@@ -3235,6 +3553,11 @@
                 {
                     "op": "remove",
                     "path": "/Entities/Entity_[25053711648930]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1264206549204810]"
                 }
             ]
         },
@@ -3255,6 +3578,11 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[33370629259023]/Components/EditorSplineComponent/Configuration/Spline/Vertices/Vertices/2/0",
                     "value": 0.8323283195495605
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[64332123955082]/Entities/Entity_[64259109511050]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
+                    "value": "assets/factory/objects/models/tableunderrobot.fbx.azmodel"
                 }
             ]
         },
@@ -3274,7 +3602,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../Entity_[1146574390643]"
+                    "value": "../Entity_[1264206549204810]"
                 }
             ]
         }

@@ -1,0 +1,172 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "OccupancyGrid_DemoLevel2",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 18177352816219868866
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 3917388412237391429
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 7642783543826707511,
+                "Child Entity Order": [
+                    "Entity_[470389218721610]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 7241517905402269914
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 15743751021091193989
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 7660517400799415071
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 3490286193678042187
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 7701861207435515968
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 10396565775590816553
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 2515491401543435593,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[470389218721610]": {
+            "Id": "Entity_[470389218721610]",
+            "Name": "OccupancyGrid",
+            "Components": {
+                "AutomaticScannerComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 16040211877357808599,
+                    "m_template": {
+                        "$type": "AutomaticScannerComponent",
+                        "TopicConfiguration": {
+                            "Topic": "top_view_map"
+                        }
+                    }
+                },
+                "EditorAxisAlignedBoxShapeComponent": {
+                    "$type": "EditorAxisAlignedBoxShapeComponent",
+                    "Id": 12077487561495960541,
+                    "AxisAlignedBoxShape": {
+                        "Configuration": {
+                            "Dimensions": [
+                                100.0,
+                                90.0,
+                                5.0
+                            ],
+                            "TranslationOffset": [
+                                -50.0,
+                                45.0,
+                                4.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15407265560731172327
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6428200399929508264
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5548696552376080769
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 8080414760103903381,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 2416526843575722647
+                        },
+                        {
+                            "ComponentId": 12077487561495960541,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 14195196505626792959,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 17483369242517312860,
+                            "SortIndex": 3
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 17476705484835750710
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13998090855070609775
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10848745445110103992
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 12930831413526971983
+                },
+                "OccupancyGridComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 14195196505626792959,
+                    "m_template": {
+                        "$type": "OccupancyGridComponent",
+                        "SensorConfiguration": {
+                            "Publishers": {
+                                "map_dynamic": {
+                                    "Type": "nav_msgs::msg::OccupancyGrid",
+                                    "Topic": "map_dynamic"
+                                },
+                                "map_static": {
+                                    "Type": "nav_msgs::msg::OccupancyGrid",
+                                    "Topic": "map_sim",
+                                    "QoS": {
+                                        "Reliability": 1,
+                                        "Durability": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ROS2FrameEditorComponent": {
+                    "$type": "ROS2FrameEditorComponent",
+                    "Id": 17483369242517312860,
+                    "ROS2FrameConfiguration": {
+                        "Frame Name": "map_sim"
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 2416526843575722647,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

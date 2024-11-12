@@ -1,0 +1,153 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "Spawner",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 15396434596570679785
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 11148134102166138836
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 9051316945633544422,
+                "Child Entity Order": [
+                    "Entity_[470324794212170]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 659735978539488577
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 11411512982460688053
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 15710686708909831415
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 5979611176981065401
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 7971196044835085387
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 2628909975631855121
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 16743147740097535658,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[470324794212170]": {
+            "Id": "Entity_[470324794212170]",
+            "Name": "Spawner",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 8716467794155507848
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 11217278184377731101
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 5733903695194418616
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4261319125997465624,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 10249215676368019344
+                        },
+                        {
+                            "ComponentId": 10582313689306545614,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 16779392780569771372,
+                            "SortIndex": 2
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 14386499870014740989
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 8977963404717803197
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 3652502057217407836
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 10582313689306545614
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 16665446713452648272
+                },
+                "ROS2SpawnerEditorComponent": {
+                    "$type": "ROS2SpawnerEditorComponent",
+                    "Id": 16779392780569771372,
+                    "Controller": {
+                        "Configuration": {
+                            "Editor entity id": "Entity_[470324794212170]",
+                            "Spawnables": {
+                                "otto1500": {
+                                    "assetId": {
+                                        "guid": "{77464CBD-3EAF-58F5-8989-6BDA356AEA16}",
+                                        "subId": 2545626186
+                                    },
+                                    "assetHint": "otto1500/otto1500_lifting_platform.spawnable"
+                                },
+                                "otto1500_basic": {
+                                    "assetId": {
+                                        "guid": "{717894E0-EFED-5C28-8CDE-4A7B0C97505E}",
+                                        "subId": 2193407303
+                                    },
+                                    "assetHint": "otto1500/otto1500_basic_platform.spawnable"
+                                },
+                                "otto600": {
+                                    "assetId": {
+                                        "guid": "{84E95FEB-AC6F-5AEF-A900-8470A35CFDD4}",
+                                        "subId": 4278413227
+                                    },
+                                    "assetHint": "otto600/otto600.spawnable"
+                                }
+                            },
+                            "Default spawn pose": {
+                                "Translation": [
+                                    -22.0,
+                                    2.0,
+                                    0.10000000149011612
+                                ]
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 10249215676368019344,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    }
+}

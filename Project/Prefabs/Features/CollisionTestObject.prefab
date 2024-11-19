@@ -52,7 +52,7 @@
     "Entities": {
         "Entity_[143067400392733]": {
             "Id": "Entity_[143067400392733]",
-            "Name": "Collision2",
+            "Name": "Barrel",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -61,10 +61,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{E5986F7E-E3D9-5ED8-BEE9-CF632531CC3F}",
+                                    "guid": "{78BDA170-A751-541C-A7C6-FB31A1201C4E}",
                                     "subId": 283805129
                                 },
-                                "assetHint": "assets/factory/objects/misc/plasticbarrel.fbx.azmodel"
+                                "assetHint": "plasticbarrel/models/plasticbarrel.fbx.azmodel"
                             }
                         }
                     }
@@ -89,6 +89,28 @@
                     "$type": "EditorLockComponent",
                     "Id": 9779738204639057189
                 },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 4673299875790224901,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 634973341
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{B0C223A6-1F75-5C6A-B40D-0A97AEF83E53}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 16890435955482208406
@@ -110,46 +132,7 @@
                             "source": {
                                 "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
                                 "path": "AdjustVisibility.scriptcanvas"
-                            },
-                            "variables": [
-                                {
-                                    "Datum": {
-                                        "isOverloadedStorage": false,
-                                        "scriptCanvasType": {
-                                            "m_type": 1
-                                        },
-                                        "isNullPointer": false,
-                                        "$type": "EntityId",
-                                        "value": ""
-                                    },
-                                    "VariableId": {
-                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
-                                    },
-                                    "VariableName": "Robot",
-                                    "InitialValueSource": 1
-                                }
-                            ],
-                            "overrides": [
-                                {
-                                    "Datum": {
-                                        "isOverloadedStorage": false,
-                                        "scriptCanvasType": {
-                                            "m_type": 1
-                                        },
-                                        "isNullPointer": false,
-                                        "$type": "EntityId",
-                                        "value": ""
-                                    },
-                                    "InputControlVisibility": {
-                                        "Value": 850104567
-                                    },
-                                    "VariableId": {
-                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
-                                    },
-                                    "VariableName": "Robot",
-                                    "InitialValueSource": 1
-                                }
-                            ]
+                            }
                         }
                     }
                 },
@@ -173,7 +156,7 @@
         },
         "Entity_[143071695360029]": {
             "Id": "Entity_[143071695360029]",
-            "Name": "Collision3",
+            "Name": "PaintCan",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -182,10 +165,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{E8930D47-8F3D-517D-892F-4718D42B2C9E}",
+                                    "guid": "{CBF646B4-AE46-5303-A8D4-64A982B61C5A}",
                                     "subId": 275434013
                                 },
-                                "assetHint": "assets/factory/objects/misc/paintcan.fbx.azmodel"
+                                "assetHint": "paintcan/models/paintcan.fbx.azmodel"
                             }
                         }
                     }
@@ -210,6 +193,28 @@
                     "$type": "EditorLockComponent",
                     "Id": 9779738204639057189
                 },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 16218391812178956352,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 3527342189
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{A7108378-45DA-5847-BCAE-6B1DE1634C89}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
                     "Id": 16890435955482208406
@@ -231,46 +236,7 @@
                             "source": {
                                 "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
                                 "path": "AdjustVisibility.scriptcanvas"
-                            },
-                            "variables": [
-                                {
-                                    "Datum": {
-                                        "isOverloadedStorage": false,
-                                        "scriptCanvasType": {
-                                            "m_type": 1
-                                        },
-                                        "isNullPointer": false,
-                                        "$type": "EntityId",
-                                        "value": ""
-                                    },
-                                    "VariableId": {
-                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
-                                    },
-                                    "VariableName": "Robot",
-                                    "InitialValueSource": 1
-                                }
-                            ],
-                            "overrides": [
-                                {
-                                    "Datum": {
-                                        "isOverloadedStorage": false,
-                                        "scriptCanvasType": {
-                                            "m_type": 1
-                                        },
-                                        "isNullPointer": false,
-                                        "$type": "EntityId",
-                                        "value": ""
-                                    },
-                                    "InputControlVisibility": {
-                                        "Value": 850104567
-                                    },
-                                    "VariableId": {
-                                        "m_id": "{7AF2A373-4F35-4658-8056-315667FBB076}"
-                                    },
-                                    "VariableName": "Robot",
-                                    "InitialValueSource": 1
-                                }
-                            ]
+                            }
                         }
                     }
                 },
@@ -294,7 +260,7 @@
         },
         "Entity_[143075990327325]": {
             "Id": "Entity_[143075990327325]",
-            "Name": "Collision5",
+            "Name": "Computer",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -402,145 +368,9 @@
                 }
             }
         },
-        "Entity_[143080285294621]": {
-            "Id": "Entity_[143080285294621]",
-            "Name": "Collision5",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 18283754402657770273,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{6B62D5C5-0FD8-5399-BE02-2E5A23009927}",
-                                    "subId": 275341791
-                                },
-                                "assetHint": "forklifts/models/forklift.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 9477497534502226220
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 14428401069041803107
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2784323575439940696
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 16570605180524333938
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 9779738204639057189
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 5859151019541216272,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 568790644
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{3AA80A9D-3C81-5FA2-9C7B-F4C3FD0348ED}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftalpha.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2654025647
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{585E5D89-7D3E-5D25-AA96-9CE8C12B0F0A}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftblue.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2875683869
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{585E5D89-7D3E-5D25-AA96-9CE8C12B0F0A}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftblue.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 16890435955482208406
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 11660213891027442642
-                },
-                "EditorScriptCanvasComponent": {
-                    "$type": "EditorScriptCanvasComponent",
-                    "Id": 3076604475548040403,
-                    "configuration": {
-                        "sourceHandle": {
-                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
-                            "path": "AdjustVisibility.scriptcanvas"
-                        },
-                        "sourceName": "AdjustVisibility.scriptcanvas",
-                        "propertyOverrides": {
-                            "source": {
-                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
-                                "path": "AdjustVisibility.scriptcanvas"
-                            }
-                        }
-                    }
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 18172825077298097937
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10631917990859386789,
-                    "Parent Entity": "Entity_[143084580261917]",
-                    "Transform Data": {
-                        "Translate": [
-                            -77.84185791015625,
-                            11.04445743560791,
-                            -0.022249221801757813
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            -52.45297622680664
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[143084580261917]": {
             "Id": "Entity_[143084580261917]",
-            "Name": "Entity1",
+            "Name": "Objects",
             "Components": {
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
@@ -557,8 +387,6 @@
                         "Entity_[143067400392733]",
                         "Entity_[143071695360029]",
                         "Entity_[143075990327325]",
-                        "Entity_[143080285294621]",
-                        "Entity_[156375057676430]",
                         "Entity_[41807579907811]",
                         "Entity_[156533971466382]",
                         "Entity_[959114032772123]"
@@ -596,145 +424,9 @@
                 }
             }
         },
-        "Entity_[156375057676430]": {
-            "Id": "Entity_[156375057676430]",
-            "Name": "Collision5",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 18283754402657770273,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{6B62D5C5-0FD8-5399-BE02-2E5A23009927}",
-                                    "subId": 275341791
-                                },
-                                "assetHint": "forklifts/models/forklift.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 9477497534502226220
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 14428401069041803107
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 2784323575439940696
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 16570605180524333938
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 9779738204639057189
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 5859151019541216272,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 568790644
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{3AA80A9D-3C81-5FA2-9C7B-F4C3FD0348ED}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftalpha.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2654025647
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{585E5D89-7D3E-5D25-AA96-9CE8C12B0F0A}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftblue.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2875683869
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{585E5D89-7D3E-5D25-AA96-9CE8C12B0F0A}"
-                                            },
-                                            "assetHint": "forklifts/models/materials/forkliftblue.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 16890435955482208406
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 11660213891027442642
-                },
-                "EditorScriptCanvasComponent": {
-                    "$type": "EditorScriptCanvasComponent",
-                    "Id": 3076604475548040403,
-                    "configuration": {
-                        "sourceHandle": {
-                            "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
-                            "path": "AdjustVisibility.scriptcanvas"
-                        },
-                        "sourceName": "AdjustVisibility.scriptcanvas",
-                        "propertyOverrides": {
-                            "source": {
-                                "id": "{B7600003-6270-5344-8B5C-5F502FD81CF8}",
-                                "path": "AdjustVisibility.scriptcanvas"
-                            }
-                        }
-                    }
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 18172825077298097937
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10631917990859386789,
-                    "Parent Entity": "Entity_[143084580261917]",
-                    "Transform Data": {
-                        "Translate": [
-                            -77.84185791015625,
-                            11.04445743560791,
-                            -0.022249221801757813
-                        ],
-                        "Rotate": [
-                            0.0,
-                            0.0,
-                            -52.45297622680664
-                        ]
-                    }
-                }
-            }
-        },
         "Entity_[156533971466382]": {
             "Id": "Entity_[156533971466382]",
-            "Name": "Collision7",
+            "Name": "Forklift2",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -870,7 +562,7 @@
         },
         "Entity_[41807579907811]": {
             "Id": "Entity_[41807579907811]",
-            "Name": "Collision8",
+            "Name": "Forklift",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -947,7 +639,8 @@
                                         "MaterialAsset": {
                                             "assetId": {
                                                 "guid": "{70D04623-67DB-5B1C-AA41-C4C6C3C1091A}"
-                                            }
+                                            },
+                                            "assetHint": "forklifts/models/materials/forkliftorange.azmaterial"
                                         }
                                     }
                                 }
@@ -1005,7 +698,7 @@
         },
         "Entity_[959114032772123]": {
             "Id": "Entity_[959114032772123]",
-            "Name": "Collision6",
+            "Name": "Canister",
             "Components": {
                 "AZ::Render::EditorMeshComponent": {
                     "$type": "AZ::Render::EditorMeshComponent",
@@ -1014,10 +707,10 @@
                         "Configuration": {
                             "ModelAsset": {
                                 "assetId": {
-                                    "guid": "{A23833E5-9119-5B68-89A0-D2120F3FBA07}",
+                                    "guid": "{BDAAEDF5-F252-54A6-8588-391B70FB61BC}",
                                     "subId": 276561705
                                 },
-                                "assetHint": "assets/factory/objects/misc/plasticcanister.fbx.azmodel"
+                                "assetHint": "plasticcanister/models/plasticcanister.fbx.azmodel"
                             }
                         }
                     }
@@ -1041,6 +734,28 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 10390763280969079414
+                },
+                "EditorMaterialComponent": {
+                    "$type": "EditorMaterialComponent",
+                    "Id": 16888599251502444784,
+                    "Controller": {
+                        "Configuration": {
+                            "materials": [
+                                {
+                                    "Key": {
+                                        "materialSlotStableId": 2645872222
+                                    },
+                                    "Value": {
+                                        "MaterialAsset": {
+                                            "assetId": {
+                                                "guid": "{111D2253-AF20-547F-BCBF-0230999093DE}"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
                 },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",

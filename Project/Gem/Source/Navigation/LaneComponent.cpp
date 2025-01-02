@@ -29,7 +29,7 @@ namespace ROS2::Demo
         PathInfo::Reflect(context);
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<LaneComponent>()->Version(1)->Field("PathsInLane", &LaneComponent::m_paths);
+            serialize->Class<LaneComponent, AZ::Component>()->Version(1)->Field("PathsInLane", &LaneComponent::m_paths);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {

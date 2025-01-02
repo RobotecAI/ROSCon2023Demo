@@ -83,7 +83,7 @@ namespace ROS2::Demo
         BoxSpawnerConfiguration::Reflect(context);
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<BoxSpawner>()->Version(1)->Field("configuration", &BoxSpawner::m_configuration);
+            serialize->Class<BoxSpawner, AZ::Component>()->Version(1)->Field("configuration", &BoxSpawner::m_configuration);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {

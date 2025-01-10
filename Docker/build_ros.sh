@@ -13,14 +13,14 @@
 ############################################################### \
 # Clone and register the ROSCon2023Demo \
 ###############################################################
-echo "Cloning the RosCon2023Demo project"
+echo "Cloning the ROSCon2023Demo project"
 git clone --single-branch -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
     git -C $ROSCON_DEMO_ROOT lfs install && \
     git -C $ROSCON_DEMO_ROOT lfs pull && \
     git -C $ROSCON_DEMO_ROOT reset --hard $ROSCON_DEMO_COMMIT 
 if [ $? -ne 0 ]
 then
-    echo "Error cloning RosCon2023Demo project $ROSCON_DEMO_REPO"
+    echo "Error cloning ROSCon2023Demo project $ROSCON_DEMO_REPO"
     exit 1
 fi
 
@@ -30,13 +30,13 @@ fi
 echo -e "\n\
 Repository                        | Commit    | Branch\n\
 ----------------------------------+-----------------------------------------\n\
-RosCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_BRANCH\n\
+ROSCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_BRANCH\n\
 \n\
 " >> $WORKSPACE/git_commit.txt
 
 
 ###############################################################
-# Build and install the additional ros2 packages and drivers
+# Build and install the additional ROS 2 packages and drivers
 ###############################################################
 pushd $ROSCON_DEMO_ROOT/ros2_ws && \
       ./setup_submodules.bash && \
@@ -48,11 +48,9 @@ pushd $ROSCON_DEMO_ROOT/ros2_ws && \
 
 if [ $? -ne 0 ]
 then
-    echo "Error building and installing additional ros2 packages and drivers"
+    echo "Error building and installing additional ROS 2 packages and drivers"
     exit 1
 fi
-
-
 
 # Cleanup
 rm -rf $ROSCON_DEMO_ROOT/Project

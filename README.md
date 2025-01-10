@@ -10,7 +10,7 @@ You can learn more about the features of O3DE for robotics and how to get starte
 ### Levels
 - **DemoLevel1**: 30x100 meters scene with 4 conveyor belts, and 4 robotic arms. Suitable for 4-8 AMRs.
 - **DemoLevel2**: 90x100 meters, three times larger, and 12 robotic arms, suitable for 12-24 AMRs.
-- **RobotsSuperShot**: a level showcasing 3D models, with several different robots, a human, and a forklift. Some robots are not equipped with components yet, but you are welcome to try and make them work!
+- **RobotsSuperShot**: a level showcasing 3D models, with several robots, a human, and a forklift. Some robots are not equipped with all components yet, but you are welcome to try and make them work!
 - **RobotImportLevel**: a small enclosed space with a table, good for [importing your own robot](https://docs.o3de.org/docs/user-guide/interactivity/robotics/importing-robot/).
 - **DemoStereo**: a level showcasing HIL setup with AMD KRIA and stereo cameras. Visit [KRIA depth demo](https://github.com/RobotecAI/kria_depth_demo) for more information.
 
@@ -22,7 +22,7 @@ UR20 arms start working as soon as an immobile pallet is detected in their load 
 
 Pallets are moved around by robots modeled after OTTO 600.
 Note that these AMRs do not use the software of real OTTO 600 and do not have the same sensors.
-They can navigate thanks to front/back lidar and operate cargo lifts.
+They can navigate thanks to front/back lidar sensors and operate cargo lifts.
 OTTO 600 robots have assigned task loops, which are loading, wrapping, and delivering cargo to the other end of the warehouse.
 They use a nav2 action server to realize their paths, and also a custom path follow solution for docking and unloading (for simplicity).
 Note that robots follow their task independently but see and avoid each other and people walking around.
@@ -45,6 +45,7 @@ On the other hand, human workers don't see robots, as they use navigation throug
 ### Platforms
 The project runs on Ubuntu 22.04 with ROS 2 Humble or ROS 2 Iron.
 
+💡 ***Note:*** This demo is **not supported on ROS 2 Jazzy!**
 💡 ***Note:*** This demo is **not supported on Windows!**
 
 ### Hardware
@@ -54,9 +55,13 @@ The demo is rather demanding, as it aims to show what is possible. Minimum specs
 - 64 GB RAM.
 
 For more FPS, a larger scene, and more robots, we used:
-- AMD Radeon RX 7900 XT / NVIDIA RTX 3080 Ti  (or better) GPU (16 GB).
+- AMD Radeon RX 7900 XT / NVIDIA RTX 3080 Ti (or better) GPU (16 GB).
 - AMD Ryzen 9 7950X / Intel i7-12900KF (24 cores) CPU.
 - 64 GB RAM.
+
+## Docker container environment
+
+Follow the instructions in [./Docker/README](./Docker/README.md) file to build and run the project using *docker* virtualization.
 
 ## Project Setup
 
@@ -82,13 +87,13 @@ source ~/.bashrc
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. **Use the version 2409**.
+3. This project was tested on O3DE 2409.1. **`o3de` 2409.1 and `o3de-extras` 2409.1 are recommended versions**, but the newer point-releases should work.
 
 The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
 
 ```bash
 cd ${WORKDIR}
-git clone --tag 2409.0 --single-branch https://github.com/o3de/o3de.git
+git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -114,10 +119,9 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-**Use 2409.0 tag for `o3de` and 2409.0 `o3de-extras` repositories:**
 ```bash
 cd ${WORKDIR}
-git clone --branch 2409 --single-branch https://github.com/o3de/o3de-extras
+git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -133,10 +137,9 @@ cd ${WORKDIR}
 Clone and register the remaining Gems:
 ```bash
 cd ${WORKDIR}
-git clone https://github.com/RobotecAI/o3de-humanworker-gem.git
-git clone https://github.com/RobotecAI/o3de-ur-robots-gem.git
-git clone https://github.com/RobotecAI/o3de-otto-robots-gem
-git clone https://github.com/RobotecAI/o3de-otto-robots-gem
+git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-humanworker-gem.git
+git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-ur-robots-gem.git
+git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
 git clone https://github.com/RobotecAI/robotec-generic-assets.git 
 git clone https://github.com/RobotecAI/robotec-o3de-tools.git
@@ -151,7 +154,7 @@ git clone https://github.com/RobotecAI/robotec-o3de-tools.git
 The Gems are open to your contributions!
 
 ### RGL Gem (Optional)
-Optionally, especially when intending to run more robots or change their lidar to a higher resolution one, you can enable and use Robotec GPU Lidar Gem (RGL Gem).
+Optionally, especially when intending to run more robots or change their lidar sensors to higher resolution ones, you can enable and use Robotec GPU Lidar Gem (RGL Gem).
 Please follow the instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable it within the project.
 After that, change the OTTO 600 prefab so that both front and back lidars use the GPU lidar (use combo box to select it).
 
@@ -198,6 +201,51 @@ You can now run the project Editor with:
 cd ${WORKDIR}/ROSCon2023Demo/Project
 ./build/linux/bin/profile/Editor
 ```
+### Building the release package (optional)
+
+To build a release package with all use export script available in o3de.
+Release package is a standalone package that can be run on any computer without the need to build the project, it is 
+a self-contained package with all assets and binaries.
+To learn more on exporting game launcher see [O3DE documentation](https://www.docs.o3de.org/docs/user-guide/packaging/project-export/project-export-pc/).
+
+To build the game launcher and bundle assets:
+```bash
+cd ${WORKDIR}/o3de
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
+```
+The build package is available here:
+```
+${WORKDIR}/ROSCon2023Demo/Project/build/release 
+└── ROSCon2023DemoGamePackage
+    ├── Cache
+    │   └── linux
+    │       ├── engine_linux.pak
+    │       └── game_linux.pak
+    ├── libPhysXGpu_64.so
+    ├── libVkLayer_khronos_validation.so
+    ├── project.json
+    ├── Registry
+    │   └── IgnoreAssetProcessor.profile.setregpatch
+    ├── ROSCon2023Demo.GameLauncher
+    └── VkLayer_khronos_validation.json
+```
+Please consider copying ROS 2 workspace to the release package. The ROS 2 workspace is required to run the ROS 2 nodes, since GameLauncher does not contain dynamic libraries required by ROS 2.
+
+```bash
+# Consider copying ROS 2 workspace
+mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+```
+
+To start a released the GameLauncher simply:
+```bash
+cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+colcon build --symlink-install
+${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
+${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
+```
+
+This package can be moved to cloud instance or other computer.
 
 ## Running the simulation
 
@@ -257,11 +305,10 @@ Please refer to [DDS tuning information](https://docs.ros.org/en/humble/How-To-G
 ### Running simulation 
 1. On **Machine 1** start GameLauncher, without connecting to `AssetProcess`, with resolution of your choice (we set it to 2.5K to achieve high frame rate) and in fullscreen mode:
     ```bash
-    RosCon2023.GameLaucher -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=2560 -r_height=1440 -r_resolutionMode=1
+    ./ROSCon2023.GameLaucher -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=2560 -r_height=1440 -r_resolutionMode=1
     ```
 
-2. On **Machine 1**, with GameLauncher started, switch level to `DemoLevel2` by hitting tilde `~` and 
-   entering command `loadlevel DemoLevel2` in Debug Console.
+2. On **Machine 1**, with GameLauncher started, switch level to `DemoLevel2` by hitting `Home` key and entering command `LoadLevel demolevel2` in Debug Console.
    ![](media/level.png)
 
 3. On **Machine 2** build ROS2 workspace (no need to build o3de project), source workspace:
@@ -295,52 +342,26 @@ If your simulation does not work as intended, please first make sure that you so
 
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 
-## Notes and acknowledgments
+## Release notes
+
+### ROSCon2023Demo 2.0.0 for O3DE 2409.x
+Changes compared to 1.0.1:
+- updated demo the newest available version of O3DE and ROS 2 Gem
+- added docker support (sample Dockerfiles and additional README)
+- added **DemoStereo** level showcasing HIL setup with AMD KRIA and stereo cameras (this level was used during ROSCon 2024 conference)
+- moved multiple assets to standalone repositories to simplify their usage among different projects
+- multiple scene optimizations
+- updated README
+
+### ROSCon2023Demo 1.0.1 for O3DE 2310.x
+Changes compared to 1.0.0:
+- enforced versions of dependencies (HumanWorker, OTTORobots, URRobots)
+- updated UR (external) submodule
+- updated README
+
+### ROSCon2023Demo 1.0.0 for O3DE 2310.x
+Initial release of the demo, prepared around ROSCon 2023 conference.
+
+## Acknowledgments
 
 This demo project was originally developed by [Robotec.ai](https://robotec.ai) in cooperation with [AWS Game Tech](https://aws.amazon.com/gametech/) and [AWS RoboMaker](https://aws.amazon.com/robomaker/).
-
-# Build release package
-
-To build a release package with all use export script available in o3de.
-Release package is a standalone package that can be run on any computer without the need to build the project, it is 
-a self-contained package with all assets and binaries.
-To learn more on exporting game launcher see [O3DE documentation](https://www.docs.o3de.org/docs/user-guide/packaging/project-export/project-export-pc/).
-
-To build the game launcher and bundle assets:
-```bash
-cd ${WORKDIR}/o3de
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
-```
-The build package is available here:
-```
-${WORKDIR}/ROSCon2023Demo/Project/build/release 
-└── ROSCon2023DemoGamePackage
-    ├── Cache
-    │   └── linux
-    │       ├── engine_linux.pak
-    │       └── game_linux.pak
-    ├── libPhysXGpu_64.so
-    ├── libVkLayer_khronos_validation.so
-    ├── project.json
-    ├── Registry
-    │   └── IgnoreAssetProcessor.profile.setregpatch
-    ├── ROSCon2023Demo.GameLauncher
-    └── VkLayer_khronos_validation.json
-```
-Please consider copying ROS 2 workspace to the release package. The ROS 2 workspace is required to run the ROS 2 nodes,
-since GameLauncher does not contain dynamic libraries required by ROS 2.
-```bash
-# Consider copying ROS 2 workspace
-mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
-cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
-```
-
-To start a released the GameLauncher simply:
-```bash
-cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
-colcon build --symlink-install
-${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
-${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
-```
-
-This package can be moved to cloud instance or other computer.

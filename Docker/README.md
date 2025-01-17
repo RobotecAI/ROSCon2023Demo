@@ -26,23 +26,23 @@ The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse 
 | ROS_VERSION                     | The distro of ROS (humble or iron)                                                    | humble                                            |
 | UBUNTU_VERSION                  | The supporting distro of ubuntu (focal, jammy, noble)                                 | jammy                                             |
 | O3DE_REPO                       | The git repo for O3DE                                                                 | https://github.com/o3de/o3de                      |
-| O3DE_BRANCH                     | The branch for O3DE                                                                   | main                                              |
-| O3DE_COMMIT                     | The commit on the branch for O3DE (or HEAD)                                           | 2409.1                                            |
+| O3DE_BRANCH                     | The branch/tag for O3DE                                                               | 2409.1                                            |
+| O3DE_COMMIT                     | The commit on the branch/tag for O3DE (or HEAD)                                       | HEAD                                              |
 | O3DE_EXTRAS_REPO                | The git repo for O3DE Extras                                                          | https://github.com/o3de/o3de-extras               |
-| O3DE_EXTRAS_BRANCH              | The branch for O3DE Extras                                                            | main                                              |
-| O3DE_EXTRAS_COMMIT              | The commit on the branch for O3DE Extras (or HEAD)                                    | 2409.1                                            |
+| O3DE_EXTRAS_BRANCH              | The branch/tag for O3DE Extras                                                        | 2409.1                                            |
+| O3DE_EXTRAS_COMMIT              | The commit on the branch for O3DE Extras (or HEAD)                                    | HEAD                                              |
 | ROSCON_DEMO_HUMAN_WORKER_REPO   | The git repo for Demo Human worker Gem                                                | https://github.com/RobotecAI/o3de-humanworker-gem |
-| ROSCON_DEMO_HUMAN_WORKER_BRANCH | The branch for Demo Human worker Gem                                                  | main                                              |
-| ROSCON_DEMO_HUMAN_WORKER_COMMIT | The commit on the branch for Demo Human worker Gem (or HEAD)                          | 2.0.0                                             |
+| ROSCON_DEMO_HUMAN_WORKER_BRANCH | The branch/tag for Demo Human worker Gem                                              | 2.0.0                                             |
+| ROSCON_DEMO_HUMAN_WORKER_COMMIT | The commit on the branch/tag for Demo Human worker Gem (or HEAD)                      | HEAD                                              |
 | ROSCON_DEMO_UR_ROBOTS_REPO      | The git repo for Demo UR Robots Gem                                                   | https://github.com/RobotecAI/o3de-ur-robots-gem   |
-| ROSCON_DEMO_UR_ROBOTS_BRANCH    | The branch for Demo UR Robots Gem                                                     | main                                              |
-| ROSCON_DEMO_UR_ROBOTS_COMMIT    | The commit on the branch for Demo UR Robots Gem (or HEAD)                             | 2.0.0                                             |
+| ROSCON_DEMO_UR_ROBOTS_BRANCH    | The branch/tag for Demo UR Robots Gem                                                 | 2.0.0                                             |
+| ROSCON_DEMO_UR_ROBOTS_COMMIT    | The commit on the branch/tag for Demo UR Robots Gem (or HEAD)                         | HEAD                                              |
 | ROSCON_DEMO_OTTO_ROBOTS_REPO    | The git repo for the Demo Otto Robots Gem                                             | https://github.com/RobotecAI/o3de-otto-robots-gem |
-| ROSCON_DEMO_OTTO_ROBOTS_BRANCH  | The branch for the Demo Otto Robots Gem                                               | main                                              |
-| ROSCON_DEMO_OTTO_ROBOTS_COMMIT  | The commit on the branch for the Demo Otto Robots Gem (or HEAD)                       | 2.0.0                                             |
+| ROSCON_DEMO_OTTO_ROBOTS_BRANCH  | The branch/tag for the Demo Otto Robots Gem                                           | 2.0.0                                             |
+| ROSCON_DEMO_OTTO_ROBOTS_COMMIT  | The commit on the branch/tag for the Demo Otto Robots Gem (or HEAD)                   | HEAD                                              |
 | ROSCON_DEMO_REPO                | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git   |
-| ROSCON_DEMO_BRANCH              | The branch for ROSCon2023 Warehouse Demo                                              | main                                              |
-| ROSCON_DEMO_COMMIT              | The commit on the branch for ROSCon2023 Warehouse Demo (or HEAD)                      | 2.0.0                                             |
+| ROSCON_DEMO_BRANCH              | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                             |
+| ROSCON_DEMO_COMMIT              | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                              |
 | ROCSON_DEMO_LEVEL               | The startup level (level1 or level2). **See Notes below**                             | level1                                            |
 | ROCSON_DEMO_FULLSCREEN          | Option to launch the simulation in fullscreen mode (0=no, 1=yes)                      | 0                                                 |
 | ROSCON_DEMO_LARGE_SCALE         | Option to enable large scale simulation (0=no, 1=yes) (see [README.md]()../README.md) | 0                                                 |
@@ -69,8 +69,8 @@ The O3DE Docker image can reach 10 GB in size, so if you want to create a separa
 | ROS_VERSION             | The distro of ROS (humble, or iron)                                                   | humble                                          |
 | UBUNTU_VERSION          | The supporting distro of ubuntu (focal, jammy, noble)                                 | jammy                                           |
 | ROSCON_DEMO_REPO        | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git |
-| ROSCON_DEMO_BRANCH      | The branch for ROSCon2023 Warehouse Demo                                              | main                                            |
-| ROSCON_DEMO_COMMIT      | The commit on the branch for ROSCon2023 Warehouse Demo (or HEAD)                      | 2.0.0                                           |
+| ROSCON_DEMO_BRANCH      | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                           |
+| ROSCON_DEMO_COMMIT      | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                            |
 | ROSCON_DEMO_LARGE_SCALE | Option to enable large scale simulation (0=no, 1=yes) (see [README.md]()../README.md) | 0                                               |
 
 To build the Docker image using the default values, use the following command

@@ -15,7 +15,7 @@ WORKDIR $WORKSPACE
 
 # ROSConDemo Arguments
 ARG ROSCON_DEMO_REPO=https://github.com/RobotecAI/ROSCon2023Demo.git
-ARG ROSCON_DEMO_BRANCH=development
+ARG ROSCON_DEMO_BRANCH=main
 ARG ROSCON_DEMO_COMMIT=HEAD
 ARG ROSCON_DEMO_LARGE_SCALE=0
 
@@ -44,34 +44,34 @@ RUN apt-get update \
 # Install the required ubuntu packages
 RUN apt-get update \
     && apt-get install -y \
-            git \
-            git-lfs \
-            python3-pip \
-            software-properties-common \
-            screen \
-            ros-${ROS_DISTRO}-ackermann-msgs \
-            ros-${ROS_DISTRO}-control-toolbox \
-            ros-${ROS_DISTRO}-nav-msgs \
-            ros-${ROS_DISTRO}-gazebo-msgs \
-            ros-${ROS_DISTRO}-xacro \
-            ros-${ROS_DISTRO}-vision-msgs \
-            ros-${ROS_DISTRO}-nav2-msgs \
-            ros-${ROS_DISTRO}-ur-msgs \
-            ros-${ROS_DISTRO}-moveit-servo \
-            ros-${ROS_DISTRO}-moveit-visual-tools \
-            ros-${ROS_DISTRO}-moveit \
-            ros-${ROS_DISTRO}-pilz-industrial-motion-planner \
-            ros-${ROS_DISTRO}-cyclonedds \
-            ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
-            ros-${ROS_DISTRO}-controller-manager \
-            ros-${ROS_DISTRO}-ur-client-library \
-            ros-${ROS_DISTRO}-nav2-common \
-            ros-${ROS_DISTRO}-navigation2 \
-            ros-${ROS_DISTRO}-ur-description \
-            ros-${ROS_DISTRO}-force-torque-sensor-broadcaster \
-            python3-vcstool \
-            python3-rosdep2 \
-            python3-colcon-common-extensions \
+    git \
+    git-lfs \
+    python3-pip \
+    software-properties-common \
+    screen \
+    ros-${ROS_DISTRO}-ackermann-msgs \
+    ros-${ROS_DISTRO}-control-toolbox \
+    ros-${ROS_DISTRO}-nav-msgs \
+    ros-${ROS_DISTRO}-gazebo-msgs \
+    ros-${ROS_DISTRO}-xacro \
+    ros-${ROS_DISTRO}-vision-msgs \
+    ros-${ROS_DISTRO}-nav2-msgs \
+    ros-${ROS_DISTRO}-ur-msgs \
+    ros-${ROS_DISTRO}-moveit-servo \
+    ros-${ROS_DISTRO}-moveit-visual-tools \
+    ros-${ROS_DISTRO}-moveit \
+    ros-${ROS_DISTRO}-pilz-industrial-motion-planner \
+    ros-${ROS_DISTRO}-cyclonedds \
+    ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
+    ros-${ROS_DISTRO}-controller-manager \
+    ros-${ROS_DISTRO}-ur-client-library \
+    ros-${ROS_DISTRO}-nav2-common \
+    ros-${ROS_DISTRO}-navigation2 \
+    ros-${ROS_DISTRO}-ur-description \
+    ros-${ROS_DISTRO}-force-torque-sensor-broadcaster \
+    python3-vcstool \
+    python3-rosdep2 \
+    python3-colcon-common-extensions \
     && pip install python-statemachine
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
@@ -84,7 +84,7 @@ COPY roscon2023_large_cyclone_config.xml $WORKSPACE/
 RUN cd $WORKSPACE \
     && ./build_ros.sh \
     && rm build_ros.sh \
-    && if [ $ROSCON_DEMO_LARGE_SCALE -eq 0 ];then rm launch_ros_fleet.sh;fi
+    && if [ $ROSCON_DEMO_LARGE_SCALE -eq 0 ] ; then rm launch_ros_fleet.sh ; fi
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES all

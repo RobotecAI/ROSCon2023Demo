@@ -42,7 +42,6 @@ then
     echo "Error bootstrapping O3DE from $O3DE_REPO"
     exit 1
 fi
-
   
 ###############################################################
 # Clone and register o3de-extras
@@ -70,73 +69,128 @@ fi
 
 
 ############################################################### 
-# Clone and register the ROSCON Demo Human Worker Gem
+# Clone and register the ROSCon2023Demo Human Worker Gem
 ###############################################################
-echo "Cloning the RosCon2023 Demo Human Worker Gem"
+echo "Cloning the ROSCon2023 Demo Human Worker Gem"
 git clone --single-branch -b $ROSCON_DEMO_HUMAN_WORKER_BRANCH $ROSCON_DEMO_HUMAN_WORKER_REPO $ROSCON_DEMO_HUMAN_WORKER_ROOT && \
     git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT lfs install && \
     git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT lfs pull && \
     git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT reset --hard $ROSCON_DEMO_HUMAN_WORKER_COMMIT 
 if [ $? -ne 0 ]
 then
-    echo "Error cloning RosCon2023 Demo Human Worker Gem from $ROSCON_DEMO_HUMAN_WORKER_REPO"
+    echo "Error cloning ROSCon2023 Demo Human Worker Gem from $ROSCON_DEMO_HUMAN_WORKER_REPO"
     exit 1
 fi
 
 $WORKSPACE/o3de/scripts/o3de.sh register -gp $ROSCON_DEMO_HUMAN_WORKER_ROOT
 if [ $? -ne 0 ]
 then
-    echo "Error registering the RosCon2023 Demo Human Worker Gem"
+    echo "Error registering the ROSCon2023 Demo Human Worker Gem"
     exit 1
 fi
 
 
 ###############################################################
-# Clone and register the RosCon2023 UR10 and UR20 Robots Gem
-############################################################### \
-echo "Cloning RosCon2023 UR10 and UR20 Robots Gem"
+# Clone and register the ROSCon2023Demo UR10 and UR20 Robots Gem
+###############################################################
+echo "Cloning ROSCon2023 UR10 and UR20 Robots Gem"
 git clone --single-branch -b $ROSCON_DEMO_UR_ROBOTS_BRANCH $ROSCON_DEMO_UR_ROBOTS_REPO $ROSCON_DEMO_UR_ROBOTS_ROOT && \
     git -C $ROSCON_DEMO_UR_ROBOTS_ROOT lfs install && \
     git -C $ROSCON_DEMO_UR_ROBOTS_ROOT lfs pull && \
     git -C $ROSCON_DEMO_UR_ROBOTS_ROOT reset --hard $ROSCON_DEMO_UR_ROBOTS_COMMIT 
 if [ $? -ne 0 ]
 then
-    echo "Error cloning RosCon2023 UR10 and UR20 Robots Gem from $ROSCON_DEMO_UR_ROBOTS_REPO"
+    echo "Error cloning ROSCon2023 UR10 and UR20 Robots Gem from $ROSCON_DEMO_UR_ROBOTS_REPO"
     exit 1
 fi
 
 $WORKSPACE/o3de/scripts/o3de.sh register -gp $ROSCON_DEMO_UR_ROBOTS_ROOT
 if [ $? -ne 0 ]
 then
-    echo "Error registering the RosCon2023 UR10 and UR20 Robots Gem"
+    echo "Error registering the ROSCon2023 UR10 and UR20 Robots Gem"
     exit 1
 fi
 
-
 #######################################################################
-# Clone and register the RosCon2023 OTTO 600 and OTTO 1500 Robots Gem  
+# Clone and register the ROSCon2023 OTTO 600 and OTTO 1500 Robots Gem  
 #######################################################################
-echo "Cloning RosCon2023 OTTO 600 and OTTO 1500 Robots Gem"
+echo "Cloning ROSCon2023 OTTO 600 and OTTO 1500 Robots Gem"
 git clone --single-branch -b $ROSCON_DEMO_OTTO_ROBOTS_BRANCH $ROSCON_DEMO_OTTO_ROBOTS_REPO $ROSCON_DEMO_OTTO_ROBOTS_ROOT && \
     git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT lfs install && \
     git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT lfs pull && \
     git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT reset --hard $ROSCON_DEMO_OTTO_ROBOTS_COMMIT 
 if [ $? -ne 0 ]
 then
-    echo "Error cloning RosCon2023 OTTO 600 and OTTO 1500 Robots Gem from $ROSCON_DEMO_OTTO_ROBOTS_REPO"
+    echo "Error cloning ROSCon2023 OTTO 600 and OTTO 1500 Robots Gem from $ROSCON_DEMO_OTTO_ROBOTS_REPO"
     exit 1
 fi
 
 $WORKSPACE/o3de/scripts/o3de.sh register -gp $ROSCON_DEMO_OTTO_ROBOTS_ROOT
 if [ $? -ne 0 ]
 then
-    echo "Error registering the RosCon2023 OTTO 600 and OTTO 1500 Robots Gem"
+    echo "Error registering the ROSCon2023 OTTO 600 and OTTO 1500 Robots Gem"
     exit 1
 fi
 
+#######################################################################
+# Clone and register assets only gems
+#######################################################################
+echo "Cloning Warehouse and Generic Assets Gems"
+git clone --single-branch $ROSCON_DEMO_WAREHOUSE_ASSETS_REPO $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT && \
+    git -C $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT lfs install && \
+    git -C $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT lfs pull
+if [ $? -ne 0 ]
+then
+    echo "Error cloning Warehouse Assets Gems from $ROSCON_DEMO_WAREHOUSE_ASSETS_REPO"
+    exit 1
+fi
 
-############################################################### \
-# Clone and register the ROSCon2023Demo \
+$WORKSPACE/o3de/scripts/o3de.sh register -agp $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT
+if [ $? -ne 0 ]
+then
+    echo "Error registering the Warehouse Assets Gems"
+    exit 1
+fi
+
+git clone --single-branch $ROSCON_DEMO_GENERIC_ASSETS_REPO $ROSCON_DEMO_GENERIC_ASSETS_ROOT && \
+    git -C $ROSCON_DEMO_GENERIC_ASSETS_ROOT lfs install && \
+    git -C $ROSCON_DEMO_GENERIC_ASSETS_ROOT lfs pull
+if [ $? -ne 0 ]
+then
+    echo "Error cloning Generic Assets Gems from $ROSCON_DEMO_GENERIC_ASSETS_REPO"
+    exit 1
+fi
+
+$WORKSPACE/o3de/scripts/o3de.sh register -agp $ROSCON_DEMO_GENERIC_ASSETS_ROOT
+if [ $? -ne 0 ]
+then
+    echo "Error registering the Generic Assets Gems"
+    exit 1
+fi
+
+#######################################################################
+# Clone and register additional tooling Gems
+#######################################################################
+echo "Cloning the additional tooling Gems"
+git clone --single-branch -b $ROSCON_DEMO_ROBOTEC_GEMS_BRANCH $ROSCON_DEMO_ROBOTEC_GEMS_REPO $ROSCON_DEMO_ROBOTEC_GEMS_ROOT && \
+    git -C $ROSCON_DEMO_ROBOTEC_GEMS_ROOT lfs install && \
+    git -C $ROSCON_DEMO_ROBOTEC_GEMS_ROOT lfs pull && \
+    git -C $ROSCON_DEMO_ROBOTEC_GEMS_ROOT reset --hard $ROSCON_DEMO_ROBOTEC_GEMS_COMMIT 
+if [ $? -ne 0 ]
+then
+    echo "Error cloning the additional tooling Gems from $ROSCON_DEMO_ROBOTEC_GEMS_REPO"
+    exit 1
+fi
+
+$WORKSPACE/o3de/scripts/o3de.sh register -gp $ROSCON_DEMO_ROBOTEC_GEMS_ROOT/Gems/ROS2ScriptIntegration
+if [ $? -ne 0 ]
+then
+    echo "Error registering the additional tooling Gems"
+    exit 1
+fi
+
+###############################################################
+# Clone and register the ROSCon2023Demo
 ###############################################################
 echo "Cloning the RosCon2023Demo project"
 git clone --single-branch -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
@@ -163,24 +217,25 @@ fi
 echo -e "\n\
 Repository                        | Commit    | Branch\n\
 ----------------------------------+-----------------------------------------\n\
-o3de                              | $(git -C $O3DE_ROOT rev-parse --short HEAD)   | $O3DE_BRANCH\n\
-o3de-extras                       | $(git -C $O3DE_EXTRAS_ROOT rev-parse --short HEAD)   | $O3DE_EXTRAS_BRANCH\n\
-RosCon2023 Demo Human Worker Gem  | $(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_HUMAN_WORKER_BRANCH\n\
-RosCon2023 UR Robots Gem          | $(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_UR_ROBOTS_BRANCH\n\
-RosCon2023 OTTO Robots Gem        | $(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_OTTO_ROBOTS_BRANCH\n\
-RosCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $ROSCON_DEMO_BRANCH\n\
+o3de                              | $(git -C $O3DE_ROOT rev-parse --short HEAD)   | $(git -C $O3DE_ROOT rev-parse --abbrev-ref HEAD) \n\
+o3de-extras                       | $(git -C $O3DE_EXTRAS_ROOT rev-parse --short HEAD)   | $(git -C $O3DE_EXTRAS_ROOT rev-parse --abbrev-ref HEAD) \n\
+ROSCon2023 Demo Human Worker Gem  | $(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_HUMAN_WORKER_ROOT rev-parse --abbrev-ref HEAD) \n\
+ROSCon2023 UR Robots Gem          | $(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_UR_ROBOTS_ROOT rev-parse --abbrev-ref HEAD) \n\
+ROSCon2023 OTTO Robots Gem        | $(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_OTTO_ROBOTS_ROOT rev-parse --abbrev-ref HEAD) \n\
+Warehouse Assets Gems             | $(git -C $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_WAREHOUSE_ASSETS_ROOT rev-parse --abbrev-ref HEAD) \n\
+Generic Assets Gems               | $(git -C $ROSCON_DEMO_GENERIC_ASSETS_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_GENERIC_ASSETS_ROOT rev-parse --abbrev-ref HEAD) \n\
+ROS2ScriptIntegration Gem         | $(git -C $ROSCON_DEMO_ROBOTEC_GEMS_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_ROBOTEC_GEMS_ROOT rev-parse --abbrev-ref HEAD) \n\
+RosCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short HEAD)   | $(git -C $ROSCON_DEMO_ROOT rev-parse --abbrev-ref HEAD) \n\
 \n\
 " >> $WORKSPACE/git_commit.txt
 
+###############################################################
+# Set the filename of the level in the registry file
+###############################################################
+sed -i "s/demolevel1/${DEMO_LEVEL}/g" Registry/load_level.setreg
 
 ###############################################################
-# Generate the autoexec.cfg based on the selected level
-###############################################################
-echo -e "LoadLevel levels/$DEMO_LEVEL/$DEMO_LEVEL.spawnable\n\
-r_displayInfo 0\n" > $ROSCON_DEMO_PROJECT/autoexec.cfg
-
-###############################################################
-# Build and install the additional ros2 packages and drivers
+# Build and install the additional ROS 2 packages and drivers
 ###############################################################
 pushd $ROSCON_DEMO_ROOT/ros2_ws && \
       ./setup_submodules.bash && \
@@ -192,7 +247,7 @@ pushd $ROSCON_DEMO_ROOT/ros2_ws && \
 
 if [ $? -ne 0 ]
 then
-    echo "Error building and installing additional ros2 packages and drivers"
+    echo "Error building and installing additional ROS 2 packages and drivers"
     exit 1
 fi
 

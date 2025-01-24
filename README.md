@@ -134,7 +134,7 @@ cd ${WORKDIR}
 ./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
 ```
 
-Clone and register the remaining Gems:
+Clone and register the remaining Gems. Use version `1.0.0` for all Gems:
 ```bash
 cd ${WORKDIR}
 git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-humanworker-gem.git

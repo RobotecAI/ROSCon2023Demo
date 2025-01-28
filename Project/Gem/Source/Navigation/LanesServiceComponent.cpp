@@ -26,7 +26,7 @@ namespace ROS2::Demo
     {
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<LanesServiceComponent>()
+            serialize->Class<LanesServiceComponent, AZ::Component>()
                 ->Version(1)
                 ->Field("LanesInWarehouse", &LanesServiceComponent::m_tracks)
                 ->Field("GlobalFrame", &LanesServiceComponent::m_globalFrame);

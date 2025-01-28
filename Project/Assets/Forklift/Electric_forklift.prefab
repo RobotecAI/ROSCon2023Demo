@@ -106,21 +106,6 @@
             "Id": "Entity_[55264687144012]",
             "Name": "vis",
             "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 2567692129198083943,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{4EBE1BD2-DE7E-570B-8D74-EFB1B3241E72}",
-                                    "subId": 269970252
-                                },
-                                "assetHint": "assets/forklift/electric_forklift.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
                 "EditorDisabledCompositionComponent": {
                     "$type": "EditorDisabledCompositionComponent",
                     "Id": 6027902244836019471
@@ -131,7 +116,10 @@
                 },
                 "EditorEntitySortComponent": {
                     "$type": "EditorEntitySortComponent",
-                    "Id": 2253646067368993656
+                    "Id": 2253646067368993656,
+                    "Child Entity Order": [
+                        "Instance_[55898562795266]/ContainerEntity"
+                    ]
                 },
                 "EditorInspectorComponent": {
                     "$type": "EditorInspectorComponent",
@@ -140,55 +128,6 @@
                 "EditorLockComponent": {
                     "$type": "EditorLockComponent",
                     "Id": 6125288098547396519
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 8326621858158739953,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 568790644
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{7A1D925D-0A1B-51E8-891F-3C086D52EA04}"
-                                            },
-                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift_alpha.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2654025647
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{A8D26C94-F4A7-5266-98CA-0C7CC06E3A1E}"
-                                            },
-                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2875683869
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{A8D26C94-F4A7-5266-98CA-0C7CC06E3A1E}"
-                                            },
-                                            "assetHint": "assets/forklift/electric_forklift_m_electric_forklift.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
                 },
                 "EditorOnlyEntityComponent": {
                     "$type": "EditorOnlyEntityComponent",
@@ -336,6 +275,23 @@
                     "Parent Entity": "Entity_[55260392176716]"
                 }
             }
+        }
+    },
+    "Instances": {
+        "Instance_[55898562795266]": {
+            "Source": "Forklifts/ForkliftOrange_Visual.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[55264687144012]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
+                }
+            ]
         }
     }
 }

@@ -26,8 +26,8 @@ namespace ROS2::Demo
     {
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<PayloadDespawnerComponent>()->Version(1)
-                ->Field("DespawnDelay", &PayloadDespawnerComponent::m_despawnerDelay);
+            serialize->Class<PayloadDespawnerComponent, AZ::Component>()->Version(1)->Field(
+                "DespawnDelay", &PayloadDespawnerComponent::m_despawnerDelay);
 
             if (AZ::EditContext* ec = serialize->GetEditContext())
             {

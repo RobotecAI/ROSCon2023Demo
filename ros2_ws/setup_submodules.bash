@@ -17,6 +17,14 @@ then
 	# submodule init and update are sufficient for humble
 	git submodule init
 	git submodule update
+	cd ./src/Universal_Robots_ROS2_Driver/
+	git checkout humble
+	if [ $? -ne 0 ]
+	then
+		echo "Failed to checkout ROS 2 humble branch."
+		exit 1
+	fi
+
 elif [ -z "$ROS_DISTRO" ]
 then
 	echo "ROS 2 distribution not found."

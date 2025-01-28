@@ -27,7 +27,7 @@ namespace ROS2::Demo
     {
         if (AZ::SerializeContext* serialize = azrtti_cast<AZ::SerializeContext*>(context))
         {
-            serialize->Class<SplinePosesPublisher>()
+            serialize->Class<SplinePosesPublisher, AZ::Component>()
                 ->Version(1)
                 ->Field("ReverseDirection", &SplinePosesPublisher::m_reverseDirection)
                 ->Field("PathTopicConfig", &SplinePosesPublisher::m_topicName)

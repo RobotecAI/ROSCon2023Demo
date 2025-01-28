@@ -1,0 +1,656 @@
+{
+    "ContainerEntity": {
+        "Id": "ContainerEntity",
+        "Name": "HumanObstacleTest",
+        "Components": {
+            "EditorDisabledCompositionComponent": {
+                "$type": "EditorDisabledCompositionComponent",
+                "Id": 6832319038526663785
+            },
+            "EditorEntityIconComponent": {
+                "$type": "EditorEntityIconComponent",
+                "Id": 6314911206602416039
+            },
+            "EditorEntitySortComponent": {
+                "$type": "EditorEntitySortComponent",
+                "Id": 14579751035500559003,
+                "Child Entity Order": [
+                    "Entity_[254960813567373]"
+                ]
+            },
+            "EditorInspectorComponent": {
+                "$type": "EditorInspectorComponent",
+                "Id": 17834556097874936321
+            },
+            "EditorLockComponent": {
+                "$type": "EditorLockComponent",
+                "Id": 9495904415727779755
+            },
+            "EditorOnlyEntityComponent": {
+                "$type": "EditorOnlyEntityComponent",
+                "Id": 12739196450725129885
+            },
+            "EditorPendingCompositionComponent": {
+                "$type": "EditorPendingCompositionComponent",
+                "Id": 5042820925569654752
+            },
+            "EditorPrefabComponent": {
+                "$type": "EditorPrefabComponent",
+                "Id": 5486325825265037010
+            },
+            "EditorVisibilityComponent": {
+                "$type": "EditorVisibilityComponent",
+                "Id": 17514566251925665594
+            },
+            "TransformComponent": {
+                "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                "Id": 5863965385035394793,
+                "Parent Entity": ""
+            }
+        }
+    },
+    "Entities": {
+        "Entity_[254939338730893]": {
+            "Id": "Entity_[254939338730893]",
+            "Name": "NavigationMesh",
+            "Components": {
+                "EditorAxisAlignedBoxShapeComponent": {
+                    "$type": "EditorAxisAlignedBoxShapeComponent",
+                    "Id": 16413165912899593450,
+                    "ShapeColor": [
+                        0.0,
+                        1.0,
+                        0.11667048186063766,
+                        1.0
+                    ],
+                    "AxisAlignedBoxShape": {
+                        "Configuration": {
+                            "DrawColor": [
+                                0.0,
+                                1.0,
+                                0.11667048186063766
+                            ],
+                            "Dimensions": [
+                                10.0,
+                                10.0,
+                                4.0
+                            ],
+                            "TranslationOffset": [
+                                -2.0,
+                                -2.0,
+                                0.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 6048437215104999972
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7737253477353138553
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17537857466891031168
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 3135448146830477878,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 8428073744447252855
+                        },
+                        {
+                            "ComponentId": 16413165912899593450,
+                            "SortIndex": 1
+                        },
+                        {
+                            "ComponentId": 17053028825565807634,
+                            "SortIndex": 2
+                        },
+                        {
+                            "ComponentId": 7609123926706965459,
+                            "SortIndex": 3
+                        },
+                        {
+                            "ComponentId": 15112058994086731235,
+                            "SortIndex": 4
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 4208399981730301787
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 9734636208124319359
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2027582521785236337
+                },
+                "EditorRecastNavigationMeshComponent": {
+                    "$type": "EditorRecastNavigationMeshComponent",
+                    "Id": 7609123926706965459,
+                    "Controller": {
+                        "Configuration": {
+                            "Agent Max Climb": 0.0,
+                            "Agent Max Slope": 1.0,
+                            "Agent Radius": 0.4000000059604645,
+                            "Detail Sample Distance": 1.0,
+                            "Detail Sample Max Error": 0.10000000149011612,
+                            "Edge Max Error": 0.75
+                        }
+                    }
+                },
+                "EditorRecastNavigationPhysXProviderComponent": {
+                    "$type": "EditorRecastNavigationPhysXProviderComponent",
+                    "Id": 17053028825565807634,
+                    "Controller": {
+                        "Config": {
+                            "Use Editor Scene": true
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 9584370886432238074
+                },
+                "NavigationMeshOrchestratorComponent": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 15112058994086731235,
+                    "m_template": {
+                        "$type": "NavigationMeshOrchestratorComponent",
+                        "NavMesh Update Frequency": 0.0000019999999949504854
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8428073744447252855,
+                    "Parent Entity": "Entity_[254952223632781]",
+                    "Transform Data": {
+                        "Translate": [
+                            7.737434387207031,
+                            0.7712974548339844,
+                            0.010550975799560547
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[254943633698189]": {
+            "Id": "Entity_[254943633698189]",
+            "Name": "HumanGoal2",
+            "Components": {
+                "EditorDebugDrawTextComponent": {
+                    "$type": "EditorDebugDrawTextComponent",
+                    "Id": 2077544214682867068,
+                    "Element": {
+                        "Text": "HumanGoal2",
+                        "DrawMode": 1,
+                        "TargetEntity": ""
+                    },
+                    "Settings": {
+                        "VisibleInGame": false
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12283801991367152638
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10594252819216681083
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11360045075591569320
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1244817491845098233
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18338795190936337563
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13682613204881636673
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5443782727681741315
+                },
+                "EditorSphereShapeComponent": {
+                    "$type": "EditorSphereShapeComponent",
+                    "Id": 10882847854417564381
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3030167908782131097
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1671320996134389347,
+                    "Parent Entity": "Entity_[254960813567373]",
+                    "Transform Data": {
+                        "Translate": [
+                            -2.7097396850585938,
+                            -7.217236518859863,
+                            0.06609249114990234
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[254947928665485]": {
+            "Id": "Entity_[254947928665485]",
+            "Name": "HumanGoal1",
+            "Components": {
+                "EditorDebugDrawTextComponent": {
+                    "$type": "EditorDebugDrawTextComponent",
+                    "Id": 2077544214682867068,
+                    "Element": {
+                        "Text": "HumanGoal1",
+                        "DrawMode": 1,
+                        "TargetEntity": ""
+                    },
+                    "Settings": {
+                        "VisibleInGame": false
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12283801991367152638
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10594252819216681083
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 11360045075591569320
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 1244817491845098233
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18338795190936337563
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13682613204881636673
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 5443782727681741315
+                },
+                "EditorSphereShapeComponent": {
+                    "$type": "EditorSphereShapeComponent",
+                    "Id": 10882847854417564381
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 3030167908782131097
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1671320996134389347,
+                    "Parent Entity": "Entity_[254960813567373]",
+                    "Transform Data": {
+                        "Translate": [
+                            0.9043121337890625,
+                            -7.574481010437012,
+                            0.11056232452392578
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[254952223632781]": {
+            "Id": "Entity_[254952223632781]",
+            "Name": "HumanWorkerNavigationMesh",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 17411417753235158472
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 10245628051131458473
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 9704515508984690890,
+                    "Child Entity Order": [
+                        "Entity_[254939338730893]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16859866081038939258
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 10080084144637300732
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 15818687555209469572
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 1980267351042154382
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 8645754176481897224
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 1027936852768013678,
+                    "Parent Entity": "Entity_[254960813567373]",
+                    "Transform Data": {
+                        "Translate": [
+                            -3.926361083984375,
+                            -2.9520606994628906,
+                            -0.5
+                        ]
+                    }
+                }
+            }
+        },
+        "Entity_[254956518600077]": {
+            "Id": "Entity_[254956518600077]",
+            "Name": "DetourNavigation",
+            "Components": {
+                "EditorDetourNavigationComponent": {
+                    "$type": "EditorDetourNavigationComponent",
+                    "Id": 6390617142461836754,
+                    "Navigation Mesh": "Entity_[254939338730893]"
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 4493190493101712902
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 2320596178690957132
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 13313952621177465456
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 15958443760180481262,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 9464559618603898063
+                        },
+                        {
+                            "ComponentId": 6390617142461836754,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 18236142318346852828
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13815945878760134044
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 10107855813349026393
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 4177315408499311659
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 9464559618603898063,
+                    "Parent Entity": "Entity_[254960813567373]"
+                }
+            }
+        },
+        "Entity_[254960813567373]": {
+            "Id": "Entity_[254960813567373]",
+            "Name": "HumanNavigation",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 12224212038447699875
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 13157804916169626368
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 17170628381715023655,
+                    "Child Entity Order": [
+                        "Instance_[5523627744235]/ContainerEntity",
+                        "Entity_[254956518600077]",
+                        "Entity_[254952223632781]",
+                        "Entity_[254947928665485]",
+                        "Entity_[254943633698189]"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 4585286478198882157,
+                    "ComponentOrderEntryArray": [
+                        {
+                            "ComponentId": 8319213658638384181
+                        },
+                        {
+                            "ComponentId": 15003633068853653356,
+                            "SortIndex": 1
+                        }
+                    ]
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 15021249843577832918
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 2790005537192852536
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11885043020498594983
+                },
+                "EditorScriptCanvasComponent": {
+                    "$type": "EditorScriptCanvasComponent",
+                    "Id": 15003633068853653356,
+                    "configuration": {
+                        "sourceHandle": {
+                            "id": "{22CE663E-F1E3-5642-ACCF-D887B6B5788C}",
+                            "path": "HumanGoAway.scriptcanvas"
+                        },
+                        "sourceName": "HumanGoAway.scriptcanvas",
+                        "propertyOverrides": {
+                            "source": {
+                                "id": "{22CE663E-F1E3-5642-ACCF-D887B6B5788C}",
+                                "path": "HumanGoAway.scriptcanvas"
+                            },
+                            "variables": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{16E20654-B598-4240-A205-BCB5131741F3}"
+                                    },
+                                    "VariableName": "HumanGoal2",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{B4F79EC6-DB0F-46F4-ACFC-6481DB0CEDC3}"
+                                    },
+                                    "VariableName": "HumanWorker",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": ""
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{F03A9F55-F703-4166-B912-ECB1B4C38036}"
+                                    },
+                                    "VariableName": "HumanGoalEnRoute",
+                                    "InitialValueSource": 1
+                                }
+                            ],
+                            "overrides": [
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[254943633698189]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{16E20654-B598-4240-A205-BCB5131741F3}"
+                                    },
+                                    "VariableName": "HumanGoal2",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Instance_[5523627744235]/Entity_[66011467218485]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{B4F79EC6-DB0F-46F4-ACFC-6481DB0CEDC3}"
+                                    },
+                                    "VariableName": "HumanWorker",
+                                    "InitialValueSource": 1
+                                },
+                                {
+                                    "Datum": {
+                                        "isOverloadedStorage": false,
+                                        "scriptCanvasType": {
+                                            "m_type": 1
+                                        },
+                                        "isNullPointer": false,
+                                        "$type": "EntityId",
+                                        "value": "Entity_[254947928665485]"
+                                    },
+                                    "InputControlVisibility": {
+                                        "Value": 850104567
+                                    },
+                                    "VariableId": {
+                                        "m_id": "{F03A9F55-F703-4166-B912-ECB1B4C38036}"
+                                    },
+                                    "VariableName": "HumanGoalEnRoute",
+                                    "InitialValueSource": 1
+                                }
+                            ]
+                        }
+                    }
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 14056209833042446795
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 8319213658638384181,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            -86.21646881103516,
+                            23.20740509033203,
+                            -0.29473018646240234
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "Instances": {
+        "Instance_[5523627744235]": {
+            "Source": "HumanWorker/HumanWorkerRobot.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/EditorShapeColliderComponent/ColliderConfiguration/CollisionLayer/Index",
+                    "value": 3
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/EditorShapeColliderComponent/ColliderConfiguration/CollisionGroupId/GroupId",
+                    "value": "{72AB7AF0-F57A-4DA8-8498-3DBCF3789BAE}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[66011467218485]/Components/NpcWaypointNavigatorComponent/m_template/Detour Navigation Entity",
+                    "value": "../Entity_[254956518600077]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[254960813567373]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 0.6584548950195313
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -7.834175109863281
+                }
+            ]
+        }
+    }
+}

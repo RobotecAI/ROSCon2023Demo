@@ -211,7 +211,7 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 To build the game launcher and bundle assets:
 ```bash
 cd ${WORKDIR}/o3de
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ./build/release --build-tools --no-unified-launcher
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ${WORKDIR}/ROSCon2023Demo/Project/build/release --build-tools --no-unified-launcher
 ```
 The build package is available here:
 ```
@@ -344,6 +344,10 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
+### ROSCon2023Demo 2.0.1 for O3DE 2409.x
+Changes compared to 2.0.0:
+- updated UR ROS2 Driver (external) submodule
+
 ### ROSCon2023Demo 2.0.0 for O3DE 2409.x
 Changes compared to 1.0.1:
 - updated demo the newest available version of O3DE and ROS 2 Gem
@@ -356,7 +360,7 @@ Changes compared to 1.0.1:
 ### ROSCon2023Demo 1.0.1 for O3DE 2310.x
 Changes compared to 1.0.0:
 - enforced versions of dependencies (HumanWorker, OTTORobots, URRobots)
-- updated UR (external) submodule
+- updated UR ROS2 Driver (external) submodule
 - updated README
 
 ### ROSCon2023Demo 1.0.0 for O3DE 2310.x

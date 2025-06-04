@@ -344,6 +344,10 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
+### ROSCon2023Demo 3.0.0 for O3DE 2505.x
+Changes compared to 2.0.0
+- updated demo the newest available version of O3DE and ROS 2 Gem
+
 ### ROSCon2023Demo 2.0.1 for O3DE 2409.x
 Changes compared to 2.0.0:
 - updated UR ROS2 Driver (external) submodule

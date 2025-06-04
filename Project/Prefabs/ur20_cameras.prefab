@@ -15,7 +15,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 8897753423417101405,
                 "Child Entity Order": [
-                    "Instance_[8954793939791]/ContainerEntity"
+                    "Entity_[230966029731913]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -49,14 +49,72 @@
             }
         }
     },
+    "Entities": {
+        "Entity_[230966029731913]": {
+            "Id": "Entity_[230966029731913]",
+            "Name": "ur20",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 15304366236042355439
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 6052011212902469752
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 6630069096434515160,
+                    "Child Entity Order": [
+                        "Instance_[8954793939791]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 16068216774824380989
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 12561792431912799970
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 13045187183271048039
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 13916719361838627241
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 13583306721706820698
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 15483664575979960561,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
     "Instances": {
         "Instance_[8954793939791]": {
             "Source": "UR20/UR20.prefab",
             "Patches": [
                 {
+                    "op": "add",
+                    "path": "/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/1",
+                    "value": "Entity_[11561839088463]"
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[1060644049743]/Components/EditorEntitySortComponent/Child Entity Order/2",
+                    "value": "Entity_[10251874063183]"
+                },
+                {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../ContainerEntity"
+                    "value": "../Entity_[230966029731913]"
                 },
                 {
                     "op": "add",
@@ -210,6 +268,19 @@
                                     }
                                 }
                             },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 4145488354555654048,
+                                "ROS2FrameConfiguration": {
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_pickup",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 2741027279447392744,
@@ -237,20 +308,6 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
-                            },
-                            "ROS2FrameEditorComponent": {
-                                "$type": "ROS2FrameEditorComponent",
-                                "Id": 4145488354555654048,
-                                "ROS2FrameConfiguration": {
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_pickup",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
                             }
                         },
                         "IsRuntimeActive": true
@@ -408,6 +465,19 @@
                                     }
                                 }
                             },
+                            "ROS2FrameEditorComponent": {
+                                "$type": "ROS2FrameEditorComponent",
+                                "Id": 920434809922726795,
+                                "ROS2FrameConfiguration": {
+                                    "Namespace Configuration": {
+                                        "Namespace Strategy": 0,
+                                        "Namespace": ""
+                                    },
+                                    "Frame Name": "camera_drop",
+                                    "Joint Name": "",
+                                    "Publish Transform": true
+                                }
+                            },
                             "TransformComponent": {
                                 "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
                                 "Id": 2552988515570240159,
@@ -435,20 +505,6 @@
                                 "IsStatic": false,
                                 "InterpolatePosition": 0,
                                 "InterpolateRotation": 0
-                            },
-                            "ROS2FrameEditorComponent": {
-                                "$type": "ROS2FrameEditorComponent",
-                                "Id": 920434809922726795,
-                                "ROS2FrameConfiguration": {
-                                    "Id": 0,
-                                    "Namespace Configuration": {
-                                        "Namespace Strategy": 0,
-                                        "Namespace": ""
-                                    },
-                                    "Frame Name": "camera_drop",
-                                    "Joint Name": "",
-                                    "Publish Transform": true
-                                }
                             }
                         },
                         "IsRuntimeActive": true

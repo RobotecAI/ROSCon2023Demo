@@ -58,8 +58,9 @@ then
 fi
 
 $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/ROS2 && \
-    $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/ProteusRobot && \
+    $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/ROS2SampleRobots && \
     $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/WarehouseAssets && \
+    $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/LevelGeoreferencing && \
     $WORKSPACE/o3de/scripts/o3de.sh register -gp $O3DE_EXTRAS_ROOT/Gems/WarehouseAutomation
 if [ $? -ne 0 ]
 then

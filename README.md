@@ -93,7 +93,7 @@ The following commands should prepare O3DE (assuming that the project repository
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de.git
+git clone --branch 2505.0 --single-branch --depth 1 https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -121,7 +121,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de-extras
+git clone --branch 2505.0 --single-branch --depth 1 https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -129,9 +129,7 @@ git lfs pull
 And register required Gems:
 ```bash
 cd ${WORKDIR}
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/ROS2
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAssets
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
+./o3de/scripts/o3de.sh register -agp o3de-extras/Gems/
 ```
 
 Clone and register the remaining Gems:
@@ -176,12 +174,16 @@ Now install all dependencies of submodules.
 sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep2
 rosdep update
 rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
+# disable not needed packages - we need bringup and description package
+touch src/Universal_Robots_ROS2_Driver/ur_controllers/COLCON_IGNORE
+touch src/Universal_Robots_ROS2_Driver/ur_robot_driver/COLCON_IGNORE
+touch src/Universal_Robots_ROS2_Driver/ur_calibration/COLCON_IGNORE
 ```
 Then build and source the workspace.
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
 colcon build --symlink-install
-source install/setup.bash
+source install/setup.bash # adjust to your shell 
 ```
 The source command needs to be done in the same console where you build and run O3DE.
 

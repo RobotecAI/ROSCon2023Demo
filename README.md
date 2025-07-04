@@ -159,7 +159,7 @@ After that, change the OTTO 600 prefab so that both front and back lidars use th
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-humble-nav2-map-server
 ```
 
 ### Project
@@ -213,7 +213,8 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 To build the game launcher and bundle assets:
 ```bash
 cd ${WORKDIR}/o3de
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ${WORKDIR}/ROSCon2023Demo/Project/build/release --build-tools --no-unified-launcher
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path 
+${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ${WORKDIR}/ROSCon2023Demo/Project/build/release --build-tools --no-unified-launcher
 ```
 The build package is available here:
 ```

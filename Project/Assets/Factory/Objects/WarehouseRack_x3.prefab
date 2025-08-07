@@ -15,7 +15,7 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 17255640797368599998,
                 "Child Entity Order": [
-                    "Instance_[49610631579544]/ContainerEntity"
+                    "Entity_[241089267648585]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -49,6 +49,54 @@
             }
         }
     },
+    "Entities": {
+        "Entity_[241089267648585]": {
+            "Id": "Entity_[241089267648585]",
+            "Name": "WarehouseRack_x3",
+            "Components": {
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 476043888616716078
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 7118219073802811862
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 977134059382337097,
+                    "Child Entity Order": [
+                        "Instance_[49610631579544]/ContainerEntity"
+                    ]
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 14722549929978237910
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 9519807688484450419
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 17820546200674863552
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 11490093715829513641
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 11004980933055187201
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 13294527656224358352,
+                    "Parent Entity": "ContainerEntity"
+                }
+            }
+        }
+    },
     "Instances": {
         "Instance_[49610631579544]": {
             "Source": "WarehouseRack_x3.prefab",
@@ -56,7 +104,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
-                    "value": "../ContainerEntity"
+                    "value": "../Entity_[241089267648585]"
                 }
             ]
         }

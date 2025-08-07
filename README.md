@@ -213,8 +213,14 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 To build the game launcher and bundle assets:
 ```bash
 cd ${WORKDIR}/o3de
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path 
-${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ${WORKDIR}/ROSCon2023Demo/Project/build/release --build-tools --no-unified-launcher
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
+    --project-path ${WORKDIR}/ROSCon2023Demo/Project \
+    --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed \
+    --fail-on-asset-errors \
+    -noserver \
+    -out ${WORKDIR}/ROSCon2023Demo/Project/build/release \
+    --build-tools \
+    --no-unified-launcher
 ```
 The build package is available here:
 ```

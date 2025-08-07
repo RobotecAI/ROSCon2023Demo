@@ -26,10 +26,10 @@ The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse 
 | ROS_VERSION                     | The distro of ROS (humble or iron)                                                    | humble                                            |
 | UBUNTU_VERSION                  | The supporting distro of ubuntu (focal, jammy, noble)                                 | jammy                                             |
 | O3DE_REPO                       | The git repo for O3DE                                                                 | https://github.com/o3de/o3de                      |
-| O3DE_BRANCH                     | The branch/tag for O3DE                                                               | 2409.1                                            |
+| O3DE_BRANCH                     | The branch/tag for O3DE                                                               | 2505.1                                            |
 | O3DE_COMMIT                     | The commit on the branch/tag for O3DE (or HEAD)                                       | HEAD                                              |
 | O3DE_EXTRAS_REPO                | The git repo for O3DE Extras                                                          | https://github.com/o3de/o3de-extras               |
-| O3DE_EXTRAS_BRANCH              | The branch/tag for O3DE Extras                                                        | 2409.1                                            |
+| O3DE_EXTRAS_BRANCH              | The branch/tag for O3DE Extras                                                        | 2505.1                                            |
 | O3DE_EXTRAS_COMMIT              | The commit on the branch for O3DE Extras (or HEAD)                                    | HEAD                                              |
 | ROSCON_DEMO_HUMAN_WORKER_REPO   | The git repo for Demo Human worker Gem                                                | https://github.com/RobotecAI/o3de-humanworker-gem |
 | ROSCON_DEMO_HUMAN_WORKER_BRANCH | The branch/tag for Demo Human worker Gem                                              | 2.0.0                                             |
@@ -67,7 +67,7 @@ The O3DE Docker image can reach 10 GB in size, so if you want to create a separa
 | Argument                | Description                                                                           | Default                                         |
 | ----------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | ROS_VERSION             | The distro of ROS (humble, or iron)                                                   | humble                                          |
-| UBUNTU_VERSION          | The supporting distro of ubuntu (focal, jammy, noble)                                 | jammy                                           |
+| UBUNTU_VERSION          | The supporting distro of Ubuntu (focal, jammy, noble)                                 | jammy                                           |
 | ROSCON_DEMO_REPO        | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git |
 | ROSCON_DEMO_BRANCH      | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                           |
 | ROSCON_DEMO_COMMIT      | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                            |

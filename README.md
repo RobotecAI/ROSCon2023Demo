@@ -87,13 +87,13 @@ source ~/.bashrc
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. This project was tested on O3DE 2409.1. **`o3de` 2409.1 and `o3de-extras` 2409.1 are recommended versions**, but the newer point-releases should work.
+3. This project was tested on O3DE 2505.1. **`o3de` 2505.1 and `o3de-extras` 2505.1 are recommended versions**, but the newer point-releases should work.
 
 The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de.git
+git clone --branch 2505.1 --single-branch --depth 1 https://github.com/o3de/o3de.git
 cd o3de
 git lfs install
 git lfs pull
@@ -121,7 +121,7 @@ Note that the Gem instructions include the installation of ROS 2 with some addit
 
 ```bash
 cd ${WORKDIR}
-git clone --branch 2409.1 --single-branch --depth 1 https://github.com/o3de/o3de-extras
+git clone --branch 2505.1 --single-branch --depth 1 https://github.com/o3de/o3de-extras
 cd o3de-extras
 git lfs install
 git lfs pull
@@ -129,9 +129,7 @@ git lfs pull
 And register required Gems:
 ```bash
 cd ${WORKDIR}
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/ROS2
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAssets
-./o3de/scripts/o3de.sh register --gem-path o3de-extras/Gems/WarehouseAutomation
+./o3de/scripts/o3de.sh register -agp o3de-extras/Gems/
 ```
 
 Clone and register the remaining Gems:
@@ -142,7 +140,7 @@ git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/
 git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
 git clone https://github.com/RobotecAI/robotec-generic-assets.git 
-git clone https://github.com/RobotecAI/robotec-o3de-tools.git
+git clone --branch 2505 --single-branch --depth 1 https://github.com/RobotecAI/robotec-o3de-tools.git
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
@@ -161,7 +159,7 @@ After that, change the OTTO 600 prefab so that both front and back lidars use th
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server
 ```
 
 ### Project
@@ -176,12 +174,16 @@ Now install all dependencies of submodules.
 sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep2
 rosdep update
 rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
+# disable not needed packages - we need bringup and description package
+touch src/Universal_Robots_ROS2_Driver/ur_controllers/COLCON_IGNORE
+touch src/Universal_Robots_ROS2_Driver/ur_robot_driver/COLCON_IGNORE
+touch src/Universal_Robots_ROS2_Driver/ur_calibration/COLCON_IGNORE
 ```
 Then build and source the workspace.
 ```bash
 cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
 colcon build --symlink-install
-source install/setup.bash
+source install/setup.bash # adjust to your shell 
 ```
 The source command needs to be done in the same console where you build and run O3DE.
 
@@ -211,7 +213,14 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 To build the game launcher and bundle assets:
 ```bash
 cd ${WORKDIR}/o3de
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py --project-path ${WORKDIR}/ROSCon2023Demo/Project --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed  --fail-on-asset-errors -noserver -out ${WORKDIR}/ROSCon2023Demo/Project/build/release --build-tools --no-unified-launcher
+./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
+    --project-path ${WORKDIR}/ROSCon2023Demo/Project \
+    --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed \
+    --fail-on-asset-errors \
+    -noserver \
+    -out ${WORKDIR}/ROSCon2023Demo/Project/build/release \
+    --build-tools \
+    --no-unified-launcher
 ```
 The build package is available here:
 ```
@@ -343,6 +352,10 @@ If your simulation does not work as intended, please first make sure that you so
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 
 ## Release notes
+
+### ROSCon2023Demo 3.0.0 for O3DE 2505.x
+Changes compared to 2.0.0
+- updated demo the newest available version of O3DE and ROS 2 Gem
 
 ### ROSCon2023Demo 2.0.1 for O3DE 2409.x
 Changes compared to 2.0.0:

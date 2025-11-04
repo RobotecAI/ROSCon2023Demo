@@ -10,7 +10,7 @@
 * [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
 * [rocker](https://github.com/osrf/rocker)
   * **Optional** This tool simplifies injecting NVIDIA support when running Docker images. If not installed, you can still run GPU-required Docker images but with additional setup steps.
-  * **Note** There known issues using rocker with Ubuntu 22.04 and NVIDIA drivers newer than version 525.
+  * **Note** There are known issues using rocker with Ubuntu 22.04 and NVIDIA drivers newer than version 535.
 
 # Building the Docker image
 There are 2 different Dockerscripts that build the two different types of ROSCon2023Demo images:
@@ -24,7 +24,7 @@ The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse 
 | Argument                        | Description                                                                           | Default                                             |
 | ------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- |
 | ROS_VERSION                     | The distro of ROS (humble or iron)                                                    | humble                                              |
-| UBUNTU_VERSION                  | The supporting distro of ubuntu (focal, jammy, noble)                                 | jammy                                               |
+| UBUNTU_VERSION                  | The supporting distro of Ubuntu (focal, jammy)                                        | jammy                                               |
 | O3DE_REPO                       | The git repo for O3DE                                                                 | https://github.com/o3de/o3de                        |
 | O3DE_BRANCH                     | The branch/tag for O3DE                                                               | 2505.1                                              |
 | O3DE_COMMIT                     | The commit on the branch/tag for O3DE (or HEAD)                                       | HEAD                                                |
@@ -41,13 +41,13 @@ The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse 
 | ROSCON_DEMO_OTTO_ROBOTS_BRANCH  | The branch/tag for the Demo Otto Robots Gem                                           | 2.0.0                                               |
 | ROSCON_DEMO_OTTO_ROBOTS_COMMIT  | The commit on the branch/tag for the Demo Otto Robots Gem (or HEAD)                   | HEAD                                                |
 | ROSCON_DEMO_REPO                | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git     |
-| ROSCON_DEMO_BRANCH              | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                               |
+| ROSCON_DEMO_BRANCH              | The branch/tag for ROSCon2023 Warehouse Demo                                          | 3.0.1                                               |
 | ROSCON_DEMO_COMMIT              | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                                |
 | ROSCON_DEMO_ROBOTEC_GEMS_REPO   | The git repo for Robotec Gems                                                         | https://github.com/RobotecAI/robotec-o3de-tools.git |
 | ROSCON_DEMO_ROBOTEC_GEMS_BRANCH | The branch/tag for Robotec Gems                                                       | o3de-2505                                           |
 | ROSCON_DEMO_ROBOTEC_GEMS_COMMIT | The commit on the branch/tag for Robotec Gems (or HEAD)                               | 4006ef9                                             |
-| ROCSON_DEMO_LEVEL               | The startup level (level1 or level2). **See Notes below**                             | level1                                              |
-| ROCSON_DEMO_FULLSCREEN          | Option to launch the simulation in fullscreen mode (0=no, 1=yes)                      | 0                                                   |
+| ROSCON_DEMO_LEVEL               | The startup level (level1 or level2). **See Notes below**                             | level1                                              |
+| ROSCON_DEMO_FULLSCREEN          | Option to launch the simulation in fullscreen mode (0=no, 1=yes)                      | 0                                                   |
 | ROSCON_DEMO_LARGE_SCALE         | Option to enable large scale simulation (0=no, 1=yes) (see [README.md]()../README.md) | 0                                                   |
 
 To build the Docker image using the default values, use the following command
@@ -59,7 +59,7 @@ docker build -f Dockerfile.O3DE -t roscon2023_demo/o3de:latest .
 If you want to pull a different variant of the image based on a different fork, you can run a command similar to the following
 
 ```
-docker build -f Dockerfile.O3DE --build-arg ROSCON_DEMO_REPO=https://github.com/myfork/ROSCon2023Demo.git --build-arg ROCSON_DEMO_LEVEL=level2 -t myfork/roscon2023_demo/o3de:latest .
+docker build -f Dockerfile.O3DE --build-arg ROSCON_DEMO_REPO=https://github.com/myfork/ROSCon2023Demo.git --build-arg ROSCON_DEMO_LEVEL=level2 -t myfork/roscon2023_demo/o3de:latest .
 ```
 
 > **Note:**: `Dockerfile.O3DE` clones multiple Gems that are not listed in the table above. These are assets only Gems or tooling Gems. The working commit hashes are either hard-coded in the scripts or the newest versions are pulled from the repository (for backward compatible Gems).
@@ -70,7 +70,7 @@ The O3DE Docker image can reach 10 GB in size, so if you want to create a separa
 | Argument                | Description                                                                           | Default                                         |
 | ----------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |
 | ROS_VERSION             | The distro of ROS (humble, or iron)                                                   | humble                                          |
-| UBUNTU_VERSION          | The supporting distro of Ubuntu (focal, jammy, noble)                                 | jammy                                           |
+| UBUNTU_VERSION          | The supporting distro of Ubuntu (focal, jammy)                                        | jammy                                           |
 | ROSCON_DEMO_REPO        | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git |
 | ROSCON_DEMO_BRANCH      | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                           |
 | ROSCON_DEMO_COMMIT      | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                            |
@@ -85,7 +85,7 @@ docker build -f Dockerfile.ROS -t roscon2023_demo/ros:latest .
 > **Note:** By default, the O3DE simulation launcher is built to run the smaller warehouse scene. To create a Docker image with the large warehouse, the `ROSCON_DEMO_LEVEL` argument needs to be set to `level2`:
 >
 >```
->docker build -f Dockerfile.O3DE --build-arg ROCSON_DEMO_LEVEL=level2 -t roscon2023_demo/o3de:latest .
+>docker build -f Dockerfile.O3DE --build-arg ROSCON_DEMO_LEVEL=level2 -t roscon2023_demo/o3de:latest .
 >```
 
 # Running the Docker image
@@ -127,7 +127,7 @@ Next, start the ROS 2 stack in the background and direct the log to `/data/works
 ./launch_ros.sh > /data/workspace/ros2.log &>1 &
 ```
 
-Depending on which level is specified with the `ROCSON_DEMO_LEVEL` the simulation will start with the configured warehouse scene. The ROS 2 stack will spawn the worker robots and start their navigation tasks.
+Depending on which level is specified with the `ROSCON_DEMO_LEVEL` the simulation will start with the configured warehouse scene. The ROS 2 stack will spawn the worker robots and start their navigation tasks.
 
 # Large scale simulation
 
@@ -139,7 +139,7 @@ You will need to build the O3DE and ROS Docker images on separate machines. The 
 
 On the machine meant for the simulation, run the following command to build the O3DE Docker image for the large scale simulation:
 ```
-docker build -f Dockerfile.O3DE --build-arg ROCSON_DEMO_LEVEL=level2 --build-arg ROSCON_DEMO_LARGE_SCALE=1 -t roscon2023_demo_large/o3de:latest .
+docker build -f Dockerfile.O3DE --build-arg ROSCON_DEMO_LEVEL=level2 --build-arg ROSCON_DEMO_LARGE_SCALE=1 -t roscon2023_demo_large/o3de:latest .
 ```
 This will create the docker image `roscon2023_demo_large/o3de:latest` that will launch the Docker container from.
 

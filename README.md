@@ -140,7 +140,7 @@ git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/
 git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-otto-robots-gem
 git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
 git clone https://github.com/RobotecAI/robotec-generic-assets.git 
-git clone --branch 2505 --single-branch --depth 1 https://github.com/RobotecAI/robotec-o3de-tools.git
+git clone --branch o3de-2505 --single-branch --depth 1 https://github.com/RobotecAI/robotec-o3de-tools.git
 ./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
 ./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem

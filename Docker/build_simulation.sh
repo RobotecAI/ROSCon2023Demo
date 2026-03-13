@@ -6,15 +6,15 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 
-# Validate the ROCSON_DEMO_LEVEL value before starting the longer git processes
-if [ "$ROCSON_DEMO_LEVEL" == 'level1' ]
+# Validate the ROSCON_DEMO_LEVEL value before starting the longer git processes
+if [ "$ROSCON_DEMO_LEVEL" == 'level1' ]
 then
     DEMO_LEVEL=demolevel1
-elif [ "$ROCSON_DEMO_LEVEL" == 'level2' ]
+elif [ "$ROSCON_DEMO_LEVEL" == 'level2' ]
 then    
     DEMO_LEVEL=demolevel2
 else
-    echo "Invalid 'level' argument '$ROCSON_DEMO_LEVEL'. Must be level1 or level2."
+    echo "Invalid 'level' argument '$ROSCON_DEMO_LEVEL'. Must be level1 or level2."
     exit 1
 fi
 

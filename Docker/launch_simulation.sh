@@ -17,4 +17,4 @@ cd $ROSCON_DEMO_ROOT/ros2_ws
 . ./install/setup.sh
 
 cd $ROSCON_SIMULATION_HOME
-./ROSCon2023Demo.GameLauncher -r_fullscreen=$ROCSON_DEMO_FULLSCREEN -bg_connectToAssetProcessor=0
+./ROSCon2023Demo.GameLauncher -r_fullscreen=$ROSCON_DEMO_FULLSCREEN -bg_connectToAssetProcessor=0

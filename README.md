@@ -131,7 +131,7 @@ The Gems are open to your contributions!
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces
 ```
 
 ### Project
@@ -186,12 +186,11 @@ To build the game launcher and bundle assets:
 ```bash
 cd ${RC2023_WORKDIR}/engine/o3de
 ./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
-    --project-path ${RC2023_WORKDIR}/ROSCon2023Demo/Project \
-    --seedlist ${RC2023_WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed \
+    --project-path ${RC2023_WORKDIR}/Project \
+    --seedlist ${RC2023_WORKDIR}/Project/AssetBundling/SeedLists/demo.seed \
     --fail-on-asset-errors \
     -noserver \
     -out ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release \
-    --build-tools \
     --no-unified-launcher
 ```
 The build package is available here:
@@ -214,8 +213,8 @@ Please consider copying ROS 2 workspace to the release package. The ROS 2 worksp
 
 ```bash
 # Consider copying ROS 2 workspace
-mkdir -p ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
-cp -r ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+mkdir -p ${RC2023_WORKDIR}/Project/build/release/ros2_ws/
+cp -r ${RC2023_WORKDIR}/ros2_ws/src  ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
 ```
 
 To start a released the GameLauncher simply:
@@ -324,6 +323,15 @@ If your simulation does not work as intended, please first make sure that you so
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 
 ## Release notes
+
+### ROSCon2023Demo 4.0.0 for O3DE 2604.x and ROS 2 Jazzy
+Changes compared to 3.0.0
+- updated demo the newest available version of O3DE and ROS 2 Gem
+- Updated code to new API in ROS 2 Gem and other canonical gems in O3DE 2604.
+- made flat copy of UR MoveIt2, to avoid issues with building UR ROS2 Driver
+- Updated Nav2 configuration for ROS 2 Jazzy
+
+
 
 ### ROSCon2023Demo 3.0.0 for O3DE 2505.x
 Changes compared to 2.0.0

@@ -93,7 +93,7 @@ namespace ROS2::Demo
         AzFramework::SpawnAllEntitiesOptionalArgs optionalArgs;
         AzFramework::EntitySpawnTicket ticket(spawnable);
         // Set the pre-spawn callback to set the name of the root entity to the name of the spawnable
-        optionalArgs.m_preInsertionCallback = [transform, spawnableName, parent](auto id, auto view)
+        optionalArgs.m_preInsertionCallback = [transform, spawnableName](auto id, auto view)
         {
             if (view.empty())
             {
@@ -109,16 +109,11 @@ namespace ROS2::Demo
                 AZ_Assert(childEntity, "Invalid child entity");
                 childEntity->SetName(spawnableName.c_str());
             }
-
             auto* transformInterface = root->FindComponent<AzFramework::TransformComponent>();
             transformInterface->SetWorldTM(transform);
-            if (parent.IsValid())
-            {
-                transformInterface->SetParent(parent);
-            }
         };
 
-        optionalArgs.m_completionCallback = [this, spawnableName](auto ticket, auto result)
+        optionalArgs.m_completionCallback = [this, spawnableName, parent](auto ticket, auto result)
         {
             if (!result.empty() && result.size() > 1)
             {
@@ -126,6 +121,15 @@ namespace ROS2::Demo
                 const AZ::Entity* firstChild = *(result.begin() + 1);
                 m_spawnedEntitiesToNames[spawnableName] = firstChild->GetId();
             }
+
+            if (parent.IsValid() && !result.empty())
+            {
+                const AZ::Entity* child = *result.begin();
+                AZ_Assert(child, "Invalid child entity");
+                auto* transformInterface = child->FindComponent<AzFramework::TransformComponent>();
+                transformInterface->SetParent(parent);
+            }
+
         };
 
         optionalArgs.m_priority = AzFramework::SpawnablePriority_Lowest;

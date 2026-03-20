@@ -16,12 +16,12 @@ namespace ROS2::Demo
     void GrayscaleCamera::Activate()
     {
         AZ_Printf("GrayscaleCamera", "GrayscaleCamera activated");
-        CameraPostProcessingRequestBus::Handler::BusConnect(GetEntityId());
+        ROS2Sensors::CameraPostProcessingRequestBus::Handler::BusConnect(GetEntityId());
     }
 
     void GrayscaleCamera::Deactivate()
     {
-        CameraPostProcessingRequestBus::Handler::BusDisconnect();
+        ROS2Sensors::CameraPostProcessingRequestBus::Handler::BusDisconnect();
     }
 
     void GrayscaleCamera::Reflect(AZ::ReflectContext* context)

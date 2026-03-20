@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: Apache-2.0 OR MIT
 #
 
-ARG ROS_VERSION=humble
-ARG UBUNTU_VERSION=jammy
+ARG ROS_VERSION=jazzy
+ARG UBUNTU_VERSION=noble
 
 FROM ros:${ROS_VERSION}-ros-base-${UBUNTU_VERSION}
 
@@ -64,15 +64,12 @@ RUN apt-get update \
     ros-${ROS_DISTRO}-cyclonedds \
     ros-${ROS_DISTRO}-rmw-cyclonedds-cpp \
     ros-${ROS_DISTRO}-controller-manager \
-    ros-${ROS_DISTRO}-ur-client-library \
     ros-${ROS_DISTRO}-nav2-common \
     ros-${ROS_DISTRO}-navigation2 \
-    ros-${ROS_DISTRO}-ur-description \
     ros-${ROS_DISTRO}-force-torque-sensor-broadcaster \
+    ros-${ROS_DISTRO}-simulation-interfaces \
     python3-vcstool \
-    python3-rosdep2 \
-    python3-colcon-common-extensions \
-    && pip install python-statemachine
+    python3-colcon-common-extensions 
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 

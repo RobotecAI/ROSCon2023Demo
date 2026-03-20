@@ -10,14 +10,13 @@
 
 #include <AzCore/Component/Component.h>
 #include <AzCore/Component/TickBus.h>
-#include <ROS2/Camera/CameraPostProcessingRequestBus.h>
+#include <ROS2Sensors/Camera/CameraPostProcessingRequestBus.h>
 
 namespace ROS2::Demo
 {
-
     class GrayscaleCamera
         : public AZ::Component
-        , private CameraPostProcessingRequestBus::Handler
+        , private ROS2Sensors::CameraPostProcessingRequestBus::Handler
     {
     public:
         AZ_COMPONENT(GrayscaleCamera, "{0191e0df-a2df-748a-9ddf-6e1337d8cb73}");

@@ -226,7 +226,7 @@ def launch_setup(context, *args, **kwargs):
         "pilz_industrial_motion_planner":
             {
                 "default_planner_config": "PTP",
-                "planning_plugin": "pilz_industrial_motion_planner/CommandPlanner"
+                "planning_plugins": ["pilz_industrial_motion_planner/CommandPlanner"]
             },
         "robot_description_planning":{
             "cartesian_limits":{

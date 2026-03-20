@@ -89,14 +89,18 @@ source ~/.bashrc
 2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
 3. This project was tested on O3DE 2505.1. **`o3de` 2505.1 and `o3de-extras` 2505.1 are recommended versions**, but the newer point-releases should work.
 
-The following commands should prepare O3DE (assuming that the project repository is cloned into `${WORKDIR}`):
+The following commands should prepare O3DE (assuming that the project repository is cloned into `${RC2023_WORKDIR}`):
 
+First, initialize the git submodules (this fetches `engine/o3de`, `engine/o3de-extras`, and the Gems in `gems/`):
 ```bash
-cd ${WORKDIR}
-git clone --branch 2505.1 --single-branch --depth 1 https://github.com/o3de/o3de.git
-cd o3de
-git lfs install
-git lfs pull
+cd ${RC2023_WORKDIR}
+git submodule update --init --recursive
+git submodule foreach 'git lfs install && git lfs pull'
+```
+
+Then register the engine:
+```bash
+cd ${RC2023_WORKDIR}/engine/o3de
 python/get_python.sh
 scripts/o3de.sh register --this-engine
 ```
@@ -119,42 +123,10 @@ To learn more about how the Gem works check out the [Concepts and Structures](ht
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
 
-```bash
-cd ${WORKDIR}
-git clone --branch 2505.1 --single-branch --depth 1 https://github.com/o3de/o3de-extras
-cd o3de-extras
-git lfs install
-git lfs pull
-```
-And register required Gems:
-```bash
-cd ${WORKDIR}
-./o3de/scripts/o3de.sh register -agp o3de-extras/Gems/
-```
 
-Clone and register the remaining Gems:
-```bash
-cd ${WORKDIR}
-git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-humanworker-gem.git
-git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-ur-robots-gem.git
-git clone --branch 2.0.0 --single-branch --depth 1 https://github.com/RobotecAI/o3de-otto-robots-gem
-git clone https://github.com/RobotecAI/robotec-warehouse-assets.git 
-git clone https://github.com/RobotecAI/robotec-generic-assets.git 
-git clone --branch o3de-2505 --single-branch --depth 1 https://github.com/RobotecAI/robotec-o3de-tools.git
-./o3de/scripts/o3de.sh register --gem-path o3de-humanworker-gem
-./o3de/scripts/o3de.sh register --gem-path o3de-ur-robots-gem
-./o3de/scripts/o3de.sh register --gem-path o3de-otto-robots-gem
-./o3de/scripts/o3de.sh register --all-gems-path robotec-warehouse-assets
-./o3de/scripts/o3de.sh register --all-gems-path robotec-generic-assets
-./o3de/scripts/o3de.sh register --gem-path robotec-o3de-tools/Gems/ROS2ScriptIntegration
-```
+All Gems are included as git submodules and are fetched by the `git submodule update` command above.
 
 The Gems are open to your contributions!
-
-### RGL Gem (Optional)
-Optionally, especially when intending to run more robots or change their lidar sensors to higher resolution ones, you can enable and use Robotec GPU Lidar Gem (RGL Gem).
-Please follow the instructions in the [RGL Gem repository](https://github.com/RobotecAI/o3de-rgl-gem), register it (see above) and enable it within the project.
-After that, change the OTTO 600 prefab so that both front and back lidars use the GPU lidar (use combo box to select it).
 
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
@@ -166,7 +138,7 @@ sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-tool
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
 This workspace depends on submodules that need to be pulled first. This is done through the script (`setup_submodules.bash`) that selects a submodule's version based on the detected ROS 2 distribution.
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
 ./setup_submodules.bash
 ```
 Now install all dependencies of submodules.
@@ -181,7 +153,7 @@ touch src/Universal_Robots_ROS2_Driver/ur_calibration/COLCON_IGNORE
 ```
 Then build and source the workspace.
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
 colcon build --symlink-install
 source install/setup.bash # adjust to your shell 
 ```
@@ -192,15 +164,15 @@ Make sure the following tools and libraries are installed on your system (they a
 sudo apt install ninja-build libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
 ```
 
-Now, assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${WORKDIR}`:
+Now, assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${RC2023_WORKDIR}`:
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/Project
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DLY_STRIP_DEBUG_SYMBOLS=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
 ```
 You can now run the project Editor with:
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/Project
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/Project
 ./build/linux/bin/profile/Editor
 ```
 ### Building the release package (optional)
@@ -212,19 +184,19 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 
 To build the game launcher and bundle assets:
 ```bash
-cd ${WORKDIR}/o3de
+cd ${RC2023_WORKDIR}/engine/o3de
 ./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
-    --project-path ${WORKDIR}/ROSCon2023Demo/Project \
-    --seedlist ${WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed \
+    --project-path ${RC2023_WORKDIR}/ROSCon2023Demo/Project \
+    --seedlist ${RC2023_WORKDIR}/ROSCon2023Demo/Project/AssetBundling/SeedLists/demo.seed \
     --fail-on-asset-errors \
     -noserver \
-    -out ${WORKDIR}/ROSCon2023Demo/Project/build/release \
+    -out ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release \
     --build-tools \
     --no-unified-launcher
 ```
 The build package is available here:
 ```
-${WORKDIR}/ROSCon2023Demo/Project/build/release 
+${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release 
 └── ROSCon2023DemoGamePackage
     ├── Cache
     │   └── linux
@@ -242,16 +214,16 @@ Please consider copying ROS 2 workspace to the release package. The ROS 2 worksp
 
 ```bash
 # Consider copying ROS 2 workspace
-mkdir -p ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
-cp -r ${WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+mkdir -p ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws/src  ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
 ```
 
 To start a released the GameLauncher simply:
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
 colcon build --symlink-install
-${WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
-${WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
+${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
+${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
 ```
 
 This package can be moved to cloud instance or other computer.
@@ -262,7 +234,7 @@ Open the level: `DemoLevel1.prefab`.
 Launch the O3DE simulation by clicking `CTRL + G` or by clicking the launch arrow next to the `Play Controls` in the top right corner.
 Now go to the `ros2_ws` folder and run the all ros2 packages.
 ```bash
-cd ${WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
 source install/setup.bash
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```

@@ -20,6 +20,7 @@
 #include <AzFramework/Physics/PhysicsSystem.h>
 #include <AzFramework/Physics/RigidBodyBus.h>
 #include <LmbrCentral/Scripting/TagComponentBus.h>
+#include <ImGuiBus.h>
 
 namespace ROS2::Demo
 {
@@ -44,6 +45,7 @@ namespace ROS2::Demo
    class FoilWrapper
        : public AZ::Component
        , public AZ::TickBus::Handler
+       , public ImGui::ImGuiUpdateListenerBus::Handler
    {
        enum class FoilWrapperState
        {
@@ -70,6 +72,9 @@ namespace ROS2::Demo
        static void Reflect(AZ::ReflectContext* context);
 
    private:
+       // ImGui::ImGuiUpdateListenerBus::Handler overrides...
+       void OnImGuiUpdate() override;
+
        FoilWrapperConfig m_configuration;
        FoilWrapperState m_state = FoilWrapperState::Idle;
        float m_timer = 0.0f;

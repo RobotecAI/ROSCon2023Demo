@@ -7,6 +7,8 @@
 #include <AzFramework/Components/TransformComponent.h>
 #include <Integration/SimpleMotionComponentBus.h>
 #include <PhysX/Joint/Configuration/PhysXJointConfiguration.h>
+#include <imgui/imgui.h>
+
 namespace ROS2::Demo
 {
     void FoilWrapperConfig::Reflect(AZ::ReflectContext* context)
@@ -55,6 +57,7 @@ namespace ROS2::Demo
 
     void FoilWrapper::Activate()
     {
+
         m_onTriggerEnterHandler = AzPhysics::SimulatedBodyEvents::OnTriggerEnter::Handler(
             [&]([[maybe_unused]] AzPhysics::SimulatedBodyHandle bodyHandle, [[maybe_unused]] const AzPhysics::TriggerEvent& event)
             {
@@ -88,10 +91,13 @@ namespace ROS2::Demo
             });
 
         AZ::TickBus::Handler::BusConnect();
+        ImGui::ImGuiUpdateListenerBus::Handler::BusConnect();
+
     }
 
     void FoilWrapper::Deactivate()
     {
+        ImGui::ImGuiUpdateListenerBus::Handler::BusDisconnect();
         AZ::TickBus::Handler::BusDisconnect();
     }
 
@@ -191,10 +197,9 @@ namespace ROS2::Demo
                     m_configuration.m_foilWrapperEntityId,
                     &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::LoopMotion,
                     false);
-
                 EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
                     m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::PlayMotion);
-
+                AZ_Printf("FoilWrapper", "Starting to wrap the pallet, waiting for the animation to start...");
                 m_state = FoilWrapperState::Wrapping;
                 m_timer = 0;
             }
@@ -270,4 +275,24 @@ namespace ROS2::Demo
             }
         }
     }
+
+    void FoilWrapper::OnImGuiUpdate()
+    {
+        AZStd::string label = AZStd::string::format("FoilWrapperDebugger %s", m_entity->GetName().c_str());
+
+        ImGui::Begin(label.c_str());
+
+        if (ImGui::Button("FoilWrapper Animation"))
+        {
+            EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
+              m_configuration.m_foilWrapperEntityId,
+              &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::LoopMotion,
+              false);
+            EMotionFX::Integration::SimpleMotionComponentRequestBus::Event(
+                    m_configuration.m_foilWrapperEntityId, &EMotionFX::Integration::SimpleMotionComponentRequestBus::Events::PlayMotion);
+        }
+        ImGui::End();
+    }
+
+
 } // namespace ROS2::Demo

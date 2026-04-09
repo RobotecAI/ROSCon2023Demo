@@ -23,7 +23,6 @@
                     "Instance_[6541469569187]/ContainerEntity",
                     "Entity_[378904850629145]",
                     "Instance_[9613713711690]/ContainerEntity",
-                    "Entity_[157997884966234]",
                     "Instance_[46481451049499]/ContainerEntity",
                     "Instance_[240252471538715]/ContainerEntity",
                     "Instance_[40844984210615]/ContainerEntity",
@@ -348,92 +347,6 @@
                                 "Instance_[467167252115820]/Entity_[109915952719713]"
                             ]
                         }
-                    }
-                }
-            }
-        },
-        "Entity_[157997884966234]": {
-            "Id": "Entity_[157997884966234]",
-            "Name": "Spawner",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 8716467794155507848
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 11217278184377731101
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 5733903695194418616
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 4261319125997465624
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 14386499870014740989
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 8977963404717803197
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3652502057217407836
-                },
-                "EditorStaticRigidBodyComponent": {
-                    "$type": "EditorStaticRigidBodyComponent",
-                    "Id": 10582313689306545614
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 16665446713452648272
-                },
-                "ROS2SpawnerEditorComponent": {
-                    "$type": "ROS2SpawnerEditorComponent",
-                    "Id": 16779392780569771372,
-                    "Controller": {
-                        "Configuration": {
-                            "Editor entity id": "Entity_[157997884966234]",
-                            "Spawnables": {
-                                "otto1500": {
-                                    "assetId": {
-                                        "guid": "{B51DFA85-1FF8-5970-A16A-ADCFD0F8D7AF}",
-                                        "subId": 2545626186
-                                    },
-                                    "assetHint": "otto1500/otto1500_lifting_platform.spawnable"
-                                },
-                                "otto600": {
-                                    "assetId": {
-                                        "guid": "{34E77627-6EDA-5CF6-8304-B8EA4E4ABE59}",
-                                        "subId": 1911613189
-                                    },
-                                    "assetHint": "prefabs/otto600/otto600withpallet.spawnable"
-                                }
-                            },
-                            "Default spawn pose": {
-                                "Translation": [
-                                    -22.0,
-                                    2.0,
-                                    0.10000000149011612
-                                ]
-                            }
-                        }
-                    }
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10249215676368019344,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            -29.032737731933594,
-                            2.9228999614715576,
-                            0.0
-                        ]
                     }
                 }
             }
@@ -1071,6 +984,216 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233886234173254]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233886234173254]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233881939205958]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233881939205958]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233877644238662]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233877644238662]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233864759336774]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233864759336774]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233813219729222]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233813219729222]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233808924761926]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233808924761926]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233632831102790]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[233632831102790]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[1549978296134]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[1549978296134]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102601718242074]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102601718242074]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102597423274778]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102597423274778]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102593128307482]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102593128307482]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102588833340186]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[102588833340186]/Entities/Entity_[768075193863]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
+                    "value": "otto1500/models/otto1500_standlow.fbx.pxmesh"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14801240651808]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14801240651808]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14801240651808]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14788355749920]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14788355749920]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14788355749920]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14775470848032]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14775470848032]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14775470848032]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14762585946144]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14762585946144]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14762585946144]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14749701044256]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14749701044256]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14749701044256]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14728226207776]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14728226207776]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[29443303357176]/Instances/Instance_[14728226207776]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
                 }
             ]
         },
@@ -1113,6 +1236,126 @@
                 {
                     "op": "remove",
                     "path": "/Instances/Instance_[1137435698350970]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[12678007301039]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[12678007301039]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[12678007301039]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[13150453703599]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[13150453703599]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[13150453703599]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44675714163097]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44675714163097]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44675714163097]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44680009130393]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44680009130393]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44680009130393]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44954887037337]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44954887037337]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44954887037337]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44959182004633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44959182004633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[44959182004633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45496052916633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45496052916633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45496052916633]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45500347883929]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/guid",
+                    "value": "{00000000-0000-0000-0000-000000000000}"
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45500347883929]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetId/subId",
+                    "value": 0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Instances/Instance_[45500347883929]/Entities/Entity_[1614665180534621]/Components/Component_[15264405835034640312]/ColliderConfiguration/MaterialSlots/Slots/0/MaterialAsset/assetHint",
+                    "value": ""
                 }
             ]
         },

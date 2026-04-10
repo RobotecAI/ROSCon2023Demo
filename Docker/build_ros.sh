@@ -39,7 +39,9 @@ ROSCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short
 # Build and install the additional ROS 2 packages and drivers
 ###############################################################
 pushd $ROSCON_DEMO_ROOT/ros2_ws && \
+      ./setup_submodules.bash && \
       rosdep update && \
+      rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y && \
       colcon build --symlink-install && \
       . ./install/setup.sh && \
       popd

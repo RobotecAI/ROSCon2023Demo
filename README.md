@@ -131,7 +131,7 @@ The Gems are open to your contributions!
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server
 ```
 
 ### Project
@@ -324,14 +324,16 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
-### ROSCon2023Demo 4.0.0 for O3DE 2604.x and ROS 2 Jazzy
-Changes compared to 3.0.0
+### ROSCon2023Demo 4.0.0 for O3DE 2605.x and ROS 2 Jazzy
+Changes compared to 3.0.1
 - updated demo the newest available version of O3DE and ROS 2 Gem
-- Updated code to new API in ROS 2 Gem and other canonical gems in O3DE 2604.
+- Updated code to new API in ROS 2 Gem and other canonical gems in O3DE 2605.0
 - made flat copy of UR MoveIt2, to avoid issues with building UR ROS2 Driver
 - Updated Nav2 configuration for ROS 2 Jazzy
 
-
+### ROSCon2023Demo 3.0.1 for O3DE 2505.x
+Changes compared to 3.0.0
+- fix branch names in Docker
 
 ### ROSCon2023Demo 3.0.0 for O3DE 2505.x
 Changes compared to 2.0.0

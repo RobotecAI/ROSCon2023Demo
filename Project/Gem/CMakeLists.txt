@@ -64,6 +64,8 @@ ly_add_target(
             Gem::Atom_AtomBridge.Static
             Gem::ROS2.Static
             Gem::ROS2Sensors.API
+            Gem::ImGui.Static
+            Gem::ImGui.imguilib
             Gem::LmbrCentral.API
             Gem::PhysX5.Static
             Gem::RecastNavigation.API
@@ -88,6 +90,7 @@ ly_add_target(
             Gem::RecastNavigation.API
             Gem::ROS2.Static
             Gem::ROS2Sensors.API
+            Gem::ImGui.imguilib
             Gem::LmbrCentral.API
 )
 

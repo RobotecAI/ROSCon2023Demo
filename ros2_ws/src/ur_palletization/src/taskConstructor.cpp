@@ -57,7 +57,7 @@ namespace Palletization
         if ((errorCode = m_moveGroupInterface->plan(plan)) != moveit::core::MoveItErrorCode::SUCCESS ||
             (errorCode = m_moveGroupInterface->execute(plan)) != moveit::core::MoveItErrorCode::SUCCESS)
         {
-            RCLCPP_ERROR_STREAM(m_node->get_logger(), "Failed to execute move plan for pose " << poseName << " (error code: " << moveit::core::errorCodeToString(errorCode) << ")");
+            RCLCPP_ERROR_STREAM(m_node->get_logger(), "Failed to execute move plan for pose " << poseName << " (error code: " << moveit::core::error_code_to_string(errorCode) << ")");
             return false;
         }
         return true;
@@ -79,7 +79,7 @@ namespace Palletization
         if ((errorCode = m_moveGroupInterface->plan(plan)) != moveit::core::MoveItErrorCode::SUCCESS ||
             (errorCode = m_moveGroupInterface->execute(plan)) != moveit::core::MoveItErrorCode::SUCCESS)
         {
-            RCLCPP_ERROR_STREAM(m_node->get_logger(), "Failed to execute move plan (error code: " << moveit::core::errorCodeToString(errorCode) << ")");
+            RCLCPP_ERROR_STREAM(m_node->get_logger(), "Failed to execute move plan (error code: " << moveit::core::error_code_to_string(errorCode) << ")");
             return false;
         }
         return true;

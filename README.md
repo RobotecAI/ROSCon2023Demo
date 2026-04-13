@@ -43,9 +43,8 @@ On the other hand, human workers don't see robots, as they use navigation throug
 ## Requirements
 
 ### Platforms
-The project runs on Ubuntu 22.04 with ROS 2 Humble or ROS 2 Iron.
+The project runs on Ubuntu 24.04 with ROS 2 Jazzy.
 
-💡 ***Note:*** This demo is **not supported on ROS 2 Jazzy!**
 💡 ***Note:*** This demo is **not supported on Windows!**
 
 ### Hardware
@@ -280,7 +279,7 @@ https://raw.githubusercontent.com/eclipse-cyclonedds/cyclonedds/master/etc/cyclo
     </Domain>
 </CycloneDDS>
 ```
-Please refer to [DDS tuning information](https://docs.ros.org/en/humble/How-To-Guides/DDS-tuning.html#cyclone-dds-tuning) to learn more.
+Please refer to [DDS tuning information](https://docs.ros.org/en/jazzy/How-To-Guides/DDS-tuning.html#cyclone-dds-tuning) to learn more.
 
 ### Running simulation 
 1. On **Machine 1** start GameLauncher, without connecting to `AssetProcess`, with resolution of your choice (we set it to 2.5K to achieve high frame rate) and in fullscreen mode:
@@ -315,10 +314,7 @@ Please refer to [DDS tuning information](https://docs.ros.org/en/humble/How-To-G
     ```
 
 ### Troubleshooting
-If you intend to switch between Humble and Iron distributions, it is best to perform a clean build, or at least rebuild ROS 2 and RGL Gem.
-Make sure you build the workspace and the simulation project with the same distribution (rebuild and source on change).
-
-If your simulation does not work as intended, please first make sure that you sourced the workspace again before running the project.
+If your simulation does not work as intended, please first make sure that you sourced the ROS 2 workspace before running the project.
 
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 

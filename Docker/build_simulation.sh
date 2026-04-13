@@ -159,13 +159,10 @@ cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/ROSCon2023Demo.GameLauncher $ROSC
 cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.json $ROSCON_SIMULATION_HOME/ 
 cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.so $ROSCON_SIMULATION_HOME
 
-# Cleanup - keep ros2_ws/install for runtime (GameLauncher needs custom message libs)
+# Cleanup
 rm -rf $ROSCON_DEMO_ROOT/engine
 rm -rf $ROSCON_DEMO_ROOT/gems
 rm -rf $ROSCON_DEMO_ROOT/Project/build
-rm -rf $ROSCON_DEMO_ROOT/ros2_ws/src
-rm -rf $ROSCON_DEMO_ROOT/ros2_ws/build
-rm -rf $ROSCON_DEMO_ROOT/ros2_ws/log
 rm -rf /root/.o3de
 
 exit 0

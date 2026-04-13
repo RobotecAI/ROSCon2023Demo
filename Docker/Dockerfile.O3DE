@@ -99,6 +99,11 @@ RUN apt-get update \
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 
+COPY clone_simulation.sh $WORKSPACE/
+RUN cd $WORKSPACE \
+    && ./clone_simulation.sh \
+    && rm clone_simulation.sh
+
 COPY build_simulation.sh $WORKSPACE/
 COPY launch_simulation.sh $WORKSPACE/
 COPY launch_ros.sh $WORKSPACE/

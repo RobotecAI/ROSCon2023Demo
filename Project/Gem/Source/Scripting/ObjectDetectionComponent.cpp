@@ -21,7 +21,6 @@
 #include <LmbrCentral/Scripting/TagComponentBus.h>
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
-#include <ROS2/ROS2GemUtilities.h>
 #include <std_msgs/msg/detail/bool__struct.hpp>
 
 namespace ROS2::Demo
@@ -76,9 +75,12 @@ namespace ROS2::Demo
         AZ_Assert(ROS2Interface, "ROS2Interface not available");
         auto ROS2Node = ROS2Interface->GetNode();
         AZ_Assert(ROS2Node, "ROS2Node not available");
-        auto ros2Frame = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(GetEntity());
-        AZ_Assert(ros2Frame, "Missing ROS2FrameComponent");
-        AZStd::string topicName = ros2Frame->GetNamespace() + m_configuration.m_topicConfiguration.m_topic;
+        AZStd::string namespaceFromFrame;
+        ROS2::ROS2FrameComponentBus::EventResult(namespaceFromFrame, m_entity->GetId(), &ROS2::ROS2FrameComponentRequests::GetNamespace);
+
+        AZStd::string topicName;
+        ROS2::ROS2NamesRequestBus::BroadcastResult(topicName, &ROS2::ROS2NamesRequestBus::Events::GetNamespacedName, namespaceFromFrame, m_configuration.m_topicConfiguration.m_topic);
+
         m_topicPublisher =
             ROS2Node->create_publisher<std_msgs::msg::Bool>(topicName.c_str(), m_configuration.m_topicConfiguration.GetQoS());
 

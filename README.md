@@ -130,29 +130,14 @@ The Gems are open to your contributions!
 ### ROS 2 packages
 Make sure to install the necessary ROS 2 packages.
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-gazebo-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces
+sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces
 ```
 
 ### Project
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
-This workspace depends on submodules that need to be pulled first. This is done through the script (`setup_submodules.bash`) that selects a submodule's version based on the detected ROS 2 distribution.
+
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
-./setup_submodules.bash
-```
-Now install all dependencies of submodules.
-```bash
-sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep2
-rosdep update
-rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y
-# disable not needed packages - we need bringup and description package
-touch src/Universal_Robots_ROS2_Driver/ur_controllers/COLCON_IGNORE
-touch src/Universal_Robots_ROS2_Driver/ur_robot_driver/COLCON_IGNORE
-touch src/Universal_Robots_ROS2_Driver/ur_calibration/COLCON_IGNORE
-```
-Then build and source the workspace.
-```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ros2_ws
 colcon build --symlink-install
 source install/setup.bash # adjust to your shell 
 ```
@@ -163,9 +148,8 @@ Make sure the following tools and libraries are installed on your system (they a
 sudo apt install ninja-build libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev libxkbcommon-x11-dev libxcb-xinput-dev
 ```
 
-Now, assuming that the [project's repo](https://github.com/RobotecAI/ROSCon2023Demo) was cloned to `${RC2023_WORKDIR}`:
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/Project
+cd ${RC2023_WORKDIR}/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DLY_STRIP_DEBUG_SYMBOLS=ON
 cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
 ```
@@ -174,6 +158,7 @@ You can now run the project Editor with:
 cd ${RC2023_WORKDIR}/ROSCon2023Demo/Project
 ./build/linux/bin/profile/Editor
 ```
+
 ### Building the release package (optional)
 
 To build a release package with all use export script available in o3de.
@@ -184,6 +169,7 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 To build the game launcher and bundle assets:
 ```bash
 cd ${RC2023_WORKDIR}/engine/o3de
+source ${RC2023_WORKDIR}/ros2_ws/install/setup.bash
 ./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
     --project-path ${RC2023_WORKDIR}/Project \
     --seedlist ${RC2023_WORKDIR}/Project/AssetBundling/SeedLists/demo.seed \
@@ -220,8 +206,8 @@ To start a released the GameLauncher simply:
 ```bash
 cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
 colcon build --symlink-install
-${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws/install/setup.bash
-${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
+${RC2023_WORKDIR}/ros2_ws/install/setup.bash
+${RC2023_WORKDIR}/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
 ```
 
 This package can be moved to cloud instance or other computer.
@@ -232,7 +218,7 @@ Open the level: `DemoLevel1.prefab`.
 Launch the O3DE simulation by clicking `CTRL + G` or by clicking the launch arrow next to the `Play Controls` in the top right corner.
 Now go to the `ros2_ws` folder and run the all ros2 packages.
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ros2_ws
 source install/setup.bash
 ros2 launch roscon2023_demo ROSCon2023Demo.launch.py
 ```

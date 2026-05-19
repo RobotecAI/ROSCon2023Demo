@@ -29,51 +29,42 @@
 #
 # Author: Denis Stogl
 
-# Modified by: Robotec.ai(2023) for easy use with simulated UR20 in o3de
-# Modifications:
-# - default ur_type to `ur20`
-# - default use_fake_hardware to `true`
-# - default use_sim_time to `true`
-# - allow for namespace input to run multiple arms
-
 import os
 
-from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument
-from launch.actions import OpaqueFunction
-from launch.conditions import IfCondition
-from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
-from launch_ros.parameter_descriptions import ParameterFile
 from launch_ros.substitutions import FindPackageShare
-from moveit_configs_utils import MoveItConfigsBuilder
 from ur_moveit_config.launch_common import load_yaml
+
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
+from launch.conditions import IfCondition
+from launch.substitutions import (
+    Command,
+    FindExecutable,
+    LaunchConfiguration,
+    PathJoinSubstitution,
+)
 
 
 def launch_setup(context, *args, **kwargs):
 
     # Initialize Arguments
     ur_type = LaunchConfiguration("ur_type")
-    use_fake_hardware = LaunchConfiguration("use_fake_hardware")
     safety_limits = LaunchConfiguration("safety_limits")
     safety_pos_margin = LaunchConfiguration("safety_pos_margin")
     safety_k_position = LaunchConfiguration("safety_k_position")
     # General arguments
     description_package = LaunchConfiguration("description_package")
     description_file = LaunchConfiguration("description_file")
+    _publish_robot_description_semantic = LaunchConfiguration("publish_robot_description_semantic")
     moveit_config_package = LaunchConfiguration("moveit_config_package")
+    moveit_joint_limits_file = LaunchConfiguration("moveit_joint_limits_file")
     moveit_config_file = LaunchConfiguration("moveit_config_file")
-    rviz_config_file = LaunchConfiguration("rviz_config_file")
-    ur_namespace = LaunchConfiguration("ur_namespace")
     warehouse_sqlite_path = LaunchConfiguration("warehouse_sqlite_path")
     prefix = LaunchConfiguration("prefix")
     use_sim_time = LaunchConfiguration("use_sim_time")
     launch_rviz = LaunchConfiguration("launch_rviz")
     launch_servo = LaunchConfiguration("launch_servo")
-
-    num_of_boxes = LaunchConfiguration("num_of_boxes")
-    pose_tolerance = LaunchConfiguration("pose_tolerance")
-    wait_time = LaunchConfiguration("wait_time")
 
     joint_limit_params = PathJoinSubstitution(
         [FindPackageShare(description_package), "config", ur_type, "joint_limits.yaml"]
@@ -129,9 +120,9 @@ def launch_setup(context, *args, **kwargs):
             " ",
             "output_recipe_filename:=rtde_output_recipe.txt",
             " ",
-            "tf_prefix:=",
-            ur_namespace,
-            "/ ",
+            "prefix:=",
+            prefix,
+            " ",
         ]
     )
     robot_description = {"robot_description": robot_description_content}
@@ -151,21 +142,26 @@ def launch_setup(context, *args, **kwargs):
             "ur",
             " ",
             "prefix:=",
-            ur_namespace,
-            "/ ",
+            prefix,
+            " ",
         ]
     )
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
+
+    publish_robot_description_semantic = {
+        "publish_robot_description_semantic": _publish_robot_description_semantic
+    }
 
     robot_description_kinematics = PathJoinSubstitution(
         [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
     )
 
-    robot_description_kinematics = load_yaml("ur_moveit_config", "config/kinematics.yaml")
-    kinematics_config = robot_description_kinematics["/**"]["ros__parameters"]
-    kinematics_config["robot_description_kinematics"][ur_namespace.perform(context) + "/ur_manipulator"] = kinematics_config["robot_description_kinematics"].pop("ur_manipulator")
-    robot_description_kinematics = kinematics_config
-
+    robot_description_planning = {
+        "robot_description_planning": load_yaml(
+            str(moveit_config_package.perform(context)),
+            os.path.join("config", str(moveit_joint_limits_file.perform(context))),
+        )
+    }
 
     # Planning Configuration
     ompl_planning_pipeline_config = {
@@ -180,9 +176,8 @@ def launch_setup(context, *args, **kwargs):
 
     # Trajectory Execution Configuration
     controllers_yaml = load_yaml("ur_moveit_config", "config/controllers.yaml")
-    controllers_yaml["joint_trajectory_controller"]["joints"] = [ur_namespace.perform(context) + "/" + w for w in controllers_yaml["joint_trajectory_controller"]["joints"]]
     # the scaled_joint_trajectory_controller does not work on fake hardware
-    change_controllers = context.perform_substitution(use_fake_hardware)
+    change_controllers = context.perform_substitution(use_sim_time)
     if change_controllers == "true":
         controllers_yaml["scaled_joint_trajectory_controller"]["default"] = False
         controllers_yaml["joint_trajectory_controller"]["default"] = True
@@ -196,7 +191,9 @@ def launch_setup(context, *args, **kwargs):
         "moveit_manage_controllers": False,
         "trajectory_execution.allowed_execution_duration_scaling": 1.2,
         "trajectory_execution.allowed_goal_duration_margin": 0.5,
-        "trajectory_execution.allowed_start_tolerance": 0.1,
+        "trajectory_execution.allowed_start_tolerance": 0.01,
+        # Execution time monitoring can be incompatible with the scaled JTC
+        "trajectory_execution.execution_duration_monitoring": False,
     }
 
     planning_scene_monitor_parameters = {
@@ -206,139 +203,71 @@ def launch_setup(context, *args, **kwargs):
         "publish_transforms_updates": True,
     }
 
-    # Disable octomap (no 3D sensors in simulation)
-    sensor_manager_parameters = ParameterFile(
-        PathJoinSubstitution([FindPackageShare("ur_palletization"), "config", "sensors_3d.yaml"]),
-        allow_substs=False,
-    )
-
     warehouse_ros_config = {
         "warehouse_plugin": "warehouse_ros_sqlite::DatabaseConnection",
         "warehouse_host": warehouse_sqlite_path,
     }
 
-    move_group_capabilities = {
-        "capabilities": "move_group/ExecuteTaskSolutionCapability"
-    }
-
-    pilz_config =  {
-        "planning_pipelines" : ["pilz_industrial_motion_planner"],
-        "pilz_industrial_motion_planner":
-            {
-                "default_planner_config": "PTP",
-                "planning_plugins": ["pilz_industrial_motion_planner/CommandPlanner"]
-            },
-        "robot_description_planning":{
-            "cartesian_limits":{
-                "max_rot_vel" : 4.5,
-                "max_trans_acc" : 4.0,
-                "max_trans_dec" : 4.0,
-                "max_trans_vel" :4.0
-            },
-            "joint_limits":{
-                ur_namespace.perform(context)+'/elbow_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                },
-                ur_namespace.perform(context)+'/shoulder_lift_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                },
-                ur_namespace.perform(context)+'/shoulder_pan_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                },
-                ur_namespace.perform(context)+'/wrist_1_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                },
-                ur_namespace.perform(context)+'/wrist_2_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                },
-                ur_namespace.perform(context)+'/wrist_3_joint': {
-                    'has_acceleration_limits': True,
-                    'max_acceleration': 2.5
-                }
-            }
-        }
-    }
     # Start the actual move_group node/action server
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
         output="screen",
-        namespace=ur_namespace,
         parameters=[
             robot_description,
             robot_description_semantic,
+            publish_robot_description_semantic,
             robot_description_kinematics,
-            move_group_capabilities,
-            # robot_description_planning,
+            robot_description_planning,
             ompl_planning_pipeline_config,
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
-            sensor_manager_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
-            pilz_config
         ],
     )
 
-    mtc = Node(
-        name="palletization",
-        package="ur_palletization",
-        executable="palletizationNode",
-        output="screen",
-        namespace=ur_namespace,
-        parameters=[
-            robot_description,
-            robot_description_semantic,
-            robot_description_kinematics,
-            # robot_description_planning,
-            ompl_planning_pipeline_config,
-            trajectory_execution,
-            moveit_controllers,
-            planning_scene_monitor_parameters,
-            sensor_manager_parameters,
-            {"use_sim_time": use_sim_time},
-            warehouse_ros_config,
-            {'publish_robot_description': True},
-            {'publish_robot_description_semantic': True},
-            {"ns": ur_namespace.perform(context)},
-            {"num_of_boxes": num_of_boxes},
-            {"pose_tolerance": pose_tolerance},
-            {"wait_time": wait_time},
-            pilz_config
-        ],
-    )
-
+    # rviz with moveit configuration
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare("ur_moveit_demo"), "rviz", rviz_config_file]
+        [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
     )
-
     rviz_node = Node(
         package="rviz2",
         condition=IfCondition(launch_rviz),
         executable="rviz2",
-        name="rviz2_moveit1",
+        name="rviz2_moveit",
         output="log",
-        namespace=ur_namespace,
         arguments=["-d", rviz_config_file],
         parameters=[
             robot_description,
             robot_description_semantic,
             ompl_planning_pipeline_config,
             robot_description_kinematics,
-            # robot_description_planning,
+            robot_description_planning,
             warehouse_ros_config,
-            pilz_config
-        ]
+            {
+                "use_sim_time": use_sim_time,
+            },
+        ],
     )
 
-    nodes_to_start = [mtc, move_group_node, rviz_node]
+    # Servo node for realtime control
+    servo_yaml = load_yaml("ur_moveit_config", "config/ur_servo.yaml")
+    servo_params = {"moveit_servo": servo_yaml}
+    servo_node = Node(
+        package="moveit_servo",
+        condition=IfCondition(launch_servo),
+        executable="servo_node_main",
+        parameters=[
+            servo_params,
+            robot_description,
+            robot_description_semantic,
+        ],
+        output="screen",
+    )
 
+    nodes_to_start = [move_group_node, rviz_node, servo_node]
 
     return nodes_to_start
 
@@ -351,15 +280,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "ur_type",
             description="Type/series of used UR robot.",
-            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20"],
-            default_value="ur20",
-        )
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "use_fake_hardware",
-            default_value="true",
-            description="Indicate whether robot is running with fake hardware mirroring command to its states.",
+            choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e", "ur20", "ur30"],
         )
     )
     declared_arguments.append(
@@ -388,8 +309,8 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "description_package",
             default_value="ur_description",
-            description="Description package with robot URDF/XACRO files. Usually the argument \
-        is not set, it enables use of a custom description.",
+            description="Description package with robot URDF/XACRO files. Usually the argument "
+            "is not set, it enables use of a custom description.",
         )
     )
     declared_arguments.append(
@@ -401,10 +322,17 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
+            "publish_robot_description_semantic",
+            default_value="True",
+            description="Whether to publish the SRDF description on topic /robot_description_semantic.",
+        )
+    )
+    declared_arguments.append(
+        DeclareLaunchArgument(
             "moveit_config_package",
             default_value="ur_moveit_config",
-            description="MoveIt config package with robot SRDF/XACRO files. Usually the argument \
-        is not set, it enables use of a custom moveit config.",
+            description="MoveIt config package with robot SRDF/XACRO files. Usually the argument "
+            "is not set, it enables use of a custom moveit config.",
         )
     )
     declared_arguments.append(
@@ -416,9 +344,9 @@ def generate_launch_description():
     )
     declared_arguments.append(
         DeclareLaunchArgument(
-            "rviz_config_file",
-            default_value="view_robot_moveit_ur1.rviz",
-            description="Rviz config file",
+            "moveit_joint_limits_file",
+            default_value="joint_limits.yaml",
+            description="MoveIt joint limits that augment or override the values from the URDF robot_description.",
         )
     )
     declared_arguments.append(
@@ -431,7 +359,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_sim_time",
-            default_value="true",
+            default_value="false",
             description="Make MoveIt to use simulation time. This is needed for the trajectory planing in simulation.",
         )
     )
@@ -439,16 +367,9 @@ def generate_launch_description():
         DeclareLaunchArgument(
             "prefix",
             default_value='""',
-            description="Prefix of the joint names, useful for \
-        multi-robot setup. If changed than also joint names in the controllers' configuration \
-        have to be updated.",
-        )
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "ur_namespace",
-            default_value='""',
-            description="Namespace for the robot, useful for running multiple instances.",
+            description="Prefix of the joint names, useful for "
+            "multi-robot setup. If changed than also joint names in the controllers' configuration "
+            "have to be updated.",
         )
     )
     declared_arguments.append(
@@ -457,33 +378,5 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument("launch_servo", default_value="true", description="Launch Servo?")
     )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "rviz_config",
-            default_value="view_robot_moveit.rviz",
-            description="RViz configuration file",
-        )
-    )
-
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "num_of_boxes",
-            default_value="4",
-            description="Number of boxes to be placed on the pallet",
-        )
-    )
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "pose_tolerance",
-            default_value="0.01",
-            description="Minimum change between last and current pose of the AMR to be detected as not moving"
-    ))
-    declared_arguments.append(
-        DeclareLaunchArgument(
-            "wait_time",
-            default_value="3",
-            description="Time to wait after AMR is no longer detected as moving to start palletization",
-    ))
-
 
     return LaunchDescription(declared_arguments + [OpaqueFunction(function=launch_setup)])

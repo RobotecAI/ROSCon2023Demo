@@ -34,7 +34,6 @@ def launch_setup(context, *args, **kwargs):
             )
 
     nodes_to_start = []
-
     spawner_group = GroupAction([
         Node(
             package='otto_fleet_nav',

@@ -115,13 +115,11 @@ This project uses the following Gems:
 - [Additional warehouse assets](https://github.com/RobotecAI/robotec-warehouse-assets)
 - [Additional generic assets](https://github.com/RobotecAI/robotec-generic-assets)
 
-
 Please make sure to follow the installation guide in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file up until the creation of a new Project.
 
 To learn more about how the Gem works check out the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/concepts-and-components-overview/).
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
-
 
 All Gems are included as git submodules and are fetched by the `git submodule update` command above.
 

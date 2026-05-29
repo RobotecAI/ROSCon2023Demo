@@ -47,25 +47,24 @@ then
     exit 1
 fi
 
-echo "Initializing submodules"
-git -C $ROSCON_DEMO_ROOT submodule update --init --recursive
+echo "Initializing submodules (excluding engine/o3de and engine/o3de-extras)"
+git -C $ROSCON_DEMO_ROOT submodule update --init -- \
+    gems/robotec-o3de-tools \
+    gems/robotec-warehouse-assets \
+    gems/robotec-generic-assets \
+    gems/o3de-humanworker-gem \
+    gems/o3de-ur-robots-gem \
+    gems/o3de-otto-robots-gem
 if [ $? -ne 0 ]
 then
     echo "Error initializing submodules"
     exit 1
 fi
 
-$ROSCON_DEMO_ROOT/engine/o3de/python/get_python.sh
+$O3DE_INSTALL_DIR/scripts/o3de.sh register -pp $ROSCON_DEMO_PROJECT
 if [ $? -ne 0 ]
 then
-    echo "Error downloading/configuring O3DE Python"
-    exit 1
-fi
-
-$ROSCON_DEMO_ROOT/engine/o3de/scripts/o3de.sh register -ep $ROSCON_DEMO_ROOT/engine/o3de
-if [ $? -ne 0 ]
-then
-    echo "Error registering the O3DE engine"
+    echo "Error registering the ROSCon2023Demo project"
     exit 1
 fi
 

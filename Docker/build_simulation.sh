@@ -36,54 +36,26 @@ then
     exit 1
 fi
 
-###############################################################
-# Build O3DE tools for asset processing and asset bundling
-###############################################################
-
-cmake -B $ROSCON_DEMO_PROJECT/build/tools \
-      -S $ROSCON_DEMO_PROJECT \
-      -G "Ninja Multi-Config" \
-      -DLY_DISABLE_TEST_MODULES=ON \
-      -DLY_STRIP_DEBUG_SYMBOLS=ON
-if [ $? -ne 0 ]
-then
-    echo "Error generating O3DE tools projects"
-    exit 1
-fi
-
-cmake --build $ROSCON_DEMO_PROJECT/build/tools \
-      --config profile \
-      --target AssetProcessorBatch AssetBundlerBatch
-if [ $? -ne 0 ]
-then
-    echo "Error building the O3DE tools projects"
-    exit 1
-fi
+SDK_TOOLS=$O3DE_INSTALL_DIR/bin/Linux/profile/Default
 
 ###############################################################
 # Build the assets for ROSCon2023Demo
 ###############################################################
-pushd $ROSCON_DEMO_PROJECT/build/tools/bin/profile
 
 # Initial run to process the assets
-./AssetProcessorBatch
+$SDK_TOOLS/AssetProcessorBatch --project-path $ROSCON_DEMO_PROJECT
 
 # Secondary run to re-process ones that missed dependencies
-./AssetProcessorBatch
+$SDK_TOOLS/AssetProcessorBatch --project-path $ROSCON_DEMO_PROJECT
 
-popd
-
-###############################################################\
+###############################################################
 # Bundle the assets for ROSCon2023Demo
-###############################################################\
+###############################################################
 mkdir -p $ROSCON_DEMO_PROJECT/build/bundles
 mkdir -p $ROSCON_SIMULATION_HOME/Cache/linux
 
-# Generate the asset lists file for the game
-pushd $ROSCON_DEMO_PROJECT/build/tools/bin/profile
-
 echo "Creating the game assetList ..."
-./AssetBundlerBatch assetLists \
+$SDK_TOOLS/AssetBundlerBatch assetLists \
          --assetListFile $ROSCON_DEMO_PROJECT/build/bundles/game_linux.assetList \
          --platform linux \
          --project-path $ROSCON_DEMO_PROJECT \
@@ -96,7 +68,7 @@ then
 fi
 
 echo "Creating the engine assetList ..."
-./AssetBundlerBatch assetLists \
+$SDK_TOOLS/AssetBundlerBatch assetLists \
          --assetListFile $ROSCON_DEMO_PROJECT/build/bundles/engine_linux.assetList \
          --platform linux \
          --project-path $ROSCON_DEMO_PROJECT \
@@ -109,7 +81,7 @@ then
 fi
 
 echo "Creating the game asset bundle (pak) ..."
-./AssetBundlerBatch bundles \
+$SDK_TOOLS/AssetBundlerBatch bundles \
         --maxSize 2048 \
         --platform linux \
         --project-path $ROSCON_DEMO_PROJECT \
@@ -121,9 +93,9 @@ then
     echo "Error bundling generating game pak"
     exit 1
 fi
-             
+
 echo "Creating the engine asset bundle (pak) ..."
-./AssetBundlerBatch bundles \
+$SDK_TOOLS/AssetBundlerBatch bundles \
         --maxSize 2048 \
         --platform linux \
         --project-path $ROSCON_DEMO_PROJECT \
@@ -160,7 +132,6 @@ cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.json $ROSCON_SIMULATION_HOME/
 cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.so $ROSCON_SIMULATION_HOME
 
 # Cleanup
-rm -rf $ROSCON_DEMO_ROOT/engine
 rm -rf $ROSCON_DEMO_ROOT/gems
 rm -rf $ROSCON_DEMO_ROOT/Project/build
 rm -rf /root/.o3de

@@ -62,7 +62,7 @@ For more FPS, a larger scene, and more robots, we used:
 
 Follow the instructions in [./Docker/README](./Docker/README.md) file to build and run the project using *docker* virtualization.
 
-## Project Setup
+## Local Project Setup
 
 ### ROS 2 middleware
 This project should be used with the `rmw_cyclonedds_cpp` as the ROS 2 middleware.
@@ -85,43 +85,53 @@ source ~/.bashrc
 
 ### O3DE
 1. Refer to the [O3DE System Requirements](https://www.o3de.org/docs/welcome-guide/requirements/) documentation to make sure that the system/hardware requirements are met.
-2. Please follow the instructions to [set up O3DE from GitHub](https://o3de.org/docs/welcome-guide/setup/setup-from-github/).
-3. This project was tested on O3DE 2505.1. **`o3de` 2505.1 and `o3de-extras` 2505.1 are recommended versions**, but the newer point-releases should work.
+2. This project was tested on O3DE 2605.0. Download and install the SDK package:
+```bash
+wget -O /tmp/o3de_2605_0.deb https://o3debinaries.org/main/Latest/Linux/o3de_2605_0.deb
+sudo apt install /tmp/o3de_2605_0.deb
+```
+3. Initialize the Python environment and register the engine:
+```bash
+/opt/O3DE/26.05/python/get_python.sh
+/opt/O3DE/26.05/scripts/o3de.sh register --this-engine
+```
 
-The following commands should prepare O3DE (assuming that the project repository is cloned into `${RC2023_WORKDIR}`):
-
-First, initialize the git submodules (this fetches `engine/o3de`, `engine/o3de-extras`, and the Gems in `gems/`):
+Initialize the git submodules (this fetches the Gems in `gems/`):
 ```bash
 cd ${RC2023_WORKDIR}
 git submodule update --init --recursive
 git submodule foreach 'git lfs install && git lfs pull'
 ```
 
-Then register the engine:
+### ROS 2 Gem and other Gems
+This project uses canonical simulation Gems from the [o3de-extras](https://github.com/o3de/o3de-extras) repository:
+`LevelGeoreferencing`, `ROS2`, `ROS2Controllers`, `ROS2RobotImporter`, `ROS2Sensors`, `SimulationInterfaces`, `WarehouseAssets`, `WarehouseAutomation`.
+
+These Gems are downloaded via the `o3de.sh` script from the canonical O3DE Gem repository. The versions below were tested with this project; newer versions may also work:
 ```bash
-cd ${RC2023_WORKDIR}/engine/o3de
-python/get_python.sh
-scripts/o3de.sh register --this-engine
+scripts/o3de.sh register --repo-uri https://canonical.o3de.org
+scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0
+scripts/o3de.sh download --gem-name ROS2==4.2.0
+scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0
+scripts/o3de.sh download --gem-name ROS2RobotImporter==1.1.0
+scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1
+scripts/o3de.sh download --gem-name SimulationInterfaces==2.2.0
+scripts/o3de.sh download --gem-name WarehouseAssets==2.0.4
+scripts/o3de.sh download --gem-name WarehouseAutomation==2.0.1
 ```
 
-### ROS 2 Gem and other Gems
-This project uses the following Gems:
-- [ROS 2 Gem](https://github.com/o3de/o3de-extras/blob/development/Gems/ROS2)
-- [Warehouse assets Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAssets) 
-- [Warehouse automation Gem](https://github.com/o3de/o3de-extras/tree/development/Gems/WarehouseAutomation)
+It also uses multiple open-source Gems prepared primarily for this demo:
 - [HumanWorker Gem](https://github.com/RobotecAI/o3de-humanworker-gem)
 - [UR10 and UR20 Robots Gem](https://github.com/RobotecAI/o3de-ur-robots-gem)
 - [OTTO 600 and OTTO 1500 Robots Gem](https://github.com/RobotecAI/o3de-otto-robots-gem)
 - [Additional warehouse assets](https://github.com/RobotecAI/robotec-warehouse-assets)
 - [Additional generic assets](https://github.com/RobotecAI/robotec-generic-assets)
 
-Please make sure to follow the installation guide in the [Project Configuration](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/project-configuration/) file up until the creation of a new Project.
+These Gems are included as git submodules and are fetched by the `git submodule update` command above.
 
 To learn more about how the Gem works check out the [Concepts and Structures](https://www.docs.o3de.org/docs/user-guide/interactivity/robotics/concepts-and-components-overview/).
 
 Note that the Gem instructions include the installation of ROS 2 with some additional packages.
-
-All Gems are included as git submodules and are fetched by the `git submodule update` command above.
 
 The Gems are open to your contributions!
 
@@ -149,13 +159,29 @@ sudo apt install ninja-build libunwind-dev libxcb-xkb-dev libxcb-xfixes0-dev lib
 ```bash
 cd ${RC2023_WORKDIR}/Project
 cmake -B build/linux -G "Ninja Multi-Config" -DLY_DISABLE_TEST_MODULES=ON -DLY_STRIP_DEBUG_SYMBOLS=ON
-cmake --build build/linux --config profile --target Editor ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
+cmake --build build/linux --config profile --target ROSCon2023Demo ROSCon2023Demo.Assets ROSCon2023Demo.GameLauncher
 ```
 You can now run the project Editor with:
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/Project
-./build/linux/bin/profile/Editor
+/opt/O3DE/26.05/bin/Linux/profile/Default/Editor --project-path ${RC2023_WORKDIR}/Project
 ```
+
+or you can launch the simulation directly:
+```bash
+cd ${RC2023_WORKDIR}/Project
+./build/linux/bin/profile/ROSCon2023Demo.GameLauncher -r_fullscreen=true -bg_ConnectToAssetProcessor=0 -r_width=1920 -r_height=1080 +LoadLevel=demolevel1
+```
+
+All parameters are optional — `demolevel1` is loaded by default:
+- `-r_fullscreen=true` — run in fullscreen mode
+- `-bg_ConnectToAssetProcessor=0` — skip connecting to the Asset Processor (recommended for release-like runs)
+- `-r_width=1920 -r_height=1080` — set the resolution
+- `+LoadLevel=demolevel1` — level to load on startup; alternatives are `demolevel2`, `RobotsSuperShot`, `RobotImportLevel`, `DemoStereo`
+
+> **Note:** The launcher may fail to start due to missing `libQt5OpenGL` libraries. If this happens, copy them manually from the O3DE 3rd-party cache:
+> ```bash
+> cp -P ~/.o3de/3rdParty/packages/qt-5.15.2-rev9-linux/qt/lib/libQt5OpenGL.so* ${RC2023_WORKDIR}/Project/build/linux/bin/profile/
+> ```
 
 ### Building the release package (optional)
 
@@ -166,9 +192,8 @@ To learn more on exporting game launcher see [O3DE documentation](https://www.do
 
 To build the game launcher and bundle assets:
 ```bash
-cd ${RC2023_WORKDIR}/engine/o3de
 source ${RC2023_WORKDIR}/ros2_ws/install/setup.bash
-./scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
+/opt/O3DE/26.05/scripts/o3de.sh export-project -es ExportScripts/export_source_built_project.py \
     --project-path ${RC2023_WORKDIR}/Project \
     --seedlist ${RC2023_WORKDIR}/Project/AssetBundling/SeedLists/demo.seed \
     --fail-on-asset-errors \

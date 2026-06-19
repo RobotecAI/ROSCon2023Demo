@@ -47,7 +47,6 @@ then
     exit 1
 fi
 
-echo "Initializing submodules (excluding engine/o3de and engine/o3de-extras)"
 git -C $ROSCON_DEMO_ROOT submodule update --init -- \
     gems/robotec-o3de-tools \
     gems/robotec-warehouse-assets \

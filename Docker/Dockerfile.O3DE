@@ -48,8 +48,6 @@ RUN apt-get update \
     && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && update-locale LANG=en_US.UTF-8 \
-    && sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list' \
-    && curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add - \
     && rm -rf /var/lib/apt/lists/*
 
 # Install the required ubuntu packages
@@ -66,7 +64,6 @@ RUN apt-get update \
     libxcb-randr0-dev \
     libxcb-keysyms1-dev \
     libfontconfig1-dev \
-    libnvidia-gl-470 \
     libxcb-xkb-dev \
     libxkbcommon-x11-dev \
     libxkbcommon-dev \
@@ -81,7 +78,6 @@ RUN apt-get update \
     ros-${ROS_DISTRO}-ackermann-msgs \
     ros-${ROS_DISTRO}-control-toolbox \
     ros-${ROS_DISTRO}-nav-msgs \
-    ros-${ROS_DISTRO}-gazebo-msgs \
     ros-${ROS_DISTRO}-xacro \
     ros-${ROS_DISTRO}-vision-msgs \
     ros-${ROS_DISTRO}-nav2-msgs \
@@ -111,14 +107,14 @@ RUN wget -O /tmp/o3de_latest.deb ${O3DE_DEB_URL} && \
 RUN ${O3DE_INSTALL_DIR}/python/get_python.sh && \
     ${O3DE_INSTALL_DIR}/scripts/o3de.sh register --this-engine && \
     ${O3DE_INSTALL_DIR}/scripts/o3de.sh register --repo-uri https://canonical.o3de.org && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name LevelGeoreferencing && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2 && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Controllers && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2RobotImporter && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Sensors && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name SimulationInterfaces && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name WarehouseAssets && \
-    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name WarehouseAutomation
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2==4.2.0 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2RobotImporter==1.1.0 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name SimulationInterfaces==2.2.0 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name WarehouseAssets==2.0.4 && \
+    ${O3DE_INSTALL_DIR}/scripts/o3de.sh download --gem-name WarehouseAutomation==2.0.1
 
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 

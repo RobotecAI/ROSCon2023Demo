@@ -105,7 +105,7 @@ Requires the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud
 
 ```
 xhost +local:root
-docker run --rm --gpus all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+docker run --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=all -e NVIDIA_DRIVER_CAPABILITIES=all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
 ```
 or by using [rocker](https://github.com/osrf/rocker):
 

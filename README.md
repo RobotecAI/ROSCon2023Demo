@@ -178,11 +178,6 @@ All parameters are optional — `demolevel1` is loaded by default:
 - `-r_width=1920 -r_height=1080` — set the resolution
 - `+LoadLevel=demolevel1` — level to load on startup; alternatives are `demolevel2`, `RobotsSuperShot`, `RobotImportLevel`, `DemoStereo`
 
-> **Note:** The launcher may fail to start due to missing `libQt5OpenGL` libraries. If this happens, copy them manually from the O3DE 3rd-party cache:
-> ```bash
-> cp -P ~/.o3de/3rdParty/packages/qt-5.15.2-rev9-linux/qt/lib/libQt5OpenGL.so* ${RC2023_WORKDIR}/Project/build/linux/bin/profile/
-> ```
-
 ### Building the release package (optional)
 
 To build a release package with all use export script available in o3de.

@@ -96,7 +96,7 @@ find_package(OpenCV REQUIRED)
 include_directories(
         ${OpenCV_INCLUDE_DIRS}
 )
-target_link_libraries(${gem_name}.Private.Object PRIVATE ${OpenCV_LIBRARIES})
+target_link_libraries(${gem_name}.Private.Object PRIVATE opencv_core opencv_imgproc)
 
 target_depends_on_ros2_packages(${gem_name}.Private.Object  vision_msgs lane_provider_msgs)
 target_depends_on_ros2_packages(${gem_name} vision_msgs lane_provider_msgs)

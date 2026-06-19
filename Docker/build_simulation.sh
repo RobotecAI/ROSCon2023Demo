@@ -109,6 +109,7 @@ then
 fi
 
 # Build the game launcher monolithically
+# The O3DE SDK Linux Monolithic permutation only provides 'release' static libs.
 echo "Building launcher"
 cmake -B $ROSCON_DEMO_PROJECT/build/game \
       -S $ROSCON_DEMO_PROJECT \
@@ -116,20 +117,26 @@ cmake -B $ROSCON_DEMO_PROJECT/build/game \
       -DLY_DISABLE_TEST_MODULES=ON \
       -DLY_STRIP_DEBUG_SYMBOLS=ON \
       -DLY_MONOLITHIC_GAME=ON \
-      -DALLOW_SETTINGS_REGISTRY_DEVELOPMENT_OVERRIDES=0 \
-    && cmake --build $ROSCON_DEMO_PROJECT/build/game \
-            --config profile \
-            --target ./ROSCon2023Demo.GameLauncher
+      -DALLOW_SETTINGS_REGISTRY_DEVELOPMENT_OVERRIDES=0
 if [ $? -ne 0 ]
 then
-    echo "Error bundling simulation launcher"
+    echo "Error configuring simulation launcher cmake project"
+    exit 1
+fi
+
+cmake --build $ROSCON_DEMO_PROJECT/build/game \
+      --config release \
+      --target ROSCon2023Demo.GameLauncher
+if [ $? -ne 0 ]
+then
+    echo "Error building simulation launcher"
     exit 1
 fi
 
 # Package the binaries to the simulation folder
-cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/ROSCon2023Demo.GameLauncher $ROSCON_SIMULATION_HOME/ 
-cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.json $ROSCON_SIMULATION_HOME/ 
-cp $ROSCON_DEMO_PROJECT/build/game/bin/profile/*.so $ROSCON_SIMULATION_HOME
+cp $ROSCON_DEMO_PROJECT/build/game/bin/release/ROSCon2023Demo.GameLauncher $ROSCON_SIMULATION_HOME/
+cp $ROSCON_DEMO_PROJECT/build/game/bin/release/*.json $ROSCON_SIMULATION_HOME/
+cp $ROSCON_DEMO_PROJECT/build/game/bin/release/*.so $ROSCON_SIMULATION_HOME
 
 # Cleanup
 rm -rf $ROSCON_DEMO_ROOT/gems

@@ -198,12 +198,12 @@ source ${RC2023_WORKDIR}/ros2_ws/install/setup.bash
     --seedlist ${RC2023_WORKDIR}/Project/AssetBundling/SeedLists/demo.seed \
     --fail-on-asset-errors \
     -noserver \
-    -out ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release \
+    -out ${RC2023_WORKDIR}/Project/build/release \
     --no-unified-launcher
 ```
 The build package is available here:
 ```
-${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release 
+${RC2023_WORKDIR}/Project/build/release 
 └── ROSCon2023DemoGamePackage
     ├── Cache
     │   └── linux
@@ -329,8 +329,9 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
-### ROSCon2023Demo 4.0.0 for O3DE 2605.x and ROS 2 Jazzy
+### ROSCon2023Demo 4.0.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 3.0.1
+- switch to O3DE SDK
 - updated code to the new API in ROS 2 Gem and other canonical gems in O3DE 2605.0
 - updated code to the new API in ROS 2 Jazzy (Nav2 package)
 - updated spawning mechanisms to SimulationInterfaces

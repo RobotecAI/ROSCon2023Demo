@@ -22,9 +22,10 @@
 #include <LmbrCentral/Scripting/TagComponentBus.h>
 #include <ROS2/Frame/ROS2FrameComponent.h>
 #include <ROS2/ROS2Bus.h>
+#include <ROS2/ROS2NamesBus.h>
 #include <ROS2/Utilities/ROS2Conversions.h>
-#include <ROS2/Utilities/ROS2Names.h>
-
+#include <ROS2Sensors/Camera/CameraConfigurationRequestBus.h>
+#include <ROS2/Clock/ROS2ClockRequestBus.h>
 namespace ROS2::Demo
 {
 
@@ -123,9 +124,13 @@ namespace ROS2::Demo
 
     void IdealVisionSystem::Activate()
     {
-        ROS2::CameraCalibrationRequestBus::EventResult(m_cameraMatrix, GetEntityId(), &ROS2::CameraCalibrationRequest::GetCameraMatrix);
-        ROS2::CameraCalibrationRequestBus::EventResult(m_cameraWidth, GetEntityId(), &ROS2::CameraCalibrationRequest::GetWidth);
-        ROS2::CameraCalibrationRequestBus::EventResult(m_cameraHeight, GetEntityId(), &ROS2::CameraCalibrationRequest::GetHeight);
+        ROS2Sensors::CameraConfigurationRequestBus::EventResult(m_cameraMatrix, GetEntityId(), &ROS2Sensors::CameraConfigurationRequest::GetCameraMatrix);
+        int cameraWidth = 0;
+        ROS2Sensors::CameraConfigurationRequestBus::EventResult(cameraWidth, GetEntityId(), &ROS2Sensors::CameraConfigurationRequest::GetWidth);
+        m_cameraWidth = static_cast<float>(cameraWidth);
+        int cameraHeight = 0;
+        ROS2Sensors::CameraConfigurationRequestBus::EventResult(cameraHeight, GetEntityId(), &ROS2Sensors::CameraConfigurationRequest::GetHeight);
+        m_cameraHeight = static_cast<float>(cameraHeight);
 
         m_frustumPoints = CreateFrustumPoints(m_cameraMatrix, m_cameraWidth, m_cameraHeight, m_configuration.m_maximumDetectionRange);
         m_cookedMesh = CookFrustumMesh(m_frustumPoints);
@@ -141,17 +146,18 @@ namespace ROS2::Demo
             m_sensorConfiguration.m_publishersConfigurations.size() == 3,
             "Invalid configuration of publishers for IdealVisionSystem sensor");
         const TopicConfiguration& publisherConfig2DDetection = m_sensorConfiguration.m_publishersConfigurations[Detection2DType];
-        AZStd::string fullTopic = ROS2Names::GetNamespacedName(GetNamespace(), publisherConfig2DDetection.m_topic);
+        AZStd::string fullTopic;
+        ROS2::ROS2NamesRequestBus::BroadcastResult(fullTopic, &ROS2::ROS2NamesRequests::GetNamespacedName, GetNamespace(), publisherConfig2DDetection.m_topic);
         m_detection2DPublisher =
             ros2Node->create_publisher<vision_msgs::msg::Detection2DArray>(fullTopic.data(), publisherConfig2DDetection.GetQoS());
 
         const TopicConfiguration& publisherConfig3DDetection = m_sensorConfiguration.m_publishersConfigurations[Detection3DType];
-        fullTopic = ROS2Names::GetNamespacedName(GetNamespace(), publisherConfig3DDetection.m_topic);
+        ROS2::ROS2NamesRequestBus::BroadcastResult(fullTopic, &ROS2::ROS2NamesRequests::GetNamespacedName, GetNamespace(), publisherConfig3DDetection.m_topic);
         m_detection3DPublisher =
             ros2Node->create_publisher<vision_msgs::msg::Detection3DArray>(fullTopic.data(), publisherConfig3DDetection.GetQoS());
 
         const TopicConfiguration& publisherConfigPoseArray = m_sensorConfiguration.m_publishersConfigurations[DetectionPoseArrayType];
-        fullTopic = ROS2Names::GetNamespacedName(GetNamespace(), publisherConfigPoseArray.m_topic);
+        ROS2::ROS2NamesRequestBus::BroadcastResult(fullTopic, &ROS2::ROS2NamesRequests::GetNamespacedName, GetNamespace(), publisherConfigPoseArray.m_topic);
         m_detectionArrayPublisher =
             ros2Node->create_publisher<geometry_msgs::msg::PoseArray>(fullTopic.data(), publisherConfigPoseArray.GetQoS());
 
@@ -242,8 +248,13 @@ namespace ROS2::Demo
         vision_msgs::msg::Detection3DArray detection3DArray;
 
         std_msgs::msg::Header header;
-        header.frame_id = GetFrameID().c_str();
-        header.stamp = ROS2Interface::Get()->GetROSTimestamp();
+
+
+        AZStd::string frameName;
+        ROS2FrameComponentBus::EventResult(frameName, m_entity->GetId(), &ROS2::ROS2FrameComponentRequests::GetNamespacedFrameID);
+
+        header.frame_id = frameName.c_str();
+        header.stamp = ROS2::ROS2ClockInterface::Get()->GetROSTimestamp();
 
         poseArray.header = header;
         detection3DArray.header = header;
@@ -275,18 +286,8 @@ namespace ROS2::Demo
                     AZ::ComponentApplicationBus::BroadcastResult(
                         targetName, &AZ::ComponentApplicationBus::Events::GetEntityName, result.m_entityId);
 
-                    AZ::Entity* targetEntity = nullptr;
-                    AZ::ComponentApplicationBus::BroadcastResult(
-                        targetEntity, &AZ::ComponentApplicationBus::Events::FindEntity, result.m_entityId);
-
-                    AZ_Assert(targetEntity, "IdealVisionSystem result entity not found");
-
-                    auto targetROS2FrameComponent = ROS2::Utils::GetGameOrEditorComponent<ROS2::ROS2FrameComponent>(targetEntity);
                     AZStd::string frameNamespace = "";
-                    if (targetROS2FrameComponent)
-                    {
-                        frameNamespace = targetROS2FrameComponent->GetNamespace();
-                    }
+                    ROS2::ROS2FrameComponentBus::EventResult(frameNamespace, result.m_entityId, &ROS2::ROS2FrameComponentRequests::GetNamespace);
 
                     AZStd::string targetId = frameNamespace + "/" + targetName;
 

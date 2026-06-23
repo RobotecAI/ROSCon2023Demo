@@ -1,8 +1,8 @@
 #pragma once
 
 #include "constants.h"
-#include <moveit/move_group_interface/move_group_interface.h>
-#include <moveit/robot_model_loader/robot_model_loader.h>
+#include <moveit/move_group_interface/move_group_interface.hpp>
+#include <moveit/robot_model_loader/robot_model_loader.hpp>
 #include <rclcpp/node.hpp>
 #include <rclcpp/rclcpp.hpp>
 #include <tf2_eigen/tf2_eigen.hpp>

@@ -19,36 +19,16 @@ There are 2 different Dockerscripts that build the two different types of ROSCon
 * **Dockerfile.ROS** The Dockerscript used to build the Docker image that contains only the ROS 2 relevant software and environment. It does not contain anything that is specific to the O3DE simulation.
 
 ## Building the O3DE Docker image
-The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse simulation launcher as well as the ros projects that are needed to launch the simulation. The following arguments (passed to the Docker build command with the `--build-arg` parameter) are supported to customize the Docker image.
+The script for O3DE (`Dockerfile.O3DE`) will build the ROSCon2023Demo Warehouse simulation launcher as well as the ROS projects that are needed to launch the simulation. The following arguments (passed to the Docker build command with the `--build-arg` parameter) are supported to customize the Docker image.
 
-| Argument                        | Description                                                                           | Default                                             |
-| ------------------------------- | ------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| ROS_VERSION                     | The distro of ROS (humble or iron)                                                    | humble                                              |
-| UBUNTU_VERSION                  | The supporting distro of Ubuntu (focal, jammy)                                        | jammy                                               |
-| O3DE_REPO                       | The git repo for O3DE                                                                 | https://github.com/o3de/o3de                        |
-| O3DE_BRANCH                     | The branch/tag for O3DE                                                               | 2505.1                                              |
-| O3DE_COMMIT                     | The commit on the branch/tag for O3DE (or HEAD)                                       | HEAD                                                |
-| O3DE_EXTRAS_REPO                | The git repo for O3DE Extras                                                          | https://github.com/o3de/o3de-extras                 |
-| O3DE_EXTRAS_BRANCH              | The branch/tag for O3DE Extras                                                        | 2505.1                                              |
-| O3DE_EXTRAS_COMMIT              | The commit on the branch for O3DE Extras (or HEAD)                                    | HEAD                                                |
-| ROSCON_DEMO_HUMAN_WORKER_REPO   | The git repo for Demo Human worker Gem                                                | https://github.com/RobotecAI/o3de-humanworker-gem   |
-| ROSCON_DEMO_HUMAN_WORKER_BRANCH | The branch/tag for Demo Human worker Gem                                              | 2.0.0                                               |
-| ROSCON_DEMO_HUMAN_WORKER_COMMIT | The commit on the branch/tag for Demo Human worker Gem (or HEAD)                      | HEAD                                                |
-| ROSCON_DEMO_UR_ROBOTS_REPO      | The git repo for Demo UR Robots Gem                                                   | https://github.com/RobotecAI/o3de-ur-robots-gem     |
-| ROSCON_DEMO_UR_ROBOTS_BRANCH    | The branch/tag for Demo UR Robots Gem                                                 | 2.0.0                                               |
-| ROSCON_DEMO_UR_ROBOTS_COMMIT    | The commit on the branch/tag for Demo UR Robots Gem (or HEAD)                         | HEAD                                                |
-| ROSCON_DEMO_OTTO_ROBOTS_REPO    | The git repo for the Demo Otto Robots Gem                                             | https://github.com/RobotecAI/o3de-otto-robots-gem   |
-| ROSCON_DEMO_OTTO_ROBOTS_BRANCH  | The branch/tag for the Demo Otto Robots Gem                                           | 2.0.0                                               |
-| ROSCON_DEMO_OTTO_ROBOTS_COMMIT  | The commit on the branch/tag for the Demo Otto Robots Gem (or HEAD)                   | HEAD                                                |
-| ROSCON_DEMO_REPO                | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git     |
-| ROSCON_DEMO_BRANCH              | The branch/tag for ROSCon2023 Warehouse Demo                                          | 3.0.1                                               |
-| ROSCON_DEMO_COMMIT              | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                                |
-| ROSCON_DEMO_ROBOTEC_GEMS_REPO   | The git repo for Robotec Gems                                                         | https://github.com/RobotecAI/robotec-o3de-tools.git |
-| ROSCON_DEMO_ROBOTEC_GEMS_BRANCH | The branch/tag for Robotec Gems                                                       | o3de-2505                                           |
-| ROSCON_DEMO_ROBOTEC_GEMS_COMMIT | The commit on the branch/tag for Robotec Gems (or HEAD)                               | 4006ef9                                             |
-| ROSCON_DEMO_LEVEL               | The startup level (level1 or level2). **See Notes below**                             | level1                                              |
-| ROSCON_DEMO_FULLSCREEN          | Option to launch the simulation in fullscreen mode (0=no, 1=yes)                      | 0                                                   |
-| ROSCON_DEMO_LARGE_SCALE         | Option to enable large scale simulation (0=no, 1=yes) (see [README.md]()../README.md) | 0                                                   |
+| Argument                        | Description                                                                           | Default |
+| ------------------------------- | ------------------------------------------------------------------------------------- | ------- |
+| ROS_VERSION                     | The distro of ROS (jazzy)                                                             | jazzy   |
+| UBUNTU_VERSION                  | The supporting distro of Ubuntu (noble)                                               | noble   |
+| ROSCON_DEMO_ROBOTEC_GEMS_COMMIT | The commit on the branch/tag for Robotec Gems (or HEAD)                               | 4006ef9 |
+| ROSCON_DEMO_LEVEL               | The startup level (level1 or level2). **See Notes below**                             | level1  |
+| ROSCON_DEMO_FULLSCREEN          | Option to launch the simulation in fullscreen mode (0=no, 1=yes)                      | 0       |
+| ROSCON_DEMO_LARGE_SCALE         | Option to enable large scale simulation (0=no, 1=yes) (see [README.md](../README.md)) | 0       |
 
 To build the Docker image using the default values, use the following command
 
@@ -69,12 +49,12 @@ The O3DE Docker image can reach 10 GB in size, so if you want to create a separa
 
 | Argument                | Description                                                                           | Default                                         |
 | ----------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------- |
-| ROS_VERSION             | The distro of ROS (humble, or iron)                                                   | humble                                          |
-| UBUNTU_VERSION          | The supporting distro of Ubuntu (focal, jammy)                                        | jammy                                           |
+| ROS_VERSION             | The distro of ROS (jazzy)                                                             | jazzy                                           |
+| UBUNTU_VERSION          | The supporting distro of Ubuntu (noble)                                               | noble                                           |
 | ROSCON_DEMO_REPO        | The git repo for ROSCon2023 Warehouse Demo                                            | https://github.com/RobotecAI/ROSCon2023Demo.git |
-| ROSCON_DEMO_BRANCH      | The branch/tag for ROSCon2023 Warehouse Demo                                          | 2.0.0                                           |
+| ROSCON_DEMO_BRANCH      | The branch/tag for ROSCon2023 Warehouse Demo                                          | main                                            |
 | ROSCON_DEMO_COMMIT      | The commit on the branch/tag for ROSCon2023 Warehouse Demo (or HEAD)                  | HEAD                                            |
-| ROSCON_DEMO_LARGE_SCALE | Option to enable large scale simulation (0=no, 1=yes) (see [README.md]()../README.md) | 0                                               |
+| ROSCON_DEMO_LARGE_SCALE | Option to enable large scale simulation (0=no, 1=yes) (see [README.md](../README.md)) | 0                                               |
 
 To build the Docker image using the default values, use the following command
 
@@ -89,11 +69,43 @@ docker build -f Dockerfile.ROS -t roscon2023_demo/ros:latest .
 >```
 
 # Running the Docker image
-The Docker image for the simulation (O3DE) requires Vulkan and GPU acceleration provided by the NVIDIA drivers and container toolkit. The following directions will describe how to launch the Docker containers, utilizing the host Linux machine's X11 display and NVIDIA drivers, and connecting to the default 'bridge' network. (For advanced network isolation, refer to Docker's command-line reference for [network](https://docs.docker.com/reference/cli/docker/container/run/#network))
+The Docker image for the simulation (O3DE) requires Vulkan and GPU acceleration. The following directions describe how to launch the Docker container, utilizing the host Linux machine's X11 display, and connecting to the default 'bridge' network. (For advanced network isolation, refer to Docker's command-line reference for [network](https://docs.docker.com/reference/cli/docker/container/run/#network))
+
+## AMD GPU
+
+AMD GPUs use the Mesa RADV Vulkan driver available through the host's DRI device. No additional container toolkit is required.
 
 ```
 xhost +local:root
-docker run --rm --gpus all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+docker run --rm --device /dev/dri --group-add video -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+```
+
+> **Note:** If the container cannot find the Vulkan ICD, install the Mesa Vulkan drivers inside the container:
+> ```
+> apt-get install -y mesa-vulkan-drivers
+> ```
+
+## Intel GPU
+
+Intel GPUs use the Mesa ANV Vulkan driver through the host's DRI device. No additional container toolkit is required.
+
+```
+xhost +local:root
+docker run --rm --device /dev/dri --group-add video -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+```
+
+> **Note:** If the container cannot find the Vulkan ICD, install the Intel Vulkan driver inside the container:
+> ```
+> apt-get install -y mesa-vulkan-drivers intel-media-va-driver
+> ```
+
+## NVIDIA GPU
+
+Requires the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) installed on the host.
+
+```
+xhost +local:root
+docker run --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=all -e NVIDIA_DRIVER_CAPABILITIES=all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
 ```
 or by using [rocker](https://github.com/osrf/rocker):
 

@@ -9,19 +9,20 @@
 #include "GrayscaleCamera.h"
 #include <AzCore/Serialization/EditContext.h>
 #include <AzCore/Serialization/SerializeContext.h>
-#include <opencv2/opencv.hpp>
+#include <opencv2/core.hpp>
+#include <opencv2/imgproc.hpp>
 
 namespace ROS2::Demo
 {
     void GrayscaleCamera::Activate()
     {
         AZ_Printf("GrayscaleCamera", "GrayscaleCamera activated");
-        CameraPostProcessingRequestBus::Handler::BusConnect(GetEntityId());
+        ROS2Sensors::CameraPostProcessingRequestBus::Handler::BusConnect(GetEntityId());
     }
 
     void GrayscaleCamera::Deactivate()
     {
-        CameraPostProcessingRequestBus::Handler::BusDisconnect();
+        ROS2Sensors::CameraPostProcessingRequestBus::Handler::BusDisconnect();
     }
 
     void GrayscaleCamera::Reflect(AZ::ReflectContext* context)

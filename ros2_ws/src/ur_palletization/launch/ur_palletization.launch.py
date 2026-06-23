@@ -44,6 +44,7 @@ from launch.actions import OpaqueFunction
 from launch.conditions import IfCondition
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterFile
 from launch_ros.substitutions import FindPackageShare
 from moveit_configs_utils import MoveItConfigsBuilder
 from ur_moveit_config.launch_common import load_yaml
@@ -205,6 +206,12 @@ def launch_setup(context, *args, **kwargs):
         "publish_transforms_updates": True,
     }
 
+    # Disable octomap (no 3D sensors in simulation)
+    sensor_manager_parameters = ParameterFile(
+        PathJoinSubstitution([FindPackageShare("ur_palletization"), "config", "sensors_3d.yaml"]),
+        allow_substs=False,
+    )
+
     warehouse_ros_config = {
         "warehouse_plugin": "warehouse_ros_sqlite::DatabaseConnection",
         "warehouse_host": warehouse_sqlite_path,
@@ -219,7 +226,7 @@ def launch_setup(context, *args, **kwargs):
         "pilz_industrial_motion_planner":
             {
                 "default_planner_config": "PTP",
-                "planning_plugin": "pilz_industrial_motion_planner/CommandPlanner"
+                "planning_plugins": ["pilz_industrial_motion_planner/CommandPlanner"]
             },
         "robot_description_planning":{
             "cartesian_limits":{
@@ -272,6 +279,7 @@ def launch_setup(context, *args, **kwargs):
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
+            sensor_manager_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
             pilz_config
@@ -293,6 +301,7 @@ def launch_setup(context, *args, **kwargs):
             trajectory_execution,
             moveit_controllers,
             planning_scene_monitor_parameters,
+            sensor_manager_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
             {'publish_robot_description': True},

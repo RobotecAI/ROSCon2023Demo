@@ -14,10 +14,17 @@
 # Clone and register the ROSCon2023Demo \
 ###############################################################
 echo "Cloning the ROSCon2023Demo project"
-git clone --single-branch -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
-    git -C $ROSCON_DEMO_ROOT lfs install && \
-    git -C $ROSCON_DEMO_ROOT lfs pull && \
-    git -C $ROSCON_DEMO_ROOT reset --hard $ROSCON_DEMO_COMMIT 
+if [ "$ROSCON_DEMO_COMMIT" == "HEAD" ]
+then
+    git clone --single-branch --depth 1 -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
+        git -C $ROSCON_DEMO_ROOT lfs install && \
+        git -C $ROSCON_DEMO_ROOT lfs pull
+else
+    git clone --single-branch -b $ROSCON_DEMO_BRANCH $ROSCON_DEMO_REPO $ROSCON_DEMO_ROOT && \
+        git -C $ROSCON_DEMO_ROOT lfs install && \
+        git -C $ROSCON_DEMO_ROOT lfs pull && \
+        git -C $ROSCON_DEMO_ROOT reset --hard $ROSCON_DEMO_COMMIT
+fi
 if [ $? -ne 0 ]
 then
     echo "Error cloning ROSCon2023Demo project $ROSCON_DEMO_REPO"
@@ -39,9 +46,7 @@ ROSCon2023Demo Project            | $(git -C $ROSCON_DEMO_ROOT rev-parse --short
 # Build and install the additional ROS 2 packages and drivers
 ###############################################################
 pushd $ROSCON_DEMO_ROOT/ros2_ws && \
-      ./setup_submodules.bash && \
       rosdep update && \
-      rosdep install --ignore-src --from-paths src/Universal_Robots_ROS2_Driver -y && \
       colcon build --symlink-install && \
       . ./install/setup.sh && \
       popd

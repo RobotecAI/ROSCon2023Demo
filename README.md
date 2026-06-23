@@ -109,15 +109,15 @@ This project uses canonical simulation Gems from the [o3de-extras](https://githu
 
 These Gems are downloaded via the `o3de.sh` script from the canonical O3DE Gem repository. The versions below were tested with this project; newer versions may also work:
 ```bash
-scripts/o3de.sh register --repo-uri https://canonical.o3de.org
-scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0
-scripts/o3de.sh download --gem-name ROS2==4.2.0
-scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0
-scripts/o3de.sh download --gem-name ROS2RobotImporter==1.1.0
-scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1
-scripts/o3de.sh download --gem-name SimulationInterfaces==2.2.0
-scripts/o3de.sh download --gem-name WarehouseAssets==2.0.4
-scripts/o3de.sh download --gem-name WarehouseAutomation==2.0.1
+/opt/O3DE/26.05/scripts/o3de.sh register --repo-uri https://canonical.o3de.org
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name LevelGeoreferencing==1.0.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2==4.2.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Controllers==1.1.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2RobotImporter==1.1.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name ROS2Sensors==1.0.1
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name SimulationInterfaces==2.2.0
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name WarehouseAssets==2.0.4
+/opt/O3DE/26.05/scripts/o3de.sh download --gem-name WarehouseAutomation==2.0.1
 ```
 
 It also uses multiple open-source Gems prepared primarily for this demo:

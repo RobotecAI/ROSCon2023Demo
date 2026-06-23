@@ -1,6 +1,6 @@
 {
     "project_name": "ROSCon2023Demo",
-    "version": "3.0.0",
+    "version": "4.0.0",
     "project_id": "{C930C5B9-4B70-40B7-88F4-A7E927D6A677}",
     "license": "Apache-2.0",
     "license_url": "https://opensource.org/licenses/Apache-2.0",
@@ -15,17 +15,9 @@
         "ROSCon2023Demo"
     ],
     "icon_path": "preview.png",
-    "engine": "o3de",
+    "engine": "o3de-sdk",
     "external_subdirectories": [
         "Gem",
-        "../engine/o3de-extras/Gems/ROS2",
-        "../engine/o3de-extras/Gems/ROS2Controllers",
-        "../engine/o3de-extras/Gems/ROS2RobotImporter",
-        "../engine/o3de-extras/Gems/ROS2Sensors",
-        "../engine/o3de-extras/Gems/SimulationInterfaces",
-        "../engine/o3de-extras/Gems/LevelGeoreferencing",
-        "../engine/o3de-extras/Gems/WarehouseAssets",
-        "../engine/o3de-extras/Gems/WarehouseAutomation",
         "../gems/o3de-humanworker-gem",
         "../gems/o3de-otto-robots-gem",
         "../gems/o3de-ur-robots-gem",
@@ -36,11 +28,11 @@
         "../gems/robotec-o3de-tools/Gems/ROS2ScriptIntegration"
     ],
     "restricted": "ROSCon2023Demo",
-    "engine_version": "2.4.0",
+    "engine_version": "2.6.0",
     "gem_names": [
         "HumanWorker==3.0.0",
         "OTTORobots==3.0.0",
-        "ROS2>=4.0.0",
+        "ROS2>=4.2.0",
         "ROS2Controllers",
         "ROS2Sensors",
         "ROS2ScriptIntegration",
@@ -50,8 +42,8 @@
         "RobotecWarehouseForkliftsAssets",
         "RobotecWarehouseRacksAssets",
         "SimulationInterfaces",
-        "URRobots==2.0.0",
-        "WarehouseAssets>=2.0.0",
-        "WarehouseAutomation==2.0.0"
+        "URRobots==3.0.0",
+        "WarehouseAssets>=2.0.4",
+        "WarehouseAutomation==2.0.1"
     ]
 }

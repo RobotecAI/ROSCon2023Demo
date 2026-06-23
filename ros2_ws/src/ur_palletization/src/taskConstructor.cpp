@@ -1,6 +1,6 @@
 #include "taskConstructor.h"
 
-#include <pilz_industrial_motion_planner/planning_context_ptp.h>
+#include <pilz_industrial_motion_planner/planning_context_ptp.hpp>
 #include "utils.h"
 
 namespace Palletization

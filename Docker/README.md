@@ -69,11 +69,43 @@ docker build -f Dockerfile.ROS -t roscon2023_demo/ros:latest .
 >```
 
 # Running the Docker image
-The Docker image for the simulation (O3DE) requires Vulkan and GPU acceleration provided by the NVIDIA drivers and container toolkit. The following directions will describe how to launch the Docker containers, utilizing the host Linux machine's X11 display and NVIDIA drivers, and connecting to the default 'bridge' network. (For advanced network isolation, refer to Docker's command-line reference for [network](https://docs.docker.com/reference/cli/docker/container/run/#network))
+The Docker image for the simulation (O3DE) requires Vulkan and GPU acceleration. The following directions describe how to launch the Docker container, utilizing the host Linux machine's X11 display, and connecting to the default 'bridge' network. (For advanced network isolation, refer to Docker's command-line reference for [network](https://docs.docker.com/reference/cli/docker/container/run/#network))
+
+## AMD GPU
+
+AMD GPUs use the Mesa RADV Vulkan driver available through the host's DRI device. No additional container toolkit is required.
 
 ```
 xhost +local:root
-docker run --rm --gpus all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+docker run --rm --device /dev/dri --group-add video -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+```
+
+> **Note:** If the container cannot find the Vulkan ICD, install the Mesa Vulkan drivers inside the container:
+> ```
+> apt-get install -y mesa-vulkan-drivers
+> ```
+
+## Intel GPU
+
+Intel GPUs use the Mesa ANV Vulkan driver through the host's DRI device. No additional container toolkit is required.
+
+```
+xhost +local:root
+docker run --rm --device /dev/dri --group-add video -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
+```
+
+> **Note:** If the container cannot find the Vulkan ICD, install the Intel Vulkan driver inside the container:
+> ```
+> apt-get install -y mesa-vulkan-drivers intel-media-va-driver
+> ```
+
+## NVIDIA GPU
+
+Requires the [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker) installed on the host.
+
+```
+xhost +local:root
+docker run --rm --gpus all -e NVIDIA_VISIBLE_DEVICES=all -e NVIDIA_DRIVER_CAPABILITIES=all -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo/o3de /bin/bash
 ```
 or by using [rocker](https://github.com/osrf/rocker):
 

@@ -15,7 +15,6 @@
 #include <AzCore/std/containers/unordered_set.h>
 #include <AzFramework/Entity/EntityDebugDisplayBus.h>
 #include <AzFramework/Physics/ShapeConfiguration.h>
-#include <ROS2/Camera/CameraCalibrationRequestBus.h>
 #include <ROS2/Sensor/Events/TickBasedSource.h>
 #include <ROS2/Sensor/ROS2SensorComponentBase.h>
 #include <geometry_msgs/msg/pose_array.hpp>

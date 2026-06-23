@@ -61,9 +61,13 @@ ly_add_target(
     BUILD_DEPENDENCIES
         PRIVATE
             AZ::AzGameFramework
-            Gem::Atom_AtomBridge.Static
+            Gem::CommonFeaturesAtom.Static
             Gem::ROS2.Static
-            Gem::RecastNavigation.API
+            Gem::ROS2Sensors.API
+            Gem::ImGui.Static
+            Gem::ImGui.imguilib
+            Gem::LmbrCentral.API
+            Gem::PhysX5.Static
             Gem::EMotionFX.Static
 )
 
@@ -82,15 +86,17 @@ ly_add_target(
         PRIVATE
             Gem::${gem_name}.Private.Object
             AZ::AzCore
-            Gem::RecastNavigation.API
             Gem::ROS2.Static
+            Gem::ROS2Sensors.API
+            Gem::ImGui.imguilib
+            Gem::LmbrCentral.API
 )
 
 find_package(OpenCV REQUIRED)
 include_directories(
         ${OpenCV_INCLUDE_DIRS}
 )
-target_link_libraries(${gem_name}.Private.Object PRIVATE  ${OpenCV_LIBRARIES})
+target_link_libraries(${gem_name}.Private.Object PRIVATE opencv_core opencv_imgproc)
 
 target_depends_on_ros2_packages(${gem_name}.Private.Object  vision_msgs lane_provider_msgs)
 target_depends_on_ros2_packages(${gem_name} vision_msgs lane_provider_msgs)

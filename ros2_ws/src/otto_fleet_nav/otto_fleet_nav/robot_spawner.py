@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from gazebo_msgs.srv import SpawnEntity
+from simulation_interfaces.srv import SpawnEntity, DeleteEntity
 
 import rclpy
 from rclpy.exceptions import ParameterUninitializedException
@@ -38,18 +38,34 @@ class RobotSpawner(Node):
         self.robot_initial_position = self.get_parameter('robot_initial_position').get_parameter_value().double_array_value
 
 
+        self.delete_cli = self.create_client(DeleteEntity, 'delete_entity')
         self.cli = self.create_client(SpawnEntity, 'spawn_entity')
-        
+
         while not self.cli.wait_for_service(timeout_sec=5.0):
             self.get_logger().info('Spawning service not available, waiting...')
+
+        self.try_delete()
 
         self.req = SpawnEntity.Request()
         result = self.send_request()
 
-        if result.success:
+        if result.result.result == result.result.RESULT_OK:
             self.get_logger().info(f'{self.robot_namespace} spawned.')
         else:
-            self.get_logger().error(f'Failed to spawn {self.robot_namespace}: {result.status_message}')
+            self.get_logger().error(f'Failed to spawn {self.robot_namespace}: {result.result.error_message}')
+
+    def try_delete(self):
+        if not self.delete_cli.wait_for_service(timeout_sec=2.0):
+            return
+        req = DeleteEntity.Request()
+        req.entity = self.robot_namespace
+        future = self.delete_cli.call_async(req)
+        rclpy.spin_until_future_complete(self, future)
+        result = future.result()
+        if result.result.result == result.result.RESULT_OK:
+            self.get_logger().info(f'{self.robot_namespace} deleted before respawn.')
+        else:
+            self.get_logger().info(f'{self.robot_namespace} not found in scene, skipping delete.')
 
     def send_request(self):
         self.get_logger().info(f"Spawning robot: {self.robot_namespace}/{self.robot_name} on ("
@@ -57,11 +73,12 @@ class RobotSpawner(Node):
                             f"{self.robot_initial_position[1]}, "
                             f"{self.robot_initial_position[2]})")
         
-        self.req.name = self.robot_name
-        self.req.robot_namespace = self.robot_namespace
-        self.req.initial_pose.position.x = self.robot_initial_position[0]
-        self.req.initial_pose.position.y = self.robot_initial_position[1]
-        self.req.initial_pose.position.z = self.robot_initial_position[2]
+        self.req.name = self.robot_namespace
+        self.req.entity_namespace = self.robot_namespace
+        self.req.uri = 'product_asset:///prefabs/otto600/otto600withpallet.spawnable'
+        self.req.initial_pose.pose.position.x = self.robot_initial_position[0]
+        self.req.initial_pose.pose.position.y = self.robot_initial_position[1]
+        self.req.initial_pose.pose.position.z = self.robot_initial_position[2]
 
         self.future = self.cli.call_async(self.req)
         rclpy.spin_until_future_complete(self, self.future)

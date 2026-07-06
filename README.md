@@ -64,6 +64,15 @@ Follow the instructions in [./Docker/README](./Docker/README.md) file to build a
 
 ## Local Project Setup
 
+### Clone the repository
+
+Clone the repository and set the working directory variable used throughout this guide:
+```bash
+git clone https://github.com/RobotecAI/ROSCon2023Demo.git
+cd ROSCon2023Demo
+export RC2023_WORKDIR=$(pwd)
+```
+
 ### ROS 2 middleware
 This project should be used with the `rmw_cyclonedds_cpp` as the ROS 2 middleware.
 [MoveIt2 does not recommend usage of the default RMW](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html#switch-to-cyclone-dds) and as it is a part of this project using the default RMW will not work.

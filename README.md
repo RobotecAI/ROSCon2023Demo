@@ -96,6 +96,11 @@ sudo apt install /tmp/o3de_2605_0.deb
 /opt/O3DE/26.05/scripts/o3de.sh register --this-engine
 ```
 
+Install `git-lfs` (required for asset submodules that store meshes and textures via Git LFS):
+```bash
+sudo apt install git-lfs
+```
+
 Initialize the git submodules (this fetches the Gems in `gems/`):
 ```bash
 cd ${RC2023_WORKDIR}

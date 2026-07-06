@@ -155,6 +155,11 @@ Make sure to install the necessary ROS 2 packages.
 sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces ros-${ROS_DISTRO}-geometric-shapes ros-${ROS_DISTRO}-random-numbers
 ```
 
+Also install the workspace build tools required by `colcon build`:
+```bash
+sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep
+```
+
 ### Project
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
 

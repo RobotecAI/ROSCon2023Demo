@@ -236,14 +236,14 @@ Please consider copying ROS 2 workspace to the release package. The ROS 2 worksp
 ```bash
 # Consider copying ROS 2 workspace
 mkdir -p ${RC2023_WORKDIR}/Project/build/release/ros2_ws/
-cp -r ${RC2023_WORKDIR}/ros2_ws/src  ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${RC2023_WORKDIR}/ros2_ws/src  ${RC2023_WORKDIR}/Project/build/release/ros2_ws/
 ```
 
 To start a released the GameLauncher simply:
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ros2_ws
 colcon build --symlink-install
-${RC2023_WORKDIR}/ros2_ws/install/setup.bash
+source ${RC2023_WORKDIR}/ros2_ws/install/setup.bash
 ${RC2023_WORKDIR}/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
 ```
 

@@ -3,12 +3,13 @@
 ## Prerequisites
 
 * [Hardware requirements of o3de](https://www.o3de.org/docs/welcome-guide/requirements/)
-* Any Linux distribution that supports Docker and the NVIDIA container toolkit (see below)
+* Any Linux distribution that supports Docker (and the NVIDIA container toolkit, if using an NVIDIA GPU — see below)
 * At least 60 GB of free disk space
 * Docker installed and configured
   * **Note** It is recommended to have Docker installed correctly and securely, so the Docker commands in this guide do not require elevated privileges (sudo) in order to run them. See [Docker Engine post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/) for more details.
-* [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
-* [rocker](https://github.com/osrf/rocker)
+* AMD or Intel GPU: no additional container toolkit is required — GPU access is provided via the host's `/dev/dri` device passthrough (see below).
+* NVIDIA GPU only: [NVIDIA container toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)
+* NVIDIA GPU only, optional: [rocker](https://github.com/osrf/rocker)
   * **Optional** This tool simplifies injecting NVIDIA support when running Docker images. If not installed, you can still run GPU-required Docker images but with additional setup steps.
   * **Note** There are known issues using rocker with Ubuntu 22.04 and NVIDIA drivers newer than version 535.
 
@@ -169,6 +170,18 @@ Also make sure that the two machines are on the same subnet.
 
 On the machine that will run the simulation, run the following commands to start the Docker image and log into the container:
 
+### AMD / Intel GPU
+
+```
+xhost +local:root
+sudo sysctl -w net.core.rmem_max=2147483647
+docker run --rm --device /dev/dri --group-add video --group-add render -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo_large/o3de /bin/bash
+```
+
+> **Note:** On AMD Strix Halo (gfx1151) APUs, the Mesa RADV driver shipped with the container's Ubuntu 24.04 base may be too old to support gfx1151. If Vulkan initialization fails, install an updated Mesa build inside the container (e.g. from the [kisak-mesa PPA](https://launchpad.net/~kisak/+archive/ubuntu/kisak-mesa)) before launching the simulation.
+
+### NVIDIA GPU
+
 ```
 xhost +local:root
 sudo sysctl -w net.core.rmem_max=2147483647
@@ -186,7 +199,18 @@ When logged into the Docker container, launch the O3DE warehouse simulation clie
 ./launch_simulation.sh > simulation.log &>1 &
 ```
 
-On the machine that will spawn and run the ROS robot navigation stack, run the following commands to start the Docker image and log into the container:
+On the machine that will spawn and run the ROS robot navigation stack, run the following commands to start the Docker image and log into the container. This stack does not render anything, so no GPU access is required regardless of the host's GPU vendor:
+
+### AMD / Intel GPU
+
+```
+xhost +local:root
+sudo sysctl -w net.core.rmem_max=2147483647
+docker run --rm -e DISPLAY=:1 --network="bridge" -v /tmp/.X11-unix:/tmp/.X11-unix -it roscon2023_demo_large/ros /bin/bash
+```
+
+### NVIDIA GPU
+
 ```
 xhost +local:root
 sudo sysctl -w net.core.rmem_max=2147483647

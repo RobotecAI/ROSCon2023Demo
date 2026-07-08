@@ -351,6 +351,10 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
+### ROSCon2023Demo 4.0.1 for O3DE 2605.x (SDK) and ROS 2 Jazzy
+Changes compared to 4.0.0
+- updated docs
+
 ### ROSCon2023Demo 4.0.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 3.0.1
 - switch to O3DE SDK

@@ -64,6 +64,22 @@ Follow the instructions in [./Docker/README](./Docker/README.md) file to build a
 
 ## Local Project Setup
 
+### Clone the repository
+
+Clone the repository and set the working directory variable used throughout this guide:
+```bash
+git clone https://github.com/RobotecAI/ROSCon2023Demo.git
+cd ROSCon2023Demo
+export RC2023_WORKDIR=$(pwd)
+```
+
+### ROS 2
+Install ROS 2 Jazzy Desktop by following the [official installation guide](https://docs.ros.org/en/jazzy/Installation.html), then source it in every terminal used in this guide (including for the `apt install ros-${ROS_DISTRO}-...` commands below, which rely on `$ROS_DISTRO` being set):
+```bash
+source /opt/ros/jazzy/setup.bash
+```
+Consider adding this line to your `.bashrc` or equivalent file, so it is sourced automatically in new terminals.
+
 ### ROS 2 middleware
 This project should be used with the `rmw_cyclonedds_cpp` as the ROS 2 middleware.
 [MoveIt2 does not recommend usage of the default RMW](https://moveit.picknik.ai/main/doc/tutorials/getting_started/getting_started.html#switch-to-cyclone-dds) and as it is a part of this project using the default RMW will not work.
@@ -94,6 +110,11 @@ sudo apt install /tmp/o3de_2605_0.deb
 ```bash
 /opt/O3DE/26.05/python/get_python.sh
 /opt/O3DE/26.05/scripts/o3de.sh register --this-engine
+```
+
+Install `git-lfs` (required for asset submodules that store meshes and textures via Git LFS):
+```bash
+sudo apt install git-lfs
 ```
 
 Initialize the git submodules (this fetches the Gems in `gems/`):
@@ -139,6 +160,11 @@ The Gems are open to your contributions!
 Make sure to install the necessary ROS 2 packages.
 ```bash
 sudo apt install ros-${ROS_DISTRO}-ackermann-msgs ros-${ROS_DISTRO}-control-toolbox ros-${ROS_DISTRO}-nav-msgs ros-${ROS_DISTRO}-vision-msgs ros-${ROS_DISTRO}-ur-msgs ros-${ROS_DISTRO}-moveit-servo ros-${ROS_DISTRO}-moveit-visual-tools ros-${ROS_DISTRO}-moveit ros-${ROS_DISTRO}-pilz-industrial-motion-planner ros-${ROS_DISTRO}-controller-manager ros-${ROS_DISTRO}-ur-client-library ros-${ROS_DISTRO}-nav2-common ros-${ROS_DISTRO}-navigation2 libopencv-dev ros-${ROS_DISTRO}-nav2-map-server ros-${ROS_DISTRO}-simulation-interfaces ros-${ROS_DISTRO}-geometric-shapes ros-${ROS_DISTRO}-random-numbers
+```
+
+Also install the workspace build tools required by `colcon build`:
+```bash
+sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep
 ```
 
 ### Project
@@ -217,14 +243,14 @@ Please consider copying ROS 2 workspace to the release package. The ROS 2 worksp
 ```bash
 # Consider copying ROS 2 workspace
 mkdir -p ${RC2023_WORKDIR}/Project/build/release/ros2_ws/
-cp -r ${RC2023_WORKDIR}/ros2_ws/src  ${RC2023_WORKDIR}/ROSCon2023Demo/Project/build/release/ros2_ws/
+cp -r ${RC2023_WORKDIR}/ros2_ws/src  ${RC2023_WORKDIR}/Project/build/release/ros2_ws/
 ```
 
 To start a released the GameLauncher simply:
 ```bash
-cd ${RC2023_WORKDIR}/ROSCon2023Demo/ros2_ws
+cd ${RC2023_WORKDIR}/ros2_ws
 colcon build --symlink-install
-${RC2023_WORKDIR}/ros2_ws/install/setup.bash
+source ${RC2023_WORKDIR}/ros2_ws/install/setup.bash
 ${RC2023_WORKDIR}/Project/build/release/ROSCon2023DemoGamePackage/ROSCon2023Demo.GameLauncher
 ```
 
@@ -288,7 +314,8 @@ Please refer to [DDS tuning information](https://docs.ros.org/en/jazzy/How-To-Gu
 ### Running simulation 
 1. On **Machine 1** start GameLauncher, without connecting to `AssetProcess`, with resolution of your choice (we set it to 2.5K to achieve high frame rate) and in fullscreen mode:
     ```bash
-    ./ROSCon2023.GameLaucher -r_fullscreen=false -bg_ConnectToAssetProcessor=0 -r_width=2560 -r_height=1440 -r_resolutionMode=1
+    cd ${RC2023_WORKDIR}/Project
+    ./build/linux/bin/profile/ROSCon2023Demo.GameLauncher -r_fullscreen=true -bg_ConnectToAssetProcessor=0 -r_width=2560 -r_height=1440 -r_resolutionMode=1
     ```
 
 2. On **Machine 1**, with GameLauncher started, switch level to `DemoLevel2` by hitting `Home` key and entering command `LoadLevel demolevel2` in Debug Console.
@@ -323,6 +350,10 @@ If your simulation does not work as intended, please first make sure that you so
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 
 ## Release notes
+
+### ROSCon2023Demo 4.0.1 for O3DE 2605.x (SDK) and ROS 2 Jazzy
+Changes compared to 4.0.0
+- updated docs
 
 ### ROSCon2023Demo 4.0.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 3.0.1

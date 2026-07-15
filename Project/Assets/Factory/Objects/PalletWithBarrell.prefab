@@ -108,9 +108,13 @@
             "Source": "Factory/EuroPallet.prefab",
             "Patches": [
                 {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                    "op": "add",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate",
+                    "value": [
+                        90.0,
+                        0.0,
+                        0.0
+                    ]
                 },
                 {
                     "op": "replace",

@@ -491,13 +491,19 @@
                     "value": 89.99999237060547
                 },
                 {
-                    "op": "add",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate",
-                    "value": [
-                        90.0,
-                        0.0,
-                        0.0
-                    ]
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675439734614417]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ColliderConfiguration/Rotation/0",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ColliderConfiguration/Rotation/3",
+                    "value": 1.0
                 },
                 {
                     "op": "replace",
@@ -518,6 +524,17 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 14.414012908935549
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorTagComponent",
+                    "value": {
+                        "$type": "EditorTagComponent",
+                        "Id": 755094401364704799,
+                        "Tags": [
+                            "Pallet"
+                        ]
+                    }
                 }
             ]
         }

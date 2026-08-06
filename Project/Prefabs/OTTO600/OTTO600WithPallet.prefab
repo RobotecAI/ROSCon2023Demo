@@ -473,13 +473,8 @@
             ]
         },
         "Instance_[521974506226201]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Source": "Factory/EuroPallet.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -497,13 +492,18 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Asset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                    "path": "/Entities/Entity_[7675439734614417]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ShapeConfiguration/PhysicsAsset/Configuration/PhysicsAsset/assetHint",
-                    "value": "assets/factory/conveyorline/europallet.fbx.pxmesh"
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ColliderConfiguration/Rotation/0",
+                    "value": 0.0
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorMeshColliderComponent/ColliderConfiguration/Rotation/3",
+                    "value": 1.0
                 },
                 {
                     "op": "replace",
@@ -524,6 +524,17 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 14.414012908935549
+                },
+                {
+                    "op": "add",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorTagComponent",
+                    "value": {
+                        "$type": "EditorTagComponent",
+                        "Id": 755094401364704799,
+                        "Tags": [
+                            "Pallet"
+                        ]
+                    }
                 }
             ]
         }

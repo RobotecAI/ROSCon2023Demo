@@ -4144,7 +4144,7 @@
             ]
         },
         "Instance_[1036943761607076]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Restricted.prefab",
+            "Source": "PlateSigns/PlateSignRestricted_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4169,12 +4169,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[110554402235045]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4195,16 +4195,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.700216293334961
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[110657481450149]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4225,16 +4220,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 5.148980617523193
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[110670366352037]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4255,11 +4245,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.700216293334961
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
@@ -4434,7 +4419,7 @@
             ]
         },
         "Instance_[116748232002415]": {
-            "Source": "Assets/Factory/Signs/PinBoard.prefab",
+            "Source": "PinBoard/PinBoard_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4455,16 +4440,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.22866523265838623
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
                 }
             ]
         },
         "Instance_[1227764863601060]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Restricted.prefab",
+            "Source": "PlateSigns/PlateSignRestricted_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4489,12 +4469,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[1227777748502948]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Restricted.prefab",
+            "Source": "PlateSigns/PlateSignRestricted_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4519,12 +4499,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[1291631027292580]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Restricted.prefab",
+            "Source": "PlateSigns/PlateSignRestricted_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4549,12 +4529,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[1355630334970276]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -4579,7 +4559,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
@@ -5074,7 +5054,7 @@
             ]
         },
         "Instance_[160558760382829]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Source": "Factory/EuroPallet.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5103,13 +5083,38 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
+                    "value": 95.22933197021484
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
+                    "value": -0.00034657868673093617
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.0002915118238888681
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 4.806522369384766
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[171998204371621]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5130,16 +5135,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.700216293334961
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[172011089273509]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5168,11 +5168,6 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
-                },
-                {
-                    "op": "replace",
                     "path": "/Entities/Entity_[110562992169637]/Components/EditorVisibilityComponent/VisibilityFlag",
                     "value": false
                 },
@@ -5184,7 +5179,7 @@
             ]
         },
         "Instance_[172958330966381]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Source": "Factory/EuroPallet.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5193,8 +5188,33 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
+                    "value": 95.22933197021484
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
+                    "value": -0.00034657868673093617
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.0002915118238888681
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 4.806522369384766
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
                 }
             ]
         },
@@ -5274,7 +5294,7 @@
             ]
         },
         "Instance_[176325585326445]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Source": "Factory/EuroPallet.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5283,13 +5303,38 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
+                    "value": 95.22933197021484
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
+                    "value": -0.00034657868673093617
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.0002915118238888681
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 4.806522369384766
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[176570398462317]": {
-            "Source": "Assets/Factory/EuroPallet.prefab",
+            "Source": "Factory/EuroPallet.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -5298,8 +5343,33 @@
                 },
                 {
                     "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Mass",
+                    "value": 95.22933197021484
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/0",
+                    "value": -0.00034657868673093617
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Centre of mass offset/2",
+                    "value": 0.0002915118238888681
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/0",
+                    "value": 4.806522369384766
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
+                    "value": 9.80550479888916
+                },
+                {
+                    "op": "replace",
+                    "path": "/Entities/Entity_[7675435439647121]/Components/TransformComponent/Transform Data/Rotate/0",
+                    "value": 90.0
                 }
             ]
         },
@@ -5584,7 +5654,7 @@
             ]
         },
         "Instance_[22762098693080]": {
-            "Source": "Assets/Wrapper/Wrapper_with_cage.prefab",
+            "Source": "Assets/Factory/Objects/Wrapper_with_cage.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -7014,7 +7084,7 @@
             ]
         },
         "Instance_[295203636224677]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -7035,16 +7105,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.700216293334961
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[295216521126565]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_FireExtinguisher.prefab",
+            "Source": "PlateSigns/PlateSignFireExtinguisher_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -7065,11 +7130,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 2.700216293334961
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
@@ -9835,22 +9895,12 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 }
             ]
         },
         "Instance_[43548300954658]": {
             "Source": "Factory/EuroPallet.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -9926,11 +9976,6 @@
         "Instance_[43561185856546]": {
             "Source": "Factory/EuroPallet.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -10241,11 +10286,6 @@
         "Instance_[460716024407971]": {
             "Source": "Factory/EuroPallet.prefab",
             "Patches": [
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
-                },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
@@ -10824,7 +10864,7 @@
             ]
         },
         "Instance_[474964470794660]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_VestsHelmets.prefab",
+            "Source": "PlateSigns/PlateSignVestsHelmets_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -10840,11 +10880,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.18362438678741455
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[475067550009764]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -10869,7 +10914,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
@@ -10939,7 +10984,7 @@
             ]
         },
         "Instance_[51696657337199]": {
-            "Source": "Assets/Factory/Signs/PinBoard.prefab",
+            "Source": "PinBoard/PinBoard_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -10964,12 +11009,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
         "Instance_[534835187803712]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Exit.prefab",
+            "Source": "PlateSigns/PlateSignExit_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -10990,11 +11035,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.9792433977127076
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[53661239531787]": {
-            "Source": "Assets/Factory/Objects/WheelRollMonitor.prefab",
+            "Source": "WheelRollComputer/WheelRollComputer_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -11014,12 +11064,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -117.55723571777344
+                    "value": 145.0
                 }
             ]
         },
         "Instance_[54125095999755]": {
-            "Source": "Assets/Factory/Objects/WheelRollMonitor.prefab",
+            "Source": "WheelRollComputer/WheelRollComputer_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -11039,7 +11089,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 147.66845703125
+                    "value": 100.0
                 }
             ]
         },
@@ -11085,11 +11135,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 },
                 {
                     "op": "replace",
@@ -11170,11 +11215,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 },
                 {
                     "op": "replace",
@@ -12044,7 +12084,7 @@
             ]
         },
         "Instance_[659171323152804]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12069,12 +12109,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[659184208054692]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12099,12 +12139,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[659197092956580]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12129,12 +12169,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
+                    "value": 180.0
                 }
             ]
         },
         "Instance_[659209977858468]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12155,16 +12195,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.9913839101791384
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
                 }
             ]
         },
         "Instance_[659222862760356]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12185,16 +12220,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.9913839101791384
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
                 }
             ]
         },
         "Instance_[659235747662244]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12215,16 +12245,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.9913839101791384
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
                 }
             ]
         },
         "Instance_[659248632564132]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12245,11 +12270,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.8757816553115845
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[664457300796992]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Exit.prefab",
+            "Source": "PlateSigns/PlateSignExit_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12270,16 +12300,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 4.969552040100098
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
         "Instance_[664470185698880]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_Exit.prefab",
+            "Source": "PlateSigns/PlateSignExit_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12300,11 +12325,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 4.969552040100098
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 89.99994659423828
                 }
             ]
         },
@@ -12404,7 +12424,7 @@
             ]
         },
         "Instance_[721852075870628]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_VestsHelmets.prefab",
+            "Source": "PlateSigns/PlateSignVestsHelmets_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12425,11 +12445,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.18362486362457275
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[721856370837924]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12450,6 +12475,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 0.8757818937301636
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
@@ -12549,7 +12579,7 @@
             ]
         },
         "Instance_[784184936237476]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12570,11 +12600,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.301746129989624
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[784197821139364]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12595,11 +12630,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.301746129989624
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[784210706041252]": {
-            "Source": "Assets/Factory/Signs/WarningSigns_RoboticArea.prefab",
+            "Source": "PlateSigns/PlateSignRoboticArea_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12624,7 +12664,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
@@ -12700,11 +12740,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 }
             ]
         },
@@ -12785,11 +12820,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 }
             ]
         },
@@ -12864,7 +12894,7 @@
             ]
         },
         "Instance_[846951588301220]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_VestsHelmets.prefab",
+            "Source": "PlateSigns/PlateSignVestsHelmets_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12889,12 +12919,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
         "Instance_[846964473203108]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_VestsHelmets.prefab",
+            "Source": "PlateSigns/PlateSignVestsHelmets_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -12919,7 +12949,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": 180.0
+                    "value": -90.0
                 }
             ]
         },
@@ -13050,11 +13080,6 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[7675435439647121]/Components/EditorRigidBodyComponent/Configuration/Inertia tensor/8",
                     "value": 9.80550479888916
-                },
-                {
-                    "op": "replace",
-                    "path": "/Entities/Entity_[7675439734614417]/Components/AZ::Render::EditorMeshComponent/Controller/Configuration/ModelAsset/assetHint",
-                    "value": "assets/factory/conveyorline/default_europallet_891b819b_706f_596f_8fd1_04c894deb906_.fbx.azmodel"
                 }
             ]
         },
@@ -13374,7 +13399,7 @@
             ]
         },
         "Instance_[909993118271908]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -13395,11 +13420,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.432156324386597
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[910006003173796]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -13420,6 +13450,11 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.9913839101791384
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
@@ -13579,7 +13614,7 @@
             ]
         },
         "Instance_[973318116084132]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_VestsHelmets.prefab",
+            "Source": "PlateSigns/PlateSignVestsHelmets_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -13600,11 +13635,16 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.2192155122756958
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": 90.0
                 }
             ]
         },
         "Instance_[973356770789796]": {
-            "Source": "Assets/Factory/Signs/WarningPlates_forklifts.prefab",
+            "Source": "PlateSigns/PlateSignForklifts_Visual.prefab",
             "Patches": [
                 {
                     "op": "replace",
@@ -13625,11 +13665,6 @@
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
                     "value": 1.9913839101791384
-                },
-                {
-                    "op": "replace",
-                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
-                    "value": -89.99994659423828
                 }
             ]
         },

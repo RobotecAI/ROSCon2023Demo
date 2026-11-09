@@ -353,6 +353,8 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ### ROSCon2023Demo 4.1.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 4.0.1
+- updated HumanWorker gem to 3.1.0 (new human worker rig)
+- updated OTTORobots and URRobots gems to 3.0.1 (licensing fixes)
 - added missing license documents: `NOTICE` with third-party attributions and `LICENSE-CC-BY-4.0.txt` for documentation
 - fixed license file references in `LICENSE.txt` and the license declaration in `project.json`
 - completed `package.xml` metadata of all ROS 2 packages (descriptions, maintainers, SPDX license identifiers, URLs)

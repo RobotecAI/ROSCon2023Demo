@@ -351,6 +351,13 @@ Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/do
 
 ## Release notes
 
+### ROSCon2023Demo 4.1.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
+Changes compared to 4.0.1
+- added missing license documents: `NOTICE` with third-party attributions and `LICENSE-CC-BY-4.0.txt` for documentation
+- fixed license file references in `LICENSE.txt` and the license declaration in `project.json`
+- completed `package.xml` metadata of all ROS 2 packages (descriptions, maintainers, SPDX license identifiers, URLs)
+- removed unused or duplicated assets
+
 ### ROSCon2023Demo 4.0.1 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 4.0.0
 - updated docs

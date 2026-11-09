@@ -6,7 +6,7 @@ package_name = 'otto_fleet_nav'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='1.0.0',
     packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -24,10 +24,10 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='pjaroszek',
+    maintainer='Piotr Jaroszek',
     maintainer_email='piotr.jaroszek@robotec.ai',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Nav2 bringup and robot spawning for the OTTO robot fleet in the ROSCon 2023 demo',
+    license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

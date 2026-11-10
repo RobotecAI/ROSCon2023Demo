@@ -20,7 +20,6 @@
                 "Id": 14126657869720434043,
                 "Child Entity Order": [
                     "Entity_[1176639161715]",
-                    "Entity_[52560383408370]",
                     "Instance_[487522926640547]/ContainerEntity",
                     "Instance_[225234362758547]/ContainerEntity",
                     "Entity_[52749108516421]",
@@ -33,7 +32,8 @@
                     "Instance_[844810247025694]/ContainerEntity",
                     "Instance_[281531617010361]/ContainerEntity",
                     "Instance_[281707710669497]/ContainerEntity",
-                    "Entity_[74180564871409]"
+                    "Entity_[74180564871409]",
+                    "Instance_[26709066052662]/ContainerEntity"
                 ]
             },
             "Component_[15230859088967841193]": {
@@ -189,304 +189,6 @@
                 "Component_[9277695270015777859]": {
                     "$type": "EditorEntityIconComponent",
                     "Id": 9277695270015777859
-                }
-            }
-        },
-        "Entity_[52560383408370]": {
-            "Id": "Entity_[52560383408370]",
-            "Name": "HumanWorker",
-            "Components": {
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 4061797037583807040
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 6616147955589018151
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 16661214762457231473,
-                    "Child Entity Order": [
-                        "Entity_[52564678375666]"
-                    ]
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 10168342724966681803
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 1486322067661295820
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 189335246486494346
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3007085647587310785
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 14936290121268646772
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 10163044001284782411,
-                    "Parent Entity": "Entity_[1146574390643]",
-                    "Transform Data": {
-                        "Translate": [
-                            29.736465454101563,
-                            -1.1116986274719238,
-                            0.6299999952316284
-                        ]
-                    }
-                }
-            }
-        },
-        "Entity_[52564678375666]": {
-            "Id": "Entity_[52564678375666]",
-            "Name": "Mesh",
-            "Components": {
-                "AZ::Render::EditorMeshComponent": {
-                    "$type": "AZ::Render::EditorMeshComponent",
-                    "Id": 458686840116876741,
-                    "Controller": {
-                        "Configuration": {
-                            "ModelAsset": {
-                                "assetId": {
-                                    "guid": "{1A6D5A74-CF06-5DF4-BAE5-AB6A6D1F48C0}",
-                                    "subId": 269150508
-                                },
-                                "assetHint": "assets/humanworkerstatic/default_withoutmask_a2782c23_388c_525e_945c_022362774658_.fbx.azmodel"
-                            }
-                        }
-                    }
-                },
-                "EditorDisabledCompositionComponent": {
-                    "$type": "EditorDisabledCompositionComponent",
-                    "Id": 9367625735734070395
-                },
-                "EditorEntityIconComponent": {
-                    "$type": "EditorEntityIconComponent",
-                    "Id": 13772808942063162404
-                },
-                "EditorEntitySortComponent": {
-                    "$type": "EditorEntitySortComponent",
-                    "Id": 15658468853671521752
-                },
-                "EditorInspectorComponent": {
-                    "$type": "EditorInspectorComponent",
-                    "Id": 1092630419730794875
-                },
-                "EditorLockComponent": {
-                    "$type": "EditorLockComponent",
-                    "Id": 2112260536730400542
-                },
-                "EditorMaterialComponent": {
-                    "$type": "EditorMaterialComponent",
-                    "Id": 4445193819244807675,
-                    "Controller": {
-                        "Configuration": {
-                            "materials": [
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 9124765
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{AD1368CC-D8E4-5FBF-86CA-5568FCD6F964}"
-                                            },
-                                            "assetHint": "humanworker/materials/cloths.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 256284067
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{92DD3E5E-8579-582C-B708-D7339D717A47}"
-                                            },
-                                            "assetHint": "humanworker/materials/hair_sss.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 688956128
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{3C241580-D064-5D17-A0DD-0168644B580D}"
-                                            },
-                                            "assetHint": "humanworker/materials/shoes.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 1077803363
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{3032BC21-A288-5244-9609-F49B572C235E}"
-                                            },
-                                            "assetHint": "humanworker/materials/tablet.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 1175894265
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{D449F87F-F988-5B4F-B741-3C82C8D4AB05}"
-                                            },
-                                            "assetHint": "humanworker/materials/body_sss.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 1479533416
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{AC088825-F5C4-5F2E-A5EF-D561F570502D}"
-                                            },
-                                            "assetHint": "humanworker/materials/eyes.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2213318644
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{D449F87F-F988-5B4F-B741-3C82C8D4AB05}"
-                                            },
-                                            "assetHint": "humanworker/materials/body_sss.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 2796497400
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{AD1368CC-D8E4-5FBF-86CA-5568FCD6F964}"
-                                            },
-                                            "assetHint": "humanworker/materials/cloths.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3022970885
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{3C241580-D064-5D17-A0DD-0168644B580D}"
-                                            },
-                                            "assetHint": "humanworker/materials/shoes.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3350859028
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
-                                            },
-                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3428394146
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{AC088825-F5C4-5F2E-A5EF-D561F570502D}"
-                                            },
-                                            "assetHint": "humanworker/materials/eyes.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 3989177510
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{92DD3E5E-8579-582C-B708-D7339D717A47}"
-                                            },
-                                            "assetHint": "humanworker/materials/hair_sss.azmaterial"
-                                        }
-                                    }
-                                },
-                                {
-                                    "Key": {
-                                        "materialSlotStableId": 4004858287
-                                    },
-                                    "Value": {
-                                        "MaterialAsset": {
-                                            "assetId": {
-                                                "guid": "{E09D1AFF-28D3-5195-9F64-3B0DED003F01}"
-                                            },
-                                            "assetHint": "humanworker/materials/vest_sss.azmaterial"
-                                        }
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                },
-                "EditorOnlyEntityComponent": {
-                    "$type": "EditorOnlyEntityComponent",
-                    "Id": 12780803070186374770
-                },
-                "EditorPendingCompositionComponent": {
-                    "$type": "EditorPendingCompositionComponent",
-                    "Id": 3177252824243324371
-                },
-                "EditorVisibilityComponent": {
-                    "$type": "EditorVisibilityComponent",
-                    "Id": 7380812849182603322
-                },
-                "TransformComponent": {
-                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
-                    "Id": 6622026838994580033,
-                    "Parent Entity": "Entity_[52560383408370]",
-                    "Transform Data": {
-                        "Rotate": [
-                            -89.99994659423828,
-                            89.99994659423828,
-                            0.0
-                        ],
-                        "UniformScale": 0.009999999776482582
-                    }
                 }
             }
         },
@@ -1210,6 +912,31 @@
                     "op": "replace",
                     "path": "/Entities/Entity_[2814779357286]/Components/EditorArticulationLinkComponent/ArticulationConfiguration/Local Rotation/2",
                     "value": 171.16624450683594
+                }
+            ]
+        },
+        "Instance_[26709066052662]": {
+            "Source": "HumanWorker/HumanWorkerStatic.prefab",
+            "Patches": [
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
+                    "value": "../Entity_[1146574390643]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
+                    "value": 29.579435348510742
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
+                    "value": -1.1146446466445923
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Rotate/2",
+                    "value": -89.99994659423828
                 }
             ]
         },

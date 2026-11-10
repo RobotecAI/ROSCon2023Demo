@@ -15,7 +15,8 @@
                 "$type": "EditorEntitySortComponent",
                 "Id": 15399339704012639164,
                 "Child Entity Order": [
-                    "Entity_[3487630570682630]"
+                    "Entity_[3487630570682630]",
+                    "Entity_[108897777496075]"
                 ]
             },
             "EditorInspectorComponent": {
@@ -50,6 +51,103 @@
         }
     },
     "Entities": {
+        "Entity_[108897777496075]": {
+            "Id": "Entity_[108897777496075]",
+            "Name": "Logic",
+            "Components": {
+                "EditorColliderComponent": {
+                    "$type": "EditorColliderComponent",
+                    "Id": 1908906960881252205,
+                    "ColliderConfiguration": {
+                        "Trigger": true,
+                        "InSceneQueries": false,
+                        "MaterialSlots": {
+                            "Slots": [
+                                {
+                                    "Name": "Entire object"
+                                }
+                            ]
+                        }
+                    },
+                    "ShapeConfiguration": {
+                        "ShapeType": 1,
+                        "Box": {
+                            "Configuration": [
+                                2.0,
+                                2.0,
+                                2.0
+                            ]
+                        }
+                    }
+                },
+                "EditorDisabledCompositionComponent": {
+                    "$type": "EditorDisabledCompositionComponent",
+                    "Id": 10492608568498258710
+                },
+                "EditorEntityIconComponent": {
+                    "$type": "EditorEntityIconComponent",
+                    "Id": 8804570679127557176
+                },
+                "EditorEntitySortComponent": {
+                    "$type": "EditorEntitySortComponent",
+                    "Id": 12078632252817499049
+                },
+                "EditorInspectorComponent": {
+                    "$type": "EditorInspectorComponent",
+                    "Id": 7717979560537923103
+                },
+                "EditorLockComponent": {
+                    "$type": "EditorLockComponent",
+                    "Id": 2234064149314612593
+                },
+                "EditorOnlyEntityComponent": {
+                    "$type": "EditorOnlyEntityComponent",
+                    "Id": 11829935805608095765
+                },
+                "EditorPendingCompositionComponent": {
+                    "$type": "EditorPendingCompositionComponent",
+                    "Id": 2444377510239658753
+                },
+                "EditorStaticRigidBodyComponent": {
+                    "$type": "EditorStaticRigidBodyComponent",
+                    "Id": 7264314368448787400
+                },
+                "EditorVisibilityComponent": {
+                    "$type": "EditorVisibilityComponent",
+                    "Id": 6344532985244040099
+                },
+                "FoilWrapper": {
+                    "$type": "GenericComponentWrapper",
+                    "Id": 16780337157538675502,
+                    "m_template": {
+                        "$type": "FoilWrapper",
+                        "FoilWrapperConfig": {
+                            "FoilWrapperEntityId": "Instance_[2990698559568134]/Entity_[2990724329371910]",
+                            "CollisionTrigger": "Entity_[108897777496075]",
+                            "SpawnablePayloadFoiled": {
+                                "assetId": {
+                                    "guid": "{0D44721F-2398-5BD7-80E0-81A23300265C}",
+                                    "subId": 346410741
+                                },
+                                "assetHint": "assets/factory/objects/palletstackpayloadfoil1.spawnable"
+                            }
+                        }
+                    }
+                },
+                "TransformComponent": {
+                    "$type": "{27F1E1A1-8D9D-4C3B-BD3A-AFB9762449C0} TransformComponent",
+                    "Id": 17266565960644224493,
+                    "Parent Entity": "ContainerEntity",
+                    "Transform Data": {
+                        "Translate": [
+                            0.0,
+                            1.4859999418258667,
+                            0.0
+                        ]
+                    }
+                }
+            }
+        },
         "Entity_[3487570441140486]": {
             "Id": "Entity_[3487570441140486]",
             "Name": "Cage_Wall2_with_holder",
@@ -1392,7 +1490,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.8895587921142578
+                    "value": 1.8895587921142576
                 },
                 {
                     "op": "replace",
@@ -1577,12 +1675,17 @@
             ]
         },
         "Instance_[2990698559568134]": {
-            "Source": "Assets/Wrapper/Wrapper.prefab",
+            "Source": "Wrapper/Wrapper.prefab",
             "Patches": [
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Parent Entity",
                     "value": "../Entity_[3487630570682630]"
+                },
+                {
+                    "op": "replace",
+                    "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/2",
+                    "value": -1.350000023841858
                 }
             ]
         },
@@ -1717,12 +1820,12 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.8895626068115234
+                    "value": 1.8895626068115232
                 },
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/1",
-                    "value": 2.3959617614746094
+                    "value": 2.39596176147461
                 },
                 {
                     "op": "replace",
@@ -1782,7 +1885,7 @@
                 {
                     "op": "replace",
                     "path": "/ContainerEntity/Components/TransformComponent/Transform Data/Translate/0",
-                    "value": 1.8895626068115234
+                    "value": 1.8895626068115232
                 },
                 {
                     "op": "replace",

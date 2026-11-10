@@ -167,6 +167,14 @@ Also install the workspace build tools required by `colcon build`:
 sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep
 ```
 
+Then install the remaining dependencies declared by the workspace packages with `rosdep` (`sudo rosdep init` is only needed if `rosdep` has not been initialized on your system yet):
+```bash
+sudo rosdep init
+rosdep update
+cd ${RC2023_WORKDIR}/ros2_ws
+rosdep install --from-paths src --ignore-src -y
+```
+
 ### Project
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
 
@@ -350,6 +358,13 @@ If your simulation does not work as intended, please first make sure that you so
 Please also refer to the common [Troubleshooting Guide](https://docs.o3de.org/docs/user-guide/interactivity/robotics/troubleshooting/).
 
 ## Release notes
+
+### ROSCon2023Demo 4.1.0 for O3DE 2605.x (SDK) and ROS 2 Jazzy
+Changes compared to 4.0.1
+- updated HumanWorker (3.1.0, new rig), OTTORobots (3.0.1) and URRobots (3.0.1) gems, and the `robotec-o3de-tools`, `robotec-warehouse-assets` and `robotec-generic-assets` submodules (licensing fixes)
+- fixed license documents: added `NOTICE` and `LICENSE-CC-BY-4.0.txt`, corrected `LICENSE.txt`, `project.json` and `package.xml` license metadata
+- removed unused or duplicated assets
+- moved InspectionGate, WheelRollMonitor, camera mount and Wrapper assets to the updated `robotec-warehouse-assets` submodule
 
 ### ROSCon2023Demo 4.0.1 for O3DE 2605.x (SDK) and ROS 2 Jazzy
 Changes compared to 4.0.0

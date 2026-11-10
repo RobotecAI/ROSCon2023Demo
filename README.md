@@ -167,6 +167,14 @@ Also install the workspace build tools required by `colcon build`:
 sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep
 ```
 
+Then install the remaining dependencies declared by the workspace packages with `rosdep` (`sudo rosdep init` is only needed if `rosdep` has not been initialized on your system yet):
+```bash
+sudo rosdep init
+rosdep update
+cd ${RC2023_WORKDIR}/ros2_ws
+rosdep install --from-paths src --ignore-src -y
+```
+
 ### Project
 You need to build and source the ROS 2 workspace first as it contains custom messages that the simulator also uses.
 
